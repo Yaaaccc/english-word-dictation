@@ -6,11 +6,11 @@
 <title>英语单词听写</title>
 <style>
   :root {
-    --bg: #f4f6fb;
+    --bg: #eef1f6;
     --card: #ffffff;
     --fg: #1a2437;
     --muted: #69748f;
-    --border: #e6eaf2;
+    --border: #e3e8f0;
     --primary: #2563eb;
     --primary-2: #4f7dff;
     --primary-fg: #ffffff;
@@ -19,13 +19,13 @@
     --ok-bg: #ecfdf3;
     --err: #dc2626;
     --err-bg: #fef2f2;
-    --shadow: 0 1px 2px rgba(26,36,55,.04), 0 12px 32px -16px rgba(26,36,55,.18);
-    --radius: 16px;
+    --glass: rgba(255,255,255,.85);
+    --shadow: 0 1px 2px rgba(26,36,55,.05), 0 14px 40px -18px rgba(26,36,55,.25);
   }
   @media (prefers-color-scheme: dark) {
     :root {
-      --bg: #0f1420;
-      --card: #171e2e;
+      --bg: #0c1018;
+      --card: #161d2b;
       --fg: #eef1f8;
       --muted: #8b95ad;
       --border: #262f44;
@@ -36,7 +36,8 @@
       --ok-bg: #12271a;
       --err: #f87171;
       --err-bg: #331a1a;
-      --shadow: 0 1px 2px rgba(0,0,0,.3), 0 12px 32px -16px rgba(0,0,0,.5);
+      --glass: rgba(22,29,43,.82);
+      --shadow: 0 1px 2px rgba(0,0,0,.35), 0 14px 40px -18px rgba(0,0,0,.6);
     }
   }
   * { box-sizing: border-box; }
@@ -44,75 +45,101 @@
   body {
     margin: 0;
     min-height: 100vh;
-    background:
-      radial-gradient(600px 300px at 12% -4%, rgba(37,99,235,.10), transparent 60%),
-      radial-gradient(520px 260px at 88% 0%, rgba(14,165,233,.08), transparent 60%),
-      var(--bg);
+    background: var(--bg);
     color: var(--fg);
     font-family: "Segoe UI", "Microsoft YaHei", "PingFang SC", system-ui, sans-serif;
     line-height: 1.5;
   }
-  header {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 28px 20px 4px;
+
+  /* ---------- 顶部浮岛导航 ---------- */
+  .topbar { position: sticky; top: 12px; z-index: 50; max-width: 880px; margin: 14px auto 0; padding: 0 16px; }
+  .topbar-inner {
+    display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+    background: var(--glass);
+    backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 10px 14px;
+    box-shadow: var(--shadow);
   }
-  .brand { display: flex; align-items: center; gap: 14px; }
+  .brand { display: flex; align-items: center; gap: 10px; }
   .brand-icon {
-    width: 46px; height: 46px; border-radius: 14px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 24px;
-    background: linear-gradient(135deg, var(--primary), var(--primary-2));
-    box-shadow: 0 8px 20px -8px rgba(37,99,235,.55);
-    flex: none;
+    width: 38px; height: 38px; border-radius: 12px; flex: none;
+    display: flex; align-items: center; justify-content: center; font-size: 19px;
+    background: linear-gradient(135deg, #1d4ed8, #4338ca);
+    box-shadow: 0 6px 16px -6px rgba(29,78,216,.6);
   }
-  header h1 { margin: 0; font-size: 22px; letter-spacing: .5px; }
-  header p { margin: 4px 0 0; color: var(--muted); font-size: 13px; }
-  main {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 18px 20px 48px;
-    display: grid;
-    grid-template-columns: 340px 1fr;
-    gap: 18px;
-    align-items: start;
+  .brand-name { font-weight: 700; font-size: 16px; letter-spacing: .5px; }
+  .source-pick { display: flex; gap: 8px; flex: 1; min-width: 0; flex-basis: 100%; }
+  .source-pick select { flex: 1; min-width: 0; }
+  .gear-btn { flex: none; margin-left: auto; }
+  @media (min-width: 601px) {
+    .source-pick { min-width: 220px; justify-content: flex-end; }
+    .hero { padding: 30px 26px 40px; min-height: 430px; }
   }
-  @media (max-width: 760px) { main { grid-template-columns: 1fr; } header { padding-top: 20px; } }
-  .card {
+  .source-pick select { max-width: 220px; }
+  .gear-btn { flex: none; }
+  .status-pill { text-align: center; margin-top: 10px; }
+  .status-pill span {
+    display: inline-block; max-width: 100%;
+    font-size: 12.5px; color: var(--muted);
+    background: var(--glass); border: 1px solid var(--border);
+    border-radius: 999px; padding: 5px 16px;
+    backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  }
+
+  /* ---------- 设置抽屉 ---------- */
+  .settings { max-width: 880px; margin: 12px auto 0; padding: 0 16px; }
+  .settings-inner {
     background: var(--card);
     border: 1px solid var(--border);
-    border-radius: var(--radius);
+    border-radius: 20px;
     box-shadow: var(--shadow);
-    padding: 20px;
+    padding: 22px;
+    animation: dropIn .22s ease;
   }
-  .card h2 {
-    margin: 0 0 14px; font-size: 15px; font-weight: 600; letter-spacing: .3px;
+  @keyframes dropIn { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: none; } }
+  .settings-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; }
+  @media (max-width: 760px) { .settings-grid { grid-template-columns: 1fr; } }
+  .settings-col h3 {
+    margin: 0 0 12px; font-size: 13px; color: var(--muted);
+    letter-spacing: 2px; font-weight: 600;
     display: flex; align-items: center; gap: 8px;
   }
-  .card h2::before {
-    content: ""; width: 4px; height: 15px; border-radius: 2px;
+  .settings-col h3::before {
+    content: ""; width: 4px; height: 13px; border-radius: 2px;
     background: linear-gradient(180deg, var(--primary), var(--primary-2));
   }
-  label { display: block; font-size: 12.5px; color: var(--muted); margin: 12px 0 5px; }
+
+  /* ---------- 表单基础 ---------- */
+  label { display: block; font-size: 12.5px; color: var(--muted); margin: 10px 0 5px; }
   textarea {
     width: 100%;
-    min-height: 190px;
+    min-height: 150px;
     resize: vertical;
     border: 1px solid var(--border);
     border-radius: 10px;
     padding: 11px 12px;
-    font: 13.5px/1.7 "Segoe UI", "Microsoft YaHei", sans-serif;
+    font: 13px/1.7 "Segoe UI", "Microsoft YaHei", sans-serif;
     background: var(--bg);
     color: var(--fg);
     transition: border-color .15s, box-shadow .15s;
   }
   textarea:focus, input:focus, select:focus {
-    outline: none;
-    border-color: var(--primary);
-    box-shadow: 0 0 0 3px rgba(37,99,235,.15);
+    outline: none; border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(37,99,235,.14);
+  }
+  select, input[type="number"], input[type="text"] {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 8px 10px;
+    font-size: 14px;
+    background: var(--bg);
+    color: var(--fg);
+    transition: border-color .15s, box-shadow .15s;
   }
   .row { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
-  .row.wrap { flex-wrap: wrap; }
   button {
     border: 1px solid var(--border);
     background: var(--card);
@@ -128,179 +155,229 @@
   button:active { transform: scale(.97); }
   button.primary {
     background: linear-gradient(135deg, var(--primary), var(--primary-2));
-    border-color: transparent;
-    color: var(--primary-fg);
+    border-color: transparent; color: var(--primary-fg);
     box-shadow: 0 6px 16px -8px rgba(37,99,235,.6);
   }
-  button.primary:hover { filter: brightness(1.06); box-shadow: 0 8px 20px -8px rgba(37,99,235,.7); }
   button:disabled { opacity: .45; cursor: not-allowed; }
   button.small { padding: 6px 11px; font-size: 13px; }
   .hint { font-size: 12px; color: var(--muted); margin-top: 8px; }
   .count { font-size: 12px; color: var(--muted); margin-top: 8px; }
-  .inline-check { display: flex; align-items: center; gap: 8px; margin-top: 14px; }
+  .inline-check { display: flex; align-items: center; gap: 8px; margin-top: 12px; }
   .inline-check input { width: 16px; height: 16px; accent-color: var(--primary); }
   .inline-check span { color: var(--fg); font-size: 13.5px; }
-  select, input[type="number"] {
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 8px 10px;
-    font-size: 14px;
-    background: var(--bg);
-    color: var(--fg);
-    transition: border-color .15s, box-shadow .15s;
-  }
   .setting-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0 14px; }
   @media (max-width: 420px) { .setting-grid { grid-template-columns: 1fr; } }
-  .mode-tabs {
-    display: flex; gap: 6px; margin-bottom: 14px;
-    background: var(--bg); border: 1px solid var(--border);
-    padding: 4px; border-radius: 12px;
+
+  /* ---------- 中央大舞台（渐变卡） ---------- */
+  .hero-wrap { max-width: 880px; margin: 14px auto 0; padding: 0 16px 56px; }
+  .hero {
+    background:
+      radial-gradient(420px 200px at 85% -10%, rgba(96,165,250,.35), transparent 65%),
+      linear-gradient(140deg, #123b8f 0%, #1d4ed8 52%, #4338ca 100%);
+    border-radius: 26px;
+    padding: 30px 26px 40px;
+    color: #fff;
+    box-shadow: 0 24px 60px -24px rgba(29,78,216,.55);
+    min-height: 430px;
+    display: flex; flex-direction: column; justify-content: center;
   }
-  .mode-tabs button { flex: 1; border: none; background: transparent; border-radius: 9px; }
-  .mode-tabs button:hover { background: transparent; border-color: transparent; color: var(--primary); }
-  .mode-tabs button.active {
-    background: var(--card); color: var(--primary);
-    box-shadow: 0 2px 8px rgba(26,36,55,.10); font-weight: 600;
-    border: 1px solid var(--border);
+  .hero .mode-tabs {
+    display: flex; gap: 4px; margin: 0 auto 24px; width: fit-content;
+    background: rgba(255,255,255,.12); padding: 4px; border-radius: 12px;
   }
-  .stage { text-align: center; min-height: 170px; display: flex; flex-direction: column; align-items: center; justify-content: center; }
-  .stage .big { font-size: clamp(34px, 6vw, 48px); font-weight: 700; letter-spacing: 1.5px; margin: 10px 0; }
-  .stage .big.ok { color: var(--ok); }
-  .stage .big.err { color: var(--err); }
-  .stage .sub { color: var(--muted); font-size: 14px; }
-  .stage .meaning { color: var(--muted); font-size: 16px; margin-top: 4px; }
-  .replay-btn { font-size: 26px; padding: 12px 18px; border-radius: 12px; }
-  .answer-row { display: flex; gap: 8px; margin-top: 18px; justify-content: center; }
-  .answer-row input {
-    width: min(300px, 70%);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 11px 14px;
-    font-size: 18px;
-    background: var(--bg);
-    color: var(--fg);
-    transition: border-color .15s, box-shadow .15s;
+  .hero .mode-tabs button {
+    flex: none; border: none; background: transparent; border-radius: 9px;
+    padding: 8px 18px; color: rgba(255,255,255,.75); font-size: 13.5px;
   }
-  .controls { display: flex; gap: 8px; justify-content: center; margin-top: 18px; flex-wrap: wrap; }
-  .progress { width: 100%; height: 8px; background: var(--border); border-radius: 99px; overflow: hidden; margin-top: 14px; }
-  .progress > div { height: 100%; background: linear-gradient(90deg, var(--primary), var(--primary-2)); width: 0; transition: width .35s ease; border-radius: 99px; }
-  .statusline { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; font-size: 13px; color: var(--muted); }
+  .hero .mode-tabs button:hover { background: transparent; color: #fff; }
+  .hero .mode-tabs button.active {
+    background: #fff; color: #1d4ed8; font-weight: 600;
+    box-shadow: 0 2px 10px rgba(0,0,0,.18);
+  }
+  .stage { text-align: center; min-height: 200px; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+  .stage .big { font-size: clamp(34px, 6vw, 50px); font-weight: 700; letter-spacing: 1.5px; margin: 10px 0; }
+  .stage .big.ok { color: #86efac; }
+  .stage .big.err { color: #fca5a5; }
+  .stage .sub { color: rgba(255,255,255,.82); font-size: 14.5px; }
+  .stage .meaning { color: rgba(255,255,255,.75); font-size: 16px; margin-top: 4px; }
+  .hero .controls { display: flex; gap: 10px; justify-content: center; margin-top: 20px; flex-wrap: wrap; }
+  .hero button {
+    background: rgba(255,255,255,.14);
+    border: 1px solid rgba(255,255,255,.35);
+    color: #fff;
+    border-radius: 999px;
+    padding: 10px 20px;
+    font-size: 14px;
+    backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+  }
+  .hero button:hover { background: rgba(255,255,255,.24); border-color: rgba(255,255,255,.55); }
+  .hero button.small { padding: 7px 14px; font-size: 13px; }
+  .big-btn { font-size: 16.5px !important; padding: 15px 38px !important; font-weight: 600; }
+  .hero button.primary {
+    background: #fff; border-color: #fff; color: #1d4ed8;
+    box-shadow: 0 12px 30px -10px rgba(0,0,0,.45);
+  }
+  .hero button.primary:hover { background: #eef4ff; border-color: #eef4ff; }
+  .replay-btn { font-size: 24px; padding: 12px 20px; }
+  .hero .statusline {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 8px; font-size: 13px; color: rgba(255,255,255,.85);
+  }
   .score { font-size: 15px; font-weight: 600; }
-  .score .ok { color: var(--ok); }
-  .score .err { color: var(--err); }
-  .feedback { margin-top: 12px; padding: 10px 14px; border-radius: 10px; font-size: 14px; display: none; }
+  .hero .score .ok { color: #86efac; }
+  .hero .score .err { color: #fca5a5; }
+  .hero .progress {
+    width: 100%; height: 8px; border-radius: 99px; overflow: hidden;
+    background: rgba(255,255,255,.22); margin-top: 6px;
+  }
+  .hero .progress > div { height: 100%; background: #fff; width: 0; transition: width .35s ease; border-radius: 99px; }
+  .answer-row { display: flex; gap: 9px; margin-top: 18px; justify-content: center; }
+  .answer-row input {
+    width: min(300px, 72%);
+    border: none; border-radius: 12px;
+    padding: 12px 15px; font-size: 17px;
+    background: #fff; color: #1a2437;
+  }
+  .hero .feedback {
+    margin-top: 14px; padding: 10px 16px; border-radius: 12px; font-size: 14px; display: none;
+    background: rgba(255,255,255,.94); font-weight: 500;
+  }
   .feedback.show { display: block; animation: fadeUp .18s ease; }
-  .feedback.ok { background: var(--ok-bg); color: var(--ok); }
-  .feedback.err { background: var(--err-bg); color: var(--err); }
+  .hero .feedback.ok { color: #15803d; }
+  .hero .feedback.err { color: #b91c1c; }
   @keyframes fadeUp { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
-  .hidden { display: none !important; }
-  .result-table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 14px; }
+  .hero .error-text { color: #fecaca; font-size: 14px; margin-top: 10px; min-height: 20px; }
+  .hero #jumpSelect { max-width: 340px; background: rgba(255,255,255,.14); border-color: rgba(255,255,255,.35); color: #fff; }
+  .hero #jumpSelect option { color: #1a2437; background: #fff; }
+  .hero #playOrder { color: rgba(255,255,255,.9); }
+  .hero #autoPlayBox { accent-color: #fff; }
+  .hero .inline-check span { color: rgba(255,255,255,.85); font-size: 13px; }
+
+  /* ---------- 结果与例句面板 ---------- */
+  .panel-title { margin: 18px 0 8px; font-size: 15px; font-weight: 600; }
+  #doneView .result-table, .example-card { text-align: left; }
+  .example-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+    padding: 20px 22px;
+    margin-top: 14px;
+    animation: fadeUp .2s ease;
+  }
+  .ex-word { font-size: 21px; font-weight: 700; }
+  .ex-meaning { font-size: 14px; color: var(--muted); margin: 3px 0 10px; }
+  .ex-label { color: var(--muted); font-size: 12.5px; margin: 12px 0 4px; letter-spacing: 1px; }
+  .ex-text { font-size: 17px; line-height: 1.8; }
+  .result-table { width: 100%; border-collapse: collapse; margin-top: 6px; font-size: 14px; }
   .result-table th, .result-table td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border); }
   .result-table th { color: var(--muted); font-weight: 500; font-size: 12.5px; }
   .result-table tr:last-child td { border-bottom: none; }
   .badge-ok { color: var(--ok); }
   .badge-err { color: var(--err); }
-  .center-note { color: var(--muted); font-size: 14px; }
-  .error-text { color: var(--err); font-size: 14px; margin-top: 8px; min-height: 20px; }
+  .hidden { display: none !important; }
   ::-webkit-scrollbar { width: 8px; height: 8px; }
   ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 99px; }
-  ::-webkit-scrollbar-thumb:hover { background: var(--muted); }
 
 </style>
 </head>
 <body>
-<header>
-  <div class="brand">
-    <div class="brand-icon">🎧</div>
-    <div>
-      <h1>英语单词听写</h1>
-      <p>粘贴、导入 PDF，或载入扇贝今日单词 → 朗读发音 → 可乱序听写。</p>
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">
+      <div class="brand-icon">🎧</div>
+      <span class="brand-name">单词听写</span>
     </div>
-  </div>
-</header>
-<main>
-  <section class="card">
-    <h2>单词表与设置</h2>
-    <label for="wordsInput">单词列表（每行一个；可写成 “单词|释义” 或 “单词 释义”）</label>
-    <textarea id="wordsInput" placeholder="自动载入最新扇贝单词中…若下方没有内容，可点击「导入单词表文件」或直接粘贴&#10;格式：单词|释义|英文例句|中文例句"></textarea>
-    <div class="row" style="margin-top:10px;">
-      <button class="primary" id="saveBtn">保存单词表</button>
-      <button id="sampleBtn">载入示例</button>
-    </div>
-    <div class="row" style="margin-top:10px;">
-      <button id="pdfBtn" type="button">导入 PDF 单词表</button>
-      <input type="file" id="pdfFile" accept=".pdf,application/pdf" class="hidden">
-    </div>
-    <div class="hint" id="pdfStatus">选择 PDF 文件可自动提取单词（文字版 PDF；需联网加载解析库）</div>
-    <div class="row" style="margin-top:10px;">
-      <button id="txtBtn" type="button">导入单词表文件（.txt）</button>
-      <input type="file" id="txtFile" accept=".txt,text/plain" class="hidden">
-    </div>
-    <div class="row" style="margin-top:10px;">
-      <select id="sourceSelect" style="width:120px;">
+    <div class="source-pick">
+      <select id="sourceSelect">
         <option value="shanbay">扇贝</option>
         <option value="shanbay-review">扇贝复习</option>
       </select>
-      <select id="dateSelect" style="flex:1;"></select>
+      <select id="dateSelect"></select>
     </div>
-    <div class="hint" id="dateStatus">每天抓取的单词按日期保存：先选来源（扇贝新词 / 扇贝复习），再切换日期。</div>
-    <div class="count" id="wordCount">已解析 0 个单词</div>
+    <button class="gear-btn" id="settingsToggle" type="button">⚙ 设置</button>
+  </div>
+  <div class="status-pill"><span id="dateStatus">正在加载今日单词…</span></div>
+</header>
 
-    <div class="inline-check">
-      <input type="checkbox" id="shuffle">
-      <span>乱序听写（打乱单词顺序）</span>
+<section class="settings hidden" id="settingsPanel">
+  <div class="settings-inner">
+    <div class="settings-grid">
+      <div class="settings-col">
+        <h3>单词表</h3>
+        <textarea id="wordsInput" placeholder="自动载入最新扇贝单词中…若为空可点击下方导入或直接粘贴&#10;格式：单词|释义|英文例句|中文例句"></textarea>
+        <div class="row" style="margin-top:10px;">
+          <button class="primary" id="saveBtn">保存单词表</button>
+          <button id="sampleBtn">载入示例</button>
+        </div>
+        <div class="row" style="margin-top:10px;">
+          <button id="pdfBtn" type="button">导入 PDF 单词表</button>
+          <input type="file" id="pdfFile" accept=".pdf,application/pdf" class="hidden">
+          <button id="txtBtn" type="button">导入单词表文件（.txt）</button>
+          <input type="file" id="txtFile" accept=".txt,text/plain" class="hidden">
+        </div>
+        <div class="hint" id="pdfStatus">选择 PDF 文件可自动提取单词（文字版 PDF；需联网加载解析库）</div>
+        <div class="count" id="wordCount">已解析 0 个单词</div>
+        <div class="inline-check">
+          <input type="checkbox" id="shuffle">
+          <span>乱序听写（打乱单词顺序）</span>
+        </div>
+      </div>
+      <div class="settings-col">
+        <h3>发音与播放</h3>
+        <div class="setting-grid">
+          <div>
+            <label for="voiceSelect">英文发音（固定）</label>
+            <select id="voiceSelect" style="width:100%;"></select>
+          </div>
+          <div>
+            <label for="zhVoiceSelect">中文发音（固定）</label>
+            <select id="zhVoiceSelect" style="width:100%;">
+              <option value="auto" selected>自动选择</option>
+            </select>
+          </div>
+          <div>
+            <label for="rateSelect">语速</label>
+            <select id="rateSelect" style="width:100%;">
+              <option value="0.7">慢</option>
+              <option value="1" selected>正常</option>
+              <option value="1.25">快</option>
+            </select>
+          </div>
+          <div>
+            <label for="repeatSelect">每词重复</label>
+            <select id="repeatSelect" style="width:100%;">
+              <option value="1" selected>1 次</option>
+              <option value="2">2 次</option>
+              <option value="3">3 次</option>
+            </select>
+          </div>
+          <div>
+            <label for="intervalSelect">词间隔（连续播放）</label>
+            <select id="intervalSelect" style="width:100%;">
+              <option value="1">1 秒</option>
+              <option value="2" selected>2 秒</option>
+              <option value="3">3 秒</option>
+              <option value="4">4 秒</option>
+              <option value="5">5 秒</option>
+            </select>
+          </div>
+          <div>
+            <label for="directionSelect">听写方式</label>
+            <select id="directionSelect" style="width:100%;">
+              <option value="en2en" selected>听英文 → 写英文</option>
+              <option value="cn2en">听中文（释义）→ 写英文</option>
+            </select>
+          </div>
+        </div>
+        <div class="hint" id="voiceHint">正在加载语音列表…</div>
+      </div>
     </div>
+  </div>
+</section>
 
-    <div class="setting-grid">
-      <div>
-        <label for="voiceSelect">英文发音（固定）</label>
-        <select id="voiceSelect" style="width:100%;"></select>
-      </div>
-      <div>
-        <label for="zhVoiceSelect">中文发音（固定）</label>
-        <select id="zhVoiceSelect" style="width:100%;">
-          <option value="auto" selected>自动选择</option>
-        </select>
-      </div>
-      <div>
-        <label for="rateSelect">语速</label>
-        <select id="rateSelect" style="width:100%;">
-          <option value="0.7">慢</option>
-          <option value="1" selected>正常</option>
-          <option value="1.25">快</option>
-        </select>
-      </div>
-      <div>
-        <label for="repeatSelect">每词重复</label>
-        <select id="repeatSelect" style="width:100%;">
-          <option value="1" selected>1 次</option>
-          <option value="2">2 次</option>
-          <option value="3">3 次</option>
-        </select>
-      </div>
-      <div>
-        <label for="intervalSelect">词间隔（连续播放）</label>
-        <select id="intervalSelect" style="width:100%;">
-          <option value="1">1 秒</option>
-          <option value="2" selected>2 秒</option>
-          <option value="3">3 秒</option>
-          <option value="4">4 秒</option>
-          <option value="5">5 秒</option>
-        </select>
-      </div>
-      <div>
-        <label for="directionSelect">听写方式</label>
-        <select id="directionSelect" style="width:100%;">
-          <option value="en2en" selected>听英文 → 写英文</option>
-          <option value="cn2en">听中文（释义）→ 写英文</option>
-        </select>
-      </div>
-    </div>
-    <div class="hint" id="voiceHint">正在加载语音列表…</div>
-
-  </section>
-
-  <section class="card">
+<main class="hero-wrap">
+  <div class="hero">
     <div class="mode-tabs">
       <!-- 打字校对已隐藏：需要恢复时，去掉下面按钮的 display:none，并给它加 class="active"、去掉 playModeBtn 的 active -->
       <button id="typeModeBtn" type="button" style="display:none;">逐个听写（打字校对）</button>
@@ -310,8 +387,8 @@
     <div id="idleView" class="stage">
       <div class="sub">准备好后点击下方按钮开始</div>
       <div class="controls">
-        <button class="primary" id="startTypeBtn" style="display:none;">▶ 开始逐个听写</button>
-        <button id="startPlayBtn">▶ 连续播放</button>
+        <button class="primary big-btn" id="startPlayBtn">▶ 连续播放</button>
+        <button class="big-btn" id="startTypeBtn" style="display:none;">▶ 开始逐个听写</button>
       </div>
       <div class="error-text" id="startError"></div>
     </div>
@@ -355,9 +432,9 @@
           <span>自动连播（默认关闭；Enter / ↓ / → 下一个，↑ / ← 上一个，🔊 重播当前）</span>
         </div>
         <div class="row" style="justify-content:center;margin-top:10px;">
-          <select id="jumpSelect" style="flex:1;max-width:360px;"></select>
+          <select id="jumpSelect" style="flex:1;max-width:340px;"></select>
         </div>
-        <div id="playOrder" class="hidden" style="max-height:300px;overflow:auto;text-align:left;margin-top:14px;width:100%;">
+        <div id="playOrder" class="hidden" style="max-height:260px;overflow:auto;text-align:left;margin-top:14px;width:100%;">
           <div class="sub" style="text-align:center;">本次朗读顺序</div>
           <ol id="playOrderList" style="font-size:14px;margin:8px 0 0 22px;padding:0;"></ol>
         </div>
@@ -367,7 +444,7 @@
     <div id="doneView" class="hidden">
       <div class="stage">
         <div class="sub">本轮完成</div>
-        <div class="score" style="font-size:22px;margin:8px 0;"><span class="ok" id="finalOk">0</span> 对 / <span class="err" id="finalErr">0</span> 错，正确率 <span id="finalRate">0%</span></div>
+        <div class="score" style="font-size:24px;margin:10px 0;"><span class="ok" id="finalOk">0</span> 对 / <span class="err" id="finalErr">0</span> 错，正确率 <span id="finalRate">0%</span></div>
         <div class="controls">
           <button class="primary" id="retryBtn" type="button">再来一轮</button>
           <button id="redoWrongBtn" type="button">重听错词</button>
@@ -375,32 +452,34 @@
         </div>
       </div>
       <div id="wrongSection" class="hidden">
-        <h3 style="margin:14px 0 4px;font-size:15px;">错词本</h3>
+        <h3 class="panel-title">错词本</h3>
         <table class="result-table">
           <thead><tr><th>单词</th><th>释义</th><th>你的答案</th></tr></thead>
           <tbody id="wrongBody"></tbody>
         </table>
       </div>
       <div id="allSection" class="hidden">
-        <h3 style="margin:14px 0 4px;font-size:15px;">本轮详情</h3>
+        <h3 class="panel-title">本轮详情</h3>
         <table class="result-table">
           <thead><tr><th>#</th><th>单词</th><th>释义</th><th>你的答案</th><th>结果</th></tr></thead>
           <tbody id="allBody"></tbody>
         </table>
       </div>
     </div>
-    <div id="examplePanel" class="hidden" style="margin-top:16px;padding:16px 18px;background:var(--accent);border-radius:10px;font-size:19px;line-height:1.8;">
-      <div id="exWordLine" style="font-size:22px;font-weight:600;"></div>
-      <div id="exMeaningLine" style="font-size:15px;margin:2px 0 8px;"></div>
-      <div style="color:var(--muted);font-size:14px;margin-bottom:6px;">例句</div>
-      <div id="exampleText"></div>
-      <div id="diffLabel" class="hidden" style="color:var(--muted);font-size:14px;margin:10px 0 4px;">官方笔记</div>
-      <div id="diffText" style="font-size:14px;line-height:1.7;"></div>
-      <div id="phraseLabel" class="hidden" style="color:var(--muted);font-size:14px;margin:10px 0 4px;">短语</div>
-      <div id="phraseText" style="font-size:16px;line-height:1.7;"></div>
-    </div>
-  </section>
+  </div>
+
+  <div id="examplePanel" class="hidden example-card">
+    <div id="exWordLine" class="ex-word"></div>
+    <div id="exMeaningLine" class="ex-meaning"></div>
+    <div class="ex-label">例句</div>
+    <div id="exampleText" class="ex-text"></div>
+    <div id="diffLabel" class="hidden ex-label">官方笔记</div>
+    <div id="diffText" style="font-size:14px;line-height:1.7;"></div>
+    <div id="phraseLabel" class="hidden ex-label">短语</div>
+    <div id="phraseText" style="font-size:15.5px;line-height:1.7;"></div>
+  </div>
 </main>
+
 
 <script>
 (function () {
@@ -1381,6 +1460,13 @@
   } catch (e) { /* 忽略存储错误 */ }
   updateCount();
   if (!wordsInput.value) $("sampleBtn").click();
+})();
+</script>
+<script>
+(function () {
+  var panel = document.getElementById("settingsPanel");
+  var btn = document.getElementById("settingsToggle");
+  btn.addEventListener("click", function () { panel.classList.toggle("hidden"); });
 })();
 </script>
 </body>
