@@ -440,7 +440,7 @@
 
   function loadVoices() {
     if (!("speechSynthesis" in window)) {
-      voiceHint.textContent = "当前浏览器不支持语音合成，建议使用 Chrome / Edge。";
+      voiceHint.textContent = "当前浏览器不支持语音合成，将使用在线发音。";
       return;
     }
     voices = speechSynthesis.getVoices();
@@ -464,7 +464,7 @@
     } else {
       voiceSelect.disabled = false;
       if (en.length === 0) {
-        voiceHint.textContent = "未找到英语语音包，请在系统设置中安装英语语音后再试。";
+        voiceHint.textContent = "本机没有英语语音包，将使用在线发音（需联网），单词发音不受影响。";
       } else {
         voiceHint.textContent = "已加载 " + en.length + " 个英语语音";
       }
@@ -537,7 +537,7 @@
     return item.text;
   }
 
-  function speak(text, rate, onEnd) {
+  function speakTTS(text, rate, onEnd) {
     if (!("speechSynthesis" in window)) {
       if (onEnd) setTimeout(onEnd, 0);
       return;
@@ -554,12 +554,65 @@
     }
     u.rate = rate;
     u.onend = function () { if (onEnd) onEnd(); };
+    u.onerror = function () { if (onEnd) onEnd(); };
     speechSynthesis.speak(u);
+  }
+
+  // ---- 在线发音兜底（有道词典公开音频）：手机等无本机语音包的设备也能出声 ----
+  var onlineAudio = null;
+
+  function isShortEnText(s) {
+    var t = String(s || "").trim();
+    if (/[\u4e00-\u9fff]/.test(t)) return false;
+    return t.split(/\s+/).filter(Boolean).length <= 3;
+  }
+
+  function playOnline(text, rate, onEnd) {
+    try {
+      if (!onlineAudio) onlineAudio = new Audio();
+      var a = onlineAudio;
+      var done = false;
+      var started = false;
+      var finish = function (ok) {
+        if (done) return;
+        done = true;
+        a.onended = a.onerror = a.oncanplay = null;
+        clearTimeout(timer);
+        if (onEnd) onEnd(ok);
+      };
+      var timer = setTimeout(function () { finish(false); }, 6000); //迟迟无法播放则视为失败
+      a.onended = function () { finish(true); };
+      a.onerror = function () { finish(false); };
+      a.oncanplay = function () { started = true; };
+      a.src = "https://dict.youdao.com/dictvoice?audio=" + encodeURIComponent(text) + "&type=2";
+      try { a.playbackRate = Math.min(2, Math.max(0.5, rate || 1)); } catch (e) {}
+      var p = a.play();
+      if (p && p.catch) p.catch(function () { finish(false); });
+    } catch (e) {
+      if (onEnd) onEnd(false);
+    }
+  }
+
+  function speak(text, rate, onEnd) {
+    var ttsUsable = ("speechSynthesis" in window) && voices.length > 0;
+    var preferOnline = !ttsUsable || isShortEnText(text);
+    if (!preferOnline) {
+      speakTTS(text, rate, onEnd);
+      return;
+    }
+    playOnline(text, rate, function (ok) {
+      if (ok) {
+        if (onEnd) onEnd();
+      } else {
+        speakTTS(text, rate, onEnd); // 在线发音失败时回退本机语音
+      }
+    });
   }
 
   function stopSpeech() {
     speechToken++;
     if ("speechSynthesis" in window) speechSynthesis.cancel();
+    if (onlineAudio) { try { onlineAudio.pause(); } catch (e) {} }
   }
 
   function speakLoop(text, n, rate) {
