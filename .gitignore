@@ -1,0 +1,10 @@
+node_modules/
+.shanbay-profile/
+.bubei-profile/
+shanbay-auth.json
+bubei-auth.json
+shanbay-history.json
+__pycache__/
+*.pyc
+词典/ecdict.csv
+词典/ecdict.db

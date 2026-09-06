@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>扇贝一键复制 - 使用说明</title>
+<style>
+  body { font-family: "Microsoft YaHei", system-ui, sans-serif; max-width: 860px; margin: 24px auto; padding: 0 20px; line-height: 1.7; color: #1f2937; }
+  h1 { font-size: 22px; }
+  ol { padding-left: 22px; }
+  li { margin: 6px 0; }
+  button { background: #2563eb; color: #fff; border: 0; border-radius: 8px; padding: 10px 18px; font-size: 15px; cursor: pointer; }
+  textarea { width: 100%; height: 180px; font-family: Consolas, monospace; font-size: 12px; margin-top: 12px; box-sizing: border-box; }
+  .bookmark { display: inline-block; margin: 12px 0; padding: 8px 14px; background: #f3f4f6; border: 1px dashed #9ca3af; border-radius: 8px; text-decoration: none; color: #111827; cursor: grab; }
+  .note { background: #eff6ff; border-left: 4px solid #2563eb; padding: 10px 14px; border-radius: 6px; margin: 14px 0; }
+</style>
+</head>
+<body>
+<h1>扇贝今日单词 → 一键复制到听写工具</h1>
+<div class="note">原理：在你已登录的扇贝页面里直接调用扇贝自己的接口，把今日新词和复习词取出来复制到剪贴板。不需要 Node、不需要批处理、不需要第二次登录。</div>
+<h2>使用步骤（第一次安装）</h2>
+<ol>
+  <li>打开并登录扇贝单词页面：<a href="https://web.shanbay.com/wordsweb/#/words-table" target="_blank">web.shanbay.com/wordsweb/#/words-table</a></li>
+  <li>在扇贝页面按 <b>F12</b>（或右键 → 检查），点上方 <b>Console / 控制台</b> 标签</li>
+  <li>回到本页，点下面按钮复制代码</li>
+  <li>回到扇贝页面的控制台，<b>Ctrl+V 粘贴</b>，按 <b>回车</b></li>
+  <li>看到「已复制 N 个单词」提示后，打开 <b>word-dictation.html</b>，点单词框 <b>Ctrl+V</b> 粘贴</li>
+  <li>勾选「乱序听写」，开始听写</li>
+</ol>
+<h2>以后每天</h2>
+<p>重复第 2~6 步。嫌 F12 麻烦，可以把下面这个链接<b>拖到浏览器书签栏</b>，以后在扇贝页面直接点书签即可：</p>
+<a class="bookmark" id="bookmarklet" href="#">📌 扇贝复制单词（拖到书签栏）</a>
+<p><button onclick="copyCode()">📋 复制代码</button></p>
+<textarea id="code" readonly spellcheck="false">!function (t, e) { "object" == typeof exports &amp;&amp; "object" == typeof module ? module.exports = e() : "function" == typeof define &amp;&amp; define.amd ? define([], e) : "object" == typeof exports ? exports.bays4 = e() : t.bays4 = e() }(window, function () { return function (r) { var n = {}; function o(t) { if (n[t]) return n[t].exports; var e = n[t] = { i: t, l: !1, exports: {} }; return r[t].call(e.exports, e, e.exports, o), e.l = !0, e.exports } return o.m = r, o.c = n, o.i = function (t) { return t }, o.d = function (t, e, r) { o.o(t, e) || Object.defineProperty(t, e, { configurable: !1, enumerable: !0, get: r }) }, o.n = function (t) { var e = t &amp;&amp; t.__esModule ? function () { return t.default } : function () { return t }; return o.d(e, "a", e), e }, o.o = function (t, e) { return Object.prototype.hasOwnProperty.call(t, e) }, o.p = "", o(o.s = 3) }([function (t, e, r) { "use strict"; Object.defineProperty(e, "__esModule", { value: !0 }); var n = function () { function n(t, e) { for (var r = 0; r &lt; e.length; r++) { var n = e[r]; n.enumerable = n.enumerable || !1, n.configurable = !0, "value" in n &amp;&amp; (n.writable = !0), Object.defineProperty(t, n.key, n) } } return function (t, e, r) { return e &amp;&amp; n(t.prototype, e), r &amp;&amp; n(t, r), t } }(), o = function () { function r() { !function (t, e) { if (!(t instanceof r)) throw new TypeError("Cannot call a class as a function") }(this) } return n(r, null, [{ key: "loop", value: function (t, r) { "v".repeat(t).split("").map(function (t, e) { return r(e) }) } }]), r }(); e.default = o }, function (t, e, r) { "use strict"; Object.defineProperty(e, "__esModule", { value: !0 }); var n = function () { function n(t, e) { for (var r = 0; r &lt; e.length; r++) { var n = e[r]; n.enumerable = n.enumerable || !1, n.configurable = !0, "value" in n &amp;&amp; (n.writable = !0), Object.defineProperty(t, n.key, n) } } return function (t, e, r) { return e &amp;&amp; n(t.prototype, e), r &amp;&amp; n(t, r), t } }(), o = a(r(5)), u = a(r(0)); function a(t) { return t &amp;&amp; t.__esModule ? t : { default: t } } function i(t, e) { if (!(t instanceof e)) throw new TypeError("Cannot call a class as a function") } var f = function () { function t() { i(this, t), this._char = ".", this._children = {} } return n(t, [{ key: "getChar", value: function () { return this._char } }, { key: "getChildren", value: function () { return this._children } }, { key: "setChar", value: function (t) { this._char = t } }, { key: "setChildren", value: function (t, e) { this._children[t] = e } }]), t }(), s = "ABCDEFGHIJKLMNOPQRSTUVWXYZ234567", c = [1, 2, 2, 2, 2, 2], l = function () { function e(t) { i(this, e), this._random = new o.default, this._sign = "", this._inter = {}, this._head = new f } return n(e, [{ key: "init", value: function (t) { var e = this; this._random.seed(t), this._sign = t, u.default.loop(64, function (t) { e._addSymbol("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"[t], c[parseInt((t + 1) / 11)]) }), this._inter["="] = "=" } }, { key: "_addSymbol", value: function (t, e) { var r = this, n = this._head, o = ""; return u.default.loop(e, function (t) { for (var e = s[r._random.generate(32)]; e in n.getChildren() &amp;&amp; "." !== n.getChildren()[e].getChar();)e = s[r._random.generate(32)]; o += e, e in n.getChildren() || n.setChildren(e, new f), n = n.getChildren()[e] }), n.setChar(t), this._inter[t] = o } }, { key: "decode", value: function (t) { for (var e = "", r = 4; r &lt; t.length;)if ("=" !== t[r]) { for (var n = this._head; t[r] in n.getChildren();)n = n.getChildren()[t[r]], r++; e += n.getChar() } else e += "=", r++; return e } }]), e }(); e.default = l }, function (module, exports, __webpack_require__) { var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__, ya, za; ya = "undefined" != typeof self ? self : "undefined" != typeof window ? window : "undefined" != typeof global ? global : this, za = function (global) { "use strict"; global = global || {}; var _Base64 = global.Base64, version = "2.5.1", buffer; if (void 0 !== module &amp;&amp; module.exports) try { buffer = eval("require('buffer').Buffer") } catch (t) { buffer = void 0 } var b64chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/", b64tab = function (t) { for (var e = {}, r = 0, n = t.length; r &lt; n; r++)e[t.charAt(r)] = r; return e }(b64chars), fromCharCode = String.fromCharCode, cb_utob = function (t) { if (t.length &lt; 2) return (e = t.charCodeAt(0)) &lt; 128 ? t : e &lt; 2048 ? fromCharCode(192 | e &gt;&gt;&gt; 6) + fromCharCode(128 | 63 &amp; e) : fromCharCode(224 | e &gt;&gt;&gt; 12 &amp; 15) + fromCharCode(128 | e &gt;&gt;&gt; 6 &amp; 63) + fromCharCode(128 | 63 &amp; e); var e = 65536 + 1024 * (t.charCodeAt(0) - 55296) + (t.charCodeAt(1) - 56320); return fromCharCode(240 | e &gt;&gt;&gt; 18 &amp; 7) + fromCharCode(128 | e &gt;&gt;&gt; 12 &amp; 63) + fromCharCode(128 | e &gt;&gt;&gt; 6 &amp; 63) + fromCharCode(128 | 63 &amp; e) }, re_utob = /[\uD800-\uDBFF][\uDC00-\uDFFFF]|[^\x00-\x7F]/g, utob = function (t) { return t.replace(re_utob, cb_utob) }, cb_encode = function (t) { var e = [0, 2, 1][t.length % 3], r = t.charCodeAt(0) &lt;&lt; 16 | (1 &lt; t.length ? t.charCodeAt(1) : 0) &lt;&lt; 8 | (2 &lt; t.length ? t.charCodeAt(2) : 0); return [b64chars.charAt(r &gt;&gt;&gt; 18), b64chars.charAt(r &gt;&gt;&gt; 12 &amp; 63), 2 &lt;= e ? "=" : b64chars.charAt(r &gt;&gt;&gt; 6 &amp; 63), 1 &lt;= e ? "=" : b64chars.charAt(63 &amp; r)].join("") }, btoa = global.btoa ? function (t) { return global.btoa(t) } : function (t) { return t.replace(/[\s\S]{1,3}/g, cb_encode) }, _encode = buffer ? buffer.from &amp;&amp; Uint8Array &amp;&amp; buffer.from !== Uint8Array.from ? function (t) { return (t.constructor === buffer.constructor ? t : buffer.from(t)).toString("base64") } : function (t) { return (t.constructor === buffer.constructor ? t : new buffer(t)).toString("base64") } : function (t) { return btoa(utob(t)) }, encode = function (t, e) { return e ? _encode(String(t)).replace(/[+\/]/g, function (t) { return "+" == t ? "-" : "_" }).replace(/=/g, "") : _encode(String(t)) }, encodeURI = function (t) { return encode(t, !0) }, re_btou = new RegExp(["[À-ß][-¿]", "[à-ï][-¿]{2}", "[ð-÷][-¿]{3}"].join("|"), "g"), cb_btou = function (t) { switch (t.length) { case 4: var e = ((7 &amp; t.charCodeAt(0)) &lt;&lt; 18 | (63 &amp; t.charCodeAt(1)) &lt;&lt; 12 | (63 &amp; t.charCodeAt(2)) &lt;&lt; 6 | 63 &amp; t.charCodeAt(3)) - 65536; return fromCharCode(55296 + (e &gt;&gt;&gt; 10)) + fromCharCode(56320 + (1023 &amp; e)); case 3: return fromCharCode((15 &amp; t.charCodeAt(0)) &lt;&lt; 12 | (63 &amp; t.charCodeAt(1)) &lt;&lt; 6 | 63 &amp; t.charCodeAt(2)); default: return fromCharCode((31 &amp; t.charCodeAt(0)) &lt;&lt; 6 | 63 &amp; t.charCodeAt(1)) } }, btou = function (t) { return t.replace(re_btou, cb_btou) }, cb_decode = function (t) { var e = t.length, r = e % 4, n = (0 &lt; e ? b64tab[t.charAt(0)] &lt;&lt; 18 : 0) | (1 &lt; e ? b64tab[t.charAt(1)] &lt;&lt; 12 : 0) | (2 &lt; e ? b64tab[t.charAt(2)] &lt;&lt; 6 : 0) | (3 &lt; e ? b64tab[t.charAt(3)] : 0), o = [fromCharCode(n &gt;&gt;&gt; 16), fromCharCode(n &gt;&gt;&gt; 8 &amp; 255), fromCharCode(255 &amp; n)]; return o.length -= [0, 0, 2, 1][r], o.join("") }, _atob = global.atob ? function (t) { return global.atob(t) } : function (t) { return t.replace(/\S{1,4}/g, cb_decode) }, atob = function (t) { return _atob(String(t).replace(/[^A-Za-z0-9\+\/]/g, "")) }, _decode = buffer ? buffer.from &amp;&amp; Uint8Array &amp;&amp; buffer.from !== Uint8Array.from ? function (t) { return (t.constructor === buffer.constructor ? t : buffer.from(t, "base64")).toString() } : function (t) { return (t.constructor === buffer.constructor ? t : new buffer(t, "base64")).toString() } : function (t) { return btou(_atob(t)) }, decode = function (t) { return _decode(String(t).replace(/[-_]/g, function (t) { return "-" == t ? "+" : "/" }).replace(/[^A-Za-z0-9\+\/]/g, "")) }, noConflict = function () { var t = global.Base64; return global.Base64 = _Base64, t }; if (global.Base64 = { VERSION: version, atob: atob, btoa: btoa, fromBase64: decode, toBase64: encode, utob: utob, encode: encode, encodeURI: encodeURI, btou: btou, decode: decode, noConflict: noConflict, __buffer__: buffer }, "function" == typeof Object.defineProperty) { var noEnum = function (t) { return { value: t, enumerable: !1, writable: !0, configurable: !0 } }; global.Base64.extendString = function () { Object.defineProperty(String.prototype, "fromBase64", noEnum(function () { return decode(this) })), Object.defineProperty(String.prototype, "toBase64", noEnum(function (t) { return encode(this, t) })), Object.defineProperty(String.prototype, "toBase64URI", noEnum(function () { return encode(this, !0) })) } } return global.Meteor &amp;&amp; (Base64 = global.Base64), void 0 !== module &amp;&amp; module.exports ? module.exports.Base64 = global.Base64 : (__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = function () { return global.Base64 }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), void 0 === __WEBPACK_AMD_DEFINE_RESULT__ || (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)), { Base64: global.Base64 } }, module.exports = za(ya) }, function (t, e, r) { "use strict"; Object.defineProperty(e, "__esModule", { value: !0 }); var n, o = function () { function n(t, e) { for (var r = 0; r &lt; e.length; r++) { var n = e[r]; n.enumerable = n.enumerable || !1, n.configurable = !0, "value" in n &amp;&amp; (n.writable = !0), Object.defineProperty(t, n.key, n) } } return function (t, e, r) { return e &amp;&amp; n(t.prototype, e), r &amp;&amp; n(t, r), t } }(), u = r(2), a = (n = r(1)) &amp;&amp; n.__esModule ? n : { default: n }, i = function (t) { var e = t.charCodeAt(); return 65 &lt;= e ? e - 65 : e - 65 + 41 }, f = function () { function r() { !function (t, e) { if (!(t instanceof r)) throw new TypeError("Cannot call a class as a function") }(this) } return o(r, null, [{ key: "_checkVersion", value: function (t) { return ((32 * i(t[0]) + i(t[1])) * i(t[2]) + i(t[3])) % 32 &lt;= 1 } }, { key: "d", value: function (t) { if (!this._checkVersion(t)) return ""; var e = new a.default; e.init(t.substr(0, 4)); var r = e.decode(t); return u.Base64.decode(r) } }]), r }(); e.default = f, t.exports = f }, function (t, e, r) { "use strict"; Object.defineProperty(e, "__esModule", { value: !0 }); var n = function () { function n(t, e) { for (var r = 0; r &lt; e.length; r++) { var n = e[r]; n.enumerable = n.enumerable || !1, n.configurable = !0, "value" in n &amp;&amp; (n.writable = !0), Object.defineProperty(t, n.key, n) } } return function (t, e, r) { return e &amp;&amp; n(t.prototype, e), r &amp;&amp; n(t, r), t } }(), o = function () { function r() { !function (t, e) { if (!(t instanceof r)) throw new TypeError("Cannot call a class as a function") }(this) } return n(r, null, [{ key: "get", value: function (t) { return t &gt;&gt;&gt; 0 } }, { key: "xor", value: function (t, e) { return this.get(this.get(t) ^ this.get(e)) } }, { key: "and", value: function (t, e) { return this.get(this.get(t) &amp; this.get(e)) } }, { key: "mul", value: function (t, e) { var r = ((4294901760 &amp; t) &gt;&gt;&gt; 0) * e, n = (65535 &amp; t) * e; return this.get((r &gt;&gt;&gt; 0) + (n &gt;&gt;&gt; 0)) } }, { key: "or", value: function (t, e) { return this.get(this.get(t) | this.get(e)) } }, { key: "not", value: function (t) { return this.get(~this.get(t)) } }, { key: "shiftLeft", value: function (t, e) { return this.get(this.get(t) &lt;&lt; e) } }, { key: "shiftRight", value: function (t, e) { return this.get(t) &gt;&gt;&gt; e } }, { key: "mod", value: function (t, e) { return this.get(this.get(t) % e) } }]), r }(); e.default = o }, function (t, e, r) { "use strict"; Object.defineProperty(e, "__esModule", { value: !0 }); var n = function () { function n(t, e) { for (var r = 0; r &lt; e.length; r++) { var n = e[r]; n.enumerable = n.enumerable || !1, n.configurable = !0, "value" in n &amp;&amp; (n.writable = !0), Object.defineProperty(t, n.key, n) } } return function (t, e, r) { return e &amp;&amp; n(t.prototype, e), r &amp;&amp; n(t, r), t } }(), o = a(r(0)), u = a(r(4)); function a(t) { return t &amp;&amp; t.__esModule ? t : { default: t } } var i = function () { function r() { !function (t, e) { if (!(t instanceof r)) throw new TypeError("Cannot call a class as a function") }(this), this._status = [], this._mat1 = 0, this._mat2 = 0, this._tmat = 0 } return n(r, [{ key: "seed", value: function (e) { var r = this; o.default.loop(4, function (t) { e.length &gt; t ? r._status[t] = u.default.get(e.charAt(t).charCodeAt()) : r._status[t] = u.default.get(110) }), this._mat1 = this._status[1], this._mat2 = this._status[2], this._tmat = this._status[3], this._init() } }, { key: "_init", value: function () { var e = this; o.default.loop(7, function (t) { e._status[t + 1 &amp; 3] = u.default.xor(e._status[t + 1 &amp; 3], t + 1 + u.default.mul(1812433253, u.default.xor(e._status[3 &amp; t], u.default.shiftRight(e._status[3 &amp; t], 30)))) }), 0 == (2147483647 &amp; this._status[0]) &amp;&amp; 0 === this._status[1] &amp;&amp; 0 === this._status[2] &amp;&amp; 0 === this._status[3] &amp;&amp; (this._status[0] = 66, this._status[1] = 65, this._status[2] = 89, this._status[3] = 83), o.default.loop(8, function () { return e._next_state() }) } }, { key: "_next_state", value: function () { var t = void 0, e = void 0; e = this._status[3], t = u.default.xor(u.default.and(this._status[0], 2147483647), u.default.xor(this._status[1], this._status[2])), t = u.default.xor(t, u.default.shiftLeft(t, 1)), e = u.default.xor(e, u.default.xor(u.default.shiftRight(e, 1), t)), this._status[0] = this._status[1], this._status[1] = this._status[2], this._status[2] = u.default.xor(t, u.default.shiftLeft(e, 10)), this._status[3] = e, this._status[1] = u.default.xor(this._status[1], u.default.and(-u.default.and(e, 1), this._mat1)), this._status[2] = u.default.xor(this._status[2], u.default.and(-u.default.and(e, 1), this._mat2)) } }, { key: "generate", value: function (t) { this._next_state(); var e, r = void 0; return r = this._status[3], e = u.default.xor(this._status[0], u.default.shiftRight(this._status[2], 8)), r = u.default.xor(r, e), (r = u.default.xor(u.default.and(-u.default.and(e, 1), this._tmat), r)) % t } }]), r }(); e.default = i }]) });
+
+
+(async () =&gt; {
+  var HOST = "https://apiv3.shanbay.com";
+  var all = [];
+  var seen = new Set();
+  function say(m) { try { alert(m); } catch (e) {} }
+  async function get(path) {
+    var r = await fetch(HOST + path, { credentials: "include" });
+    if (r.status === 401 || r.status === 403) throw new Error("未登录或登录已过期");
+    var j = await r.json();
+    var data = j &amp;&amp; j.data !== undefined ? j.data : j;
+    if (typeof data === "string") {
+      var dec = window.bays4 ? window.bays4.d(data) : null;
+      if (!dec) throw new Error("解密失败，扇贝可能更新了加密格式");
+      data = JSON.parse(dec);
+    }
+    return data;
+  }
+  function extract(objs) {
+    var out = [];
+    (objs || []).forEach(function (obj) {
+      var v = (obj &amp;&amp; (obj.vocab_with_senses || obj.vocabulary || obj)) || {};
+      var word = String(v.word || v.content || v.vocab || "").trim();
+      if (!word) return;
+      var ms = [];
+      if (Array.isArray(v.senses)) {
+        v.senses.forEach(function (s) {
+          var cn = (s &amp;&amp; (s.definition_cn || s.cn || s.definition)) || "";
+          var pos = s &amp;&amp; s.pos ? String(s.pos).replace(/\.+$/, "") + ". " : "";
+          if (String(cn).trim()) ms.push((pos + cn).trim());
+        });
+      }
+      if (!ms.length &amp;&amp; v.definition) ms.push(String(v.definition));
+      if (!ms.length &amp;&amp; v.translation) ms.push(String(v.translation));
+      out.push({ word: word, meaning: ms.join("；") });
+    });
+    return out;
+  }
+  function add(objs) {
+    extract(objs).forEach(function (w) {
+      var k = w.word.toLowerCase();
+      if (!seen.has(k)) { seen.add(k); all.push(w); }
+    });
+  }
+  try {
+    var books = await get("/wordsapp/user_material_books");
+    var mid = books &amp;&amp; books.objects &amp;&amp; books.objects[0] ? (books.objects[0].materialbook || {}).id : null;
+    if (!mid) throw new Error("没有找到当前单词书");
+    for (var page = 1; page &lt;= 10; page++) {
+      var data = await get("/wordsapp/user_material_books/" + mid + "/learning/words/today_learning_items?page=" + page + "&amp;type_of=NEW&amp;ipp=50");
+      var objs = data &amp;&amp; data.objects ? data.objects : [];
+      add(objs);
+      if (!objs.length) break;
+    }
+  } catch (e) {
+    say("同步失败：" + e.message + "\n请确认已登录扇贝，且当前页面是 web.shanbay.com");
+    return;
+  }
+  if (!all.length) {
+    try {
+      for (var ei = 1; ei &lt;= 10; ei++) {
+        var d2 = await get("/wordsapp/user_material_books/" + mid + "/learning/words/unlearned_items?page=" + ei + "&amp;ipp=50&amp;order=DESC");
+        add(d2 &amp;&amp; d2.objects ? d2.objects : []);
+        if (!(d2 &amp;&amp; d2.objects &amp;&amp; d2.objects.length)) break;
+      }
+    } catch (e2) {}
+  }
+  var todayLines = all.map(function (w) { return w.word + (w.meaning ? "|" + w.meaning : ""); });
+  if (!todayLines.length) { say("没有抓到单词，今天可能没有学习任务。"); return; }
+  var KEY = "shanbay_dict_history";
+  var hist = [];
+  try { hist = JSON.parse(localStorage.getItem(KEY) || "[]"); } catch (e3) {}
+  var now = new Date();
+  var today = now.getFullYear() + "-" + String(now.getMonth() + 1).padStart(2, "0") + "-" + String(now.getDate()).padStart(2, "0");
+  var idx = -1;
+  for (var hi = 0; hi &lt; hist.length; hi++) { if (hist[hi].date === today) { idx = hi; break; } }
+  if (idx &gt;= 0) hist[idx].words = todayLines; else hist.push({ date: today, words: todayLines });
+  hist.sort(function (a, b) { return a.date &lt; b.date ? 1 : -1; });
+  hist = hist.slice(0, 2);
+  try { localStorage.setItem(KEY, JSON.stringify(hist)); } catch (e4) {}
+  var seen = {};
+  var lines = [];
+  hist.forEach(function (day) {
+    (day.words || []).forEach(function (line) {
+      var w = String(line).split("|")[0].trim().toLowerCase();
+      if (w &amp;&amp; !seen[w]) { seen[w] = 1; lines.push(line); }
+    });
+  });
+  var text = lines.join("\n");
+  var copied = false;
+  try {
+    await navigator.clipboard.writeText(text);
+    copied = true;
+  } catch (e3) {
+    var ta = document.createElement("textarea");
+    ta.value = text;
+    ta.style.cssText = "position:fixed;left:-9999px;";
+    document.body.appendChild(ta);
+    ta.select();
+    try { copied = document.execCommand("copy"); } catch (e4) {}
+    ta.remove();
+  }
+  if (copied) {
+    say("已复制 " + all.length + " 个单词到剪贴板！\n打开 word-dictation.html，在单词框里 Ctrl+V 粘贴即可。");
+  } else {
+    var box = document.createElement("textarea");
+    box.style.cssText = "position:fixed;top:10%;left:10%;width:80%;height:60%;z-index:99999;font-size:14px;";
+    box.value = text;
+    document.body.appendChild(box);
+    box.select();
+    say("自动复制失败，页面里已弹出文本框，请手动复制里面的内容。");
+  }
+})();
+</textarea>
+<script>
+function copyCode() {
+  var t = document.getElementById("code");
+  t.select();
+  t.setSelectionRange(0, 99999999);
+  var ok = false;
+  try { ok = document.execCommand("copy"); } catch (e) {}
+  if (ok) alert("代码已复制！去扇贝页面的控制台里 Ctrl+V 粘贴，然后回车。");
+  else alert("自动复制失败，请手动选中文本框里的代码复制。");
+}
+document.getElementById("bookmarklet").href = "javascript:" + encodeURIComponent(document.getElementById("code").value);
+</script>
+</body>
+</html>
