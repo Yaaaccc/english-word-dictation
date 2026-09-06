@@ -190,7 +190,7 @@
       </select>
       <select id="dateSelect" style="flex:1;"></select>
     </div>
-    <div class="hint" id="dateStatus">每天抓取的单词按日期保存：先选来源（扇贝新词 / 扇贝复习 / 不背单词），再切换日期（需通过「一键听写.bat」打开）。</div>
+    <div class="hint" id="dateStatus">每天抓取的单词按日期保存：先选来源（扇贝新词 / 扇贝复习 / 不背单词），再切换日期。</div>
     <div class="count" id="wordCount">已解析 0 个单词</div>
 
     <div class="inline-check">
@@ -1115,7 +1115,7 @@
     var sel = $("dateSelect");
     var status = $("dateStatus");
     try {
-      var r = await fetch("api/dates", { cache: "no-store" });
+      var r = await fetch("dates.json", { cache: "no-store" });
       if (!r.ok) throw new Error("HTTP " + r.status);
       var all = await r.json();
       dateList = all;
@@ -1123,7 +1123,7 @@
       var dates = all.filter(function (d) { return d.source === src; }).map(function (d) { return d.date; });
       sel.innerHTML = "";
       if (!dates.length) {
-        status.textContent = "「" + src + "」还没有按日期保存的单词，先双击「一键听写.bat」（不背单词则用「抓取不背单词.bat」）。";
+        status.textContent = "「" + src + "」还没有按日期保存的单词，可在电脑上运行抓取脚本自动同步到网站。";
         return;
       }
       dates.forEach(function (d) {
@@ -1135,7 +1135,7 @@
       sel.value = dates[0];
       await loadDateWords(dates[0]);
     } catch (e) {
-      status.textContent = "日期列表加载失败：请通过「一键听写.bat」打开本工具";
+      status.textContent = "日期列表加载失败：单词数据尚未同步到网站，请先在电脑上运行同步脚本";
     }
   }
 
