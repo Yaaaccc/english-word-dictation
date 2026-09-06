@@ -28,7 +28,7 @@ when|adv. 什么时候；当时；什么情况下；conj. 在…时候；在…�
 heroism|n. 英勇行为，英雄气概|Most children love stories of heroism .|很多儿童喜欢关于英勇无畏的故事。||【辨析】heroine n.女英雄；heroic  adj.英雄的，英勇的；【谐音】海若因整(heroism)"：英雄主义，英勇行为。
 pit|n. 洞，坑；矿井；果核|We dug a shallow pit and put the seeds in it.|我们挖了一个浅坑，把种子撒在里面。|olive pit 橄榄核|【辨析】pot   n.（烹饪所用圆而深的）锅；pat   v.轻拍（以示喜爱、赞同或安慰）；pin   n.（尤指做衣服时固定布料用的）别针，大头针；pitch n.<英>体育场地，球场；spit  v.啐唾沫（常表示愤怒或鄙视）；pinch v.捏，拧，掐；【谐音】劈它(pit)"：雷劈下来，形成一个凹陷。；【变形】过去式：pitted；过去分词：pitted；现在分词：pitting
 cowardice|n. 懦弱，胆小|The general angrily accused his soldiers of cowardice .|将军愤怒地指责他的士兵胆小懦弱。||【辨析】coward n.胆小鬼，懦夫
-orange|adj. 橙色的；n. 橙子，柑橘；橙汁；橘黄色|Her favorite fruit is orange .|她最喜欢的水果是橙子。|in exchange of 交换|【辨析】range    n.（变动或浮动的）范围，界限；arrange  v.安排，筹备；strange  adj.奇怪的，不寻常的；organize v.组织，筹备；【谐音】哦瑞均(oran)觉(ge)"：橙子的起源。；【图���】n. 橙子
+orange|adj. 橙色的；n. 橙子，柑橘；橙汁；橘黄色|Her favorite fruit is orange .|她最喜欢的水果是橙子。|in exchange of 交换|【辨析】range    n.（变动或浮动的）范围，界限；arrange  v.安排，筹备；strange  adj.奇怪的，不寻常的；organize v.组织，筹备；【谐音】哦瑞均(oran)觉(ge)"：橙子的起源。
 mine|n. 矿；地雷，水雷；v. 采矿；布雷；pron. 我的|It was Mary's idea, not mine .|这是玛丽的主意，不是我的。|coal mines 煤矿；owing to 由于, 因...之缘故|【辨析】wine      n.葡萄酒，果蔬酒；mind      n.头脑，大脑；mineral   n.矿物质；mining    n.采矿，采矿业；mean      v.意味着；meal      n.一餐，进餐（时间）；determine v.决定，控制；【谐音】埋(mine)"：埋矿，埋地雷。；【变形】现在分词：mining
 against|prep. 反对，违反；对…不利；紧靠；碰，撞；以防|He advised me against resigning.|他建议我不要辞职。|be up against 面对，碰到（困难）；against time 争分夺秒|【辨析】again adv.再一次
 pianist|n. 钢琴家|She is an experienced concert pianist .|她是一位富有经验的音乐会钢琴家。|pianist n 钢琴家|【辨析】printer   n.打印机；violinist n.小提琴演奏者，小提琴家
@@ -71,9 +71,9 @@ precautionary|adj. 预防的|We'd better take some precautionary measures during
 summer|n. 夏季|It's very hot here in summer .|这里夏天很热。||【辨析】summary n.总结，概要；sum     n.金额，款项；【谐音】沙漠(summer)"：夏天的沙漠很热。
 where|adv. 在哪里；conj. （在）…的地方，（在）…情况下|I want to know where the post office is.|我想知道邮局在哪儿。||【辨析】there adv.在那里；when  adv.什么时候；whose pron.谁的（疑问代词）；here  adv.在这里；what  det.什么；why   adv.（用于问句）为什么，为何；whom  pron.谁（who 的宾格）；who   pron.谁；which pron.哪一个，哪一些；【谐音】喂儿(where)"：询问地点。
 continue|v. 持续；继续做…|The exhibition continues until 25 July.|展览要持续到7月25日。|continue to do 是做完一件事 做另一件 continue doing 没做完接着做；to be continued 未完待续|【辨析】continuous adj.连续不断的，持续的；continent  n.洲，大陆；content    adj.满足的，满意的，甘愿的；【谐音】肯踢牛(continue)"：愿意继续踢牛。
-bring|v. 带来；提供；导致|She brought her boyfriend to the party.|她带着男朋友去参加聚会。|bring out 出版，生产；使显示；说出；brings back memories- 使我想起了过去的岁月；bring in 引进；生产；增加；bring up 提出；教育；养育；呕出；（���等）停下|【辨析】ring   n.戒指，指环；boring adj.令人厌烦的；spring n.春天，春季；【变形】过去式：brought；过去分词：brought
+bring|v. 带来；提供；导致|She brought her boyfriend to the party.|她带着男朋友去参加聚会。|bring out 出版，生产；使显示；说出；brings back memories- 使我想起了过去的岁月；bring in 引进；生产；增加；bring up 提出；教育；养育；呕出；（船等）停下|【辨析】ring   n.戒指，指环；boring adj.令人厌烦的；spring n.春天，春季；【变形】过去式：brought；过去分词：brought
 victimize|v. 使受害，迫害|He claimed he'd been victimized by the criminal gang.|他声称受到了犯罪团伙的迫害。||【辨析】victim  n.受害者，罹难者；vitamin n.维生素，维他命；【变形】现在分词：victimizing
-impose|v. 强制实行；把…强加于；使承受|A new tax was imposed on fuel.|对燃料征收一项新税。||【辨析】import   n.进口，进口商品；oppose   v.反抗，阻碍；expose   v.暴露，使显露；pose     v.造成，引起（威胁、危险、问题等）；dispose  v.处理，放置，安排；compose  v.组成，构成；impulse  n.冲动；imply    v.暗示，暗指；propose  v.提议，建议；impair   v.损害，削弱；impart   v.传授，告知；impact   n.撞击，冲击力；imperial adj.帝国的，皇帝的；【谐音】硬(im)摆造型(pose)"：硬让你摆造型，强加于人。；【变��】现在分词：imposing
+impose|v. 强制实行；把…强加于；使承受|A new tax was imposed on fuel.|对燃料征收一项新税。||【辨析】import   n.进口，进口商品；oppose   v.反抗，阻碍；expose   v.暴露，使显露；pose     v.造成，引起（威胁、危险、问题等）；dispose  v.处理，放置，安排；compose  v.组成，构成；impulse  n.冲动；imply    v.暗示，暗指；propose  v.提议，建议；impair   v.损害，削弱；impart   v.传授，告知；impact   n.撞击，冲击力；imperial adj.帝国的，皇帝的；【谐音】硬(im)摆造型(pose)"：硬让你摆造型，强加于人。；【变形】现在分词：imposing
 historic|adj. 历史上重大的；历史性的|This battle is of historic meaning.|这一战具有历史意义。||【辨析】historical adj.（有关）历史的；historian  n.历史学家，史学工作者；history    n.历史
 charitable|adj. 慈善的；宽厚的|Our school's library was funded by charitable donations.|我们学校的图书馆是由慈善捐款资助的。||【辨析】amiable adj.和蔼可亲的，友好的
 ridicule|v. 嘲笑，奚落；戏弄；n. 嘲笑，奚落；戏弄|She couldn't stand any more of their ridicule .|她再也无法忍受他们丝毫的嘲笑了。||【辨析】ridiculous adj.可笑的，荒谬的；radical    adj.根本的，彻底的；【谐音】瑞迪哭(ridicule)了"：瑞迪哭了是因为被人嘲笑，受人奚落。；【变形】现在分词：ridiculing
