@@ -59,28 +59,36 @@ function api(method, apiPath, body) {
   });
 }
 
-// 生成 dates.json，字段与网页端约定一致：{ date, source, file }，source ∈ 扇贝/扇贝复习/不背单词
+// 生成 dates.json，字段与网页端约定一致：{ date, source, file }，source ∈ 扇贝/扇贝复习
 function buildDates() {
+  const ARCHIVE_DIR = path.join(DIR, "今日单词");
+  const archiveFiles = fs.existsSync(ARCHIVE_DIR) ? fs.readdirSync(ARCHIVE_DIR) : [];
   const files = fs.readdirSync(DIR);
-  const arr = []
-    .concat(
-      files
-        .filter((f) => /^\d{4}-\d{2}-\d{2}\.txt$/.test(f))
-        .map((f) => ({ date: f.slice(0, 10), source: "扇贝", file: f }))
-    )
-    .concat(
-      files
-        .filter((f) => /^bubei-\d{4}-\d{2}-\d{2}\.txt$/.test(f))
-        .map((f) => ({ date: f.slice(6, 16), source: "不背单词", file: f }))
-    )
-    .concat(
-      files
-        .filter((f) => /^shanbay-review-\d{4}-\d{2}-\d{2}\.txt$/.test(f))
-        .map((f) => ({ date: f.slice(15, 25), source: "扇贝复习", file: f }))
-    )
-    .sort((a, b) =>
-      a.date === b.date ? (a.source < b.source ? 1 : -1) : a.date < b.date ? 1 : -1
-    );
+  const seen = new Set();
+  const arr = [];
+  // 扇贝新词：优先「今日单词」子文件夹，根目录历史日期文件向后兼容
+  archiveFiles
+    .filter((f) => /^\d{4}-\d{2}-\d{2}\.txt$/.test(f))
+    .forEach((f) => {
+      const d = f.slice(0, 10);
+      if (seen.has(d)) return;
+      seen.add(d);
+      arr.push({ date: d, source: "扇贝", file: "今日单词/" + f });
+    });
+  files
+    .filter((f) => /^\d{4}-\d{2}-\d{2}\.txt$/.test(f))
+    .forEach((f) => {
+      const d = f.slice(0, 10);
+      if (seen.has(d)) return;
+      seen.add(d);
+      arr.push({ date: d, source: "扇贝", file: f });
+    });
+  files
+    .filter((f) => /^shanbay-review-\d{4}-\d{2}-\d{2}\.txt$/.test(f))
+    .forEach((f) => arr.push({ date: f.slice(15, 25), source: "扇贝复习", file: f }));
+  arr.sort((a, b) =>
+    a.date === b.date ? (a.source < b.source ? 1 : -1) : a.date < b.date ? 1 : -1
+  );
   return arr;
 }
 

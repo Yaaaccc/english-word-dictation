@@ -64,7 +64,7 @@ const server = http.createServer((req, res) => {
     return;
   }
 
-  // 日期列表接口：返回所有按日期保存的单词文件（扇贝 2026-08-05.txt / 不背单词 bubei-2026-08-05.txt）
+  // 日期列表接口：返回所有按日期保存的单词文件（扇贝 2026-08-05.txt）
   if (urlPath === "/api/dates") {
     let dates = [];
     try {
@@ -72,12 +72,6 @@ const server = http.createServer((req, res) => {
         .readdirSync(DIR)
         .filter((f) => /^\d{4}-\d{2}-\d{2}\.txt$/.test(f))
         .map((f) => ({ date: f.slice(0, 10), source: "扇贝", file: f }))
-        .concat(
-          fs
-            .readdirSync(DIR)
-            .filter((f) => /^bubei-\d{4}-\d{2}-\d{2}\.txt$/.test(f))
-            .map((f) => ({ date: f.slice(6, 16), source: "不背单词", file: f }))
-        )
         .concat(
           fs
             .readdirSync(DIR)

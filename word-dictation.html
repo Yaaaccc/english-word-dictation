@@ -162,13 +162,13 @@
 <body>
 <header>
   <h1>英语单词听写</h1>
-  <p>粘贴、导入 PDF，或载入扇贝 / 不背单词今日单词 → 朗读发音 → 可乱序听写。</p>
+  <p>粘贴、导入 PDF，或载入扇贝今日单词 → 朗读发音 → 可乱序听写。</p>
 </header>
 <main>
   <section class="card">
     <h2>单词表与设置</h2>
     <label for="wordsInput">单词列表（每行一个；可写成 “单词|释义” 或 “单词 释义”）</label>
-    <textarea id="wordsInput" placeholder="apple|苹果&#10;banana|香蕉&#10;cherry|樱桃"></textarea>
+    <textarea id="wordsInput" placeholder="自动载入最新扇贝单词中…若下方没有内容，可点击「导入单词表文件」或直接粘贴&#10;格式：单词|释义|英文例句|中文例句"></textarea>
     <div class="row" style="margin-top:10px;">
       <button class="primary" id="saveBtn">保存单词表</button>
       <button id="sampleBtn">载入示例</button>
@@ -186,11 +186,10 @@
       <select id="sourceSelect" style="width:120px;">
         <option value="shanbay">扇贝</option>
         <option value="shanbay-review">扇贝复习</option>
-        <option value="bubei">不背单词</option>
       </select>
       <select id="dateSelect" style="flex:1;"></select>
     </div>
-    <div class="hint" id="dateStatus">每天抓取的单词按日期保存：先选来源（扇贝新词 / 扇贝复习 / 不背单词），再切换日期。</div>
+    <div class="hint" id="dateStatus">每天抓取的单词按日期保存：先选来源（扇贝新词 / 扇贝复习），再切换日期。</div>
     <div class="count" id="wordCount">已解析 0 个单词</div>
 
     <div class="inline-check">
@@ -1148,7 +1147,6 @@
     var item = dateList.find(function (d) { return d.date === date && d.source === currentSourceLabel(); });
     if (item) return item.file;
     var src = currentSourceLabel();
-    if (src === "不背单词") return "bubei-" + date + ".txt";
     if (src === "扇贝复习") return "shanbay-review-" + date + ".txt";
     return date + ".txt";
   }
@@ -1158,6 +1156,9 @@
   $("dateSelect").addEventListener("change", function () { loadDateWords(this.value); });
 
   if (location.protocol === "http:" || location.protocol === "https:") loadDates();
+  else
+    $("dateStatus").textContent =
+      "直接双击打开时，浏览器不允许自动读取单词文件。请双击「一键听写.bat」打开（会自动载入最新扇贝单词），或访问在线版本。";
 
   $("startTypeBtn").addEventListener("click", function () {
     state.words = parseWords(wordsInput.value);

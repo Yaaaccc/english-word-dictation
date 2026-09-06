@@ -24,6 +24,8 @@ const { spawn } = require("child_process");
 const bays4 = require("./bays4.js");
 
 const DIR = __dirname;
+// 扇贝每日新词统一归档到「今日单词」子文件夹，网页 dates.json / GitHub 同步都从这里读
+const ARCHIVE_DIR = path.join(DIR, "今日单词");
 const AUTH_FILE = path.join(DIR, "shanbay-auth.json");
 const PROFILE_DIR = path.join(DIR, ".shanbay-profile");
 const OUT_FILE = path.join(DIR, "shanbay-words.txt");
@@ -35,6 +37,7 @@ const TARGET_URL = "https://web.shanbay.com/wordsweb/#/words-table";
 
 const DEBUG = process.argv.includes("--debug");
 const TEST_CDP = process.argv.includes("--test-cdp");
+const REINDEX = process.argv.includes("--reindex");
 const HEADLESS = process.env.GRAB_HEADLESS === "1";
 
 const EDGE_CANDIDATES = [
@@ -314,6 +317,37 @@ function saveWords(words) {
   fs.writeFileSync(OUT_FILE, words.map(formatWordLine).join("\n"), "utf8");
 }
 
+// 重建网页用的 dates.json 索引（放在项目根目录，网页/本地服务通过相对路径 fetch 读取）
+// file 统一用正斜杠，保证浏览器 URL 和跨平台可用。
+function saveDatesIndex() {
+  const arr = [];
+  const seen = new Set();
+  // 新词：优先「今日单词」子文件夹，项目根目录的历史日期文件也纳入（向后兼容）
+  for (const f of fs.readdirSync(ARCHIVE_DIR)) {
+    if (/^\d{4}-\d{2}-\d{2}\.txt$/.test(f)) {
+      const date = f.slice(0, 10);
+      if (seen.has(date)) continue;
+      seen.add(date);
+      arr.push({ date, source: "扇贝", file: "今日单词/" + f });
+    }
+  }
+  for (const f of fs.readdirSync(DIR)) {
+    if (/^\d{4}-\d{2}-\d{2}\.txt$/.test(f)) {
+      const date = f.slice(0, 10);
+      if (seen.has(date)) continue;
+      seen.add(date);
+      arr.push({ date, source: "扇贝", file: f });
+    } else if (/^shanbay-review-\d{4}-\d{2}-\d{2}\.txt$/.test(f)) {
+      arr.push({ date: f.slice(15, 25), source: "扇贝复习", file: f });
+    }
+  }
+  arr.sort((a, b) =>
+    a.date === b.date ? (a.source < b.source ? 1 : -1) : a.date < b.date ? 1 : -1
+  );
+  fs.writeFileSync(path.join(DIR, "dates.json"), JSON.stringify(arr, null, 2), "utf8");
+  console.log("已更新日期索引 dates.json（共 " + arr.length + " 条，最新：今日单词/）");
+}
+
 function todayStr() {
   const d = new Date();
   const mm = String(d.getMonth() + 1).padStart(2, "0");
@@ -557,6 +591,10 @@ async function testCdp() {
     await testCdp();
     return;
   }
+  if (REINDEX) {
+    saveDatesIndex();
+    return;
+  }
 
   console.log("== 扇贝单词抓取 ==");
   let token = loadAuth();
@@ -593,8 +631,9 @@ async function testCdp() {
   words = await fetchPhrases(words, token);
 
   const today = todayStr();
+  if (!fs.existsSync(ARCHIVE_DIR)) fs.mkdirSync(ARCHIVE_DIR, { recursive: true });
   const lines = words.map(formatWordLine);
-  const dailyFile = path.join(DIR, today + ".txt");
+  const dailyFile = path.join(ARCHIVE_DIR, today + ".txt");
   fs.writeFileSync(dailyFile, lines.join("\n"), "utf8");
   fs.writeFileSync(OUT_FILE, lines.join("\n"), "utf8");
   console.log("完成！今日 " + words.length + " 个新词（含例句、短语、辨析）已保存到：" + dailyFile);
@@ -620,7 +659,8 @@ async function testCdp() {
     console.log("今日暂无复习词（REVIEW 为空）。");
   }
 
-  console.log("历史日期文件会保留在文件夹里，网页端可选择任意日期听写。");
+  saveDatesIndex();
+  console.log("历史日期文件会保留在「今日单词」文件夹里，网页端可选择任意日期听写。");
   if (DEBUG) {
     console.log("前 5 个：");
     words.slice(0, 5).forEach((w) =>
