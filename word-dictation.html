@@ -1009,6 +1009,9 @@
     var n = state.pos + 1;
     $("posLabel").textContent = "第 " + n + " / " + total + " 个";
     $("progressBar").style.width = (n / total * 100) + "%";
+    // 选词下拉框同步定位到当前正在播放的单词
+    var sel = $("jumpSelect");
+    if (sel) sel.value = String(state.pos);
   }
 
   function playWord(index, auto) {
@@ -1100,7 +1103,8 @@
       o.textContent = (i + 1) + ". " + item.text + (item.meaning ? "（" + item.meaning + "）" : "");
       sel.appendChild(o);
     });
-    sel.value = "";
+    // 默认定位到当前正在播放的单词（打开下拉会直接停在该项）
+    sel.value = String(state.pos);
   }
 
   function finishPlay() {
@@ -1398,7 +1402,7 @@
   $("restartBtn").addEventListener("click", playFromStart);
   $("jumpSelect").addEventListener("change", function () {
     var v = this.value;
-    if (v === "" || state.mode !== "play") { this.value = ""; return; }
+    if (v === "" || state.mode !== "play") { renderPlayPos(); return; }
     if (!state.running) {
       state.running = true;
       state.paused = false;
@@ -1406,7 +1410,6 @@
     }
     clearTimeout(playTimer);
     playWord(parseInt(v, 10), $("autoPlayBox").checked);
-    this.value = "";
   });
   $("stopBtn").addEventListener("click", function () {
     stopEverything();
