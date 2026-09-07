@@ -60,35 +60,54 @@ function api(method, apiPath, body) {
 }
 
 // 生成 dates.json，字段与网页端约定一致：{ date, source, file }，source ∈ 扇贝/扇贝复习
+// 同一天允许多组：YYYY-MM-DD.txt 为第一组，YYYY-MM-DD-2.txt 起为后续组（第2组及以后显示「（第N组）」），
+// 排序时同一天内第一组排在最前（网页默认选中第一组）。
 function buildDates() {
   const ARCHIVE_DIR = path.join(DIR, "今日单词");
+  const groupRe = /^(\d{4}-\d{2}-\d{2})(?:-(\d))?\.txt$/;
   const archiveFiles = fs.existsSync(ARCHIVE_DIR) ? fs.readdirSync(ARCHIVE_DIR) : [];
   const files = fs.readdirSync(DIR);
-  const seen = new Set();
+  const seenDates = new Set();
   const arr = [];
   // 扇贝新词：优先「今日单词」子文件夹，根目录历史日期文件向后兼容
   archiveFiles
-    .filter((f) => /^\d{4}-\d{2}-\d{2}\.txt$/.test(f))
-    .forEach((f) => {
-      const d = f.slice(0, 10);
-      if (seen.has(d)) return;
-      seen.add(d);
-      arr.push({ date: d, source: "扇贝", file: "今日单词/" + f });
+    .map((f) => f.match(groupRe))
+    .filter(Boolean)
+    .forEach((m) => {
+      const group = m[2] ? parseInt(m[2], 10) : 1;
+      seenDates.add(m[1]);
+      arr.push({
+        date: m[2] ? m[1] + "（第" + m[2] + "组）" : m[1],
+        source: "扇贝",
+        file: "今日单词/" + m[0],
+        // 99-组号：同一天内组号越小（越早抓的）排序越靠前，网页默认选中第一组
+        _sort: m[1] + "#" + String(99 - group).padStart(2, "0"),
+      });
     });
   files
-    .filter((f) => /^\d{4}-\d{2}-\d{2}\.txt$/.test(f))
-    .forEach((f) => {
-      const d = f.slice(0, 10);
-      if (seen.has(d)) return;
-      seen.add(d);
-      arr.push({ date: d, source: "扇贝", file: f });
+    .map((f) => f.match(/^(\d{4}-\d{2}-\d{2})\.txt$/))
+    .filter(Boolean)
+    .forEach((m) => {
+      if (seenDates.has(m[1])) return;
+      seenDates.add(m[1]);
+      arr.push({ date: m[1], source: "扇贝", file: m[0], _sort: m[1] + "#98" });
     });
   files
-    .filter((f) => /^shanbay-review-\d{4}-\d{2}-\d{2}\.txt$/.test(f))
-    .forEach((f) => arr.push({ date: f.slice(15, 25), source: "扇贝复习", file: f }));
+    .map((f) => f.match(/^shanbay-review-(\d{4}-\d{2}-\d{2})(?:-(\d))?\.txt$/))
+    .filter(Boolean)
+    .forEach((m) => {
+      const group = m[2] ? parseInt(m[2], 10) : 1;
+      arr.push({
+        date: m[2] ? m[1] + "（第" + m[2] + "组）" : m[1],
+        source: "扇贝复习",
+        file: m[0],
+        _sort: m[1] + "#" + String(99 - group).padStart(2, "0"),
+      });
+    });
   arr.sort((a, b) =>
-    a.date === b.date ? (a.source < b.source ? 1 : -1) : a.date < b.date ? 1 : -1
+    a._sort === b._sort ? (a.source < b.source ? 1 : -1) : a._sort < b._sort ? 1 : -1
   );
+  for (const e of arr) delete e._sort;
   return arr;
 }
 

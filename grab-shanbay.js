@@ -317,33 +317,95 @@ function saveWords(words) {
   fs.writeFileSync(OUT_FILE, words.map(formatWordLine).join("\n"), "utf8");
 }
 
+/* ---------------- 同一天多组词处理 ----------------
+ * 扇贝的「今日任务」在用户完成当天学习后会推进到下一组词。
+ * 如果此时再抓取，直接覆盖会丢掉今天真正要听写的单词。
+ * 因此：与已保存文件词组相同 → 原地更新；不同 → 存为同日期第 2/3… 组（-2.txt）。
+ */
+
+function wordKeySetOfLines(lines) {
+  const set = new Set();
+  for (const line of lines) {
+    const w = String(line).split("|")[0].trim().toLowerCase();
+    if (w) set.add(w);
+  }
+  return set;
+}
+
+function sameWordSet(a, b) {
+  if (a.size !== b.size) return false;
+  for (const k of a) if (!b.has(k)) return false;
+  return true;
+}
+
+function readWordKeySet(file) {
+  try {
+    return wordKeySetOfLines(fs.readFileSync(file, "utf8").split(/\r?\n/));
+  } catch (e) {
+    return new Set();
+  }
+}
+
+// 决定该日期这组词应写入哪个文件：返回 { file, group, overwritten }
+function pickGroupFile(baseFile, lines) {
+  const incoming = wordKeySetOfLines(lines);
+  if (!fs.existsSync(baseFile)) return { file: baseFile, group: 1 };
+  if (sameWordSet(readWordKeySet(baseFile), incoming)) return { file: baseFile, group: 1 };
+  const dir = path.dirname(baseFile);
+  const stem = path.basename(baseFile, ".txt");
+  for (let n = 2; n <= 9; n++) {
+    const f = path.join(dir, stem + "-" + n + ".txt");
+    if (!fs.existsSync(f)) return { file: f, group: n };
+    if (sameWordSet(readWordKeySet(f), incoming)) return { file: f, group: n };
+  }
+  throw new Error("同一天已存在 9 组不同的单词，请手动清理存档文件夹");
+}
+
 // 重建网页用的 dates.json 索引（放在项目根目录，网页/本地服务通过相对路径 fetch 读取）
 // file 统一用正斜杠，保证浏览器 URL 和跨平台可用。
+// 同一天允许多组：YYYY-MM-DD.txt 为第一组，YYYY-MM-DD-2.txt 起为后续组，
+// 下拉选项显示为「2026-09-07」「2026-09-07（第2组）」，排序时第一组排在最前（默认选中）。
 function saveDatesIndex() {
   const arr = [];
-  const seen = new Set();
+  const groupRe = /^(\d{4}-\d{2}-\d{2})(?:-(\d))?\.txt$/;
+  const seenDates = new Set();
   // 新词：优先「今日单词」子文件夹，项目根目录的历史日期文件也纳入（向后兼容）
   for (const f of fs.readdirSync(ARCHIVE_DIR)) {
-    if (/^\d{4}-\d{2}-\d{2}\.txt$/.test(f)) {
-      const date = f.slice(0, 10);
-      if (seen.has(date)) continue;
-      seen.add(date);
-      arr.push({ date, source: "扇贝", file: "今日单词/" + f });
-    }
+    const m = f.match(groupRe);
+    if (!m) continue;
+    const group = m[2] ? parseInt(m[2], 10) : 1;
+    const label = m[2] ? m[1] + "（第" + m[2] + "组）" : m[1];
+    seenDates.add(m[1]);
+    arr.push({
+      date: label,
+      source: "扇贝",
+      file: "今日单词/" + f,
+      // 99-组号：同一天内组号越小（越早抓的）排序越靠前，网页默认选中第一组
+      _sort: m[1] + "#" + String(99 - group).padStart(2, "0"),
+    });
   }
   for (const f of fs.readdirSync(DIR)) {
-    if (/^\d{4}-\d{2}-\d{2}\.txt$/.test(f)) {
-      const date = f.slice(0, 10);
-      if (seen.has(date)) continue;
-      seen.add(date);
-      arr.push({ date, source: "扇贝", file: f });
-    } else if (/^shanbay-review-\d{4}-\d{2}-\d{2}\.txt$/.test(f)) {
-      arr.push({ date: f.slice(15, 25), source: "扇贝复习", file: f });
+    const m = f.match(/^(\d{4}-\d{2}-\d{2})\.txt$/);
+    if (m && !seenDates.has(m[1])) {
+      seenDates.add(m[1]);
+      arr.push({ date: m[1], source: "扇贝", file: f, _sort: m[1] + "#98" });
+    }
+    const rm = f.match(/^shanbay-review-(\d{4}-\d{2}-\d{2})(?:-(\d))?\.txt$/);
+    if (rm) {
+      const group = rm[2] ? parseInt(rm[2], 10) : 1;
+      const label = rm[2] ? rm[1] + "（第" + rm[2] + "组）" : rm[1];
+      arr.push({
+        date: label,
+        source: "扇贝复习",
+        file: f,
+        _sort: rm[1] + "#" + String(99 - group).padStart(2, "0"),
+      });
     }
   }
   arr.sort((a, b) =>
-    a.date === b.date ? (a.source < b.source ? 1 : -1) : a.date < b.date ? 1 : -1
+    a._sort === b._sort ? (a.source < b.source ? 1 : -1) : a._sort < b._sort ? 1 : -1
   );
+  for (const e of arr) delete e._sort;
   fs.writeFileSync(path.join(DIR, "dates.json"), JSON.stringify(arr, null, 2), "utf8");
   console.log("已更新日期索引 dates.json（共 " + arr.length + " 条，最新：今日单词/）");
 }
@@ -633,10 +695,17 @@ async function testCdp() {
   const today = todayStr();
   if (!fs.existsSync(ARCHIVE_DIR)) fs.mkdirSync(ARCHIVE_DIR, { recursive: true });
   const lines = words.map(formatWordLine);
-  const dailyFile = path.join(ARCHIVE_DIR, today + ".txt");
-  fs.writeFileSync(dailyFile, lines.join("\n"), "utf8");
+  const target = pickGroupFile(path.join(ARCHIVE_DIR, today + ".txt"), lines);
+  fs.writeFileSync(target.file, lines.join("\n"), "utf8");
   fs.writeFileSync(OUT_FILE, lines.join("\n"), "utf8");
-  console.log("完成！今日 " + words.length + " 个新词（含例句、短语、辨析）已保存到：" + dailyFile);
+  if (target.group === 1) {
+    console.log("完成！今日 " + words.length + " 个新词（含例句、短语、辨析）已保存到：" + target.file);
+  } else {
+    console.log(
+      "检测到今日已保存过另一组单词（扇贝完成今日学习后，「今日任务」会推进到下一组），\n" +
+      "今日第一组已原样保留，本组 " + words.length + " 个词已保存为今日第 " + target.group + " 组：" + target.file
+    );
+  }
 
   // 今日复习词（REVIEW），单独保存为 shanbay-review-日期.txt，与新词互不覆盖
   let reviewWords = [];
@@ -651,10 +720,13 @@ async function testCdp() {
     }
     reviewWords = await fetchPhrases(reviewWords, token);
     const reviewLines = reviewWords.map(formatWordLine);
-    const reviewFile = path.join(DIR, "shanbay-review-" + today + ".txt");
-    fs.writeFileSync(reviewFile, reviewLines.join("\n"), "utf8");
+    const rTarget = pickGroupFile(path.join(DIR, "shanbay-review-" + today + ".txt"), reviewLines);
+    fs.writeFileSync(rTarget.file, reviewLines.join("\n"), "utf8");
     fs.writeFileSync(path.join(DIR, "shanbay-review-words.txt"), reviewLines.join("\n"), "utf8");
-    console.log("今日复习词 " + reviewWords.length + " 个已保存到：" + reviewFile);
+    console.log(
+      (rTarget.group === 1 ? "今日复习词 " : "今日复习词（第" + rTarget.group + "组）") +
+        reviewWords.length + " 个已保存到：" + rTarget.file
+    );
   } else {
     console.log("今日暂无复习词（REVIEW 为空）。");
   }
