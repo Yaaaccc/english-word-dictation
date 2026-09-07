@@ -1017,9 +1017,17 @@
       : "手动模式：按 Enter / ↓ / → 播下一个，↑ / ← 播上一个，🔊 重播当前";
     if (item.exampleEn && $("directionSelect").value !== "cn2en") setExamplePanel(item);
     else clearExamplePanel();
-    speakLoop(spokenText(item), parseInt(repeatSelect.value, 10), parseFloat(rateSelect.value)).then(function () {
-      afterPlayWord(item, auto);
-    });
+    var rate = parseFloat(rateSelect.value);
+    var wordDone = speakLoop(spokenText(item), parseInt(repeatSelect.value, 10), rate);
+    if ($("autoExampleBox").checked && item.exampleEn) {
+      // 自动读例句：读完单词接着读英文例句；听中文模式下不自动读（例句会剧透答案）
+      wordDone.then(function () {
+        if (!state.running || state.mode !== "play" || state.paused) return;
+        return speakLoop(item.exampleEn, 1, rate);
+      }).then(function () { afterPlayWord(item, auto); });
+    } else {
+      wordDone.then(function () { afterPlayWord(item, auto); });
+    }
   }
 
   function afterPlayWord(item, auto) {
@@ -1166,6 +1174,7 @@
       localStorage.setItem("dictationVoice", voiceSelect.value);
       localStorage.setItem("dictationDirection", directionSelect.value);
       localStorage.setItem("dictationZhVoice", zhVoiceSelect.value);
+      localStorage.setItem("dictationAutoExample", $("autoExampleBox").checked ? "1" : "0");
       $("startError").textContent = "";
       saveBtn.textContent = "已保存 ✓";
       setTimeout(function () { saveBtn.textContent = "保存单词表"; }, 1200);
@@ -1506,6 +1515,7 @@
     if (localStorage.getItem("dictationInterval")) intervalSelect.value = localStorage.getItem("dictationInterval");
     if (localStorage.getItem("dictationVoice")) voiceSelect.value = localStorage.getItem("dictationVoice");
     if (localStorage.getItem("dictationDirection")) directionSelect.value = localStorage.getItem("dictationDirection");
+    $("autoExampleBox").checked = localStorage.getItem("dictationAutoExample") === "1";
   } catch (e) { /* 忽略存储错误 */ }
   updateCount();
   if (!wordsInput.value) $("sampleBtn").click();
