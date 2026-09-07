@@ -249,6 +249,8 @@
   .hero .error-text { color: #fecaca; font-size: 14px; margin-top: 10px; min-height: 20px; }
   .hero #jumpSelect { max-width: 340px; background: rgba(255,255,255,.14); border-color: rgba(255,255,255,.35); color: #fff; }
   .hero #jumpSelect option { color: #1a2437; background: #fff; }
+  .hero #searchInput { max-width: 340px; background: rgba(255,255,255,.14); border-color: rgba(255,255,255,.35); color: #fff; }
+  .hero #searchInput::placeholder { color: rgba(255,255,255,.6); }
   .hero #playOrder { color: rgba(255,255,255,.9); }
   .hero #autoPlayBox { accent-color: #fff; }
   .hero .inline-check span { color: rgba(255,255,255,.85); font-size: 13px; }
@@ -435,6 +437,9 @@
         <div class="inline-check" style="justify-content:center;margin-top:10px;">
           <input type="checkbox" id="autoPlayBox">
           <span>自动连播（默认关闭；Enter / ↓ / → 下一个，↑ / ← 上一个，🔊 重播当前，鼠标滚轮上下切词）</span>
+        </div>
+        <div class="row" style="justify-content:center;margin-top:10px;">
+          <input id="searchInput" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="🔍 搜索单词/释义，Enter 跳到第一个匹配，Esc 清空" style="flex:1;max-width:340px;">
         </div>
         <div class="row" style="justify-content:center;margin-top:10px;">
           <select id="jumpSelect" style="flex:1;max-width:340px;"></select>
@@ -1009,9 +1014,9 @@
     var n = state.pos + 1;
     $("posLabel").textContent = "第 " + n + " / " + total + " 个";
     $("progressBar").style.width = (n / total * 100) + "%";
-    // 选词下拉框同步定位到当前正在播放的单词
+    // 选词下拉框同步定位到当前正在播放的单词（搜索过滤中不打扰）
     var sel = $("jumpSelect");
-    if (sel) sel.value = String(state.pos);
+    if (sel && !$("searchInput").value.trim()) sel.value = String(state.pos);
   }
 
   function playWord(index, auto) {
@@ -1083,28 +1088,35 @@
     state.paused = false;
     clearTimeout(playTimer);
     $("playOrder").classList.add("hidden");
+    $("searchInput").value = "";
     fillJumpSelect();
     $("pauseBtn").classList.toggle("hidden", !$("autoPlayBox").checked);
     $("pauseBtn").textContent = "暂停";
     playWord(0, $("autoPlayBox").checked);
   }
 
-  function fillJumpSelect() {
+  function fillJumpSelect(filter) {
     var sel = $("jumpSelect");
+    var q = (filter || "").trim().toLowerCase();
     sel.innerHTML = "";
     var ph = document.createElement("option");
     ph.value = "";
     ph.textContent = "选择单词（从该词开始播放）…";
     sel.appendChild(ph);
+    var matches = 0;
     state.order.forEach(function (idx, i) {
       var item = state.words[idx];
+      var hay = (item.text + " " + (item.meaning || "")).toLowerCase();
+      if (q && hay.indexOf(q) === -1) return;
+      matches++;
       var o = document.createElement("option");
       o.value = i;
       o.textContent = (i + 1) + ". " + item.text + (item.meaning ? "（" + item.meaning + "）" : "");
       sel.appendChild(o);
     });
-    // 默认定位到当前正在播放的单词（打开下拉会直接停在该项）
-    sel.value = String(state.pos);
+    if (q) ph.textContent = "匹配到 " + matches + " 个单词（选择或按 Enter 跳第一个）…";
+    // 无过滤时定位到当前正在播放的单词；有过滤时显示匹配提示
+    sel.value = q ? "" : String(state.pos);
   }
 
   function finishPlay() {
@@ -1148,6 +1160,7 @@
     $("scoreLabel").classList.add("hidden");
     $("pauseBtn").textContent = "暂停";
     $("playOrder").classList.add("hidden");
+    $("searchInput").value = "";
     fillJumpSelect();
     var auto = $("autoPlayBox").checked;
     $("pauseBtn").classList.toggle("hidden", !auto);
@@ -1410,6 +1423,36 @@
     }
     clearTimeout(playTimer);
     playWord(parseInt(v, 10), $("autoPlayBox").checked);
+  });
+  $("searchInput").addEventListener("input", function () {
+    fillJumpSelect(this.value);
+  });
+  $("searchInput").addEventListener("keydown", function (e) {
+    e.stopPropagation(); // 搜索框内按键不触发全局切词快捷键
+    if (e.key === "Enter") {
+      e.preventDefault();
+      var q = this.value.trim().toLowerCase();
+      if (!q || state.mode !== "play") return;
+      for (var i = 0; i < state.order.length; i++) {
+        var item = state.words[state.order[i]];
+        var hay = (item.text + " " + (item.meaning || "")).toLowerCase();
+        if (hay.indexOf(q) !== -1) {
+          if (!state.running) {
+            state.running = true;
+            state.paused = false;
+            $("playOrder").classList.add("hidden");
+          }
+          clearTimeout(playTimer);
+          playWord(i, $("autoPlayBox").checked);
+          this.value = "";
+          fillJumpSelect("");
+          return;
+        }
+      }
+    } else if (e.key === "Escape") {
+      this.value = "";
+      fillJumpSelect("");
+    }
   });
   $("stopBtn").addEventListener("click", function () {
     stopEverything();
