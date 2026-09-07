@@ -295,6 +295,7 @@
       </select>
       <select id="dateSelect"></select>
     </div>
+    <button class="gear-btn" id="refreshBtn" type="button">⟳ 刷新</button>
     <button class="gear-btn" id="settingsToggle" type="button">⚙ 设置</button>
   </div>
   <div class="status-pill"><span id="dateStatus">正在加载今日单词…</span></div>
@@ -429,7 +430,7 @@
         </div>
         <div class="inline-check" style="justify-content:center;margin-top:10px;">
           <input type="checkbox" id="autoPlayBox">
-          <span>自动连播（默认关闭；Enter / ↓ / → 下一个，↑ / ← 上一个，🔊 重播当前）</span>
+          <span>自动连播（默认关闭；Enter / ↓ / → 下一个，↑ / ← 上一个，🔊 重播当前，鼠标滚轮上下切词）</span>
         </div>
         <div class="row" style="justify-content:center;margin-top:10px;">
           <select id="jumpSelect" style="flex:1;max-width:340px;"></select>
@@ -1403,7 +1404,7 @@
     if (!state.running || state.mode !== "play") return;
     var auto = this.checked;
     $("pauseBtn").classList.toggle("hidden", !auto);
-    $("playNote").textContent = auto ? "正在播放，请听写在本子上…" : "手动模式：按 Enter / ↓ / → 播下一个，↑ / ← 播上一个，🔊 重播当前";
+    $("playNote").textContent = auto ? "正在播放，请听写在本子上…" : "手动模式：按 Enter / ↓ / → 播下一个，↑ / ← 播上一个，滚轮上下切词，🔊 重播当前";
     clearTimeout(playTimer);
     if (auto && !state.paused) scheduleNext();
   });
@@ -1422,6 +1423,54 @@
         e.preventDefault();
         nextWord();
       }
+    }
+  });
+
+  /* ---------- 鼠标滚轮切词（连续播放模式） ---------- */
+  var wheelLockUntil = 0;
+  document.addEventListener("wheel", function (e) {
+    if (!state.running || state.mode !== "play") return;
+    var panel = $("settingsPanel");
+    if (panel && !panel.classList.contains("hidden")) return; // 设置面板打开时不切词
+    var t = e.target;
+    if (t && (t.tagName === "TEXTAREA" || t.tagName === "SELECT" || t.tagName === "INPUT")) return;
+    var now = Date.now();
+    if (now < wheelLockUntil) return;
+    if (Math.abs(e.deltaY) < 8) return;
+    wheelLockUntil = now + 400;
+    e.preventDefault();
+    if (e.deltaY > 0) playNext(); else playPrev();
+  }, { passive: false });
+
+  /* ---------- 刷新按钮：本地触发扇贝抓取，线上重新拉取数据 ---------- */
+  $("refreshBtn").addEventListener("click", function () {
+    var btn = this;
+    var status = $("dateStatus");
+    if (btn.disabled) return;
+    var isLocal = location.hostname === "127.0.0.1" || location.hostname === "localhost";
+    btn.disabled = true;
+    if (isLocal) {
+      status.textContent = "正在抓取扇贝今日单词…（约需 1 分钟，请勿关闭页面）";
+      fetch("/api/refresh", { cache: "no-store" })
+        .then(function (r) { return r.json(); })
+        .then(function (j) {
+          if (j && j.ok) {
+            status.textContent = "抓取完成！已载入最新单词。";
+            loadDates();
+          } else {
+            status.textContent = "抓取未成功（退出码 " + (j && j.code) + "），可稍后重试。";
+          }
+        })
+        .catch(function (e) { status.textContent = "刷新失败：" + e.message; })
+        .then(function () { btn.disabled = false; });
+    } else {
+      status.textContent = "正在重新载入最新数据…";
+      fetch("dates.json?ts=" + Date.now(), { cache: "no-store" })
+        .then(function (r) { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
+        .then(function () { return loadDates(); })
+        .then(function () { status.textContent = "已重新载入最新单词数据。"; })
+        .catch(function (e) { status.textContent = "刷新失败：" + e.message; })
+        .then(function () { btn.disabled = false; });
     }
   });
 

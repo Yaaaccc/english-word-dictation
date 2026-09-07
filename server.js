@@ -3,12 +3,13 @@
 const http = require("http");
 const fs = require("fs");
 const path = require("path");
-const { exec } = require("child_process");
+const { exec, spawn } = require("child_process");
 const { DatabaseSync } = require("node:sqlite");
 
 const PORT = 8787;
 const DIR = __dirname;
 let dictDb = null;
+let refreshing = false; // 防止并发抓取
 function getDictDb() {
   if (dictDb) return dictDb;
   const dbPath = path.join(DIR, "词典", "ecdict.db");
@@ -61,6 +62,40 @@ const server = http.createServer((req, res) => {
       res.writeHead(500, { "Content-Type": "application/json; charset=utf-8" });
       res.end(JSON.stringify({ error: e.message }));
     }
+    return;
+  }
+
+  // 刷新接口：触发一次扇贝抓取（本地网页「刷新」按钮调用），最长 3 分钟
+  if (urlPath === "/api/refresh") {
+    if (refreshing) {
+      res.writeHead(429, { "Content-Type": "application/json; charset=utf-8" });
+      res.end(JSON.stringify({ error: "已有抓取在进行中，请稍候" }));
+      return;
+    }
+    refreshing = true;
+    console.log("[" + new Date().toLocaleTimeString() + "] 收到刷新请求，开始抓取扇贝单词…");
+    const child = spawn(process.execPath, [path.join(DIR, "grab-shanbay.js")], {
+      cwd: DIR,
+      env: Object.assign({}, process.env, { GRAB_HEADLESS: "1", SERVER_NO_OPEN: "1" }),
+      stdio: "ignore",
+    });
+    let done = false;
+    const finish = (code) => {
+      if (done) return;
+      done = true;
+      refreshing = false;
+      clearTimeout(killer);
+      console.log("[" + new Date().toLocaleTimeString() + "] 抓取结束，退出码 " + code);
+      res.writeHead(200, { "Content-Type": "application/json; charset=utf-8", "Cache-Control": "no-store" });
+      res.end(JSON.stringify({ ok: code === 0, code: code }));
+    };
+    const killer = setTimeout(() => {
+      console.log("抓取超时（3 分钟），强制终止");
+      try { child.kill(); } catch (e) {}
+      finish(124);
+    }, 180000);
+    child.on("close", (code) => finish(code));
+    child.on("error", () => finish(-1));
     return;
   }
 
