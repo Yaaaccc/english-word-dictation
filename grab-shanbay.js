@@ -698,8 +698,15 @@ async function testCdp() {
   // ---- 每日配额切分 ----
   // 扇贝会把前几天没学完的词一起带进「今日任务」（例如昨天忘学 → 今天一次拿到 200 词）。
   // 这里按每天固定 quota 词切分：今天的归今天，多出来的按「是否已在更早日期存档」处理。
-  const anchorKeys = quota.readDailyFileWords(path.join(ARCHIVE_DIR, today + ".txt"));
-  const split = quota.splitDailySmart(words, { anchorKeys: anchorKeys });
+  const baseDailyFile = path.join(ARCHIVE_DIR, today + ".txt");
+  const anchorKeys = quota.readDailyFileWords(baseDailyFile);
+  const earlierAll = quota.readEarlierWordSet(DIR, today);
+  const recentKeys = quota.readRecentWordSet(DIR, today, quota.RECENT_DAYS);
+  const split = quota.splitDailySmart(words, {
+    anchorKeys: anchorKeys,
+    recentKeys: recentKeys,
+    allEarlierKeys: earlierAll,
+  });
   const todayWords = split.today.length ? split.today : words;
   if (split.overflow.length) {
     console.log("今日任务共 " + words.length + " 词，超过每日 " + split.quota + " 词配额（多出的是前几天没学完的词）：");
@@ -707,8 +714,14 @@ async function testCdp() {
       "  · 计入今天：" + todayWords.length + " 词" +
         (split.anchored ? "（以今天已存档的词为锚点）" : "（取接口返回的前 " + split.quota + " 个）")
     );
-    const earlier = quota.readEarlierWordSet(DIR, today);
-    const unarchived = quota.pickUnarchived(split.overflow, earlier);
+    if (split.swapped) {
+      console.log(
+        "  · 与近 " + quota.RECENT_DAYS + " 天的词逐个对比：换出 " + split.swapped + " 个重复词（归更早的日期）" +
+          (split.filled ? "，并从多出的词里补进 " + split.filled + " 个" : "") +
+          "，保证两天不重复"
+      );
+    }
+    const unarchived = quota.pickUnarchived(split.overflow, earlierAll);
     if (unarchived.length) {
       const catchUp = path.join(ARCHIVE_DIR, today + "-补.txt");
       fs.writeFileSync(catchUp, unarchived.map(formatWordLine).join("\n"), "utf8");
@@ -719,7 +732,11 @@ async function testCdp() {
   }
 
   const lines = todayWords.map(formatWordLine);
-  const target = pickGroupFile(path.join(ARCHIVE_DIR, today + ".txt"), lines);
+  // 配额切分（带锚点比对）的结果就是"今天该有的词"，直接覆盖今天的文件，
+  // 不能再走 pickGroupFile 的"词组不同就存第 2 组"分支——那是给"学完后任务推进到下一组"用的。
+  const target = split.anchored && fs.existsSync(baseDailyFile)
+    ? { file: baseDailyFile, group: 1, overwritten: true }
+    : pickGroupFile(baseDailyFile, lines);
   fs.writeFileSync(target.file, lines.join("\n"), "utf8");
   fs.writeFileSync(OUT_FILE, lines.join("\n"), "utf8");
   if (target.group === 1) {
@@ -745,7 +762,11 @@ async function testCdp() {
     reviewWords = await fetchPhrases(reviewWords, token);
     // 复习词同样按每日配额切分（今天忘复习 → 明天会一次带出两天的量）
     const rAnchor = quota.readDailyFileWords(path.join(DIR, "shanbay-review-" + today + ".txt"));
-    const rSplit = quota.splitDailySmart(reviewWords, { anchorKeys: rAnchor });
+    const rSplit = quota.splitDailySmart(reviewWords, {
+      anchorKeys: rAnchor,
+      recentKeys: recentKeys,
+      allEarlierKeys: earlierAll,
+    });
     const todayReview = rSplit.today.length ? rSplit.today : reviewWords;
     if (rSplit.overflow.length) {
       console.log(
