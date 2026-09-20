@@ -64,7 +64,10 @@ function api(method, apiPath, body) {
 // 排序时同一天内第一组排在最前（网页默认选中第一组）。
 function buildDates() {
   const ARCHIVE_DIR = path.join(DIR, "今日单词");
-  const groupRe = /^(\d{4}-\d{2}-\d{2})(?:-(\d))?\.txt$/;
+  // 后缀：无 / 数字（第N组）/ 补（补课组）
+  const groupRe = /^(\d{4}-\d{2}-\d{2})(?:-(\d+|补))?\.txt$/;
+  const sortKeyOf = (suf) => (suf === "补" ? "97b" : String(99 - (suf ? parseInt(suf, 10) : 1)).padStart(2, "0"));
+  const labelOf = (date, suf) => (suf ? date + (suf === "补" ? "（补课）" : "（第" + suf + "组）") : date);
   const archiveFiles = fs.existsSync(ARCHIVE_DIR) ? fs.readdirSync(ARCHIVE_DIR) : [];
   const files = fs.readdirSync(DIR);
   const seenDates = new Set();
@@ -74,14 +77,12 @@ function buildDates() {
     .map((f) => f.match(groupRe))
     .filter(Boolean)
     .forEach((m) => {
-      const group = m[2] ? parseInt(m[2], 10) : 1;
       seenDates.add(m[1]);
       arr.push({
-        date: m[2] ? m[1] + "（第" + m[2] + "组）" : m[1],
+        date: labelOf(m[1], m[2]),
         source: "扇贝",
         file: "今日单词/" + m[0],
-        // 99-组号：同一天内组号越小（越早抓的）排序越靠前，网页默认选中第一组
-        _sort: m[1] + "#" + String(99 - group).padStart(2, "0"),
+        _sort: m[1] + "#" + sortKeyOf(m[2]),
       });
     });
   files
@@ -93,15 +94,14 @@ function buildDates() {
       arr.push({ date: m[1], source: "扇贝", file: m[0], _sort: m[1] + "#98" });
     });
   files
-    .map((f) => f.match(/^shanbay-review-(\d{4}-\d{2}-\d{2})(?:-(\d))?\.txt$/))
+    .map((f) => f.match(/^shanbay-review-(\d{4}-\d{2}-\d{2})(?:-(\d+|补))?\.txt$/))
     .filter(Boolean)
     .forEach((m) => {
-      const group = m[2] ? parseInt(m[2], 10) : 1;
       arr.push({
-        date: m[2] ? m[1] + "（第" + m[2] + "组）" : m[1],
+        date: labelOf(m[1], m[2]),
         source: "扇贝复习",
         file: m[0],
-        _sort: m[1] + "#" + String(99 - group).padStart(2, "0"),
+        _sort: m[1] + "#" + sortKeyOf(m[2]),
       });
     });
   arr.sort((a, b) =>

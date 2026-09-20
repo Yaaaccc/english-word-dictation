@@ -22,6 +22,7 @@ const https = require("https");
 const { spawn } = require("child_process");
 
 const bays4 = require("./bays4.js");
+const quota = require("./word-quota.js"); // 每日词量配额切分（每天固定 100 词）
 
 const DIR = __dirname;
 // 扇贝每日新词统一归档到「今日单词」子文件夹，网页 dates.json / GitHub 同步都从这里读
@@ -367,21 +368,22 @@ function pickGroupFile(baseFile, lines) {
 // 下拉选项显示为「2026-09-07」「2026-09-07（第2组）」，排序时第一组排在最前（默认选中）。
 function saveDatesIndex() {
   const arr = [];
-  const groupRe = /^(\d{4}-\d{2}-\d{2})(?:-(\d))?\.txt$/;
+  // 后缀：无 / 数字（第N组）/ 补（补课组）
+  const groupRe = /^(\d{4}-\d{2}-\d{2})(?:-(\d+|补))?\.txt$/;
+  // 排序键：组号越小越靠前；「补课」紧随第一组之后
+  const sortKeyOf = (suf) => (suf === "补" ? "97b" : String(99 - (suf ? parseInt(suf, 10) : 1)).padStart(2, "0"));
+  const labelOf = (date, suf) => (suf ? date + (suf === "补" ? "（补课）" : "（第" + suf + "组）") : date);
   const seenDates = new Set();
   // 新词：优先「今日单词」子文件夹，项目根目录的历史日期文件也纳入（向后兼容）
   for (const f of fs.readdirSync(ARCHIVE_DIR)) {
     const m = f.match(groupRe);
     if (!m) continue;
-    const group = m[2] ? parseInt(m[2], 10) : 1;
-    const label = m[2] ? m[1] + "（第" + m[2] + "组）" : m[1];
     seenDates.add(m[1]);
     arr.push({
-      date: label,
+      date: labelOf(m[1], m[2]),
       source: "扇贝",
       file: "今日单词/" + f,
-      // 99-组号：同一天内组号越小（越早抓的）排序越靠前，网页默认选中第一组
-      _sort: m[1] + "#" + String(99 - group).padStart(2, "0"),
+      _sort: m[1] + "#" + sortKeyOf(m[2]),
     });
   }
   for (const f of fs.readdirSync(DIR)) {
@@ -390,15 +392,13 @@ function saveDatesIndex() {
       seenDates.add(m[1]);
       arr.push({ date: m[1], source: "扇贝", file: f, _sort: m[1] + "#98" });
     }
-    const rm = f.match(/^shanbay-review-(\d{4}-\d{2}-\d{2})(?:-(\d))?\.txt$/);
+    const rm = f.match(/^shanbay-review-(\d{4}-\d{2}-\d{2})(?:-(\d+|补))?\.txt$/);
     if (rm) {
-      const group = rm[2] ? parseInt(rm[2], 10) : 1;
-      const label = rm[2] ? rm[1] + "（第" + rm[2] + "组）" : rm[1];
       arr.push({
-        date: label,
+        date: labelOf(rm[1], rm[2]),
         source: "扇贝复习",
         file: f,
-        _sort: rm[1] + "#" + String(99 - group).padStart(2, "0"),
+        _sort: rm[1] + "#" + sortKeyOf(rm[2]),
       });
     }
   }
@@ -694,16 +694,40 @@ async function testCdp() {
 
   const today = todayStr();
   if (!fs.existsSync(ARCHIVE_DIR)) fs.mkdirSync(ARCHIVE_DIR, { recursive: true });
-  const lines = words.map(formatWordLine);
+
+  // ---- 每日配额切分 ----
+  // 扇贝会把前几天没学完的词一起带进「今日任务」（例如昨天忘学 → 今天一次拿到 200 词）。
+  // 这里按每天固定 quota 词切分：今天的归今天，多出来的按「是否已在更早日期存档」处理。
+  const anchorKeys = quota.readDailyFileWords(path.join(ARCHIVE_DIR, today + ".txt"));
+  const split = quota.splitDailySmart(words, { anchorKeys: anchorKeys });
+  const todayWords = split.today.length ? split.today : words;
+  if (split.overflow.length) {
+    console.log("今日任务共 " + words.length + " 词，超过每日 " + split.quota + " 词配额（多出的是前几天没学完的词）：");
+    console.log(
+      "  · 计入今天：" + todayWords.length + " 词" +
+        (split.anchored ? "（以今天已存档的词为锚点）" : "（取接口返回的前 " + split.quota + " 个）")
+    );
+    const earlier = quota.readEarlierWordSet(DIR, today);
+    const unarchived = quota.pickUnarchived(split.overflow, earlier);
+    if (unarchived.length) {
+      const catchUp = path.join(ARCHIVE_DIR, today + "-补.txt");
+      fs.writeFileSync(catchUp, unarchived.map(formatWordLine).join("\n"), "utf8");
+      console.log("  · 多出的 " + split.overflow.length + " 词中有 " + unarchived.length + " 个从未存档，已另存为补课组：" + catchUp);
+    } else {
+      console.log("  · 多出的 " + split.overflow.length + " 词均已在更早日期的存档中，未重复保存");
+    }
+  }
+
+  const lines = todayWords.map(formatWordLine);
   const target = pickGroupFile(path.join(ARCHIVE_DIR, today + ".txt"), lines);
   fs.writeFileSync(target.file, lines.join("\n"), "utf8");
   fs.writeFileSync(OUT_FILE, lines.join("\n"), "utf8");
   if (target.group === 1) {
-    console.log("完成！今日 " + words.length + " 个新词（含例句、短语、辨析）已保存到：" + target.file);
+    console.log("完成！今日 " + todayWords.length + " 个新词（含例句、短语、辨析）已保存到：" + target.file);
   } else {
     console.log(
       "检测到今日已保存过另一组单词（扇贝完成今日学习后，「今日任务」会推进到下一组），\n" +
-      "今日第一组已原样保留，本组 " + words.length + " 个词已保存为今日第 " + target.group + " 组：" + target.file
+      "今日第一组已原样保留，本组 " + todayWords.length + " 个词已保存为今日第 " + target.group + " 组：" + target.file
     );
   }
 
@@ -719,6 +743,24 @@ async function testCdp() {
       reviewWords = await fetchExamples(reviewWords, book.dictId, token);
     }
     reviewWords = await fetchPhrases(reviewWords, token);
+    // 复习词同样按每日配额切分（今天忘复习 → 明天会一次带出两天的量）
+    const rAnchor = quota.readDailyFileWords(path.join(DIR, "shanbay-review-" + today + ".txt"));
+    const rSplit = quota.splitDailySmart(reviewWords, { anchorKeys: rAnchor });
+    const todayReview = rSplit.today.length ? rSplit.today : reviewWords;
+    if (rSplit.overflow.length) {
+      console.log(
+        "复习词共 " + reviewWords.length + " 个，超过每日 " + rSplit.quota + " 配额：计入今天 " + todayReview.length +
+          " 个，多出的 " + rSplit.overflow.length + " 个为往期未复习词"
+      );
+      const rEarlier = quota.readEarlierWordSet(DIR, today);
+      const rUnarchived = quota.pickUnarchived(rSplit.overflow, rEarlier);
+      if (rUnarchived.length) {
+        const f = path.join(DIR, "shanbay-review-" + today + "-补.txt");
+        fs.writeFileSync(f, rUnarchived.map(formatWordLine).join("\n"), "utf8");
+        console.log("  · 其中 " + rUnarchived.length + " 个从未存档，已另存为：" + f);
+      }
+    }
+    reviewWords = todayReview;
     const reviewLines = reviewWords.map(formatWordLine);
     const rTarget = pickGroupFile(path.join(DIR, "shanbay-review-" + today + ".txt"), reviewLines);
     fs.writeFileSync(rTarget.file, reviewLines.join("\n"), "utf8");
