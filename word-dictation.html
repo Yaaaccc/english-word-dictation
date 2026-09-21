@@ -680,7 +680,9 @@
     return item.text;
   }
 
-  function speakTTS(text, rate, onEnd) {
+  function speakTTS(text, rate, onEnd, token) {
+    // 已被切走的词：不再出声（避免快速划过后旧词又被念一遍）
+    if (typeof token === "number" && token !== speechToken) return;
     if (!("speechSynthesis" in window)) {
       if (onEnd) setTimeout(onEnd, 0);
       return;
@@ -710,52 +712,64 @@
     return t.split(/\s+/).filter(Boolean).length <= 3;
   }
 
-  function playOnline(text, rate, onEnd) {
+  function playOnline(text, rate, onEnd, token) {
     try {
       if (!onlineAudio) onlineAudio = new Audio();
       var a = onlineAudio;
       var done = false;
-      var started = false;
       var finish = function (ok) {
         if (done) return;
         done = true;
         a.onended = a.onerror = a.oncanplay = null;
         clearTimeout(timer);
+        // 已被切走（快速划词）：不回调，避免触发"失败→TTS 兜底"把旧词念出来
+        if (typeof token === "number" && token !== speechToken) return;
         if (onEnd) onEnd(ok);
       };
       var timer = setTimeout(function () { finish(false); }, 6000); //迟迟无法播放则视为失败
       a.onended = function () { finish(true); };
       a.onerror = function () { finish(false); };
-      a.oncanplay = function () { started = true; };
+      a.oncanplay = function () {};
       a.src = "https://dict.youdao.com/dictvoice?audio=" + encodeURIComponent(text) + "&type=2";
       try { a.playbackRate = Math.min(2, Math.max(0.5, rate || 1)); } catch (e) {}
       var p = a.play();
       if (p && p.catch) p.catch(function () { finish(false); });
     } catch (e) {
+      if (typeof token === "number" && token !== speechToken) return;
       if (onEnd) onEnd(false);
     }
   }
 
-  function speak(text, rate, onEnd) {
+  function speak(text, rate, onEnd, token) {
+    if (typeof token === "number" && token !== speechToken) return; // 已切走：直接不出声
     var ttsUsable = ("speechSynthesis" in window) && voices.length > 0;
     var preferOnline = !ttsUsable || isShortEnText(text);
     if (!preferOnline) {
-      speakTTS(text, rate, onEnd);
+      speakTTS(text, rate, onEnd, token);
       return;
     }
     playOnline(text, rate, function (ok) {
+      if (typeof token === "number" && token !== speechToken) return; // 已切走：不回退、不出声
       if (ok) {
         if (onEnd) onEnd();
       } else {
-        speakTTS(text, rate, onEnd); // 在线发音失败时回退本机语音
+        speakTTS(text, rate, onEnd, token); // 在线发音失败时回退本机语音
       }
-    });
+    }, token);
   }
 
   function stopSpeech() {
     speechToken++;
-    if ("speechSynthesis" in window) speechSynthesis.cancel();
-    if (onlineAudio) { try { onlineAudio.pause(); } catch (e) {} }
+    if ("speechSynthesis" in window) { try { speechSynthesis.cancel(); } catch (e) {} }
+    if (onlineAudio) {
+      try {
+        // 光 pause() 拦不住"仍在下载中"的音频，它加载完照样出声；这里直接卸载音源
+        onlineAudio.onended = onlineAudio.onerror = onlineAudio.oncanplay = null;
+        onlineAudio.pause();
+        onlineAudio.removeAttribute("src");
+        onlineAudio.load();
+      } catch (e) {}
+    }
   }
 
   function speakLoop(text, n, rate) {
@@ -765,7 +779,7 @@
         if (token !== speechToken) { resolve(); return; }
         if (n <= 0) { resolve(); return; }
         n--;
-        speak(text, rate, step);
+        speak(text, rate, step, token);
       };
       step();
     });
