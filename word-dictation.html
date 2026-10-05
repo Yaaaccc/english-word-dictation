@@ -525,6 +525,86 @@ button.small{ padding:6px 12px; font-size:12.5px; }
 #diffLabel.ex-label:not(.hidden) + #diffText:empty{ display:none; }
 .ex-head:empty{ display:none; }
 
+/* ============================================================
+   9. 学习记录层（③④⑤⑥⑦⑧）
+   ------------------------------------------------------------
+   与 v4 同口径：一个色相、靠"面差 + 间距 + 分隔线"分层，不加装饰。
+   ============================================================ */
+.progress{ cursor:pointer; }              /* ⑥ 进度条可点 */
+.stats-top{ display:grid; grid-template-columns:repeat(4,1fr); gap:12px; }
+@media (max-width:640px){ .stats-top{ grid-template-columns:repeat(2,1fr); } }
+.stat-box{
+  background:var(--field); border:1px solid var(--line); border-radius:var(--r-m);
+  padding:12px 14px; display:flex; flex-direction:column; gap:3px;
+}
+.stat-box b{
+  font-size:24px; font-weight:700; color:var(--ink); letter-spacing:-.5px;
+  font-variant-numeric:tabular-nums; line-height:1.15;
+}
+.stat-box span{ font-size:11.5px; color:var(--muted-2); letter-spacing:.2px; }
+
+/* 迷你柱状图：柱高=当天听写词数；红色一段=当天标记/答错的词 */
+.mini-bars{ display:flex; align-items:flex-end; gap:5px; height:96px; padding:6px 2px 0; }
+.mini-col{ flex:1 1 0; min-width:0; display:flex; flex-direction:column; justify-content:flex-end; align-items:center; gap:5px; }
+.mini-stack{
+  width:100%; max-width:26px; border-radius:4px 4px 0 0; overflow:hidden;
+  display:flex; flex-direction:column; justify-content:flex-end; background:var(--blue-soft);
+  min-height:2px;
+}
+.mini-stack .seg-mark{ background:var(--red); }
+.mini-stack .seg-ok{ background:var(--blue); }
+.mini-col .d{ font-size:9.5px; color:var(--muted-2); white-space:nowrap; letter-spacing:-.2px; }
+.mini-col.today .d{ color:var(--blue-d); font-weight:700; }
+
+.stats-scroll{ max-height:36vh; overflow:auto; margin-top:2px; }
+.stats-scroll .result-table{ font-size:12.5px; }
+.stats-empty{ padding:16px 2px; color:var(--muted-2); font-size:13px; }
+#statsPanel kbd{
+  font:600 10.5px/1 ui-monospace,Consolas,monospace; color:var(--ink-2);
+  background:var(--field); border:1px solid var(--line); border-bottom-width:2px;
+  border-radius:5px; padding:2px 5px; margin:0 1px;
+}
+.stats-sub{ font-size:12px; color:var(--muted-2); margin:6px 0 0; line-height:1.7; }
+
+/* 轻提示 */
+.toast{
+  position:fixed; left:50%; bottom:30px; transform:translate(-50%,12px);
+  background:var(--ink); color:#fff; font-size:13px; padding:9px 17px; border-radius:999px;
+  box-shadow:0 12px 32px -14px rgba(0,0,0,.55); z-index:300; opacity:0;
+  transition:opacity .18s, transform .18s; pointer-events:none; max-width:88vw;
+  text-align:center;
+}
+.toast.show{ opacity:.95; transform:translate(-50%,0); }
+
+/* ============================================================
+   10. 打印（⑧ 导出错词 PDF）
+   ------------------------------------------------------------
+   打印时只留 #printArea：body 的其他直接子元素全部隐藏。
+   横版更适合表格；每行右侧留一条虚线书写栏。
+   ============================================================ */
+.print-only{ display:none; }
+@media print{
+  @page{ size:A4 landscape; margin:12mm; }
+  body{ background:#fff !important; padding:0 !important; margin:0 !important; }
+  body > *:not(#printArea){ display:none !important; }
+  #printArea{ display:block !important; }
+  #printArea h1{ font:700 17pt/1.35 "Segoe UI","Microsoft YaHei",sans-serif; margin:0 0 3pt; color:#000; }
+  #printArea .pmeta{ font:9pt/1.6 "Segoe UI","Microsoft YaHei",sans-serif; color:#666; margin:0 0 10pt; }
+  #printArea table{ width:100%; border-collapse:collapse; }
+  #printArea th{
+    font:700 9pt/1 "Segoe UI","Microsoft YaHei",sans-serif; letter-spacing:1px; color:#777;
+    text-align:left; padding:0 6pt 5pt; border-bottom:1.4pt solid #333;
+  }
+  #printArea td{
+    font:11pt/1.6 "Segoe UI","Microsoft YaHei",sans-serif; color:#000;
+    padding:5pt 6pt 14pt; border-bottom:.6pt dotted #999; vertical-align:top;
+  }
+  /* ⚠ 不要用"独立书写列 + 靠高度凑虚线位置"的写法：单元格是 vertical-align 定位的，
+     虚线会跑到文字上方。直接让每行的底边就是书写线，通栏、且位置天然正确。 */
+  #printArea .pnum{ width:26pt; color:#999; }
+  #printArea .pfoot{ margin-top:10pt; font:9pt/1.6 "Segoe UI","Microsoft YaHei",sans-serif; color:#888; }
+}
+
 </style>
 <style id="palette-purple">
 /* 主色：紫 B · 紫海 #7A3FD4（Yac 指定）*/
@@ -605,6 +685,12 @@ body{
         <svg viewBox="0 0 24 24" fill="none">
           <path d="M20.5 12a8.5 8.5 0 1 1-2.6-6.1" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/>
           <path d="M20.9 3.6v5h-5" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      <button class="icon-btn" id="statsToggle" type="button" title="学习记录（累计 / 连续天数 / 错词本）" aria-label="学习记录">
+        <svg viewBox="0 0 24 24" fill="none">
+          <path d="M4.2 19.4V11M9.6 19.4V5M15 19.4v-6.2M20.4 19.4V8.2" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/>
+          <path d="M2.6 20.6h18.8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" opacity=".45"/>
         </svg>
       </button>
       <button class="icon-btn" id="settingsToggle" type="button" title="设置" aria-label="设置">
@@ -694,6 +780,50 @@ body{
         <div class="hint" id="voiceHint">正在加载语音列表…</div>
       </div>
     </div>
+  </div>
+</section>
+
+<section class="settings hidden" id="statsPanel">
+  <div class="settings-inner">
+    <div class="stats-top">
+      <div class="stat-box"><b id="stTotal">0</b><span>累计听写词数</span></div>
+      <div class="stat-box"><b id="stStreak">0</b><span>连续练习天数</span></div>
+      <div class="stat-box"><b id="stWrong">0</b><span>错词本词数</span></div>
+      <div class="stat-box"><b id="stAccuracy">—</b><span>打字模式正确率</span></div>
+    </div>
+
+    <h3 style="margin:22px 0 10px;">最近 14 天</h3>
+    <div class="mini-bars" id="miniBars"></div>
+    <p class="stats-sub">柱高 = 当天听写词数；柱里红色一段 = 当天标记 / 答错的词。悬停可看具体数字。</p>
+
+    <h3 style="margin:22px 0 8px;">历次记录</h3>
+    <div class="stats-scroll">
+      <table class="result-table">
+        <thead><tr><th>日期</th><th>模式</th><th>词数</th><th>对</th><th>错 / 标记</th><th>正确率</th></tr></thead>
+        <tbody id="histBody"></tbody>
+      </table>
+    </div>
+
+    <h3 style="margin:22px 0 8px;">错词本</h3>
+    <div class="row" style="margin-bottom:9px;">
+      <button class="primary small" id="practiceWrongBtn" type="button">只练错词本</button>
+      <button class="small" id="exportWrongBtn" type="button">导出错词 PDF</button>
+      <button class="small" id="copyWrongBtn" type="button">复制错词</button>
+      <button class="small" id="clearWrongBtn" type="button">清空错词本</button>
+      <button class="small hidden" id="restoreWordsBtn" type="button">恢复上次单词表</button>
+      <span class="count" id="wrongBookCount" style="margin:0 0 0 auto;"></span>
+    </div>
+    <div class="stats-scroll">
+      <table class="result-table">
+        <thead><tr><th>单词</th><th>释义</th><th>错过</th><th>连对</th><th></th></tr></thead>
+        <tbody id="wrongBookBody"></tbody>
+      </table>
+    </div>
+    <p class="stats-sub">
+      连续播放时按 <kbd>M</kbd> 记下没写出来的词；同一个词<b>错过一次就进本子</b>，
+      之后<b>连续两轮都没被标记</b>（或打字模式连续答对两次）就自动移出。
+      点「只练错词本」会把上方单词表换成错词本里的词并直接开始连播（原单词表会自动备份，可点旁边按钮找回）。
+    </p>
   </div>
 </section>
 
@@ -872,6 +1002,10 @@ body{
         <div class="kbd-item">
           <span class="keys"><kbd>R</kbd></span>
           <span>重播当前单词</span>
+        </div>
+        <div class="kbd-item">
+          <span class="keys"><kbd>M</kbd></span>
+          <span>记下这个词（没写出来的）</span>
         </div>
         <div class="kbd-item">
           <span class="keys"><kbd>X</kbd></span>
@@ -2038,6 +2172,33 @@ body{
     showOnly("idleView");
   });
 
+  /* ---------- 供「学习记录层」调用的只读接口 ----------
+     记录层是一段独立的附加脚本，拿不到这里的 state，
+     所以在这里开一扇小窗：只暴露"读当前状态"和两个小动作（跳转 / 暂停切换）。
+     ⚠ 除了本块，记录层不改动主逻辑任何一行。 */
+  window.__dictationHooks = {
+    isRunning: function () { return !!state.running; },
+    mode: function () { return state.mode; },
+    total: function () { return state.words.length; },
+    words: function () { return state.words.slice(); },
+    currentWord: function () {
+      if (!state.running || !state.words.length) return null;
+      return state.words[state.order[state.pos]] || null;
+    },
+    /* ⑥ 跳到第 i 个（从 0 数）。只在连续播放模式下有实际动作。 */
+    jumpTo: function (i) {
+      if (!state.running || state.mode !== "play") return false;
+      var n = state.words.length;
+      if (!n) return false;
+      i = Math.max(0, Math.min(n - 1, i | 0));
+      clearTimeout(playTimer);
+      playWord(i, $("autoPlayBox").checked);
+      return true;
+    },
+    /* ⑦ 暂停 / 继续 */
+    togglePause: function () { togglePause(); }
+  };
+
   /* ---------- 初始化 ---------- */
 
   if ("speechSynthesis" in window) {
@@ -2275,6 +2436,489 @@ body{
   });
 })();
 
+</script>
+<div id="printArea" class="print-only"></div>
+
+<script>
+/* ============================================================
+   学习记录层 —— ③历史记录 ④跨天错词本 ⑤累计与连续天数 ⑥进度条跳转 ⑦空格暂停 ⑧导出错词 PDF
+   ------------------------------------------------------------
+   口径：**不碰主逻辑**。所有状态靠 window.__dictationHooks 读，所有面板自己渲染。
+   存储（都做 try/catch，坏数据不让页面崩）：
+     dictationHistory    [{ts,date,mode,total,ok,mark}]        最近 200 轮
+     dictationWrongBook  {单词: {text,meaning,miss,streak,ts}} 跨天累积
+     dictationWordsBackup                                      「只练错词本」前的单词表备份
+   轮次结束的判定：
+     打字模式 = #allBody 被 finishType() 重写
+     连播模式 = #playOrderList 被 finishPlay() 重写
+     （不盯 #doneView 的 class —— 第二轮同分会因为 class 没变而漏记）
+   ============================================================ */
+(function () {
+  "use strict";
+  var $ = function (id) { return document.getElementById(id); };
+  var LS_HIST = "dictationHistory";
+  var LS_BOOK = "dictationWrongBook";
+  var LS_BAK = "dictationWordsBackup";
+  var MAX_HIST = 200;
+
+  /* ---------------- 存储 ---------------- */
+  function readRaw(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
+  function readJSON(k, dflt) {
+    var raw = readRaw(k);
+    if (!raw) return dflt;
+    try { var v = JSON.parse(raw); return (v === null || v === undefined) ? dflt : v; } catch (e) { return dflt; }
+  }
+  function writeJSON(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); return true; } catch (e) { return false; } }
+
+  function getHist() { var h = readJSON(LS_HIST, []); return Object.prototype.toString.call(h) === "[object Array]" ? h : []; }
+  function getBook() {
+    var b = readJSON(LS_BOOK, {});
+    return (b && typeof b === "object" && Object.prototype.toString.call(b) !== "[object Array]") ? b : {};
+  }
+  function pad2(n) { return (n < 10 ? "0" : "") + n; }
+  function dateKey(d) { return d.getFullYear() + "-" + pad2(d.getMonth() + 1) + "-" + pad2(d.getDate()); }
+  function today() { return dateKey(new Date()); }
+
+  /* 错词本的单笔记账（用于「按 M 记下这个词」）：
+     错过 -> miss+1、连对归零 -> 进本子。
+     "答对"的那一侧不在这里 —— 它要按整轮批量处理，见 recordTyped / recordPlay。 */
+  function bumpMiss(text, meaning) {
+    if (!text) return;
+    var b = getBook();
+    var e = b[text] || { text: text, meaning: meaning || "", miss: 0, streak: 0, ts: 0 };
+    e.text = text;
+    if (meaning) e.meaning = meaning;
+    e.miss = (e.miss || 0) + 1;
+    e.streak = 0;
+    e.ts = Date.now();
+    b[text] = e;
+    writeJSON(LS_BOOK, b);
+  }
+  function bookList() {
+    var b = getBook(), out = [];
+    for (var k in b) { if (Object.prototype.hasOwnProperty.call(b, k)) out.push(b[k]); }
+    out.sort(function (x, y) { return (y.miss || 0) - (x.miss || 0) || String(x.text).localeCompare(String(y.text)); });
+    return out;
+  }
+
+  function pushHist(rec) {
+    var h = getHist();
+    h.push(rec);
+    if (h.length > MAX_HIST) h = h.slice(h.length - MAX_HIST);
+    writeJSON(LS_HIST, h);
+  }
+
+  /* ---------------- 轻提示 ---------------- */
+  var toastEl = null, toastTimer = null;
+  function toast(msg) {
+    if (!toastEl) {
+      toastEl = document.createElement("div");
+      toastEl.className = "toast";
+      document.body.appendChild(toastEl);
+    }
+    toastEl.textContent = msg;
+    toastEl.classList.add("show");
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function () { toastEl.classList.remove("show"); }, 2000);
+  }
+
+  /* ---------------- 轮次结束：记账 ---------------- */
+  function recordTyped() {
+    var body = $("allBody");
+    if (!body) return;
+    var rows = [];
+    Array.prototype.forEach.call(body.querySelectorAll("tr"), function (tr) {
+      var td = tr.querySelectorAll("td");
+      if (td.length >= 5) {
+        rows.push({
+          text: (td[1].textContent || "").trim(),
+          meaning: (td[2].textContent || "").trim(),
+          ok: (td[4].textContent || "").indexOf("✓") >= 0
+        });
+      }
+    });
+    if (!rows.length) return;
+    /* 一次读、一次写 —— 别按词逐个写 localStorage（50 个词就是几十次写盘）。 */
+    var b = getBook(), ok = 0, wrong = 0;
+    rows.forEach(function (r) {
+      if (!r.text) return;
+      if (r.ok) {
+        ok++;
+        var e = b[r.text];                       // 不在本子里的词不用管
+        if (!e) return;
+        e.streak = (e.streak || 0) + 1;
+        e.ts = Date.now();
+        if (e.streak >= 2) delete b[r.text];      // 连对两次 -> 移出
+        else b[r.text] = e;
+      } else {
+        wrong++;
+        var w = b[r.text] || { text: r.text, meaning: "", miss: 0, streak: 0, ts: 0 };
+        w.text = r.text;
+        if (r.meaning && r.meaning !== "—") w.meaning = r.meaning;
+        w.miss = (w.miss || 0) + 1;
+        w.streak = 0;                             // 错过就进本子（连对清零）
+        w.ts = Date.now();
+        b[r.text] = w;
+      }
+    });
+    writeJSON(LS_BOOK, b);
+    pushHist({ ts: Date.now(), date: today(), mode: "type", total: rows.length, ok: ok, mark: wrong });
+    refresh();
+  }
+
+  var markedThisRound = [];   // 本轮按 M 记下的词
+  function recordPlay() {
+    var h = window.__dictationHooks;
+    if (!h) return;
+    var words = h.words() || [];
+    if (!words.length) return;
+    /* 一次读、一次写：本轮**没被标记过**、且已经在错词本里的词 -> 连对 +1，攒到 2 次移出。
+       （被标记的词在按 M 那一刻就已经落盘了，这里不重复记账。）
+       这套规则专为"纸上默写"设计：一个词连着两轮都没被标出来，就认为你会写了。 */
+    var b = getBook(), changed = false;
+    words.forEach(function (w) {
+      var t = String(w.text || "").trim();
+      if (!t || markedThisRound.indexOf(t) >= 0) return;
+      var e = b[t];
+      if (!e) return;
+      e.streak = (e.streak || 0) + 1;
+      e.ts = Date.now();
+      if (e.streak >= 2) delete b[t];
+      changed = true;
+    });
+    if (changed) writeJSON(LS_BOOK, b);
+    pushHist({ ts: Date.now(), date: today(), mode: "play", total: words.length, ok: null, mark: markedThisRound.length });
+    markedThisRound = [];
+    refresh();
+  }
+
+  function observeList(el, fn) {
+    if (!el) return;
+    var armed = false;
+    new MutationObserver(function () {
+      if (armed) return;                  // 一次改写会触发多批 mutation，只记一次
+      armed = true;
+      setTimeout(function () { armed = false; fn(); }, 40);
+    }).observe(el, { childList: true, subtree: false });
+  }
+
+  /* ---------------- 面板渲染 ---------------- */
+  function dayStats() {
+    var m = {};
+    getHist().forEach(function (r) {
+      if (!r || !r.date) return;
+      if (!m[r.date]) m[r.date] = { total: 0, mark: 0, ok: 0, typedOk: 0, typedTotal: 0, rounds: 0 };
+      m[r.date].total += (r.total || 0);
+      m[r.date].mark += (r.mark || 0);
+      m[r.date].rounds += 1;
+      if (r.mode === "type" && typeof r.ok === "number") {
+        m[r.date].typedOk += r.ok;
+        m[r.date].typedTotal += (r.total || 0);
+      }
+    });
+    return m;
+  }
+
+  function streakDays() {
+    var m = dayStats(), n = 0, d = new Date();
+    if (!m[dateKey(d)]) d.setDate(d.getDate() - 1);   // 今天还没练，就从昨天起算
+    while (m[dateKey(d)]) { n++; d.setDate(d.getDate() - 1); }
+    return n;
+  }
+
+  function renderMiniBars() {
+    var box = $("miniBars");
+    if (!box) return;
+    var m = dayStats();
+    var days = [], d = new Date();
+    for (var i = 13; i >= 0; i--) {
+      var dd = new Date(d.getFullYear(), d.getMonth(), d.getDate() - i);
+      days.push({ key: dateKey(dd), label: (dd.getMonth() + 1) + "/" + dd.getDate(), isToday: i === 0 });
+    }
+    var max = 1;
+    days.forEach(function (x) { var s = m[x.key]; if (s && s.total > max) max = s.total; });
+    var tk = today();
+    box.innerHTML = days.map(function (x) {
+      var s = m[x.key] || { total: 0, mark: 0 };
+      var hPx = s.total ? Math.max(4, Math.round(s.total / max * 78)) : 2;
+      var markPx = s.total ? Math.round(hPx * Math.min(1, (s.mark || 0) / s.total)) : 0;
+      var okPx = hPx - markPx;
+      return '<div class="mini-col' + (x.isToday ? " today" : "") + '" title="' + x.key + "：听写 " + s.total + " 词，标记/错 " + (s.mark || 0) + " 个" + '">' +
+        '<div class="mini-stack" style="height:' + hPx + 'px">' +
+          (markPx > 0 ? '<div class="seg-mark" style="height:' + markPx + 'px"></div>' : "") +
+          (okPx > 0 ? '<div class="seg-ok" style="height:' + okPx + 'px"></div>' : "") +
+        "</div>" +
+        '<div class="d">' + x.label + "</div>" +
+      "</div>";
+    }).join("");
+  }
+
+  function renderHistory() {
+    var body = $("histBody");
+    if (!body) return;
+    var h = getHist();
+    if (!h.length) {
+      body.innerHTML = '<tr><td colspan="6" class="stats-empty">还没有记录。跑完一轮（连播或打字）就会自动记下来。</td></tr>';
+      return;
+    }
+    var rows = h.slice().reverse().slice(0, 20);
+    body.innerHTML = rows.map(function (r) {
+      var mode = r.mode === "type" ? "打字" : "连播";
+      var acc = (r.mode === "type" && r.total) ? Math.round((r.ok || 0) / r.total * 100) + "%" : "—";
+      var okTxt = (typeof r.ok === "number") ? r.ok : "—";
+      return "<tr><td>" + r.date + "</td><td>" + mode + "</td><td>" + (r.total || 0) + "</td><td>" +
+             okTxt + '</td><td class="badge-err">' + (r.mark || 0) + "</td><td>" + acc + "</td></tr>";
+    }).join("");
+  }
+
+  function renderBook() {
+    var body = $("wrongBookBody"), list = bookList();
+    if ($("wrongBookCount")) $("wrongBookCount").textContent = list.length ? "共 " + list.length + " 个词" : "";
+    if ($("stWrong")) $("stWrong").textContent = list.length;
+    if (!body) return;
+    if (!list.length) {
+      body.innerHTML = '<tr><td colspan="5" class="stats-empty">错词本是空的。连播时没写出来的词，按 <kbd>M</kbd> 就会记到这里。</td></tr>';
+      return;
+    }
+    body.innerHTML = list.map(function (e) {
+      return "<tr><td>" + esc(e.text) + "</td><td>" + esc(e.meaning || "—") + "</td><td>" +
+             (e.miss || 0) + '</td><td>' + (e.streak || 0) +
+             '</td><td><button class="small" data-del="' + esc(e.text) + '" type="button">移除</button></td></tr>';
+    }).join("");
+  }
+
+  function esc(s) {
+    return String(s === undefined || s === null ? "" : s)
+      .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+  }
+
+  function refresh() {
+    var m = dayStats(), h = getHist();
+    var totalAll = 0, typedOk = 0, typedTotal = 0;
+    h.forEach(function (r) {
+      totalAll += (r.total || 0);
+      if (r.mode === "type" && typeof r.ok === "number") { typedOk += r.ok; typedTotal += (r.total || 0); }
+    });
+    if ($("stTotal")) $("stTotal").textContent = totalAll;
+    if ($("stStreak")) $("stStreak").textContent = streakDays();
+    if ($("stAccuracy")) $("stAccuracy").textContent = typedTotal ? Math.round(typedOk / typedTotal * 100) + "%" : "—";
+    if ($("restoreWordsBtn")) {
+      var hasBak = !!readRaw(LS_BAK);
+      $("restoreWordsBtn").classList.toggle("hidden", !hasBak);
+    }
+    renderMiniBars();
+    renderHistory();
+    renderBook();
+  }
+
+  /* ---------------- ⑧ 导出错词 PDF ---------------- */
+  function buildPrintHTML(items) {
+    var rows = items.map(function (e, i) {
+      return "<tr><td class=\"pnum\">" + (i + 1) + "</td><td>" + esc(e.text) + "</td><td>" +
+             esc(e.meaning || "—") + "</td></tr>";
+    }).join("");
+    return "<h1>错词本 · 单词听写</h1>" +
+      '<div class="pmeta">导出日期 ' + today() + "　共 " + items.length + " 个词　" +
+      "（每行下方虚线为手写位置）</div>" +
+      "<table><thead><tr><th class=\"pnum\">#</th><th>单词</th><th>释义</th></tr></thead>" +
+      "<tbody>" + rows + "</tbody></table>" +
+      '<div class="pfoot">由「单词听写」页导出</div>';
+  }
+
+  function exportWrongPDF() {
+    var items = bookList();
+    if (!items.length) { toast("错词本是空的，先按 M 记几个词吧"); return; }
+    var pa = $("printArea");
+    if (!pa) return;
+    pa.innerHTML = buildPrintHTML(items);
+    toast("即将打开打印窗口，目标选「另存为 PDF」");
+    setTimeout(function () { try { window.print(); } catch (e) { toast("打印被浏览器拦下了"); } }, 120);
+  }
+
+  function wrongAsText() {
+    return bookList().map(function (e, i) {
+      return (i + 1) + ". " + e.text + (e.meaning ? "　" + e.meaning : "");
+    }).join("\n");
+  }
+
+  function copyWrong() {
+    var txt = wrongAsText();
+    if (!txt) { toast("错词本是空的"); return; }
+    function done() { toast("已复制 " + bookList().length + " 个词"); }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(txt).then(done, fallback);
+    } else { fallback(); }
+    function fallback() {
+      var ta = document.createElement("textarea");
+      ta.value = txt;
+      ta.style.cssText = "position:fixed;left:-9999px;top:0;";
+      document.body.appendChild(ta);
+      ta.select();
+      try { document.execCommand("copy"); done(); } catch (e) { toast("复制失败，请手动选中"); }
+      document.body.removeChild(ta);
+    }
+  }
+
+  /* ---------------- ④「只练错词本」 ---------------- */
+  function practiceWrong() {
+    var items = bookList();
+    if (!items.length) { toast("错词本是空的"); return; }
+    var ta = $("wordsInput");
+    if (!ta) return;
+    if (ta.value.trim()) { try { localStorage.setItem(LS_BAK, ta.value); } catch (e) {} }
+    ta.value = items.map(function (e) {
+      return e.text + "|" + (e.meaning && e.meaning !== "—" ? e.meaning : "") + "||||";
+    }).join("\n");
+    ta.dispatchEvent(new Event("input", { bubbles: true }));
+    markedThisRound = [];
+    $("statsPanel").classList.add("hidden");
+    toast("单词表已换成错词本的 " + items.length + " 个词，开始连播");
+    setTimeout(function () { if ($("startPlayBtn")) $("startPlayBtn").click(); }, 60);
+  }
+
+  function restoreWords() {
+    var bak = readRaw(LS_BAK);
+    if (!bak) { toast("没有备份可恢复"); return; }
+    var ta = $("wordsInput");
+    ta.value = bak;
+    ta.dispatchEvent(new Event("input", { bubbles: true }));
+    try { localStorage.removeItem(LS_BAK); } catch (e) {}
+    toast("已恢复上次的单词表");
+    refresh();
+  }
+
+  /* ---------------- ⑥ 进度条点击跳转 ---------------- */
+  function bindProgressSeek() {
+    var prog = document.querySelector(".progress");
+    if (!prog) return;
+    prog.title = "点一下可跳到对应位置（连续播放模式）";
+    prog.addEventListener("click", function (ev) {
+      var h = window.__dictationHooks;
+      if (!h || !h.isRunning()) return;
+      if (h.mode() !== "play") { toast("进度条跳转只在「连续播放」模式下可用"); return; }
+      var n = h.total();
+      if (!n) return;
+      var r = prog.getBoundingClientRect();
+      if (r.width <= 0) return;
+      var ratio = (ev.clientX - r.left) / r.width;
+      ratio = Math.max(0, Math.min(0.9999, ratio));
+      var idx = Math.min(n - 1, Math.max(0, Math.round(ratio * n) - 1));
+      h.jumpTo(idx);
+    });
+  }
+
+  /* ---------------- ⑦ 空格 = 暂停/继续　+　M = 记下这个词 ---------------- */
+  function typingInField(t) {
+    if (!t) return false;
+    var tag = t.tagName;
+    return tag === "INPUT" || tag === "TEXTAREA" || tag === "SELECT" || t.isContentEditable === true;
+  }
+  function panelOpen() {
+    var a = $("settingsPanel"), b = $("statsPanel");
+    return (a && !a.classList.contains("hidden")) || (b && !b.classList.contains("hidden"));
+  }
+
+  function markCurrent() {
+    var h = window.__dictationHooks;
+    if (!h || !h.isRunning()) return;
+    var w = h.currentWord();
+    if (!w || !w.text) return;
+    var t = String(w.text).trim();
+    if (!t) return;
+    if (markedThisRound.indexOf(t) >= 0) { toast("「" + t + "」这次已经记过了"); return; }
+    markedThisRound.push(t);
+    /* ⚠ 按下就落盘，不等整轮结束 —— 否则中途关页面 / 按「停止」这一笔就丢了。
+       整轮结束时只补记"没被标记"的词（见 recordPlay）。 */
+    bumpMiss(t, w.meaning);
+    refresh();
+    toast("已记下第 " + markedThisRound.length + " 个：" + t);
+  }
+
+  document.addEventListener("keydown", function (e) {
+    if (e.ctrlKey || e.metaKey || e.altKey) return;
+    var h = window.__dictationHooks;
+    if (!h || !h.isRunning() || h.mode() !== "play") return;
+    var t = e.target;
+    if (typingInField(t)) return;                                   // 输入框里打字不拦
+    if (panelOpen()) return;                                        // 抽屉开着时别抢键
+    /* ⚠ 这里刻意**不**排除 BUTTON：点过「开始连播」之后焦点还留在那个按钮上，
+       若此时放行，"空格"会被浏览器当成"再点一次刚才那个按钮"（= 整轮重播）。
+       下面两个分支统一 preventDefault，既挡掉页面滚动，也挡掉按钮激活。 */
+
+    if (e.key === " " || e.code === "Space") {
+      var ab = $("autoPlayBox");
+      if (!ab || !ab.checked) return;                               // 只有自动连播才有"暂停"这回事
+      e.preventDefault();
+      h.togglePause();
+      return;
+    }
+    if (e.key === "m" || e.key === "M") {
+      e.preventDefault();
+      markCurrent();
+    }
+  }, false);
+
+  /* ---------------- 面板开关 ---------------- */
+  function bindPanel() {
+    var btn = $("statsToggle"), panel = $("statsPanel"), setP = $("settingsPanel"), setB = $("settingsToggle");
+    if (!btn || !panel) return;
+    btn.addEventListener("click", function () {
+      var willOpen = panel.classList.contains("hidden");
+      panel.classList.toggle("hidden");
+      if (willOpen) {
+        if (setP) setP.classList.add("hidden");
+        refresh();
+      }
+    });
+    if (setB) setB.addEventListener("click", function () { panel.classList.add("hidden"); });
+  }
+
+  function bindButtons() {
+    var map = {
+      practiceWrongBtn: practiceWrong,
+      exportWrongBtn: exportWrongPDF,
+      copyWrongBtn: copyWrong,
+      restoreWordsBtn: restoreWords,
+      clearWrongBtn: function () {
+        if (!confirm("确定清空错词本吗？这个操作不能撤销。")) return;
+        writeJSON(LS_BOOK, {});
+        toast("错词本已清空");
+        refresh();
+      }
+    };
+    for (var id in map) {
+      if (!Object.prototype.hasOwnProperty.call(map, id)) continue;
+      var el = $(id);
+      if (el) el.addEventListener("click", map[id]);
+    }
+    var wb = $("wrongBookBody");
+    if (wb) {
+      wb.addEventListener("click", function (e) {
+        var t = e.target;
+        if (!t || !t.getAttribute) return;
+        var k = t.getAttribute("data-del");
+        if (!k) return;
+        var b = getBook();
+        delete b[k];
+        writeJSON(LS_BOOK, b);
+        toast("已移出：" + k);
+        refresh();
+      });
+    }
+  }
+
+  /* ---------------- 启动 ---------------- */
+  function boot() {
+    bindPanel();
+    bindButtons();
+    bindProgressSeek();
+    observeList($("allBody"), recordTyped);
+    observeList($("playOrderList"), recordPlay);
+    refresh();
+  }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", boot);
+  else boot();
+})();
 </script>
 </body>
 </html>
