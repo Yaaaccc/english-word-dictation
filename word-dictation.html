@@ -413,6 +413,7 @@
           <div id="wordBig" class="big"></div>
           <div id="wordMeaning" class="meaning"></div>
           <button class="replay-btn" id="replayBtn" type="button">🔊 重播</button>
+          <button class="replay-btn hidden" id="exampleBtnType" type="button">🔊 读例句</button>
           <div class="answer-row" id="answerRow">
             <input id="answerInput" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="输入单词拼写，按 Enter">
             <button id="submitBtn" type="button">确定</button>
@@ -436,7 +437,7 @@
         </div>
         <div class="inline-check" style="justify-content:center;margin-top:10px;">
           <input type="checkbox" id="autoPlayBox">
-          <span>自动连播（默认关闭；Enter / ↓ / → 下一个，↑ / ← 上一个，🔊 重播当前，鼠标滚轮上下切词）</span>
+          <span>自动连播（默认关闭；Enter / ↓ / → 下一个，↑ / ← 上一个，🔊 重播当前，鼠标滚轮上下切词，X 读例句）</span>
         </div>
         <div class="row" style="justify-content:center;margin-top:10px;">
           <input id="searchInput" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="🔍 搜索单词/释义，Enter 跳到第一个匹配，Esc 清空" style="flex:1;max-width:340px;">
@@ -842,6 +843,37 @@
     phLabel.classList.add("hidden");
   }
 
+  /* ---------- 读例句（X 快捷键 / 🔊 读例句 按钮，共用同一套逻辑） ----------
+   * 只读当前单词的「这一条」例句（item.exampleEn），读一遍；连续播放、打字默写两种模式都能用。
+   * 打字默写模式下：光标在输入框里时不触发（否则单词里的 x 就打不进去了），
+   * 所以那一段的使用时机是「答完题之后」——正好例句面板也是那时候才显示出来。
+   */
+  function isEditableTarget(el) {
+    if (!el) return false;
+    var tag = String(el.tagName || "").toUpperCase();
+    return tag === "INPUT" || tag === "TEXTAREA" || tag === "SELECT" || el.isContentEditable === true;
+  }
+
+  // 返回 true = 确实念了例句；false = 当前没在跑，或这个词没有例句
+  function speakExample() {
+    if (!state.running) return false;
+    var item = currentWord();
+    if (!item || !item.exampleEn) return false;
+    stopSpeech();
+    if (state.mode === "play") {
+      clearTimeout(playTimer); // 读例句期间先别让自动连播把下一词抢走
+      setExamplePanel(item); // 把例句面板亮出来：看得见，也听得到
+    }
+    var done = speakLoop(item.exampleEn, 1, parseFloat(rateSelect.value));
+    // 连续播放模式下，读完例句接着按原来的节奏走
+    if (state.mode === "play" && $("autoPlayBox").checked && !state.paused) {
+      done.then(function () {
+        if (state.running && state.mode === "play" && !state.paused) scheduleNext();
+      });
+    }
+    return true;
+  }
+
   /* ---------- 视图切换 ---------- */
 
   function showOnly(id) {
@@ -912,6 +944,12 @@
     var err = state.results.length - ok;
     $("okCount").textContent = ok;
     $("errCount").textContent = err;
+    // 「读例句」按钮只在答完题（例句面板显示出来）之后出现
+    var exBtn = $("exampleBtnType");
+    if (exBtn) {
+      var it = currentWord();
+      exBtn.classList.toggle("hidden", !(state.phase === "answered" && it && it.exampleEn));
+    }
     if (state.phase === "awaiting") {
       $("wordBig").textContent = "";
       $("wordMeaning").textContent = "";
@@ -942,7 +980,7 @@
     if (state.pos >= state.words.length - 1) {
       setTimeout(finishType, 900);
     } else {
-      $("answerInput").placeholder = "按 Enter 进入下一个单词";
+      $("answerInput").placeholder = "按 Enter 进入下一个单词；按 X 读例句";
     }
     renderTypeProgress();
   }
@@ -989,7 +1027,7 @@
     if (state.pos >= state.words.length - 1) {
       setTimeout(finishType, 900);
     } else {
-      $("answerInput").placeholder = "按 Enter 进入下一个单词";
+      $("answerInput").placeholder = "按 Enter 进入下一个单词；按 X 读例句";
     }
     renderTypeProgress();
   }
@@ -1040,7 +1078,7 @@
     var item = state.words[state.order[index]];
     $("playNote").textContent = auto
       ? "正在播放，请听写在本子上…"
-      : "手动模式：按 Enter / ↓ / → 播下一个，↑ / ← 播上一个，🔊 重播当前";
+      : "手动模式：按 Enter / ↓ / → 播下一个，↑ / ← 播上一个， 🔊 重播当前，X 读例句";
     if (item.exampleEn && $("directionSelect").value !== "cn2en") setExamplePanel(item);
     else clearExamplePanel();
     var rate = parseFloat(rateSelect.value);
@@ -1180,7 +1218,7 @@
     $("pauseBtn").classList.toggle("hidden", !auto);
     $("playNote").textContent = auto
       ? "正在播放，请听写在本子上…"
-      : "手动模式：按 Enter / ↓ / → 播下一个，↑ / ← 播上一个，🔊 重播当前";
+      : "手动模式：按 Enter / ↓ / → 播下一个，↑ / ← 播上一个， 🔊 重播当前，X 读例句";
     playWord(0, auto);
   }
 
@@ -1417,13 +1455,10 @@
     }
   });
   $("playReplayBtn").addEventListener("click", replayCurrent);
-  $("exampleBtn").addEventListener("click", function () {
-    if (!state.running || state.mode !== "play") return;
-    var item = state.words[state.order[state.pos]];
-    if (!item || !item.exampleEn) return;
-    stopSpeech();
-    speakLoop(item.exampleEn, 1, parseFloat(rateSelect.value));
-  });
+  $("exampleBtn").addEventListener("click", function () { speakExample(); });
+  if ($("exampleBtnType")) {
+    $("exampleBtnType").addEventListener("click", function () { speakExample(); });
+  }
   $("nextBtn").addEventListener("click", playNext);
   $("prevBtn").addEventListener("click", playPrev);
   $("restartBtn").addEventListener("click", playFromStart);
@@ -1477,12 +1512,18 @@
     if (!state.running || state.mode !== "play") return;
     var auto = this.checked;
     $("pauseBtn").classList.toggle("hidden", !auto);
-    $("playNote").textContent = auto ? "正在播放，请听写在本子上…" : "手动模式：按 Enter / ↓ / → 播下一个，↑ / ← 播上一个，滚轮上下切词，🔊 重播当前";
+    $("playNote").textContent = auto ? "正在播放，请听写在本子上…" : "手动模式：按 Enter / ↓ / → 播下一个，↑ / ← 播上一个，滚轮上下切词，🔊 重播当前，X 读例句";
     clearTimeout(playTimer);
     if (auto && !state.paused) scheduleNext();
   });
   document.addEventListener("keydown", function (e) {
     if (!state.running) return;
+    // X：读当前单词的例句（连续播放 / 打字默写两种模式都能用）
+    // 光标在输入框、下拉框里时不拦——不然打字时单词里的 x 就打不出来了
+    if ((e.key === "x" || e.key === "X") && !e.ctrlKey && !e.metaKey && !e.altKey) {
+      if (isEditableTarget(e.target)) return;
+      if (speakExample()) { e.preventDefault(); return; }
+    }
     if (state.mode === "play") {
       if (e.key === "Enter" || e.key === "ArrowDown" || e.key === "ArrowRight") {
         e.preventDefault();
