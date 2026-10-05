@@ -737,7 +737,8 @@ body{
         </div>
         <div class="kbd-row">
           <span class="kbd">Enter</span><em>下一个</em>
-          <span class="kbd">↑</span><span class="kbd">↓</span><em>切词</em>
+          <span class="kbd">↑</span><span class="kbd">↓</span><span class="kbd">W</span><span class="kbd">A</span><span class="kbd">S</span><span class="kbd">D</span><em>切词</em>
+          <span class="kbd">R</span><em>重播</em>
           <span class="kbd">X</span><em>读例句</em>
         </div>
         <div class="error-text" id="startError"></div>
@@ -861,12 +862,16 @@ body{
       <h4>快捷键</h4>
       <div class="kbd-grid">
         <div class="kbd-item">
-          <span class="keys"><kbd>Enter</kbd><kbd>↓</kbd><kbd>→</kbd></span>
+          <span class="keys"><kbd>Enter</kbd><kbd>↓</kbd><kbd>→</kbd><kbd>S</kbd><kbd>D</kbd></span>
           <span>下一个</span>
         </div>
         <div class="kbd-item">
-          <span class="keys"><kbd>↑</kbd><kbd>←</kbd></span>
+          <span class="keys"><kbd>↑</kbd><kbd>←</kbd><kbd>W</kbd><kbd>A</kbd></span>
           <span>上一个</span>
+        </div>
+        <div class="kbd-item">
+          <span class="keys"><kbd>R</kbd></span>
+          <span>重播当前单词</span>
         </div>
         <div class="kbd-item">
           <span class="keys"><kbd>X</kbd></span>
@@ -878,7 +883,7 @@ body{
         </div>
       </div>
       <div class="tip">
-        <b>建议流程：</b>开始连播 → 听写在纸上 → 卡住时按 <kbd>X</kbd> 听例句 → 全部过完再回来看例句卡逐词核对。
+        <b>建议流程：</b>开始连播 → 听写在纸上 → 没听清按 <kbd>R</kbd> 重播、卡住时按 <kbd>X</kbd> 听例句 → 全部过完再回来看例句卡逐词核对。
       </div>
     </aside>
   </div>
@@ -1277,6 +1282,23 @@ body{
     return true;
   }
 
+  /* ---------- 重播当前单词（R 快捷键 / 🔊 重播 按钮，共用同一套逻辑） ----------
+   * 两种模式都能用：连续播放模式 = 重播当前词（沿用原「🔊 重播当前」的行为，
+   * 会自动重排自动连播的节奏）；打字模式 = 重念这个单词（读几遍、语速都按设置来）。
+   * 与 X 键同理：光标在输入框里时不触发——单词里本来就有 r，必须让您正常打字。
+   */
+  function replayWord() {
+    if (!state.running) return false;
+    if (!currentWord()) return false;
+    if (state.mode === "play") {
+      replayCurrent(); // 内部会清掉自动连播的定时器并重播当前词
+      return true;
+    }
+    stopSpeech();
+    speakLoop(spokenText(currentWord()), parseInt(repeatSelect.value, 10), parseFloat(rateSelect.value));
+    return true;
+  }
+
   /* ---------- 视图切换 ---------- */
 
   function showOnly(id) {
@@ -1383,7 +1405,7 @@ body{
     if (state.pos >= state.words.length - 1) {
       setTimeout(finishType, 900);
     } else {
-      $("answerInput").placeholder = "按 Enter 进入下一个单词；按 X 读例句";
+      $("answerInput").placeholder = "按 Enter / S / D 进入下一个单词；R 重播，X 读例句";
     }
     renderTypeProgress();
   }
@@ -1430,7 +1452,7 @@ body{
     if (state.pos >= state.words.length - 1) {
       setTimeout(finishType, 900);
     } else {
-      $("answerInput").placeholder = "按 Enter 进入下一个单词；按 X 读例句";
+      $("answerInput").placeholder = "按 Enter / S / D 进入下一个单词；R 重播，X 读例句";
     }
     renderTypeProgress();
   }
@@ -1481,7 +1503,7 @@ body{
     var item = state.words[state.order[index]];
     $("playNote").textContent = auto
       ? "正在播放，请听写在本子上…"
-      : "手动模式：按 Enter / ↓ / → 播下一个，↑ / ← 播上一个， 🔊 重播当前，X 读例句";
+      : "手动模式：按 Enter / ↓ / → / S / D 播下一个，↑ / ← / W / A 播上一个，R 重播当前，X 读例句";
     if (item.exampleEn && $("directionSelect").value !== "cn2en") setExamplePanel(item);
     else clearExamplePanel();
     var rate = parseFloat(rateSelect.value);
@@ -1621,7 +1643,7 @@ body{
     $("pauseBtn").classList.toggle("hidden", !auto);
     $("playNote").textContent = auto
       ? "正在播放，请听写在本子上…"
-      : "手动模式：按 Enter / ↓ / → 播下一个，↑ / ← 播上一个， 🔊 重播当前，X 读例句";
+      : "手动模式：按 Enter / ↓ / → / S / D 播下一个，↑ / ← / W / A 播上一个，R 重播当前，X 读例句";
     playWord(0, auto);
   }
 
@@ -1851,13 +1873,8 @@ body{
     if (e.key === "Enter") { e.preventDefault(); submitAnswer(); }
   });
   $("skipBtn").addEventListener("click", skipWord);
-  $("replayBtn").addEventListener("click", function () {
-    if (state.running && state.mode === "type") {
-      stopSpeech();
-      speakLoop(spokenText(currentWord()), parseInt(repeatSelect.value, 10), parseFloat(rateSelect.value));
-    }
-  });
-  $("playReplayBtn").addEventListener("click", replayCurrent);
+  $("replayBtn").addEventListener("click", function () { replayWord(); });
+  $("playReplayBtn").addEventListener("click", function () { replayWord(); });
   $("exampleBtn").addEventListener("click", function () { speakExample(); });
   if ($("exampleBtnType")) {
     $("exampleBtnType").addEventListener("click", function () { speakExample(); });
@@ -1915,18 +1932,35 @@ body{
     if (!state.running || state.mode !== "play") return;
     var auto = this.checked;
     $("pauseBtn").classList.toggle("hidden", !auto);
-    $("playNote").textContent = auto ? "正在播放，请听写在本子上…" : "手动模式：按 Enter / ↓ / → 播下一个，↑ / ← 播上一个，滚轮上下切词，🔊 重播当前，X 读例句";
+    $("playNote").textContent = auto ? "正在播放，请听写在本子上…" : "手动模式：按 Enter / ↓ / → / S / D 播下一个，↑ / ← / W / A 播上一个，滚轮上下切词，R 重播当前，X 读例句";
     clearTimeout(playTimer);
     if (auto && !state.paused) scheduleNext();
   });
   document.addEventListener("keydown", function (e) {
     if (!state.running) return;
-    // X：读当前单词的例句（连续播放 / 打字默写两种模式都能用）
-    // 光标在输入框、下拉框里时不拦——不然打字时单词里的 x 就打不出来了
-    if ((e.key === "x" || e.key === "X") && !e.ctrlKey && !e.metaKey && !e.altKey) {
-      if (isEditableTarget(e.target)) return;
-      if (speakExample()) { e.preventDefault(); return; }
+
+    /* ---- 字母快捷键：R 重播 / X 读例句 / WASD 切词（两种模式都能用）----
+     * 两条避让规则：
+     *   ① 带 Ctrl / Alt / Cmd 的一律放行 —— 别抢 Ctrl+R 刷新、Ctrl+X 剪切
+     *   ② 光标在输入框 / 下拉框里也放行 —— 单词里本来就有 r/x/w/a/s/d，
+     *      不放过的话打字模式根本没法输入这些字母
+     * WASD 的映射跟着方向键走：W/A（对应 ↑/←）= 上一个，S/D（对应 ↓/→）= 下一个
+     */
+    if (!e.ctrlKey && !e.metaKey && !e.altKey && !isEditableTarget(e.target)) {
+      var letter = e.key && e.key.length === 1 ? e.key.toLowerCase() : "";
+      if (letter === "r") {
+        if (replayWord()) { e.preventDefault(); return; }
+      } else if (letter === "x") {
+        if (speakExample()) { e.preventDefault(); return; }
+      } else if (letter === "w" || letter === "a") {
+        if (state.mode === "play") { e.preventDefault(); playPrev(); return; }
+      } else if (letter === "s" || letter === "d") {
+        if (state.mode === "play") { e.preventDefault(); playNext(); return; }
+        if (state.mode === "type" && state.phase === "answered") { e.preventDefault(); nextWord(); return; }
+      }
     }
+
+    /* ---- 方向键 / Enter：原有行为保持不变 ---- */
     if (state.mode === "play") {
       if (e.key === "Enter" || e.key === "ArrowDown" || e.key === "ArrowRight") {
         e.preventDefault();
