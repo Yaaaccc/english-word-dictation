@@ -930,7 +930,7 @@ body{
             </div>
             <div class="console-row">
               <label class="switch"><input type="checkbox" id="autoPlayBox"><span>自动连播（默认关闭）</span></label>
-              <span class="mini-note">鼠标滚轮也可上下切词</span>
+              <span class="mini-note">滚轮切词：指针放在上方进度条 / 按钮区</span>
             </div>
             <div id="playOrder" class="order-list hidden">
               <div class="sub">本次朗读顺序</div>
@@ -1013,7 +1013,7 @@ body{
         </div>
         <div class="kbd-item">
           <span class="keys"><kbd>滚轮</kbd></span>
-          <span>上下切词</span>
+          <span>上下切词（指针需在控制区内）</span>
         </div>
       </div>
       <div class="tip">
@@ -2066,7 +2066,7 @@ body{
     if (!state.running || state.mode !== "play") return;
     var auto = this.checked;
     $("pauseBtn").classList.toggle("hidden", !auto);
-    $("playNote").textContent = auto ? "正在播放，请听写在本子上…" : "手动模式：按 Enter / ↓ / → / S / D 播下一个，↑ / ← / W / A 播上一个，滚轮上下切词，R 重播当前，X 读例句";
+    $("playNote").textContent = auto ? "正在播放，请听写在本子上…" : "手动模式：按 Enter / ↓ / → / S / D 播下一个，↑ / ← / W / A 播上一个，指针放在进度条或按钮区滚轮切词，R 重播当前，X 读例句";
     clearTimeout(playTimer);
     if (auto && !state.paused) scheduleNext();
   });
@@ -2111,14 +2111,46 @@ body{
     }
   });
 
-  /* ---------- 鼠标滚轮切词（连续播放模式） ---------- */
+  /* ---------- 鼠标滚轮切词（连续播放模式；仅「指定区域」内生效） ----------
+     旧写法把监听挂在 document 上、无条件 preventDefault，等于吃掉整页滚轮：
+     窗口一小、页面需要滚动时，想往下翻页反而跳到了下一个单词。
+     现在改成四道闸门：
+       ① 指针必须落在主听写卡 #hero 内，卡外（例句卡 / 快捷键卡 / 页脚 / 空白）一律正常滚动；
+       ② 卡内可独立滚动的子容器（朗读顺序列表 / 完成页详情表）里，滚轮让它们自己滚；
+       ③ 只有落在「控制区」（进度条 / 播放提示 / 按钮行）才切词；
+          控制区之外、且页面在该方向还滚得动 -> 交还浏览器翻页；
+          页面已经滚到头（没得滚）-> 整张主听写卡都可用于切词，保持原来的顺手；
+       ④ 设置面板 / 学习记录面板打开时不切词。 */
   var wheelLockUntil = 0;
+  var WHEEL_ZONE_SEL = "#runView > .statusline, #runView > .progress-wrap, #playStage > .play-note, #playStage > .controls";
+  var WHEEL_INNER_SCROLL = ".order-list, .done-scroll, .stats-scroll";
+  function wheelInZone(node) {
+    return !!(node && node.closest && node.closest(WHEEL_ZONE_SEL));
+  }
+  function wheelPanelOpen() {
+    var ids = ["settingsPanel", "statsPanel"];
+    for (var i = 0; i < ids.length; i++) {
+      var p = $(ids[i]);
+      if (p && !p.classList.contains("hidden")) return true;
+    }
+    return false;
+  }
+  function wheelPageCanScroll(dir) {
+    var el = document.scrollingElement || document.documentElement;
+    if (!el) return false;
+    var max = el.scrollHeight - el.clientHeight;
+    if (max <= 1) return false;
+    return dir > 0 ? (max - el.scrollTop > 1) : (el.scrollTop > 1);
+  }
   document.addEventListener("wheel", function (e) {
     if (!state.running || state.mode !== "play") return;
-    var panel = $("settingsPanel");
-    if (panel && !panel.classList.contains("hidden")) return; // 设置面板打开时不切词
+    if (wheelPanelOpen()) return;                                  // 面板打开时不切词
     var t = e.target;
     if (t && (t.tagName === "TEXTAREA" || t.tagName === "SELECT" || t.tagName === "INPUT")) return;
+    var hero = $("hero");
+    if (!hero || !t || !hero.contains(t)) return;                  // 指针不在主听写卡内 -> 正常滚动
+    if (t.closest && t.closest(WHEEL_INNER_SCROLL)) return;        // 卡内可滚子容器 -> 让它自己滚
+    if (!wheelInZone(t) && wheelPageCanScroll(e.deltaY > 0 ? 1 : -1)) return; // 页面还滚得动 -> 先翻页
     var now = Date.now();
     if (now < wheelLockUntil) return;
     if (Math.abs(e.deltaY) < 8) return;
