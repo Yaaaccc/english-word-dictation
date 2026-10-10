@@ -1823,6 +1823,14 @@ body{
   function updateCount() {
     var w = parseWords(wordsInput.value);
     wordCount.textContent = "已解析 " + w.length + " 个单词";
+    // 大字「今天有 N 个新词」(#idleCount) 与设置面板的 #statWords 由 v4 增强层维护，
+    // 而增强层只在**用户手动输入**（input 事件）时刷新；载入日期词表是程序赋值
+    // wordsInput.value = text，不触发 input 事件 ⇒ 载入 50 个后大字仍停在示例词表的 6。
+    // 这里补一次同步（2026-10-10 修的显示 bug），口径与增强层一致：都按行数算。
+    var ic = document.getElementById("idleCount");
+    if (ic) ic.textContent = w.length || "—";
+    var sw = document.getElementById("statWords");
+    if (sw) sw.textContent = w.length || "—";
   }
   wordsInput.addEventListener("input", updateCount);
 
