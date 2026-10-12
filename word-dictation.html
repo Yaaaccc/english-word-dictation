@@ -458,6 +458,8 @@ button.small{ padding:6px 12px; font-size:12.5px; }
 #defCard .dc-head b{ font:700 15px/1.3 "Segoe UI Variable Display","Segoe UI",system-ui,sans-serif;
   color:var(--ink); letter-spacing:-.2px; }
 #defCard .dc-ph{ font-size:11.5px; color:var(--muted-2); }
+/* 「原形 xxx」：变形词的释义取的是原型的，标出来让他知道为什么（2026-10-12 加） */
+#defCard .dc-base{ font-size:11.5px; color:var(--blue-d); margin:1px 0 3px; font-weight:600; }
 #defCard .dc-meaning{ color:var(--ink-2); }
 #defCard .dc-hint{ color:var(--muted-2); font-size:12px; }
 #diffText{ font-size:13px; line-height:1.75; color:var(--ink-2); background:var(--amber-soft);
@@ -1056,6 +1058,7 @@ body{
     <b id="defCardWord"></b>
     <span id="defCardPh" class="dc-ph"></span>
   </div>
+  <div id="defCardBase" class="dc-base hidden"></div>
   <div id="defCardMeaning" class="dc-meaning"></div>
 </div>
 
@@ -2523,6 +2526,21 @@ body{
     if (defCardEl) { defCardEl.classList.remove("on"); defCardEl.classList.add("hidden"); }
   }
 
+  /* 「原形 xxx」标注：变形词（went / studies / anticipated…）的释义取的是原型的，
+     标出来免得他以为查错了词。base 为空（本身就是原形）时整行不占位。
+     数据来自词典第三项 —— 由 build-example-dict.js 读 ECDICT 的 exchange 字段填的。 */
+  function setDefCardBase(base) {
+    var el = $("defCardBase");
+    if (!el) return;
+    if (base) {
+      el.textContent = "原形 " + base;
+      el.classList.remove("hidden");
+    } else {
+      el.textContent = "";
+      el.classList.add("hidden");
+    }
+  }
+
   function positionDefCard(anchor, card) {
     card.classList.remove("hidden");              // 先可见才能量到真实尺寸
     var r = anchor.getBoundingClientRect();
@@ -2549,6 +2567,7 @@ body{
     var req = ++defReqId;
     $("defCardWord").textContent = w;
     $("defCardPh").textContent = "";
+    setDefCardBase("");
     $("defCardMeaning").innerHTML = '<span class="dc-hint">查询中…</span>';
     positionDefCard(el, defCardEl);
 
@@ -2557,9 +2576,11 @@ body{
       var e = res && res.entry;
       if (!e) {
         $("defCardPh").textContent = "";
+        setDefCardBase("");
         $("defCardMeaning").innerHTML = '<span class="dc-hint">词典未收录这个词</span>';
       } else {
         $("defCardPh").textContent = e[0] ? "/" + e[0] + "/" : "";
+        setDefCardBase(e[2]);                     // e[2] = 原型词，变形词才有这一项
         $("defCardMeaning").textContent = e[1] || "";
       }
       positionDefCard(el, defCardEl);             // 内容换行后高度会变，位置再校一次
