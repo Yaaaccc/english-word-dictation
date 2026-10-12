@@ -451,6 +451,18 @@ button.small{ padding:6px 12px; font-size:12.5px; }
   background:var(--blue-soft); border-radius:3px;
   box-shadow:inset 0 -2px 0 0 var(--blue);
 }
+/* 难词标记（2026-10-12 加，Yac 选的"难度分级"口径）：
+   把例句里「考纲门槛在六级 / 考研及以上」的词加一道**点线**下划线挑出来，
+   其余词保持素净 —— 目的是"这句里哪个词难，一眼看见"。
+   只用主色，不引入新色相（绿/红/琥珀留给对错反馈）；
+   与 ex-say（正在念的那个词，实心底线）用"点线 vs 实线"区分，同时出现也分得清。
+   数据源：ECDICT 的 tag，随 example-dict.json 一起加载（第 4 项）。
+   注：完全**没有**考纲标签的词（约 13%，多为专有名词/生僻词）一律不标，宁缺勿错。 */
+.ex-text .ex-w.ex-hard{
+  text-decoration:underline dotted var(--blue);
+  text-decoration-thickness:1.5px;
+  text-underline-offset:3px;
+}
 /* 释义小卡片：fixed 贴在被点单词下方（#exampleText 的父级有 overflow:hidden，不能用 absolute） */
 #defCard{
   position:fixed; z-index:70; top:0; left:0; max-width:min(340px,88vw);
@@ -830,6 +842,13 @@ body{
             <select id="directionSelect" style="width:100%;">
               <option value="en2en" selected>听英文 → 写英文</option>
               <option value="cn2en">听中文（释义）→ 写英文</option>
+            </select>
+          </div>
+          <div>
+            <label for="exampleVoiceSelect">例句发音</label>
+            <select id="exampleVoiceSelect" style="width:100%;">
+              <option value="natural" selected>自然音色（默认）</option>
+              <option value="precise">精确逐词高亮</option>
             </select>
           </div>
         </div>
@@ -1501,12 +1520,14 @@ body{
       setExamplePanel(item); // 把例句面板亮出来：看得见，也听得到
     }
     var rate = parseFloat(rateSelect.value);
-    /* 长句走"带逐词进度"的那条路（顺带驱动逐词高亮），短句仍走原来的整句播放。
-       为什么按长度分流：短句（≤3 词）本来就短，高亮一下也没什么可看的，
-       而原来那条路会优先用在线的有道音频（音质好），没必要为了高亮把它换掉。 */
-    var done = isShortEnText(item.exampleEn)
-      ? speakLoop(item.exampleEn, 1, rate)
-      : speakExampleWords(item.exampleEn, rate);
+    var done;
+    if (isShortEnText(item.exampleEn)) {
+      done = speakLoop(item.exampleEn, 1, rate);        // 短句照旧（在线音频，音质好）
+    } else if ($("exampleVoiceSelect") && $("exampleVoiceSelect").value === "precise") {
+      done = speakExamplePrecise(item.exampleEn, rate); // 精确逐词高亮（牺牲音色一致性换准确）
+    } else {
+      done = speakExampleWords(item.exampleEn, rate);   // 自然音色 + 按语速估算的高亮
+    }
     // 连续播放模式下，读完例句接着按原来的节奏走
     if (state.mode === "play" && $("autoPlayBox").checked && !state.paused) {
       done.then(function () {
@@ -1516,6 +1537,70 @@ body{
     return true;
   }
 
+  /* ---------- 「精确逐词高亮」那条路（设置里可切，2026-10-12 加）----------
+   * 为什么需要它：上面 speakExampleWords 在没有 boundary 事件时只能按语速估算，
+   * 而页面默认音色（Microsoft Ava Online，远端）恰好不抛 boundary ⇒ 默认就有半拍偏差。
+   * 这里换成**有道在线音频**：音频的 duration 是可读的真值，配上 currentTime
+   * 就能把句子按"字符数占比"摊成一条真的时间轴，**任何音色设置下都准**。
+   * 代价（如实写在设置项名字里）：长例句的发音变成有道那条音频，
+   * 音色会和单词发音不一致 —— 所以默认不开，由 Yac 自己切。
+   *
+   * 取不到音频（断网 / 该句没有音频）时自动退回 speakExampleWords，功能不丢。
+   */
+  function speakExamplePrecise(text, rate) {
+    var token = ++speechToken;
+    return new Promise(function (resolve) {
+      var spans = exampleWordSpans(text);
+      if (!spans.length) { speak(text, rate, resolve, token); return; }
+
+      var a = onlineAudio || (onlineAudio = new Audio());
+      var finished = false, raf = 0, guard = null;
+      // 每个词的时间锚点：按"词长 + 1（词间空隙）"累计，占总量的比例 × 真实时长
+      var cum = [], acc = 0;
+      for (var i = 0; i < spans.length; i++) { cum.push(acc); acc += spans[i].len + 1; }
+      var total = acc || 1;
+
+      function cleanup() {
+        if (raf) { cancelAnimationFrame(raf); raf = 0; }
+        if (guard) { clearTimeout(guard); guard = null; }
+        a.onended = a.onerror = null;
+      }
+      function finish() {
+        if (finished) return;
+        finished = true;
+        cleanup();
+        emitExampleToken(-1);
+        resolve();
+      }
+      function tick() {
+        if (finished) return;
+        if (token !== speechToken) { finish(); return; }
+        var d = a.duration;
+        if (d && isFinite(d) && d > 0) {
+          var t = a.currentTime / d * total;
+          var k = 0;
+          for (var j = cum.length - 1; j >= 0; j--) { if (cum[j] <= t) { k = j; break; } }
+          emitExampleToken(k);
+        }
+        raf = requestAnimationFrame(tick);
+      }
+
+      a.onended = finish;
+      a.onerror = function () {
+        if (finished) return;
+        cleanup();
+        finished = true;
+        // 在线音频拿不到 → 退回"语音合成 + 估算"，高亮还在，只是回到半拍偏差
+        speakExampleWords(text, rate).then(resolve, resolve);
+      };
+      try { a.playbackRate = Math.min(2, Math.max(0.5, rate || 1)); } catch (e) {}
+      a.src = "https://dict.youdao.com/dictvoice?audio=" + encodeURIComponent(text) + "&type=2";
+      var p = a.play();
+      if (p && p.catch) p.catch(function () { a.onerror(); });
+      raf = requestAnimationFrame(tick);
+      guard = setTimeout(finish, 60000);   // 保底：一分钟还没结束就收尾
+    });
+  }
   /* ---------- 读例句时「念到第几个词」（逐词高亮的数据源，2026-10-12 加）----------
    * 高亮本身由 v4 视觉层做（它拥有 #exampleText 里那些 .ex-w 单元），这里只报进度：
    *   emitExampleToken(序号) —— 正在念第 i 个词（从 0 数）
@@ -2508,8 +2593,14 @@ body{
     if (localStorage.getItem("dictationInterval")) intervalSelect.value = localStorage.getItem("dictationInterval");
     if (localStorage.getItem("dictationVoice")) voiceSelect.value = localStorage.getItem("dictationVoice");
     if (localStorage.getItem("dictationDirection")) directionSelect.value = localStorage.getItem("dictationDirection");
+    if (localStorage.getItem("dictationExampleVoice")) $("exampleVoiceSelect").value = localStorage.getItem("dictationExampleVoice");
     $("autoExampleBox").checked = localStorage.getItem("dictationAutoExample") === "1";
   } catch (e) { /* 忽略存储错误 */ }
+  /* 例句发音方式（2026-10-12 加）：natural = 自然音色 + 估算高亮（默认）；
+     precise = 有道在线音频 + 用真实时长驱动的精确高亮。改了就立刻存，不必等"保存单词表"。 */
+  $("exampleVoiceSelect").addEventListener("change", function () {
+    try { localStorage.setItem("dictationExampleVoice", this.value); } catch (e) {}
+  });
   updateCount();
   if (!wordsInput.value) $("sampleBtn").click();
 })();
@@ -2632,8 +2723,8 @@ body{
     if (defOpenEl && !document.contains(defOpenEl)) hideDefCard();
     // 时序坑（2026-10-12）：这段改写是异步的，而"开始念第 0 个词"的回调可能**先到** ——
     // 那时 .ex-w 还没生成，高亮就落空了，要等下一次报进度才补上（听着就像卡了一拍）。
-    // 所以这里画完立刻按上一次报的序号补一次。
-    if (lastSaidToken >= 0) paintExampleToken(lastSaidToken);
+    // 所以这里画完立刻重刷一次（同时把难词标记也补上，词典可能刚加载完）。
+    paintExampleWords();
     if (exampleObserver) {
       exampleObserver.observe(el, { childList: true, characterData: true, subtree: true });
     }
@@ -2871,13 +2962,38 @@ body{
    *   轻则闪烁、重则和观察者互相触发把页面卡死。classList.toggle 不触发 childList 变更。 */
   var lastSaidToken = -1;   // 主逻辑最后一次报的"念到第几个词"
 
-  function paintExampleToken(i) {
-    lastSaidToken = i;
+  /* ---- 难词判定（2026-10-12 加，Yac 选的"难度分级"口径）----
+     词条第 4 项是考纲标签（已按由易到难排序、最多 3 个）。
+     口径：**一个"基础档"标签都没有**才算难 —— 也就是连四级门槛都没进，
+     只出现在 考研 / 托福 / 雅思 / GRE 里。这样只挑真难词，不会把 gk / cet4 这类常见词也划进来。
+     ⚠ 词典只留前 3 个（升序），所以「cet4 cet6 ky …」被截成「cet4 cet6 ky」仍含 cet4 → 判不难 ✅；
+       「cet6 ky ielts gre」截成「cet6 ky ielts」不含基础档 → 判难 ✅。截断不会造成误判。
+     完全没有标签的词（约 13%，多为专有名词 / 人名 / 生僻词）一律不标 —— 宁缺勿错。 */
+  var HARD_HAS_BASIC = /(?:^| )(?:zk|gk|cet4)(?: |$)/;
+
+  function isHardWord(w) {
+    if (!EXAMPLE_DICT || !w) return false;
+    var e = EXAMPLE_DICT[String(w).toLowerCase()];
+    if (!e || !e[3]) return false;
+    return !HARD_HAS_BASIC.test(e[3]);
+  }
+
+  /* 一次遍历刷两种标记：ex-say（正在念的词）+ ex-hard（难词）。
+     合并成一次遍历是为了不互相覆盖；且只切 class、**不碰 innerHTML** ——
+     理由见下面 decorateExample 里的死循环警告。 */
+  function paintExampleWords() {
     var els = document.querySelectorAll("#exampleText .ex-w");
     for (var k = 0; k < els.length; k++) {
-      if (k === i) els[k].classList.add("ex-say");
+      if (k === lastSaidToken) els[k].classList.add("ex-say");
       else els[k].classList.remove("ex-say");
+      if (isHardWord(els[k].getAttribute("data-w"))) els[k].classList.add("ex-hard");
+      else els[k].classList.remove("ex-hard");
     }
+  }
+
+  function paintExampleToken(i) {
+    lastSaidToken = i;
+    paintExampleWords();
   }
 
   (function registerExampleTokenHook() {
@@ -3055,7 +3171,8 @@ body{
   })();
 
   // 预热：页面一开就在后台拉词典，等真去点词的时候已经是热的（不阻塞任何东西）
-  loadExampleDict();
+  // 词典是异步来的，到了就把难词标记补上（例句此刻可能已经渲染好了）
+  loadExampleDict().then(paintExampleWords);
 
   // progressBar 的宽度是 style 属性变更，单独盯属性
   if ($("progressBar")) {
