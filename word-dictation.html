@@ -435,6 +435,31 @@ button.small{ padding:6px 12px; font-size:12.5px; }
 .ex-text mark{ background:var(--mark); color:var(--ink); font-weight:600; padding:0 3px; border-radius:3px; }
 /* 中文译文与英文之间留白改由 CSS 负责（JS 不再插空格，否则会跑到「（」之前） */
 .ex-text .cn{ color:var(--muted); font-size:14.5px; margin-left:.4em; }
+/* 例句里每个英文单词都是可点单元：点一下看释义（2026-10-12 加）
+   用 padding/负 margin 撑出点击热区，但不改变文字排版宽度 */
+.ex-text .ex-w{ cursor:pointer; border-radius:3px; padding:1px 1px; margin:0 -1px;
+  transition:background .12s ease; }
+.ex-text span.ex-w:hover{ background:var(--blue-soft); }
+.ex-text mark.ex-w{ background:var(--mark); color:var(--ink); font-weight:600; padding:0 3px; margin:0; }
+.ex-text mark.ex-w:hover{ background:var(--blue-soft); }
+.ex-text .ex-w.def-open{ background:var(--blue-soft); box-shadow:0 0 0 1px var(--blue-line); }
+/* 释义小卡片：fixed 贴在被点单词下方（#exampleText 的父级有 overflow:hidden，不能用 absolute） */
+#defCard{
+  position:fixed; z-index:70; top:0; left:0; max-width:min(340px,88vw);
+  background:var(--card); border:1px solid var(--line); border-radius:var(--r-m);
+  box-shadow:0 10px 30px -12px rgba(22,35,58,.30), 0 2px 6px rgba(22,35,58,.06);
+  padding:9px 13px 10px; font-size:13px; line-height:1.55; color:var(--ink-2);
+  pointer-events:none; opacity:0; transform:translateY(-3px);
+  transition:opacity .12s ease, transform .12s ease;
+}
+#defCard.on{ opacity:1; transform:translateY(0); }
+#defCard.hidden{ display:none; }
+#defCard .dc-head{ display:flex; align-items:baseline; gap:8px; margin-bottom:2px; }
+#defCard .dc-head b{ font:700 15px/1.3 "Segoe UI Variable Display","Segoe UI",system-ui,sans-serif;
+  color:var(--ink); letter-spacing:-.2px; }
+#defCard .dc-ph{ font-size:11.5px; color:var(--muted-2); }
+#defCard .dc-meaning{ color:var(--ink-2); }
+#defCard .dc-hint{ color:var(--muted-2); font-size:12px; }
 #diffText{ font-size:13px; line-height:1.75; color:var(--ink-2); background:var(--amber-soft);
   border-radius:10px; padding:11px 13px; border:1px solid rgba(184,129,58,.22); }
 #phraseText{ font-size:14.5px; line-height:1.8; color:var(--blue-d); }
@@ -1022,6 +1047,17 @@ body{
     </aside>
   </div>
 </main>
+
+<!-- 例句查义小卡片（2026-10-12 加）：点例句里的任意单词就在它下方浮出这个。
+     必须放在所有脚本标签之前 —— boot() 可能是立即执行的，元素得先在 DOM 里。
+     pointer-events:none 是故意的：卡片不挡鼠标，移开就自然换到下一个词。 -->
+<div id="defCard" class="hidden" role="tooltip" aria-live="polite">
+  <div class="dc-head">
+    <b id="defCardWord"></b>
+    <span id="defCardPh" class="dc-ph"></span>
+  </div>
+  <div id="defCardMeaning" class="dc-meaning"></div>
+</div>
 
 
 
@@ -2351,7 +2387,7 @@ body{
     if (!el) return;
     var raw = el.textContent || "";
     var key = raw.replace(/\s+/g, " ").trim();   // 归一化：抹掉我们插入的空白差异
-    if (!key) { lastExampleKey = null; lastExampleHtml = null; return; }
+    if (!key) { hideDefCard(); lastExampleKey = null; lastExampleHtml = null; return; }
 
     var cnIdx = raw.lastIndexOf("（");
     var en = cnIdx > 0 ? raw.slice(0, cnIdx) : raw;
@@ -2360,14 +2396,7 @@ body{
     var word = ($("exWordLine") ? $("exWordLine").textContent : "").trim();
     word = word.split("/")[0].trim();                    // 词条可能有 a/b 形式
 
-    var html = escapeHtml(en);
-    if (word) {
-      var body = word.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-      try {
-        html = html.replace(new RegExp("\\b(" + body + ")(s|es|ed|ing|d)?\\b", "i"),
-          function (all) { return "<mark>" + all + "</mark>"; });
-      } catch (err) { /* 词形异常就只做分色 */ }
-    }
+    var html = exampleEnToHtml(en, word);
     // ⚠ 中文前不再插空格：v3 会写成 "（…。 )" —— 因为中文译文本身就以「（」开头，
     //    前面再补一个空格会跑到「（」之前。这里用 margin 让 CSS 负责间距。
     if (cn) html += '<span class="cn">' + escapeHtml(cn) + "</span>";
@@ -2378,15 +2407,165 @@ body{
     //    也不能反过来"每次都重绘" ⇒ 会被自己的 MutationObserver 再次触发 → 死循环锁死主线程。
     //    故两条同时满足才跳过：① 算出的 HTML 与上次相同 ② DOM 里确实还是那份 HTML。
     if (html === lastExampleHtml && el.innerHTML === html) return;
+    if (key !== lastExampleKey) hideDefCard();           // 换词了：释义卡片跟着收起
     lastExampleKey = key;
     lastExampleHtml = html;
 
     if (exampleObserver) exampleObserver.disconnect();   // 保险②：写入期间静音
     el.innerHTML = html;
+    // innerHTML 一写，旧节点就全被换成新的了 —— 卡片若还指着旧节点，会停在错位置。
+    // 句子里没有多个单词单元时（比如这句恰好没内容）也一样，统一收起。
+    if (defOpenEl && !document.contains(defOpenEl)) hideDefCard();
     if (exampleObserver) {
       exampleObserver.observe(el, { childList: true, characterData: true, subtree: true });
     }
   }
+
+  /* ---------- 3a. 例句查义（2026-10-12 加）----------
+   * 需求：点例句里的任意一个单词，就看见它的释义（音标 + 中文）。
+   *
+   * 三件事：
+   *   ① exampleEnToHtml —— 把英文例句切成「标点原样 + 每个单词包一层 <span class="ex-w">」，
+   *      目标词（含常见变形）仍用 <mark> 保留原来的高亮，只是多挂了 class 和 data-w。
+   *   ② 词典从哪来 —— 线上 GitHub Pages 是纯静态没有后端，所以用本地预生成的
+   *      example-dict.json（由 build-example-dict.js 扫全部例句查 ecdict.db 得到）。
+   *      本地 127.0.0.1 环境下万一 JSON 里没有（比如刚抓的词还没重建词典），
+   *      再回退问一句 server.js 的 /api/dict。
+   *   ③ 卡片定位 —— fixed + 贴在单词正下方；下方放不下就翻到上方。
+   *      #exampleText 的父级 .example-card 有 overflow:hidden，所以绝对不能用 absolute。
+   *
+   * ⚠ exampleEnToHtml 必须是「确定性纯函数」：同样的 (例句, 目标词) 必产出同样的 HTML。
+   *   否则 decorateExample 的去重判据失效 → MutationObserver 无限自触发，整页卡死。
+   */
+  var EN_TOKEN_RE = /[A-Za-z][A-Za-z'’-]*/g;
+
+  function targetFormRe(target) {
+    var t = String(target || "").toLowerCase().trim();
+    if (!t) return null;
+    var esc = t.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    try {
+      return new RegExp("^(?:" + esc + ")(?:s|es|ed|ing|d)?$");
+    } catch (e) { return null; }
+  }
+
+  function exampleEnToHtml(en, target) {
+    var s = String(en || "");
+    var re = targetFormRe(target);
+    var out = "", last = 0, m;
+    EN_TOKEN_RE.lastIndex = 0;
+    while ((m = EN_TOKEN_RE.exec(s)) !== null) {
+      out += escapeHtml(s.slice(last, m.index));          // 单词之间的空格与标点原样保留
+      var raw = m[0], low = raw.toLowerCase();
+      var tag = (re && re.test(low)) ? "mark" : "span";   // 目标词沿用 <mark> 的既有样式
+      out += "<" + tag + ' class="ex-w" data-w="' + escapeHtml(low) + '">' +
+        escapeHtml(raw) + "</" + tag + ">";
+      last = m.index + raw.length;
+    }
+    return out + escapeHtml(s.slice(last));
+  }
+
+  /* ---- 词典：先加载预置 JSON，本地环境再回退 /api/dict ---- */
+  var EXAMPLE_DICT = null, exampleDictPromise = null;
+
+  function loadExampleDict() {
+    if (EXAMPLE_DICT) return Promise.resolve(EXAMPLE_DICT);
+    if (exampleDictPromise) return exampleDictPromise;
+    exampleDictPromise = fetch("example-dict.json", { cache: "force-cache" })
+      .then(function (r) { return r.ok ? r.json() : {}; })
+      .then(function (d) {
+        EXAMPLE_DICT = (d && typeof d === "object") ? d : {};
+        return EXAMPLE_DICT;
+      })
+      .catch(function () { EXAMPLE_DICT = {}; return EXAMPLE_DICT; });
+    return exampleDictPromise;
+  }
+
+  function isLocalHost() {
+    return location.hostname === "127.0.0.1" || location.hostname === "localhost";
+  }
+
+  function fetchDictApi(w) {
+    if (!isLocalHost()) return Promise.resolve(null);
+    return fetch("/api/dict?word=" + encodeURIComponent(w), { cache: "no-store" })
+      .then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (row) {
+        if (!row || !row.translation) return null;
+        var t = String(row.translation).split("\n")[0].trim();
+        return t ? [String(row.phonetic || "").trim(), t] : null;
+      })
+      .catch(function () { return null; });
+  }
+
+  function lookupWord(w) {
+    var key = String(w || "").toLowerCase();
+    return loadExampleDict().then(function (dict) {
+      if (dict[key]) return { entry: dict[key] };
+      // 词典里没有这个词形（JSON 只收例句里实际出现过的形式）→ 试几个常见还原
+      var c = [];
+      if (/ies$/.test(key)) c.push(key.slice(0, -3) + "y");
+      if (/es$/.test(key)) c.push(key.slice(0, -2));
+      if (/s$/.test(key) && !/ss$/.test(key)) c.push(key.slice(0, -1));
+      if (/ing$/.test(key)) { c.push(key.slice(0, -3), key.slice(0, -3) + "e"); }
+      if (/ed$/.test(key)) { c.push(key.slice(0, -2), key.slice(0, -1)); }
+      for (var i = 0; i < c.length; i++) {
+        if (dict[c[i]]) return { entry: dict[c[i]] };
+      }
+      return fetchDictApi(key).then(function (e2) { return { entry: e2 }; });
+    });
+  }
+
+  /* ---- 卡片：显示 / 定位 / 收起 ---- */
+  var defCardEl = null, defOpenEl = null, defReqId = 0;
+
+  function hideDefCard() {
+    defReqId++;                                   // 作废还在飞的那次查询
+    if (defOpenEl) { defOpenEl.classList.remove("def-open"); defOpenEl = null; }
+    if (defCardEl) { defCardEl.classList.remove("on"); defCardEl.classList.add("hidden"); }
+  }
+
+  function positionDefCard(anchor, card) {
+    card.classList.remove("hidden");              // 先可见才能量到真实尺寸
+    var r = anchor.getBoundingClientRect();
+    var cw = card.offsetWidth, ch = card.offsetHeight;
+    var vw = window.innerWidth, vh = window.innerHeight, pad = 8;
+    var left = r.left + r.width / 2 - cw / 2;     // 居中于被点的单词
+    if (left < pad) left = pad;
+    if (left + cw > vw - pad) left = vw - pad - cw;
+    var top = r.bottom + 8;                       // 默认在下方
+    if (top + ch > vh - pad) top = r.top - ch - 8; // 下方放不下就翻到上方
+    if (top < pad) top = pad;
+    card.style.left = Math.round(left) + "px";
+    card.style.top = Math.round(top) + "px";
+    card.classList.add("on");
+  }
+
+  function showDefCard(el, w) {
+    if (!defCardEl) defCardEl = $("defCard");
+    if (!defCardEl) return;
+    if (defOpenEl && defOpenEl !== el) defOpenEl.classList.remove("def-open");
+    defOpenEl = el;
+    el.classList.add("def-open");
+
+    var req = ++defReqId;
+    $("defCardWord").textContent = w;
+    $("defCardPh").textContent = "";
+    $("defCardMeaning").innerHTML = '<span class="dc-hint">查询中…</span>';
+    positionDefCard(el, defCardEl);
+
+    lookupWord(w).then(function (res) {
+      if (req !== defReqId) return;               // 已经点到别的词了，这次结果作废
+      var e = res && res.entry;
+      if (!e) {
+        $("defCardPh").textContent = "";
+        $("defCardMeaning").innerHTML = '<span class="dc-hint">词典未收录这个词</span>';
+      } else {
+        $("defCardPh").textContent = e[0] ? "/" + e[0] + "/" : "";
+        $("defCardMeaning").textContent = e[1] || "";
+      }
+      positionDefCard(el, defCardEl);             // 内容换行后高度会变，位置再校一次
+    });
+  }
+
 
   /* ---------- 4. 短语：把「a；b；c」拆成一枚枚小胶囊（原样是一整坨文字）---------- */
   var lastPhraseKey = null;
@@ -2447,6 +2626,56 @@ body{
   observeText($("progressBar"), syncPct);
   exampleObserver = observeText($("exampleText"), decorateExample);   // 句柄留着，写入时静音用
   phraseObserver = observeText($("phraseText"), decoratePhrase);
+
+  /* ---------- 例句查义：事件绑定 ----------
+   * 点单词 → 查义；点例句空白 / 点页面别处 / 按 ESC / 滚动页面 → 收起。 */
+  (function bindDefCard() {
+    var exEl = $("exampleText");
+    if (exEl) {
+      exEl.addEventListener("click", function (e) {
+        var t = e.target;
+        var el = (t && t.closest) ? t.closest(".ex-w") : null;
+        if (!el) { hideDefCard(); return; }
+        var w = el.getAttribute("data-w");
+        if (!w) { hideDefCard(); return; }
+        showDefCard(el, w);
+      });
+    }
+    // 点别处收起。⚠ 必须排除 .ex-w 与卡片自身：exEl 的监听先跑并刚把卡片立起来，
+    // 这里若不再筛一次，就会「刚点开就被自己关掉」。
+    document.addEventListener("click", function (e) {
+      if (!defOpenEl) return;
+      var t = e.target;
+      if (t && t.closest && (t.closest(".ex-w") || t.closest("#defCard"))) return;
+      hideDefCard();
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && defOpenEl) hideDefCard();
+    });
+    /* 页面滚动 / 窗口尺寸变化时：让卡片跟着单词走，而不是收起。
+       ⚠ 这里踩过坑（2026-10-12 实测）：一开始写成「一滚动就收起」，结果无头浏览器里
+       t≈1s 时凭空来了一次 resize 事件，卡片刚点开就被自己关掉。
+       正确做法是重新定位；只有当锚点已经不在 DOM 里（换词了）才收起。
+       用 rAF 节流：scroll 事件可能一次滚动发几十个。 */
+    var repositionRaf = 0;
+    function repositionOrHide() {
+      if (!defOpenEl) return;
+      if (!document.contains(defOpenEl)) { hideDefCard(); return; }  // 单词节点已被重写掉
+      positionDefCard(defOpenEl, defCardEl || $("defCard"));
+    }
+    function scheduleReposition() {
+      if (!defOpenEl || repositionRaf) return;
+      repositionRaf = requestAnimationFrame(function () {
+        repositionRaf = 0;
+        repositionOrHide();
+      });
+    }
+    window.addEventListener("scroll", scheduleReposition, true);
+    window.addEventListener("resize", scheduleReposition);
+  })();
+
+  // 预热：页面一开就在后台拉词典，等真去点词的时候已经是热的（不阻塞任何东西）
+  loadExampleDict();
 
   // progressBar 的宽度是 style 属性变更，单独盯属性
   if ($("progressBar")) {
