@@ -1555,6 +1555,7 @@ body{
 
       var a = onlineAudio || (onlineAudio = new Audio());
       var finished = false, raf = 0, guard = null;
+      var lastCt = -1, lastProgressAt = Date.now();
       // 每个词的时间锚点：按"词长 + 1（词间空隙）"累计，占总量的比例 × 真实时长
       var cum = [], acc = 0;
       for (var i = 0; i < spans.length; i++) { cum.push(acc); acc += spans[i].len + 1; }
@@ -1575,9 +1576,16 @@ body{
       function tick() {
         if (finished) return;
         if (token !== speechToken) { finish(); return; }
+        var ct = a.currentTime;
+        /* 停滞检测（2026-10-12 线上探针逼出来的）：
+           这条路靠音频 onended 收尾，可要是音频卡在缓冲上、onended 永远不来，
+           高亮就会**一直亮在屏幕上**不动，只能等 60 秒的保底定时器 —— 体验很糟。
+           所以这里盯住 currentTime：5 秒没往前走过，就当它播完了，立刻收干净。 */
+        if (ct > lastCt + 0.001) { lastCt = ct; lastProgressAt = Date.now(); }
+        else if (Date.now() - lastProgressAt > 5000) { finish(); return; }
         var d = a.duration;
         if (d && isFinite(d) && d > 0) {
-          var t = a.currentTime / d * total;
+          var t = ct / d * total;
           var k = 0;
           for (var j = cum.length - 1; j >= 0; j--) { if (cum[j] <= t) { k = j; break; } }
           emitExampleToken(k);
