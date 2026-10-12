@@ -443,6 +443,14 @@ button.small{ padding:6px 12px; font-size:12.5px; }
 .ex-text mark.ex-w{ background:var(--mark); color:var(--ink); font-weight:600; padding:0 3px; margin:0; }
 .ex-text mark.ex-w:hover{ background:var(--blue-soft); }
 .ex-text .ex-w.def-open{ background:var(--blue-soft); box-shadow:0 0 0 1px var(--blue-line); }
+/* 逐词高亮（2026-10-12 加）：读例句时念到哪个词就点亮哪个。
+   刻意与 def-open（点词查义的悬停态）区分开：那个是整块淡底，这个是底部一道实心条，
+   两者同时出现（正在念 + 正被点开）也分得清。
+   用主色 + 主色淡底，不引入新色相 —— 绿/红/琥珀是留给对错反馈的。 */
+.ex-text .ex-w.ex-say{
+  background:var(--blue-soft); border-radius:3px;
+  box-shadow:inset 0 -2px 0 0 var(--blue);
+}
 /* 释义小卡片：fixed 贴在被点单词下方（#exampleText 的父级有 overflow:hidden，不能用 absolute） */
 #defCard{
   position:fixed; z-index:70; top:0; left:0; max-width:min(340px,88vw);
@@ -462,6 +470,29 @@ button.small{ padding:6px 12px; font-size:12.5px; }
 #defCard .dc-base{ font-size:11.5px; color:var(--blue-d); margin:1px 0 3px; font-weight:600; }
 #defCard .dc-meaning{ color:var(--ink-2); }
 #defCard .dc-hint{ color:var(--muted-2); font-size:12px; }
+/* 难度标签（2026-10-12 加）：数据来自 ECDICT 的 tag 字段（考纲级别）。
+   刻意只用一个色相（主色淡底 + 主色深字）—— 整页的绿/红/琥珀是留给对错反馈的，
+   难度这种常驻信息不该占用语义色，否则"红色"到底表示错还是表示难就说不清了。
+   难度靠「由易到难排序 + 中文标签」表达，一眼看到最左边那个就是门槛最低的考纲。 */
+#defCard .dc-tags{ display:flex; flex-wrap:wrap; gap:4px; margin:3px 0 4px; }
+#defCard .dc-tags.hidden{ display:none; }
+#defCard .dc-tag{
+  font:600 10.5px/1.6 var(--ui-font,"Segoe UI",system-ui,sans-serif);
+  padding:0 6px; border-radius:999px; letter-spacing:.2px;
+  background:var(--blue-soft); color:var(--blue-d); border:1px solid var(--blue-line);
+}
+/* 朗读小按钮：卡片本身是 pointer-events:none（好让鼠标穿过去点被卡片盖住的词），
+   所以只有这个按钮单独把指针事件打开 —— 只让"可点的东西"可点。 */
+#defCard .dc-speak{
+  pointer-events:auto; margin-left:auto; align-self:center; flex:none;
+  width:23px; height:23px; padding:0; border-radius:50%;
+  border:1px solid var(--line); background:var(--card); color:var(--muted);
+  cursor:pointer; font-size:11px; line-height:1;
+  display:flex; align-items:center; justify-content:center;
+  transition:background .12s ease, border-color .12s ease, color .12s ease;
+}
+#defCard .dc-speak:hover{ background:var(--blue-soft); border-color:var(--blue-line); color:var(--blue-d); }
+#defCard .dc-speak:active{ transform:translateY(1px); }
 #diffText{ font-size:13px; line-height:1.75; color:var(--ink-2); background:var(--amber-soft);
   border-radius:10px; padding:11px 13px; border:1px solid rgba(184,129,58,.22); }
 #phraseText{ font-size:14.5px; line-height:1.8; color:var(--blue-d); }
@@ -629,6 +660,8 @@ button.small{ padding:6px 12px; font-size:12.5px; }
   /* ⚠ 不要用"独立书写列 + 靠高度凑虚线位置"的写法：单元格是 vertical-align 定位的，
      虚线会跑到文字上方。直接让每行的底边就是书写线，通栏、且位置天然正确。 */
   #printArea .pnum{ width:26pt; color:#999; }
+  #printArea .ph{ color:#777; margin-left:6pt; font-size:8.5pt; }
+  #printArea .ptag{ width:64pt; color:#666; font-size:8.5pt; }
   #printArea .pfoot{ margin-top:10pt; font:9pt/1.6 "Segoe UI","Microsoft YaHei",sans-serif; color:#888; }
 }
 
@@ -851,6 +884,25 @@ body{
       之后<b>连续两轮都没被标记</b>（或打字模式连续答对两次）就自动移出。
       点「只练错词本」会把上方单词表换成错词本里的词并直接开始连播（原单词表会自动备份，可点旁边按钮找回）。
     </p>
+
+    <h3 style="margin:26px 0 8px;">生词本 <span class="count" id="newWordCount" style="margin:0;font-weight:400;"></span></h3>
+    <div class="row" style="margin-bottom:9px;">
+      <button class="primary small" id="practiceNewBtn" type="button">只练生词本</button>
+      <button class="small" id="exportNewBtn" type="button">导出生词 PDF</button>
+      <button class="small" id="copyNewBtn" type="button">复制生词</button>
+      <button class="small" id="clearNewBtn" type="button">清空生词本</button>
+    </div>
+    <div class="stats-scroll">
+      <table class="result-table">
+        <thead><tr><th>单词</th><th>释义</th><th>难度</th><th>查过</th><th></th></tr></thead>
+        <tbody id="newWordBody"></tbody>
+      </table>
+    </div>
+    <p class="stats-sub">
+      在例句里<b>点过的词会自动收进这里</b> —— 会去查说明当时不认识，不用再手动记一遍。
+      「查过」按次数从多到少排，<b>被反复点到的自然顶到最上面</b>，那就是真正没记住的。
+      点「只练生词本」会把上方单词表换成这里的词并直接开始连播（原单词表会自动备份，可用上方按钮找回）。
+    </p>
   </div>
 </section>
 
@@ -1057,8 +1109,10 @@ body{
   <div class="dc-head">
     <b id="defCardWord"></b>
     <span id="defCardPh" class="dc-ph"></span>
+    <button id="defCardSpeak" class="dc-speak" type="button" title="朗读这个词" aria-label="朗读这个词">🔊</button>
   </div>
   <div id="defCardBase" class="dc-base hidden"></div>
+  <div id="defCardTags" class="dc-tags hidden"></div>
   <div id="defCardMeaning" class="dc-meaning"></div>
 </div>
 
@@ -1082,7 +1136,7 @@ body{
   var state = {
     words: [],       // [{text, meaning}]
     order: [],       // indices into words
-    mode: "type",    // "type" | "play"
+    mode: "play",    // "type" | "play"（与 DOM 默认标签「连续播放」保持一致）
     pos: 0,
     running: false,
     paused: false,
@@ -1414,6 +1468,7 @@ body{
   function clearExamplePanel() {
     var panel = $("examplePanel");
     var text = $("exampleText");
+    emitExampleToken(-1);          // 面板清空了，逐词高亮也要跟着收掉
     text.textContent = "";
     $("exWordLine").textContent = "";
     $("exMeaningLine").textContent = "";
@@ -1445,7 +1500,13 @@ body{
       clearTimeout(playTimer); // 读例句期间先别让自动连播把下一词抢走
       setExamplePanel(item); // 把例句面板亮出来：看得见，也听得到
     }
-    var done = speakLoop(item.exampleEn, 1, parseFloat(rateSelect.value));
+    var rate = parseFloat(rateSelect.value);
+    /* 长句走"带逐词进度"的那条路（顺带驱动逐词高亮），短句仍走原来的整句播放。
+       为什么按长度分流：短句（≤3 词）本来就短，高亮一下也没什么可看的，
+       而原来那条路会优先用在线的有道音频（音质好），没必要为了高亮把它换掉。 */
+    var done = isShortEnText(item.exampleEn)
+      ? speakLoop(item.exampleEn, 1, rate)
+      : speakExampleWords(item.exampleEn, rate);
     // 连续播放模式下，读完例句接着按原来的节奏走
     if (state.mode === "play" && $("autoPlayBox").checked && !state.paused) {
       done.then(function () {
@@ -1453,6 +1514,104 @@ body{
       });
     }
     return true;
+  }
+
+  /* ---------- 读例句时「念到第几个词」（逐词高亮的数据源，2026-10-12 加）----------
+   * 高亮本身由 v4 视觉层做（它拥有 #exampleText 里那些 .ex-w 单元），这里只报进度：
+   *   emitExampleToken(序号) —— 正在念第 i 个词（从 0 数）
+   *   emitExampleToken(-1)   —— 念完了 / 被打断，请收掉高亮
+   *
+   * 怎么知道念到第几个？两条路，先精确后估算：
+   *   ① onboundary —— 浏览器每念到一个词抛一次，带 charIndex，最准。
+   *      ⚠ 但只有**本机音色**（Microsoft Mark / Zira / David 这类 SAPI）会抛；
+   *        「Online (Natural)」远端音色（页面默认的 Microsoft Ava Online 正是这种）
+   *        是微软服务器把整段合成好再推流，**不抛 boundary 事件**。
+   *   ② 估算 —— onstart 后 350ms 内没等到 boundary，就按「字符数 ÷ 语速」摊出每个词
+   *      大概占多久，用定时器逐个推进。远端音色走这条，会有半拍到一拍的偏差，
+   *      但方向是对的（跟着念的节奏走），且一等到 onend 立刻收尾，不会留在屏幕上不撤。
+   */
+  var EXAMPLE_WORD_RE = /[A-Za-z][A-Za-z'’-]*/g;
+
+  function exampleWordSpans(text) {
+    var spans = [], m;
+    EXAMPLE_WORD_RE.lastIndex = 0;
+    while ((m = EXAMPLE_WORD_RE.exec(text)) !== null) spans.push({ i: m.index, len: m[0].length });
+    return spans;
+  }
+
+  function emitExampleToken(i) {
+    var h = window.__dictationHooks;
+    if (h && typeof h.onExampleToken === "function") h.onExampleToken(i);
+  }
+
+  function speakExampleWords(text, rate) {
+    var token = ++speechToken;
+    return new Promise(function (resolve) {
+      var spans = exampleWordSpans(text);
+      // 没有语音合成、或压根分不出词 —— 退回原来的整句播放（没有高亮，但功能不丢）
+      if (!("speechSynthesis" in window) || !spans.length) {
+        speak(text, rate, resolve, token);
+        return;
+      }
+      speechSynthesis.cancel();
+      var u = new SpeechSynthesisUtterance(text);
+      var v = pickVoice();
+      if (v) { u.voice = v; u.lang = v.lang; } else { u.lang = "en-US"; }
+      u.rate = rate;
+
+      var idx = -1, estTimers = [], graceTimer = null;
+      var finished = false, gotBoundary = false;
+      var hardStop = null;
+
+      function emit(i) { if (i === idx) return; idx = i; emitExampleToken(i); }
+      function clearEst() {
+        if (graceTimer) { clearTimeout(graceTimer); graceTimer = null; }
+        for (var k = 0; k < estTimers.length; k++) clearTimeout(estTimers[k]);
+        estTimers = [];
+      }
+      function finish() {
+        if (finished) return;
+        finished = true;
+        clearEst();
+        if (hardStop) clearTimeout(hardStop);
+        emitExampleToken(-1);          // 念完了/被中断：一定收掉高亮
+        resolve();
+      }
+      function spanIndex(charIndex) {
+        for (var k = spans.length - 1; k >= 0; k--) if (spans[k].i <= charIndex) return k;
+        return 0;
+      }
+
+      u.onstart = function () {
+        if (token !== speechToken) { finish(); return; }
+        emit(0);
+        graceTimer = setTimeout(function () {
+          if (gotBoundary || finished) return;
+          // 估算：自然语音语速约 14 字符/秒（rate=1），每个词至少占 120ms
+          var cps = 14 * (rate || 1);
+          var acc = 0;
+          for (var k = 1; k < spans.length; k++) {
+            acc += Math.max(120, spans[k - 1].len / cps * 1000);
+            (function (k, at) {
+              estTimers.push(setTimeout(function () {
+                if (!gotBoundary && !finished && token === speechToken) emit(k);
+              }, at));
+            })(k, acc);
+          }
+        }, 350);
+      };
+      u.onboundary = function (e) {
+        if (typeof e.charIndex !== "number") return;
+        gotBoundary = true;
+        clearEst();                    // 有精确信号了，估算整条作废
+        if (!finished && token === speechToken) emit(spanIndex(e.charIndex));
+      };
+      u.onend = finish;
+      u.onerror = finish;
+      speechSynthesis.speak(u);
+      // 保底：万一 onend 在个别环境里不来，30 秒后强制收尾（免得高亮留在屏幕上）
+      hardStop = setTimeout(finish, 30000);
+    });
   }
 
   /* ---------- 重播当前单词（R 快捷键 / 🔊 重播 按钮，共用同一套逻辑） ----------
@@ -1480,11 +1639,31 @@ body{
     });
   }
 
+  /* 模式相关的 UI 同步（标签高亮 / 开始按钮显隐 / 空态提示文案）：
+     setMode() 和 startPlay()/startTyping() 都要走这里，避免「程序化开播」
+     （例如错词本一键开播）时标签和实际模式对不上。 */
+  function syncModeUI(mode) {
+    $("typeModeBtn").classList.toggle("active", mode === "type");
+    $("playModeBtn").classList.toggle("active", mode === "play");
+    /* 开始按钮跟着模式对调显隐：
+       - play 模式 -> 「开始连播」
+       - type 模式 -> 「开始逐个听写」
+       这两个按钮原先一直只显示 play 那个（type 那个写死 display:none），
+       导致「逐个听写」标签点了也没入口，只能连播。 */
+    if ($("startPlayBtn")) $("startPlayBtn").style.display = (mode === "play") ? "" : "none";
+    if ($("startTypeBtn")) $("startTypeBtn").style.display = (mode === "type") ? "" : "none";
+    var sub = document.querySelector("#idleView .idle-sub");
+    if (sub) {
+      sub.innerHTML = (mode === "type")
+        ? "听到发音后把单词打进输入框，按 Enter 提交；再按 Enter 进入下一个。"
+        : "点开始后自动连播，听到就写在本子上；也可切「逐个听写」打字校对。";
+    }
+  }
+
   function setMode(mode) {
     stopEverything();
     state.mode = mode;
-    $("typeModeBtn").classList.toggle("active", mode === "type");
-    $("playModeBtn").classList.toggle("active", mode === "play");
+    syncModeUI(mode);
     showOnly("idleView");
     $("startError").textContent = "";
   }
@@ -1512,6 +1691,7 @@ body{
     }
     buildOrder();
     state.mode = "type";
+    syncModeUI("type");
     state.running = true;
     state.paused = false;
     state.pos = 0;
@@ -1801,6 +1981,7 @@ body{
     }
     buildOrder();
     state.mode = "play";
+    syncModeUI("play");
     state.running = true;
     state.paused = false;
     state.pos = 0;
@@ -2051,7 +2232,15 @@ body{
 
   $("submitBtn").addEventListener("click", submitAnswer);
   $("answerInput").addEventListener("keydown", function (e) {
-    if (e.key === "Enter") { e.preventDefault(); submitAnswer(); }
+    if (e.key === "Enter") {
+      e.preventDefault();
+      /* 必须 stopPropagation：keydown 会冒泡到 document，document 那层也认
+         「type + answered」时的 Enter（用来进入下一个单词）。若不停冒泡，
+         一次 Enter 会先被这里提交（phase -> answered），再被 document 当成
+         「已答完、请前进」，于是一个回车提交 + 跳词，直接漏掉一个单词。 */
+      e.stopPropagation();
+      submitAnswer();
+    }
   });
   $("skipBtn").addEventListener("click", skipWord);
   $("replayBtn").addEventListener("click", function () { replayWord(); });
@@ -2151,7 +2340,10 @@ body{
         playPrev();
       }
     } else if (state.mode === "type" && state.phase === "answered") {
-      if (e.key === "ArrowDown" || e.key === "ArrowRight") {
+      /* 答完题后输入框会被 disabled、焦点被浏览器收走，此时的 Enter
+         只能落到这里。原先只认方向键，占位符却写着「按 Enter 进入下一个」，
+         等于两个模式间行为不一致（play 模式 Enter 是下一个）。补齐。 */
+      if (e.key === "Enter" || e.key === "ArrowDown" || e.key === "ArrowRight") {
         e.preventDefault();
         nextWord();
       }
@@ -2275,7 +2467,26 @@ body{
       return true;
     },
     /* ⑦ 暂停 / 继续 */
-    togglePause: function () { togglePause(); }
+    togglePause: function () { togglePause(); },
+    /* ⑧ 念一个「例句卡片上的词」（2026-10-12）——
+       例句查义卡片住在 v4 视觉层那一段独立 IIFE 里，拿不到这里的 speak / stopSpeech，
+       所以再开一扇小窗。先 stopSpeech() 再念：卡片发音和连播循环都会占着同一个音频通道，
+       不停掉的话会出现两个声音叠着响。
+       这里刻意不复用 replayWord()：那个要求 state.running 且念的是"当前听写词"，
+       而用户点的是例句里的任意一个词，属于独立的一次发音。 */
+    speakWord: function (w) {
+      var t = String(w || "").trim();
+      if (!t) return false;
+      stopSpeech();
+      var token = ++speechToken;
+      speak(t, parseFloat(rateSelect.value) || 1, null, token);
+      return true;
+    },
+    /* ⑨ 读例句时"念到第几个词"的进度回调（例句逐词高亮用）——
+       由 v4 视觉层注册（它拥有 #exampleText 里的 .ex-w 单元）。
+       约定：参数是词的序号（从 0 数），-1 表示"念完了，收高亮"。
+       这里是**单向**通道：主逻辑只管报进度，怎么亮由视觉层决定。 */
+    onExampleToken: null
   };
 
   /* ---------- 初始化 ---------- */
@@ -2419,6 +2630,10 @@ body{
     // innerHTML 一写，旧节点就全被换成新的了 —— 卡片若还指着旧节点，会停在错位置。
     // 句子里没有多个单词单元时（比如这句恰好没内容）也一样，统一收起。
     if (defOpenEl && !document.contains(defOpenEl)) hideDefCard();
+    // 时序坑（2026-10-12）：这段改写是异步的，而"开始念第 0 个词"的回调可能**先到** ——
+    // 那时 .ex-w 还没生成，高亮就落空了，要等下一次报进度才补上（听着就像卡了一拍）。
+    // 所以这里画完立刻按上一次报的序号补一次。
+    if (lastSaidToken >= 0) paintExampleToken(lastSaidToken);
     if (exampleObserver) {
       exampleObserver.observe(el, { childList: true, characterData: true, subtree: true });
     }
@@ -2541,6 +2756,135 @@ body{
     }
   }
 
+  /* 难度标签（2026-10-12 加）：词条第 4 项 e[3]，形如 "cet6 ky ielts"（已按由易到难排好）。
+     代码 → 中文，只做查表；出现没见过的代码就原样大写显示，不猜。 */
+  var TAG_LABEL = {
+    zk: "中考", gk: "高考", cet4: "四级", cet6: "六级",
+    ky: "考研", toefl: "托福", ielts: "雅思", gre: "GRE"
+  };
+
+  function tagLabelOf(tag) {
+    return String(tag || "").trim().split(/\s+/).filter(Boolean)
+      .map(function (t) { return TAG_LABEL[t] || t.toUpperCase(); }).join(" ");
+  }
+
+  function setDefCardTags(tag) {
+    var el = $("defCardTags");
+    if (!el) return;
+    var lb = tagLabelOf(tag);
+    if (!lb) { el.innerHTML = ""; el.classList.add("hidden"); return; }
+    el.innerHTML = lb.split(" ").map(function (t) {
+      return '<span class="dc-tag">' + escapeHtml(t) + "</span>";
+    }).join("");
+    el.classList.remove("hidden");
+  }
+
+  /* ---------- 3d. 生词本：查过的词自动收集（2026-10-12 加）----------
+   * 想法：他点例句里的词去查义，这件事本身就是最真实的「生词信号」——
+   * 不认识的词才会去点。所以不用他再手动记一遍，查过就自动进生词本。
+   *
+   * 与「错词本」的分工：
+   *   错词本 = 听写时没写出来的词（有遗忘曲线的进出规则：错过进、连对 2 次出）
+   *   生词本 = 读例句时主动查过的词（只增不减，靠"查过几次"排序把真生词顶上来）
+   *   两者互不覆盖 —— 同一个词可能在两边都出现，那是两件不同的事实。
+   *
+   * key 用他去点的那**个词形**（went / studies 各自成条），因为那才是他当时遇到的障碍；
+   * 但释义/标签存的是词典给的原型那一套，列表里一眼能看懂。
+   * ⚠ 这段在 v4 视觉层里，错词本那套存储（readJSON/writeJSON）够不到，
+   *   所以这里直接用 localStorage；名单的展示与操作在「学习记录」那一层做。 */
+  var LS_NEW = "dictationNewWords";
+
+  function recordNewWord(w, entry) {
+    var key = String(w || "").toLowerCase().trim();
+    if (!key) return;
+    try {
+      var book = {};
+      var raw = localStorage.getItem(LS_NEW);
+      if (raw) { var v = JSON.parse(raw); if (v && typeof v === "object") book = v; }
+      var old = book[key] || {};
+      book[key] = {
+        w: key,
+        ph: (entry && entry[0]) || old.ph || "",
+        m: (entry && entry[1]) || old.m || "",
+        base: (entry && entry[2]) || old.base || "",
+        tagLabel: tagLabelOf(entry && entry[3]) || old.tagLabel || "",
+        hits: old.hits || 0,
+        ts: old.ts || Date.now()
+      };
+      localStorage.setItem(LS_NEW, JSON.stringify(book));
+    } catch (e) { /* 存储写不进去也不影响查词本身 */ }
+  }
+
+  /* 点一下就算一次 —— 与「查到什么」彻底解耦。
+     ⚠ 为什么必须拆成两步（2026-10-12 探针实测踩到）：
+     showDefCard 里那层 req !== defReqId 守卫是给**卡片 UI** 防串台用的：
+     连着点几个词时，只有最后一次请求的结果会去渲染。但第一版把记生词也写在守卫后面，
+     于是"他点过 A 又点过 B"这件事被守卫一起丢掉了 —— 实测连着点 3 次只记下 1 个词。
+     事实是"点过就是点过"，跟卡片最后显示谁无关，所以：
+       · bumpNewWordHit —— 点击当下同步调用，只负责 hits+1 / 建条目
+       · recordNewWord  —— 查询回来后调用，只负责把音标/释义/标签补进去（不用守卫） */
+  function bumpNewWordHit(w) {
+    var key = String(w || "").toLowerCase().trim();
+    if (!key) return;
+    try {
+      var book = {};
+      var raw = localStorage.getItem(LS_NEW);
+      if (raw) { var v = JSON.parse(raw); if (v && typeof v === "object") book = v; }
+      var old = book[key] || {};
+      book[key] = {
+        w: key,
+        ph: old.ph || "",
+        m: old.m || "",
+        base: old.base || "",
+        tagLabel: old.tagLabel || "",
+        hits: (old.hits || 0) + 1,
+        ts: Date.now()
+      };
+      localStorage.setItem(LS_NEW, JSON.stringify(book));
+    } catch (e) { /* 同上 */ }
+  }
+
+  /* 朗读卡片上这个词（2026-10-12 加）：
+     ⚠ 本段是独立的 IIFE（v4 视觉层），够不到主逻辑里的 speak / stopSpeech ——
+     所以必须走 window.__dictationHooks.speakWord() 这扇窗（见主脚本里的注释⑧）。
+     早期版本直接在这里调 speak()/stopSpeech()，运行时报
+     "ReferenceError: stopSpeech is not defined"，按钮点了没声音。 */
+  function speakDefCardWord() {
+    var w = (($("defCardWord") || {}).textContent || "").trim();
+    if (!w) return;
+    var h = window.__dictationHooks;
+    if (h && typeof h.speakWord === "function") h.speakWord(w);
+  }
+
+  /* ---------- 3e. 读例句时的逐词高亮（2026-10-12 加）----------
+   * 主逻辑（另一段 IIFE）念例句时会回调 onExampleToken(序号)：
+   *   序号 = 正在念第几个词（从 0 数）；-1 = 念完了，收高亮。
+   * 这里只做一件事：把 #exampleText 里第 i 个 .ex-w 点亮。
+   * 序号能直接对上的原因：exampleEnToHtml 就是按文本顺序逐个生成 .ex-w 的，
+   * 与主逻辑那边用的是同一套「英文字母 + 撇号 + 连字符」分词规则，顺序必然一致。
+   * ⚠ 注释里不要写出那条正则的完整形态 —— 它中间含有斜杠星号，会把块注释提前闭合，
+   *   后面的中文就变成代码了（check_syntax 会报 Unexpected identifier）。
+   *
+   * ⚠ 高亮用的是 class 切换，**不碰 innerHTML** —— 这一点很关键：
+   *   decorateExample 靠 MutationObserver 盯着 #exampleText，去重判据是
+   *   "HTML 是否还在 DOM 里"。如果这里改写 innerHTML，观察者会再触发一轮重写，
+   *   轻则闪烁、重则和观察者互相触发把页面卡死。classList.toggle 不触发 childList 变更。 */
+  var lastSaidToken = -1;   // 主逻辑最后一次报的"念到第几个词"
+
+  function paintExampleToken(i) {
+    lastSaidToken = i;
+    var els = document.querySelectorAll("#exampleText .ex-w");
+    for (var k = 0; k < els.length; k++) {
+      if (k === i) els[k].classList.add("ex-say");
+      else els[k].classList.remove("ex-say");
+    }
+  }
+
+  (function registerExampleTokenHook() {
+    var h = window.__dictationHooks;
+    if (h) h.onExampleToken = paintExampleToken;
+  })();
+
   function positionDefCard(anchor, card) {
     card.classList.remove("hidden");              // 先可见才能量到真实尺寸
     var r = anchor.getBoundingClientRect();
@@ -2565,22 +2909,30 @@ body{
     el.classList.add("def-open");
 
     var req = ++defReqId;
+    bumpNewWordHit(w);                            // 点一下就记一次（同步，不受下面那层守卫影响）
     $("defCardWord").textContent = w;
     $("defCardPh").textContent = "";
     setDefCardBase("");
+    setDefCardTags("");
     $("defCardMeaning").innerHTML = '<span class="dc-hint">查询中…</span>';
     positionDefCard(el, defCardEl);
 
     lookupWord(w).then(function (res) {
-      if (req !== defReqId) return;               // 已经点到别的词了，这次结果作废
       var e = res && res.entry;
+      recordNewWord(w, e);                        // 先把音标/释义/标签补进生词本 ——
+                                                  // ⚠ 必须写在守卫**之前**：这一步不是在渲染卡片，
+                                                  //   而是在记录"他点过这个词"，跟卡片最后显示谁无关，
+                                                  //   被守卫吃掉就会出现"连点几个词只记下最后一个"。
+      if (req !== defReqId) return;               // 以下才是卡片 UI：已经点到别的词了，这次结果作废
       if (!e) {
         $("defCardPh").textContent = "";
         setDefCardBase("");
+        setDefCardTags("");
         $("defCardMeaning").innerHTML = '<span class="dc-hint">词典未收录这个词</span>';
       } else {
         $("defCardPh").textContent = e[0] ? "/" + e[0] + "/" : "";
         setDefCardBase(e[2]);                     // e[2] = 原型词，变形词才有这一项
+        setDefCardTags(e[3]);                     // e[3] = 考纲难度标签，没标就不占位
         $("defCardMeaning").textContent = e[1] || "";
       }
       positionDefCard(el, defCardEl);             // 内容换行后高度会变，位置再校一次
@@ -2660,6 +3012,13 @@ body{
         var w = el.getAttribute("data-w");
         if (!w) { hideDefCard(); return; }
         showDefCard(el, w);
+      });
+    }
+    var spk = $("defCardSpeak");
+    if (spk) {
+      spk.addEventListener("click", function (e) {
+        e.stopPropagation();     // 卡片区点击本来就不会收起，这里再拦一道更稳
+        speakDefCardWord();
       });
     }
     // 点别处收起。⚠ 必须排除 .ex-w 与卡片自身：exEl 的监听先跑并刚把卡片立起来，
@@ -2749,6 +3108,7 @@ body{
   var LS_HIST = "dictationHistory";
   var LS_BOOK = "dictationWrongBook";
   var LS_BAK = "dictationWordsBackup";
+  var LS_NEW = "dictationNewWords";   // 生词本（由例句查义那段脚本写入，2026-10-12）
   var MAX_HIST = 200;
 
   /* ---------------- 存储 ---------------- */
@@ -2999,6 +3359,7 @@ body{
     renderMiniBars();
     renderHistory();
     renderBook();
+    renderNewBook();
   }
 
   /* ---------------- ⑧ 导出错词 PDF ---------------- */
@@ -3075,6 +3436,99 @@ body{
     try { localStorage.removeItem(LS_BAK); } catch (e) {}
     toast("已恢复上次的单词表");
     refresh();
+  }
+
+  /* ---------------- ④b 生词本（2026-10-12 加）----------------
+     词条由例句查义卡片那段脚本写入（它在另一个 IIFE 里，直接用 localStorage）。
+     这里只负责读出来 + 展示 + 操作。存储格式：{ "词": {w, ph, m, base, tagLabel, hits, ts} }
+     与错词本的差别：只增不减，没有遗忘曲线那套进出规则 —— 排序靠 hits（查过几次）。 */
+  function getNewBook() {
+    var b = readJSON(LS_NEW, {});
+    return (b && typeof b === "object" && Object.prototype.toString.call(b) !== "[object Array]") ? b : {};
+  }
+  function newList() {
+    var b = getNewBook(), out = [];
+    for (var k in b) { if (Object.prototype.hasOwnProperty.call(b, k)) out.push(b[k]); }
+    // 查得最多的排最前（那是真正记不住的）；次数相同则新的在前
+    out.sort(function (x, y) { return (y.hits || 0) - (x.hits || 0) || (y.ts || 0) - (x.ts || 0); });
+    return out;
+  }
+
+  function renderNewBook() {
+    var body = $("newWordBody"), list = newList();
+    if ($("newWordCount")) $("newWordCount").textContent = list.length ? "共 " + list.length + " 个词" : "";
+    if (!body) return;
+    if (!list.length) {
+      body.innerHTML = '<tr><td colspan="5" class="stats-empty">还没查过词。在例句里点任意一个单词，它就会自动记到这里。</td></tr>';
+      return;
+    }
+    body.innerHTML = list.map(function (e) {
+      var w = esc(e.w) + (e.base ? '<span style="margin-left:5px;font-size:11px;color:var(--muted-2);">原形 ' + esc(e.base) + "</span>" : "");
+      return "<tr><td>" + w + "</td><td>" + esc(e.m || "—") + "</td><td>" +
+             esc(e.tagLabel || "—") + "</td><td>" + (e.hits || 0) +
+             '</td><td><button class="small" data-delnew="' + esc(e.w) + '" type="button">移除</button></td></tr>';
+    }).join("");
+  }
+
+  function practiceNew() {
+    var items = newList();
+    if (!items.length) { toast("生词本是空的，先在例句里点几个词吧"); return; }
+    var ta = $("wordsInput");
+    if (!ta) return;
+    if (ta.value.trim()) { try { localStorage.setItem(LS_BAK, ta.value); } catch (e) {} }
+    ta.value = items.map(function (e) {
+      return e.w + "|" + (e.m && e.m !== "—" ? e.m : "") + "||||";
+    }).join("\n");
+    ta.dispatchEvent(new Event("input", { bubbles: true }));
+    markedThisRound = [];
+    $("statsPanel").classList.add("hidden");
+    toast("单词表已换成生词本的 " + items.length + " 个词，开始连播");
+    setTimeout(function () { if ($("startPlayBtn")) $("startPlayBtn").click(); }, 60);
+  }
+
+  function buildNewPrintHTML(items) {
+    var rows = items.map(function (e, i) {
+      return "<tr><td class=\"pnum\">" + (i + 1) + "</td><td>" + esc(e.w) +
+             '<span class="ph">' + esc(e.ph ? "/" + e.ph + "/" : "") + "</span></td><td>" +
+             esc(e.m || "—") + "</td><td class=\"ptag\">" + esc(e.tagLabel || "—") + "</td></tr>";
+    }).join("");
+    return "<h1>生词本 · 单词听写</h1>" +
+      '<div class="pmeta">导出日期 ' + today() + "　共 " + items.length + " 个词　" +
+      "（按「查过次数」从多到少排）</div>" +
+      "<table><thead><tr><th class=\"pnum\">#</th><th>单词</th><th>释义</th><th>难度</th></tr></thead>" +
+      "<tbody>" + rows + "</tbody></table>" +
+      '<div class="pfoot">由「单词听写」页导出</div>';
+  }
+
+  function exportNewPDF() {
+    var items = newList();
+    if (!items.length) { toast("生词本是空的，先在例句里点几个词吧"); return; }
+    var pa = $("printArea");
+    if (!pa) return;
+    pa.innerHTML = buildNewPrintHTML(items);
+    toast("即将打开打印窗口，目标选「另存为 PDF」");
+    setTimeout(function () { try { window.print(); } catch (e) { toast("打印被浏览器拦下了"); } }, 120);
+  }
+
+  function copyNew() {
+    var items = newList();
+    if (!items.length) { toast("生词本是空的"); return; }
+    var txt = items.map(function (e, i) {
+      return (i + 1) + ". " + e.w + (e.m ? "　" + e.m : "") + (e.tagLabel ? "　[" + e.tagLabel + "]" : "");
+    }).join("\n");
+    function done() { toast("已复制 " + items.length + " 个词"); }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(txt).then(done, fallback);
+    } else { fallback(); }
+    function fallback() {
+      var ta = document.createElement("textarea");
+      ta.value = txt;
+      ta.style.cssText = "position:fixed;left:-9999px;top:0;";
+      document.body.appendChild(ta);
+      ta.select();
+      try { document.execCommand("copy"); done(); } catch (e) { toast("复制失败，请手动选中"); }
+      document.body.removeChild(ta);
+    }
   }
 
   /* ---------------- ⑥ 进度条点击跳转 ---------------- */
@@ -3174,6 +3628,15 @@ body{
         writeJSON(LS_BOOK, {});
         toast("错词本已清空");
         refresh();
+      },
+      practiceNewBtn: practiceNew,
+      exportNewBtn: exportNewPDF,
+      copyNewBtn: copyNew,
+      clearNewBtn: function () {
+        if (!confirm("确定清空生词本吗？这个操作不能撤销。")) return;
+        writeJSON(LS_NEW, {});
+        toast("生词本已清空");
+        refresh();
       }
     };
     for (var id in map) {
@@ -3192,6 +3655,20 @@ body{
         delete b[k];
         writeJSON(LS_BOOK, b);
         toast("已移出：" + k);
+        refresh();
+      });
+    }
+    var nb = $("newWordBody");
+    if (nb) {
+      nb.addEventListener("click", function (e) {
+        var t = e.target;
+        if (!t || !t.getAttribute) return;
+        var k = t.getAttribute("data-delnew");
+        if (!k) return;
+        var b = getNewBook();
+        delete b[k];
+        writeJSON(LS_NEW, b);
+        toast("已移出生词本：" + k);
         refresh();
       });
     }
