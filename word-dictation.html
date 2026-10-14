@@ -1823,11 +1823,14 @@ body{
     var err = state.results.length - ok;
     $("okCount").textContent = ok;
     $("errCount").textContent = err;
-    // 「读例句」按钮只在答完题（例句面板显示出来）之后出现
+    /* 「读例句」按钮：只要当前词有例句就常驻显示（2026-10-14 改）。
+       原先只在答完之后出现，导致「答题时想不起来、想听一下例句」时根本点不到它。
+       现在答题阶段点它**只出声、不亮例句面板**（见 speakExample：只有 play 模式才 setExamplePanel），
+       所以不会把答案用眼睛送上门 —— 想不起来时听一耳朵，自己决定要不要继续想。 */
     var exBtn = $("exampleBtnType");
     if (exBtn) {
       var it = currentWord();
-      exBtn.classList.toggle("hidden", !(state.phase === "answered" && it && it.exampleEn));
+      exBtn.classList.toggle("hidden", !(it && it.exampleEn));
     }
     if (state.phase === "awaiting") {
       $("wordBig").textContent = "";
@@ -2416,9 +2419,23 @@ body{
      *   ② 光标在输入框 / 下拉框里也放行 —— 单词里本来就有 r/x/w/a/s/d，
      *      不放过的话打字模式根本没法输入这些字母
      * WASD 的映射跟着方向键走：W/A（对应 ↑/←）= 上一个，S/D（对应 ↓/→）= 下一个
+     *
+     * ⚠ 2026-10-14 给规则②开了一个很窄的口子（xBypass）：
+     *   打字模式**答题中且输入框为空**时，X 也当快捷键用。
+     *   理由：想不起来的时候，输入框通常正是空的 —— 这时延续 X 的老习惯最顺手，
+     *         不必离开键盘去点按钮。两个必要条件：
+     *     ① 当前词本身以 x 开头时**不给用** —— 否则那个词永远输不进首字母 x；
+     *     ② 只在 phase="awaiting"（还没作答）时生效，答完之后照旧走原逻辑，
+     *        答对答错都读（speakExample 自己有 running/例句存在性两道判断兜底）。
      */
-    if (!e.ctrlKey && !e.metaKey && !e.altKey && !isEditableTarget(e.target)) {
-      var letter = e.key && e.key.length === 1 ? e.key.toLowerCase() : "";
+    var letterNow = e.key && e.key.length === 1 ? e.key.toLowerCase() : "";
+    var xBypass = letterNow === "x" && state.mode === "type" && state.phase === "awaiting"
+      && isEditableTarget(e.target)
+      && !($("answerInput") && $("answerInput").value)
+      && !/^x/i.test((currentWord() || {}).text || "");
+
+    if (!e.ctrlKey && !e.metaKey && !e.altKey && (!isEditableTarget(e.target) || xBypass)) {
+      var letter = letterNow;
       if (letter === "r") {
         if (replayWord()) { e.preventDefault(); return; }
       } else if (letter === "x") {
