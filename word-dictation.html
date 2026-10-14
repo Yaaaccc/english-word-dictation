@@ -351,12 +351,37 @@ button.small{ padding:6px 12px; font-size:12.5px; }
 
 /* 朗读顺序列表 */
 .order-list{
-  max-height:264px; overflow:auto; text-align:left; margin-top:4px;
+  text-align:left; margin-top:4px;
   background:var(--card); border:1px solid var(--line); border-radius:10px; padding:12px 14px;
 }
+/* 滚动只加在"词条"这一层（2026-10-14 拆出来的）：
+   原先 max-height/overflow 挂在整个 .order-list 上，底部那排复盘按钮也被卷进滚动区，
+   50 个词时得一直滚到底才看得见「保存」—— 按钮必须常驻。 */
+.order-scroll{ max-height:264px; overflow:auto; }
 .order-list .sub{ text-align:center; color:var(--muted); font-size:12px; margin-bottom:8px; }
 .order-list ol{ font-size:12.5px; margin:0 0 0 20px; padding:0; color:var(--ink-2); }
 .order-list li{ margin-bottom:6px; }
+
+/* 连播结束后的「复盘勾选」（2026-10-14 加）——
+   为什么做成"结束后统一勾"而不是"边听边按 M"：Yac 手在平板上写字，
+   中途腾不出手；一轮播完、笔放下了，对着自己写的那页统一核对最省事。
+   用红色（对错反馈专用色相），和标记的语义一致。 */
+.order-list li.pick{
+  cursor:pointer; border-radius:6px; padding:2px 7px; margin-left:-7px;
+  transition:background .12s ease, color .12s ease;
+}
+.order-list li.pick:hover{ background:var(--red-soft); }
+.order-list li.pick.on{
+  background:var(--red-soft); color:var(--red);
+  text-decoration:line-through; text-decoration-thickness:1.5px;
+}
+.play-review-bar{
+  display:flex; gap:9px; align-items:center; flex-wrap:wrap;
+  margin-top:12px; padding-top:11px; border-top:1px solid var(--line);
+}
+.play-review-bar.hidden{ display:none; }
+.play-review-bar .rcnt{ margin-right:auto; font-size:12.5px; color:var(--muted); }
+.play-review-bar .rcnt b{ color:var(--red); font-variant-numeric:tabular-nums; }
 
 /* —— 打字模式 —— */
 #wordBig.big{
@@ -1039,8 +1064,15 @@ body{
               <span class="mini-note">滚轮切词：指针放在上方进度条 / 按钮区</span>
             </div>
             <div id="playOrder" class="order-list hidden">
-              <div class="sub">本次朗读顺序</div>
-              <ol id="playOrderList"></ol>
+              <div class="sub">本次朗读顺序　·　点一下写错的词就能标出来</div>
+              <div class="order-scroll">
+                <ol id="playOrderList"></ol>
+              </div>
+              <div class="play-review-bar hidden" id="playReviewBar">
+                <span class="rcnt" id="playMarkCount"></span>
+                <button class="small hidden" id="clearMarkBtn" type="button">清除标记</button>
+                <button class="small" id="saveMarkBtn" type="button">保存到错词本</button>
+              </div>
             </div>
           </div>
         </div>
@@ -1169,7 +1201,12 @@ body{
     paused: false,
     phase: "awaiting", // "awaiting" | "answered"
     results: [],
-    wrongOnly: false
+    wrongOnly: false,
+    /* 连播结束后的「复盘勾选」（2026-10-14 加）：
+       playReview = 是否正在勾选（记录层据此判断"先别结算"）
+       playMarked = { 单词: true } —— 用户在结束页点出来的"这轮写错了"的词 */
+    playReview: false,
+    playMarked: {}
   };
 
   var speechToken = 0;
@@ -2057,7 +2094,12 @@ body{
     state.running = false;
     stopSpeech();
     clearTimeout(playTimer);
-    $("playNote").textContent = "播放完成！共 " + state.words.length + " 个单词，下方为本次朗读顺序。";
+    /* 打开「复盘闸门」（2026-10-14）：记录层一看 playReviewOpen()=true 就先不结算，
+       等用户点完「保存到错词本」再由 onPlayReviewDone 叫它走一遍。
+       闸门不开的话，列表刚渲染完 40ms 记录层就结算了，用户点的词一个都来不及进去。 */
+    state.playReview = true;
+    state.playMarked = {};
+    $("playNote").textContent = "播放完成！共 " + state.words.length + " 个单词 —— 对着你写的那页，把写错的词点一下。";
     $("posLabel").textContent = "完成";
     $("progressBar").style.width = "100%";
     var box = $("playOrder");
@@ -2066,6 +2108,8 @@ body{
     state.order.forEach(function (idx, i) {
       var item = state.words[idx];
       var li = document.createElement("li");
+      li.className = "pick";
+      li.setAttribute("data-w", String(item.text || ""));
       li.textContent = (i + 1) + ". " + item.text + (item.meaning ? "（" + item.meaning + "）" : "");
       if (item.exampleEn) {
         var ex = document.createElement("div");
@@ -2073,9 +2117,59 @@ body{
         ex.style.cssText = "font-size:12px;color:var(--muted);";
         li.appendChild(ex);
       }
+      li.addEventListener("click", function () { togglePlayMark(li); });
       body.appendChild(li);
     });
     box.classList.remove("hidden");
+    renderPlayMarkCount();
+  }
+
+  /* ---------- 连播结束后的「复盘勾选」（2026-10-14 加）----------
+     需求来源：Yac 在平板上用 GoodNotes 手写，手边虽然有电脑，但一写起来就顾不上按 M；
+     所以改成"一轮播完、笔放下之后再统一勾"。这里只负责"用户点了哪些词"，
+     真正的记账（bumpMiss / streak 递增）仍然全在记录层，分层不变。 */
+  function togglePlayMark(li) {
+    if (!state.playReview) return;                  // 已保存过就不再改动
+    var w = li.getAttribute("data-w");
+    if (!w) return;
+    if (state.playMarked[w]) { delete state.playMarked[w]; li.classList.remove("on"); }
+    else { state.playMarked[w] = true; li.classList.add("on"); }
+    renderPlayMarkCount();
+  }
+
+  function playMarkedCount() {
+    var n = 0;
+    for (var k in state.playMarked) { if (state.playMarked[k]) n++; }
+    return n;
+  }
+
+  function renderPlayMarkCount() {
+    var n = playMarkedCount();
+    if ($("playReviewBar")) $("playReviewBar").classList.remove("hidden");
+    if ($("playMarkCount")) {
+      $("playMarkCount").innerHTML = n
+        ? "已标出 <b>" + n + "</b> 个写错的词"
+        : "一个都没点 = 本轮全对";
+    }
+    if ($("clearMarkBtn")) $("clearMarkBtn").classList.toggle("hidden", n === 0);
+    if ($("saveMarkBtn")) {
+      $("saveMarkBtn").textContent = n ? "保存 " + n + " 个到错词本" : "保存（本轮全对）";
+      $("saveMarkBtn").disabled = !state.playReview;
+    }
+  }
+
+  function savePlayReview() {
+    if (!state.playReview) return;                  // 已经保存过，不重复记账
+    state.playReview = false;                       // 关上闸门
+    var h = window.__dictationHooks;
+    if (h && h.onPlayReviewDone) h.onPlayReviewDone();
+    var n = playMarkedCount();
+    if ($("saveMarkBtn")) { $("saveMarkBtn").disabled = true; $("saveMarkBtn").textContent = "已保存 ✓"; }
+    if ($("clearMarkBtn")) $("clearMarkBtn").classList.add("hidden");
+    if ($("playMarkCount")) $("playMarkCount").innerHTML = n ? "已记下 <b>" + n + "</b> 个错词" : "本轮全对 ✓";
+    $("playNote").textContent = n
+      ? "已记下 " + n + " 个错词 —— 到右上角「学习记录」里可以导出错词 PDF。"
+      : "这一轮全对 ✓ 已在错词本里的词记一次连对。";
   }
 
   function startPlay() {
@@ -2095,6 +2189,8 @@ body{
     $("scoreLabel").classList.add("hidden");
     $("pauseBtn").textContent = "暂停";
     $("playOrder").classList.add("hidden");
+    state.playReview = false;      // 新一轮开始：上一轮的复盘闸门归零（2026-10-14）
+    state.playMarked = {};
     $("searchInput").value = "";
     fillJumpSelect();
     var auto = $("autoPlayBox").checked;
@@ -2334,6 +2430,17 @@ body{
   $("typeModeBtn").addEventListener("click", function () { setMode("type"); });
   $("playModeBtn").addEventListener("click", function () { setMode("play"); });
 
+  /* 连播结束页的复盘按钮（2026-10-14 加） */
+  if ($("clearMarkBtn")) {
+    $("clearMarkBtn").addEventListener("click", function () {
+      state.playMarked = {};
+      var lis = document.querySelectorAll("#playOrderList li.pick");
+      for (var i = 0; i < lis.length; i++) lis[i].classList.remove("on");
+      renderPlayMarkCount();
+    });
+  }
+  if ($("saveMarkBtn")) $("saveMarkBtn").addEventListener("click", savePlayReview);
+
   $("submitBtn").addEventListener("click", submitAnswer);
   $("answerInput").addEventListener("keydown", function (e) {
     if (e.key === "Enter") {
@@ -2480,7 +2587,7 @@ body{
        ④ 设置面板 / 学习记录面板打开时不切词。 */
   var wheelLockUntil = 0;
   var WHEEL_ZONE_SEL = "#runView > .statusline, #runView > .progress-wrap, #playStage > .play-note, #playStage > .controls";
-  var WHEEL_INNER_SCROLL = ".order-list, .done-scroll, .stats-scroll";
+  var WHEEL_INNER_SCROLL = ".order-list, .order-scroll, .done-scroll, .stats-scroll";
   function wheelInZone(node) {
     return !!(node && node.closest && node.closest(WHEEL_ZONE_SEL));
   }
@@ -2604,7 +2711,19 @@ body{
        由 v4 视觉层注册（它拥有 #exampleText 里的 .ex-w 单元）。
        约定：参数是词的序号（从 0 数），-1 表示"念完了，收高亮"。
        这里是**单向**通道：主逻辑只管报进度，怎么亮由视觉层决定。 */
-    onExampleToken: null
+    onExampleToken: null,
+    /* ⑩ 连播结束后的「复盘勾选」通道（2026-10-14 加）——
+       渲染与交互归主逻辑，记账仍归记录层，分工不变。约定：
+         playReviewOpen() : 用户是否还在结束页勾选（true 时记录层先别结算）
+         getPlayMarked()  : 用户点出来的错词（数组）
+         onPlayReviewDone : 由记录层注册；用户点「保存」时主逻辑调它一次 */
+    playReviewOpen: function () { return !!state.playReview; },
+    getPlayMarked: function () {
+      var out = [];
+      for (var k in state.playMarked) { if (state.playMarked[k]) out.push(k); }
+      return out;
+    },
+    onPlayReviewDone: null
   };
 
   /* ---------- 初始化 ---------- */
@@ -3411,15 +3530,36 @@ body{
   function recordPlay() {
     var h = window.__dictationHooks;
     if (!h) return;
+    /* 复盘还没结束（用户正在结束页勾写错的词）→ 先不结算。
+       这道闸门是 2026-10-14 加「点选标记」时必须的：列表一渲染完这里就会被触发，
+       不等用户勾完就结算的话，他点的词一个都进不来。等点「保存」时再走一遍。 */
+    if (h.playReviewOpen && h.playReviewOpen()) return;
+
     var words = h.words() || [];
     if (!words.length) return;
+
+    /* 两种标记来源合并：
+         ① markedThisRound —— 听写途中按 M 记下的（按下那一刻就已落盘）
+         ② getPlayMarked()  —— 结束页复盘点出来的（在这里补落盘）
+       合并靠 indexOf 去重，同一个词不会记两笔。 */
+    var picked = (h.getPlayMarked && h.getPlayMarked()) || [];
+    picked.forEach(function (t) {
+      if (!t || markedThisRound.indexOf(t) >= 0) return;
+      var w = null;
+      for (var i = 0; i < words.length; i++) {
+        if (String(words[i].text || "").trim() === t) { w = words[i]; break; }
+      }
+      bumpMiss(t, w ? w.meaning : "");
+    });
+    var marked = markedThisRound.concat(picked);
+
     /* 一次读、一次写：本轮**没被标记过**、且已经在错词本里的词 -> 连对 +1，攒到 2 次移出。
-       （被标记的词在按 M 那一刻就已经落盘了，这里不重复记账。）
+       （被标记的词在上面（或按 M 那一刻）就已经落盘了，这里不重复记账。）
        这套规则专为"纸上默写"设计：一个词连着两轮都没被标出来，就认为你会写了。 */
     var b = getBook(), changed = false;
     words.forEach(function (w) {
       var t = String(w.text || "").trim();
-      if (!t || markedThisRound.indexOf(t) >= 0) return;
+      if (!t || marked.indexOf(t) >= 0) return;
       var e = b[t];
       if (!e) return;
       e.streak = (e.streak || 0) + 1;
@@ -3428,7 +3568,7 @@ body{
       changed = true;
     });
     if (changed) writeJSON(LS_BOOK, b);
-    pushHist({ ts: Date.now(), date: today(), mode: "play", total: words.length, ok: null, mark: markedThisRound.length });
+    pushHist({ ts: Date.now(), date: today(), mode: "play", total: words.length, ok: null, mark: marked.length });
     markedThisRound = [];
     refresh();
   }
@@ -3872,6 +4012,10 @@ body{
     bindProgressSeek();
     observeList($("allBody"), recordTyped);
     observeList($("playOrderList"), recordPlay);
+    /* 用户在结束页点完「保存」后，由主逻辑叫一声再结算（2026-10-14 加）。
+       平时"列表渲染完"触发的那一次会被 entry 处的复盘闸门挡回去，
+       真正记账发生在这一次调用。 */
+    if (window.__dictationHooks) window.__dictationHooks.onPlayReviewDone = recordPlay;
     refresh();
   }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", boot);
