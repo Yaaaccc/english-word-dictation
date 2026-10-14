@@ -45,7 +45,7 @@
   /* —— 语义色（只用于对错反馈，不参与装饰）—— */
   --green:#2F9E68; --green-soft:#EEF8F2;
   --red:#D9534F;   --red-soft:#FCEEED;
-  --amber:#B8813A; --amber-soft:#FBF5EA;
+  --amber:#B8813A; --amber-soft:#FBF5EA; --amber-tint:#F2E6D2;   /* tint = 官方笔记里可点单词的悬停底 */
 
   /* —— 圆角：3 档，不再有 20/28 —— */
   --r-s:8px; --r-m:12px; --r-l:14px;
@@ -78,7 +78,7 @@
     --blue:#5C9BE8; --blue-d:#8FBDF5; --blue-soft:#17273C; --blue-line:#2A3E5B;
     --green:#4CC48D; --green-soft:#12271E;
     --red:#F0A0A0;   --red-soft:#30191B;
-    --amber:#DCB271; --amber-soft:#2A2114;
+    --amber:#DCB271; --amber-soft:#2A2114; --amber-tint:#3A2E1B;
     --sh-1:0 1px 2px rgba(0,0,0,.4);
     --sh-2:0 1px 2px rgba(0,0,0,.35), 0 12px 26px -20px rgba(0,0,0,.8);
   }
@@ -443,6 +443,14 @@ button.small{ padding:6px 12px; font-size:12.5px; }
 .ex-text mark.ex-w{ background:var(--mark); color:var(--ink); font-weight:600; padding:0 3px; margin:0; }
 .ex-text mark.ex-w:hover{ background:var(--blue-soft); }
 .ex-text .ex-w.def-open{ background:var(--blue-soft); box-shadow:0 0 0 1px var(--blue-line); }
+/* 官方笔记里同样可点查义（2026-10-14 加）：与例句共用 .ex-w 这套单元，
+   所以选择器必须带上容器前缀另写一份 —— 例句那几条都写死在 .ex-text 下了。
+   ⚠ 悬停底**不能**用 --blue-soft：官方笔记的底是琥珀色（--amber-soft），
+     浅蓝压上去会发脏。改用同色系的 --amber-tint，明暗两套主题各配一个值。 */
+#diffText .ex-w{ cursor:pointer; border-radius:3px; padding:1px 2px; margin:0 -2px;
+  transition:background .12s ease; }
+#diffText .ex-w:hover{ background:var(--amber-tint); }
+#diffText .ex-w.def-open{ background:var(--amber-tint); box-shadow:0 0 0 1px var(--amber); }
 /* 逐词高亮（2026-10-12 加）：读例句时念到哪个词就点亮哪个。
    刻意与 def-open（点词查义的悬停态）区分开：那个是整块淡底，这个是底部一道实心条，
    两者同时出现（正在念 + 正被点开）也分得清。
@@ -2738,7 +2746,44 @@ body{
     }
   }
 
-  /* ---------- 3a. 例句查义（2026-10-12 加）----------
+  /* ---------- 3a. 官方笔记查义（2026-10-14 加）----------
+   * 需求：官方笔记（#diffText）里的英文单词也要能点开看释义 —— 跟例句一样。
+   *
+   * 与 decorateExample 的三点差异，都是有意为之：
+   *   ① 目标词传空串 → 官方笔记里没有「当前要背的那个词」的概念，
+   *      所以全部用 <span>，不套 <mark>（不会有一处莫名其妙高亮）。
+   *   ② 去重变量与 observer 句柄各自独立 —— 两个容器不同，共用一套会互相踩。
+   *   ③ 官方笔记是「【标签】中文；【标签】中文」整段，没有中文译文段要分色，直接整体切词。
+   *
+   * ⚠ 死循环防护与 decorateExample 一字不差，理由同它：改写 innerHTML 会触发自己的
+   *   observer，所以判据必须是「算出的 HTML」+「DOM 里现存的确实是同一份」两条同时满足。
+   *   官方笔记里中文与【】标签不受影响 —— EN_TOKEN_RE 只认英文单词，其余原样保留。 */
+  var lastDiffKey = null;
+  var lastDiffHtml = null;
+  var diffObserver = null;
+
+  function decorateDiff() {
+    var el = $("diffText");
+    if (!el) return;
+    var raw = el.textContent || "";
+    var key = raw.replace(/\s+/g, " ").trim();
+    if (!key) { lastDiffKey = null; lastDiffHtml = null; return; }
+
+    var html = exampleEnToHtml(raw, "");          // target 传空串：不标目标词
+    if (html === lastDiffHtml && el.innerHTML === html) return;
+    if (key !== lastDiffKey) hideDefCard();       // 换词了：卡片跟着收起
+    lastDiffKey = key;
+    lastDiffHtml = html;
+
+    if (diffObserver) diffObserver.disconnect();  // 保险：写入期间静音
+    el.innerHTML = html;
+    if (defOpenEl && !document.contains(defOpenEl)) hideDefCard();
+    if (diffObserver) {
+      diffObserver.observe(el, { childList: true, characterData: true, subtree: true });
+    }
+  }
+
+  /* ---------- 3b. 例句查义（2026-10-12 加）----------
    * 需求：点例句里的任意一个单词，就看见它的释义（音标 + 中文）。
    *
    * 三件事：
@@ -3122,22 +3167,26 @@ body{
   observeText($("posLabel"), syncPos);
   observeText($("progressBar"), syncPct);
   exampleObserver = observeText($("exampleText"), decorateExample);   // 句柄留着，写入时静音用
+  diffObserver = observeText($("diffText"), decorateDiff);            // 官方笔记同款（2026-10-14 加）
   phraseObserver = observeText($("phraseText"), decoratePhrase);
 
   /* ---------- 例句查义：事件绑定 ----------
    * 点单词 → 查义；点例句空白 / 点页面别处 / 按 ESC / 滚动页面 → 收起。 */
   (function bindDefCard() {
-    var exEl = $("exampleText");
-    if (exEl) {
-      exEl.addEventListener("click", function (e) {
-        var t = e.target;
-        var el = (t && t.closest) ? t.closest(".ex-w") : null;
-        if (!el) { hideDefCard(); return; }
-        var w = el.getAttribute("data-w");
-        if (!w) { hideDefCard(); return; }
-        showDefCard(el, w);
-      });
+    /* 点单词 → 查义。抽成具名函数，例句区与官方笔记区共用同一套判定 ——
+       两处的 .ex-w 结构完全一致，没必要写两遍（2026-10-14 从匿名函数提出来）。 */
+    function onWordClick(e) {
+      var t = e.target;
+      var el = (t && t.closest) ? t.closest(".ex-w") : null;
+      if (!el) { hideDefCard(); return; }
+      var w = el.getAttribute("data-w");
+      if (!w) { hideDefCard(); return; }
+      showDefCard(el, w);
     }
+    var exEl = $("exampleText");
+    if (exEl) exEl.addEventListener("click", onWordClick);
+    var diEl = $("diffText");                     // 官方笔记区也能点（2026-10-14 加）
+    if (diEl) diEl.addEventListener("click", onWordClick);
     var spk = $("defCardSpeak");
     if (spk) {
       spk.addEventListener("click", function (e) {
@@ -3196,7 +3245,7 @@ body{
   /* ---------- 启动 ---------- */
   function boot() {
     syncStats(); syncPos(); syncPct();
-    decorateExample(); decoratePhrase(); shortenVoices();
+    decorateExample(); decorateDiff(); decoratePhrase(); shortenVoices();
   }
   setTimeout(boot, 60);
   setTimeout(boot, 400);      // 等 loadVoices(setTimeout 300) 跑完再精简一次音色名
