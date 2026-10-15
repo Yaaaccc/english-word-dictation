@@ -2152,7 +2152,12 @@ body{
       var li = document.createElement("li");
       li.className = "pick";
       li.setAttribute("data-w", String(item.text || ""));
-      li.textContent = (i + 1) + ". " + item.text + (item.meaning ? "（" + item.meaning + "）" : "");
+      /* ⚠ 2026-10-15 修：这里原来写的是 `(i + 1) + ". " + item.text`，
+         但 li 的父节点就是 `<ol id="playOrderList">` —— 浏览器已经自动编号了，
+         于是页面上显示成「1. 1. execute」「2. 2. priority」双份序号。
+         改成不再手写序号，交给 `<ol>` 自己数（语义也对）。
+         序号只影响显示：记录层读的是 data-w 与 hooks，不解析这段文本。 */
+      li.textContent = item.text + (item.meaning ? "（" + item.meaning + "）" : "");
       if (item.exampleEn) {
         var ex = document.createElement("div");
         ex.textContent = "例句：" + item.exampleEn;
