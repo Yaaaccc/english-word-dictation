@@ -198,6 +198,34 @@ button.small{ padding:6px 12px; font-size:12.5px; }
 .setting-grid{ display:grid; grid-template-columns:1fr 1fr; gap:0 14px; }
 @media (max-width:440px){ .setting-grid{ grid-template-columns:1fr; } }
 
+/* —— 语速滑块（2026-10-15 加：单词语速 / 例句语速 各一条，无极调节）——
+   口径：两条滑块外观完全一致、各自独立；数值实时显示在 label 右侧。
+   用 --blue（= 紫 #7A3FD4）当轨道强调色，跟全站同一色相。 */
+.rate-row{ margin-top:2px; }
+.rate-row > label{ display:flex; align-items:baseline; justify-content:space-between; gap:8px; }
+.rate-val{ font-variant-numeric:tabular-nums; color:var(--blue-d); font-size:12.5px; font-weight:700; }
+.rate-range{
+  -webkit-appearance:none; appearance:none; width:100%; height:22px; margin:3px 0 0;
+  background:transparent; cursor:pointer;
+}
+.rate-range::-webkit-slider-runnable-track{
+  height:5px; border-radius:99px;
+  background:linear-gradient(to right, var(--blue) var(--fill,0%), var(--track) var(--fill,0%));
+}
+.rate-range::-webkit-slider-thumb{
+  -webkit-appearance:none; appearance:none; width:16px; height:16px; margin-top:-5.5px;
+  border-radius:50%; background:#fff; border:2.5px solid var(--blue);
+  box-shadow:0 1px 4px rgba(20,30,60,.22);
+}
+.rate-range:active::-webkit-slider-thumb{ transform:scale(1.12); }
+.rate-range::-moz-range-track{ height:5px; border-radius:99px; background:var(--track); }
+.rate-range::-moz-range-progress{ height:5px; border-radius:99px; background:var(--blue); }
+.rate-range::-moz-range-thumb{
+  width:14px; height:14px; border-radius:50%; background:#fff; border:2.5px solid var(--blue);
+}
+.rate-range:focus-visible{ outline:2px solid var(--blue-line); outline-offset:3px; border-radius:6px; }
+.rate-scale{ display:flex; justify-content:space-between; font-size:10.5px; color:var(--muted-2); margin-top:-2px; }
+
 /* ============================================================
    3. 设置抽屉
    ============================================================ */
@@ -844,13 +872,20 @@ body{
               <option value="auto" selected>自动选择</option>
             </select>
           </div>
-          <div>
-            <label for="rateSelect">语速</label>
-            <select id="rateSelect" style="width:100%;">
-              <option value="0.7">慢</option>
-              <option value="1" selected>正常</option>
-              <option value="1.25">快</option>
-            </select>
+          <div class="rate-row">
+            <label for="wordRateRange"><span>单词语速</span><b class="rate-val" id="wordRateVal">1.00×</b></label>
+            <input type="range" class="rate-range" id="wordRateRange" min="0.5" max="2" step="0.01" value="1"
+                   aria-label="单词语速" aria-valuetext="1.00 倍速">
+            <!-- 隐藏的真值源：老代码一律读 #rateSelect.value，保留它 = 改动面最小、最不容易改坏 -->
+            <input type="hidden" id="rateSelect" value="1">
+            <div class="rate-scale"><span>0.5×</span><span>2×</span></div>
+          </div>
+          <div class="rate-row">
+            <label for="exampleRateRange"><span>例句语速</span><b class="rate-val" id="exampleRateVal">1.00×</b></label>
+            <input type="range" class="rate-range" id="exampleRateRange" min="0.5" max="2" step="0.01" value="1"
+                   aria-label="例句语速" aria-valuetext="1.00 倍速">
+            <input type="hidden" id="exampleRateSelect" value="1">
+            <div class="rate-scale"><span>0.5×</span><span>2×</span></div>
           </div>
           <div>
             <label for="repeatSelect">每词重复</label>
@@ -920,6 +955,10 @@ body{
     <div class="row" style="margin-bottom:9px;">
       <button class="primary small" id="practiceWrongBtn" type="button">只练错词本</button>
       <button class="small" id="exportWrongBtn" type="button">导出错词 PDF</button>
+      <!-- 一键生成并传到 GoodNotes「听写」库（2026-10-14 加）。
+           默认隐藏：只有本地服务（127.0.0.1）在跑时才有 /api/wrongpdf，**线上 Pages 没这个接口**，
+           所以由记录层探测到本地环境才放出来。 -->
+      <button class="small primary hidden" id="uploadWrongBtn" type="button">传到 GoodNotes</button>
       <button class="small" id="copyWrongBtn" type="button">复制错词</button>
       <button class="small" id="clearWrongBtn" type="button">清空错词本</button>
       <button class="small hidden" id="restoreWordsBtn" type="button">恢复上次单词表</button>
@@ -979,7 +1018,8 @@ body{
         </div>
         <div class="hero-stats">
           <span class="stat"><b id="statWords">—</b><span class="k">词</span></span>
-          <span class="stat"><span class="k">语速</span><b id="statRate">1×</b></span>
+          <span class="stat" title="单词语速"><span class="k">词速</span><b id="statRate">1.00×</b></span>
+          <span class="stat" title="例句语速"><span class="k">例速</span><b id="statExampleRate">1.00×</b></span>
           <span class="stat"><span class="k">乱序</span><b id="statShuffle">关</b></span>
         </div>
       </div>
@@ -1189,6 +1229,7 @@ body{
       voiceSelect = $("voiceSelect"),
       voiceHint = $("voiceHint"),
       rateSelect = $("rateSelect"),
+      exampleRateSelect = $("exampleRateSelect"),
       repeatSelect = $("repeatSelect"),
       intervalSelect = $("intervalSelect");
 
@@ -1564,7 +1605,7 @@ body{
       clearTimeout(playTimer); // 读例句期间先别让自动连播把下一词抢走
       setExamplePanel(item); // 把例句面板亮出来：看得见，也听得到
     }
-    var rate = parseFloat(rateSelect.value);
+    var rate = parseFloat(exampleRateSelect.value) || 1;   // ← 例句语速（与单词语速分开，2026-10-15）
     var done;
     if (isShortEnText(item.exampleEn)) {
       done = speakLoop(item.exampleEn, 1, rate);        // 短句照旧（在线音频，音质好）
@@ -2000,13 +2041,14 @@ body{
       : "手动模式：按 Enter / ↓ / → / S / D 播下一个，↑ / ← / W / A 播上一个，R 重播当前，X 读例句";
     if (item.exampleEn && $("directionSelect").value !== "cn2en") setExamplePanel(item);
     else clearExamplePanel();
-    var rate = parseFloat(rateSelect.value);
+    var rate = parseFloat(rateSelect.value) || 1;              // 单词用「单词语速」
+    var exRate = parseFloat(exampleRateSelect.value) || 1;     // 例句用「例句语速」（两条独立，2026-10-15）
     var wordDone = speakLoop(spokenText(item), parseInt(repeatSelect.value, 10), rate);
     if ($("autoExampleBox").checked && item.exampleEn) {
       // 自动读例句：读完单词接着读英文例句；听中文模式下不自动读（例句会剧透答案）
       wordDone.then(function () {
         if (!state.running || state.mode !== "play" || state.paused) return;
-        return speakLoop(item.exampleEn, 1, rate);
+        return speakLoop(item.exampleEn, 1, exRate);
       }).then(function () { afterPlayWord(item, auto); });
     } else {
       wordDone.then(function () { afterPlayWord(item, auto); });
@@ -2216,11 +2258,49 @@ body{
 
   /* ---------- 事件绑定 ---------- */
 
+  /* 语速（2026-10-15 拆成两条独立滑块）：
+     ① #rateSelect        隐藏真值源 = 单词语速，老代码全读它，所以兼容性最好；
+     ② #exampleRateSelect 隐藏真值源 = 例句语速；
+     滑块 #wordRateRange / #exampleRateRange 只负责"改值 + 刷新显示"。
+     范围 0.5~2.0、步长 0.01 —— 上限卡 2 是因为在线音频兜底那条路（playOnline）
+     把 playbackRate 夹在 [0.5, 2]，超过也不会更快，反而两条路速度不一致。 */
+  function rateText(v) { return (Math.round(v * 100) / 100).toFixed(2) + "×"; }
+  function bindRate(rangeId, valId, targetId) {
+    var range = $(rangeId), valEl = $(valId), target = $(targetId);
+    if (!range || !target) return;
+    function paint() {
+      var v = parseFloat(range.value) || 1;
+      target.value = String(v);
+      if (valEl) valEl.textContent = rateText(v);
+      var min = parseFloat(range.min) || 0, max = parseFloat(range.max) || 1;
+      var pct = max > min ? ((v - min) / (max - min)) * 100 : 0;
+      range.style.setProperty("--fill", pct.toFixed(2) + "%");
+      range.setAttribute("aria-valuetext", rateText(v));
+    }
+    function apply(v) {
+      v = Math.min(parseFloat(range.max) || 2, Math.max(parseFloat(range.min) || 0.5, v || 1));
+      range.value = String(v);
+      paint();
+    }
+    // 拖的时候（input）实时生效，松手（change）再落一次，两种情况都覆盖
+    ["input", "change"].forEach(function (ev) {
+      range.addEventListener(ev, function () {
+        paint();
+        if (target.id === "rateSelect" && $("statRate")) $("statRate").textContent = rateText(parseFloat(target.value) || 1);
+      });
+    });
+    return { apply: apply, paint: paint };
+  }
+  var wordRateCtl = bindRate("wordRateRange", "wordRateVal", "rateSelect");
+  var exampleRateCtl = bindRate("exampleRateRange", "exampleRateVal", "exampleRateSelect");
+
   $("saveBtn").addEventListener("click", function () {
     try {
       localStorage.setItem("dictationWords", wordsInput.value);
       localStorage.setItem("dictationShuffle", shuffleBox.checked ? "1" : "0");
-      localStorage.setItem("dictationRate", rateSelect.value);
+      localStorage.setItem("dictationRate", rateSelect.value);        // 兼容旧版页面（老代码只认这个键）
+      localStorage.setItem("dictationWordRate", rateSelect.value);    // 新版：单词语速
+      localStorage.setItem("dictationExampleRate", exampleRateSelect.value); // 新版：例句语速
       localStorage.setItem("dictationRepeat", repeatSelect.value);
       localStorage.setItem("dictationInterval", intervalSelect.value);
       localStorage.setItem("dictationVoice", voiceSelect.value);
@@ -2718,6 +2798,12 @@ body{
          getPlayMarked()  : 用户点出来的错词（数组）
          onPlayReviewDone : 由记录层注册；用户点「保存」时主逻辑调它一次 */
     playReviewOpen: function () { return !!state.playReview; },
+    /* ⑪ 顶栏当前选中的「课程日期」（2026-10-14 加）——
+       错词 PDF 要按课分组，记录层得知道"这一轮听的是哪一课"（如 2026-10-08）。 */
+    currentCourse: function () {
+      var s = $("dateSelect");
+      return (s && s.value) ? String(s.value) : "";
+    },
     getPlayMarked: function () {
       var out = [];
       for (var k in state.playMarked) { if (state.playMarked[k]) out.push(k); }
@@ -2748,7 +2834,17 @@ body{
     if (localStorage.getItem("dictationExampleVoice")) $("exampleVoiceSelect").value = localStorage.getItem("dictationExampleVoice");
     $("autoExampleBox").checked = localStorage.getItem("dictationAutoExample") === "1";
   } catch (e) { /* 忽略存储错误 */ }
-  /* 例句发音方式（2026-10-12 加）：natural = 自然音色 + 估算高亮（默认）；
+  /* 语速恢复（2026-10-15）：老数据里只有一条 dictationRate（0.7 / 1 / 1.25 三选一）。
+     第一次打开新版时，把这条旧值**同时**灌给两个滑块，用户不会觉得语速"被改回去了"；
+     之后各存各的，互不影响。 */
+  (function restoreRates() {
+    var legacy = parseFloat(localStorage.getItem("dictationRate") || "");
+    if (!isFinite(legacy)) legacy = 1;
+    var w = parseFloat(localStorage.getItem("dictationWordRate") || "");
+    var ex = parseFloat(localStorage.getItem("dictationExampleRate") || "");
+    wordRateCtl.apply(isFinite(w) ? w : legacy);
+    exampleRateCtl.apply(isFinite(ex) ? ex : legacy);
+  })();  /* 例句发音方式（2026-10-12 加）：natural = 自然音色 + 估算高亮（默认）；
      precise = 有道在线音频 + 用真实时长驱动的精确高亮。改了就立刻存，不必等"保存单词表"。 */
   $("exampleVoiceSelect").addEventListener("change", function () {
     try { localStorage.setItem("dictationExampleVoice", this.value); } catch (e) {}
@@ -2789,19 +2885,29 @@ body{
     if (!ta) return 0;
     return ta.value.split(/\r?\n/).filter(function (l) { return l.trim(); }).length;
   }
+  function fmtRate(v) {
+    var n = parseFloat(v);
+    if (!isFinite(n)) n = 1;
+    return (Math.round(n * 100) / 100).toFixed(2) + "×";
+  }
   function syncStats() {
     var n = countWords();
     if ($("statWords")) $("statWords").textContent = n || "—";
     if ($("idleCount")) $("idleCount").textContent = n || "—";
+    /* 语速（2026-10-15 拆成两条）：词速 / 例速 各显示各的，都是两位小数 */
     var r = $("rateSelect");
-    if ($("statRate") && r) $("statRate").textContent = (r.value === "1" ? "1×" : r.value + "×");
+    if ($("statRate") && r) $("statRate").textContent = fmtRate(r.value);
+    var er = $("exampleRateSelect");
+    if ($("statExampleRate") && er) $("statExampleRate").textContent = fmtRate(er.value);
     var sh = $("shuffle");
     if ($("statShuffle") && sh) $("statShuffle").textContent = sh.checked ? "开" : "关";
   }
   ["input", "change"].forEach(function (ev) {
     document.addEventListener(ev, function (e) {
       var id = e.target && e.target.id;
-      if (id === "wordsInput" || id === "rateSelect" || id === "shuffle" || id === "sampleBtn") {
+      if (id === "wordsInput" || id === "rateSelect" || id === "exampleRateSelect"
+          || id === "wordRateRange" || id === "exampleRateRange"
+          || id === "shuffle" || id === "sampleBtn") {
         setTimeout(syncStats, 0);
       }
     }, true);
@@ -3442,7 +3548,22 @@ body{
   /* 错词本的单笔记账（用于「按 M 记下这个词」）：
      错过 -> miss+1、连对归零 -> 进本子。
      "答对"的那一侧不在这里 —— 它要按整轮批量处理，见 recordTyped / recordPlay。 */
-  function bumpMiss(text, meaning) {
+  /* 记下「这个词是在哪一课、哪一天错的」（2026-10-14 加）——
+     给错词 PDF 按课分组用。两个日期都要：
+       course = 网页顶栏选中的**课程日期**（如 2026-10-08，他听写的是那天的课）
+       atDay  = **实际坐下来听写**的日子（如 2026-10-14）
+     PDF 上会写成「课程 10月8日 · 听写于 10月14日」。 */
+  function addCourseHit(e, course, atDay) {
+    var c = String(course || "").trim();
+    if (!c || !e) return;
+    if (!e.courses) e.courses = {};
+    var rec = e.courses[c] || { n: 0, at: "" };
+    rec.n = (rec.n || 0) + 1;
+    rec.at = atDay || rec.at || today();
+    e.courses[c] = rec;
+  }
+
+  function bumpMiss(text, meaning, course, atDay) {
     if (!text) return;
     var b = getBook();
     var e = b[text] || { text: text, meaning: meaning || "", miss: 0, streak: 0, ts: 0 };
@@ -3451,6 +3572,7 @@ body{
     e.miss = (e.miss || 0) + 1;
     e.streak = 0;
     e.ts = Date.now();
+    addCourseHit(e, course, atDay);
     b[text] = e;
     writeJSON(LS_BOOK, b);
   }
@@ -3499,6 +3621,8 @@ body{
     });
     if (!rows.length) return;
     /* 一次读、一次写 —— 别按词逐个写 localStorage（50 个词就是几十次写盘）。 */
+    var h = window.__dictationHooks;
+    var course = (h && h.currentCourse) ? h.currentCourse() : "";   // 顶栏选中的课程日期
     var b = getBook(), ok = 0, wrong = 0;
     rows.forEach(function (r) {
       if (!r.text) return;
@@ -3518,6 +3642,7 @@ body{
         w.miss = (w.miss || 0) + 1;
         w.streak = 0;                             // 错过就进本子（连对清零）
         w.ts = Date.now();
+        addCourseHit(w, course, today());         // 记下是哪一课错的（2026-10-14）
         b[r.text] = w;
       }
     });
@@ -3543,13 +3668,14 @@ body{
          ② getPlayMarked()  —— 结束页复盘点出来的（在这里补落盘）
        合并靠 indexOf 去重，同一个词不会记两笔。 */
     var picked = (h.getPlayMarked && h.getPlayMarked()) || [];
+    var course = (h.currentCourse && h.currentCourse()) || "";   // 顶栏选中的课程日期
     picked.forEach(function (t) {
       if (!t || markedThisRound.indexOf(t) >= 0) return;
       var w = null;
       for (var i = 0; i < words.length; i++) {
         if (String(words[i].text || "").trim() === t) { w = words[i]; break; }
       }
-      bumpMiss(t, w ? w.meaning : "");
+      bumpMiss(t, w ? w.meaning : "", course, today());
     });
     var marked = markedThisRound.concat(picked);
 
@@ -3904,7 +4030,7 @@ body{
     markedThisRound.push(t);
     /* ⚠ 按下就落盘，不等整轮结束 —— 否则中途关页面 / 按「停止」这一笔就丢了。
        整轮结束时只补记"没被标记"的词（见 recordPlay）。 */
-    bumpMiss(t, w.meaning);
+    bumpMiss(t, w.meaning, (h.currentCourse && h.currentCourse()) || "", today());
     refresh();
     toast("已记下第 " + markedThisRound.length + " 个：" + t);
   }
@@ -3948,6 +4074,67 @@ body{
     if (setB) setB.addEventListener("click", function () { panel.classList.add("hidden"); });
   }
 
+  /* ---------------- ⑫ 把错词本传到 GoodNotes（2026-10-14 加） ----------------
+   * 错词本住在 localStorage 里，Node 那边读不到 —— 所以交给本地服务中转：
+   *   POST /api/wrongpdf → server.js 落成 JSON → 错词PDF.js 排版 + 上传到「听写」库。
+   * 只有本地（127.0.0.1）才有这条链路；线上 GitHub Pages 是纯静态，没有这个接口，
+   * 所以按钮也是探测到本地环境才放出来（见文件末尾那段）。 */
+  /* 上传频率是「一周一次」，但按 Yac 2026-10-14 的要求：**只提醒、不拦**。
+     记一个上次上传时间戳，按钮上标出隔了几天，到点提醒"可以传新的了"。 */
+  var LS_UPLOAD_AT = "dictationWrongUploadAt";
+  function daysSinceWrongUpload() {
+    try {
+      var t = parseInt(localStorage.getItem(LS_UPLOAD_AT) || "0", 10);
+      if (!t) return null;                      // 从没传过
+      return Math.floor((Date.now() - t) / 86400000);
+    } catch (e) { return null; }
+  }
+  function refreshUploadBtn() {
+    var btn = $("uploadWrongBtn");
+    if (!btn || btn.disabled) return;
+    var d = daysSinceWrongUpload();
+    if (d === null) {
+      btn.textContent = "传到 GoodNotes";
+      btn.title = "第一次传 —— 以后一周一次（只提醒，不会拦你）";
+      return;
+    }
+    var left = 7 - d;
+    btn.textContent = left > 0 ? "传到 GoodNotes（上次 " + d + " 天前）" : "传到 GoodNotes（该传新的了）";
+    btn.title = left > 0
+      ? "平常 7 天一次，离上次才 " + d + " 天 —— 想提前也能传"
+      : "上次是 " + d + " 天前传的，可以传新的一份了";
+  }
+
+  function uploadWrongPDF() {
+    var btn = $("uploadWrongBtn");
+    var b = getBook();
+    if (!Object.keys(b).length) { toast("错词本是空的 —— 先在结束页点几个写错的词"); return; }
+    var d = daysSinceWrongUpload();
+    if (d !== null && d < 7) toast("上次是 " + d + " 天前传的（平常 7 天一次）—— 仍然继续…");
+    if (btn) { btn.disabled = true; btn.textContent = "生成中…（约 30 秒）"; }
+    fetch("/api/wrongpdf", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ day: today(), book: b }),
+    })
+      .then(function (r) { return r.json(); })
+      .then(function (res) {
+        if (res && res.ok) {
+          try { localStorage.setItem(LS_UPLOAD_AT, String(Date.now())); } catch (e) {}
+          toast("已传到 GoodNotes「听写」库");
+        } else {
+          toast("失败：" + String((res && (res.error || res.log)) || "未知错误").slice(0, 90));
+        }
+      })
+      .catch(function (e) {
+        toast("失败：" + e.message + "（本地服务在跑吗？）");
+      })
+      .then(function () {          // 不论成败都恢复按钮，并按最新时间刷新提示
+        if (btn) btn.disabled = false;
+        refreshUploadBtn();
+      });
+  }
+
   function bindButtons() {
     var map = {
       practiceWrongBtn: practiceWrong,
@@ -3962,6 +4149,7 @@ body{
       },
       practiceNewBtn: practiceNew,
       exportNewBtn: exportNewPDF,
+      uploadWrongBtn: uploadWrongPDF,       // 传到 GoodNotes（2026-10-14 加）
       copyNewBtn: copyNew,
       clearNewBtn: function () {
         if (!confirm("确定清空生词本吗？这个操作不能撤销。")) return;
@@ -3974,6 +4162,13 @@ body{
       if (!Object.prototype.hasOwnProperty.call(map, id)) continue;
       var el = $(id);
       if (el) el.addEventListener("click", map[id]);
+    }
+    /* 「传到 GoodNotes」按钮只在本地服务下露出来（2026-10-14）——
+       它背后是 /api/wrongpdf，线上 GitHub Pages 是纯静态、根本没这个接口，
+       与其让用户点了报错，不如不显示。 */
+    if (location.hostname === "127.0.0.1" || location.hostname === "localhost") {
+      var ub = $("uploadWrongBtn");
+      if (ub) { ub.classList.remove("hidden"); refreshUploadBtn(); }
     }
     var wb = $("wrongBookBody");
     if (wb) {
