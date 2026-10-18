@@ -695,6 +695,39 @@ button.small{ padding:6px 12px; font-size:12.5px; }
 .mini-col .d{ font-size:9.5px; color:var(--muted-2); white-space:nowrap; letter-spacing:-.2px; }
 .mini-col.today .d{ color:var(--blue-d); font-weight:700; }
 
+/* ===== 学习热力图（2026-10-18 加，与柱状图并列显示）=====
+   一张「近 18 周 × 7 天」的日历格：一格 = 一天，颜色深浅 = 当天听写词数。
+   为什么另加一个而不是替换柱状图：柱状图看「最近两周的逐日高低」更直观，
+   热力图看「长期有没有断档」更直观，两者回答的不是同一个问题，所以并列给出。
+   ⚠ 只用主色一个色相（--blue 的透明度阶梯），不引入绿/橙等语义色 —— 
+     整页的红已经专用于「错词/标记」，热力图再上色就说不清红代表什么了。 */
+.heat-wrap{ margin-top:14px; }
+.heat-head{ display:flex; align-items:baseline; justify-content:space-between; gap:10px; margin-bottom:8px; }
+.heat-title{ font-size:12.5px; font-weight:700; color:var(--ink); }
+.heat-legend{ display:flex; align-items:center; gap:4px; font-size:10.5px; color:var(--muted-2); }
+.heat-legend i{ width:10px; height:10px; border-radius:2px; display:inline-block; }
+/* 月份刻度：与下方格子同起点，靠 12.6 倍列宽对齐（见 renderHeatmap 里的 GRID 常量） */
+.heat-months{ display:grid; grid-auto-flow:column; gap:3px; margin:0 0 4px 22px;
+  font-size:9.5px; color:var(--muted-2); letter-spacing:-.2px; }
+.heat-months span{ grid-row:1; }
+.heat-body{ display:flex; gap:6px; }
+.heat-wd{ display:grid; grid-template-rows:repeat(7,12px); gap:3px; width:16px;
+  font-size:9px; color:var(--muted-2); align-items:center; }
+.heat-grid{ display:grid; grid-template-rows:repeat(7,12px); grid-auto-flow:column;
+  grid-auto-columns:12px; gap:3px; overflow-x:auto; padding-bottom:2px; }
+.heat-cell{ width:12px; height:12px; border-radius:2.5px; background:var(--blue-soft);
+  border:0; padding:0; cursor:default; }
+.heat-cell.has{ cursor:pointer; }
+.heat-cell.has:hover{ outline:1.5px solid var(--blue-d); outline-offset:1px; }
+.heat-cell.today{ box-shadow:0 0 0 1.5px var(--blue-d); }
+/* 5 档深浅：0 词用极淡底，其余四档以 --blue 变量叠透明度，换主色时自动跟随 */
+.heat-cell.l1{ background:color-mix(in srgb, var(--blue) 22%, var(--blue-soft)); }
+.heat-cell.l2{ background:color-mix(in srgb, var(--blue) 45%, var(--blue-soft)); }
+.heat-cell.l3{ background:color-mix(in srgb, var(--blue) 70%, var(--blue-soft)); }
+.heat-cell.l4{ background:var(--blue); }
+.heat-tip{ font-size:11px; color:var(--muted-2); margin-top:8px; min-height:15px; }
+.heat-tip b{ color:var(--ink); }
+
 .stats-scroll{ max-height:36vh; overflow:auto; margin-top:2px; }
 .stats-scroll .result-table{ font-size:12.5px; }
 .stats-empty{ padding:16px 2px; color:var(--muted-2); font-size:13px; }
@@ -950,6 +983,28 @@ body{
     <h3 style="margin:22px 0 10px;">最近 14 天</h3>
     <div class="mini-bars" id="miniBars"></div>
     <p class="stats-sub">柱高 = 当天听写词数；柱里红色一段 = 当天标记 / 答错的词。悬停可看具体数字。</p>
+
+    <!-- 学习热力图（2026-10-18 加）：近 18 周日历格，看长期有没有断档 -->
+    <div class="heat-wrap" id="heatWrap">
+      <div class="heat-head">
+        <span class="heat-title">近 18 周</span>
+        <span class="heat-legend">
+          <span>少</span>
+          <i style="background:var(--blue-soft)"></i>
+          <i style="background:color-mix(in srgb, var(--blue) 22%, var(--blue-soft))"></i>
+          <i style="background:color-mix(in srgb, var(--blue) 45%, var(--blue-soft))"></i>
+          <i style="background:color-mix(in srgb, var(--blue) 70%, var(--blue-soft))"></i>
+          <i style="background:var(--blue)"></i>
+          <span>多</span>
+        </span>
+      </div>
+      <div class="heat-months" id="heatMonths"></div>
+      <div class="heat-body">
+        <div class="heat-wd"><span>一</span><span></span><span>三</span><span></span><span>五</span><span></span><span>日</span></div>
+        <div class="heat-grid" id="heatGrid"></div>
+      </div>
+      <p class="heat-tip" id="heatTip">一格 = 一天，颜色越深听写词数越多。点格子可看当天明细。</p>
+    </div>
 
     <h3 style="margin:22px 0 8px;">历次记录</h3>
     <div class="stats-scroll">
@@ -3776,6 +3831,86 @@ body{
     }).join("");
   }
 
+  /* ---------------- 学习热力图（2026-10-18 加）----------------
+   * 近 18 周 × 7 天的日历格，一格一天。列 = ISO 周（周一起），行 = 星期一…星期日。
+   * 颜色 5 档按【当天词数占全期最大值的比例】分，不是固定阈值 ——
+   * 这样无论每天是 20 词还是 100 词，深浅都能拉开（固定阈值在词数都很大时会全糊成一级）。
+   * 数据源与柱状图同一个 dayStats()，不额外存任何东西。 */
+  var HEAT_WEEKS = 18;
+  function heatLevel(total, max) {
+    if (!total) return 0;
+    var r = total / (max || 1);
+    if (r >= 0.85) return 4;
+    if (r >= 0.60) return 3;
+    if (r >= 0.35) return 2;
+    return 1;
+  }
+  function renderHeatmap() {
+    var grid = $("heatGrid"), monthsEl = $("heatMonths");
+    if (!grid) return;
+    var m = dayStats();
+
+    // 从今天往回推到最近的一个周日，再往前铺满 HEAT_WEEKS 个整周
+    var end = new Date();
+    end.setHours(0, 0, 0, 0);
+    var endIdx = (end.getDay() + 6) % 7;          // 周一=0 … 周日=6
+    end.setDate(end.getDate() - endIdx);          // 本周末所在列的「周一」起点不需要，直接用今天对齐到本周一
+    var start = new Date(end.getFullYear(), end.getMonth(), end.getDate() - (HEAT_WEEKS - 1) * 7);
+    var totalDays = HEAT_WEEKS * 7;
+
+    var cells = [], max = 1, monthMarks = [], seenMonth = {};
+    for (var i = 0; i < totalDays; i++) {
+      var d = new Date(start.getFullYear(), start.getMonth(), start.getDate() + i);
+      var key = dateKey(d);
+      var s = m[key];
+      var tot = s ? (s.total || 0) : 0;
+      if (tot > max) max = tot;
+      cells.push({ key: key, d: d, total: tot, mark: s ? (s.mark || 0) : 0, rounds: s ? (s.rounds || 0) : 0 });
+      // 每月第一次出现的位置插一个月份刻度（1 月也要，所以用 key 去重而不是判断 >0）
+      if (!seenMonth[d.getMonth()]) { seenMonth[d.getMonth()] = 1; monthMarks.push(i); }
+    }
+
+    // 月份刻度：每个刻度落在它所在列的列号上
+    if (monthsEl) {
+      var colSpan = 7;   // 一列 = 一周 = 7 格
+      var marks = [];
+      var lastCol = -99;
+      cells.forEach(function (c, idx) {
+        if (c.d.getDate() <= 7) {                 // 每月 1~7 号中第一次出现的那天所在列标月份
+          var col = Math.floor(idx / colSpan);
+          if (col !== lastCol) { marks.push({ col: col, label: (c.d.getMonth() + 1) + "月" }); lastCol = col; }
+        }
+      });
+      monthsEl.innerHTML = marks.map(function (x) {
+        return '<span style="grid-column:' + (x.col + 1) + '">' + x.label + "</span>";
+      }).join("");
+    }
+
+    var tk = today();
+    grid.innerHTML = cells.map(function (c) {
+      var lv = heatLevel(c.total, max);
+      var cls = "heat-cell" + (lv ? " l" + lv : "") + (c.total ? " has" : "") + (c.key === tk ? " today" : "");
+      var tip = c.key + "：" + (c.total ? "听写 " + c.total + " 词，标记/错 " + c.mark + " 个" + (c.rounds ? "，共 " + c.rounds + " 轮" : "") : "没有记录");
+      return '<button type="button" class="' + cls + '" data-d="' + c.key + '" title="' + esc(tip) + '" aria-label="' + esc(tip) + '"></button>';
+    }).join("");
+
+    // 点格子 → 在下方文字里显示当天明细（不做弹窗，避免抢焦点）
+    var tipEl = $("heatTip");
+    if (tipEl && !grid.getAttribute("data-bound")) {
+      grid.setAttribute("data-bound", "1");
+      grid.addEventListener("click", function (e) {
+        var b = e.target && e.target.closest ? e.target.closest(".heat-cell") : null;
+        if (!b) return;
+        var key = b.getAttribute("data-d");
+        var s = m[key];
+        if (!s || !s.total) { tipEl.innerHTML = "<b>" + esc(key) + "</b> 没有记录"; return; }
+        tipEl.innerHTML = "<b>" + esc(key) + "</b>：听写 " + s.total + " 词 · 标记/错 " +
+          (s.mark || 0) + " 个 · 共 " + (s.rounds || 0) + " 轮" +
+          (s.typedTotal ? " · 打字正确率 " + Math.round(s.typedOk / s.typedTotal * 100) + "%" : "");
+      });
+    }
+  }
+
   function renderHistory() {
     var body = $("histBody");
     if (!body) return;
@@ -3830,6 +3965,7 @@ body{
       $("restoreWordsBtn").classList.toggle("hidden", !hasBak);
     }
     renderMiniBars();
+    renderHeatmap();       // 学习热力图（2026-10-18 加）
     renderHistory();
     renderBook();
     renderNewBook();
