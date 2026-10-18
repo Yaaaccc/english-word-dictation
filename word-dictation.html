@@ -387,7 +387,15 @@ button.small{ padding:6px 12px; font-size:12.5px; }
    50 个词时得一直滚到底才看得见「保存」—— 按钮必须常驻。 */
 .order-scroll{ max-height:264px; overflow:auto; }
 .order-list .sub{ text-align:center; color:var(--muted); font-size:12px; margin-bottom:8px; }
-.order-list ol{ font-size:12.5px; margin:0 0 0 20px; padding:0; color:var(--ink-2); }
+/* ⚠ 2026-10-18 定稿（两次踩坑换来的）：
+   原来是 `margin:0 0 0 20px; padding:0` + 浏览器自动编号。实测（Yac 截图）
+   两位数序号会被 .order-scroll 的 overflow 裁掉最左边一位：
+     第 10 个显示成「0.」、第 11 个显示成「1.」
+   原因：ol 靠 margin 让位，而 outside 的 marker 画在内容框左侧，
+   两位数更宽 → 越过滚动容器的裁剪边界。
+   改成「序号写进 li 文本 + list-style:none」，序号就是内容的一部分，
+   几位数都不会溢出，高亮也能完整盖住。 */
+.order-list ol{ font-size:12.5px; margin:0; padding:0 0 0 6px; list-style:none; color:var(--ink-2); }
 .order-list li{ margin-bottom:6px; }
 
 /* 连播结束后的「复盘勾选」（2026-10-14 加）——
@@ -2152,12 +2160,15 @@ body{
       var li = document.createElement("li");
       li.className = "pick";
       li.setAttribute("data-w", String(item.text || ""));
-      /* ⚠ 2026-10-15 修：这里原来写的是 `(i + 1) + ". " + item.text`，
-         但 li 的父节点就是 `<ol id="playOrderList">` —— 浏览器已经自动编号了，
-         于是页面上显示成「1. 1. execute」「2. 2. priority」双份序号。
-         改成不再手写序号，交给 `<ol>` 自己数（语义也对）。
-         序号只影响显示：记录层读的是 data-w 与 hooks，不解析这段文本。 */
-      li.textContent = item.text + (item.meaning ? "（" + item.meaning + "）" : "");
+      /* ⚠ 序号策略（两次踩坑后定稿，2026-10-18）：
+         ① 最初：手写 `(i+1)+". "` + 父节点 `<ol>` 自动编号 →
+            页面上显示「1. 1. execute」双份；
+         ② 10-15 只靠 `<ol>` 自动编号 → 两位数被滚动容器裁掉左边一位，
+            第 10 个显示成「0.」、第 11 个显示成「1.」（Yac 截图）。
+         现在：序号写进文本 + 给 `<ol>` 设 list-style:none（见 CSS）。
+         序号变成 li 内容的一部分 ⇒ 高亮能盖住、复制能带上、几位数都不裁。
+         记录层读的是 data-w 与 hooks，不解析这段文本，改这里不影响记账。 */
+      li.textContent = (i + 1) + ". " + item.text + (item.meaning ? "（" + item.meaning + "）" : "");
       if (item.exampleEn) {
         var ex = document.createElement("div");
         ex.textContent = "例句：" + item.exampleEn;
