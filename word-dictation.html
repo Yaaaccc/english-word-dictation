@@ -550,6 +550,19 @@ button.small{ padding:6px 12px; font-size:12.5px; }
 /* 「原形 xxx」：变形词的释义取的是原型的，标出来让他知道为什么（2026-10-12 加） */
 #defCard .dc-base{ font-size:11.5px; color:var(--blue-d); margin:1px 0 3px; font-weight:600; }
 #defCard .dc-meaning{ color:var(--ink-2); }
+/* 加入生词本按钮（2026-10-21 加）。同 dc-speak：卡片 pointer-events:none，
+   只有可点元素单独打开指针事件，别让整张卡片变成"挡鼠标"的障碍物。 */
+#defCard .dc-actions{ margin-top:7px; display:flex; gap:6px; }
+#defCard .dc-add{
+  pointer-events:auto; cursor:pointer;
+  font:600 11.5px/1 var(--ui-font,"Segoe UI",system-ui,sans-serif);
+  padding:5px 10px; border-radius:7px; letter-spacing:.2px;
+  border:1px solid var(--blue-line); background:var(--blue-soft); color:var(--blue-d);
+  transition:background .12s ease, border-color .12s ease, color .12s ease;
+}
+#defCard .dc-add:hover:not([disabled]){ background:var(--blue); border-color:var(--blue); color:#fff; }
+#defCard .dc-add[disabled]{ cursor:default; opacity:.6; }
+#defCard .dc-add.is-in{ border-color:var(--line); background:transparent; color:var(--muted); }
 #defCard .dc-hint{ color:var(--muted-2); font-size:12px; }
 /* 难度标签（2026-10-12 加）：数据来自 ECDICT 的 tag 字段（考纲级别）。
    刻意只用一个色相（主色淡底 + 主色深字）—— 整页的绿/红/琥珀是留给对错反馈的，
@@ -776,6 +789,11 @@ button.small{ padding:6px 12px; font-size:12.5px; }
   #printArea .pnum{ width:26pt; color:#999; }
   #printArea .ph{ color:#777; margin-left:6pt; font-size:8.5pt; }
   #printArea .ptag{ width:64pt; color:#666; font-size:8.5pt; }
+  /* 生词导出（2026-10-21）：三列 = 单词 / 释义 / 辨析，辨析给最宽的一列 */
+  #printArea .pw{ width:16%; }
+  #printArea .pm{ width:32%; }
+  #printArea .pbase{ font-size:8.5pt; color:#888; margin-top:1pt; }
+  #printArea .pnote{ width:46%; font-size:8.5pt; line-height:1.5; color:#333; }
   #printArea .pfoot{ margin-top:10pt; font:9pt/1.6 "Segoe UI","Microsoft YaHei",sans-serif; color:#888; }
 
   /* ===== 错词 PDF：与「每日新词例句纸」完全同一版式（2026-10-21 加）=====
@@ -1111,8 +1129,9 @@ body{
       </table>
     </div>
     <p class="stats-sub">
-      在例句里<b>点过的词会自动收进这里</b> —— 会去查说明当时不认识，不用再手动记一遍。
+      在例句里点单词<b>只查义</b>；释义卡片里点<b>「＋ 加入生词本」</b>才会收进这里。
       「查过」按次数从多到少排，<b>被反复点到的自然顶到最上面</b>，那就是真正没记住的。
+      导出 PDF 只出<b>单词 / 释义 / 辨析</b>三列；辨析取扇贝词表里的【辨析】原文，词表没带的词这一列留空。
       点「只练生词本」会把上方单词表换成这里的词并直接开始连播（原单词表会自动备份，可用上方按钮找回）。
     </p>
   </div>
@@ -1334,6 +1353,11 @@ body{
   <div id="defCardBase" class="dc-base hidden"></div>
   <div id="defCardTags" class="dc-tags hidden"></div>
   <div id="defCardMeaning" class="dc-meaning"></div>
+  <!-- 手动加入生词本（2026-10-21 加）：点词只查义，收不收由他决定。
+       卡片本身是 pointer-events:none，所以只有按钮单独把指针事件打开（同 dc-speak）。 -->
+  <div class="dc-actions">
+    <button id="defCardAddNew" class="dc-add" type="button">＋ 加入生词本</button>
+  </div>
 </div>
 
 
@@ -3294,28 +3318,77 @@ body{
     el.classList.remove("hidden");
   }
 
-  /* ---------- 3d. 生词本：查过的词自动收集（2026-10-12 加）----------
-   * 想法：他点例句里的词去查义，这件事本身就是最真实的「生词信号」——
-   * 不认识的词才会去点。所以不用他再手动记一遍，查过就自动进生词本。
+  /* ---------- 3d. 生词本（2026-10-12 加；2026-10-21 改为手动加入）----------
+   * 2026-10-21 按 Yac 要求改口径：原来"点一下自动收"，现在**点词只查义**，
+   *   卡片里给一个「＋ 加入生词本」，收不收由他决定。
+   *   已在本子里的词，点开仍会 hits+1（"查过几次"照旧统计，排序才不会失真），
+   *   但不会因为点了一下就新建条目。
    *
    * 与「错词本」的分工：
    *   错词本 = 听写时没写出来的词（有遗忘曲线的进出规则：错过进、连对 2 次出）
-   *   生词本 = 读例句时主动查过的词（只增不减，靠"查过几次"排序把真生词顶上来）
+   *   生词本 = 读句子时手动收下的词（只增不减，靠"查过几次"排序把真生词顶上来）
    *   两者互不覆盖 —— 同一个词可能在两边都出现，那是两件不同的事实。
    *
    * key 用他去点的那**个词形**（went / studies 各自成条），因为那才是他当时遇到的障碍；
    * 但释义/标签存的是词典给的原型那一套，列表里一眼能看懂。
    * ⚠ 这段在 v4 视觉层里，错词本那套存储（readJSON/writeJSON）够不到，
-   *   所以这里直接用 localStorage；名单的展示与操作在「学习记录」那一层做。 */
+   *   所以这里直接用 localStorage；名单的展示与操作在「学习记录」那一层做
+   *   （加完派发 dictation:newbook 事件，让那边自己刷新）。
+   * 辨析 diff：只有扇贝词表里带「【辨析】」的词才有，存的是文本原文。 */
   var LS_NEW = "dictationNewWords";
 
+  function readNewBookRaw() {
+    try {
+      var raw = localStorage.getItem(LS_NEW);
+      var v = raw ? JSON.parse(raw) : {};
+      return (v && typeof v === "object" && Object.prototype.toString.call(v) !== "[object Array]") ? v : {};
+    } catch (e) { return {}; }
+  }
+  function inNewBook(w) {
+    var k = String(w || "").toLowerCase().trim();
+    return !!(k && readNewBookRaw()[k]);
+  }
+
+  /* 辨析：从当前单词表按词匹配；变形词按去掉常见后缀再比一次。 */
+  function diffOfWord(w) {
+    var h = window.__dictationHooks;
+    var list = (h && h.words && h.words()) || [];
+    var k = String(w || "").toLowerCase().trim();
+    if (!k) return "";
+    var stems = [k];
+    var m = /^(.+?)(?:s|es|ed|d|ing)$/.exec(k);
+    if (m && m[1].length > 2) stems.push(m[1]);
+    for (var i = 0; i < list.length; i++) {
+      if (stems.indexOf(String(list[i].text || "").toLowerCase().trim()) !== -1) {
+        return list[i].diff || "";
+      }
+    }
+    return "";
+  }
+
+  /* 已在本子里的词：把新查到的音标/释义/标签补进去（**不新建条目**）。 */
   function recordNewWord(w, entry) {
     var key = String(w || "").toLowerCase().trim();
-    if (!key) return;
+    if (!key || !entry) return;
     try {
-      var book = {};
-      var raw = localStorage.getItem(LS_NEW);
-      if (raw) { var v = JSON.parse(raw); if (v && typeof v === "object") book = v; }
+      var book = readNewBookRaw();
+      var old = book[key];
+      if (!old) return;
+      old.ph = entry[0] || old.ph || "";
+      old.m = entry[1] || old.m || "";
+      old.base = entry[2] || old.base || "";
+      old.tagLabel = tagLabelOf(entry[3]) || old.tagLabel || "";
+      book[key] = old;
+      localStorage.setItem(LS_NEW, JSON.stringify(book));
+    } catch (e) { /* 存储写不进去也不影响查词本身 */ }
+  }
+
+  /* 点卡片里的按钮才进来：新建条目，并把当前词表里的辨析一并存下。 */
+  function addToNewBook(w, entry) {
+    var key = String(w || "").toLowerCase().trim();
+    if (!key) return false;
+    try {
+      var book = readNewBookRaw();
       var old = book[key] || {};
       book[key] = {
         w: key,
@@ -3323,38 +3396,25 @@ body{
         m: (entry && entry[1]) || old.m || "",
         base: (entry && entry[2]) || old.base || "",
         tagLabel: tagLabelOf(entry && entry[3]) || old.tagLabel || "",
-        hits: old.hits || 0,
-        ts: old.ts || Date.now()
+        diff: old.diff || diffOfWord(key),
+        hits: (old.hits || 0) + 1,
+        ts: Date.now()
       };
       localStorage.setItem(LS_NEW, JSON.stringify(book));
-    } catch (e) { /* 存储写不进去也不影响查词本身 */ }
+      return true;
+    } catch (e) { return false; }
   }
 
-  /* 点一下就算一次 —— 与「查到什么」彻底解耦。
-     ⚠ 为什么必须拆成两步（2026-10-12 探针实测踩到）：
-     showDefCard 里那层 req !== defReqId 守卫是给**卡片 UI** 防串台用的：
-     连着点几个词时，只有最后一次请求的结果会去渲染。但第一版把记生词也写在守卫后面，
-     于是"他点过 A 又点过 B"这件事被守卫一起丢掉了 —— 实测连着点 3 次只记下 1 个词。
-     事实是"点过就是点过"，跟卡片最后显示谁无关，所以：
-       · bumpNewWordHit —— 点击当下同步调用，只负责 hits+1 / 建条目
-       · recordNewWord  —— 查询回来后调用，只负责把音标/释义/标签补进去（不用守卫） */
+  /* 已在本子里的词：点一次记一次「查过」。不在本子的词不再偷偷建条目。 */
   function bumpNewWordHit(w) {
     var key = String(w || "").toLowerCase().trim();
     if (!key) return;
     try {
-      var book = {};
-      var raw = localStorage.getItem(LS_NEW);
-      if (raw) { var v = JSON.parse(raw); if (v && typeof v === "object") book = v; }
-      var old = book[key] || {};
-      book[key] = {
-        w: key,
-        ph: old.ph || "",
-        m: old.m || "",
-        base: old.base || "",
-        tagLabel: old.tagLabel || "",
-        hits: (old.hits || 0) + 1,
-        ts: Date.now()
-      };
+      var book = readNewBookRaw();
+      var old = book[key];
+      if (!old) return;
+      old.hits = (old.hits || 0) + 1;
+      book[key] = old;
       localStorage.setItem(LS_NEW, JSON.stringify(book));
     } catch (e) { /* 同上 */ }
   }
@@ -3441,6 +3501,18 @@ body{
     card.classList.add("on");
   }
 
+  /* 卡片当前指向的词与查询结果（加入生词本按钮要用）。
+     卡片可能被连点换词，所以这两个变量始终跟着"最后一次成功渲染"走。 */
+  var defCardCurWord = "", defCardCurEntry = null;
+
+  function setAddNewBtn(inBook, busy) {
+    var b = $("defCardAddNew");
+    if (!b) return;
+    b.classList.toggle("is-in", !!inBook);
+    b.disabled = !!busy || !!inBook;
+    b.textContent = busy ? "查询中…" : (inBook ? "✓ 已在生词本" : "＋ 加入生词本");
+  }
+
   function showDefCard(el, w) {
     if (!defCardEl) defCardEl = $("defCard");
     if (!defCardEl) return;
@@ -3449,7 +3521,12 @@ body{
     el.classList.add("def-open");
 
     var req = ++defReqId;
-    bumpNewWordHit(w);                            // 点一下就记一次（同步，不受下面那层守卫影响）
+    var already = inNewBook(w);
+    defCardCurWord = w;
+    defCardCurEntry = null;
+    /* 已在本子：点一次记一次「查过」；没在本子：什么都不写，等他点按钮。 */
+    if (already) bumpNewWordHit(w);
+    setAddNewBtn(already, !already);
     $("defCardWord").textContent = w;
     $("defCardPh").textContent = "";
     setDefCardBase("");
@@ -3459,11 +3536,11 @@ body{
 
     lookupWord(w).then(function (res) {
       var e = res && res.entry;
-      recordNewWord(w, e);                        // 先把音标/释义/标签补进生词本 ——
-                                                  // ⚠ 必须写在守卫**之前**：这一步不是在渲染卡片，
-                                                  //   而是在记录"他点过这个词"，跟卡片最后显示谁无关，
-                                                  //   被守卫吃掉就会出现"连点几个词只记下最后一个"。
+      /* 已在本子里的词：把这次查到的音标/释义/标签补进去（recordNewWord 不会新建条目）。
+         写在守卫之前 —— 它只是在补数据，跟卡片最后显示谁无关。 */
+      if (inNewBook(w)) recordNewWord(w, e);
       if (req !== defReqId) return;               // 以下才是卡片 UI：已经点到别的词了，这次结果作废
+      defCardCurEntry = e || null;
       if (!e) {
         $("defCardPh").textContent = "";
         setDefCardBase("");
@@ -3475,6 +3552,7 @@ body{
         setDefCardTags(e[3]);                     // e[3] = 考纲难度标签，没标就不占位
         $("defCardMeaning").textContent = e[1] || "";
       }
+      setAddNewBtn(inNewBook(w), false);
       positionDefCard(el, defCardEl);             // 内容换行后高度会变，位置再校一次
     });
   }
@@ -3563,6 +3641,25 @@ body{
       spk.addEventListener("click", function (e) {
         e.stopPropagation();     // 卡片区点击本来就不会收起，这里再拦一道更稳
         speakDefCardWord();
+      });
+    }
+    /* 加入生词本（2026-10-21 加）：卡片里唯一会"写"的按钮。
+       本段是独立 IIFE，toast 在主脚本那段——通过 window.__dictationToast 借过来；
+       刷新学习记录面板也是同理，派事件让那边自己重渲染。 */
+    var addBtn = $("defCardAddNew");
+    if (addBtn) {
+      addBtn.addEventListener("click", function (e) {
+        e.stopPropagation();
+        var w = defCardCurWord;
+        if (!w) return;
+        if (inNewBook(w)) return;                     // 已在本子：按钮本来是 disabled，双保险
+        if (!addToNewBook(w, defCardCurEntry)) {
+          if (window.__dictationToast) window.__dictationToast("加入失败：本地存储写不进去");
+          return;
+        }
+        setAddNewBtn(true, false);
+        if (window.__dictationToast) window.__dictationToast("已加入生词本：" + w);
+        document.dispatchEvent(new CustomEvent("dictation:newbook", { detail: { word: w } }));
       });
     }
     // 点别处收起。⚠ 必须排除 .ex-w 与卡片自身：exEl 的监听先跑并刚把卡片立起来，
@@ -3737,6 +3834,10 @@ body{
     clearTimeout(toastTimer);
     toastTimer = setTimeout(function () { toastEl.classList.remove("show"); }, 2000);
   }
+  /* 例句查义那一段（第 2 个 <script>）在自己的闭包里，够不到这里的 toast——
+     它点「加入生词本」后要给人反馈，所以把这一扇窗开着（2026-10-21 加）。
+     同理它加完会派 dictation:newbook 事件，这边收到后重渲染生词本。 */
+  window.__dictationToast = toast;
 
   /* ---------------- 轮次结束：记账 ---------------- */
   function recordTyped() {
@@ -4033,6 +4134,12 @@ body{
     renderBook();
     renderNewBook();
   }
+
+  /* 例句查义那段（另一个闭包）加完生词会派这个事件 —— 面板开着时立刻刷新，
+     关着也无所谓，下次打开会重新渲染（2026-10-21 加）。 */
+  document.addEventListener("dictation:newbook", function () {
+    try { refresh(); } catch (e) {}
+  });
 
   /* ---------------- ⑧ 导出错词 PDF ----------------
    * 2026-10-21 按 Yac 要求，改成与「每日新词例句纸」**完全同一版式**：
@@ -4418,7 +4525,7 @@ body{
     if ($("newWordCount")) $("newWordCount").textContent = list.length ? "共 " + list.length + " 个词" : "";
     if (!body) return;
     if (!list.length) {
-      body.innerHTML = '<tr><td colspan="5" class="stats-empty">还没查过词。在例句里点任意一个单词，它就会自动记到这里。</td></tr>';
+      body.innerHTML = '<tr><td colspan="5" class="stats-empty">生词本是空的。在例句里点任意一个单词查义，卡片里点「＋ 加入生词本」就会收进来。</td></tr>';
       return;
     }
     body.innerHTML = list.map(function (e) {
@@ -4445,16 +4552,20 @@ body{
     setTimeout(function () { if ($("startPlayBtn")) $("startPlayBtn").click(); }, 60);
   }
 
+  /* 生词 PDF：只出「单词 / 释义 / 辨析」三列（2026-10-21 按 Yac 要求）。
+     音标和难度不印了；辨析取扇贝词表里的【辨析】原文，没有就留空。
+     版式仍是横版表格 —— 与错词 PDF 那套竖版卡片不同，两者别混。 */
   function buildNewPrintHTML(items) {
     var rows = items.map(function (e, i) {
       return "<tr><td class=\"pnum\">" + (i + 1) + "</td><td>" + esc(e.w) +
-             '<span class="ph">' + esc(e.ph ? "/" + e.ph + "/" : "") + "</span></td><td>" +
-             esc(e.m || "—") + "</td><td class=\"ptag\">" + esc(e.tagLabel || "—") + "</td></tr>";
+             (e.base ? '<div class="pbase">原形 ' + esc(e.base) + "</div>" : "") + "</td><td>" +
+             esc(e.m || "—") + "</td><td class=\"pnote\">" + esc(e.diff || "") + "</td></tr>";
     }).join("");
     return "<h1>生词本 · 单词听写</h1>" +
       '<div class="pmeta">导出日期 ' + today() + "　共 " + items.length + " 个词　" +
       "（按「查过次数」从多到少排）</div>" +
-      "<table><thead><tr><th class=\"pnum\">#</th><th>单词</th><th>释义</th><th>难度</th></tr></thead>" +
+      "<table><thead><tr><th class=\"pnum\">#</th><th class=\"pw\">单词</th>" +
+      "<th class=\"pm\">释义</th><th>辨析</th></tr></thead>" +
       "<tbody>" + rows + "</tbody></table>" +
       '<div class="pfoot">由「单词听写」页导出</div>';
   }
