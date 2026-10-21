@@ -777,6 +777,64 @@ button.small{ padding:6px 12px; font-size:12.5px; }
   #printArea .ph{ color:#777; margin-left:6pt; font-size:8.5pt; }
   #printArea .ptag{ width:64pt; color:#666; font-size:8.5pt; }
   #printArea .pfoot{ margin-top:10pt; font:9pt/1.6 "Segoe UI","Microsoft YaHei",sans-serif; color:#888; }
+
+  /* ===== 错词 PDF：与「每日新词例句纸」完全同一版式（2026-10-21 加）=====
+     以下结构/字号/行距/颜色全部照抄 每日新词例句PDF.js 的 buildHtml()。
+     全部限定在 #printArea.wrong-doc 下 —— 生词导出仍是上面那套横版表格，互不干扰。 */
+  #printArea.wrong-doc{ font-family:"Microsoft YaHei","PingFang SC","Segoe UI",sans-serif; color:#1f2328; }
+  /* 每页固定 5 词：按块强制分页，块内卡片不跨页 */
+  #printArea.wrong-doc .page-block{ break-after:page; page-break-after:always; }
+  #printArea.wrong-doc .page-block:last-child{ break-after:auto; page-break-after:auto; }
+  #printArea.wrong-doc .w-row{
+    break-inside:avoid; page-break-inside:avoid;
+    margin-bottom:3.4mm; border-bottom:.5pt dashed #cfd4da; padding-bottom:1.4mm;
+  }
+  #printArea.wrong-doc .w-head{ font-size:12.5pt; line-height:1.35; }
+  #printArea.wrong-doc .w-idx{ font-size:9.5pt; color:#b0b6bf; margin-right:1.7mm; }
+  #printArea.wrong-doc .w-word{ font-size:15pt; font-weight:700; color:#0d3b66; font-family:"Segoe UI",Arial,sans-serif; }
+  #printArea.wrong-doc .w-ipa{ font-size:10.5pt; color:#6e7781; margin:0 1.7mm; }
+  #printArea.wrong-doc .w-senses{ font-size:11.5pt; color:#333; margin-left:.9mm; }
+  #printArea.wrong-doc .w-ex{ margin-top:.55mm; }
+  #printArea.wrong-doc .ex-en{ font-size:10.5pt; line-height:1.34; color:#24292f; }
+  #printArea.wrong-doc .hl{ font-weight:700; color:#c0392b; }
+  /* 纯英文区挖空横线：只输出空白 span + 下边框，不保留原词文字（否则 PDF 文本层仍可搜到） */
+  #printArea.wrong-doc .hl-blank{
+    display:inline-block; min-width:2.2em; max-width:9em;
+    border-bottom:.7pt solid #24292f; margin:0 .16em; height:1.05em; vertical-align:-.16em;
+  }
+  #printArea.wrong-doc .ex-cn{ font-size:10pt; color:#57606a; line-height:1.3; margin-top:.45mm; }
+  #printArea.wrong-doc .write-space{ height:5mm; }
+  #printArea.wrong-doc .dim{ color:#b0b6bf; }
+  /* 页眉（分区 + 对应区页码）与页脚（文档身份 + 本页页码），刻意压得很扁 */
+  #printArea.wrong-doc .pghead{
+    display:flex; justify-content:space-between; align-items:baseline; gap:4mm;
+    margin:0 0 1.1mm; padding-bottom:.6mm; border-bottom:.5pt solid #dfe4ea;
+    font-size:8pt; line-height:1.1; color:#57606a;
+  }
+  #printArea.wrong-doc .pgh-l{ font-weight:700; color:#0d3b66; }
+  #printArea.wrong-doc .pgh-r{ color:#0d3b66; }
+  #printArea.wrong-doc .pgmap{
+    display:flex; justify-content:space-between; align-items:baseline; gap:4mm;
+    margin:1.2mm 0 0; padding-top:.6mm; border-top:.5pt solid #dfe4ea;
+    font-size:8pt; line-height:1.1; color:#57606a;
+  }
+  #printArea.wrong-doc .pgmap-r{ color:#0d3b66; font-weight:700; }
+  /* 分组标记条（每 25 词一条）：只占一行 */
+  #printArea.wrong-doc .gband{
+    break-inside:avoid; page-break-inside:avoid;
+    margin:2.2mm 0 2.6mm; padding:1.1mm 2.5mm;
+    border-top:.6pt dashed #9fb3cc; border-bottom:.6pt dashed #9fb3cc;
+    background:#f2f6fb; text-align:center;
+    font-size:8.5pt; line-height:1.25; color:#0d3b66;
+  }
+  #printArea.wrong-doc .gband .gb-t{ white-space:nowrap; }
+  #printArea.wrong-doc .gband .gb-sep{ color:#b9c6d8; margin:0 2.2mm; }
+  #printArea.wrong-doc .gband b{ font-weight:700; color:#c0392b; }
+  /* 纯英文练习区：单独起一页，通篇无中文 */
+  #printArea.wrong-doc .en-section{ break-before:page; page-break-before:always; }
+  #printArea.wrong-doc .en-head{ text-align:center; margin-bottom:8mm; padding-bottom:4mm; border-bottom:.8pt solid #cfd4da; }
+  #printArea.wrong-doc .en-title{ font-size:19pt; font-weight:700; color:#0d3b66; text-align:center; margin:0 0 2mm; }
+  #printArea.wrong-doc .en-note{ font-size:10.5pt; color:#57606a; text-align:center; margin-bottom:6mm; }
 }
 
 </style>
@@ -3634,12 +3692,17 @@ body{
     e.courses[c] = rec;
   }
 
-  function bumpMiss(text, meaning, course, atDay) {
+  /* 例句也一起落盘（2026-10-21 加）：导出的错词 PDF 要和日常例句纸同版式，
+     而错词本跨很多课，导出时早已不在当前单词表里 —— 不在这里存，事后就查不到了。
+     只在有值时写，避免把已有例句覆盖成空。 */
+  function bumpMiss(text, meaning, course, atDay, exEn, exCn) {
     if (!text) return;
     var b = getBook();
     var e = b[text] || { text: text, meaning: meaning || "", miss: 0, streak: 0, ts: 0 };
     e.text = text;
     if (meaning) e.meaning = meaning;
+    if (exEn) e.exampleEn = exEn;
+    if (exCn) e.exampleCn = exCn;
     e.miss = (e.miss || 0) + 1;
     e.streak = 0;
     e.ts = Date.now();
@@ -3746,7 +3809,7 @@ body{
       for (var i = 0; i < words.length; i++) {
         if (String(words[i].text || "").trim() === t) { w = words[i]; break; }
       }
-      bumpMiss(t, w ? w.meaning : "", course, today());
+      bumpMiss(t, w ? w.meaning : "", course, today(), w ? w.exampleEn : "", w ? w.exampleCn : "");
     });
     var marked = markedThisRound.concat(picked);
 
@@ -3971,28 +4034,315 @@ body{
     renderNewBook();
   }
 
-  /* ---------------- ⑧ 导出错词 PDF ---------------- */
-  function buildPrintHTML(items) {
-    var rows = items.map(function (e, i) {
-      return "<tr><td class=\"pnum\">" + (i + 1) + "</td><td>" + esc(e.text) + "</td><td>" +
-             esc(e.meaning || "—") + "</td></tr>";
-    }).join("");
-    return "<h1>错词本 · 单词听写</h1>" +
-      '<div class="pmeta">导出日期 ' + today() + "　共 " + items.length + " 个词　" +
-      "（每行下方虚线为手写位置）</div>" +
-      "<table><thead><tr><th class=\"pnum\">#</th><th>单词</th><th>释义</th></tr></thead>" +
-      "<tbody>" + rows + "</tbody></table>" +
-      '<div class="pfoot">由「单词听写」页导出</div>';
+  /* ---------------- ⑧ 导出错词 PDF ----------------
+   * 2026-10-21 按 Yac 要求，改成与「每日新词例句纸」**完全同一版式**：
+   *   · 竖版 A4、每页 5 词、每 25 词一条分组标记条
+   *   · 前半中文区：词 + 音标 + 释义 + 英文例句（目标词标红）+ 中文翻译 + 书写空行
+   *   · 后半纯英文区：同样的词与例句，但目标词挖空、通篇无中文
+   *   · 每页页眉「分区 k/n · 对应区第几页」，页脚「文档身份 · 本页 PDF 第几页」
+   * 版式不是重画的：结构/字号/行距/颜色/文案全部照抄 每日新词例句PDF.js 的 buildHtml()，
+   * 只把数据源换成错词本。以后那边改了版式，这里要跟着改（两处必须同源）。
+   */
+  var WPDF_PER_PAGE = 5;   // 与日常例句纸一致（2026-10-18 起由 4 改 5）
+  var WPDF_GROUP = 25;     // 分组标记条间隔
+
+  /* ⚠ 本段（第 3 个 <script>）与词表解析那段不在同一个闭包里 ——
+     parseWords / normalize / loadExampleDict / dateList 在这里都拿不到（2026-10-21 踩过：
+     直接调用会报 "loadExampleDict is not defined"，导出静默失败）。
+     所以下面三个小工具是按同样口径另写的一份，别改成引用上面那几个。 */
+  function wpdfNormalize(s) {
+    return String(s || "").trim().toLowerCase().replace(/[’]/g, "'");
+  }
+  function wpdfParseWords(text) {
+    return String(text || "").split(/\r?\n/).map(function (line) {
+      line = line.trim();
+      if (!line) return null;
+      var p = line.split(/[\t|｜]/).map(function (s) { return s.trim(); });
+      var word = p[0] || "", meaning = p[1] || "", en = p[2] || "", cn = p[3] || "";
+      if (p.length === 1) {
+        var m = line.match(/^(\S+)\s+(.+)$/);
+        if (m) { word = m[1]; meaning = m[2]; }
+      }
+      return word ? { text: word, meaning: meaning, exampleEn: en, exampleCn: cn } : null;
+    }).filter(Boolean);
+  }
+  var WPDF_DICT = null, wpdfDictPromise = null;
+  function wpdfLoadDict() {
+    if (WPDF_DICT) return Promise.resolve(WPDF_DICT);
+    if (wpdfDictPromise) return wpdfDictPromise;
+    wpdfDictPromise = fetch("example-dict.json", { cache: "force-cache" })
+      .then(function (r) { return r.ok ? r.json() : {}; })
+      .then(function (d) {
+        WPDF_DICT = (d && typeof d === "object") ? d : {};
+        return WPDF_DICT;
+      })
+      .catch(function () { WPDF_DICT = {}; return WPDF_DICT; });
+    return wpdfDictPromise;
   }
 
-  function exportWrongPDF() {
+  /* 与 daily 的 highlight() 等价：<vocab> 标记优先，其次按词干+后缀兜底 */
+  function wrongHighlight(en, word) {
+    var html = esc(en).replace(/&lt;vocab&gt;/g, '<b class="hl">').replace(/&lt;\/vocab&gt;/g, "</b>");
+    if (html.indexOf('<b class="hl">') === -1 && word) {
+      var stem = String(word).replace(/'s$/i, "");
+      var suffix = "(?:s|es|ed|d|ing|'s)?";
+      var pattern = "(?<![A-Za-z])" + stem.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + suffix + "(?![A-Za-z])";
+      try {
+        html = html.replace(new RegExp(pattern, "gi"), function (m) { return '<b class="hl">' + m + "</b>"; });
+      } catch (e) {}
+    }
+    return html;
+  }
+
+  /* 纯英文区：把目标词换成一条横线。
+     ⚠ 刻意不保留原词文字 —— 用 color:transparent 隐藏的话，PDF 文本层仍能搜到，等于没挖空。 */
+  function wrongBlankTarget(en, word) {
+    var html = esc(en).replace(/&lt;vocab&gt;/g, "\u0001").replace(/&lt;\/vocab&gt;/g, "\u0002");
+    if (html.indexOf("\u0001") === -1 && word) {
+      var stem = String(word).replace(/'s$/i, "");
+      var suffix = "(?:s|es|ed|d|ing|'s)?";
+      var pattern = "(?<![A-Za-z])" + stem.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + suffix + "(?![A-Za-z])";
+      try {
+        html = html.replace(new RegExp(pattern, "gi"), function (m) { return "\u0001" + m + "\u0002"; });
+      } catch (e) {}
+    }
+    return html.replace(/\u0001([\s\S]*?)\u0002/g, function (m, inner) {
+      var w = Math.max(2.2, Math.min(9, (String(inner).trim().length + 0.6) * 0.62));
+      return '<span class="hl-blank" style="width:' + w.toFixed(2) + 'em"></span>';
+    });
+  }
+
+  /* 错词条目 -> 版式需要的卡片数据。
+     音标取 example-dict.json 第 0 项（与日常纸的兜底分支同格式：音标 /.../ ）。 */
+  function wrongCards(items) {
+    return items.map(function (e) {
+      var rec = WPDF_DICT && WPDF_DICT[wpdfNormalize(e.text)];
+      var ipa = rec && rec[0] ? String(rec[0]).replace(/^\/+|\/+$/g, "").trim() : "";
+      return {
+        word: e.text,
+        ipa: ipa ? "音标 /" + ipa + "/" : "",
+        senses: e.meaning ? [e.meaning] : [],
+        exs: e.exampleEn ? [{ en: e.exampleEn, cn: e.exampleCn || "" }] : []
+      };
+    }).filter(function (c) { return c.word; });
+  }
+
+  /* 旧错词没存例句 —— 按它记下的「课程日期」回拉那天的词表补。
+     同一天可能不止一个文件（扇贝 / 扇贝复习），所以按 dates.json 里该日期的所有记录依次拉。 */
+  var wrongCourseCache = {};
+  async function loadCourseWordList(course) {
+    if (Object.prototype.hasOwnProperty.call(wrongCourseCache, course)) return wrongCourseCache[course];
+    var out = [];
+    /* 正在听的这一课：手上的词表就是它，不必再拉网络 */
+    var h = window.__dictationHooks;
+    var curCourse = (h && h.currentCourse && h.currentCourse()) || "";
+    if (curCourse && curCourse === course && h.words) {
+      h.words().forEach(function (w) { if (w && w.exampleEn) out.push(w); });
+    }
+    /* 其余情况按日期回拉。文件名规范稳定（含偶尔出现的「第2组」-2 变体），
+       404 直接跳过 —— 这里不做存在性预检，省一轮往返。 */
+    var files = [
+      "今日单词/" + course + ".txt",
+      "扇贝复习/shanbay-review-" + course + ".txt",
+      "今日单词/" + course + "-2.txt",
+      "扇贝复习/shanbay-review-" + course + "-2.txt"
+    ];
+    for (var i = 0; i < files.length; i++) {
+      try {
+        var r = await fetch(files[i], { cache: "no-store" });
+        if (!r.ok) continue;
+        out = out.concat(wpdfParseWords(await r.text()));
+      } catch (e) {}
+    }
+    wrongCourseCache[course] = out;
+    return out;
+  }
+
+  async function fillWrongExamples(items) {
+    var need = items.filter(function (e) { return !e.exampleEn; });
+    if (!need.length) return 0;
+    var courses = {};
+    need.forEach(function (e) {
+      Object.keys(e.courses || {}).forEach(function (c) { if (c) courses[c] = 1; });
+    });
+    var byWord = {};
+    var list = Object.keys(courses);
+    for (var i = 0; i < list.length; i++) {
+      var words = await loadCourseWordList(list[i]);
+      words.forEach(function (w) {
+        var k = wpdfNormalize(w.text);
+        if (w.exampleEn && !byWord[k]) byWord[k] = w;
+      });
+    }
+    var b = getBook(), filled = 0;
+    need.forEach(function (e) {
+      var w = byWord[wpdfNormalize(e.text)];
+      if (!w) return;
+      e.exampleEn = w.exampleEn;
+      e.exampleCn = w.exampleCn || "";
+      filled++;
+      var rec = b[e.text];          // bookList() 拿的是同一对象引用，但保险起见还是按 key 写一遍
+      if (rec && !rec.exampleEn) { rec.exampleEn = e.exampleEn; rec.exampleCn = e.exampleCn; }
+    });
+    if (filled) writeJSON(LS_BOOK, b);   // 补到的例句顺手落盘，下次导出不用再拉网络
+    return filled;
+  }
+
+  function buildWrongPrintHTML(items) {
+    var cards = wrongCards(items);
+    var perPageN = WPDF_PER_PAGE;
+    var esc2 = esc;
+
+    /* ⚠ 这里必须是**卡片数组**，不能 join 成字符串再交给 packPages ——
+       packPages 是按元素分页的，传字符串会退化成按字符切块（2026-10-21 踩过：
+       12 个词被切成 1802 个 page-block）。 */
+    var cardArr = cards.map(function (c, i) {
+      return '    <div class="w-row">\n' +
+        '      <div class="w-head"><span class="w-idx">' + (i + 1) + '.</span>' +
+        '<span class="w-word">' + esc2(c.word) + "</span>" +
+        (c.ipa ? '<span class="w-ipa">' + esc2(c.ipa) + "</span>" : "") +
+        (c.senses.length ? '<span class="w-senses">' + c.senses.map(esc2).join("；") + "</span>" : "") +
+        "</div>\n" +
+        (c.exs.length
+          ? c.exs.map(function (e) {
+              return '      <div class="w-ex"><div class="ex-en">' + wrongHighlight(e.en, c.word) + "</div>" +
+                '<div class="ex-cn">' + esc2(e.cn) + "</div></div>";
+            }).join("\n")
+          : '      <div class="w-ex"><div class="ex-cn dim">（暂无例句）</div></div>') +
+        '\n      <div class="write-space"></div>\n    </div>';
+    });
+
+    var cardArrEn = cards.map(function (c, i) {
+      return '    <div class="w-row">\n' +
+        '      <div class="w-head"><span class="w-idx">' + (i + 1) + '.</span>' +
+        '<span class="w-word">' + esc2(c.word) + "</span>" +
+        (c.ipa ? '<span class="w-ipa">' + esc2(c.ipa) + "</span>" : "") +
+        "</div>\n" +
+        (c.exs.length
+          ? c.exs.map(function (e) {
+              return '      <div class="w-ex"><div class="ex-en">' + wrongBlankTarget(e.en, c.word) + "</div></div>";
+            }).join("\n")
+          : '      <div class="w-ex"><div class="ex-cn dim">(No example)</div></div>') +
+        '\n      <div class="write-space"></div>\n    </div>';
+    });
+
+    var totalCards = cards.length;
+    if (!totalCards) return "";
+    var nCn = Math.max(1, Math.ceil(totalCards / perPageN));
+    var nEn = nCn;
+    var totalPages = nCn + nEn;
+    var cnPage = function (i) { return i + 1; };
+    var enPage = function (i) { return nCn + i + 1; };
+    var pageOfWord = function (no) { return Math.ceil(no / perPageN); };
+    var docLabel = "错词本 " + today() + " 导出 · 共 " + totalCards + " 词";
+
+    var GROUP = WPDF_GROUP;
+    var groupEnds = [];
+    if (GROUP > 0) {
+      for (var s = 1; s <= totalCards; s += GROUP) {
+        groupEnds.push([s, Math.min(s + GROUP - 1, totalCards), groupEnds.length + 1]);
+      }
+    }
+    var bandHtml = function (s, e, g, isLast, mateName, mateFrom, mateTo) {
+      return '    <div class="gband">' +
+        '<span class="gb-t">第 ' + g + " 组（第 " + s + "–" + e + " 词）到此为止</span>" +
+        '<span class="gb-sep">|</span>' +
+        '<span class="gb-t">本组' + mateName + '：PDF 第 <b>' + mateFrom + "–" + mateTo + "</b> 页</span>" +
+        '<span class="gb-sep">|</span>' +
+        '<span class="gb-t">' + (isLast ? "全文结束" : "第 " + (g + 1) + " 组自第 " + (e + 1) + " 词起") + "</span>" +
+        "</div>";
+    };
+
+    var packPages = function (list, bandOf) {
+      var pages = [], cur = [], n = 0;
+      for (var i = 0; i < list.length; i++) {
+        cur.push(list[i]);
+        n++;
+        var no = i + 1;
+        var ge = null;
+        for (var k = 0; k < groupEnds.length; k++) { if (groupEnds[k][1] === no) { ge = groupEnds[k]; break; } }
+        if (ge) cur.push(bandOf(ge));
+        if (n === perPageN) { pages.push(cur); cur = []; n = 0; }
+      }
+      if (cur.length) pages.push(cur);
+      return pages;
+    };
+    var blocksCn = packPages(cardArr, function (ge) {
+      var s = ge[0], e = ge[1], g = ge[2];
+      return bandHtml(s, e, g, e >= totalCards, "纯英文版", enPage(pageOfWord(s) - 1), enPage(pageOfWord(e) - 1));
+    });
+    var blocksEn = packPages(cardArrEn, function (ge) {
+      var s = ge[0], e = ge[1], g = ge[2];
+      return bandHtml(s, e, g, e >= totalCards, "中文版", cnPage(pageOfWord(s) - 1), cnPage(pageOfWord(e) - 1));
+    });
+
+    var chrome = function (zone, target, k, n, selfPdf, matePdf) {
+      return {
+        head: '      <div class="pghead"><span class="pgh-l">' + zone + " " + k + " / " + n + "</span>" +
+          '<span class="pgh-r">⇄ 对应' + target + " PDF 第 " + matePdf + " 页</span></div>",
+        foot: '      <div class="pgmap"><span class="pgmap-l">' + esc2(docLabel) + " · 共 " + totalPages + " 页</span>" +
+          '<span class="pgmap-r">本页 PDF 第 ' + selfPdf + " 页</span></div>"
+      };
+    };
+    var chromeCn = function (i) { return chrome("中文区", "「纯英文」", i + 1, nCn, cnPage(i), enPage(i)); };
+    var chromeEn = function (i) { return chrome("纯英文区", "「中文区」", i + 1, nEn, enPage(i), cnPage(i)); };
+
+    var pageBlocksHtml = function (list, chromeOf) {
+      return list.map(function (group, i) {
+        var c = chromeOf ? chromeOf(i) : null;
+        return '  <div class="page-block">\n' + (c ? c.head + "\n" : "") + group.join("\n") + "\n" + (c ? c.foot + "\n" : "") + "  </div>";
+      }).join("\n");
+    };
+
+    return pageBlocksHtml(blocksCn, chromeCn) +
+      '\n  <div class="en-section">\n' +
+      '    <div class="en-head">\n' +
+      '      <div class="en-title">English Only · No Chinese</div>\n' +
+      '      <div class="en-note">Write the meaning and the translation by yourself.</div>\n' +
+      "    </div>\n" +
+      pageBlocksHtml(blocksEn, chromeEn) + "\n  </div>";
+  }
+
+  /* 打印时临时把纸张切成竖版 A4 —— 生词导出仍是横版表格，两套不能共存，
+     所以这段 @page 只在错词导出期间插入，afterprint 立刻移除。 */
+  var WPRINT_STYLE_ID = "wrongPrintPageStyle";
+  function applyWrongPrintPage() {
+    if (document.getElementById(WPRINT_STYLE_ID)) return;
+    var st = document.createElement("style");
+    st.id = WPRINT_STYLE_ID;
+    st.textContent = "@media print{ @page{ size:A4 portrait; margin:13mm 15mm; } }";
+    document.head.appendChild(st);
+  }
+  function clearWrongPrint() {
+    var st = document.getElementById(WPRINT_STYLE_ID);
+    if (st && st.parentNode) st.parentNode.removeChild(st);
+    var pa = $("printArea");
+    if (pa) pa.classList.remove("wrong-doc");
+  }
+  window.addEventListener("afterprint", clearWrongPrint);
+
+  async function exportWrongPDF() {
     var items = bookList();
     if (!items.length) { toast("错词本是空的，先按 M 记几个词吧"); return; }
     var pa = $("printArea");
     if (!pa) return;
-    pa.innerHTML = buildPrintHTML(items);
-    toast("即将打开打印窗口，目标选「另存为 PDF」");
-    setTimeout(function () { try { window.print(); } catch (e) { toast("打印被浏览器拦下了"); } }, 120);
+    var btn = $("exportWrongBtn");
+    if (btn) { btn.disabled = true; btn.textContent = "正在补例句…"; }
+    try {
+      await wpdfLoadDict();                    // 音标要用
+      var filled = await fillWrongExamples(items);
+      var html = buildWrongPrintHTML(items);
+      if (!html) { toast("错词本是空的"); return; }
+      pa.classList.add("wrong-doc");
+      pa.innerHTML = html;
+      applyWrongPrintPage();
+      toast("即将打开打印窗口：纸张 A4、边距保持「默认」，目标选「另存为 PDF」" + (filled ? "（补全 " + filled + " 个例句）" : ""));
+      setTimeout(function () { try { window.print(); } catch (e) { toast("打印被浏览器拦下了"); } }, 180);
+    } catch (e) {
+      toast("导出失败：" + (e && e.message ? e.message : e));
+    } finally {
+      if (btn) { btn.disabled = false; btn.textContent = "导出错词 PDF"; }
+    }
   }
 
   function wrongAsText() {
@@ -4114,6 +4464,7 @@ body{
     if (!items.length) { toast("生词本是空的，先在例句里点几个词吧"); return; }
     var pa = $("printArea");
     if (!pa) return;
+    clearWrongPrint();            // 生词仍是横版表格：把错词那套竖版样式与 class 清掉
     pa.innerHTML = buildNewPrintHTML(items);
     toast("即将打开打印窗口，目标选「另存为 PDF」");
     setTimeout(function () { try { window.print(); } catch (e) { toast("打印被浏览器拦下了"); } }, 120);
@@ -4182,7 +4533,7 @@ body{
     markedThisRound.push(t);
     /* ⚠ 按下就落盘，不等整轮结束 —— 否则中途关页面 / 按「停止」这一笔就丢了。
        整轮结束时只补记"没被标记"的词（见 recordPlay）。 */
-    bumpMiss(t, w.meaning, (h.currentCourse && h.currentCourse()) || "", today());
+    bumpMiss(t, w.meaning, (h.currentCourse && h.currentCourse()) || "", today(), w.exampleEn, w.exampleCn);
     refresh();
     toast("已记下第 " + markedThisRound.length + " 个：" + t);
   }
