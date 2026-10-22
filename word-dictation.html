@@ -3718,6 +3718,8 @@ body{
     }
     var exEl = $("exampleText");
     if (exEl) exEl.addEventListener("click", onWordClick);
+    var exmEl = $("examText");                    // 真题句也能点词查义（2026-10-22 加）
+    if (exmEl) exmEl.addEventListener("click", onWordClick);
     var diEl = $("diffText");                     // 官方笔记区也能点（2026-10-14 加）
     if (diEl) diEl.addEventListener("click", onWordClick);
     var spk = $("defCardSpeak");
