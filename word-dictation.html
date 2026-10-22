@@ -498,6 +498,15 @@ button.small{ padding:6px 12px; font-size:12.5px; }
 .ex-text .cn{ color:var(--muted); font-size:14.5px; margin-left:.4em; }
 /* 真题例句的来源（如「2024年6月英语四级 第1套 阅读」）：单独一行、更淡，别抢句子 */
 .exam-src{ display:block; margin-top:3px; font-size:12.5px; color:var(--muted-2); letter-spacing:.2px; }
+/* 「真题」标题行 + 行内小播放键（2026-10-22 加）：标题在左，按钮在右，跟标题同一基线 */
+.exam-head{ display:flex; align-items:center; justify-content:space-between; gap:10px; }
+.ex-mini-btn{
+  border:1px solid var(--line,#dfe4ea); background:#fff; color:var(--ink-2);
+  border-radius:999px; padding:1px 10px; font-size:12px; line-height:1.6;
+  cursor:pointer; letter-spacing:.3px; text-transform:none; font-weight:600;
+}
+.ex-mini-btn:hover{ background:var(--blue-soft); border-color:var(--blue); color:var(--blue); }
+.ex-mini-btn:active{ transform:translateY(1px); }
 /* 例句里每个英文单词都是可点单元：点一下看释义（2026-10-12 加）
    用 padding/负 margin 撑出点击热区，但不改变文字排版宽度 */
 .ex-text .ex-w{ cursor:pointer; border-radius:3px; padding:1px 1px; margin:0 -1px;
@@ -1302,7 +1311,10 @@ body{
       </div>
       <div class="ex-label">例句</div>
       <div id="exampleText" class="ex-text"></div>
-      <div id="examLabel" class="hidden ex-label">真题</div>
+      <div id="examLabel" class="hidden ex-label exam-head">
+        <span>真题</span>
+        <button class="ex-mini-btn" id="examSpeakBtn" type="button" title="朗读真题例句" aria-label="朗读真题例句">🔊 朗读</button>
+      </div>
       <div id="examText" class="ex-text"></div>
       <div id="diffLabel" class="hidden ex-label">官方笔记</div>
       <div id="diffText"></div>
@@ -1809,6 +1821,24 @@ body{
         if (state.running && state.mode === "play" && !state.paused) scheduleNext();
       });
     }
+    return true;
+  }
+
+  /* ---------- 读真题（2026-10-22 加）----------
+   * 真题句**不参与逐词高亮**：那套高亮只认 #exampleText 里的 .ex-w，
+   * 强行复用会把高亮打在普通例句上（读的是真题、亮的却是上一句）。
+   * 所以这里直接走 speak()：沿用「例句语速」和同一套音色优先级，只是不点词。
+   * 播放前先把普通例句的高亮收掉，避免视觉和声音对不上。 */
+  function speakExam() {
+    if (!state.running) return false;
+    var item = currentWord();
+    var exam = item ? examFor(item.text) : null;
+    if (!exam || !exam.en) return false;
+    stopSpeech();
+    emitExampleToken(-1);
+    if (state.mode === "play") clearTimeout(playTimer);   // 别让自动连播把这一句抢走
+    var rate = parseFloat(exampleRateSelect.value) || 1;
+    speak(exam.en, rate, function () {}, speechToken);
     return true;
   }
 
@@ -2736,6 +2766,13 @@ body{
   $("exampleBtn").addEventListener("click", function () { speakExample(); });
   if ($("exampleBtnType")) {
     $("exampleBtnType").addEventListener("click", function () { speakExample(); });
+  }
+  if ($("examSpeakBtn")) {
+    $("examSpeakBtn").addEventListener("click", function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      speakExam();
+    });
   }
   $("nextBtn").addEventListener("click", playNext);
   $("prevBtn").addEventListener("click", playPrev);
