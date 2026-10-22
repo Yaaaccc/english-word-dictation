@@ -496,6 +496,8 @@ button.small{ padding:6px 12px; font-size:12.5px; }
 .ex-text mark{ background:var(--mark); color:var(--ink); font-weight:600; padding:0 3px; border-radius:3px; }
 /* 中文译文与英文之间留白改由 CSS 负责（JS 不再插空格，否则会跑到「（」之前） */
 .ex-text .cn{ color:var(--muted); font-size:14.5px; margin-left:.4em; }
+/* 真题例句的来源（如「2024年6月英语四级 第1套 阅读」）：单独一行、更淡，别抢句子 */
+.exam-src{ display:block; margin-top:3px; font-size:12.5px; color:var(--muted-2); letter-spacing:.2px; }
 /* 例句里每个英文单词都是可点单元：点一下看释义（2026-10-12 加）
    用 padding/负 margin 撑出点击热区，但不改变文字排版宽度 */
 .ex-text .ex-w{ cursor:pointer; border-radius:3px; padding:1px 1px; margin:0 -1px;
@@ -1300,6 +1302,8 @@ body{
       </div>
       <div class="ex-label">例句</div>
       <div id="exampleText" class="ex-text"></div>
+      <div id="examLabel" class="hidden ex-label">真题</div>
+      <div id="examText" class="ex-text"></div>
       <div id="diffLabel" class="hidden ex-label">官方笔记</div>
       <div id="diffText"></div>
       <div id="phraseLabel" class="hidden ex-label">短语</div>
@@ -1683,6 +1687,26 @@ body{
     });
   }
 
+  /* ---- 真题例句词典（2026-10-22 加）----
+     数据来自 exam-examples.json（由 build_exam_dict.js 从「每日新词例句」的历史 json 汇总）。
+     纯静态，线上也能加载；没命中就整块隐藏，不报错。 */
+  var EXAM_DICT = null, examDictPromise = null;
+  function loadExamDict() {
+    if (!examDictPromise) {
+      examDictPromise = fetch("exam-examples.json", { cache: "force-cache" })
+        .then(function (r) { return r.ok ? r.json() : {}; })
+        .then(function (j) { EXAM_DICT = j || {}; return EXAM_DICT; })
+        .catch(function () { EXAM_DICT = {}; return EXAM_DICT; });
+    }
+    return examDictPromise;
+  }
+  function examFor(word) {
+    if (!EXAM_DICT) return null;
+    var k = String(word || "").replace(/[^A-Za-z'\-]/g, "").toLowerCase();
+    return EXAM_DICT[k] || null;
+  }
+  loadExamDict();
+
   function setExamplePanel(item) {
     var panel = $("examplePanel");
     var text = $("exampleText");
@@ -1694,6 +1718,23 @@ body{
     } else {
       text.textContent = "";
       panel.classList.add("hidden");
+    }
+    /* 真题例句（2026-10-22 加）：数据来自 exam-examples.json，按词查。
+       词表里没有真题的词就整块隐藏，不留空壳。 */
+    var exLabel = $("examLabel"), exText = $("examText");
+    var exam = item ? examFor(item.text) : null;
+    if (exam && exam.en) {
+      var html;
+      /* 高亮/可点词复用第 3 段的 exampleEnToHtml（跨闭包，走 window 借） */
+      if (window.__examHtml) html = window.__examHtml(exam.en, item.text);
+      else html = esc(exam.en);
+      if (exam.cn) html += '<span class="cn">' + esc(exam.cn) + "</span>";
+      if (exam.source) html += '<span class="exam-src">' + esc(exam.source) + "</span>";
+      exText.innerHTML = html;
+      exLabel.classList.remove("hidden");
+    } else {
+      exText.innerHTML = "";
+      exLabel.classList.add("hidden");
     }
     var diLabel = $("diffLabel");
     var diText = $("diffText");
@@ -1727,6 +1768,9 @@ body{
     var phText = $("phraseText");
     phText.textContent = "";
     phLabel.classList.add("hidden");
+    /* 真题块一并收掉（2026-10-22 加） */
+    if ($("examText")) $("examText").innerHTML = "";
+    if ($("examLabel")) $("examLabel").classList.add("hidden");
   }
 
   /* ---------- 读例句（X 快捷键 / 🔊 读例句 按钮，共用同一套逻辑） ----------
@@ -3220,6 +3264,9 @@ body{
     }
     return out + escapeHtml(s.slice(last));
   }
+
+  /* 主脚本（第 1 段）渲染真题例句时要用它；跨闭包只能走 window（2026-10-22） */
+  window.__examHtml = exampleEnToHtml;
 
   /* ---- 词典：先加载预置 JSON，本地环境再回退 /api/dict ---- */
   var EXAMPLE_DICT = null, exampleDictPromise = null;
