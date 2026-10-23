@@ -507,6 +507,38 @@ button.small{ padding:6px 12px; font-size:12.5px; }
 }
 .ex-mini-btn:hover{ background:var(--blue-soft); border-color:var(--blue); color:var(--blue); }
 .ex-mini-btn:active{ transform:translateY(1px); }
+/* 回想释义（四选一）· 2026-10-23 */
+.quiz-wrap{ padding:6px 2px 0; width:100%; max-width:680px; margin:0 auto; }
+/* runView 是 flex+align-items:center，子项默认按内容撑宽；不给它 100% 的话
+   .quiz-wrap 的 width:100% 就没有参照物，整块会缩成一条窄带（2026-10-23 踩过） */
+#quizStage{ width:100%; }
+.quiz-dir-row{ display:flex; gap:6px; margin-bottom:12px; }
+.quiz-dir{
+  border:1px solid var(--line,#e3e6ec); background:#fff; color:var(--muted);
+  border-radius:999px; padding:4px 13px; font-size:12.5px; cursor:pointer;
+  font-family:inherit; letter-spacing:.3px; transition:all .15s;
+}
+.quiz-dir.active{ background:var(--blue-soft); border-color:var(--blue); color:var(--blue-d); font-weight:700; }
+.quiz-word-row{ display:flex; align-items:center; gap:12px; }
+.quiz-word{ font-size:40px; font-weight:800; letter-spacing:-.6px; color:var(--ink); }
+/* 中→英 时题干是中文释义，字小一点、别撑破一行 */
+.quiz-word.is-cn{ font-size:21px; font-weight:600; line-height:1.5; letter-spacing:0; }
+.quiz-opt.is-word{ font-size:16px; font-weight:600; }
+.quiz-tip{ color:var(--muted); font-size:12.5px; margin:6px 0 14px; }
+.quiz-options{ display:grid; gap:9px; }
+.quiz-opt{
+  display:flex; gap:10px; align-items:flex-start; width:100%;
+  background:#fff; border:1px solid var(--line,#e3e6ec); border-radius:12px;
+  padding:11px 14px; cursor:pointer; text-align:left;
+  font-size:14.5px; line-height:1.55; color:var(--ink-2); font-family:inherit;
+  transition:border-color .15s, background .15s;
+}
+.quiz-opt:hover:not(:disabled){ border-color:var(--blue); background:var(--blue-soft); }
+.quiz-opt .pos{ color:var(--muted-2); font-weight:700; flex:none; }
+.quiz-opt.ok{ border-color:#3aa55a; background:rgba(58,165,90,.12); color:var(--ink); }
+.quiz-opt.bad{ border-color:#d64545; background:rgba(214,69,69,.10); }
+.quiz-opt:disabled{ cursor:default; }
+.quiz-foot{ display:flex; justify-content:flex-end; gap:10px; margin-top:14px; }
 /* 例句里每个英文单词都是可点单元：点一下看释义（2026-10-12 加）
    用 padding/负 margin 撑出点击热区，但不改变文字排版宽度 */
 .ex-text .ex-w{ cursor:pointer; border-radius:3px; padding:1px 1px; margin:0 -1px;
@@ -1166,6 +1198,8 @@ body{
                若想恢复隐藏：给 typeModeBtn 加回 style="display:none;"，并去掉 playModeBtn 的 class="active" -->
           <button id="typeModeBtn" type="button">逐个听写（打字校对）</button>
           <button id="playModeBtn" class="active" type="button">连续播放（纸上默写）</button>
+          <!-- 2026-10-23 加：回想释义（四选一），干扰项从当天词表出 -->
+          <button id="quizModeBtn" type="button">回想释义（四选一）</button>
         </div>
         <div class="hero-stats">
           <span class="stat"><b id="statWords">—</b><span class="k">词</span></span>
@@ -1186,6 +1220,7 @@ body{
         <div class="controls">
           <button class="primary big-btn" id="startPlayBtn">▶ 开始连播</button>
           <button class="big-btn" id="startTypeBtn" style="display:none;">▶ 开始逐个听写</button>
+          <button class="big-btn" id="startQuizBtn" style="display:none;">▶ 开始选释义</button>
         </div>
         <div class="kbd-row">
           <span class="kbd">Enter</span><em>下一个</em>
@@ -1264,6 +1299,25 @@ body{
                 <button class="small hidden" id="clearMarkBtn" type="button">清除标记</button>
                 <button class="small" id="saveMarkBtn" type="button">保存到错词本</button>
               </div>
+            </div>
+          </div>
+        </div>
+        <!-- 回想释义（四选一）· 2026-10-23 加 -->
+        <div id="quizStage" class="hidden">
+          <div class="quiz-wrap">
+            <div class="quiz-dir-row">
+              <button class="quiz-dir active" id="quizDirEn" type="button">英 → 中</button>
+              <button class="quiz-dir" id="quizDirCn" type="button">中 → 英</button>
+            </div>
+            <div class="quiz-word-row">
+              <span id="quizWord" class="quiz-word"></span>
+              <button id="quizSpeakBtn" class="replay-btn" type="button" title="读这个单词">🔊</button>
+            </div>
+            <div class="quiz-tip">先回想词义再选择；想不起来就点「看答案」（不算对错）</div>
+            <div id="quizOptions" class="quiz-options"></div>
+            <div class="quiz-foot">
+              <button id="quizRevealBtn" class="small" type="button">看答案</button>
+              <button id="quizNextBtn" class="small hidden" type="button">下一题 →</button>
             </div>
           </div>
         </div>
@@ -1397,7 +1451,8 @@ body{
   var state = {
     words: [],       // [{text, meaning}]
     order: [],       // indices into words
-    mode: "play",    // "type" | "play"（与 DOM 默认标签「连续播放」保持一致）
+    mode: "play",    // "type" | "play" | "quiz"（与 DOM 默认标签「连续播放」保持一致）
+    quizDir: "en2cn", // 回想释义的方向："en2cn" | "cn2en"
     pos: 0,
     running: false,
     paused: false,
@@ -2050,11 +2105,15 @@ body{
        导致「逐个听写」标签点了也没入口，只能连播。 */
     if ($("startPlayBtn")) $("startPlayBtn").style.display = (mode === "play") ? "" : "none";
     if ($("startTypeBtn")) $("startTypeBtn").style.display = (mode === "type") ? "" : "none";
+    if ($("startQuizBtn")) $("startQuizBtn").style.display = (mode === "quiz") ? "" : "none";
+    $("quizModeBtn") && $("quizModeBtn").classList.toggle("active", mode === "quiz");
     var sub = document.querySelector("#idleView .idle-sub");
     if (sub) {
       sub.innerHTML = (mode === "type")
         ? "听到发音后把单词打进输入框，按 Enter 提交；再按 Enter 进入下一个。"
-        : "点开始后自动连播，听到就写在本子上；也可切「逐个听写」打字校对。";
+        : (mode === "quiz")
+          ? "看单词选释义：四个选项一个对、三个来自当天其他词；选完自动下一题。"
+          : "点开始后自动连播，听到就写在本子上；也可切「逐个听写」打字校对。";
     }
   }
 
@@ -2236,6 +2295,163 @@ body{
 
   function esc(s) {
     return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+  }
+
+  /* ---------- 回想释义（四选一 · 英⇄中）· 2026-10-23 ----------
+   * 两个方向：
+   *   英→中：题干是单词，四个选项是中文释义
+   *   中→英：题干是某个释义，四个选项是英文单词
+   * 干扰项一律从**当天词表**里取，同词性优先 —— 这样错误选项和正确答案
+   * 是"同一类东西"（都是 adj. 都是 n.），才真的能考到词义，而不是靠词性猜。
+   */
+  var QUIZ_POS_RE = /^\s*(adj|adv|n|v|vt|vi|prep|conj|pron|num|art)\b/i;
+  var quizTimer = 0;
+
+  function quizPos(meaning) {
+    var m = String(meaning || "").match(QUIZ_POS_RE);
+    if (!m) return "";
+    var p = m[1].toLowerCase();
+    return (p === "vt" || p === "vi") ? "v" : p;
+  }
+
+  function shuffleCopy(arr) {
+    var a = arr.slice();
+    for (var i = a.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var t = a[i]; a[i] = a[j]; a[j] = t;
+    }
+    return a;
+  }
+
+  function quizPicks(item, dir, n) {
+    n = n || 3;
+    var correct = dir === "en2cn" ? String(item.meaning || "").trim() : String(item.text || "").trim();
+    var pos = quizPos(item.meaning);
+    var same = [], other = [], seen = {};
+    seen[correct.toLowerCase()] = 1;
+    state.words.forEach(function (w) {
+      if (w === item) return;
+      var val = dir === "en2cn" ? String(w.meaning || "").trim() : String(w.text || "").trim();
+      if (!val || seen[val.toLowerCase()]) return;
+      seen[val.toLowerCase()] = 1;
+      (quizPos(w.meaning) === pos ? same : other).push(val);
+    });
+    return shuffleCopy(same).concat(shuffleCopy(other)).slice(0, n);
+  }
+
+  function quizRender() {
+    var item = state.words[state.order[state.pos]];
+    if (!item) { finishType(); return; }
+    state.quizItem = item;
+    state.quizAnswered = false;
+    var dir = state.quizDir;
+    /* en2cn：题干=单词、答案=释义；cn2en：题干=释义、答案=单词。
+       （2026-10-23 第一版把 cn2en 的题干也写成了 correct，结果还是显示单词） */
+    var correct = dir === "en2cn" ? String(item.meaning || "").trim() : String(item.text || "").trim();
+    var prompt = dir === "en2cn" ? String(item.text || "").trim() : String(item.meaning || "").trim();
+    state.quizCorrect = correct;
+
+    $("quizWord").textContent = prompt;
+    $("quizWord").classList.toggle("is-cn", dir === "cn2en");
+
+    var box = $("quizOptions");
+    box.innerHTML = "";
+    shuffleCopy([correct].concat(quizPicks(item, dir))).forEach(function (val) {
+      var b = document.createElement("button");
+      b.type = "button";
+      b.className = "quiz-opt";
+      b.setAttribute("data-opt", val);
+      if (dir === "en2cn") {
+        var pm = val.match(/^([a-zA-Z]{1,5}\.)\s*(.*)$/);
+        b.innerHTML = pm
+          ? '<span class="pos">' + esc(pm[1]) + "</span><span>" + esc(pm[2]) + "</span>"
+          : "<span>" + esc(val) + "</span>";
+      } else {
+        b.classList.add("is-word");
+        b.innerHTML = "<span>" + esc(val) + "</span>";
+      }
+      b.addEventListener("click", function () { quizAnswer(b, val); });
+      box.appendChild(b);
+    });
+    $("quizRevealBtn").classList.remove("hidden");
+    $("quizNextBtn").classList.add("hidden");
+    renderTypeProgress();
+  }
+
+  function quizLock() {
+    var kids = $("quizOptions").children;
+    for (var i = 0; i < kids.length; i++) {
+      kids[i].disabled = true;
+      if (kids[i].getAttribute("data-opt") === state.quizCorrect) kids[i].classList.add("ok");
+    }
+    $("quizRevealBtn").classList.add("hidden");
+    $("quizNextBtn").classList.remove("hidden");
+  }
+
+  function quizAnswer(btn, chosen) {
+    if (state.quizAnswered) return;
+    state.quizAnswered = true;
+    var ok = chosen === state.quizCorrect;
+    quizLock();
+    if (!ok) btn.classList.add("bad");
+    state.results.push({
+      text: state.quizItem.text, meaning: state.quizItem.meaning, answer: chosen, ok: ok
+    });
+    renderTypeProgress();
+    try { $("quizNextBtn").focus(); } catch (e) {}
+    clearTimeout(quizTimer);
+    quizTimer = setTimeout(quizNext, ok ? 800 : 1400);
+  }
+
+  /* 看答案：直接亮正确项，这一题记为没答出来（不算"错"，但也不计入答对） */
+  function quizReveal() {
+    if (state.quizAnswered) return;
+    state.quizAnswered = true;
+    quizLock();
+    state.results.push({
+      text: state.quizItem.text, meaning: state.quizItem.meaning, answer: "（看答案）", ok: false
+    });
+    renderTypeProgress();
+  }
+
+  function quizNext() {
+    clearTimeout(quizTimer);
+    if (!state.running || state.mode !== "quiz") return;
+    state.pos++;
+    if (state.pos >= state.order.length) { finishType(); return; }
+    quizRender();
+  }
+
+  function quizSetDir(dir) {
+    state.quizDir = dir;
+    $("quizDirEn").classList.toggle("active", dir === "en2cn");
+    $("quizDirCn").classList.toggle("active", dir === "cn2en");
+    /* 答题途中切方向：重出当前这一题（还没答的话），进度不变 */
+    if (state.mode === "quiz" && state.running && !state.quizAnswered) quizRender();
+  }
+
+  function startQuiz() {
+    /* 必须自己从输入框解析一次：state.words 只在 startPlay / startTyping 里被赋值，
+       这里不补就会读到初始的空数组，点开始毫无反应（2026-10-23 踩过）。 */
+    state.words = parseWords(wordsInput.value);
+    if (!state.words.length) {
+      $("startError").textContent = "请先在上方输入单词列表。";
+      return;
+    }
+    stopEverything();
+    buildOrder();
+    state.mode = "quiz";
+    syncModeUI("quiz");
+    state.running = true;
+    state.pos = 0;
+    state.results = [];
+    showOnly("runView");
+    $("typeStage").classList.add("hidden");
+    $("playStage").classList.add("hidden");
+    $("quizStage").classList.remove("hidden");
+    $("scoreLabel").classList.remove("hidden");
+    $("answerControls").classList.add("hidden");
+    quizRender();
   }
 
   /* ---------- 连续播放 ---------- */
@@ -2764,6 +2980,21 @@ body{
   $("replayBtn").addEventListener("click", function () { replayWord(); });
   $("playReplayBtn").addEventListener("click", function () { replayWord(); });
   $("exampleBtn").addEventListener("click", function () { speakExample(); });
+  if ($("quizModeBtn")) {
+    $("quizModeBtn").addEventListener("click", function () { setMode("quiz"); });
+  }
+  if ($("startQuizBtn")) {
+    $("startQuizBtn").addEventListener("click", function () { startQuiz(); });
+  }
+  if ($("quizDirEn")) {
+    $("quizDirEn").addEventListener("click", function () { quizSetDir("en2cn"); });
+    $("quizDirCn").addEventListener("click", function () { quizSetDir("cn2en"); });
+    $("quizNextBtn").addEventListener("click", function () { quizNext(); });
+    $("quizRevealBtn").addEventListener("click", function () { quizReveal(); });
+    $("quizSpeakBtn").addEventListener("click", function () {
+      if (state.quizItem) speak(state.quizItem.text, parseFloat(rateSelect.value) || 1, null, speechToken);
+    });
+  }
   if ($("exampleBtnType")) {
     $("exampleBtnType").addEventListener("click", function () { speakExample(); });
   }
