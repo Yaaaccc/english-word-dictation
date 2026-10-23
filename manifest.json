@@ -1,0 +1,17 @@
+{
+  "name": "英语单词听写",
+  "short_name": "听写",
+  "description": "扇贝每日词表的听写练习：逐个打字校对、连续播放、回想释义四选一",
+  "lang": "zh-CN",
+  "start_url": "./word-dictation.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#f6f7fb",
+  "theme_color": "#7A3FD4",
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
