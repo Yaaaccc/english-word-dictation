@@ -18,6 +18,7 @@ const CORE = [
   "./icon-512.png",
   "./exam-examples.json",
   "./example-dict.json",
+  "./quiz-pool.json",
   "./dates.json",
 ];
 
