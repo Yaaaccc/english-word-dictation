@@ -2,8 +2,15 @@
 <html lang="zh-CN">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>英语单词听写</title>
+<!-- PWA（2026-10-23）：加到主屏幕后全屏运行、断网也能练 -->
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#7A3FD4">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="听写">
+<link rel="apple-touch-icon" href="icon-192.png">
 <style>
 /* ============================================================
    单词听写 · v4 视觉层（克制版）
@@ -5040,6 +5047,11 @@ body{
     var btn = $("uploadWrongBtn");
     var b = getBook();
     if (!Object.keys(b).length) { toast("错词本是空的 —— 先在结束页点几个写错的词"); return; }
+    /* 手机 / PWA 上没有本地服务，这个请求必然 404 —— 先说清楚，别让用户等 30 秒才看到失败 */
+    if (!(location.hostname === "127.0.0.1" || location.hostname === "localhost")) {
+      toast("导出错词 PDF 要在电脑上打开这个页面（手机没有本地服务）");
+      return;
+    }
     var d = daysSinceWrongUpload();
     if (d !== null && d < 7) toast("上次是 " + d + " 天前传的（平常 7 天一次）—— 仍然继续…");
     if (btn) { btn.disabled = true; btn.textContent = "生成中…（约 30 秒）"; }
@@ -5146,6 +5158,18 @@ body{
   }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", boot);
   else boot();
+})();
+</script>
+<!-- PWA：注册 Service Worker（只在 https / localhost 下注册，file:// 打开时静默跳过） -->
+<script>
+(function () {
+  if (!("serviceWorker" in navigator)) return;
+  var secure = location.protocol === "https:" ||
+    location.hostname === "localhost" || location.hostname === "127.0.0.1";
+  if (!secure) return;
+  window.addEventListener("load", function () {
+    navigator.serviceWorker.register("sw.js").catch(function () { /* 注册失败不影响使用 */ });
+  });
 })();
 </script>
 </body>
