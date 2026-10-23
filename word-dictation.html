@@ -1320,7 +1320,7 @@ body{
               <span id="quizWord" class="quiz-word"></span>
               <button id="quizSpeakBtn" class="replay-btn" type="button" title="读这个单词">🔊</button>
             </div>
-            <div class="quiz-tip">先回想词义再选择；想不起来就点「看答案」（不算对错）</div>
+            <div class="quiz-tip" id="quizTip">先回想词义再选择；想不起来就点「看答案」（不算对错）</div>
             <div id="quizOptions" class="quiz-options"></div>
             <div class="quiz-foot">
               <button id="quizRevealBtn" class="small" type="button">看答案</button>
@@ -2339,20 +2339,51 @@ body{
     return a;
   }
 
+  /* 干扰项池：整本四级考纲（6089 条，含单词与释义）
+     2026-10-23 按 Yac 要求改：干扰项**不再取自当天词表** ——
+     当天刚背过的词会显得眼熟，能靠排除法蒙对，等于没考到。 */
+  var quizPoolPromise = null;
+  function loadQuizPool() {
+    if (!quizPoolPromise) {
+      quizPoolPromise = fetch("quiz-pool.json", { cache: "force-cache" })
+        .then(function (r) { return r.ok ? r.json() : {}; })
+        .catch(function () { return {}; });
+    }
+    return quizPoolPromise;
+  }
+
   function quizPicks(item, dir, n) {
     n = n || 3;
     var correct = dir === "en2cn" ? String(item.meaning || "").trim() : String(item.text || "").trim();
     var pos = quizPos(item.meaning);
-    var same = [], other = [], seen = {};
-    seen[correct.toLowerCase()] = 1;
+
+    /* 当天词表里的「单词」和「释义」全部禁选（双重保险：两个方向都不许出现） */
+    var banned = {};
     state.words.forEach(function (w) {
-      if (w === item) return;
-      var val = dir === "en2cn" ? String(w.meaning || "").trim() : String(w.text || "").trim();
-      if (!val || seen[val.toLowerCase()]) return;
-      seen[val.toLowerCase()] = 1;
-      (quizPos(w.meaning) === pos ? same : other).push(val);
+      if (w.meaning) banned[normalize(w.meaning)] = 1;
+      if (w.text) banned[normalize(w.text)] = 1;
     });
-    return shuffleCopy(same).concat(shuffleCopy(other)).slice(0, n);
+    banned[normalize(correct)] = 1;
+    banned[normalize(item.text)] = 1;
+
+    var pool = state.quizPool || {};
+    var order = [pos, "adj", "n", "v", "adv", "other"];
+    var out = [], seen = {};
+    for (var k = 0; k < order.length && out.length < n; k++) {
+      var arr = pool[order[k]] || [];
+      if (!arr.length) continue;
+      var start = Math.floor(Math.random() * arr.length);
+      for (var i = 0; i < arr.length && out.length < n; i++) {
+        var o = arr[(start + i) % arr.length];
+        var val = dir === "en2cn" ? o.m : o.w;
+        if (!val) continue;
+        var key = normalize(val);
+        if (banned[key] || seen[key]) continue;
+        seen[key] = 1;
+        out.push(val);
+      }
+    }
+    return out;
   }
 
   function quizRender() {
@@ -2370,9 +2401,26 @@ body{
     $("quizWord").textContent = prompt;
     $("quizWord").classList.toggle("is-cn", dir === "cn2en");
 
+    var picks = quizPicks(item, dir);
+    /* 兜底：干扰项池没加载好时，用当天词补足，至少还能做题（并说明原因，不假装正常） */
+    if (picks.length < 3) {
+      var used = {}; used[normalize(correct)] = 1;
+      picks.forEach(function (x) { used[normalize(x)] = 1; });
+      state.words.forEach(function (w) {
+        if (picks.length >= 3) return;
+        var v = dir === "en2cn" ? String(w.meaning || "").trim() : String(w.text || "").trim();
+        if (!v || used[normalize(v)]) return;
+        used[normalize(v)] = 1; picks.push(v);
+      });
+    }
+    if ($("quizTip")) {
+      $("quizTip").textContent = picks.length >= 3
+        ? "先回想词义再选择；想不起来就点「看答案」（不算对错）"
+        : "（词库没加载好，这一题暂时没有干扰项）";
+    }
     var box = $("quizOptions");
     box.innerHTML = "";
-    shuffleCopy([correct].concat(quizPicks(item, dir))).forEach(function (val) {
+    shuffleCopy([correct].concat(picks)).forEach(function (val) {
       var b = document.createElement("button");
       b.type = "button";
       b.className = "quiz-opt";
@@ -2472,7 +2520,12 @@ body{
     showStage("quiz");
     $("scoreLabel").classList.remove("hidden");
     $("answerControls").classList.add("hidden");
-    quizRender();
+    /* 干扰项池是异步的（quiz-pool.json 约 300KB）：加载好再出第一题 */
+    loadQuizPool().then(function (pool) {
+      state.quizPool = pool;
+      if (!state.running || state.mode !== "quiz") return;
+      quizRender();
+    });
   }
 
   /* ---------- 连续播放 ---------- */
@@ -2930,8 +2983,12 @@ body{
         o.textContent = d;
         sel.appendChild(o);
       });
-      sel.value = dates[0];
-      await loadDateWords(dates[0]);
+      /* 默认选「今天」——dates.json 是最新在前，直接取第一条会落到未来的 11-08（2026-10-23 修） */
+      var _n = new Date(), _p2 = function (x) { return String(x).padStart(2, "0"); };
+      var _tk = _n.getFullYear() + "-" + _p2(_n.getMonth() + 1) + "-" + _p2(_n.getDate());
+      var _pick = dates.indexOf(_tk) >= 0 ? _tk : dates[0];
+      sel.value = _pick;
+      await loadDateWords(_pick);
     } catch (e) {
       status.textContent = "日期列表加载失败：单词数据尚未同步到网站，请先在电脑上运行同步脚本";
     }
