@@ -2099,6 +2099,16 @@ body{
     });
   }
 
+  /* 三个练习模式的舞台互斥显示（2026-10-23 加）。
+     原先每个 start 只写自己的显隐，切换模式会留下上一个模式的残影 ——
+     比如刚从「四选一」过来，连续播放页面下面还挂着题目。 */
+  function showStage(which) {
+    ["type", "play", "quiz"].forEach(function (k) {
+      var el = $(k + "Stage");
+      if (el) el.classList.toggle("hidden", k !== which);
+    });
+  }
+
   /* 模式相关的 UI 同步（标签高亮 / 开始按钮显隐 / 空态提示文案）：
      setMode() 和 startPlay()/startTyping() 都要走这里，避免「程序化开播」
      （例如错词本一键开播）时标签和实际模式对不上。 */
@@ -2162,8 +2172,7 @@ body{
     state.phase = "awaiting";
     state.results = [];
     showOnly("runView");
-    $("typeStage").classList.remove("hidden");
-    $("playStage").classList.add("hidden");
+    showStage("type");
     $("scoreLabel").classList.remove("hidden");
     $("answerControls").classList.remove("hidden");
     renderTypeProgress();
@@ -2437,10 +2446,17 @@ body{
     if (state.mode === "quiz" && state.running && !state.quizAnswered) quizRender();
   }
 
-  function startQuiz() {
+  function startQuiz(wordsOverride) {
     /* 必须自己从输入框解析一次：state.words 只在 startPlay / startTyping 里被赋值，
-       这里不补就会读到初始的空数组，点开始毫无反应（2026-10-23 踩过）。 */
-    state.words = parseWords(wordsInput.value);
+       这里不补就会读到初始的空数组，点开始毫无反应（2026-10-23 踩过）。
+       wordsOverride 用于「重听错词」：直接拿错词那一组来出题。 */
+    if (wordsOverride) {
+      state.words = wordsOverride;
+      state.wrongOnly = true;
+    } else {
+      state.words = parseWords(wordsInput.value);
+      state.wrongOnly = false;
+    }
     if (!state.words.length) {
       $("startError").textContent = "请先在上方输入单词列表。";
       return;
@@ -2453,9 +2469,7 @@ body{
     state.pos = 0;
     state.results = [];
     showOnly("runView");
-    $("typeStage").classList.add("hidden");
-    $("playStage").classList.add("hidden");
-    $("quizStage").classList.remove("hidden");
+    showStage("quiz");
     $("scoreLabel").classList.remove("hidden");
     $("answerControls").classList.add("hidden");
     quizRender();
@@ -2676,8 +2690,7 @@ body{
     state.paused = false;
     state.pos = 0;
     showOnly("runView");
-    $("typeStage").classList.add("hidden");
-    $("playStage").classList.remove("hidden");
+    showStage("play");
     $("scoreLabel").classList.add("hidden");
     $("pauseBtn").textContent = "暂停";
     $("playOrder").classList.add("hidden");
@@ -3208,12 +3221,15 @@ body{
   });
 
   $("retryBtn").addEventListener("click", function () {
+    /* 「再来一轮」跟当前模式走：四选一就重开四选一，别把用户悄悄换成打字模式 */
+    if (state.mode === "quiz") { startQuiz(null); return; }
     state.words = parseWords(wordsInput.value);
     startTyping(null);
   });
   $("redoWrongBtn").addEventListener("click", function () {
     var wrong = state.results.filter(function (r) { return !r.ok; });
-    startTyping(wrong);
+    if (state.mode === "quiz") startQuiz(wrong);
+    else startTyping(wrong);
   });
   $("backBtn").addEventListener("click", function () {
     stopEverything();
