@@ -142,7 +142,20 @@ body{
   white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
 }
 
-.source-pick{ display:flex; gap:8px; flex:none; }
+.source-pick{ display:flex; gap:8px; flex:none; align-items:center; }
+
+/* 日期导航（2026-10-24）：左右翻一天 + 一键回今天 */
+.date-nav{ display:flex; align-items:center; gap:2px; }
+.date-nav #dateSelect{ max-width:158px; }
+.nav-btn{
+  width:26px; height:32px; padding:0; flex:none; border-radius:8px; cursor:pointer;
+  background:transparent; border:1px solid transparent; color:var(--muted);
+  font-size:17px; line-height:1; display:flex; align-items:center; justify-content:center;
+}
+.nav-btn:hover{ background:var(--blue-soft); color:var(--blue-d); }
+.nav-btn:disabled{ opacity:.3; cursor:default; background:transparent; }
+.today-btn{ width:auto; padding:0 8px; font-size:12px; font-weight:600; }
+@media (max-width:620px){ .date-nav #dateSelect{ max-width:none; flex:1; } }
 .source-pick select{ max-width:186px; }
 
 .bar-actions{ display:flex; gap:4px; flex:none; }
@@ -999,7 +1012,14 @@ body{
         <option value="shanbay">扇贝</option>
         <option value="shanbay-review">扇贝复习</option>
       </select>
-      <select id="dateSelect"></select>
+      <!-- 日期选择（2026-10-24 改）：原来是 87 项的下拉，翻以前的日期太累。
+           改成「左右翻页 + 点日期展开按月分组列表 + 一键回今天」 -->
+      <span class="date-nav">
+        <button class="nav-btn" id="datePrev" type="button" title="前一天" aria-label="前一天">‹</button>
+        <select id="dateSelect"></select>
+        <button class="nav-btn" id="dateNext" type="button" title="后一天" aria-label="后一天">›</button>
+        <button class="nav-btn today-btn" id="dateToday" type="button" title="回到今天">今天</button>
+      </span>
     </div>
 
     <div class="bar-actions">
@@ -3030,11 +3050,21 @@ body{
         status.textContent = "「" + src + "」还没有按日期保存的单词，可在电脑上运行抓取脚本自动同步到网站。";
         return;
       }
+      /* 按月分组（2026-10-24 改）：原来 87 项平铺在一个下拉里，翻以前的日期太累。
+         分组后折成 3 个月，找旧日期一眼能定位到月份。 */
+      var curMonth = "", grp = null;
       dates.forEach(function (d) {
+        var m = d.slice(0, 7);
+        if (m !== curMonth) {
+          curMonth = m;
+          grp = document.createElement("optgroup");
+          grp.label = m;
+          sel.appendChild(grp);
+        }
         var o = document.createElement("option");
         o.value = d;
         o.textContent = d;
-        sel.appendChild(o);
+        grp.appendChild(o);
       });
       /* 默认选「今天」——dates.json 是最新在前，直接取第一条会落到未来的 11-08（2026-10-23 修） */
       var _n = new Date(), _p2 = function (x) { return String(x).padStart(2, "0"); };
@@ -3063,6 +3093,36 @@ body{
   var dateList = [];
   $("sourceSelect").addEventListener("change", function () { loadDates(); });
   $("dateSelect").addEventListener("change", function () { loadDateWords(this.value); });
+
+  /* 日期左右翻页 + 回今天（2026-10-24 加）
+     options 是最新在前，所以「前一天」= 索引 +1、「后一天」= 索引 -1 */
+  function navDate(step) {
+    var sel = $("dateSelect");
+    if (!sel || sel.options.length === 0) return;
+    var i = sel.selectedIndex + step;
+    if (i < 0 || i >= sel.options.length) return;
+    sel.selectedIndex = i;
+    loadDateWords(sel.value);
+  }
+  function bindDateNav() {
+    var prev = $("datePrev"), next = $("dateNext"), today = $("dateToday");
+    if (prev) prev.addEventListener("click", function () { navDate(1); });
+    if (next) next.addEventListener("click", function () { navDate(-1); });
+    if (today) today.addEventListener("click", function () {
+      var sel = $("dateSelect"), d = new Date();
+      var p2 = function (x) { return String(x).padStart(2, "0"); };
+      var k = d.getFullYear() + "-" + p2(d.getMonth() + 1) + "-" + p2(d.getDate());
+      for (var i = 0; i < sel.options.length; i++) {
+        if (sel.options[i].value === k) {
+          sel.selectedIndex = i;
+          loadDateWords(k);
+          return;
+        }
+      }
+      $("dateStatus").textContent = "今天（" + k + "）不在当前来源的列表里";
+    });
+  }
+  bindDateNav();
 
   if (location.protocol === "http:" || location.protocol === "https:") loadDates();
   else
