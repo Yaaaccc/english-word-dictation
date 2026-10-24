@@ -5128,7 +5128,9 @@ body{
   var PLAN_REPO = "Yaaaccc/english-word-dictation";
   var PLAN_FILE = "plan.json";
   var PLAN_TOKEN_KEY = "dictationPlanToken";
-  var planMeta = { startDate: "2026-10-24", startIndex: 801, newPerDay: 70 };
+  /* 默认词数这里是「读不到服务端配置时」的兜底，必须和实际默认一致（2026-10-24 曾硬编码 70，
+     保存时又把 meta 写回服务端，把默认值从 50 顶回了 70 —— 现在保存不再提交 meta） */
+  var planMeta = { startDate: "2026-10-24", startIndex: 801, newPerDay: 50 };
   var planDays = {};
 
   function isLocalHost() {
@@ -5208,7 +5210,8 @@ body{
     planDays = days;
     planRender();
 
-    var payload = { updated: new Date().toISOString(), meta: planMeta, days: days };
+    /* 只提交「某天学多少」，不提交 meta —— 默认词数由服务端配置决定，网页不该覆盖它 */
+    var payload = { days: days };
     var text = JSON.stringify(payload, null, 1);
     var tk = planToken();
 
