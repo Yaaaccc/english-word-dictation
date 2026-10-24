@@ -5131,6 +5131,14 @@ body{
   var planMeta = { startDate: "2026-10-24", startIndex: 801, newPerDay: 70 };
   var planDays = {};
 
+  function isLocalHost() {
+    var h = location.hostname;
+    if (h === "127.0.0.1" || h === "localhost") return true;
+    if (/^192\.168\./.test(h)) return true;
+    if (/^10\./.test(h)) return true;
+    if (/^172\.(1[6-9]|2\d|3[01])\./.test(h)) return true;
+    return false;
+  }
   function planTodayStr() {
     var d = new Date();
     return d.getFullYear() + "-" + planPad2(d.getMonth() + 1) + "-" + planPad2(d.getDate());
@@ -5205,7 +5213,8 @@ body{
     var tk = planToken();
 
     /* 电脑上打开时不用绕云端：直接写本地 plan.json，不需要 token */
-    var isLocal = (location.hostname === "127.0.0.1" || location.hostname === "localhost");
+    /* 本地 = 本机地址 或 局域网地址（手机连电脑热点后访问，同样走本地接口，不需要 token） */
+    var isLocal = isLocalHost();
     if (isLocal) {
       try {
         var lr = await fetch("/api/plan-save", { method: "POST", headers: { "Content-Type": "application/json" }, body: text });
@@ -5274,7 +5283,8 @@ body{
       }
       return;
     }
-    var isLocal = (location.hostname === "127.0.0.1" || location.hostname === "localhost");
+    /* 本地 = 本机地址 或 局域网地址（手机连电脑热点后访问，同样走本地接口，不需要 token） */
+    var isLocal = isLocalHost();
     if (!isLocal) {
       $("planStatus").textContent = "「立即生成并上传」要在电脑上打开才能用；手机上保存后，晚上 20:00 会自动处理。";
       return;
