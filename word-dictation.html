@@ -5165,13 +5165,15 @@ body{
       var row = document.createElement("div");
       row.className = "plan-row";
       var lab = document.createElement("span"); lab.className = "d";
-      lab.textContent = (date === planTodayStr()) ? date + " 今天" : date;
+      lab.textContent = date;
       var inp = document.createElement("input");
       inp.type = "number"; inp.min = "1"; inp.max = "200"; inp.value = cnt;
       inp.setAttribute("data-date", date);
       var tag = document.createElement("span");
       tag.className = "tag";
-      tag.textContent = Number(o.count) > 0 ? "已调整" : "默认 " + planMeta.newPerDay;
+      var isToday = date === planTodayStr();
+      tag.textContent = (isToday ? "今天 · " : "") + (Number(o.count) > 0 ? "已调整" : "默认 " + planMeta.newPerDay);
+      if (isToday) tag.style.color = "var(--blue-d)";
       row.appendChild(lab); row.appendChild(inp); row.appendChild(tag);
       box.appendChild(row);
     });
