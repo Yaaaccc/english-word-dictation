@@ -3020,7 +3020,7 @@ body{
     $("txtFile").value = "";
   });
 
-  async function loadDateWords(date) {
+  async function loadDateWords(date, _retry) {
     var status = $("dateStatus");
     try {
       var r = await fetch(fileFor(date), { cache: "no-store" });
@@ -3031,6 +3031,13 @@ body{
       updateCount();
       status.textContent = "已载入 " + currentSourceLabel() + " " + date + " 的单词：" + parseWords(text).length + " 个";
     } catch (e) {
+      /* 部署/同步过程中偶发 404（Pages 正在重新发布），重试一次再报错，
+         否则用户会看到「载入失败」而其实文件是好的 */
+      if (!_retry) {
+        status.textContent = "载入 " + date + " …";
+        await new Promise(function (res) { setTimeout(res, 900); });
+        return loadDateWords(date, true);
+      }
       status.textContent = "载入 " + date + " 失败：" + e.message;
     }
   }
@@ -3085,9 +3092,12 @@ body{
   function fileFor(date) {
     var item = dateList.find(function (d) { return d.date === date && d.source === currentSourceLabel(); });
     if (item) return item.file;
+    /* 兜底路径必须带目录（2026-10-24 修）——
+       原来返回 date + ".txt"，实际文件在 今日单词\ 下面，找不到就必然 404。
+       dates.json 还没加载完、或刚换了来源时最容易走到这里。 */
     var src = currentSourceLabel();
-    if (src === "扇贝复习") return "shanbay-review-" + date + ".txt";
-    return date + ".txt";
+    if (src === "扇贝复习") return "扇贝复习/shanbay-review-" + date + ".txt";
+    return "今日单词/" + date + ".txt";
   }
 
   var dateList = [];
