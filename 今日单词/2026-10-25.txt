@@ -48,3 +48,23 @@ prominent|adj. 杰出的；adj. 重要的；adj. 显眼的；adj. 突出的|As t
 faint|adj. 微弱的；n. 昏厥；v. 昏厥；adj. 可能性不大的；adj. 头晕目眩的|I skipped breakfast, and now I am beginning to feel a little faint .|我没吃早饭，现在开始觉得有些眩晕了。||
 ethnic|adj. 种族的；adj. 少数民族的|Pupils in this school are from different ethnic groups.|这所学校的小学生来自不同的少数民族。||
 pit|n. 洞，坑；v. 使竞争，使经受考验；n. 矿井；n. 果核|We dug a shallow pit and put the seeds in it.|我们挖了一个浅坑，把种子撒在里面。||
+heading|n. 标题|The heading of the article needs to be modified.|这篇文章的标题需要修改。||
+extinguish|v. 熄灭，扑灭|Firefighters tried to extinguish the flames.|消防员奋力救火。||
+faculty|n. 全体教职人员；n. 能力；n. 天赋|Both faculty and students oppose the policy.|全体教职工和学生都反对这一政策。||
+damn|v. 谴责；adj. 可恶的；adj. 完全的；v. 该死；adv. 该死；adv. 极其|His play was damned by the critics and closed after three weeks.|他的剧遭到了批评家指责，三周以后就停演了。||
+clap|n. 爆裂声；v. 鼓掌，拍手；n. 鼓掌；n. 轻拍；v. 轻拍某人|She clapped her hands in delight.|她高兴地拍手。||
+inflation|n. 通货膨胀；n. 充气|The new government's prime task is to reduce the level of inflation .|新政府的主要任务是减低通货膨胀的水平。||
+reference|n. 参考；n. 推荐信；n. 提及；n. 引文；v. 提及；v. 参考|There is no further reference to him in her diary.|她的日记中没有进一步提到他。||
+shrink|v. 缩小；v. 收缩；v. 退缩；v. 起皱纹|The tumour had shrunk to the size of a pea.|肿瘤已缩小到豌豆大小。||
+container|n. 容器；n. 集装箱|They stored food in a container .|他们把食物储藏在一个容器里。||
+slogan|n. 广告语；n. 标语|The company has dropped its original advertising slogan and is trying to come up with a new one.|这家公司已放弃了最初的广告口号，现正努力想出一句新口号。||
+imaginative|adj. 富于想象力的；adj. 有独创性的|He is an imaginative writer who has written some great science fiction.|他是一位富有想象力的作家，他写过一些优秀的科幻小说。||
+orientation|n. 迎新会；n. 取向；n. 方向|Companies have been forced into a greater orientation to the market.|各公司不得不作出转变，更加面向市场。||
+inclusive|adj. 全部包含在内的；adj. 范围广泛的|The rent is inclusive of water and heating.|租金包括水费和暖气费。||
+span|n. 持续时间；v. 横跨；n. 跨度；n. 范围；n. 宽度；v. 持续；v. 包括|Modern medicine has increased man's life span .|现代医学延长了人的寿命。||
+prior|adj. 先前的；adj. 优先的；adj. 在前面的|I have to catch up with my colleagues because I have no prior experience.|我得赶上我的同事，因为我没有先前的经验。||
+architect|n. 建筑师；n. 缔造者|The author of the guidebook is an architect by profession.|该手册的作者任职建筑师。||
+competitive|adj. 有竞争力的；adj. 竞争的|Nobody can entirely keep away from this competitive world.|没有人能够完全远离这个竞争社会。||
+cabin|n. 舱室；n. 小木屋|There is a bush of bramble in front of the cabin .|小木屋前有一丛黑莓。||
+coverage|n. 覆盖范围；n. 新闻报道|There was extensive TV coverage of the wedding.|这场婚礼被电视广泛地报道了一番。||
+strategic|adj. 战略的|The United Nations Peacekeeping Forces made a strategic withdrawal.|联合国维和部队作出了战略性撤退。||
