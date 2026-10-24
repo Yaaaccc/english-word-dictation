@@ -11,6 +11,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="听写">
 <link rel="apple-touch-icon" href="icon-192.png">
+<link rel="icon" type="image/png" href="icon-192.png">
 <style>
 /* ============================================================
    单词听写 · v4 视觉层（克制版）
@@ -280,6 +281,14 @@ button.small{ padding:6px 12px; font-size:12.5px; }
 .mode-tabs{
   display:inline-flex; gap:2px; padding:3px; border-radius:10px;
   background:var(--seg); border:1px solid var(--line); flex:none;
+}
+/* 手机上三段标签放不下（2026-10-24 实测第三段被切）：窄屏换短名字，允许换行 */
+.mode-tabs .ms{ display:none; }
+@media (max-width:620px){
+  .mode-tabs{ flex-wrap:wrap; }
+  .mode-tabs .ml{ display:none; }
+  .mode-tabs .ms{ display:inline; }
+  .mode-tabs button{ padding:6px 11px; font-size:12.5px; }
 }
 .mode-tabs button{
   border:1px solid transparent; background:transparent; color:var(--muted);
@@ -695,8 +704,11 @@ button.small{ padding:6px 12px; font-size:12.5px; }
 @media (max-width:720px){
   .topbar{ padding:10px 12px 0; }
   .topbar-inner{ flex-wrap:wrap; padding:10px; gap:9px; }
-  .status-pill{ margin-left:0; order:3; max-width:100%; }
-  .source-pick{ flex:1; }
+  /* 2026-10-24：窄屏顶栏原来被拆成半行图标，重排成三行 ——
+     第一行 logo + 三个图标，第二行两个下拉，第三行状态胶囊 */
+  .status-pill{ margin-left:0; order:3; max-width:100%; flex:1 1 100%; }
+  .bar-actions{ order:1; margin-left:auto; }
+  .source-pick{ flex:1 1 100%; order:2; }
   .source-pick select{ max-width:none; flex:1; }
   .brand-text i{ display:none; }
   .hero-wrap, .settings{ padding-left:12px; padding-right:12px; }
@@ -1203,10 +1215,10 @@ body{
           <!-- 样张改动：两个标签页都放出来了（原先 typeModeBtn 是 display:none）。
                它是能用的功能，而且"分段控件有两个选项"比单按钮更好看。
                若想恢复隐藏：给 typeModeBtn 加回 style="display:none;"，并去掉 playModeBtn 的 class="active" -->
-          <button id="typeModeBtn" type="button">逐个听写（打字校对）</button>
-          <button id="playModeBtn" class="active" type="button">连续播放（纸上默写）</button>
-          <!-- 2026-10-23 加：回想释义（四选一），干扰项从当天词表出 -->
-          <button id="quizModeBtn" type="button">回想释义（四选一）</button>
+          <button id="typeModeBtn" type="button"><span class="ml">逐个听写（打字校对）</span><span class="ms">听写</span></button>
+          <button id="playModeBtn" class="active" type="button"><span class="ml">连续播放（纸上默写）</span><span class="ms">连播</span></button>
+          <!-- 2026-10-23 加：回想释义（四选一），干扰项从词库取 -->
+          <button id="quizModeBtn" type="button"><span class="ml">回想释义（四选一）</span><span class="ms">选释义</span></button>
         </div>
         <div class="hero-stats">
           <span class="stat"><b id="statWords">—</b><span class="k">词</span></span>
