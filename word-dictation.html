@@ -5267,7 +5267,13 @@ body{
      只在电脑上有效：需要本地服务的 /api/build-today。手机上只保存，晚上自动处理。 */
   async function planBuildToday() {
     var ok = await planSave();
-    if (!ok) return;
+    if (!ok) {
+      /* 保存没成功就别装作在生成 —— 线上没配 token 时这是最常见的原因 */
+      if (!planToken()) {
+        $("planStatus").innerHTML = "<b>保存没成功</b>（线上改计划需要先配一次同步）：点「配置同步」粘一个 GitHub token；<br>或者在电脑上打开 http://127.0.0.1:8787/word-dictation.html 来改，不用配。";
+      }
+      return;
+    }
     var isLocal = (location.hostname === "127.0.0.1" || location.hostname === "localhost");
     if (!isLocal) {
       $("planStatus").textContent = "「立即生成并上传」要在电脑上打开才能用；手机上保存后，晚上 20:00 会自动处理。";
