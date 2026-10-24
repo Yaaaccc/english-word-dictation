@@ -1130,7 +1130,8 @@ body{
     </div>
     <div id="planRows" class="plan-rows"></div>
     <div class="controls" style="margin-top:12px;">
-      <button class="primary" id="planSaveBtn" type="button">保存计划</button>
+      <button class="primary" id="planBuildToday" type="button">保存并立即上传今天</button>
+      <button class="small" id="planSaveBtn" type="button">只保存计划</button>
       <button class="small" id="planClearBtn" type="button">全部恢复默认</button>
       <button class="small" id="planTokenBtn" type="button">配置同步</button>
     </div>
@@ -5130,13 +5131,17 @@ body{
   var planMeta = { startDate: "2026-10-24", startIndex: 801, newPerDay: 70 };
   var planDays = {};
 
+  function planTodayStr() {
+    var d = new Date();
+    return d.getFullYear() + "-" + planPad2(d.getMonth() + 1) + "-" + planPad2(d.getDate());
+  }
   function planToken() {
     try { return localStorage.getItem(PLAN_TOKEN_KEY) || ""; } catch (e) { return ""; }
   }
   function planPad2(n) { return String(n).padStart(2, "0"); }
   function planTargetDays() {
     var out = [], now = new Date();
-    for (var i = 1; i <= 7; i++) {
+    for (var i = 0; i <= 7; i++) {            // 0 = 今天（当天也能改、能立刻传）
       var d = new Date(now.getTime() + i * 86400000);
       out.push(d.getFullYear() + "-" + planPad2(d.getMonth() + 1) + "-" + planPad2(d.getDate()));
     }
@@ -5159,7 +5164,8 @@ body{
       var cnt = Number(o.count) > 0 ? Number(o.count) : planMeta.newPerDay;
       var row = document.createElement("div");
       row.className = "plan-row";
-      var lab = document.createElement("span"); lab.className = "d"; lab.textContent = date;
+      var lab = document.createElement("span"); lab.className = "d";
+      lab.textContent = (date === planTodayStr()) ? date + " 今天" : date;
       var inp = document.createElement("input");
       inp.type = "number"; inp.min = "1"; inp.max = "200"; inp.value = cnt;
       inp.setAttribute("data-date", date);
@@ -5196,6 +5202,24 @@ body{
     var text = JSON.stringify(payload, null, 1);
     var tk = planToken();
 
+    /* 电脑上打开时不用绕云端：直接写本地 plan.json，不需要 token */
+    var isLocal = (location.hostname === "127.0.0.1" || location.hostname === "localhost");
+    if (isLocal) {
+      try {
+        var lr = await fetch("/api/plan-save", { method: "POST", headers: { "Content-Type": "application/json" }, body: text });
+        var lj = await lr.json();
+        if (lj && lj.ok) {
+          $("planStatus").textContent = "✓ 已保存到本机（" + (lj.days || 0) + " 天有调整）";
+          return true;
+        }
+        $("planStatus").textContent = "保存失败：" + ((lj && lj.error) || "接口无响应");
+        return false;
+      } catch (e) {
+        $("planStatus").textContent = "保存失败：" + e.message + "（本地服务在跑吗？）";
+        return false;
+      }
+    }
+
     if (!tk) {
       /* 没配同步：给一条能走通的路 —— 复制下来存到电脑，别假装成功 */
       try {
@@ -5207,7 +5231,7 @@ body{
           + '<textarea id="planFallback" style="width:100%;height:110px;margin-top:6px;font-size:11.5px;font-family:monospace;">'
           + text.replace(/</g, "&lt;") + "</textarea>";
       }
-      return;
+      return false;
     }
 
     $("planStatus").textContent = "保存中…";
@@ -5228,13 +5252,56 @@ body{
       if (!put.ok) {
         var t = await put.text();
         $("planStatus").textContent = "保存失败 " + put.status + "：" + String(t).slice(0, 90);
-        return;
+        return false;
       }
       $("planStatus").textContent = "✓ 已保存到云端，今晚生成时会按新计划来。";
+      return true;
     } catch (e) {
       $("planStatus").textContent = "保存失败：" + e.message;
+      return false;
     }
   }
+  /* 保存 + 立刻生成并上传今天（2026-10-24 加）
+     只在电脑上有效：需要本地服务的 /api/build-today。手机上只保存，晚上自动处理。 */
+  async function planBuildToday() {
+    var ok = await planSave();
+    if (!ok) return;
+    var isLocal = (location.hostname === "127.0.0.1" || location.hostname === "localhost");
+    if (!isLocal) {
+      $("planStatus").textContent = "「立即生成并上传」要在电脑上打开才能用；手机上保存后，晚上 20:00 会自动处理。";
+      return;
+    }
+    $("planStatus").textContent = "已保存，开始生成…（约 3 分钟，别关页面）";
+    try {
+      var r = await fetch("/api/build-today", {
+        method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({})
+      });
+      var j = await r.json();
+      if (!j || !j.ok) { $("planStatus").textContent = "启动失败"; return; }
+    } catch (e) {
+      $("planStatus").textContent = "启动失败：" + e.message + "（本地服务在跑吗？）";
+      return;
+    }
+    planPollBuild();
+  }
+  function planPollBuild() {
+    fetch("/api/build-status", { cache: "no-store" })
+      .then(function (r) { return r.json(); })
+      .then(function (j) {
+        if (j && j.running) {
+          var tail = (j.log || []).slice(-1).join("");
+          $("planStatus").textContent = "生成中… " + String(tail).slice(0, 70);
+          setTimeout(planPollBuild, 3000);
+        } else if (j && j.ok) {
+          $("planStatus").textContent = "✓ 已生成并上传到 GoodNotes（" + j.date + "）";
+        } else {
+          var t = (j && j.log) ? j.log.slice(-2).join(" / ") : "未知错误";
+          $("planStatus").textContent = "✗ 失败：" + String(t).slice(0, 110);
+        }
+      })
+      .catch(function () { setTimeout(planPollBuild, 3000); });
+  }
+
   function planBind() {
     if ($("planToggle")) {
       $("planToggle").addEventListener("click", function () {
@@ -5250,6 +5317,7 @@ body{
       });
     }
     if ($("planSaveBtn")) $("planSaveBtn").addEventListener("click", planSave);
+    if ($("planBuildToday")) $("planBuildToday").addEventListener("click", planBuildToday);
     if ($("planClearBtn")) {
       $("planClearBtn").addEventListener("click", function () {
         planDays = {};
