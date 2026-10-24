@@ -993,6 +993,9 @@ body{
 
     <div class="source-pick">
       <select id="sourceSelect">
+        <!-- 2026-10-24 起不再从扇贝抓词，改用导出的词书排课，所以「词书」放第一个并默认选中；
+             否则日期列表按来源筛选时，24/25 号这种新日期会被筛掉、看起来像“单词没了” -->
+        <option value="wordbook">词书</option>
         <option value="shanbay">扇贝</option>
         <option value="shanbay-review">扇贝复习</option>
       </select>
