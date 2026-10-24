@@ -2,7 +2,12 @@
  "meta": {
   "startDate": "2026-10-24",
   "startIndex": 801,
-  "newPerDay": 70
+  "newPerDay": 50
  },
- "days": {}
+ "days": {
+  "2026-10-24": {
+   "count": 50
+  }
+ },
+ "updated": "2026-10-24T07:43:15.673Z"
 }
