@@ -5278,9 +5278,9 @@ body{
     var ok = await planSave();
     if (!ok) {
       /* 保存没成功就别装作在生成 —— 线上没配 token 时这是最常见的原因 */
-      if (!planToken()) {
-        $("planStatus").innerHTML = "<b>保存没成功</b>（线上改计划需要先配一次同步）：点「配置同步」粘一个 GitHub token；<br>或者在电脑上打开 http://127.0.0.1:8787/word-dictation.html 来改，不用配。";
-      }
+      $("planStatus").innerHTML = "<b>保存没成功</b>——当前这个地址改不了计划。<br>"
+        + "在电脑上用 <b>http://127.0.0.1:8787/word-dictation.html</b> 打开就能改（双击桌面工具目录里的「打开本地网页.bat」）；<br>"
+        + "手机改的话，连电脑热点后打开 <b>http://192.168.137.1:8787/word-dictation.html</b>。都不需要 token。";
       return;
     }
     /* 本地 = 本机地址 或 局域网地址（手机连电脑热点后访问，同样走本地接口，不需要 token） */
@@ -5515,6 +5515,16 @@ body{
   function boot() {
     bindPanel();
     planBind();
+    /* 直接双击 html（file:// 协议）时，词表和计划都读不到 —— 一进页面就说清楚，别等点了保存才报错 */
+    if (location.protocol === "file:") {
+      var fileBar = document.createElement("div");
+      fileBar.style.cssText = "position:fixed;left:0;right:0;top:0;z-index:9999;background:#d64545;color:#fff;" +
+        "font:13px/1.6 system-ui,sans-serif;padding:9px 14px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,.2)";
+      fileBar.innerHTML = "当前是「直接双击文件」打开的，词表和计划都读不到。<br>" +
+        "请关掉这页，双击同目录的 <b>打开本地网页.bat</b>，用 http://127.0.0.1:8787 打开。";
+      document.body.appendChild(fileBar);
+      document.body.style.paddingTop = "58px";
+    }
     bindButtons();
     bindProgressSeek();
     observeList($("allBody"), recordTyped);
