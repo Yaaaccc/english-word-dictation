@@ -524,6 +524,13 @@ button.small{ padding:6px 12px; font-size:12.5px; }
 .ex-mini-btn:hover{ background:var(--blue-soft); border-color:var(--blue); color:var(--blue); }
 .ex-mini-btn:active{ transform:translateY(1px); }
 /* 回想释义（四选一）· 2026-10-23 */
+/* 学习计划面板（2026-10-24）*/
+.plan-rows{ display:grid; gap:8px; margin-top:4px; }
+.plan-row{ display:grid; grid-template-columns:104px 1fr 96px; gap:10px; align-items:center; font-size:13px; }
+.plan-row .d{ color:var(--muted); font-variant-numeric:tabular-nums; }
+.plan-row input{ width:100%; padding:7px 9px; border-radius:8px; border:1px solid var(--line); background:var(--card); color:var(--ink); font:inherit; text-align:center; }
+.plan-row .tag{ font-size:11.5px; color:var(--muted-2); text-align:right; }
+@media (max-width:620px){ .plan-row{ grid-template-columns:92px 1fr 76px; gap:8px; font-size:12.5px; } }
 .quiz-wrap{ padding:6px 2px 0; width:100%; max-width:680px; margin:0 auto; }
 /* runView 是 flex+align-items:center，子项默认按内容撑宽；不给它 100% 的话
    .quiz-wrap 的 width:100% 就没有参照物，整块会缩成一条窄带（2026-10-23 踩过） */
@@ -999,6 +1006,12 @@ body{
           <path d="M20.9 3.6v5h-5" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
       </button>
+      <button class="icon-btn" id="planToggle" type="button" title="学习计划（可改未来几天学多少个）" aria-label="学习计划">
+        <svg viewBox="0 0 24 24" fill="none">
+          <rect x="3.6" y="2.8" width="16.8" height="18.4" rx="3" stroke="currentColor" stroke-width="1.9"/>
+          <path d="M8 8.2h8M8 12.2h8M8 16.2h5" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/>
+        </svg>
+      </button>
       <button class="icon-btn" id="statsToggle" type="button" title="学习记录（累计 / 连续天数 / 错词本）" aria-label="学习记录">
         <svg viewBox="0 0 24 24" fill="none">
           <path d="M4.2 19.4V11M9.6 19.4V5M15 19.4v-6.2M20.4 19.4V8.2" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/>
@@ -1105,6 +1118,30 @@ body{
         </div>
         <div class="hint" id="voiceHint">正在加载语音列表…</div>
       </div>
+    </div>
+  </div>
+</section>
+
+<section class="settings hidden" id="planPanel">
+  <div class="settings-inner">
+    <div class="settings-head">
+      <h3 class="panel-title">学习计划</h3>
+      <span class="mini-note">改完点保存；电脑当晚生成时按这个来。只填天数，起点会自动接着上一次往后排。</span>
+    </div>
+    <div id="planRows" class="plan-rows"></div>
+    <div class="controls" style="margin-top:12px;">
+      <button class="primary" id="planSaveBtn" type="button">保存计划</button>
+      <button class="small" id="planClearBtn" type="button">全部恢复默认</button>
+      <button class="small" id="planTokenBtn" type="button">配置同步</button>
+    </div>
+    <div class="mini-note" id="planStatus" style="margin-top:8px;"></div>
+    <div class="hidden" id="planTokenBox" style="margin-top:10px;">
+      <div class="mini-note">在 GitHub 生成一个 Fine-grained token（只勾这个仓库的 Contents: Read and write），粘进来。存在本机浏览器，不会写进页面代码。</div>
+      <div class="controls" style="margin-top:8px;">
+        <input id="planTokenInput" type="password" placeholder="github_pat_..." style="flex:1;min-width:200px;">
+        <button class="small" id="planTokenSave" type="button">保存</button>
+      </div>
+      <div class="mini-note" id="planTokenState" style="margin-top:6px;"></div>
     </div>
   </div>
 </section>
@@ -5082,6 +5119,165 @@ body{
     }
   }, false);
 
+  /* ---------------- 学习计划（2026-10-24 加） ----------------
+   * 在网页上改「未来某天学多少个」→ 写 plan.json（GitHub contents API）
+   * → 电脑每晚生成前把它拉到本地，schedule.js 读它，起点自动往后顺延。
+   * 读不需要 token（仓库公开）；写需要 —— 一次性配置，存在本机浏览器，不写进页面代码。
+   */
+  var PLAN_REPO = "Yaaaccc/english-word-dictation";
+  var PLAN_FILE = "plan.json";
+  var PLAN_TOKEN_KEY = "dictationPlanToken";
+  var planMeta = { startDate: "2026-10-24", startIndex: 801, newPerDay: 70 };
+  var planDays = {};
+
+  function planToken() {
+    try { return localStorage.getItem(PLAN_TOKEN_KEY) || ""; } catch (e) { return ""; }
+  }
+  function planPad2(n) { return String(n).padStart(2, "0"); }
+  function planTargetDays() {
+    var out = [], now = new Date();
+    for (var i = 1; i <= 7; i++) {
+      var d = new Date(now.getTime() + i * 86400000);
+      out.push(d.getFullYear() + "-" + planPad2(d.getMonth() + 1) + "-" + planPad2(d.getDate()));
+    }
+    return out;
+  }
+  async function planLoad() {
+    try {
+      var r = await fetch(PLAN_FILE + "?ts=" + Date.now(), { cache: "no-store" });
+      if (!r.ok) return { meta: null, days: {} };
+      var j = await r.json();
+      return { meta: j.meta || null, days: j.days || {} };
+    } catch (e) { return { meta: null, days: {} }; }
+  }
+  function planRender() {
+    var box = $("planRows");
+    if (!box) return;
+    box.innerHTML = "";
+    planTargetDays().forEach(function (date) {
+      var o = planDays[date] || {};
+      var cnt = Number(o.count) > 0 ? Number(o.count) : planMeta.newPerDay;
+      var row = document.createElement("div");
+      row.className = "plan-row";
+      var lab = document.createElement("span"); lab.className = "d"; lab.textContent = date;
+      var inp = document.createElement("input");
+      inp.type = "number"; inp.min = "1"; inp.max = "200"; inp.value = cnt;
+      inp.setAttribute("data-date", date);
+      var tag = document.createElement("span");
+      tag.className = "tag";
+      tag.textContent = Number(o.count) > 0 ? "已调整" : "默认 " + planMeta.newPerDay;
+      row.appendChild(lab); row.appendChild(inp); row.appendChild(tag);
+      box.appendChild(row);
+    });
+  }
+  async function planOpen() {
+    var j = await planLoad();
+    if (j.meta) planMeta = j.meta;
+    planDays = j.days;
+    planRender();
+    if ($("planStatus")) {
+      $("planStatus").textContent = planToken()
+        ? "已配置云端同步，改完点保存就生效。"
+        : "未配置同步：点「配置同步」配一次 token，之后手机上也能改。";
+    }
+  }
+  async function planSave() {
+    var days = {};
+    [].forEach.call($("planRows").querySelectorAll("input"), function (inp) {
+      var n = Number(inp.value);
+      var d = inp.getAttribute("data-date");
+      if (n > 0 && n !== planMeta.newPerDay) days[d] = { count: n };
+    });
+    /* 先把当前输入回写到 planDays 并重渲染：否则改过的行右边还写着「默认 70」 */
+    planDays = days;
+    planRender();
+
+    var payload = { updated: new Date().toISOString(), meta: planMeta, days: days };
+    var text = JSON.stringify(payload, null, 1);
+    var tk = planToken();
+
+    if (!tk) {
+      /* 没配同步：给一条能走通的路 —— 复制下来存到电脑，别假装成功 */
+      try {
+        await navigator.clipboard.writeText(text);
+        $("planStatus").textContent = "未配置同步，内容已复制到剪贴板 —— 存到 D:\\WorkBuddy\\扇贝词表抓取-2026-10-23\\plan.json 即可生效。";
+      } catch (e) {
+        /* 复制不了（非 https / 没有用户手势）：把内容摊开让他自己选，别只报一句失败 */
+        $("planStatus").innerHTML = '未配置同步、且无法自动复制。请手动复制下面这段，存到 <code>D:\\WorkBuddy\\扇贝词表抓取-2026-10-23\\plan.json</code>：'
+          + '<textarea id="planFallback" style="width:100%;height:110px;margin-top:6px;font-size:11.5px;font-family:monospace;">'
+          + text.replace(/</g, "&lt;") + "</textarea>";
+      }
+      return;
+    }
+
+    $("planStatus").textContent = "保存中…";
+    try {
+      var g = await fetch("https://api.github.com/repos/" + PLAN_REPO + "/contents/" + PLAN_FILE, {
+        headers: { Authorization: "Bearer " + tk }, cache: "no-store"
+      });
+      var sha = g.ok ? (await g.json()).sha : "";
+      var put = await fetch("https://api.github.com/repos/" + PLAN_REPO + "/contents/" + PLAN_FILE, {
+        method: "PUT",
+        headers: { Authorization: "Bearer " + tk, "Content-Type": "application/json" },
+        body: JSON.stringify({
+          message: "更新学习计划（网页）",
+          content: btoa(unescape(encodeURIComponent(text))),
+          sha: sha || undefined
+        })
+      });
+      if (!put.ok) {
+        var t = await put.text();
+        $("planStatus").textContent = "保存失败 " + put.status + "：" + String(t).slice(0, 90);
+        return;
+      }
+      $("planStatus").textContent = "✓ 已保存到云端，今晚生成时会按新计划来。";
+    } catch (e) {
+      $("planStatus").textContent = "保存失败：" + e.message;
+    }
+  }
+  function planBind() {
+    if ($("planToggle")) {
+      $("planToggle").addEventListener("click", function () {
+        var p = $("planPanel");
+        if (!p) return;
+        var willOpen = p.classList.contains("hidden");
+        p.classList.toggle("hidden");
+        if (willOpen) {
+          if ($("statsPanel")) $("statsPanel").classList.add("hidden");
+          if ($("settingsPanel")) $("settingsPanel").classList.add("hidden");
+          planOpen();
+        }
+      });
+    }
+    if ($("planSaveBtn")) $("planSaveBtn").addEventListener("click", planSave);
+    if ($("planClearBtn")) {
+      $("planClearBtn").addEventListener("click", function () {
+        planDays = {};
+        [].forEach.call($("planRows").querySelectorAll("input"), function (i) { i.value = planMeta.newPerDay; });
+        $("planStatus").textContent = "已清空（点保存才会生效）";
+      });
+    }
+    if ($("planTokenBtn")) {
+      $("planTokenBtn").addEventListener("click", function () {
+        $("planTokenBox").classList.toggle("hidden");
+        $("planTokenInput").value = planToken();
+        $("planTokenState").textContent = planToken() ? "当前已配置（只在本机浏览器生效）" : "还没配置";
+      });
+    }
+    if ($("planTokenSave")) {
+      $("planTokenSave").addEventListener("click", function () {
+        var v = ($("planTokenInput").value || "").trim();
+        try {
+          if (v) localStorage.setItem(PLAN_TOKEN_KEY, v);
+          else localStorage.removeItem(PLAN_TOKEN_KEY);
+          $("planTokenState").textContent = v ? "已保存，之后保存计划会直接写云端" : "已清除";
+        } catch (e) {
+          $("planTokenState").textContent = "保存失败：" + e.message;
+        }
+      });
+    }
+  }
+
   /* ---------------- 面板开关 ---------------- */
   function bindPanel() {
     var btn = $("statsToggle"), panel = $("statsPanel"), setP = $("settingsPanel"), setB = $("settingsToggle");
@@ -5091,6 +5287,7 @@ body{
       panel.classList.toggle("hidden");
       if (willOpen) {
         if (setP) setP.classList.add("hidden");
+        if ($("planPanel")) $("planPanel").classList.add("hidden");
         refresh();
       }
     });
@@ -5231,6 +5428,7 @@ body{
   /* ---------------- 启动 ---------------- */
   function boot() {
     bindPanel();
+    planBind();
     bindButtons();
     bindProgressSeek();
     observeList($("allBody"), recordTyped);
