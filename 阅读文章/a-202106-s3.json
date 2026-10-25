@@ -9,11 +9,11 @@
    "cn": "早期职业挫折会如何影响我们的长期成功？"
   },
   {
-   "en": "Failures can help us learn and overcome our fears.",
+   "en": "Failures can help us learn and overcome our fears. But disasters can still wound us. They can screw us up and set us back.",
    "cn": "失败能帮助我们学习并克服恐惧，但灾难仍可能伤害我们，把我们搞得一团糟、让我们倒退。"
   },
   {
-   "en": "But disasters can still wound us. They can screw us up and set us back. Wouldn't it be nice if there was genuine, scientifically documented truth to the expression \"what doesn't kill you makes you stronger\"?",
+   "en": "Wouldn't it be nice if there was genuine, scientifically documented truth to the expression \"what doesn't kill you makes you stronger\"?",
    "cn": "如果\"那些杀不死你的，会让你更强大\"这句话真有经科学证实的依据，那该多好？"
   },
   {
@@ -21,15 +21,15 @@
    "cn": "社会科学家探究职业挫折影响的一种方式，是考察资质极为相似的科学家。这些科学家大多出于偶然原因，要么刚好错过一笔研究资助，要么刚好拿到。"
   },
   {
-   "en": "These scientists, for reasons that are mostly arbitrary, either just missed getting a research grant or just barely made it.",
+   "en": "These scientists, for reasons that are mostly arbitrary, either just missed getting a research grant or just barely made it. In social sciences, this is known as examining \"near misses\" and \"narrow wins\" in areas where merit is subjective.",
    "cn": "在社会科学中，这被称为考察\"擦肩而过\"（nearmisses）与\"险胜\"（narrowwins）那些功绩带有主观性的领域。"
   },
   {
-   "en": "In social sciences, this is known as examining \"near misses\" and \"narrow wins\" in areas where merit is subjective.",
+   "en": "That allows researchers to measure only the effects of being chosen or not.",
    "cn": "这能让研究者只衡量\"被选中与否\"的影响。"
   },
   {
-   "en": "That allows researchers to measure only the effects of being chosen or not. Studies in this area have found conflicting results.",
+   "en": "Studies in this area have found conflicting results.",
    "cn": "该领域的研究得出了相互矛盾的结果。"
   },
   {
@@ -69,35 +69,43 @@
    "cn": "这对落选者是个坏消息。"
   },
   {
-   "en": "Small early career setbacks seem to have a disproportionate effect down the line.",
+   "en": "Small early career setbacks seem to have a disproportionate effect down the line. What didn't kill them made them weaker.",
    "cn": "早期职业生涯中的小挫折，似乎会在日后产生不成比例的影响——没杀死他们的，反而让他们更弱。"
   },
   {
-   "en": "What didn't kill them made them weaker. But other studies using the same technique have shown there's sometimes no penalty to a near miss.",
-   "cn": "但使用同一技术的其他研究发现，有时\"擦肩而过\"并无惩罚。那些刚好没考入顶尖高中或大学的学生，日后的人生表现与那些刚好被录取的人一样好。"
+   "en": "But other studies using the same technique have shown there's sometimes no penalty to a near miss.",
+   "cn": "但使用同一技术的其他研究发现，有时\"擦肩而过\"并无惩罚。"
   },
   {
    "en": "Students who just miss getting into top high schools or universities do just as well later in life as those who just manage to get accepted.",
-   "cn": "在这种情况下，没杀死他们的，其实无关紧要。那么，有没有证据表明挫折实际上能改善我们的职业前景？"
+   "cn": "那些刚好没考入顶尖高中或大学的学生，日后的人生表现与那些刚好被录取的人一样好。"
   },
   {
-   "en": "In this case, what didn't kill them simply didn't matter. So is there any evidence that setbacks might actually improve our career prospects? There is now.",
+   "en": "In this case, what didn't kill them simply didn't matter.",
+   "cn": "在这种情况下，没杀死他们的，其实无关紧要。"
+  },
+  {
+   "en": "So is there any evidence that setbacks might actually improve our career prospects?",
+   "cn": "那么，有没有证据表明挫折实际上能改善我们的职业前景？"
+  },
+  {
+   "en": "There is now.",
    "cn": "现在有了。"
   },
   {
-   "en": "In a study published in Nature Communications, Northwestern University sociologist Dashun Wang tracked more than 1,100 scientists who were on the border between getting a grant and missing out between 1990 and 2005.",
-   "cn": "在发表于《自然∙通讯》的一项研究中，西北大学社会学家王大顺（DashunWang）追踪了1990至2005年间1100多名\"介于拿到与错过资助之间\"的科学家。他在随后十年里跟踪了多种表现指标，包括他们发表了多少论文，以及这些论文的影响力（以后续被引次数衡量）。"
+   "en": "In a study published in Nature Communications, Northwestern University sociologist Dashun Wang tracked more than 1,100 scientists who were on the border between getting a grant and missing out between 1990 and 2005. He followed various measures of performance over the next decade.",
+   "cn": "在发表于《自然∙通讯》的一项研究中，西北大学社会学家王大顺（DashunWang）追踪了1990至2005年间1100多名\"介于拿到与错过资助之间\"的科学家。"
   },
   {
-   "en": "He followed various measures of performance over the next decade. These included how many papers they authored and how influential those papers were, as measured by the number of subsequent citations.",
-   "cn": "正如预期，未获资助的科学家流失率高得多。"
+   "en": "These included how many papers they authored and how influential those papers were, as measured by the number of subsequent citations. As expected, there was a much higher rate of attrition among scientists who didn't get grants.",
+   "cn": "他在随后十年里跟踪了多种表现指标，包括他们发表了多少论文，以及这些论文的影响力（以后续被引次数衡量）。"
   },
   {
-   "en": "As expected, there was a much higher rate of attrition among scientists who didn't get grants.",
-   "cn": "但在留下的人当中，惜败者的表现甚至优于险胜者。"
+   "en": "But among those who stayed on, the close losers performed even better than the narrow winners.",
+   "cn": "正如预期，未获资助的科学家流失率高得多。但在留下的人当中，惜败者的表现甚至优于险胜者。"
   },
   {
-   "en": "But among those who stayed on, the close losers performed even better than the narrow winners. To make sure this wasn't by chance, Wang conducted additional tests using different performance measures. He examined how many times people were first authors on influential studies, and the like.",
+   "en": "To make sure this wasn't by chance, Wang conducted additional tests using different performance measures. He examined how many times people were first authors on influential studies, and the like.",
    "cn": "为确保这不是偶然，王进行了额外的检验，使用了不同的表现指标，考察人们在有影响力的研究中作为第一作者的次数等。"
   },
   {
@@ -165,27 +173,31 @@
    "cn": "他把未修改的版本投给了一本更受尊敬的期刊，结果被录用。"
   },
   {
-   "en": "In sports and many areas of life, we think of failures as evidence of something we could have done better.",
-   "cn": "在体育和生活的许多领域，我们把失败看作\"本可以做得更好\"的证据，把这些失望视为一种本可通过更仔细的准备、不同的训练、更好的策略或更专注而避免的命运。在那里，失败为我们指明成功之路是说得通的。"
-  },
-  {
-   "en": "We regard these disappointments as a fate we could have avoided with more careful preparation, different training, a better strategy, or more focus.",
-   "cn": "这些论文探讨的是一种人们几乎无力控制的失败——被拒绝。"
+   "en": "In sports and many areas of life, we think of failures as evidence of something we could have done better. We regard these disappointments as a fate we could have avoided with more careful preparation, different training, a better strategy, or more focus.",
+   "cn": "在体育和生活的许多领域，我们把失败看作\"本可以做得更好\"的证据，把这些失望视为一种本可通过更仔细的准备、不同的训练、更好的策略或更专注而避免的命运。"
   },
   {
    "en": "And there it makes sense that failures show us the road to success.",
-   "cn": "胜负由他人决定。"
+   "cn": "在那里，失败为我们指明成功之路是说得通的。"
   },
   {
    "en": "These papers deal with a kind of failure people have little control over·rejection.",
+   "cn": "这些论文探讨的是一种人们几乎无力控制的失败——被拒绝。"
+  },
+  {
+   "en": "Others determine who wins and who loses.",
+   "cn": "胜负由他人决定。"
+  },
+  {
+   "en": "But at the very least, the research is starting to show that early setbacks don't have to be fatal. They might even make us better at our jobs.",
    "cn": "但至少，研究开始表明，早期挫折未必是致命的，甚至可能让我们更擅长自己的工作。"
   },
   {
-   "en": "Others determine who wins and who loses. But at the very least, the research is starting to show that early setbacks don't have to be fatal.",
+   "en": "Getting paid like a winner, though?",
    "cn": "不过，要像赢家那样拿到报酬？"
   },
   {
-   "en": "They might even make us better at our jobs. Getting paid like a winner, though? That's a different matter.",
+   "en": "That's a different matter.",
    "cn": "那就是另一回事了。"
   }
  ]

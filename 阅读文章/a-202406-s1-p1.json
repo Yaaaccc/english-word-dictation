@@ -6,10 +6,14 @@
  "sents": [
   {
    "en": "Lao Zi once said, \"Care about what other people think and you will always be their prisoner.\" People-pleasing, or seeking self-worth through others' approval, is unproductive and an exhausting way to go through life.",
-   "cn": "老子曾说：“在意别人的看法，你就永远成为他人的囚徒。”讨好他人，即通过别人的认可来寻求自我价值，是一种低效且令人筋疲尽的生活方式。为何我们允许别人的看法对我们自身的感受拥有如此大的支配力？"
+   "cn": "老子曾说：“在意别人的看法，你就永远成为他人的囚徒。”讨好他人，即通过别人的认可来寻求自我价值，是一种低效且令人筋疲尽的生活方式。"
   },
   {
-   "en": "Why do we allow what others think of us to have so much power over how we feel about ourselves? If it's true that you can't please all people all of the time, wouldn't it make sense to stop trying?",
+   "en": "Why do we allow what others think of us to have so much power over how we feel about ourselves?",
+   "cn": "为何我们允许别人的看法对我们自身的感受拥有如此大的支配力？"
+  },
+  {
+   "en": "If it's true that you can't please all people all of the time, wouldn't it make sense to stop trying?",
    "cn": "如果你不可能时时取悦所有人，那停止尝试难道不是更明智吗？"
   },
   {

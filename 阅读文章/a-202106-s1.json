@@ -5,23 +5,19 @@
  "layout": "字母段落(A-J)",
  "sents": [
   {
-   "en": "This month, more than 4 million students across the nation will begin high school.",
+   "en": "This month, more than 4 million students across the nation will begin high school. Many will do well. But many will not.",
    "cn": "本月，全国将有超过400万名学生开始上高中。"
   },
   {
-   "en": "Many will do well.",
-   "cn": "许多人会表现良好，但许多人不会。"
+   "en": "Consider that nearly two-thirds of students will experience the \"ninth-grade shock,\" which refers to a dramatic drop in a student's academic performance.",
+   "cn": "许多人会表现良好，但许多人不会。要知道，近三分之二的学生会经历\"九年级冲击\"，即学业成绩急剧下滑。"
   },
   {
-   "en": "But many will not. Consider that nearly two-thirds of students will experience the \"ninth-grade shock,\" which refers to a dramatic drop in a student's academic performance.",
-   "cn": "要知道，近三分之二的学生会经历\"九年级冲击\"，即学业成绩急剧下滑。"
-  },
-  {
-   "en": "Some students cope with this shock by avoiding challenges.",
+   "en": "Some students cope with this shock by avoiding challenges. For instance, they may drop difficult coursework.",
    "cn": "一些学生通过回避挑战来应对这种冲击，例如放弃难度大的课程；"
   },
   {
-   "en": "For instance, they may drop difficult coursework. Others may experience a hopelessness that results in failing their core classes, such as English, science and math.",
+   "en": "Others may experience a hopelessness that results in failing their core classes, such as English, science and math.",
    "cn": "另一些则可能陷入绝望，导致英语、科学和数学等核心课程不及格。"
   },
   {
@@ -49,15 +45,15 @@
    "cn": "这基于更高的收入，以及在医疗、犯罪、福利依赖等方面节省的成本。"
   },
   {
-   "en": "The consequences of doing poorly in the ninth grade can impact more than students' ability to find a good job.",
+   "en": "The consequences of doing poorly in the ninth grade can impact more than students' ability to find a good job. It can also impact the extent to which they enjoy life.",
    "cn": "九年级表现不佳的后果，影响的不仅是学生找到好工作的能力，还会影响他们享受生活的程度。"
   },
   {
-   "en": "It can also impact the extent to which they enjoy life.",
+   "en": "Students lose many of the friends they turned to for support when they move from the eighth to the ninth grade.",
    "cn": "学生从八年级升入九年级时，会失去许多曾经寻求支持的朋友。"
   },
   {
-   "en": "Students lose many of the friends they turned to for support when they move from the eighth to the ninth grade. One study of ninth-grade students found that 50 percent of friendships among ninth graders changed from one month to the next, signaling striking instability in friendships.",
+   "en": "One study of ninth-grade students found that 50 percent of friendships among ninth graders changed from one month to the next, signaling striking instability in friendships.",
    "cn": "一项针对九年级学生的研究发现，九年级学生之间50%的友谊逐月发生变化，显示出友谊惊人的不稳定性。"
   },
   {
@@ -118,18 +114,22 @@
   },
   {
    "en": "In this study, instead of teaching students that their smartness can change, we taught them that their social standing·that is, whether they are bullied or excluded or left out·can change over time.",
-   "cn": "在这项研究中，我们没有教导学生\"聪明\"可以改变，而是让他们明白自己的社交地位——即是否被欺负、排斥或冷落——会随时间改变。随后，我们观察了高中生对日常社交困难的应激反应。"
+   "cn": "在这项研究中，我们没有教导学生\"聪明\"可以改变，而是让他们明白自己的社交地位——即是否被欺负、排斥或冷落——会随时间改变。"
   },
   {
-   "en": "We then looked at high school students' stress responses to daily social difficulties. That is, we taught them a growth mindset about their social lives.",
+   "en": "We then looked at high school students' stress responses to daily social difficulties.",
+   "cn": "随后，我们观察了高中生对日常社交困难的应激反应。"
+  },
+  {
+   "en": "That is, we taught them a growth mindset about their social lives.",
    "cn": "也就是说，我们向他们灌输了关于社交生活的成长型思维。"
   },
   {
-   "en": "In this study, students came into the laboratory and were asked to give a public speech in front of upper-year students.",
+   "en": "In this study, students came into the laboratory and were asked to give a public speech in front of upper-year students. The topic of the speech was what makes one popular in high school.",
    "cn": "在这项研究中，学生进入实验室，被要求在高年级学生面前做公开演讲，主题是\"是什么让一个人在高中受欢迎\"。"
   },
   {
-   "en": "The topic of the speech was what makes one popular in high school. Following this, students had to complete a difficult mental math task in front of the same upper-year students.",
+   "en": "Following this, students had to complete a difficult mental math task in front of the same upper-year students.",
    "cn": "之后，学生还要在相同的高年级学生面前完成一道困难的心算任务。"
   },
   {

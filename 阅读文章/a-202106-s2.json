@@ -74,22 +74,26 @@
   },
   {
    "en": "It is worth stressing that these anumeric people are cognitively normal, well-adapted to the surroundings they have dominated for centuries.",
-   "cn": "值得强调的是，这些无数字的人在认知上是正常的，且十分适应他们数百年来所主宰的环境。小时候，我曾与无数字的人——居住在黑色马伊西河沿岸的皮拉罕人——共同生活过一段时间。"
+   "cn": "值得强调的是，这些无数字的人在认知上是正常的，且十分适应他们数百年来所主宰的环境。"
   },
   {
    "en": "As a child, I spent some time living with anumeric people, the Piraha who live along the banks of the black Maici River.",
-   "cn": "像其他外来者一样，他们对我们共享的生态环境那种卓越的理解力，令我不断感到震撼。"
+   "cn": "小时候，我曾与无数字的人——居住在黑色马伊西河沿岸的皮拉罕人——共同生活过一段时间。"
   },
   {
    "en": "Like other outsiders, I was continually impressed by their superior understanding of the ecology we shared.",
-   "cn": "然而，无数字的人在面对需要精确区分数量的任务时会感到吃力。"
+   "cn": "像其他外来者一样，他们对我们共享的生态环境那种卓越的理解力，令我不断感到震撼。"
   },
   {
    "en": "Yet numberless people struggle with tasks that require precise discrimination between quantities.",
+   "cn": "然而，无数字的人在面对需要精确区分数量的任务时会感到吃力。"
+  },
+  {
+   "en": "Perhaps this should be unsurprising. After all, without counting, how can someone tell whether there are, say, seven or eight coconuts in a tree?",
    "cn": "这或许不应令人意外：毕竟，不会数数，又怎知树上有七个还是八个椰子？"
   },
   {
-   "en": "Perhaps this should be unsurprising. After all, without counting, how can someone tell whether there are, say, seven or eight coconuts in a tree? Such seemingly straightforward distinctions become blurry through numberless eyes.",
+   "en": "Such seemingly straightforward distinctions become blurry through numberless eyes.",
    "cn": "如此看似直白的区分，在无数字的眼中变得模糊。"
   },
   {
@@ -157,28 +161,24 @@
    "cn": "那么，我们究竟是如何在一开始就发明了这些\"非自然\"的数字？"
   },
   {
-   "en": "The answer is, literally, at your fingertips. The bulk of the world's languages use base-10, base-20 or base-5 number systems.",
+   "en": "The answer is, literally, at your fingertips.",
    "cn": "答案，字面上就藏在你的指尖。"
   },
   {
-   "en": "That is, these smaller numbers are the basis of larger numbers.",
+   "en": "The bulk of the world's languages use base-10, base-20 or base-5 number systems. That is, these smaller numbers are the basis of larger numbers.",
    "cn": "世界上大多数语言使用十进制、二十进制或五进制的数字系统，也就是说，这些较小的数字是更大数字的基础。"
   },
   {
-   "en": "English is a base-10 or decimal language, as evidenced by words like 14 (\"four\" + \"10\") and 31 (\"three\" × \"10\" + \"one\").",
+   "en": "English is a base-10 or decimal language, as evidenced by words like 14 (\"four\" + \"10\") and 31 (\"three\" × \"10\" + \"one\"). We speak a decimal language because an ancestral tongue, proto-Indo-European, was decimally based.",
    "cn": "英语是一种十进制（decimal）语言，证据见于诸如14（\"四\"+\"十\"）和31（\"三\"×\"十\"+\"一\"）这样的词。"
   },
   {
-   "en": "We speak a decimal language because an ancestral tongue, proto-Indo-European, was decimally based.",
-   "cn": "我们说十进制语言，是因为其先祖语言——原始印欧语——是以十进制为基础的。"
-  },
-  {
    "en": "Proto-Indo-European was decimally oriented because, as in so many cultures, our ancestors' hands served as the gateway to the realization that \"five fingers on one hand is the same as five fingers on the other.\" Such momentary thoughts were represented in words and passed down across generations.",
-   "cn": "原始印欧语的十进制取向，是因为在众多文化中，我们祖先的双手充当了通往这样一种认识的门户：\"一只手上的五根手指，与另一只手上的五根手指相同。\"这类瞬间的念头被用词语表达出来，并代代相传。"
+   "cn": "我们说十进制语言，是因为其先祖语言——原始印欧语——是以十进制为基础的。原始印欧语的十进制取向，是因为在众多文化中，我们祖先的双手充当了通往这样一种认识的门户：\"一只手上的五根手指，与另一只手上的五根手指相同。"
   },
   {
    "en": "This is why the word \"five\" in many languages is derived from the word for \"hand.\" Most number systems, then, are the by-product of two key factors: the human capacity for language and our inclination for focusing on our hands and fingers.",
-   "cn": "这就是为什么许多语言中\"五\"这个词，源于表示\"手\"的词。因此，大多数数字系统，是人类语言能力与我们对双手和手指专注倾向这两个关键因素共同作用的副产品。"
+   "cn": "\"这类瞬间的念头被用词语表达出来，并代代相传。这就是为什么许多语言中\"五\"这个词，源于表示\"手\"的词。因此，大多数数字系统，是人类语言能力与我们对双手和手指专注倾向这两个关键因素共同作用的副产品。"
   },
   {
    "en": "This manual fixation ·an indirect by-product of walking upright on two legs·has helped yield numbers in most cultures, but not all.",
@@ -189,15 +189,15 @@
    "cn": "没有数字的文化，也让我们得以洞察特定数字传统所带来的认知影响。"
   },
   {
-   "en": "Consider what time it is.",
+   "en": "Consider what time it is. Your day is ruled by minutes and seconds, but these concepts are not real in any physical sense and are nonexistent to numberless people.",
    "cn": "想想现在几点：你的一天被分秒所统治，但这些概念在物理意义上并非真实存在，对无数字的人来说更是根本不存在。"
   },
   {
-   "en": "Your day is ruled by minutes and seconds, but these concepts are not real in any physical sense and are nonexistent to numberless people.",
+   "en": "Minutes and seconds are the verbal and written representations of an uncommon base-60 number system used in ancient Mesopotamia.",
    "cn": "分和秒，是古代美索不达米亚使用的一种罕见的六十进制数字系统的口头与书面表达；"
   },
   {
-   "en": "Minutes and seconds are the verbal and written representations of an uncommon base-60 number system used in ancient Mesopotamia. They reside in our minds, numerical artifacts that not all humans inherit conceptually.",
+   "en": "They reside in our minds, numerical artifacts that not all humans inherit conceptually.",
    "cn": "它们栖息于我们的心智中，是一种并非所有人概念上都继承了的\"数字人工制品\"。"
   },
   {

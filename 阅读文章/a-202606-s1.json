@@ -22,22 +22,34 @@
   },
   {
    "en": "After a 28-hour flight with two travel-sick children, our hearts sank when we saw the tiny twin engine 10-seater that was to take us the 90 km across the Hauraki Gulf to Great Barrier Island.",
-   "cn": "在带着两个晕机的孩子飞了28小时后，当我们看到那架将载我们飞越豪拉基湾、前往大屏障岛的10座小型双引擎飞机时，心里一沉。但我们大可不必担心。"
+   "cn": "在带着两个晕机的孩子飞了28小时后，当我们看到那架将载我们飞越豪拉基湾、前往大屏障岛的10座小型双引擎飞机时，心里一沉。"
   },
   {
-   "en": "But we needn't have worried. Whether it was the gravity force of the plane climbing or the noise of the engine, it put our three-year-old daughter instantly to sleep until we bumped down on the grass at Claris Airport. Our first empty sick bag against all the odds... Things were looking up.",
-   "cn": "不知是因为飞机爬升时的重力，还是引擎的轰鸣声，它让我们三岁的女儿立刻睡着，直到我们在克拉里斯机场的草地上颠簸着陆。出乎意料地，我们的第一个呕吐袋是空的……情况开始好转。"
+   "en": "But we needn't have worried.",
+   "cn": "但我们大可不必担心。"
+  },
+  {
+   "en": "Whether it was the gravity force of the plane climbing or the noise of the engine, it put our three-year-old daughter instantly to sleep until we bumped down on the grass at Claris Airport.",
+   "cn": "不知是因为飞机爬升时的重力，还是引擎的轰鸣声，它让我们三岁的女儿立刻睡着，直到我们在克拉里斯机场的草地上颠簸着陆。"
+  },
+  {
+   "en": "Our first empty sick bag against all the odds... Things were looking up.",
+   "cn": "出乎意料地，我们的第一个呕吐袋是空的……情况开始好转。"
   },
   {
    "en": "Great Barrier Island has no public facilities and the 950 people living there (though only about half permanently) rely on solar and wind energy, and bottled gas for cooking.",
-   "cn": "大屏障岛没有公共设施，岛上950名居民（尽管只有约一半常年居住）依靠太阳能和风能，以及瓶装燃气做饭。这里没有路灯，没有自动取款机或银行。"
+   "cn": "大屏障岛没有公共设施，岛上950名居民（尽管只有约一半常年居住）依靠太阳能和风能，以及瓶装燃气做饭。"
   },
   {
    "en": "There are no streetlights. There are no cash machines or banks.",
+   "cn": "这里没有路灯，没有自动取款机或银行。"
+  },
+  {
+   "en": "The police force comprises a husband and wife, and there's one postman.",
    "cn": "警力由一对夫妇组成，邮递员也只有一人。"
   },
   {
-   "en": "The police force comprises a husband and wife, and there's one postman. It's not just the lack of light but the lack of noise that's so delightful on this unique and gorgeous scene.",
+   "en": "It's not just the lack of light but the lack of noise that's so delightful on this unique and gorgeous scene.",
    "cn": "在这片独特而秀美的景色中，令人愉悦的不仅是光线的缺失，还有噪音的缺失。"
   },
   {
@@ -86,14 +98,18 @@
   },
   {
    "en": "Our guide for some of our stay was the inestimable Hilde Hoven, a Dark Sky ambassador who runs Good Heavens with Deborah Kilgallon and Orla Cumisky.",
-   "cn": "我们逗留期间，部分行程的导游是难得的希尔达∙霍文，一位暗夜大使，她与黛博拉∙基尔加伦、奥拉∙卡米斯基共同经营\"好天\"（GoodHeavens）。她们带着多布森望远镜和靠枕（仰头惊奇地瞪着看、没有颈部支撑可是件苦差事）来到岛上你所在的任何地方，而且——我们大女儿高兴地听说——还带上热巧克力。"
+   "cn": "我们逗留期间，部分行程的导游是难得的希尔达∙霍文，一位暗夜大使，她与黛博拉∙基尔加伦、奥拉∙卡米斯基共同经营\"好天\"（GoodHeavens）。"
   },
   {
    "en": "They bring their Dobsonian telescope and beanbags (it's hard work staring up wide-eyed in wonder without neck support) and, our elder daughter was glad to hear, hot chocolate to wherever you are on the island.",
+   "cn": "她们带着多布森望远镜和靠枕（仰头惊奇地瞪着看、没有颈部支撑可是件苦差事）来到岛上你所在的任何地方，而且——我们大女儿高兴地听说——还带上热巧克力。"
+  },
+  {
+   "en": "\"It's odd but when the light readings were done,\" said Hilde, explaining how the island was awarded its special status, \"they found there was more light pollution on the northern side coming from Fiji, which is about 3,000 km away, than Auckland to the south.",
    "cn": "\"说来奇怪，在做光线读数时，\"希尔达解释该岛如何获得这一特殊地位时说，\"他们发现北侧来自约3000公里外斐济的光污染，比南面奥克兰的还要多。"
   },
   {
-   "en": "\"It's odd but when the light readings were done,\" said Hilde, explaining how the island was awarded its special status, \"they found there was more light pollution on the northern side coming from Fiji, which is about 3,000 km away, than Auckland to the south. It's pretty dark!\"",
+   "en": "It's pretty dark!\"",
    "cn": "这里相当黑暗！\""
   },
   {
@@ -142,11 +158,11 @@
   },
   {
    "en": "Apparently the island council turned down famous musician Paul McCartney's application to buy a property at Great Barrier Island because of the unwelcome attention he would have brought.",
-   "cn": "显然，岛议会曾拒绝了著名音乐家保罗∙麦卡特尼在大屏障岛购置房产的申请，因为他会带来不受欢迎的关注。你可以理解他为何想来这里；"
+   "cn": "显然，岛议会曾拒绝了著名音乐家保罗∙麦卡特尼在大屏障岛购置房产的申请，因为他会带来不受欢迎的关注。"
   },
   {
    "en": "You can see why he wanted to come here; equally, the island knows exactly what kind of star watching it prefers.",
-   "cn": "同样，这座岛也清楚自己更偏爱何种\"观星\"。"
+   "cn": "你可以理解他为何想来这里；同样，这座岛也清楚自己更偏爱何种\"观星\"。"
   }
  ]
 }

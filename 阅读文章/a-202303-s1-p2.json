@@ -6,10 +6,14 @@
  "sents": [
   {
    "en": "Of the endless troubles that come with being driven from one's home country, losing educational certificates may seem small.",
-   "cn": "在被逐出祖国所带来的无尽困扰中，丢失学历证书或许显得微不足道。但其实不然。"
+   "cn": "在被逐出祖国所带来的无尽困扰中，丢失学历证书或许显得微不足道。"
   },
   {
-   "en": "But it isn't. Refugees who settle in other countries often find themselves unable to continue on their previous career path due to a new set of employer standards or skills requirements.",
+   "en": "But it isn't.",
+   "cn": "但其实不然。"
+  },
+  {
+   "en": "Refugees who settle in other countries often find themselves unable to continue on their previous career path due to a new set of employer standards or skills requirements.",
    "cn": "在其他国家定居的难民常常发现，由于一套新的雇主标准或技能要求，自己无法延续此前的职业道路。"
   },
   {
@@ -42,26 +46,34 @@
   },
   {
    "en": "The new program aims to aid refugees by offering \"important skills that will help them in the global economy,\" Evan Ryan, U.S. assistant secretary of state for educational and cultural affairs, said on a press call last week.",
-   "cn": "这项新计划旨在通过提供\"有助于他们在全球经济中立足的重要技能\"来援助难民，美国负责教育与文化事务的助理国务卿EvanRyan在上周的一次媒体通话中说。\"我们最不想做的就是无所作为，\"Coursera首席运营官LilaIbrahim补充道。"
+   "cn": "这项新计划旨在通过提供\"有助于他们在全球经济中立足的重要技能\"来援助难民，美国负责教育与文化事务的助理国务卿EvanRyan在上周的一次媒体通话中说。"
   },
   {
    "en": "\"What we don't want to do is not act,\" added Coursera chief operations officer Lila Ibrahim.",
+   "cn": "\"我们最不想做的就是无所作为，\"Coursera首席运营官LilaIbrahim补充道。"
+  },
+  {
+   "en": "The idea isn't without its kinks.",
    "cn": "这个想法并非毫无瑕疵。"
   },
   {
-   "en": "The idea isn't without its kinks. For one, starting on a new career path is not as simple as watching a few videos and obtaining an online certificate; even those looking to continue previous careers can't simply rely on an online lecture to get them up-to-date on standards, policies, and practices.",
-   "cn": "首先，开启新的职业道路并不像看几个视频、拿一张在线证书那么简单；即便是想延续此前职业的人，也无法单纯依靠一节在线讲座就让自己在标准、政策和实践上跟上最新步伐。其次，Coursera上的大多数课程都是英文的，尽管有计划增加翻译，但语言障碍仍可能是一大阻碍。"
+   "en": "For one, starting on a new career path is not as simple as watching a few videos and obtaining an online certificate; even those looking to continue previous careers can't simply rely on an online lecture to get them up-to-date on standards, policies, and practices.",
+   "cn": "首先，开启新的职业道路并不像看几个视频、拿一张在线证书那么简单；即便是想延续此前职业的人，也无法单纯依靠一节在线讲座就让自己在标准、政策和实践上跟上最新步伐。"
   },
   {
    "en": "For another, most of the classes on Coursera are in English, and though there are plans to add translations, language barriers can be a big obstacle.",
-   "cn": "此外，还有关于大规模开放在线课程（MOOC）本身价值的问题——无论对难民还是普通学习者而言。"
+   "cn": "其次，Coursera上的大多数课程都是英文的，尽管有计划增加翻译，但语言障碍仍可能是一大阻碍。"
   },
   {
    "en": "Then there are the questions over the value of massive open online courses (MOOCs) themselves·both for refugees and for average learners.",
+   "cn": "此外，还有关于大规模开放在线课程（MOOC）本身价值的问题——无论对难民还是普通学习者而言。"
+  },
+  {
+   "en": "But it's still early days and there are signs of hope.",
    "cn": "不过现在尚属早期，且已有希望的迹象。"
   },
   {
-   "en": "But it's still early days and there are signs of hope. In 2015, a joint study found 72% of people taking MOOCs saw career benefits afterward.",
+   "en": "In 2015, a joint study found 72% of people taking MOOCs saw career benefits afterward.",
    "cn": "2015年，一项联合研究发现，72%修读MOOC的人随后看到了职业上的收益。"
   }
  ]

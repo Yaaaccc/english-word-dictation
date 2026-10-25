@@ -13,8 +13,12 @@
    "cn": "这通常被称为“幽灵”堵车：密集的车流毫无明显原因地缓慢停滞下来。"
   },
   {
-   "en": "·When caught in such a traffic jam, it is common for drivers to assume that there must be an accident, or construction or something,· said Massachusetts Institute of Technology (MIT) computer science professor Berthold Horn. ·And then you drive and drive and drive... and there isn·t anything there.·",
-   "cn": "“陷入这种堵车时，司机通常会以为一定是出了事故，或是在施工，或是别的什么原因，”麻省理工学院（MIT）计算机科学教授伯托尔德∙霍恩说，“然后你开啊开啊开……却什么也没有。”"
+   "en": "·When caught in such a traffic jam, it is common for drivers to assume that there must be an accident, or construction or something,· said Massachusetts Institute of Technology (MIT) computer science professor Berthold Horn. ·And then you drive and drive and drive...",
+   "cn": "“陷入这种堵车时，司机通常会以为一定是出了事故，或是在施工，或是别的什么原因，”麻省理工学院（MIT）计算机科学教授伯托尔德∙霍恩说，“然后你开啊开啊开……却什么也没有。"
+  },
+  {
+   "en": "and there isn·t anything there.·",
+   "cn": "”"
   },
   {
    "en": "The exact cause of these phantom traffic jams has long remained a mystery.",
@@ -74,19 +78,23 @@
   },
   {
    "en": "New research by Horn and MIT postdoctoral associate Liang Wang, published in the journal IEEE Transactions on Intelligent Transportation Systems, shows how bilateral control can fight the problem.",
-   "cn": "霍恩与麻省理工学院博士后梁王（LiangWang）的新研究发表在《IEEE智能交通系统汇刊》上，展示了双边控制如何对抗这一问题。研究人员建立了真实交通状况的计算机模型，展示了典型的美国高速公路如何从使用双边控制的车辆中受益。"
+   "cn": "霍恩与麻省理工学院博士后梁王（LiangWang）的新研究发表在《IEEE智能交通系统汇刊》上，展示了双边控制如何对抗这一问题。"
   },
   {
    "en": "The researchers made computer models of real-world traffic conditions, showing how a typical U.S. freeway could benefit from cars using bilateral control.",
-   "cn": "霍恩说，当人类驾驶者未能减速、从而避免了紧跟（紧跟）前车时，这一点就会发挥作用。他补充道：“在今天的合理条件下，每条车道每小时可能通过1,800辆车（通行量）。"
+   "cn": "研究人员建立了真实交通状况的计算机模型，展示了典型的美国高速公路如何从使用双边控制的车辆中受益。"
   },
   {
    "en": "That would be in place when human drivers fail to slow down, thus avoiding tailgating (紧跟) the car in front, Horn said.",
-   "cn": "但有了双边控制，你几乎可以让其翻倍。"
+   "cn": "霍恩说，当人类驾驶者未能减速、从而避免了紧跟（紧跟）前车时，这一点就会发挥作用。"
   },
   {
-   "en": "“Under reasonable conditions today, you might get 1,800 cars per lane per hour throughput (the volume of traffic passing through),· he added. ·But with bilateral control you could almost double that.·",
-   "cn": "”"
+   "en": "“Under reasonable conditions today, you might get 1,800 cars per lane per hour throughput (the volume of traffic passing through),· he added.",
+   "cn": "他补充道：“在今天的合理条件下，每条车道每小时可能通过1,800辆车（通行量）。"
+  },
+  {
+   "en": "·But with bilateral control you could almost double that.·",
+   "cn": "但有了双边控制，你几乎可以让其翻倍。”"
   },
   {
    "en": "The main alternative to increasing traffic throughput per lane has been to build more lanes and more highways, and putting in new roads is very expensive, he said.",
@@ -106,11 +114,11 @@
   },
   {
    "en": "A video from the project shows a train of autonomous robots running along a track without bilateral control: they eventually back up in phantom jams.",
-   "cn": "该项目的一段视频显示，一列自主机器人在没有双边控制的情况下沿轨道运行：它们最终在幽灵堵车中倒退堵塞。但霍恩说，当机器人切换到双边控制（通过闪烁室内灯光），每个自主机器人都试图让自己保持在前后机器人正中间；"
+   "cn": "该项目的一段视频显示，一列自主机器人在没有双边控制的情况下沿轨道运行：它们最终在幽灵堵车中倒退堵塞。"
   },
   {
    "en": "But when the robots are switched over to bilateral control (by flashing the lights in the room), each autonomous robot tries to keep itself halfway between the robot in front and the one behind; the phantom jams disappear as a result, Horn said.",
-   "cn": "结果幽灵堵车消失了。"
+   "cn": "但霍恩说，当机器人切换到双边控制（通过闪烁室内灯光），每个自主机器人都试图让自己保持在前后机器人正中间；结果幽灵堵车消失了。"
   },
   {
    "en": "Since starting his research on phantom traffic jams, Horn has learned that schools of fish and flocks of birds and bats use similar spacing strategies to avoid hitting each other while swimming or flying in densely packed groups.",
@@ -134,11 +142,11 @@
   },
   {
    "en": "But until those systems become standard, human drivers can help reduce phantom traffic jams simply by not following the car in front so closely.",
-   "cn": "但在这些系统成为标准之前，人类驾驶者只需不与前车跟得那么近，就能帮助减少幽灵堵车。正如霍恩所言：“紧跟你前面的车绝对没有任何好处。"
+   "cn": "但在这些系统成为标准之前，人类驾驶者只需不与前车跟得那么近，就能帮助减少幽灵堵车。"
   },
   {
    "en": "As Horn argues, ·There·s absolutely no advantage of tailgating the car in front of you.·",
-   "cn": "”"
+   "cn": "正如霍恩所言：“紧跟你前面的车绝对没有任何好处。”"
   }
  ]
 }

@@ -21,8 +21,16 @@
    "cn": "我就读于华盛顿特区一所备受尊敬的私立四年制大学，其年度学费高达44,046美元（不含食宿）。我每年获得超过57,000美元的资助。"
   },
   {
-   "en": "As a student from a family that is struggling to make ends meet, my financial aid package is a combination of federal grants and federal work study, university merit scholarships and financial aid awards, and about $8,000 yearly in federally subsidized and unsubsidized loans. On paper, my expenses and my financial aid just about even out. Off paper, they don't.",
-   "cn": "作为一个家境勉强度日的家庭的学生，我的资助方案由联邦助学金、联邦工读计划、校级优秀奖学金与助学金，以及每年约8,000美元的联邦补贴与非补贴贷款组成。账面之上，我的开支与资助大致相抵；账面之下，则并非如此。"
+   "en": "As a student from a family that is struggling to make ends meet, my financial aid package is a combination of federal grants and federal work study, university merit scholarships and financial aid awards, and about $8,000 yearly in federally subsidized and unsubsidized loans.",
+   "cn": "作为一个家境勉强度日的家庭的学生，我的资助方案由联邦助学金、联邦工读计划、校级优秀奖学金与助学金，以及每年约8,000美元的联邦补贴与非补贴贷款组成。"
+  },
+  {
+   "en": "On paper, my expenses and my financial aid just about even out.",
+   "cn": "账面之上，我的开支与资助大致相抵；"
+  },
+  {
+   "en": "Off paper, they don't.",
+   "cn": "账面之下，则并非如此。"
   },
   {
    "en": "Universities today are in the business of making money, and mine is no exception.",
@@ -177,12 +185,20 @@
    "cn": "他们不应盲目支付学生账单或额外费用。"
   },
   {
-   "en": "If something does not look right, ask about it. If it still doesn't look right, negotiate it.",
+   "en": "If something does not look right, ask about it.",
    "cn": "如果某笔收费看起来不对，就去询问；"
   },
   {
-   "en": "In cases where parents are working multiple jobs, are less knowledgeable about college bureaucracies, have limited English language skills, or are not contributing financially to their child's education, the burden of self-advocacy will fall on the student. I understand the difficulty, and the embarrassment. But it is necessary.",
-   "cn": "如果仍觉不对，就去协商。在父母身兼多份工作、对大学官僚体制了解较少、英语能力有限，或未在财务上支持孩子学业的情况下，自我维权的重担便会落在学生身上。我理解这种困难与尴尬，但这是必要的。"
+   "en": "If it still doesn't look right, negotiate it.",
+   "cn": "如果仍觉不对，就去协商。"
+  },
+  {
+   "en": "In cases where parents are working multiple jobs, are less knowledgeable about college bureaucracies, have limited English language skills, or are not contributing financially to their child's education, the burden of self-advocacy will fall on the student.",
+   "cn": "在父母身兼多份工作、对大学官僚体制了解较少、英语能力有限，或未在财务上支持孩子学业的情况下，自我维权的重担便会落在学生身上。"
+  },
+  {
+   "en": "I understand the difficulty, and the embarrassment. But it is necessary.",
+   "cn": "我理解这种困难与尴尬，但这是必要的。"
   },
   {
    "en": "In the grand scheme of things, however, colleges also must come to understand that the hidden fees they ask for may prove unmanageable for the very kinds of low-income or first-generation students they are trying desperately to attract.",

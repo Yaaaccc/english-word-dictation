@@ -38,22 +38,26 @@
   },
   {
    "en": "Environmental campaigners are struggling to understand why nations blessed with clean tap water grow only fonder of the bottle.",
-   "cn": "环保活动人士正努力理解，为何那些拥有洁净自来水的国家反而越来越钟爱瓶子。\"这让我非常惊讶，\"绿色和平组织政治顾问、反海洋塑料活动人士萨姆∙切坦-沃尔什说。"
+   "cn": "环保活动人士正努力理解，为何那些拥有洁净自来水的国家反而越来越钟爱瓶子。"
   },
   {
    "en": "\"It's very surprising to me,\" says Sam Chetan-Walsh, a political adviser at Greenpeace and campaigner against ocean plastic.",
-   "cn": "\"公众意识从未如此之高，但这一信息尚未完全触达所有需要听到它的人。"
+   "cn": "\"这让我非常惊讶，\"绿色和平组织政治顾问、反海洋塑料活动人士萨姆∙切坦-沃尔什说。"
   },
   {
    "en": "\"Public awareness has never been higher, but the message is not quite reaching all the people it needs to.\" Where it is heard, the message is causing concern.",
-   "cn": "\"在人们听到之处，这一信息正引发担忧。塑料水瓶的制造与运输需要海量化石燃料。"
+   "cn": "\"公众意识从未如此之高，但这一信息尚未完全触达所有需要听到它的人。\"在人们听到之处，这一信息正引发担忧。"
   },
   {
    "en": "Plastic water bottles require oceans of fossil fuels to make and ship.",
+   "cn": "塑料水瓶的制造与运输需要海量化石燃料。"
+  },
+  {
+   "en": "Additionally, single-use plastics of all types are polluting our cities and seas.",
    "cn": "此外，各类一次性塑料正在污染我们的城市与海洋。"
   },
   {
-   "en": "Additionally, single-use plastics of all types are polluting our cities and seas. Numerous documentaries have shown how plastic is ultimately killing wildlife.",
+   "en": "Numerous documentaries have shown how plastic is ultimately killing wildlife.",
    "cn": "众多纪录片已展示塑料最终如何杀死野生动物。"
   },
   {
@@ -142,15 +146,19 @@
   },
   {
    "en": "Last month one chief executive of a water bottling company said that bans would \"result in greater consumption of sugary drinks, adding to all the health dangers of obesity, diabetes and tooth decay\".",
-   "cn": "上个月，一家瓶装水公司的首席执行官说，禁令将\"导致含糖饮料消费增加，加剧肥胖、糖尿病和蛀牙等种种健康危害\"。最大瓶装水制造商协会的总经理金瓦拉∙凯里援引了一项调查，其中人们被问及若没有瓶装水会怎么做。"
+   "cn": "上个月，一家瓶装水公司的首席执行官说，禁令将\"导致含糖饮料消费增加，加剧肥胖、糖尿病和蛀牙等种种健康危害\"。"
   },
   {
    "en": "Kinvara Carey, general manager of an association of the biggest bottled water manufacturers, cites a survey in which people were asked what they would do if bottled water were not available.",
-   "cn": "\"44%的人会买另一种并不健康的饮料，14%的人将忍渴不喝，4.5%的人说他们会去找饮水机。\"她说。\"选择很重要。"
+   "cn": "最大瓶装水制造商协会的总经理金瓦拉∙凯里援引了一项调查，其中人们被问及若没有瓶装水会怎么做。"
   },
   {
-   "en": "\"Forty-four per cent would buy another drink which is not great, 14% would go without, and 4.5% said they would find a fountain.\" she says. \"The choice is important.\"",
-   "cn": "\""
+   "en": "\"Forty-four per cent would buy another drink which is not great, 14% would go without, and 4.5% said they would find a fountain.\" she says.",
+   "cn": "\"44%的人会买另一种并不健康的饮料，14%的人将忍渴不喝，4.5%的人说他们会去找饮水机。\"她说。"
+  },
+  {
+   "en": "\"The choice is important.\"",
+   "cn": "\"选择很重要。\""
   },
   {
    "en": "What if fountains were more numerous, and tap water more clearly available in cafes, restaurants and elsewhere?",
@@ -178,11 +186,15 @@
   },
   {
    "en": "Even if bottled water sales are growing slightly more slowly, the industry is racing to adapt to changing concerns and tastes.",
-   "cn": "即便瓶装水销售增长略为放缓，该行业仍在竞相适应不断变化的关切与口味。风味水正蓬勃发展：根据最新分析数据，气泡类风味水的销售额猛增20%。"
+   "cn": "即便瓶装水销售增长略为放缓，该行业仍在竞相适应不断变化的关切与口味。"
   },
   {
-   "en": "Flavoured water is booming: sales of the sparkling variety shot up by 20%, according to the latest analyst data, Meanwhile, international water brands, as well as a range of new companies, are selling high-end reusable bottles. And if you must fill them with tap water, why not add flavouring?",
-   "cn": "与此同时，国际水品牌以及一系列新公司正在销售高端可重复使用的水瓶。而如果你非得用自来水灌装它们，何不加点风味呢？"
+   "en": "Flavoured water is booming: sales of the sparkling variety shot up by 20%, according to the latest analyst data, Meanwhile, international water brands, as well as a range of new companies, are selling high-end reusable bottles.",
+   "cn": "风味水正蓬勃发展：根据最新分析数据，气泡类风味水的销售额猛增20%。与此同时，国际水品牌以及一系列新公司正在销售高端可重复使用的水瓶。"
+  },
+  {
+   "en": "And if you must fill them with tap water, why not add flavouring?",
+   "cn": "而如果你非得用自来水灌装它们，何不加点风味呢？"
   },
   {
    "en": "As the owner of multiple sugary drink brands and bottled water, PepsiCo is facing challenges on health and environmental fronts.",
@@ -210,11 +222,11 @@
   },
   {
    "en": "As is so often the case, clever marketing can beat reason; awareness is rarely enough.",
-   "cn": "正如常见的情况，巧妙的营销能战胜理性；"
+   "cn": "正如常见的情况，巧妙的营销能战胜理性；光有意识远远不够。"
   },
   {
    "en": "\"There is always this kind of slip between concern, intent and changed behaviour,\" says Giles Quick an analyst of bottled water.",
-   "cn": "光有意识远远不够。\"在关切、意图与改变的行为之间，总存在这种落差，\"瓶装水分析师贾尔斯∙奎克说。"
+   "cn": "\"在关切、意图与改变的行为之间，总存在这种落差，\"瓶装水分析师贾尔斯∙奎克说。"
   },
   {
    "en": "\"The best example is five a day, the recommendation to have at least five portions of fruit and vegetables every day.",
