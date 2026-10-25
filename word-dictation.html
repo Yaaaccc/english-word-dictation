@@ -2348,7 +2348,11 @@ button.small{ padding:6px 12px; font-size:12.5px; }
   var EXAM_DICT = null, examDictPromise = null;
   function loadExamDict() {
     if (!examDictPromise) {
-      examDictPromise = fetch("exam-examples.json", { cache: "force-cache" })
+      /* 2026-10-25：此处原为 { cache: "force-cache" }，已移除。
+         force-cache 在缓存过期后仍直接用旧副本、不向服务器校验；而 exam-examples.json 每天随抓取更新，
+         会导致新真题例句进不来（本地 server 发 no-store 所以本地永远测不出）。用默认策略：10 分钟内用缓存，
+         过期后自动 304 校验，几乎不耗流量。 */
+      examDictPromise = fetch("exam-examples.json")
         .then(function (r) { return r.ok ? r.json() : {}; })
         .then(function (j) { EXAM_DICT = j || {}; return EXAM_DICT; })
         .catch(function () { EXAM_DICT = {}; return EXAM_DICT; });
@@ -2926,7 +2930,7 @@ button.small{ padding:6px 12px; font-size:12.5px; }
   var quizPoolPromise = null;
   function loadQuizPool() {
     if (!quizPoolPromise) {
-      quizPoolPromise = fetch("quiz-pool.json", { cache: "force-cache" })
+      quizPoolPromise = fetch("quiz-pool.json")
         .then(function (r) { return r.ok ? r.json() : {}; })
         .catch(function () { return {}; });
     }
@@ -4251,7 +4255,7 @@ button.small{ padding:6px 12px; font-size:12.5px; }
   function loadExampleDict() {
     if (EXAMPLE_DICT) return Promise.resolve(EXAMPLE_DICT);
     if (exampleDictPromise) return exampleDictPromise;
-    exampleDictPromise = fetch("example-dict.json", { cache: "force-cache" })
+    exampleDictPromise = fetch("example-dict.json")
       .then(function (r) { return r.ok ? r.json() : {}; })
       .then(function (d) {
         EXAMPLE_DICT = (d && typeof d === "object") ? d : {};
@@ -5206,7 +5210,7 @@ button.small{ padding:6px 12px; font-size:12.5px; }
   function wpdfLoadDict() {
     if (WPDF_DICT) return Promise.resolve(WPDF_DICT);
     if (wpdfDictPromise) return wpdfDictPromise;
-    wpdfDictPromise = fetch("example-dict.json", { cache: "force-cache" })
+    wpdfDictPromise = fetch("example-dict.json")
       .then(function (r) { return r.ok ? r.json() : {}; })
       .then(function (d) {
         WPDF_DICT = (d && typeof d === "object") ? d : {};
