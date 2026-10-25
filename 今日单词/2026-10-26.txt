@@ -1,50 +1,50 @@
-reverse|v. 彻底转变；adj. 反向的；v. 撤销；n. 相反；v. 使颠倒；v. 倒车；n. 背面；n. 倒档；adj. 背面的|He reversed the coin and examined it carefully.|他把硬币倒过来，仔细检查。||
-missing|adj. 缺少的；adj. 失踪的|Her daughter has been missing for 20 years.|她的女儿已经走失20年了。||
-corresponding|adj. 相应的，由此引起的|Company losses were 40 percent worse than in the corresponding period last year.|与去年同期相比，公司亏损增加了40%。||
-interrupt|v. 打断；v. 打扰；v. 遮住|Would you mind not interrupting all the time?|请你别老是插嘴好吗？||
-token|n. 象征；n. 代币；adj. 象征性的|As a token of goodwill, I'm going to write another letter.|为了证明我的善意，我打算再写一封信。||
-projector|n. 放映机，投影仪|We need a projector for the meeting.|会议中我们要用到放映机。||
-implement|v. 贯彻，实行|A new work programme for young people will be implemented .|一项针对年轻人的新工作项目将被执行。||
-resignation|n. 辞职；n. 顺从；n. 辞职信|He handed over his resignation letter last Friday.|他上周五递上了自己的辞呈。||
-classification|n. 分类；n. 类别|The classification of the new species is still in debate due to their strange features.|新物种外形奇特，故对他们的分类仍在讨论中。||
-minority|n. 少数；n. 少数民族|Only a small minority of students are interested in politics these days.|目前，只有极少数同学对政治感兴趣。||
-indication|n. 表明，标示，象征|Being unable to walk in a straight line is a clear indication of getting drunk.|无法走直线是醉酒的明显迹象。||
-utilize|v. 利用；v. 使用|They were the first to utilize fire as a kind of weapon.|他们是第一个把火用作武器的。||
-inevitable|adj. 不可避免的|Failure was an inevitable consequence of the decision.|这个决定不可避免地会导致失败。||
-profit|n. 利润；v. 获利；n. 益处；n. 利益；v. 有益于|The company made a healthy profit on the deal.|公司在这笔生意中获利颇丰。||
-editorial|n. 社论；adj. 编辑的，主编的|The paper follows an editorial policy that puts great emphasis on foreign news.|本报遵循非常重视外国新闻的编辑政策。||
-segment|n. 部分；n. 片段|She cleaned a small segment of the painting.|她擦干净了这幅画的一小部分。||
-prominent|adj. 杰出的；adj. 重要的；adj. 显眼的；adj. 突出的|As the leader, he played a prominent part in the team's victory.|作为队长，他在小组的胜利中发挥了重要作用。||
-faint|adj. 微弱的；n. 昏厥；v. 昏厥；adj. 可能性不大的；adj. 头晕目眩的|I skipped breakfast, and now I am beginning to feel a little faint .|我没吃早饭，现在开始觉得有些眩晕了。||
-ethnic|adj. 种族的；adj. 少数民族的|Pupils in this school are from different ethnic groups.|这所学校的小学生来自不同的少数民族。||
-pit|n. 洞，坑；v. 使竞争，使经受考验；n. 矿井；n. 果核|We dug a shallow pit and put the seeds in it.|我们挖了一个浅坑，把种子撒在里面。||
-heading|n. 标题|The heading of the article needs to be modified.|这篇文章的标题需要修改。||
-extinguish|v. 熄灭，扑灭|Firefighters tried to extinguish the flames.|消防员奋力救火。||
-faculty|n. 全体教职人员；n. 能力；n. 天赋|Both faculty and students oppose the policy.|全体教职工和学生都反对这一政策。||
-damn|v. 谴责；adj. 可恶的；adj. 完全的；v. 该死；adv. 该死；adv. 极其|His play was damned by the critics and closed after three weeks.|他的剧遭到了批评家指责，三周以后就停演了。||
-clap|n. 爆裂声；v. 鼓掌，拍手；n. 鼓掌；n. 轻拍；v. 轻拍某人|She clapped her hands in delight.|她高兴地拍手。||
-inflation|n. 通货膨胀；n. 充气|The new government's prime task is to reduce the level of inflation .|新政府的主要任务是减低通货膨胀的水平。||
-reference|n. 参考；n. 推荐信；n. 提及；n. 引文；v. 提及；v. 参考|There is no further reference to him in her diary.|她的日记中没有进一步提到他。||
-shrink|v. 缩小；v. 收缩；v. 退缩；v. 起皱纹|The tumour had shrunk to the size of a pea.|肿瘤已缩小到豌豆大小。||
-container|n. 容器；n. 集装箱|They stored food in a container .|他们把食物储藏在一个容器里。||
-slogan|n. 广告语；n. 标语|The company has dropped its original advertising slogan and is trying to come up with a new one.|这家公司已放弃了最初的广告口号，现正努力想出一句新口号。||
-imaginative|adj. 富于想象力的；adj. 有独创性的|He is an imaginative writer who has written some great science fiction.|他是一位富有想象力的作家，他写过一些优秀的科幻小说。||
-orientation|n. 迎新会；n. 取向；n. 方向|Companies have been forced into a greater orientation to the market.|各公司不得不作出转变，更加面向市场。||
-inclusive|adj. 全部包含在内的；adj. 范围广泛的|The rent is inclusive of water and heating.|租金包括水费和暖气费。||
-span|n. 持续时间；v. 横跨；n. 跨度；n. 范围；n. 宽度；v. 持续；v. 包括|Modern medicine has increased man's life span .|现代医学延长了人的寿命。||
-prior|adj. 先前的；adj. 优先的；adj. 在前面的|I have to catch up with my colleagues because I have no prior experience.|我得赶上我的同事，因为我没有先前的经验。||
-architect|n. 建筑师；n. 缔造者|The author of the guidebook is an architect by profession.|该手册的作者任职建筑师。||
-competitive|adj. 有竞争力的；adj. 竞争的|Nobody can entirely keep away from this competitive world.|没有人能够完全远离这个竞争社会。||
-cabin|n. 舱室；n. 小木屋|There is a bush of bramble in front of the cabin .|小木屋前有一丛黑莓。||
-coverage|n. 覆盖范围；n. 新闻报道|There was extensive TV coverage of the wedding.|这场婚礼被电视广泛地报道了一番。||
-strategic|adj. 战略的|The United Nations Peacekeeping Forces made a strategic withdrawal.|联合国维和部队作出了战略性撤退。||
-historic|adj. 历史上重大的；adj. 历史的|This battle is of historic meaning.|这一战具有历史意义。||
-enable|v. 使可能，使能够|The loan enabled Jan to buy the car.|这笔贷款使简有能力买下这辆车。||
-dense|adj. 密集的；adj. 浓密的；adj. 复杂难懂的|The forest was quite dense at that time.|那时，森林还很茂密。||
-tackle|v. 处理，解决|Nothing is being done to tackle the problem.|目前并未采取任何行动处理这个问题。||
-prevention|n. 预防；n. 防止|For help on crime prevention , call our 24-hour advice line.|若想获得预防犯罪方面的帮助，请拨打我们的24小时咨询热线。||
-investment|n. 投资；n. 投入；n. 投资物|The billionaire made a huge investment in the startup, believing it will repay him in the future.|这位亿万富翁向这家创业公司投资了一笔巨款，相信将来会有所回报。||
-afford|v. 负担得起；v. 支付得起；v. 提供|None of them could afford £50 for a ticket.|他们中没有哪个拿得出50英镑买一张票。||
-defeat|n. 失利；v. 挫败；n. 击败；v. 打败|He defeated the champion in three sets.|他三盘击败了冠军。||
-implication|n. 可能的影响；n. 含义，暗指|The team failed to consider the implications of their actions.|这个团队没有考虑到他们的行动产生的影响。||
-influence|v. 影响；n. 影响；n. 势力；n. 有影响的人或事物；v. 对…起作用|What exactly is the influence of television on children?|电视对儿童究竟有什么影响？||
+reverse|v. 彻底转变；adj. 反向的；v. 撤销；n. 相反；v. 使颠倒；v. 倒车；n. 背面；n. 倒档；adj. 背面的|He reversed the coin and examined it carefully.|他把硬币倒过来，仔细检查。||【辨析】reserve    v.预订；diverse    adj.不同的，各式各样的；reversible adj.可逆的，可恢复原状的，可医治的；revise     v.改变，修正；reveal     v.揭示，透露；converse   v.谈话，交谈 ｜ 【谐音】河死(reverse)"：河流如果反转倒流，就会干涸。 ｜ 【变形】现在分词：reversing
+missing|adj. 缺少的；adj. 失踪的|Her daughter has been missing for 20 years.|她的女儿已经走失20年了。||【辨析】mission   n.（尤指赴他国的）使命，重要任务；missile   n.导弹，飞弹；miss      v.未击中，未抓住；admission n.承认，供认；mess      n.肮脏，杂乱；dismiss   v.开除，解雇 ｜ 【谐音】明星(missing)"：知名人士失踪了。
+corresponding|adj. 相应的，由此引起的|Company losses were 40 percent worse than in the corresponding period last year.|与去年同期相比，公司亏损增加了40%。||【辨析】correspondent  n.记者，通讯员；correspondence n.信件，信函；correspond     v.类似于，相当于 ｜ 【谐音】考试绑定你了(corresponding)"：保持联系，成绩就会相应提高。
+interrupt|v. 打断；v. 打扰；v. 遮住|Would you mind not interrupting all the time?|请你别老是插嘴好吗？||【辨析】interruption n.打断，插嘴；interpret    v.解释，说明；interfere    v.干涉，干扰；internal     adj.内部的，体内的；corrupt      adj.腐败的，贪污的；interference n.干涉，干预；erupt        v.喷发；disrupt      v.中断，扰乱 ｜ 【谐音】因特(inter)饶普(rupt)"：因特网上有人rap唱得特别好，不要打断他们。
+token|n. 象征；n. 代币；adj. 象征性的|As a token of goodwill, I'm going to write another letter.|为了证明我的善意，我打算再写一封信。||【谐音】偷啃(token)"：乔布斯的苹果被偷啃一口，成为标志、象征。
+projector|n. 放映机，投影仪|We need a projector for the meeting.|会议中我们要用到放映机。||【辨析】projection n.估算，预测；processor  n.（计算机的）处理器（机）；objection  n.反对的理由 ｜ 【谐音】破借给他(projector)"：这个破投影仪借给他了。
+implement|v. 贯彻，实行|A new work programme for young people will be implemented .|一项针对年轻人的新工作项目将被执行。||【辨析】compliment     n.赞扬，称赞；implementation n.实施，执行；implicit       adj.含蓄的，未言明的；instrument     n.器械；imply          v.暗示，暗指 ｜ 【谐音】因为破了门(implement)"：需要工具实施修补。
+resignation|n. 辞职；n. 顺从；n. 辞职信|He handed over his resignation letter last Friday.|他上周五递上了自己的辞呈。||【辨析】designation  n.指定，委任；registration n.登记，注册，挂号；designate    v.把……定名为，把……描述为；resign       v.辞（职），放弃（工作或职位） ｜ 【谐音】瑞塞给那信(resignation)"：那是一封辞呈，表示辞职或顺从。
+classification|n. 分类；n. 类别|The classification of the new species is still in debate due to their strange features.|新物种外形奇特，故对他们的分类仍在讨论中。||【辨析】clarification n.澄清，阐明；specification n.规格，规范，明细单，说明书；qualification n.（通过考试或学习课程取得的）资格，学历；classified    adj.分类的，归类的；classical     adj.经典的，传统的；classify      v.把……分类，把……分级 ｜ 【谐音】class分开上(classification)"：课程分类，不同等级。
+minority|n. 少数；n. 少数民族|Only a small minority of students are interested in politics these days.|目前，只有极少数同学对政治感兴趣。||【辨析】majority n.大多数；minor    adj.较小的，次要的，轻微的；military adj.军事的，军队的 ｜ 【变形】复数形式：minorities
+indication|n. 表明，标示，象征|Being unable to walk in a straight line is a clear indication of getting drunk.|无法走直线是醉酒的明显迹象。||【辨析】dedication n.献身，奉献；indicate   v.表明，标示；indicator  n.标志，迹象；indicative adj.指示的，表明的，象征的；dictation  n.口述，听写；dictator   n.独裁者
+utilize|v. 利用；v. 使用|They were the first to utilize fire as a kind of weapon.|他们是第一个把火用作武器的。||【辨析】utility     n.（煤气、水、电等的）公共服务，公用事业；futile      adj.徒劳的，无用的；utilization n.利用，使用 (=utilisation) ｜ 【谐音】用它来做(utilize)"：利用某物来完成任务。 ｜ 【变形】现在分词：utilizing
+inevitable|adj. 不可避免的|Failure was an inevitable consequence of the decision.|这个决定不可避免地会导致失败。||【辨析】incredible adj.不可思议的，难以置信的
+profit|n. 利润；v. 获利；n. 益处；n. 利益；v. 有益于|The company made a healthy profit on the deal.|公司在这笔生意中获利颇丰。||【辨析】profile    n.（人头部的）侧面（像），侧影；profitable adj.盈利的，有利可图的；benefit    n.好处，益处 ｜ 【谐音】颇肥的(profit)"：指利润或收益。
+editorial|n. 社论；adj. 编辑的，主编的|The paper follows an editorial policy that puts great emphasis on foreign news.|本报遵循非常重视外国新闻的编辑政策。||【辨析】editor     n.编辑；auditorium n.观众席；periodical n.（尤指学术）期刊；edit       v.编辑，校订；edition    n.版本，版次
+segment|n. 部分；n. 片段|She cleaned a small segment of the painting.|她擦干净了这幅画的一小部分。||【辨析】augment   v.增加，增大；sentiment n.观点，看法，情绪；fragment  n.碎片；segregate v.（尤指因种族、性别、宗教不同而）使隔离，使分开；stagnant  adj.（经济、社会等）停滞不前的，不景气的；sector    n.区域，部分；section   n.段，部分 ｜ 【谐音】三个馒头(segment)"：一个馒头切割成三个部分。
+prominent|adj. 杰出的；adj. 重要的；adj. 显眼的；adj. 突出的|As the leader, he played a prominent part in the team's victory.|作为队长，他在小组的胜利中发挥了重要作用。||【辨析】permanent   adj.永久的，永恒的；eminent     adj.（在某领域或职业中）卓越的，出众的；imminent    adj.即将发生的，临近的；dominant    adj.占支配地位的，占优势的；predominant adj.显着的，明显的
+faint|adj. 微弱的；n. 昏厥；v. 昏厥；adj. 可能性不大的；adj. 头晕目眩的|I skipped breakfast, and now I am beginning to feel a little faint .|我没吃早饭，现在开始觉得有些眩晕了。||【辨析】saint  n.（基督教追封的）圣者，圣徒；faith  n.信任，信心，信念；fate   n.命运；flat   adj.平的，水平的；infant n.婴儿，幼儿
+ethnic|adj. 种族的；adj. 少数民族的|Pupils in this school are from different ethnic groups.|这所学校的小学生来自不同的少数民族。||【辨析】ethic  n.行为准则，道德规范，伦理标准；ethics n.行为准则，道德原则
+pit|n. 洞，坑；v. 使竞争，使经受考验；n. 矿井；n. 果核|We dug a shallow pit and put the seeds in it.|我们挖了一个浅坑，把种子撒在里面。||【辨析】pot   n.（烹饪所用圆而深的）锅；pat   v.轻拍（以示喜爱、赞同或安慰）；pin   n.（尤指做衣服时固定布料用的）别针，大头针；pitch n.<英>体育场地，球场；spit  v.啐唾沫（常表示愤怒或鄙视）；pinch v.捏，拧，掐 ｜ 【谐音】劈它(pit)"：雷劈下来，形成一个凹陷。 ｜ 【变形】过去式：pitted；过去分词：pitted；现在分词：pitting
+heading|n. 标题|The heading of the article needs to be modified.|这篇文章的标题需要修改。||【辨析】hearing  n.听力，听觉；head     n.头；headline n.（报纸的）标题，大字标题；headache n.头痛 ｜ 【谐音】嘿顶(heading)"：这个标题必须顶，是我们前进的朝向。表示标题或方向。
+extinguish|v. 熄灭，扑灭|Firefighters tried to extinguish the flames.|消防员奋力救火。||【辨析】distinguish v.使有别于；extinction  n.灭绝，消亡；extinct     adj.灭绝的 ｜ 【谐音】一起听鬼故事(extinguish)"：听鬼故事前要熄灭蜡烛。
+faculty|n. 全体教职人员；n. 能力；n. 天赋|Both faculty and students oppose the policy.|全体教职工和学生都反对这一政策。||【辨析】faulty   adj.有故障的，有缺陷的；facility n.设施，设备；factual  adj.真实的；fault    n.错误；default  n.不履行，违约；fatal    adj.致命的 ｜ 【谐音】发课题(faculty)"：院系给全体教职员发课题，来考验大家的才能。 ｜ 【变形】复数形式：faculties
+damn|v. 谴责；adj. 可恶的；adj. 完全的；v. 该死；adv. 该死；adv. 极其|His play was damned by the critics and closed after three weeks.|他的剧遭到了批评家指责，三周以后就停演了。||【辨析】dawn   v.变得明朗，开始清楚；dam    n.堤，坝；damp   adj.潮湿的；dim    adj.暗淡的，昏暗的；dome   n.穹顶，圆屋顶；dumb   adj.哑的，不能说话的；damage n.（有形的）损坏，损失 ｜ 【谐音】弹幕(damn)"：弹幕上充满了可恶的咒骂。
+clap|n. 爆裂声；v. 鼓掌，拍手；n. 鼓掌；n. 轻拍；v. 轻拍某人|She clapped her hands in delight.|她高兴地拍手。||【辨析】clay n.黏土，陶土；lap  n.（人坐下时的）大腿面，膝上；tap  v.轻拍，轻扣，轻敲；slip v.滑倒，失足 ｜ 【谐音】快来拍(c-la-p)"：拍手鼓掌。 ｜ 【变形】过去式：clapped；过去分词：clapped；现在分词：clapping
+inflation|n. 通货膨胀；n. 充气|The new government's prime task is to reduce the level of inflation .|新政府的主要任务是减低通货膨胀的水平。||【辨析】infection  n.传染病；inflate    v.（使）充气，（使）膨胀；reflection n.（光、热或声音的）反射 ｜ 【谐音】因腹勒绳(inflation)"：腹部勒绳使其显得膨胀。
+reference|n. 参考；n. 推荐信；n. 提及；n. 引文；v. 提及；v. 参考|There is no further reference to him in her diary.|她的日记中没有进一步提到他。||【辨析】inference    n.推断，推理；preference   n.偏爱，偏好；conference   n.（大型、正式的）会议，研讨会；interference n.干涉，干预；refer        v.提到，谈及（refer to） ｜ 【谐音】越发晕死(reference)"：看着这些参考书涉及到的东西越发晕死了。
+shrink|v. 缩小；v. 收缩；v. 退缩；v. 起皱纹|The tumour had shrunk to the size of a pea.|肿瘤已缩小到豌豆大小。||【辨析】sink  v.下沉，沉没；shrug v.（表示不知道或不感兴趣）耸（肩） ｜ 【谐音】湿润(shrink)"：湿润的东西容易收缩、缩水。 ｜ 【变形】过去式：shrank；过去分词：shrunk
+container|n. 容器；n. 集装箱|They stored food in a container .|他们把食物储藏在一个容器里。||【辨析】contain     v.包含，容纳；containment n.控制，抑制；continent   n.洲，大陆；content     adj.满足的，满意的，甘愿的 ｜ 【谐音】看他那儿(container)"：看他那儿有个容器（如集装箱）。
+slogan|n. 广告语；n. 标语|The company has dropped its original advertising slogan and is trying to come up with a new one.|这家公司已放弃了最初的广告口号，现正努力想出一句新口号。||【辨析】log n.原木，圆材 ｜ 【谐音】是老梗(slogan)"：这个标语是老梗了。
+imaginative|adj. 富于想象力的；adj. 有独创性的|He is an imaginative writer who has written some great science fiction.|他是一位富有想象力的作家，他写过一些优秀的科幻小说。||【辨析】imagination n.想像力，想像；imaginary   adj.想象的，虚构的；imaging     n.成像；immigration n.移民（入境）
+orientation|n. 迎新会；n. 取向；n. 方向|Companies have been forced into a greater orientation to the market.|各公司不得不作出转变，更加面向市场。||【辨析】oriental  adj.东方（尤指中国和日本）的，东方人的；orient    v.朝向，面对，使适合；originate v.起源，产生 ｜ 【谐音】偶晕忒深(orientation)"：感到迷失时需要找方向。
+inclusive|adj. 全部包含在内的；adj. 范围广泛的|The rent is inclusive of water and heating.|租金包括水费和暖气费。||【辨析】inclusion  n.包含，包括；exclusive  adj.独有的，专用的；conclusive adj.结论性的，毫无疑问的；conclusion n.结论，推论 ｜ 【谐音】赢可路师傅(inclusive)"：师傅请客吃饭，包括全部费用。
+span|n. 持续时间；v. 横跨；n. 跨度；n. 范围；n. 宽度；v. 持续；v. 包括|Modern medicine has increased man's life span .|现代医学延长了人的寿命。||【辨析】scan   vt.细看，审视；spin   v.（使）快速旋转；spine  n.脊髓，脊柱；spray  n.喷雾液体，喷剂；snap   v.（咔嚓一声）断裂，折断；sponge n.（擦洗用的天然或人造的）海绵块；splash v.（液体）稀里哗啦地溅落，飞溅；sprawl v.伸开四肢坐（或躺） ｜ 【谐音】四班(span)"：坐四班车，是因为有一定的间距。 ｜ 【变形】过去式：spanned；过去分词：spanned；现在分词：spanning
+prior|adj. 先前的；adj. 优先的；adj. 在前面的|I have to catch up with my colleagues because I have no prior experience.|我得赶上我的同事，因为我没有先前的经验。||【辨析】prime    adj.主要的，首要的；priority n.优先事项，最重要的事；minor    adj.较小的，次要的，轻微的；primary  adj.主要的，首要的；inferior adj.次的，较差的；previous adj.以前的，先前的
+architect|n. 建筑师；n. 缔造者|The author of the guidebook is an architect by profession.|该手册的作者任职建筑师。||【辨析】architecture n.建筑设计，建筑风格；ancient      adj.古代的，远古的 ｜ 【谐音】阿k太哥特(architect)"：联想到哥特建筑的建筑师、设计师。
+competitive|adj. 有竞争力的；adj. 竞争的|Nobody can entirely keep away from this competitive world.|没有人能够完全远离这个竞争社会。||【辨析】comparative n.（形容词或副词的）比较级；competition n.竞争；compatible  adj.兼容的；compete     v.竞争，对抗；competence  n.能力，胜任；competent   adj.能干的，能胜任的；complete    adj.完全的，彻底的；complicated adj.复杂的，难处理的；component   n.组成部份，成分，部件；compare     v.比较，对比；compose     v.组成，构成；comparable  adj.可比的，可比较的 ｜ 【谐音】肯派他踢(competitive)"：派人来跟我竞争。
+cabin|n. 舱室；n. 小木屋|There is a bush of bramble in front of the cabin .|小木屋前有一丛黑莓。||【辨析】cab     n.驾驶室；cabinet n.内阁；cable   n.电缆；carbon  n.碳；cave    n.洞穴，山洞 ｜ 【谐音】看病(cabin)"：在小屋里看病。
+coverage|n. 覆盖范围；n. 新闻报道|There was extensive TV coverage of the wedding.|这场婚礼被电视广泛地报道了一番。||【辨析】beverage  n.饮料；cover     v.覆盖，遮盖；courage   n.勇气，胆量；average   n.平均水平，一般标准；encourage v.鼓励，激励
+strategic|adj. 战略的|The United Nations Peacekeeping Forces made a strategic withdrawal.|联合国维和部队作出了战略性撤退。||【辨析】static adj.静止的，停滞的；tragic adj.悲惨的，悲痛的，可悲的 ｜ 【谐音】使劲踢这个(strategic)"：这是一个战略性的动作。
+historic|adj. 历史上重大的；adj. 历史的|This battle is of historic meaning.|这一战具有历史意义。||【辨析】historical adj.（有关）历史的；historian  n.历史学家，史学工作者；history    n.历史
+enable|v. 使可能，使能够|The loan enabled Jan to buy the car.|这笔贷款使简有能力买下这辆车。||【辨析】unable  adj.不能胜任的，不会的；able    adj.能够，有能力的；disable v.使丧失能力，使伤残 ｜ 【谐音】引内波(enable)"：使能够、使可能。 ｜ 【变形】现在分词：enabling
+dense|adj. 密集的；adj. 浓密的；adj. 复杂难懂的|The forest was quite dense at that time.|那时，森林还很茂密。||【辨析】deny     v.否认；density  n.稠密，密集；dental   adj.牙齿的，牙科的；condense v.冷凝，凝结；intense  adj.很大的，十分强烈的
+tackle|v. 处理，解决|Nothing is being done to tackle the problem.|目前并未采取任何行动处理这个问题。||【辨析】trace    v.查出，发现，追踪；track    n.小道，小径；obstacle n.障碍，阻碍；trade    n.贸易，买卖；trick    n.花招，诡计，骗局；handle   v.拿；target   n.目标，指标；tragic   adj.悲惨的，悲痛的，可悲的 ｜ 【谐音】他扣(tackle)"：被他扣下来了，就是阻截或处理。 ｜ 【变形】现在分词：tackling
+prevention|n. 预防；n. 防止|For help on crime prevention , call our 24-hour advice line.|若想获得预防犯罪方面的帮助，请拨打我们的24小时咨询热线。||【辨析】precaution n.预防措施，防备；convention n.习俗，惯例；preserve   v.保护，维护
+investment|n. 投资；n. 投入；n. 投资物|The billionaire made a huge investment in the startup, believing it will repay him in the future.|这位亿万富翁向这家创业公司投资了一笔巨款，相信将来会有所回报。||【辨析】invest        v.投资；invent        v.发明，创造；investigate   v.侦察（某事）；invention     n.发明物；statement     n.声明，报告；investigation n.调查，审查
+afford|v. 负担得起；v. 支付得起；v. 提供|None of them could afford £50 for a ticket.|他们中没有哪个拿得出50英镑买一张票。||【辨析】afraid adj.害怕的；effort n.努力，艰难的尝试；affect v.影响；avoid  v.避免，防止 ｜ 【谐音】爱付的(afford)"：喜欢付钱，说明付得起。
+defeat|n. 失利；v. 挫败；n. 击败；v. 打败|He defeated the champion in three sets.|他三盘击败了冠军。||【辨析】defect    n.缺点，缺陷，毛病；detect    v.查明，察觉；defend    v.保卫，防御；defence   n.防御，防御物；detective n.侦探，警探 ｜ 【谐音】的飞它(defeat)"：把它打飞了，表示击败、打败。
+implication|n. 可能的影响；n. 含义，暗指|The team failed to consider the implications of their actions.|这个团队没有考虑到他们的行动产生的影响。||【辨析】application n.正式申请，书面申请；indication  n.指示，标示；implicit    adj.含蓄的，未言明的 ｜ 【谐音】印了很久(implication)"：时间过长暗示事件影响大，牵连广，含义深远。
+influence|v. 影响；n. 影响；n. 势力；n. 有影响的人或事物；v. 对…起作用|What exactly is the influence of television on children?|电视对儿童究竟有什么影响？||【辨析】influential adj.有影响力的，有势力的；fluency     n.（说话）流利 ｜ 【谐音】in因flu俘虏ence摁死——因为俘虏死了，所以影响了两国关系 ｜ 【变形】现在分词：influencing
