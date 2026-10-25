@@ -215,6 +215,20 @@ body{
 #bgVeil{ flex:1; min-width:0; }
 #bgPanel .bg-note{ font-size:10.5px; color:var(--muted-2); margin-top:9px; line-height:1.5; }
 
+/* 抽屉/面板右上角 ✕ 关闭钮 */
+.sheet-close{
+  position:sticky; top:0; z-index:6;
+  display:flex; align-items:center; justify-content:center;
+  width:32px; height:32px; margin:10px 12px -30px auto;
+  border-radius:50%;
+  background:var(--soft); border:1px solid var(--line); color:var(--muted);
+  font-size:13px; line-height:1; cursor:pointer;
+  box-shadow:var(--sh-btn);
+  transition:background .14s, color .14s, border-color .14s;
+}
+.sheet-close:hover{ background:var(--red-soft); border-color:var(--red-line); color:var(--red); }
+.sheet-close-abs{ position:absolute; top:10px; right:12px; margin:0; }
+
 /* 主题色板与反馈色取色器 */
 #bgPanel .bg-title-2{ margin-top:13px; }
 .sw-row{ display:flex; gap:8px; flex-wrap:wrap; align-items:center; }
@@ -6398,6 +6412,32 @@ button.small{ padding:6px 12px; font-size:12.5px; }
       if (!wi || (h && h.isRunning())) return;
       wi.dispatchEvent(new Event("input", { bubbles: true }));
     }).observe(statEl, { childList: true, characterData: true, subtree: true });
+  })();
+
+  /* ---------- 5.5 抽屉/面板右上角 ✕ 关闭钮（运行时注入，业务 JS 零改动） ---------- */
+  (function () {
+    var sheets = document.querySelectorAll(".glass-sheet");
+    for (var i = 0; i < sheets.length; i++) {
+      var b = document.createElement("button");
+      b.type = "button";
+      b.className = "sheet-close";
+      b.setAttribute("aria-label", "关闭");
+      b.innerHTML = "&#10005;";
+      (function (sheet) {
+        b.addEventListener("click", function () { sheet.classList.add("hidden"); });
+      })(sheets[i]);
+      sheets[i].insertBefore(b, sheets[i].firstChild);
+    }
+    var bp = document.getElementById("bgPanel");
+    if (bp) {
+      var b2 = document.createElement("button");
+      b2.type = "button";
+      b2.className = "sheet-close sheet-close-abs";
+      b2.setAttribute("aria-label", "关闭");
+      b2.innerHTML = "&#10005;";
+      b2.addEventListener("click", function () { bp.classList.add("hidden"); });
+      bp.insertBefore(b2, bp.firstChild);
+    }
   })();
 
   /* ---------- 5. 液态滑标 ---------- */
