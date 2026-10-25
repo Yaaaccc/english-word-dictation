@@ -37,6 +37,7 @@
 
 :root{
   color-scheme: light;
+  --glass-op:1;   /* 玻璃填充浓度：外观面板「卡片透明度」滑杆驱动，1=瓷实 0=全透 */
 
   /* —— 底与卡（白玉：近实底白，靠阴影分层）—— */
   --bg:#F5F6FA;
@@ -181,6 +182,7 @@ body{
   width:min(430px, calc(100vw - 24px)); z-index:138;
   border-radius:18px; padding:14px 16px 12px;
   background:linear-gradient(163deg, rgba(255,255,255,.9), rgba(255,255,255,.78));
+  background:linear-gradient(163deg, rgba(255,255,255,calc(var(--glass-op,1)*.9)), rgba(255,255,255,calc(var(--glass-op,1)*.78)));
   -webkit-backdrop-filter:blur(24px) saturate(160%);
   backdrop-filter:blur(24px) saturate(160%);
   border:1px solid rgba(255,255,255,.6);
@@ -189,6 +191,7 @@ body{
 @media (prefers-color-scheme: dark){
   #bgPanel{
     background:linear-gradient(163deg, rgba(26,33,56,.92), rgba(18,24,42,.86));
+    background:linear-gradient(163deg, rgba(26,33,56,calc(var(--glass-op,1)*.92)), rgba(18,24,42,calc(var(--glass-op,1)*.86)));
     border-color:rgba(255,255,255,.12);
     box-shadow:inset 0 1px 0 rgba(255,255,255,.15), var(--sh-3);
   }
@@ -263,6 +266,7 @@ body{
      但滚动/动画零模糊重算（性能修复 2026-10-25）。软背景预设下 --glass-img 为 none，
      卡片半透直接透出本身无细节的渐变底。 */
   background-image:linear-gradient(163deg, rgba(255,255,255,.74), rgba(255,255,255,.55) 55%, rgba(255,255,255,.64)), var(--glass-img, none);
+  background-image:linear-gradient(163deg, rgba(255,255,255,calc(var(--glass-op,1)*.74)), rgba(255,255,255,calc(var(--glass-op,1)*.55)) 55%, rgba(255,255,255,calc(var(--glass-op,1)*.64))), var(--glass-img, none);
   background-size:cover, auto;
   background-position:center, center;
   background-repeat:no-repeat, no-repeat;
@@ -273,11 +277,13 @@ body{
 @media (prefers-color-scheme: dark){
   .glass{
     background-image:linear-gradient(163deg, rgba(28,35,58,.74), rgba(18,24,42,.64) 55%, rgba(24,31,52,.72)), var(--glass-img, none);
+    background-image:linear-gradient(163deg, rgba(28,35,58,calc(var(--glass-op,1)*.74)), rgba(18,24,42,calc(var(--glass-op,1)*.64)) 55%, rgba(24,31,52,calc(var(--glass-op,1)*.72))), var(--glass-img, none);
     border-color:rgba(255,255,255,.11);
     box-shadow:inset 0 1px 0 rgba(255,255,255,.14), inset 0 -1px 0 rgba(0,0,0,.35), var(--sh-2);
   }
   .settings.glass-sheet{
     background-image:linear-gradient(163deg, rgba(26,33,56,.9), rgba(18,24,42,.86)), var(--glass-img, none);
+    background-image:linear-gradient(163deg, rgba(26,33,56,calc(var(--glass-op,1)*.9)), rgba(18,24,42,calc(var(--glass-op,1)*.86))), var(--glass-img, none);
     background-size:cover, auto; background-position:center, center; background-repeat:no-repeat, no-repeat;
     border-color:rgba(255,255,255,.12);
     box-shadow:inset 0 1px 0 rgba(255,255,255,.15), var(--sh-3);
@@ -287,6 +293,7 @@ body{
 .lens-bg{
   position:absolute; inset:0; border-radius:inherit; pointer-events:none;
   background:rgba(255,255,255,.66);
+  background:rgba(255,255,255,calc(var(--glass-op,1)*.66));
   -webkit-backdrop-filter:blur(18px) saturate(150%);
   backdrop-filter:blur(18px) saturate(150%);
   box-shadow:
@@ -298,6 +305,7 @@ body{
 @media (prefers-color-scheme: dark){
   .lens-bg{
     background:rgba(23,30,51,.72);
+    background:rgba(23,30,51,calc(var(--glass-op,1)*.72));
     box-shadow:
       inset 0 0 0 1px rgba(255,255,255,.09),
       inset 0 1px 0 rgba(255,255,255,.12),
@@ -863,6 +871,7 @@ html:not([data-nav]) #idleView:not(.hidden){ animation:stageRise .35s cubic-bezi
   z-index:120; border-radius:24px; padding:2px;
   overscroll-behavior:contain;
   background-image:linear-gradient(163deg, rgba(255,255,255,.9), rgba(255,255,255,.82)), var(--glass-img, none);
+  background-image:linear-gradient(163deg, rgba(255,255,255,calc(var(--glass-op,1)*.9)), rgba(255,255,255,calc(var(--glass-op,1)*.82))), var(--glass-img, none);
   background-size:cover, auto; background-position:center, center; background-repeat:no-repeat, no-repeat;
   border:1px solid rgba(255,255,255,.6);
   box-shadow:inset 0 1px 0 rgba(255,255,255,.7), var(--sh-3);
@@ -1830,6 +1839,10 @@ button.small{ padding:6px 12px; font-size:12.5px; }
     <div class="row-line">
       <span class="bg-lab">背景浓度</span>
       <input type="range" id="bgVeil" min="0" max="100" value="38" aria-label="背景浓度">
+    </div>
+    <div class="row-line">
+      <span class="bg-lab">卡片透明度</span>
+      <input type="range" id="glassOp" min="0" max="100" value="0" aria-label="卡片透明度">
     </div>
 
     <div class="bg-title bg-title-2">主题色</div>
@@ -6302,12 +6315,29 @@ button.small{ padding:6px 12px; font-size:12.5px; }
       });
     }
 
+    /* 卡片透明度：滑杆 v（0=瓷实 100=全透）→ --glass-op = 1 - v/100 */
+    var go = document.getElementById("glassOp");
+    function applyGlassOp(v) {
+      document.documentElement.style.setProperty("--glass-op", String(Math.max(0, Math.min(1, 1 - v / 100))));
+    }
+    var savedOp = null;
+    try { savedOp = localStorage.getItem("dictationGlassOp"); } catch (e) {}
+    if (savedOp !== null && go) { go.value = savedOp; applyGlassOp(+savedOp); }
+    if (go) {
+      go.addEventListener("input", function () {
+        applyGlassOp(+go.value);
+        try { localStorage.setItem("dictationGlassOp", String(go.value)); } catch (e) {}
+      });
+    }
+
     /* 恢复默认 */
     document.getElementById("bgResetBtn").addEventListener("click", function () {
-      try { localStorage.removeItem(K_BG); localStorage.removeItem(K_VEIL); localStorage.removeItem(K_BLUR); } catch (e) {}
+      try { localStorage.removeItem(K_BG); localStorage.removeItem(K_VEIL); localStorage.removeItem(K_BLUR); localStorage.removeItem("dictationGlassOp"); } catch (e) {}
       applyBg("wallpaper");
       if (ve) ve.value = 38;
       applyVeil(38);
+      if (go) go.value = 0;
+      applyGlassOp(0);
     });
 
     /* 浓度滑杆 */
@@ -6353,6 +6383,21 @@ button.small{ padding:6px 12px; font-size:12.5px; }
       img.onerror = function () { URL.revokeObjectURL(url); };
       img.src = url;
     });
+  })();
+
+  /* ---------- 6. 切日期后自动刷新显示 ----------
+     业务层 loadDateWords 写 wordsInput 时不派 input 事件 →
+     idleCount/已解析词数等显示停在旧日期（Yac 长期吐槽点）。
+     状态行文字在每次载入后必变 → 监听它并补发 input（运行中不打扰）。 */
+  (function () {
+    var statEl = document.getElementById("dateStatus");
+    if (!statEl) return;
+    new MutationObserver(function () {
+      var h = window.__dictationHooks;
+      var wi = document.getElementById("wordsInput");
+      if (!wi || (h && h.isRunning())) return;
+      wi.dispatchEvent(new Event("input", { bubbles: true }));
+    }).observe(statEl, { childList: true, characterData: true, subtree: true });
   })();
 
   /* ---------- 5. 液态滑标 ---------- */
