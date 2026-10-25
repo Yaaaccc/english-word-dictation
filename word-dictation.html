@@ -1149,11 +1149,12 @@ body{
   <div class="settings-inner">
     <div class="settings-head">
       <h3 class="panel-title">学习计划</h3>
-      <span class="mini-note">改完点保存；电脑当晚生成时按这个来。只填天数，起点会自动接着上一次往后排。</span>
+      <span class="mini-note">改完点保存；再点「生成并上传」出材料（手动触发，不靠定时任务）。只填天数，起点会自动接着上一次往后排。</span>
     </div>
     <div id="planRows" class="plan-rows"></div>
     <div class="controls" style="margin-top:12px;">
-      <button class="primary" id="planBuildToday" type="button">保存并立即上传今天</button>
+      <button class="primary" id="planBuildToday" type="button">生成并上传今天</button>
+      <button class="primary" id="planBuildTomorrow" type="button">生成并上传明天</button>
       <button class="small" id="planSaveBtn" type="button">只保存计划</button>
       <button class="small" id="planClearBtn" type="button">全部恢复默认</button>
       <button class="small" id="planTokenBtn" type="button">配置同步</button>
@@ -5350,7 +5351,9 @@ body{
   }
   /* 保存 + 立刻生成并上传今天（2026-10-24 加）
      只在电脑上有效：需要本地服务的 /api/build-today。手机上只保存，晚上自动处理。 */
-  async function planBuildToday() {
+  /* 手动生成（2026-10-25）：不再依赖定时任务，改成网页上点按钮。
+     which = "today" | "tomorrow" */
+  async function planBuildDate(which) {
     var ok = await planSave();
     if (!ok) {
       /* 保存没成功就别装作在生成 —— 线上没配 token 时这是最常见的原因 */
@@ -5359,16 +5362,23 @@ body{
         + "手机改的话，连电脑热点后打开 <b>http://192.168.137.1:8787/word-dictation.html</b>。都不需要 token。";
       return;
     }
-    /* 本地 = 本机地址 或 局域网地址（手机连电脑热点后访问，同样走本地接口，不需要 token） */
     var isLocal = isLocalHost();
     if (!isLocal) {
-      $("planStatus").textContent = "「立即生成并上传」要在电脑上打开才能用；手机上保存后，晚上 20:00 会自动处理。";
+      $("planStatus").textContent = "「生成并上传」要在电脑上打开才能用（手机只负责改计划）。";
       return;
     }
-    $("planStatus").textContent = "已保存，开始生成…（约 3 分钟，别关页面）";
+    var now = new Date();
+    var p2 = function (x) { return String(x).padStart(2, "0"); };
+    var today = now.getFullYear() + "-" + p2(now.getMonth() + 1) + "-" + p2(now.getDate());
+    var date = today;
+    if (which === "tomorrow") {
+      var t = new Date(now.getTime() + 86400000);
+      date = t.getFullYear() + "-" + p2(t.getMonth() + 1) + "-" + p2(t.getDate());
+    }
+    $("planStatus").textContent = "已保存，开始生成 " + date + " …（约 3~5 分钟，别关页面）";
     try {
       var r = await fetch("/api/build-today", {
-        method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({})
+        method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ date: date })
       });
       var j = await r.json();
       if (!j || !j.ok) { $("planStatus").textContent = "启动失败"; return; }
@@ -5378,6 +5388,8 @@ body{
     }
     planPollBuild();
   }
+  function planBuildToday() { return planBuildDate("today"); }
+  function planBuildTomorrow() { return planBuildDate("tomorrow"); }
   function planPollBuild() {
     fetch("/api/build-status", { cache: "no-store" })
       .then(function (r) { return r.json(); })
@@ -5412,6 +5424,7 @@ body{
     }
     if ($("planSaveBtn")) $("planSaveBtn").addEventListener("click", planSave);
     if ($("planBuildToday")) $("planBuildToday").addEventListener("click", planBuildToday);
+    if ($("planBuildTomorrow")) $("planBuildTomorrow").addEventListener("click", planBuildTomorrow);
     if ($("planClearBtn")) {
       $("planClearBtn").addEventListener("click", function () {
         planDays = {};
