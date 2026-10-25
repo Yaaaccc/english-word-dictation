@@ -10,7 +10,7 @@
  *
  * 改版本号会让旧缓存整体作废，重新预缓存。
  */
-const VERSION = "dictation-v1-2026-10-23";
+const VERSION = "dictation-v2-2026-10-25";
 const CORE = [
   "./word-dictation.html",
   "./manifest.json",
@@ -20,6 +20,8 @@ const CORE = [
   "./example-dict.json",
   "./quiz-pool.json",
   "./dates.json",
+    "./wallpaper.jpg",
+    "./wallpaper-blur.jpg",
 ];
 
 self.addEventListener("install", (e) => {
