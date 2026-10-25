@@ -6,195 +6,243 @@
  "sents": [
   {
    "en": "For the past four decades, the leader of Formula One car racing, one of the biggest annual sporting series in the world, was Bernie Ecclestone, a former motorcycle parts dealer who built it into an international presence essentially on his own.",
-   "cn": "过去四十年间，全球规模最大的年度体育赛事之一——一级方程式赛车——的领导者一直是BernieEcclestone。他曾是摩托车零配件商人，基本靠一己之力将这项赛事打造成了国际性盛事。"
+   "cn": "过去四十年间，全球规模最大的年度体育赛事之一——一级方程式赛车——的领导者一直是BernieEcclestone。他曾是摩托车零配件商人，基本靠一己之力将这项赛事打造成了国际性盛事。",
+   "p": 0
   },
   {
    "en": "A skilled backroom operator who speaks without a filter, Ecclestone said often that in his opinion, the sport was at its best when he was allowed to act as \"a dictator.\"",
-   "cn": "Ecclestone是一位言辞毫无顾忌、善于幕后运作的人。他常说，在他看来，当自己被允许充当\"独裁者\"时，这项运动才处于最佳状态。"
+   "cn": "Ecclestone是一位言辞毫无顾忌、善于幕后运作的人。他常说，在他看来，当自己被允许充当\"独裁者\"时，这项运动才处于最佳状态。",
+   "p": 1
   },
   {
    "en": "Yet now the dictator is gone.",
-   "cn": "然而，这位\"独裁者\"如今已离场。"
+   "cn": "然而，这位\"独裁者\"如今已离场。",
+   "p": 2
   },
   {
    "en": "After an American company, Liberty Media, acquired the Formula One competition recently, Chase Carey·a former executive with Fox Broadcasting Company and DirecTV who by his own admission is not a fierce racing fan·was named to replace Ecclestone and to try to renovate the organization's management, reach and ambition.",
-   "cn": "在一家美国公司LibertyMedia最近收购了一级方程式赛事之后，ChaseCarey——Fox广播公司和DirecTV的前高管，且他自认并非狂热的赛车迷——被任命接替Ecclestone，试图革新该组织的管理、影响力和雄心。"
+   "cn": "在一家美国公司LibertyMedia最近收购了一级方程式赛事之后，ChaseCarey——Fox广播公司和DirecTV的前高管，且他自认并非狂热的赛车迷——被任命接替Ecclestone，试图革新该组织的管理、影响力和雄心。",
+   "p": 2
   },
   {
    "en": "Among the goals, Carey said in an interview on Tuesday, is one that just about every global sport seems interested in chasing: increasing interest in the United States.",
-   "cn": "Carey在周二的一次采访中表示，这些目标中有一个几乎每一项全球运动都热衷追逐，那就是提升在美国的关注度。"
+   "cn": "Carey在周二的一次采访中表示，这些目标中有一个几乎每一项全球运动都热衷追逐，那就是提升在美国的关注度。",
+   "p": 3
   },
   {
    "en": "\"People have said we're going to \"Americanize' it,\" Carey said.",
-   "cn": "\"人们说我们要把它'美国化'，\"Carey说，\"而我们不会完全那样做。"
+   "cn": "\"人们说我们要把它'美国化'，\"Carey说，\"而我们不会完全那样做。",
+   "p": 3
   },
   {
    "en": "\"And we're not going to do that totally.",
-   "cn": "但现实地讲，这项运动确实可以借鉴美国化的一些元素。"
+   "cn": "但现实地讲，这项运动确实可以借鉴美国化的一些元素。",
+   "p": 3
   },
   {
    "en": "But realistically, there are some elements of Americanization that the sport could use.\"",
-   "cn": "\""
+   "cn": "\"",
+   "p": 3
   },
   {
    "en": "While Formula One commands enormous audiences throughout much of the world, many American sports fans know it as that other motorsport, the one that is not Nascar.",
-   "cn": "尽管一级方程式在世界上大部分地区拥有庞大的观众群，但许多美国体育迷只知道它是\"另一项\"赛车运动——即不是纳斯卡的那一项。"
+   "cn": "尽管一级方程式在世界上大部分地区拥有庞大的观众群，但许多美国体育迷只知道它是\"另一项\"赛车运动——即不是纳斯卡的那一项。",
+   "p": 4
   },
   {
    "en": "Formula One teams race far more technologically advanced vehicles around tracks all over the world-in magnificent events in places like Malaysia, Monaco, Singapore and the United Arab Emirates, and on tradition-rich tracks like Silverstone in England and Monza in Italy too.",
-   "cn": "一级方程式车队驾驶着技术先进得多的赛车，在世界各地的赛道上驰骋——在马来西亚、摩纳哥、新加坡和阿联酋等地举办盛大赛事，也在英国Silverstone和意大利Monza等富有传统的赛道上比赛。"
+   "cn": "一级方程式车队驾驶着技术先进得多的赛车，在世界各地的赛道上驰骋——在马来西亚、摩纳哥、新加坡和阿联酋等地举办盛大赛事，也在英国Silverstone和意大利Monza等富有传统的赛道上比赛。",
+   "p": 4
   },
   {
    "en": "The series has an annual race in Austin, Texas.",
-   "cn": "该系列赛在得克萨斯州奥斯汀有一场年度比赛。"
+   "cn": "该系列赛在得克萨斯州奥斯汀有一场年度比赛。",
+   "p": 5
   },
   {
    "en": "But within \"a few years,\" Carey said, he plans to bring another to a destination American city, like New York, Los Angeles, Miami or Las Vegas.",
-   "cn": "但Carey说，他计划在\"几年内\"把另一场带到纽约、洛杉矶、迈阿密或拉斯维加斯这样的美国目的地城市。"
+   "cn": "但Carey说，他计划在\"几年内\"把另一场带到纽约、洛杉矶、迈阿密或拉斯维加斯这样的美国目的地城市。",
+   "p": 5
   },
   {
    "en": "Carey's ambitious plan is two-fold: first, change the business model of Formula One, which he said was a \"one-man show\" under Ecclestone that had a largely narrow vision when it came to negotiating partnership deals; and second, alter the way fans experience the sport, both in person and remotely, so that connections between the audience and people within the series are easier to make.",
-   "cn": "Carey雄心勃勃的计划有两部分：一是改变一级方程式的商业模式——他称在Ecclestone手下它是一场\"一人秀\"，在洽谈合作时视野相当狭窄；二是改变车迷体验这项运动的方式，无论是现场还是远程，让观众与赛事内部人员之间更容易建立联系。"
+   "cn": "Carey雄心勃勃的计划有两部分：一是改变一级方程式的商业模式——他称在Ecclestone手下它是一场\"一人秀\"，在洽谈合作时视野相当狭窄；二是改变车迷体验这项运动的方式，无论是现场还是远程，让观众与赛事内部人员之间更容易建立联系。",
+   "p": 5
   },
   {
    "en": "Increased digital access for fans, a more behind-the-scenes experience for broadcast viewers and innovation in areas like virtual reality-what is it like to speed around a track inside a Ferrari?-are among the possibilities.",
-   "cn": "为车迷增加数字接入、为电视观众提供更幕后的体验，以及在虚拟现实等领域创新——比如在法拉利里绕赛道飞驰是什么感觉？"
+   "cn": "为车迷增加数字接入、为电视观众提供更幕后的体验，以及在虚拟现实等领域创新——比如在法拉利里绕赛道飞驰是什么感觉？",
+   "p": 6
   },
   {
    "en": "\"The sport has clearly been underserved,\" Carey said.",
-   "cn": "——都是可能的方向。"
+   "cn": "——都是可能的方向。",
+   "p": 6
   },
   {
    "en": "\"It doesn't do anything digitally. There's no marketing. It doesn't tell any stories.",
-   "cn": "\"这项运动显然没有得到足够的服务，\"Carey说，\"它在数字化方面毫无作为，没有营销，也不讲故事。"
+   "cn": "\"这项运动显然没有得到足够的服务，\"Carey说，\"它在数字化方面毫无作为，没有营销，也不讲故事。",
+   "p": 6
   },
   {
    "en": "The goal in this is to make the fans connect to the live experience as much as possible, and the tools you have to do that, we're not using at all.\"",
-   "cn": "这件事的目标，是让车迷尽可能连接到现场体验，而用来做到这一点的工具，我们完全没有利用。\""
+   "cn": "这件事的目标，是让车迷尽可能连接到现场体验，而用来做到这一点的工具，我们完全没有利用。\"",
+   "p": 6
   },
   {
    "en": "The larger question, though, is a familiar one: Is there room for Formula One in the ever-crowded sports landscape of the United States?",
-   "cn": "然而，更大的问题是一个老生常谈：在日益拥挤的美国体育版图中，一级方程式还有空间吗？"
+   "cn": "然而，更大的问题是一个老生常谈：在日益拥挤的美国体育版图中，一级方程式还有空间吗？",
+   "p": 7
   },
   {
    "en": "Opinions vary, particularly because viewing habits among consumers continue to evolve.",
-   "cn": "意见不一，尤其是因为消费者的观看习惯在不断演变。"
+   "cn": "意见不一，尤其是因为消费者的观看习惯在不断演变。",
+   "p": 7
   },
   {
    "en": "John Bloom, a professor at Shippensburg University who has studied American sports history, said the biggest challenge for any sport trying to increase its presence in the United States was framing itself in a way that had lasting appeal.",
-   "cn": "研究美国体育史的Shippensburg大学教授JohnBloom说，任何想在美国提升存在感的运动，面临的最大挑战是以一种具有持久吸引力的方式为自己定位。"
+   "cn": "研究美国体育史的Shippensburg大学教授JohnBloom说，任何想在美国提升存在感的运动，面临的最大挑战是以一种具有持久吸引力的方式为自己定位。",
+   "p": 7
   },
   {
    "en": "\"Sports generally become popular in some way because they establish a narrative,\" Bloom said.",
-   "cn": "\"体育之所以流行，某种程度上是因为它们建立了一种叙事，\"Bloom说，\"当我想到美国的赛车运动时，我们大家想到的都是纳斯卡，而纳斯卡的叙事有点像农村、白人、工薪阶层的美国人，主要在美国南部，与那些赛事的氛围相呼应。"
+   "cn": "\"体育之所以流行，某种程度上是因为它们建立了一种叙事，\"Bloom说，\"当我想到美国的赛车运动时，我们大家想到的都是纳斯卡，而纳斯卡的叙事有点像农村、白人、工薪阶层的美国人，主要在美国南部，与那些赛事的氛围相呼应。",
+   "p": 7
   },
   {
    "en": "\"When I think of motorsports in the U.S., what we all think of is Nascar, and the narrative of Nascar is sort of rural, white, working-class Americans, mostly in the South, connecting with the atmosphere of those races.",
-   "cn": "那就是它的叙事。"
+   "cn": "那就是它的叙事。",
+   "p": 7
   },
   {
    "en": "That's the narrative.",
-   "cn": "而当我想到一级方程式的叙事时，它面对的是非常不同的观众群体。"
+   "cn": "而当我想到一级方程式的叙事时，它面对的是非常不同的观众群体。",
+   "p": 7
   },
   {
    "en": "When I think of the narrative of Formula One, it's a very different kind of audience.\"",
-   "cn": "\""
+   "cn": "\"",
+   "p": 7
   },
   {
    "en": "That difference, Carey said, is significant.",
-   "cn": "Carey说，这种差异意义重大。"
+   "cn": "Carey说，这种差异意义重大。",
+   "p": 8
   },
   {
    "en": "While some might immediately link Formula One to Nascar in terms of American growth, Carey said Formula One's brand research had indicated there was very little crossover; rather, Formula One fans generally cite other so-called elite events, like Wimbledon or the Ryder Cup, as competitions they enjoy.",
-   "cn": "尽管有人可能立刻把一级方程式在美国的发展与纳斯卡联系起来，但Carey说，一级方程式的品牌研究表明两者几乎不存在交叉；相反，一级方程式车迷通常会提到温布尔登或莱德杯等其他所谓精英赛事，作为他们也喜欢的比赛。"
+   "cn": "尽管有人可能立刻把一级方程式在美国的发展与纳斯卡联系起来，但Carey说，一级方程式的品牌研究表明两者几乎不存在交叉；相反，一级方程式车迷通常会提到温布尔登或莱德杯等其他所谓精英赛事，作为他们也喜欢的比赛。",
+   "p": 8
   },
   {
    "en": "\"Other than they're both cars, the Nascar fan base is a very different fan base,\" Carey said. \"It's a very regional fan base.",
-   "cn": "\"除了都是汽车，纳斯卡的粉丝群与一级方程式的粉丝群非常不同，\"Carey说，\"纳斯卡是非常区域性的粉丝群。"
+   "cn": "\"除了都是汽车，纳斯卡的粉丝群与一级方程式的粉丝群非常不同，\"Carey说，\"纳斯卡是非常区域性的粉丝群。",
+   "p": 8
   },
   {
    "en": "Formula One is a global, famous brand of stars.",
-   "cn": "一级方程式是一个全球性的、由明星构成的著名品牌。"
+   "cn": "一级方程式是一个全球性的、由明星构成的著名品牌。",
+   "p": 8
   },
   {
    "en": "These are machines that shock and awe you.\"",
-   "cn": "这些是让你震惊、令你敬畏的机器。\""
+   "cn": "这些是让你震惊、令你敬畏的机器。\"",
+   "p": 8
   },
   {
    "en": "Carey's background is in deal making and innovation.",
-   "cn": "Carey的背景在于交易撮合与创新。"
+   "cn": "Carey的背景在于交易撮合与创新。",
+   "p": 9
   },
   {
    "en": "At Fox Broadcasting Company, he was a top advisor for years, known for his skill in helping to lead the launch of the company into sports, as well as the start of Fox News Channel.",
-   "cn": "在Fox广播公司，他做了多年顶级顾问，以协助领导公司进军体育领域以及创办Fox新闻频道而闻名。"
+   "cn": "在Fox广播公司，他做了多年顶级顾问，以协助领导公司进军体育领域以及创办Fox新闻频道而闻名。",
+   "p": 9
   },
   {
    "en": "After going to DirecTV, he positioned the satellite provider as a mainstream option in millions of households.",
-   "cn": "加入DirecTV后，他将这家卫星服务商定位为数百万家庭的主流选择。"
+   "cn": "加入DirecTV后，他将这家卫星服务商定位为数百万家庭的主流选择。",
+   "p": 9
   },
   {
    "en": "Now, after Liberty Media paid $4.4 billion to acquire Formula One, he is charged with making the investment pay off.",
-   "cn": "如今，在LibertyMedia斥资44亿美元收购一级方程式之后，他的任务就是让这笔投资产生回报。"
+   "cn": "如今，在LibertyMedia斥资44亿美元收购一级方程式之后，他的任务就是让这笔投资产生回报。",
+   "p": 10
   },
   {
    "en": "\"I think they can build Formula One in the U.S.,\" said Patrick Crakes, an executive at In Vivo Media Group who spent 25 years at Fox Broadcasting Company before leaving in 2016 as a senior manager at Fox Sports.",
-   "cn": "\"我认为他们能在美国把一级方程式做起来，\"InVivoMediaGroup的高管PatrickCrakes说。他曾在Fox广播公司待了25年，2016年以Fox体育高级经理的身份离职。"
+   "cn": "\"我认为他们能在美国把一级方程式做起来，\"InVivoMediaGroup的高管PatrickCrakes说。他曾在Fox广播公司待了25年，2016年以Fox体育高级经理的身份离职。",
+   "p": 10
   },
   {
    "en": "\"People don't work on their cars anymore.",
-   "cn": "\"人们不再自己修车了。"
+   "cn": "\"人们不再自己修车了。",
+   "p": 10
   },
   {
    "en": "They don't want that connection anymore.",
-   "cn": "他们不再想要那种联系。"
+   "cn": "他们不再想要那种联系。",
+   "p": 10
   },
   {
    "en": "It's about technology and pushing the limits. It's about speed, danger and risk.",
-   "cn": "这关乎技术与突破极限，关乎速度、危险与风险。"
+   "cn": "这关乎技术与突破极限，关乎速度、危险与风险。",
+   "p": 10
   },
   {
    "en": "And Formula One has that more than any other racing series.\"",
-   "cn": "而在这些方面，一级方程式比任何其他赛车系列都更胜一筹。\""
+   "cn": "而在这些方面，一级方程式比任何其他赛车系列都更胜一筹。\"",
+   "p": 10
   },
   {
    "en": "That is what hooked Carey, and he said he thought his experience was not unusual.",
-   "cn": "这正是吸引Carey的地方，而且他说他觉得自己的感受并不独特。"
+   "cn": "这正是吸引Carey的地方，而且他说他觉得自己的感受并不独特。",
+   "p": 11
   },
   {
    "en": "He recalled attending Formula One's Monaco race last year and being overwhelmed by the ceremony leading up to the event, the way the race charmed the city for days ahead of the start.",
-   "cn": "他回忆起去年参加一级方程式的摩纳哥站比赛，被赛前那场盛大的仪式所震撼——比赛在开赛前几天就以某种方式迷住了整座城市。"
+   "cn": "他回忆起去年参加一级方程式的摩纳哥站比赛，被赛前那场盛大的仪式所震撼——比赛在开赛前几天就以某种方式迷住了整座城市。",
+   "p": 11
   },
   {
    "en": "In his mind, it felt like a Super Bowl.",
-   "cn": "在他心目中，那感觉就像超级碗。"
+   "cn": "在他心目中，那感觉就像超级碗。",
+   "p": 11
   },
   {
    "en": "Then, on race day, he watched as the cars rocketed out of a tunnel and went screaming toward a tight turn with the city's harbor and the Mediterranean Sea in the background framing the scene.",
-   "cn": "接着，在比赛当天，他看着赛车从隧道里冲出，尖啸着冲向一个急转弯，城市的港湾与地中海在背景中勾勒出这一画面。"
+   "cn": "接着，在比赛当天，他看着赛车从隧道里冲出，尖啸着冲向一个急转弯，城市的港湾与地中海在背景中勾勒出这一画面。",
+   "p": 12
   },
   {
    "en": "He was fascinated.",
-   "cn": "他为之着迷。"
+   "cn": "他为之着迷。",
+   "p": 12
   },
   {
    "en": "\"You can't help but be awed,\" he said, \"and I think that feeling can be translated to the viewer.\"",
-   "cn": "\"你不禁感到敬畏，\"他说，\"而我认为那种感觉可以传递给观众。\""
+   "cn": "\"你不禁感到敬畏，\"他说，\"而我认为那种感觉可以传递给观众。\"",
+   "p": 12
   },
   {
    "en": "He added: \"The broader sport is a little too inward-looking, and we need to be more open.",
-   "cn": "他补充道：\"这项更宏观的运动有点太向内看了，我们需要更开放。"
+   "cn": "他补充道：\"这项更宏观的运动有点太向内看了，我们需要更开放。",
+   "p": 13
   },
   {
    "en": "In some ways, I'm glad to be coming from the outside.",
-   "cn": "在某些方面，我很高兴自己来自外部。"
+   "cn": "在某些方面，我很高兴自己来自外部。",
+   "p": 13
   },
   {
    "en": "The guys who are in the sport forever are sitting there saying: 'We can't do that.",
-   "cn": "那些一直在圈内的人坐在那里说：'我们做不到。"
+   "cn": "那些一直在圈内的人坐在那里说：'我们做不到。",
+   "p": 13
   },
   {
    "en": "We can't do that because it's never been done that way.'\"",
-   "cn": "我们做不到，因为从来没人那么做过。'\""
+   "cn": "我们做不到，因为从来没人那么做过。'\"",
+   "p": 13
   }
  ]
 }

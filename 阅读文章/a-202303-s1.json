@@ -6,199 +6,248 @@
  "sents": [
   {
    "en": "Congratulations on deciding to get married!",
-   "cn": "恭喜你决定结婚！"
+   "cn": "恭喜你决定结婚！",
+   "p": 0
   },
   {
    "en": "While being married is great and wonderful, the act of getting married can be quite stressful.",
-   "cn": "虽然婚姻美好而幸福，但结婚这件事本身可能相当有压力。"
+   "cn": "虽然婚姻美好而幸福，但结婚这件事本身可能相当有压力。",
+   "p": 0
   },
   {
    "en": "There is the planning of the ceremony itself, the merging of two households and all of the details involved in that.",
-   "cn": "既要筹划婚礼本身，又要合并两个家庭及其中方方面面的细节。"
+   "cn": "既要筹划婚礼本身，又要合并两个家庭及其中方方面面的细节。",
+   "p": 0
   },
   {
    "en": "You also have to take the time to apply for your marriage license and then decide whether or not you are going to keep your last name or change it.",
-   "cn": "你还得花时间去申请结婚证，然后决定婚后究竟保留自己的姓氏还是改姓。"
+   "cn": "你还得花时间去申请结婚证，然后决定婚后究竟保留自己的姓氏还是改姓。",
+   "p": 0
   },
   {
    "en": "This is where a lot of people have trouble.",
-   "cn": "这正是许多人为难的地方。"
+   "cn": "这正是许多人为难的地方。",
+   "p": 1
   },
   {
    "en": "Once upon a time, it was just customary for a bride to take her groom's last name as her own and abandon her maiden name completely.",
-   "cn": "从前，新娘冠以新郎的姓氏、完全放弃娘家姓，只是一种惯例。"
+   "cn": "从前，新娘冠以新郎的姓氏、完全放弃娘家姓，只是一种惯例。",
+   "p": 1
   },
   {
    "en": "The act of keeping her own last name was considered taboo and people's eyebrows would raise right off their faces when they found out that the bride was even considering something so radical.",
-   "cn": "保留自己姓氏的行为曾被视为禁忌，当人们发现新娘竟在考虑如此激进的做法时，简直要惊掉下巴。"
+   "cn": "保留自己姓氏的行为曾被视为禁忌，当人们发现新娘竟在考虑如此激进的做法时，简直要惊掉下巴。",
+   "p": 1
   },
   {
    "en": "Over time, though, more and more women are deciding to keep their last names.",
-   "cn": "不过随着时间的推移，越来越多的女性决定保留自己的姓氏。"
+   "cn": "不过随着时间的推移，越来越多的女性决定保留自己的姓氏。",
+   "p": 1
   },
   {
    "en": "There are a lot of reasons to want to keep your own last name.",
-   "cn": "想要保留自己姓氏的理由有很多。"
+   "cn": "想要保留自己姓氏的理由有很多。",
+   "p": 2
   },
   {
    "en": "Hopefully you have a supportive groom who understands why this idea is the most appealing to you.",
-   "cn": "希望你有一位理解你、支持你的新郎，明白为何这个想法对你最有吸引力。"
+   "cn": "希望你有一位理解你、支持你的新郎，明白为何这个想法对你最有吸引力。",
+   "p": 2
   },
   {
    "en": "A lot of times, though, the act of keeping your name is still something that causes concern.",
-   "cn": "不过很多时候，保留自己姓氏这一做法仍会引起担忧。"
+   "cn": "不过很多时候，保留自己姓氏这一做法仍会引起担忧。",
+   "p": 2
   },
   {
    "en": "Even if your groom is fine with it, his family (or your own) might not be so understanding.",
-   "cn": "即便你的新郎不介意，他的家人（或你自己的家人）未必能如此通情达理。"
+   "cn": "即便你的新郎不介意，他的家人（或你自己的家人）未必能如此通情达理。",
+   "p": 2
   },
   {
    "en": "There are a couple of ways to compromise on the issue.",
-   "cn": "在这个问题上，有几种折中的办法。"
+   "cn": "在这个问题上，有几种折中的办法。",
+   "p": 3
   },
   {
    "en": "You could choose an entirely new last name for the two of you to share.",
-   "cn": "你们可以选一个全新的姓氏共同使用。"
+   "cn": "你们可以选一个全新的姓氏共同使用。",
+   "p": 3
   },
   {
    "en": "This way neither of you gets \"your\" way and you both have to deal with the legalities of going through a name change.",
-   "cn": "这样谁都没\"得逞\"，而你们俩都得处理改名带来的法律手续。不过大多数时候，最流行的折中方案是把你和新郎的姓氏用连字符连起来。"
+   "cn": "这样谁都没\"得逞\"，而你们俩都得处理改名带来的法律手续。不过大多数时候，最流行的折中方案是把你和新郎的姓氏用连字符连起来。",
+   "p": 3
   },
   {
    "en": "Most of the time, though, the most popular compromise is to hyphenate your last name and the last name of your groom. For example, if your groom's name is John Smith and your name is Kate Jones. You would name yourself Kate Jones-Smith or Kate Smith-Jones.",
-   "cn": "例如，若新郎叫JohnSmith、你叫KateJones，你就可以取名KateJones-Smith或KateSmith-Jones。"
+   "cn": "例如，若新郎叫JohnSmith、你叫KateJones，你就可以取名KateJones-Smith或KateSmith-Jones。",
+   "p": 3
   },
   {
    "en": "This allows you to keep going by your own last name while legally adopting your husband's last name at the same time.",
-   "cn": "这样你既能继续沿用本姓，同时又在法律上采用了丈夫的姓氏。"
+   "cn": "这样你既能继续沿用本姓，同时又在法律上采用了丈夫的姓氏。",
+   "p": 3
   },
   {
    "en": "The compromise is the biggest reason that so many women choose to hyphenate their last names.",
-   "cn": "这种折中正是如此多女性选择连字符姓氏的最大原因。"
+   "cn": "这种折中正是如此多女性选择连字符姓氏的最大原因。",
+   "p": 4
   },
   {
    "en": "It is a way of you keeping your own identity while also making your future husband happy.",
-   "cn": "它是一种既能保留自我身份、又能让未来丈夫高兴的方式。"
+   "cn": "它是一种既能保留自我身份、又能让未来丈夫高兴的方式。",
+   "p": 4
   },
   {
    "en": "It allows you to stay connected to accomplishments that you achieved before you got married.",
-   "cn": "它让你与婚前取得的成就保持联系。"
+   "cn": "它让你与婚前取得的成就保持联系。",
+   "p": 4
   },
   {
    "en": "For example, many women who choose to hyphenate do so partially because they have earned higher educational degrees and certifications under their maiden names.",
-   "cn": "例如，许多选择连姓的女性，部分原因是她们以娘家姓获得了更高的学历和证书。"
+   "cn": "例如，许多选择连姓的女性，部分原因是她们以娘家姓获得了更高的学历和证书。",
+   "p": 4
   },
   {
    "en": "They might have also had things published or publicized and want to stay connected to that identity.",
-   "cn": "她们可能还发表或公开过一些作品，并希望与此身份保持关联。"
+   "cn": "她们可能还发表或公开过一些作品，并希望与此身份保持关联。",
+   "p": 4
   },
   {
    "en": "Hyphenating your last name can help you bridge the gap between your personal and professional lives.",
-   "cn": "连字符姓氏能帮你弥合个人生活与职业生活之间的鸿沟。"
+   "cn": "连字符姓氏能帮你弥合个人生活与职业生活之间的鸿沟。",
+   "p": 4
   },
   {
    "en": "Many women who opt to simply keep their own names do so because they don't want to give up all that they have accomplished professionally.",
-   "cn": "许多选择仅保留本姓的女性之所以这样做，是因为她们不想放弃自己在职业上取得的一切。"
+   "cn": "许多选择仅保留本姓的女性之所以这样做，是因为她们不想放弃自己在职业上取得的一切。",
+   "p": 4
   },
   {
    "en": "Adopting their husband's last name makes it hard for them to claim ownership of these accomplishments personally because they happened under their \"other\" name.",
-   "cn": "采用丈夫的姓氏会让她们难以将这些成就归于自己名下，因为这些成就是在\"另一个\"姓氏下取得的。"
+   "cn": "采用丈夫的姓氏会让她们难以将这些成就归于自己名下，因为这些成就是在\"另一个\"姓氏下取得的。",
+   "p": 4
   },
   {
    "en": "While tradition is one thing, there isn't any logical reason to completely change your name.",
-   "cn": "传统是一回事，但完全没有逻辑理由要彻底更改你的姓氏。"
+   "cn": "传统是一回事，但完全没有逻辑理由要彻底更改你的姓氏。",
+   "p": 5
   },
   {
    "en": "Keeping your name and joining it to your husband's through hyphenation is as legal as simply adopting his name or as simply keeping your own and leaving his out of the picture entirely.",
-   "cn": "保留你的姓氏并通过连字符与新郎的姓氏结合，与直接采用他的姓氏、或干脆保留自己的姓氏而完全不提他的姓氏，在法律上同样有效。"
+   "cn": "保留你的姓氏并通过连字符与新郎的姓氏结合，与直接采用他的姓氏、或干脆保留自己的姓氏而完全不提他的姓氏，在法律上同样有效。",
+   "p": 5
   },
   {
    "en": "Probably the most important reason to consider hyphenation is your identity.",
-   "cn": "或许考虑连字符姓氏最重要的理由是你的身份。"
+   "cn": "或许考虑连字符姓氏最重要的理由是你的身份。",
+   "p": 6
   },
   {
    "en": "You've spent your whole life building your identity under a certain name.",
-   "cn": "你用某个姓氏花了一辈子建立自己的身份。"
+   "cn": "你用某个姓氏花了一辈子建立自己的身份。",
+   "p": 6
   },
   {
    "en": "Obviously you will still be you even if you've taken on your husband's last name and omitted yours entirely.",
-   "cn": "显然，即便你采用丈夫的姓氏并完全舍弃自己的，你依然是自己。"
+   "cn": "显然，即便你采用丈夫的姓氏并完全舍弃自己的，你依然是自己。",
+   "p": 6
   },
   {
    "en": "At the same time, your name is associated with the identity you've built up and hyphenation allows you to respect that while also respecting tradition and your husband's family's identity.",
-   "cn": "与此同时，你的名字与你建立起来的身份紧密相连，而连字符姓氏让你在尊重这一身份的同时，也尊重传统和你丈夫家族的身份。"
+   "cn": "与此同时，你的名字与你建立起来的身份紧密相连，而连字符姓氏让你在尊重这一身份的同时，也尊重传统和你丈夫家族的身份。",
+   "p": 6
   },
   {
    "en": "If you care about outside opinions on your name, you should know that a large portion of today's society is annoyed by the hyphenated name.",
-   "cn": "如果你在意他人对你姓氏的看法，就该知道当今社会很大一部分人反感连字符姓氏。"
+   "cn": "如果你在意他人对你姓氏的看法，就该知道当今社会很大一部分人反感连字符姓氏。",
+   "p": 7
   },
   {
    "en": "Some people find it \"snobby\" and others simply find it irritating because they have a hard time remembering which last name they are supposed to say first.",
-   "cn": "有些人觉得它\"势利\"，另一些人则单纯觉得它烦人，因为他们很难记住到底该先说哪个姓。"
+   "cn": "有些人觉得它\"势利\"，另一些人则单纯觉得它烦人，因为他们很难记住到底该先说哪个姓。",
+   "p": 7
   },
   {
    "en": "Some people even believe that not simply adopting your husband's last name is a huge sign of disrespect and a lack of commitment.",
-   "cn": "甚至有人相信，不干脆采用丈夫的姓氏是一种极大的不尊重与缺乏承诺的表现。"
+   "cn": "甚至有人相信，不干脆采用丈夫的姓氏是一种极大的不尊重与缺乏承诺的表现。",
+   "p": 7
   },
   {
    "en": "It is possible that your future husband will find this choice offensive.",
-   "cn": "你的未来丈夫或许会觉得这一选择冒犯了他。"
+   "cn": "你的未来丈夫或许会觉得这一选择冒犯了他。",
+   "p": 8
   },
   {
    "en": "Some men, regardless of how you might feel about some things, are traditionalists and feel that it is simply \"right\" for the woman to take the man's last name as her own.",
-   "cn": "有些男性，不论你对某些事情怎么看，都是传统主义者，认为女性采用男性的姓氏理所当然。"
+   "cn": "有些男性，不论你对某些事情怎么看，都是传统主义者，认为女性采用男性的姓氏理所当然。",
+   "p": 8
   },
   {
    "en": "Whether your future husband insisting on your adopting his last name is a red flag to you or not, it is still something that you should take into consideration.",
-   "cn": "无论你未来丈夫坚持让你采用他的姓氏对你而言是否是危险信号，这仍是一件你应当考虑的事。"
+   "cn": "无论你未来丈夫坚持让你采用他的姓氏对你而言是否是危险信号，这仍是一件你应当考虑的事。",
+   "p": 8
   },
   {
    "en": "There are all sorts of reasons to hyphenate your name or not to hyphenate your name.",
-   "cn": "选择连姓或不连姓，理由五花八门。"
+   "cn": "选择连姓或不连姓，理由五花八门。",
+   "p": 9
   },
   {
    "en": "The basis for each of these things, however, is whether or not you are willing to make a compromise when it comes to changing your name.",
-   "cn": "然而，这一切的根本在于，你在改名问题上是否愿意妥协。连字符姓氏正是妥协的缩影。"
+   "cn": "然而，这一切的根本在于，你在改名问题上是否愿意妥协。连字符姓氏正是妥协的缩影。",
+   "p": 9
   },
   {
    "en": "The hyphenation is the epitome of a compromise. One spouse wants a complete name change.",
-   "cn": "一方想要彻底改名，另一方则不想改。"
+   "cn": "一方想要彻底改名，另一方则不想改。",
+   "p": 9
   },
   {
    "en": "The other spouse wants no name change. Hyphenating the two names is a way for each person to, at least a little bit, \"win\" the argument.",
-   "cn": "把两个姓氏连起来，是让每个人至少能略\"赢\"得这场争论的一种方式。"
+   "cn": "把两个姓氏连起来，是让每个人至少能略\"赢\"得这场争论的一种方式。",
+   "p": 9
   },
   {
    "en": "And don't forget the legal stuff!",
-   "cn": "也别忘了法律事务！"
+   "cn": "也别忘了法律事务！",
+   "p": 10
   },
   {
    "en": "Making the decision is just part of the process.",
-   "cn": "做出决定只是过程的一部分。"
+   "cn": "做出决定只是过程的一部分。",
+   "p": 10
   },
   {
    "en": "From there you are going to have to legally change your name all over the place.",
-   "cn": "接下来你还得到处依法更改姓名。"
+   "cn": "接下来你还得到处依法更改姓名。",
+   "p": 10
   },
   {
    "en": "You'll need to change your name at the bank, with social security, with your credit cards, on your driver's license, at the gym · everywhere.",
-   "cn": "你需要在银行、社保、信用卡、驾照、健身房……所有地方改名。"
+   "cn": "你需要在银行、社保、信用卡、驾照、健身房……所有地方改名。",
+   "p": 10
   },
   {
    "en": "It's easy to get overwhelmed just thinking about it.",
-   "cn": "光是想想就足以让人招架不住。"
+   "cn": "光是想想就足以让人招架不住。",
+   "p": 10
   },
   {
    "en": "What matters, of course, is that the two of you are going to be happily married· hopefully for the of your lives.",
-   "cn": "当然，重要的是你们两人将幸福地结合——希望能相伴你们余生。"
+   "cn": "当然，重要的是你们两人将幸福地结合——希望能相伴你们余生。",
+   "p": 11
   },
   {
    "en": "At the end of the day, whether you each keep your names, whether you come up with an entirely new name for the two of you to share or whether you hyphenate your current last names, what matters is that you love each other and are going to be joining your lives together.",
-   "cn": "说到底，无论你们各自保留自己的姓氏、想出一个全新的姓氏共同使用，还是把现有的姓氏连起来，重要的都是你们彼此相爱、将生活融为一体。"
+   "cn": "说到底，无论你们各自保留自己的姓氏、想出一个全新的姓氏共同使用，还是把现有的姓氏连起来，重要的都是你们彼此相爱、将生活融为一体。",
+   "p": 11
   },
   {
    "en": "Try to remember that as you are staring at the application for your marriage license and filling out the portion that reads \"name after you get married\" (or whatever the legalese for that might be).",
-   "cn": "当你盯着结婚证申请表、填写\"婚后姓名\"那一栏（或类似的法律用语）时，请努力记住这一点。"
+   "cn": "当你盯着结婚证申请表、填写\"婚后姓名\"那一栏（或类似的法律用语）时，请努力记住这一点。",
+   "p": 11
   }
  ]
 }

@@ -6,55 +6,68 @@
  "sents": [
   {
    "en": "As a university student I've come to realise just how little I know about money.",
-   "cn": "作为一名大学生，我逐渐意识到自己对金钱知之甚少。"
+   "cn": "作为一名大学生，我逐渐意识到自己对金钱知之甚少。",
+   "p": 0
   },
   {
    "en": "I've come to the brutal realisation that Australia's youth are being done a great disservice by not receiving any consistent financial education.",
-   "cn": "我不得不残酷地认识到，由于没有接受任何持续一致的理财教育，澳大利亚的年轻人正受到极大的损害。"
+   "cn": "我不得不残酷地认识到，由于没有接受任何持续一致的理财教育，澳大利亚的年轻人正受到极大的损害。",
+   "p": 0
   },
   {
    "en": "Diving headfirst into the crash course of starting university, I've quickly tried to get myself up to speed with the financial terms of the modern era to help manage my personal finances.",
-   "cn": "一头扎进开启大学生活的速成课，我迅速尝试让自己跟上现代的金融术语，以帮助管理个人财务。"
+   "cn": "一头扎进开启大学生活的速成课，我迅速尝试让自己跟上现代的金融术语，以帮助管理个人财务。",
+   "p": 1
   },
   {
    "en": "I've read some financial education books, done some online learning, and have spoken to my nearest and dearest for their pearls of financial wisdom.",
-   "cn": "我读过一些理财教育书籍，做过一些在线学习，并向我最亲近的人讨教他们理财智慧的金玉良言。"
+   "cn": "我读过一些理财教育书籍，做过一些在线学习，并向我最亲近的人讨教他们理财智慧的金玉良言。",
+   "p": 2
   },
   {
    "en": "There are undoubtedly hundreds of great resources out there for those wishing to improve their financial literacy, but while I was researching, I still kept wishing that I didn't have to play catch-up with the money world.",
-   "cn": "对于那些希望提升理财素养的人，无疑有数以百计的优质资源，但在研究过程中，我仍不断希望自己不必在金钱世界里追赶。"
+   "cn": "对于那些希望提升理财素养的人，无疑有数以百计的优质资源，但在研究过程中，我仍不断希望自己不必在金钱世界里追赶。",
+   "p": 3
   },
   {
    "en": "I felt that I was sailing the financial seas with no skills and no life jacket!",
-   "cn": "我觉得自己正毫无技能、没有救生衣地在理财的海洋中航行！"
+   "cn": "我觉得自己正毫无技能、没有救生衣地在理财的海洋中航行！",
+   "p": 3
   },
   {
    "en": "However, after talking to my friends who felt the same, I quickly realised that it wasn't my ignorance but the lack of financial education in our schooling system that is leaving high schoolers seriously behind in the modern world of money.",
-   "cn": "然而，在与有同感的朋友们交谈后，我很快意识到，让我这样的高中生在现代金钱世界中严重落后的，并非我的无知，而是学校体系中理财教育的缺失。"
+   "cn": "然而，在与有同感的朋友们交谈后，我很快意识到，让我这样的高中生在现代金钱世界中严重落后的，并非我的无知，而是学校体系中理财教育的缺失。",
+   "p": 4
   },
   {
    "en": "Let's compare a theoretical financial education subject to the standard compulsory English class.",
-   "cn": "让我们把一门设想中的理财教育课，与标准的必修英语课作比较。"
+   "cn": "让我们把一门设想中的理财教育课，与标准的必修英语课作比较。",
+   "p": 5
   },
   {
    "en": "On average, English may not be the most popular subject, but it's consistently on the schedule throughout high school, with all students graduating fluent in English.",
-   "cn": "平均而言，英语或许不是最受欢迎的科目，但它始终排在高中课表上，所有学生毕业时都能流利使用英语。"
+   "cn": "平均而言，英语或许不是最受欢迎的科目，但它始终排在高中课表上，所有学生毕业时都能流利使用英语。",
+   "p": 5
   },
   {
    "en": "A financial education subject should do just the same.",
-   "cn": "理财教育课也应如此。"
+   "cn": "理财教育课也应如此。",
+   "p": 6
   },
   {
    "en": "It shouldn't be just a one-day event but a course integrated throughout the whole of high school that would allow students to gradually expand their financial literacy, and would prevent the need for a 'catch up' phase once we're out on our own after graduation.",
-   "cn": "它不应只是一天的活动，而应是一门贯穿整个高中的课程，让学生逐步拓展理财素养，并避免我们在毕业后独立生活时还需要\"追赶\"阶段。"
+   "cn": "它不应只是一天的活动，而应是一门贯穿整个高中的课程，让学生逐步拓展理财素养，并避免我们在毕业后独立生活时还需要\"追赶\"阶段。",
+   "p": 6
   },
   {
    "en": "In the same way that learning a language or new skills takes time, building financial skills requires practice and years to gradually accumulate bits and pieces of knowledge.",
-   "cn": "正如学习一门语言或新技能需要时间，建立理财技能也需要练习，需要数年逐步积累点滴知识。"
+   "cn": "正如学习一门语言或新技能需要时间，建立理财技能也需要练习，需要数年逐步积累点滴知识。",
+   "p": 7
   },
   {
    "en": "Giving young people the opportunity to become familiar with the world of money would provide them with a great advantage to enter adulthood with confidence and security so that they are able to manage their own money and look after themselves.",
-   "cn": "给年轻人熟悉金钱世界的机会，将赋予他们巨大优势，让他们带着自信与安全感步入成年，从而能够管理自己的钱财、照顾好自己。"
+   "cn": "给年轻人熟悉金钱世界的机会，将赋予他们巨大优势，让他们带着自信与安全感步入成年，从而能够管理自己的钱财、照顾好自己。",
+   "p": 8
   }
  ]
 }

@@ -6,235 +6,293 @@
  "sents": [
   {
    "en": "For all the innovation and choice that define the food and drink industries, if you want to make money, you could do a lot worse than fill a bottle with water and sell it.",
-   "cn": "尽管食品饮料行业以创新与选择为标志，但如果你想赚钱，把水装进瓶子卖掉算得上是相当稳妥的生意。"
+   "cn": "尽管食品饮料行业以创新与选择为标志，但如果你想赚钱，把水装进瓶子卖掉算得上是相当稳妥的生意。",
+   "p": 0
   },
   {
    "en": "A litre of tap water, the stuff we have cleverly piped into our homes, costs less than half a penny.",
-   "cn": "一升自来水——我们巧妙地用管道引入家中的东西——成本不到半便士。"
+   "cn": "一升自来水——我们巧妙地用管道引入家中的东西——成本不到半便士。",
+   "p": 0
   },
   {
    "en": "A litre of bottled water can cost well over a pound, especially for something fancy that has been sucked through a mountain.",
-   "cn": "而一升瓶装水的价格可能远超过一英镑，尤其是那种经过山体过滤的\"高级\"产品。"
+   "cn": "而一升瓶装水的价格可能远超过一英镑，尤其是那种经过山体过滤的\"高级\"产品。",
+   "p": 0
   },
   {
    "en": "Yet the bottled water market is livelier than ever.",
-   "cn": "然而，瓶装水市场比以往任何时候都更活跃。"
+   "cn": "然而，瓶装水市场比以往任何时候都更活跃。",
+   "p": 1
   },
   {
    "en": "It defies our increasing awareness of the harm plastics do to the environment and a broader, growing sense that something has to change.",
-   "cn": "它无视我们日益增长的对塑料危害环境的意识，也无视一种更广泛、不断增长的\"必须有所改变\"的感受。"
+   "cn": "它无视我们日益增长的对塑料危害环境的意识，也无视一种更广泛、不断增长的\"必须有所改变\"的感受。",
+   "p": 1
   },
   {
    "en": "Sales in the UK were worth a record £558.4 million this past year, an increase of 7%, according to the latest figures from the market analyst Kantar.",
-   "cn": "根据市场分析机构凯度的最新数据，过去一年英国瓶装水销售额达到创纪录的5.584亿英镑，增长7%。"
+   "cn": "根据市场分析机构凯度的最新数据，过去一年英国瓶装水销售额达到创纪录的5.584亿英镑，增长7%。",
+   "p": 1
   },
   {
    "en": "Separate data from other analysts show that last year the British consumed more than 2.2 billion litres of bottled water, including \"take-home\" and \"on-the-go\" products.",
-   "cn": "其他分析机构的独立数据显示，去年英国人消费了超过22亿升瓶装水，包括\"带回家\"和\"即饮\"产品。"
+   "cn": "其他分析机构的独立数据显示，去年英国人消费了超过22亿升瓶装水，包括\"带回家\"和\"即饮\"产品。",
+   "p": 1
   },
   {
    "en": "That's an annual rise in volume of 8.5%.",
-   "cn": "这是销量上8.5%的年度增长。"
+   "cn": "这是销量上8.5%的年度增长。",
+   "p": 1
   },
   {
    "en": "Environmental campaigners are struggling to understand why nations blessed with clean tap water grow only fonder of the bottle.",
-   "cn": "环保活动人士正努力理解，为何那些拥有洁净自来水的国家反而越来越钟爱瓶子。"
+   "cn": "环保活动人士正努力理解，为何那些拥有洁净自来水的国家反而越来越钟爱瓶子。",
+   "p": 2
   },
   {
    "en": "\"It's very surprising to me,\" says Sam Chetan-Walsh, a political adviser at Greenpeace and campaigner against ocean plastic.",
-   "cn": "\"这让我非常惊讶，\"绿色和平组织政治顾问、反海洋塑料活动人士萨姆∙切坦-沃尔什说。"
+   "cn": "\"这让我非常惊讶，\"绿色和平组织政治顾问、反海洋塑料活动人士萨姆∙切坦-沃尔什说。",
+   "p": 2
   },
   {
    "en": "\"Public awareness has never been higher, but the message is not quite reaching all the people it needs to.\" Where it is heard, the message is causing concern.",
-   "cn": "\"公众意识从未如此之高，但这一信息尚未完全触达所有需要听到它的人。\"在人们听到之处，这一信息正引发担忧。"
+   "cn": "\"公众意识从未如此之高，但这一信息尚未完全触达所有需要听到它的人。\"在人们听到之处，这一信息正引发担忧。",
+   "p": 2
   },
   {
    "en": "Plastic water bottles require oceans of fossil fuels to make and ship.",
-   "cn": "塑料水瓶的制造与运输需要海量化石燃料。"
+   "cn": "塑料水瓶的制造与运输需要海量化石燃料。",
+   "p": 2
   },
   {
    "en": "Additionally, single-use plastics of all types are polluting our cities and seas.",
-   "cn": "此外，各类一次性塑料正在污染我们的城市与海洋。"
+   "cn": "此外，各类一次性塑料正在污染我们的城市与海洋。",
+   "p": 2
   },
   {
    "en": "Numerous documentaries have shown how plastic is ultimately killing wildlife.",
-   "cn": "众多纪录片已展示塑料最终如何杀死野生动物。"
+   "cn": "众多纪录片已展示塑料最终如何杀死野生动物。",
+   "p": 2
   },
   {
    "en": "Moves against various plastics have gathered pace, from shopping bags to straws and plastic-lined coffee cups.",
-   "cn": "抵制各类塑料的行动正在加速，从购物袋到吸管，再到内衬塑料的咖啡杯。"
+   "cn": "抵制各类塑料的行动正在加速，从购物袋到吸管，再到内衬塑料的咖啡杯。",
+   "p": 3
   },
   {
    "en": "Chetan-Walsh argues that bottled water is different because the alternatives are so obvious.",
-   "cn": "切坦-沃尔什认为瓶装水有所不同，因为其替代方案如此显而易见。"
+   "cn": "切坦-沃尔什认为瓶装水有所不同，因为其替代方案如此显而易见。",
+   "p": 3
   },
   {
    "en": "\"If a product that is so nakedly unnecessary can exist then the whole system is failing,\" he says.",
-   "cn": "\"如果一种如此明显多余的产品都能存在，那么整个体系都在失灵，\"他说。"
+   "cn": "\"如果一种如此明显多余的产品都能存在，那么整个体系都在失灵，\"他说。",
+   "p": 3
   },
   {
    "en": "Hope is not entirely out of reach.",
-   "cn": "希望并非完全遥不可及。"
+   "cn": "希望并非完全遥不可及。",
+   "p": 4
   },
   {
    "en": "The rate of growth has begun to ease (sales were up 7% in the year, compared with 8% in the previous year).",
-   "cn": "增长速度已开始放缓（今年销售额增长7%，而去年为8%）。"
+   "cn": "增长速度已开始放缓（今年销售额增长7%，而去年为8%）。",
+   "p": 4
   },
   {
    "en": "But even if large numbers of people are quitting bottled water because of care for the environment, others are taking it up.",
-   "cn": "但即便大量人群因关心环境而戒掉瓶装水，另一些人却在开始饮用。"
+   "cn": "但即便大量人群因关心环境而戒掉瓶装水，另一些人却在开始饮用。",
+   "p": 5
   },
   {
    "en": "The introduction of the \"sugar tax\" on juices and soda drinks has pushed more people to bottled water, while health awareness has boosted its desirability.",
-   "cn": "对果汁和苏打饮料开征的\"糖税\"，把更多人推向瓶装水，而健康意识的提升也增加了它的吸引力。"
+   "cn": "对果汁和苏打饮料开征的\"糖税\"，把更多人推向瓶装水，而健康意识的提升也增加了它的吸引力。",
+   "p": 5
   },
   {
    "en": "Tap water consumption is growing at roughly the same pace (UK consumers still drink almost three times as much tap water as bottled water).",
-   "cn": "自来水的消费正以大致相同的速度增长（英国消费者饮用的自来水仍几乎是瓶装水的三倍）。"
+   "cn": "自来水的消费正以大致相同的速度增长（英国消费者饮用的自来水仍几乎是瓶装水的三倍）。",
+   "p": 5
   },
   {
    "en": "So the plastic tide only creeps higher.",
-   "cn": "于是塑料的浪潮只是悄悄涨得更高。"
+   "cn": "于是塑料的浪潮只是悄悄涨得更高。",
+   "p": 6
   },
   {
    "en": "The industry is quick to point out that all its bottles are recyclable.",
-   "cn": "业界迅速指出，其所有瓶子都可回收。"
+   "cn": "业界迅速指出，其所有瓶子都可回收。",
+   "p": 6
   },
   {
    "en": "\"But collection rates are, at the most generous estimates, 56%, so the actual recycling rate will be lower than that,\" Chetan-Walsh says.",
-   "cn": "\"但回收率最乐观的估计也只有56%，所以实际回收率会低于这个数字，\"切坦-沃尔什说。"
+   "cn": "\"但回收率最乐观的估计也只有56%，所以实际回收率会低于这个数字，\"切坦-沃尔什说。",
+   "p": 6
   },
   {
    "en": "And while bottles may be recyclable, very few are made of recycled plastic.",
-   "cn": "而且尽管瓶子可回收，却极少由回收塑料制成。"
+   "cn": "而且尽管瓶子可回收，却极少由回收塑料制成。",
+   "p": 6
   },
   {
    "en": "One water bottle company launched recycled half-litre \"eco\" bottles alongside its standard bottles.",
-   "cn": "一家水瓶公司在标准瓶之外推出了回收的半升\"生态\"瓶。"
+   "cn": "一家水瓶公司在标准瓶之外推出了回收的半升\"生态\"瓶。",
+   "p": 6
   },
   {
    "en": "Another has pledged to use only recycled plastic across its range by 2025.",
-   "cn": "另一家则承诺到2025年在其全系列中使用仅回收塑料。"
+   "cn": "另一家则承诺到2025年在其全系列中使用仅回收塑料。",
+   "p": 6
   },
   {
    "en": "Chetan-Walsh believes in a ban on single-use bottles.",
-   "cn": "切坦-沃尔什赞成禁止一次性瓶子。"
+   "cn": "切坦-沃尔什赞成禁止一次性瓶子。",
+   "p": 6
   },
   {
    "en": "Bans do exist in some places.",
-   "cn": "禁令在某些地方确实存在。"
+   "cn": "禁令在某些地方确实存在。",
+   "p": 6
   },
   {
    "en": "Organisers of a famous music festival announced that water bottles will not be sold this summer.",
-   "cn": "一个著名音乐节的组织者宣布今夏将不出售水瓶。"
+   "cn": "一个著名音乐节的组织者宣布今夏将不出售水瓶。",
+   "p": 6
   },
   {
    "en": "San Francisco has banned them from city property and events.",
-   "cn": "旧金山已禁止在其市政资产和活动中使用它们。"
+   "cn": "旧金山已禁止在其市政资产和活动中使用它们。",
+   "p": 6
   },
   {
    "en": "Last year, the UK government set out plans to ban single-use plastic from its estate.",
-   "cn": "去年，英国政府制定了从其资产中禁止一次性塑料的计划。"
+   "cn": "去年，英国政府制定了从其资产中禁止一次性塑料的计划。",
+   "p": 6
   },
   {
    "en": "Water bottlers, unsurprisingly, don't support bans.",
-   "cn": "不出所料，瓶装水厂商不支持禁令。"
+   "cn": "不出所料，瓶装水厂商不支持禁令。",
+   "p": 7
   },
   {
    "en": "But they raise concerns about health rather than profit margins.",
-   "cn": "但他们提出的关切是健康，而非利润率。"
+   "cn": "但他们提出的关切是健康，而非利润率。",
+   "p": 7
   },
   {
    "en": "Last month one chief executive of a water bottling company said that bans would \"result in greater consumption of sugary drinks, adding to all the health dangers of obesity, diabetes and tooth decay\".",
-   "cn": "上个月，一家瓶装水公司的首席执行官说，禁令将\"导致含糖饮料消费增加，加剧肥胖、糖尿病和蛀牙等种种健康危害\"。"
+   "cn": "上个月，一家瓶装水公司的首席执行官说，禁令将\"导致含糖饮料消费增加，加剧肥胖、糖尿病和蛀牙等种种健康危害\"。",
+   "p": 7
   },
   {
    "en": "Kinvara Carey, general manager of an association of the biggest bottled water manufacturers, cites a survey in which people were asked what they would do if bottled water were not available.",
-   "cn": "最大瓶装水制造商协会的总经理金瓦拉∙凯里援引了一项调查，其中人们被问及若没有瓶装水会怎么做。"
+   "cn": "最大瓶装水制造商协会的总经理金瓦拉∙凯里援引了一项调查，其中人们被问及若没有瓶装水会怎么做。",
+   "p": 7
   },
   {
    "en": "\"Forty-four per cent would buy another drink which is not great, 14% would go without, and 4.5% said they would find a fountain.\" she says.",
-   "cn": "\"44%的人会买另一种并不健康的饮料，14%的人将忍渴不喝，4.5%的人说他们会去找饮水机。\"她说。"
+   "cn": "\"44%的人会买另一种并不健康的饮料，14%的人将忍渴不喝，4.5%的人说他们会去找饮水机。\"她说。",
+   "p": 7
   },
   {
    "en": "\"The choice is important.\"",
-   "cn": "\"选择很重要。\""
+   "cn": "\"选择很重要。\"",
+   "p": 7
   },
   {
    "en": "What if fountains were more numerous, and tap water more clearly available in cafes, restaurants and elsewhere?",
-   "cn": "如果饮水机更多一些，咖啡馆、餐厅及其他场所的自来水更容易获得呢？"
+   "cn": "如果饮水机更多一些，咖啡馆、餐厅及其他场所的自来水更容易获得呢？",
+   "p": 8
   },
   {
    "en": "Dozens of fountains are being installed in London.",
-   "cn": "伦敦正在安装数十个饮水机。"
+   "cn": "伦敦正在安装数十个饮水机。",
+   "p": 8
   },
   {
    "en": "There are similar initiatives elsewhere.",
-   "cn": "其他地方也有类似举措。"
+   "cn": "其他地方也有类似举措。",
+   "p": 8
   },
   {
    "en": "Before plastic and the marketing that made people think they needed bottled water in the first place, fountains were an urban fixture.",
-   "cn": "在塑料以及那种让人们最初以为自己需要瓶装水的营销出现之前，饮水机曾是城市的固定设施。"
+   "cn": "在塑料以及那种让人们最初以为自己需要瓶装水的营销出现之前，饮水机曾是城市的固定设施。",
+   "p": 8
   },
   {
    "en": "Greenpeace, among others, is also pushing for a \"deposit return\" scheme.",
-   "cn": "绿色和平组织等机构也在推动\"押金返还\"计划。"
+   "cn": "绿色和平组织等机构也在推动\"押金返还\"计划。",
+   "p": 8
   },
   {
    "en": "This would mean tax on bottled water would be refunded to customers who returned the plastic for recycling.",
-   "cn": "这意味着对瓶装水征收的税费将退还给把塑料瓶送回回收的顾客。"
+   "cn": "这意味着对瓶装水征收的税费将退还给把塑料瓶送回回收的顾客。",
+   "p": 8
   },
   {
    "en": "Even if bottled water sales are growing slightly more slowly, the industry is racing to adapt to changing concerns and tastes.",
-   "cn": "即便瓶装水销售增长略为放缓，该行业仍在竞相适应不断变化的关切与口味。"
+   "cn": "即便瓶装水销售增长略为放缓，该行业仍在竞相适应不断变化的关切与口味。",
+   "p": 9
   },
   {
    "en": "Flavoured water is booming: sales of the sparkling variety shot up by 20%, according to the latest analyst data, Meanwhile, international water brands, as well as a range of new companies, are selling high-end reusable bottles.",
-   "cn": "风味水正蓬勃发展：根据最新分析数据，气泡类风味水的销售额猛增20%。与此同时，国际水品牌以及一系列新公司正在销售高端可重复使用的水瓶。"
+   "cn": "风味水正蓬勃发展：根据最新分析数据，气泡类风味水的销售额猛增20%。与此同时，国际水品牌以及一系列新公司正在销售高端可重复使用的水瓶。",
+   "p": 9
   },
   {
    "en": "And if you must fill them with tap water, why not add flavouring?",
-   "cn": "而如果你非得用自来水灌装它们，何不加点风味呢？"
+   "cn": "而如果你非得用自来水灌装它们，何不加点风味呢？",
+   "p": 9
   },
   {
    "en": "As the owner of multiple sugary drink brands and bottled water, PepsiCo is facing challenges on health and environmental fronts.",
-   "cn": "作为多个含糖饮料品牌和瓶装水的拥有者，百事公司正面临健康与环境方面的挑战。"
+   "cn": "作为多个含糖饮料品牌和瓶装水的拥有者，百事公司正面临健康与环境方面的挑战。",
+   "p": 10
   },
   {
    "en": "Last year, the company bought SodaStream (a drinks company that sells machines for making tap water bubbly and then consumers add flavours) for $3.2 billion.",
-   "cn": "去年，该公司以32亿美元收购了SodaStream（一家出售将自来水打成气泡、再由消费者添加风味产品器械的饮料公司）。"
+   "cn": "去年，该公司以32亿美元收购了SodaStream（一家出售将自来水打成气泡、再由消费者添加风味产品器械的饮料公司）。",
+   "p": 10
   },
   {
    "en": "It also launched a range of fancy bottles that work with tap water and flavour packets.",
-   "cn": "它还推出了一系列可与自来水和风味包搭配使用的花哨水瓶。"
+   "cn": "它还推出了一系列可与自来水和风味包搭配使用的花哨水瓶。",
+   "p": 10
   },
   {
    "en": "The bottle is reusable.",
-   "cn": "瓶子是可重复使用的。"
+   "cn": "瓶子是可重复使用的。",
+   "p": 10
   },
   {
    "en": "The packets?",
-   "cn": "那些小包装呢？"
+   "cn": "那些小包装呢？",
+   "p": 10
   },
   {
    "en": "Not so much, and, yes, they are made of plastic, although the company invites users to post them back for recycling.",
-   "cn": "没那么环保，而且，没错，它们由塑料制成，尽管公司邀请用户将它们寄回回收。"
+   "cn": "没那么环保，而且，没错，它们由塑料制成，尽管公司邀请用户将它们寄回回收。",
+   "p": 10
   },
   {
    "en": "As is so often the case, clever marketing can beat reason; awareness is rarely enough.",
-   "cn": "正如常见的情况，巧妙的营销能战胜理性；光有意识远远不够。"
+   "cn": "正如常见的情况，巧妙的营销能战胜理性；光有意识远远不够。",
+   "p": 11
   },
   {
    "en": "\"There is always this kind of slip between concern, intent and changed behaviour,\" says Giles Quick an analyst of bottled water.",
-   "cn": "\"在关切、意图与改变的行为之间，总存在这种落差，\"瓶装水分析师贾尔斯∙奎克说。"
+   "cn": "\"在关切、意图与改变的行为之间，总存在这种落差，\"瓶装水分析师贾尔斯∙奎克说。",
+   "p": 11
   },
   {
    "en": "\"The best example is five a day, the recommendation to have at least five portions of fruit and vegetables every day.",
-   "cn": "\"最好的例子是'每日五份'，即建议每天至少摄入五份水果和蔬菜。"
+   "cn": "\"最好的例子是'每日五份'，即建议每天至少摄入五份水果和蔬菜。",
+   "p": 11
   },
   {
    "en": "Almost everyone is aware of this, but something like 15% of us achieve it.\" Unless a far-reaching bottle ban does come into force, it will be up to consumers to not only demand change, but to act themselves.",
-   "cn": "几乎人人都知道这一点，但我们中只有约15%的人做到了。\"除非一项影响深远的瓶子禁令真正生效，否则既要要求改变、又要亲自行动，都将取决于消费者自己。"
+   "cn": "几乎人人都知道这一点，但我们中只有约15%的人做到了。\"除非一项影响深远的瓶子禁令真正生效，否则既要要求改变、又要亲自行动，都将取决于消费者自己。",
+   "p": 11
   }
  ]
 }

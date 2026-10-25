@@ -6,203 +6,253 @@
  "sents": [
   {
    "en": "This fall, thousands of college students from across the country will begin their undergraduate studies at colleges around the nation.",
-   "cn": "今年秋天，来自全国各地的数千名大学生将在全国各高校开始本科学习。"
+   "cn": "今年秋天，来自全国各地的数千名大学生将在全国各高校开始本科学习。",
+   "p": 0
   },
   {
    "en": "They will inevitably pack too much to fit in their tiny dorm rooms.",
-   "cn": "他们不可避免地会带上过多行李，塞满狭小的宿舍房间。"
+   "cn": "他们不可避免地会带上过多行李，塞满狭小的宿舍房间。",
+   "p": 0
   },
   {
    "en": "They will also carry with them a huge student loan debt, in addition to countless \"hidden\" out-of-pocket costs paid for by their bank accounts and the bank accounts of their families.",
-   "cn": "除了由自己和家人账户支付的无数\"隐性\"自费开销，他们还将背负巨额学生贷款债务。"
+   "cn": "除了由自己和家人账户支付的无数\"隐性\"自费开销，他们还将背负巨额学生贷款债务。",
+   "p": 0
   },
   {
    "en": "At my well-respected, private, four-year university in Washington, D.C., which boasts a yearly tuition of $44,046 not including room and board, I receive over $57,000 yearly in financial aid.",
-   "cn": "我就读于华盛顿特区一所备受尊敬的私立四年制大学，其年度学费高达44,046美元（不含食宿）。我每年获得超过57,000美元的资助。"
+   "cn": "我就读于华盛顿特区一所备受尊敬的私立四年制大学，其年度学费高达44,046美元（不含食宿）。我每年获得超过57,000美元的资助。",
+   "p": 1
   },
   {
    "en": "As a student from a family that is struggling to make ends meet, my financial aid package is a combination of federal grants and federal work study, university merit scholarships and financial aid awards, and about $8,000 yearly in federally subsidized and unsubsidized loans.",
-   "cn": "作为一个家境勉强度日的家庭的学生，我的资助方案由联邦助学金、联邦工读计划、校级优秀奖学金与助学金，以及每年约8,000美元的联邦补贴与非补贴贷款组成。"
+   "cn": "作为一个家境勉强度日的家庭的学生，我的资助方案由联邦助学金、联邦工读计划、校级优秀奖学金与助学金，以及每年约8,000美元的联邦补贴与非补贴贷款组成。",
+   "p": 1
   },
   {
    "en": "On paper, my expenses and my financial aid just about even out.",
-   "cn": "账面之上，我的开支与资助大致相抵；"
+   "cn": "账面之上，我的开支与资助大致相抵；",
+   "p": 1
   },
   {
    "en": "Off paper, they don't.",
-   "cn": "账面之下，则并非如此。"
+   "cn": "账面之下，则并非如此。",
+   "p": 1
   },
   {
    "en": "Universities today are in the business of making money, and mine is no exception.",
-   "cn": "如今的大学都在做赚钱的生意，我的学校也不例外。"
+   "cn": "如今的大学都在做赚钱的生意，我的学校也不例外。",
+   "p": 2
   },
   {
    "en": "They hit me right out of gate with a $160 fee to attend my freshman orientation, a price which does not include the cost of travel to and from the District.",
-   "cn": "刚一入学，学校就收了我160美元的新生入学指导费，而这还不包含往返华盛顿特区的差旅费用。"
+   "cn": "刚一入学，学校就收了我160美元的新生入学指导费，而这还不包含往返华盛顿特区的差旅费用。",
+   "p": 2
   },
   {
    "en": "Almost every class has an associated fee not included in the cost of tuition, most between $40 and $100.",
-   "cn": "几乎每门课都有一项不包含在学费内的附加费，多在40到100美元之间。"
+   "cn": "几乎每门课都有一项不包含在学费内的附加费，多在40到100美元之间。",
+   "p": 2
   },
   {
    "en": "Fees for lab science classes are the highest, and all students at my university are required to take at least one lab before they graduate.",
-   "cn": "理科实验课的费用最高，而我校所有学生毕业前都至少得修一门实验课。"
+   "cn": "理科实验课的费用最高，而我校所有学生毕业前都至少得修一门实验课。",
+   "p": 2
   },
   {
    "en": "Buying a laptop proved a necessity and, thankfully, a relative bought me one as a gift.",
-   "cn": "买笔记本电脑成了必需品，所幸一位亲戚当作礼物送了我一台。"
+   "cn": "买笔记本电脑成了必需品，所幸一位亲戚当作礼物送了我一台。",
+   "p": 2
   },
   {
    "en": "Renting a mini-fridge for my dorm room costs my roommates and me about $140 a year.",
-   "cn": "我和室友租一个迷你冰箱，每年大约花费140美元。"
+   "cn": "我和室友租一个迷你冰箱，每年大约花费140美元。",
+   "p": 2
   },
   {
    "en": "Schools will charge you whatever they can.",
-   "cn": "学校会尽其所能向你收费。"
+   "cn": "学校会尽其所能向你收费。",
+   "p": 3
   },
   {
    "en": "The costs of any damage to the dorm, including elevators, bathrooms, and common areas, are billed to every person on a dorm floor, or even the entire building if they do not know who caused the damage.",
-   "cn": "宿舍任何损坏（包括电梯、浴室和公共区域）的费用，都会摊派到整层宿舍的每个人头上，若查不出肇事者，甚至由整栋楼分担。"
+   "cn": "宿舍任何损坏（包括电梯、浴室和公共区域）的费用，都会摊派到整层宿舍的每个人头上，若查不出肇事者，甚至由整栋楼分担。",
+   "p": 3
   },
   {
    "en": "After I fell out of my bed twice during my freshman year, the university installed a railing·for $20, billed to my student account.",
-   "cn": "大一那年我两次从床上摔下后，学校装了一道护栏——收费20美元，记到我的学生账户。"
+   "cn": "大一那年我两次从床上摔下后，学校装了一道护栏——收费20美元，记到我的学生账户。",
+   "p": 3
   },
   {
    "en": "My financial aid did not anticipate any of these costs, and so it did not cover them.",
-   "cn": "我的资助从未预料到这些费用，自然也不涵盖。"
+   "cn": "我的资助从未预料到这些费用，自然也不涵盖。",
+   "p": 3
   },
   {
    "en": "An Internet search of \"hidden costs\" of college turns up a host of articles on parent-centered websites on the college application process.",
-   "cn": "在网上搜索大学的\"隐性费用\"，会跳出一大批发布在家长导向型网站、关于大学申请流程的文章。"
+   "cn": "在网上搜索大学的\"隐性费用\"，会跳出一大批发布在家长导向型网站、关于大学申请流程的文章。",
+   "p": 4
   },
   {
    "en": "These articles are almost always geared towards upper- and middle-class families.",
-   "cn": "这些文章几乎总是面向中上阶层家庭。"
+   "cn": "这些文章几乎总是面向中上阶层家庭。",
+   "p": 4
   },
   {
    "en": "For students already struggling to pay tuition, these costs may be the least of their worries.",
-   "cn": "对那些已经在为交学费发愁的学生来说，这些费用或许是他们最不担心的。"
+   "cn": "对那些已经在为交学费发愁的学生来说，这些费用或许是他们最不担心的。",
+   "p": 4
   },
   {
    "en": "So what hidden costs should low-income students really be paying attention to?",
-   "cn": "那么，低收入学生真正应当留意哪些隐性费用？"
+   "cn": "那么，低收入学生真正应当留意哪些隐性费用？",
+   "p": 5
   },
   {
    "en": "My college experience offers a few examples.",
-   "cn": "我的大学经历可以提供几个例子。"
+   "cn": "我的大学经历可以提供几个例子。",
+   "p": 5
   },
   {
    "en": "If you are a low-income student who will be attending school out-of-state, make sure you know if you can use your state benefits, such as the Supplemental Nutrition Assistance Program, or SNAP.",
-   "cn": "如果你是即将去外州上学的低收入学生，一定要弄清自己能否使用本州的福利，比如\"补充营养援助计划\"（SNAP）。"
+   "cn": "如果你是即将去外州上学的低收入学生，一定要弄清自己能否使用本州的福利，比如\"补充营养援助计划\"（SNAP）。",
+   "p": 6
   },
   {
    "en": "It wasn't until after I had accepted admission to an out-of-state school that I learned that I could not use my Ohio Medicaid on campus for anything other than emergency care.",
-   "cn": "直到我已被一所外州学校录取后，我才得知自己在校园里无法使用俄亥俄州的医疗补助（Medicaid），除非是急救。"
+   "cn": "直到我已被一所外州学校录取后，我才得知自己在校园里无法使用俄亥俄州的医疗补助（Medicaid），除非是急救。",
+   "p": 6
   },
   {
    "en": "My benefits became invalid the second I moved out of Ohio.",
-   "cn": "我一搬离俄亥俄州，福利即刻失效。"
+   "cn": "我一搬离俄亥俄州，福利即刻失效。",
+   "p": 6
   },
   {
    "en": "After my freshman year, I had to opt for the school's insurance plan, which costs around $2,000 a year.",
-   "cn": "大一之后，我不得不选择学校的保险计划，每年约2,000美元。"
+   "cn": "大一之后，我不得不选择学校的保险计划，每年约2,000美元。",
+   "p": 6
   },
   {
    "en": "Even if your school offers a flat-rate fee for a doctor's appointment at the student health center (mine is $20 a visit), these fees often do not include extra fees for lab tests or prescription medications.",
-   "cn": "即便学校对学生健康中心的就诊收取统一费用（我的是每次20美元），这些费用通常也不包含化验或处方药等额外费用。"
+   "cn": "即便学校对学生健康中心的就诊收取统一费用（我的是每次20美元），这些费用通常也不包含化验或处方药等额外费用。",
+   "p": 6
   },
   {
    "en": "If you plan on paying off bills in your student account with a credit card, be aware of any additional costs.",
-   "cn": "如果你打算用信用卡偿还学生账户里的账单，要留意任何额外费用。"
+   "cn": "如果你打算用信用卡偿还学生账户里的账单，要留意任何额外费用。",
+   "p": 7
   },
   {
    "en": "My school charges an additional fee for the use of a credit card to settle outstanding charges, which can add upwards of 3% of the balance to your bill.",
-   "cn": "我的学校对使用信用卡结清未付费用收取附加费，这会让账单再增加余额的3%以上。"
+   "cn": "我的学校对使用信用卡结清未付费用收取附加费，这会让账单再增加余额的3%以上。",
+   "p": 7
   },
   {
    "en": "There is another depressing reality hidden within even the largest financial aid packages: Colleges often offer the most generous packages during freshman year as a way to attract new students.",
-   "cn": "即便是最丰厚的资助方案里，也藏着另一个令人沮丧的现实：高校常常在新生第一年提供最慷慨的资助方案，以此吸引新生。"
+   "cn": "即便是最丰厚的资助方案里，也藏着另一个令人沮丧的现实：高校常常在新生第一年提供最慷慨的资助方案，以此吸引新生。",
+   "p": 8
   },
   {
    "en": "My family was careful to ask about the chances of financial aid being taken away after my freshman year.",
-   "cn": "我家很谨慎地询问过，大一之后资助是否会被取消。"
+   "cn": "我家很谨慎地询问过，大一之后资助是否会被取消。",
+   "p": 8
   },
   {
    "en": "We were assured that, except for low grades or a raise in family income, no money would be taken away.",
-   "cn": "我们得到的保证是，除非成绩差或家庭收入提高，否则不会取消任何资助。"
+   "cn": "我们得到的保证是，除非成绩差或家庭收入提高，否则不会取消任何资助。",
+   "p": 8
   },
   {
    "en": "We did not know to ask·and the school did not readily point out·that even if tuition rises, my financial aid package will stay the same.",
-   "cn": "我们不知道该去问——学校也没有主动指出——即便学费上涨，我的资助方案也不会变。"
+   "cn": "我们不知道该去问——学校也没有主动指出——即便学费上涨，我的资助方案也不会变。",
+   "p": 8
   },
   {
    "en": "So when my university voted to raise tuition costs 3% at the end of my freshman year, my financial aid package remained the same and I was suddenly responsible for an additional $1,200 for the next year.",
-   "cn": "于是，当我的大学在大一结束时投票决定学费上调3%，我的资助方案保持不变，而我突然要为下一年多承担1,200美元。"
+   "cn": "于是，当我的大学在大一结束时投票决定学费上调3%，我的资助方案保持不变，而我突然要为下一年多承担1,200美元。",
+   "p": 8
   },
   {
    "en": "The university administration will likely vote to raise costs at least once more before my graduation.",
-   "cn": "校方在我毕业前很可能还会至少再投票涨价一次。"
+   "cn": "校方在我毕业前很可能还会至少再投票涨价一次。",
+   "p": 8
   },
   {
    "en": "Yes, I chose to attend an expensive university far from my hometown.",
-   "cn": "是的，我选择了离家很远的一所昂贵大学。"
+   "cn": "是的，我选择了离家很远的一所昂贵大学。",
+   "p": 9
   },
   {
    "en": "Yes, there were cheaper options.",
-   "cn": "是的，本有更便宜的选择。"
+   "cn": "是的，本有更便宜的选择。",
+   "p": 9
   },
   {
    "en": "But there are promising students from struggling families across the nation who should not rule out their dream schools entirely.",
-   "cn": "但是，全国各地那些来自困境家庭的、有前途的学生，不应完全排除自己的梦想学校。"
+   "cn": "但是，全国各地那些来自困境家庭的、有前途的学生，不应完全排除自己的梦想学校。",
+   "p": 9
   },
   {
    "en": "All things considered, I am paying significantly less than the ticket price of my university, and having an educational experience in Washington, D.C., that I would not have had anywhere else.",
-   "cn": "总而言之，我实际支付的远低于我校的标价，并且在华盛顿特区获得了别处无法获得的教育体验。"
+   "cn": "总而言之，我实际支付的远低于我校的标价，并且在华盛顿特区获得了别处无法获得的教育体验。",
+   "p": 9
   },
   {
    "en": "As a low-income student from a down-and-out Rust Belt community, these educational experiences have enormous potential to brighten my future·and my family's future.",
-   "cn": "作为一个来自衰败\"铁锈地带\"社区的低收入学生，这些教育经历极有可能照亮我的未来——以及我家人的未来。"
+   "cn": "作为一个来自衰败\"铁锈地带\"社区的低收入学生，这些教育经历极有可能照亮我的未来——以及我家人的未来。",
+   "p": 9
   },
   {
    "en": "The key is to make sure that students and their families understand that hidden costs exist, and that they may prove problematic.",
-   "cn": "关键是要确保学生及其家庭明白，隐性费用确实存在，而且可能带来麻烦。"
+   "cn": "关键是要确保学生及其家庭明白，隐性费用确实存在，而且可能带来麻烦。",
+   "p": 10
   },
   {
    "en": "Fill out a more comprehensive checklist, and be wary of listed prices that seem too low.",
-   "cn": "填写一份更全面的清单，并对看似过低的标价保持警惕。"
+   "cn": "填写一份更全面的清单，并对看似过低的标价保持警惕。",
+   "p": 10
   },
   {
    "en": "Understand just how complicated the financial aid process is.",
-   "cn": "要理解助学金申请流程究竟有多复杂。"
+   "cn": "要理解助学金申请流程究竟有多复杂。",
+   "p": 10
   },
   {
    "en": "Students and families must also understand their ability to self-advocate.",
-   "cn": "学生和家长还必须明白自己自我维权的能力。"
+   "cn": "学生和家长还必须明白自己自我维权的能力。",
+   "p": 11
   },
   {
    "en": "They should not pay student bills or excess fees blindly.",
-   "cn": "他们不应盲目支付学生账单或额外费用。"
+   "cn": "他们不应盲目支付学生账单或额外费用。",
+   "p": 11
   },
   {
    "en": "If something does not look right, ask about it.",
-   "cn": "如果某笔收费看起来不对，就去询问；"
+   "cn": "如果某笔收费看起来不对，就去询问；",
+   "p": 11
   },
   {
    "en": "If it still doesn't look right, negotiate it.",
-   "cn": "如果仍觉不对，就去协商。"
+   "cn": "如果仍觉不对，就去协商。",
+   "p": 11
   },
   {
    "en": "In cases where parents are working multiple jobs, are less knowledgeable about college bureaucracies, have limited English language skills, or are not contributing financially to their child's education, the burden of self-advocacy will fall on the student.",
-   "cn": "在父母身兼多份工作、对大学官僚体制了解较少、英语能力有限，或未在财务上支持孩子学业的情况下，自我维权的重担便会落在学生身上。"
+   "cn": "在父母身兼多份工作、对大学官僚体制了解较少、英语能力有限，或未在财务上支持孩子学业的情况下，自我维权的重担便会落在学生身上。",
+   "p": 11
   },
   {
    "en": "I understand the difficulty, and the embarrassment. But it is necessary.",
-   "cn": "我理解这种困难与尴尬，但这是必要的。"
+   "cn": "我理解这种困难与尴尬，但这是必要的。",
+   "p": 11
   },
   {
    "en": "In the grand scheme of things, however, colleges also must come to understand that the hidden fees they ask for may prove unmanageable for the very kinds of low-income or first-generation students they are trying desperately to attract.",
-   "cn": "然而，从大局来看，高校也必须意识到，它们所收取的隐性费用，对它们拼命想要吸引的那类低收入或第一代大学生而言，可能难以承受。"
+   "cn": "然而，从大局来看，高校也必须意识到，它们所收取的隐性费用，对它们拼命想要吸引的那类低收入或第一代大学生而言，可能难以承受。",
+   "p": 12
   }
  ]
 }

@@ -6,75 +6,93 @@
  "sents": [
   {
    "en": "As many office workers adapt to remote work, cities may undergo fundamental change if offices remain under-utilized.",
-   "cn": "随着许多上班族适应远程办公，如果办公室持续得不到充分利用，城市可能会发生根本性的改变。"
+   "cn": "随着许多上班族适应远程办公，如果办公室持续得不到充分利用，城市可能会发生根本性的改变。",
+   "p": 0
   },
   {
    "en": "Who will benefit if working from home becomes the norm?",
-   "cn": "如果居家办公成为常态，谁会是受益者？"
+   "cn": "如果居家办公成为常态，谁会是受益者？",
+   "p": 0
   },
   {
    "en": "Employers argue they make considerable savings on real estate when workers shift from office to home work.",
-   "cn": "雇主们辩称，当员工从办公室转向居家办公时，他们在房地产上省下了可观的开支。"
+   "cn": "雇主们辩称，当员工从办公室转向居家办公时，他们在房地产上省下了可观的开支。",
+   "p": 1
   },
   {
    "en": "However, these savings result from passing costs on to workers.",
-   "cn": "然而，这些节省来自把成本转嫁给员工。"
+   "cn": "然而，这些节省来自把成本转嫁给员工。",
+   "p": 1
   },
   {
    "en": "Unless employers are fully compensated, this could become a variant of parasitic（寄生的 ）capitalism, whereby corporate profits increasingly rely on extracting value from the public·and now personal·realm, rather than on generating new value.",
-   "cn": "除非雇主得到充分补偿，否则这可能演变成一种寄生式资本主义，即企业利润日益依赖从公共领域——如今还有个人领域——榨取价值，而不是靠创造新价值。"
+   "cn": "除非雇主得到充分补偿，否则这可能演变成一种寄生式资本主义，即企业利润日益依赖从公共领域——如今还有个人领域——榨取价值，而不是靠创造新价值。",
+   "p": 2
   },
   {
    "en": "Though employers are backed by a chorus of remote work advocates, others note the loneliness, reduced productivity and inefficiencies of extended remote work.",
-   "cn": "尽管雇主们得到了一众远程办公支持者的声援，但另一些人指出，长期远程办公会带来孤独感、生产率下降和效率低下的问题。"
+   "cn": "尽管雇主们得到了一众远程办公支持者的声援，但另一些人指出，长期远程办公会带来孤独感、生产率下降和效率低下的问题。",
+   "p": 3
   },
   {
    "en": "If working from home becomes permanent, employees will have to dedicate part of their private space to work.",
-   "cn": "如果居家办公成为永久状态，员工将不得不把部分私人空间用于工作。"
+   "cn": "如果居家办公成为永久状态，员工将不得不把部分私人空间用于工作。",
+   "p": 4
   },
   {
    "en": "This requires purchasing desks, chairs and office equipment.",
-   "cn": "这就需要购置书桌、椅子和办公设备。"
+   "cn": "这就需要购置书桌、椅子和办公设备。",
+   "p": 4
   },
   {
    "en": "It also means having private space dedicated to work: the space must be heated, cleaned, maintained and paid for.",
-   "cn": "这也意味着要有专用于工作的私人空间：该空间必须供暖、清洁、维护并付费。"
+   "cn": "这也意味着要有专用于工作的私人空间：该空间必须供暖、清洁、维护并付费。",
+   "p": 5
   },
   {
    "en": "That depends on many things, but for purposes of illustration, I have run some estimates for Montreal.",
-   "cn": "这取决于很多因素，但为了说明问题，我针对蒙特利尔做了一些估算。"
+   "cn": "这取决于很多因素，但为了说明问题，我针对蒙特利尔做了一些估算。",
+   "p": 5
   },
   {
    "en": "The exercise is simple but important, since it brings these costs out of the realm of speculation into the realm of meaningful discussion.",
-   "cn": "这一计算过程简单却重要，因为它把这些成本从猜测的领域带入了有意义讨论的领域。"
+   "cn": "这一计算过程简单却重要，因为它把这些成本从猜测的领域带入了有意义讨论的领域。",
+   "p": 5
   },
   {
    "en": "Rough calculations show that the savings made by employers when their staff works from home are of similar value to the compensation workers should receive for setting up offices at home.",
-   "cn": "粗略的计算表明，员工居家办公时雇主省下的开支，与员工为在家设立办公室所应获得的补偿价值相当。"
+   "cn": "粗略的计算表明，员工居家办公时雇主省下的开支，与员工为在家设立办公室所应获得的补偿价值相当。",
+   "p": 6
   },
   {
    "en": "What does this mean for offices in cities?",
-   "cn": "这对城市里的办公室意味着什么？"
+   "cn": "这对城市里的办公室意味着什么？",
+   "p": 7
   },
   {
    "en": "One of two things may happen: Employers pass these costs onto employees.",
-   "cn": "可能会发生两种情况之一：雇主把这些成本转嫁给员工。"
+   "cn": "可能会发生两种情况之一：雇主把这些成本转嫁给员工。",
+   "p": 7
   },
   {
    "en": "This would be a form of expropriation（侵占）, with employees absorbing production costs that have traditionally been paid by the employer.",
-   "cn": "这将是一种侵占行为，由员工承担传统上由雇主支付的生产成本。"
+   "cn": "这将是一种侵占行为，由员工承担传统上由雇主支付的生产成本。",
+   "p": 7
   },
   {
    "en": "This represents a considerable transfer of value from employees to employers.",
-   "cn": "这代表着价值从员工向雇主的一次可观转移。"
+   "cn": "这代表着价值从员工向雇主的一次可观转移。",
+   "p": 7
   },
   {
    "en": "When employees are properly compensated, employers' real estate savings will be modest.",
-   "cn": "当员工得到合理补偿时，雇主在房地产上的节省将很有限。"
+   "cn": "当员工得到合理补偿时，雇主在房地产上的节省将很有限。",
+   "p": 8
   },
   {
    "en": "If savings are modest, then the many advantages of working in offices·such as lively atmosphere, rapidity of communication, team-building and acclimatization（适应环境）of new employees·will encourage employers to shelve the idea of remote work and, like Yahoo in 2013, encourage employees to work most of the time from corporate office space.",
-   "cn": "如果节省有限，那么在办公室工作的诸多优势——如活跃的氛围、沟通的快速、团队建设以及新员工的适应环境——就会促使雇主搁置远程办公的念头，并像2013年的雅虎那样，鼓励员工大部分时间在企业办公空间里工作。"
+   "cn": "如果节省有限，那么在办公室工作的诸多优势——如活跃的氛围、沟通的快速、团队建设以及新员工的适应环境——就会促使雇主搁置远程办公的念头，并像2013年的雅虎那样，鼓励员工大部分时间在企业办公空间里工作。",
+   "p": 8
   }
  ]
 }

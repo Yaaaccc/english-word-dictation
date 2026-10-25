@@ -6,95 +6,118 @@
  "sents": [
   {
    "en": "With those born with natural talents, it feels as if they excel without really trying.",
-   "cn": "对于那些天生拥有才华的人，感觉他们不怎么努力就能出类拔萃。"
+   "cn": "对于那些天生拥有才华的人，感觉他们不怎么努力就能出类拔萃。",
+   "p": 0
   },
   {
    "en": "But what about those of us who don·t have a natural talent?",
-   "cn": "但我们这些没有天赋的人呢？"
+   "cn": "但我们这些没有天赋的人呢？",
+   "p": 0
   },
   {
    "en": "We·ve been told all our lives that if you work hard, you too can succeed.",
-   "cn": "我们一生都被教导：只要努力，你也能成功。"
+   "cn": "我们一生都被教导：只要努力，你也能成功。",
+   "p": 0
   },
   {
    "en": "But with the release of Angela Duckworth·s Grit, we are given a new key to success.",
-   "cn": "但随着安杰拉∙达克沃思《坚毅》一书的出版，我们获得了成功的一把新钥匙。"
+   "cn": "但随着安杰拉∙达克沃思《坚毅》一书的出版，我们获得了成功的一把新钥匙。",
+   "p": 0
   },
   {
    "en": "·As much as talent counts, effort counts twice,· says Duckworth in Grit.",
-   "cn": "“无论才华有多重要，努力的分量都要加倍，”达克沃思在《坚毅》中说。"
+   "cn": "“无论才华有多重要，努力的分量都要加倍，”达克沃思在《坚毅》中说。",
+   "p": 1
   },
   {
    "en": "She introduces a new concept that talent may be overrated, and if you want real success, what you need is grit the perfect combination of passion and persistence.",
-   "cn": "她提出一个新观点：才华可能被高估了；如果你想要真正的成功，你需要的是“坚毅”——激情与坚持的完美结合。"
+   "cn": "她提出一个新观点：才华可能被高估了；如果你想要真正的成功，你需要的是“坚毅”——激情与坚持的完美结合。",
+   "p": 1
   },
   {
    "en": "Even if you have natural talent it·s nothing without grit.",
-   "cn": "即便你天生有才，没有坚毅也一文不值。"
+   "cn": "即便你天生有才，没有坚毅也一文不值。",
+   "p": 1
   },
   {
    "en": "Duckworth says grit is the difference between success and failure.",
-   "cn": "达克沃思说，坚毅是成功与失败之间的差别。"
+   "cn": "达克沃思说，坚毅是成功与失败之间的差别。",
+   "p": 2
   },
   {
    "en": "A person who has grit is more likely to succeed than a person who does not.",
-   "cn": "有坚毅的人比没有坚毅的人更可能成功。"
+   "cn": "有坚毅的人比没有坚毅的人更可能成功。",
+   "p": 2
   },
   {
    "en": "When we think about attaining success · whether it·s landing that job or learning that new skill · our thoughts are immediately burdened by all the things we must first learn.",
-   "cn": "当我们想到要取得成功——无论是得到那份工作还是学会那项新技能——我们的思绪立刻被必须先学会的种种事情所重压。"
+   "cn": "当我们想到要取得成功——无论是得到那份工作还是学会那项新技能——我们的思绪立刻被必须先学会的种种事情所重压。",
+   "p": 2
   },
   {
    "en": "If you want that new job, you have to learn the job skills, then the interview skills, then the dress part · and you must be perfect at all of them.",
-   "cn": "如果你想要那份新工作，你得先学工作技能，再学面试技巧，还要学会穿衣打扮——而且必须样样精通。"
+   "cn": "如果你想要那份新工作，你得先学工作技能，再学面试技巧，还要学会穿衣打扮——而且必须样样精通。",
+   "p": 2
   },
   {
    "en": "Grit is different because it tells us that perfection isn ·t the goal.",
-   "cn": "坚毅的不同之处在于，它告诉我们：完美并非目标。"
+   "cn": "坚毅的不同之处在于，它告诉我们：完美并非目标。",
+   "p": 2
   },
   {
    "en": "Grit lifts the unreasonable expectations off our shoulders.",
-   "cn": "坚毅把不合理的期待从我们肩头卸下。"
+   "cn": "坚毅把不合理的期待从我们肩头卸下。",
+   "p": 3
   },
   {
    "en": "Grit tells us that the door is open wider than we first thought possible.",
-   "cn": "坚毅告诉我们，门开得比我们起初以为的更宽。"
+   "cn": "坚毅告诉我们，门开得比我们起初以为的更宽。",
+   "p": 3
   },
   {
    "en": "Grit allows us to redefine our goals.",
-   "cn": "坚毅让我们重新定义目标。"
+   "cn": "坚毅让我们重新定义目标。",
+   "p": 3
   },
   {
    "en": "Think about it: what·s something you·ve always wanted to do, but gave up because you ·don·t have the skills for it·?",
-   "cn": "想一想：有什么事是你一直想做，却因为“没有相应技能”而放弃的？"
+   "cn": "想一想：有什么事是你一直想做，却因为“没有相应技能”而放弃的？",
+   "p": 3
   },
   {
    "en": "What·s something you love but aren·t good at?",
-   "cn": "有什么事是你喜爱却不擅长的？"
+   "cn": "有什么事是你喜爱却不擅长的？",
+   "p": 3
   },
   {
    "en": "The real workings of grit are to have sustainable passion and continue to try.",
-   "cn": "坚毅真正的作用，在于拥有持续的激情并不断尝试。"
+   "cn": "坚毅真正的作用，在于拥有持续的激情并不断尝试。",
+   "p": 4
   },
   {
    "en": "Effort means more than your natural ability.",
-   "cn": "努力比你的天赋更重要。"
+   "cn": "努力比你的天赋更重要。",
+   "p": 4
   },
   {
    "en": "Even if you haven·t mastered a skill, grit tells you that you can still succeed if you can transform your passion into action.",
-   "cn": "即便你尚未掌握某项技能，坚毅告诉你，只要能把激情转化为行动，你仍能成功。"
+   "cn": "即便你尚未掌握某项技能，坚毅告诉你，只要能把激情转化为行动，你仍能成功。",
+   "p": 4
   },
   {
    "en": "In a way, Duckworth is giving new hope to people who have shut the doors on their dreams.",
-   "cn": "从某种意义上说，达克沃思正在给那些对自己梦想关上大门的人带来新的希望。"
+   "cn": "从某种意义上说，达克沃思正在给那些对自己梦想关上大门的人带来新的希望。",
+   "p": 4
   },
   {
    "en": "She is saying it is possible that you can accomplish anything.",
-   "cn": "她是在说，你有可能成就任何事。"
+   "cn": "她是在说，你有可能成就任何事。",
+   "p": 4
   },
   {
    "en": "If at first you fail, then try one more time with grit.",
-   "cn": "如果起初失败了，那就带着坚毅再试一次"
+   "cn": "如果起初失败了，那就带着坚毅再试一次",
+   "p": 4
   }
  ]
 }

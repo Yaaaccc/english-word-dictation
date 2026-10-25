@@ -6,79 +6,98 @@
  "sents": [
   {
    "en": "The United States is facing a housing crisis: Affordable housing is inadequate, while luxury homes abound, and homelessness remains a persistent problem.",
-   "cn": "美国正面临一场住房危机：经济适用房不足，而豪宅比比皆是，无家可归现象依然是个长期难题。"
+   "cn": "美国正面临一场住房危机：经济适用房不足，而豪宅比比皆是，无家可归现象依然是个长期难题。",
+   "p": 0
   },
   {
    "en": "Despite this, popular culture and the housing industry market happiness as living with both more space and more amenities.",
-   "cn": "尽管如此，流行文化和房地产业却把幸福营销为拥有更大空间和更多便利设施的生活。"
+   "cn": "尽管如此，流行文化和房地产业却把幸福营销为拥有更大空间和更多便利设施的生活。",
+   "p": 0
   },
   {
    "en": "Big houses are advertised as a reward for hard work and diligence, turning housing from a basic necessity into a luxury.",
-   "cn": "大房子被宣传为勤奋努力的回报，把住房从基本必需品变成了奢侈品。"
+   "cn": "大房子被宣传为勤奋努力的回报，把住房从基本必需品变成了奢侈品。",
+   "p": 0
   },
   {
    "en": "This is reflected in our homes.",
-   "cn": "这反映在我们的住宅中。"
+   "cn": "这反映在我们的住宅中。",
+   "p": 1
   },
   {
    "en": "The average single-family home built in the United States before 1970 was less than 1,500 square feet in size.",
-   "cn": "1970年之前美国建造的平均独户住宅面积不到1,500平方英尺。"
+   "cn": "1970年之前美国建造的平均独户住宅面积不到1,500平方英尺。",
+   "p": 1
   },
   {
    "en": "By 2016, the average size of a new, single-family home was 2,422 square feet.",
-   "cn": "到2016年，新建独户住宅的平均面积已达2,422平方英尺。"
+   "cn": "到2016年，新建独户住宅的平均面积已达2,422平方英尺。",
+   "p": 1
   },
   {
    "en": "What's more, homes built in the 2000s were more likely than earlier models to have more of all types of spaces: bedrooms, bathrooms, living rooms, dining rooms, recreation rooms and garages.",
-   "cn": "更重要的是，2000年代建造的住宅比早期住宅更可能拥有更多各类空间：卧室、浴室、客厅、餐厅、娱乐室和车库。"
+   "cn": "更重要的是，2000年代建造的住宅比早期住宅更可能拥有更多各类空间：卧室、浴室、客厅、餐厅、娱乐室和车库。",
+   "p": 1
   },
   {
    "en": "There are consequences of living big.",
-   "cn": "住大房子是有后果的。"
+   "cn": "住大房子是有后果的。",
+   "p": 2
   },
   {
    "en": "As middle-class houses have grown larger, two things have happened.",
-   "cn": "随着中产阶层的房子越建越大，两件事随之发生。"
+   "cn": "随着中产阶层的房子越建越大，两件事随之发生。",
+   "p": 2
   },
   {
    "en": "First, large houses take time to maintain, so cleaners and other low-wage service workers are required to keep these houses in order.",
-   "cn": "首先，大房子需要时间打理，因此需要清洁工和其他低薪服务人员来维持房屋整洁。"
+   "cn": "首先，大房子需要时间打理，因此需要清洁工和其他低薪服务人员来维持房屋整洁。",
+   "p": 2
   },
   {
    "en": "Second, once-public spaces, where people from diverse backgrounds used to come together, have increasingly become privatized, leading to a reduction in the number of public facilities available to all, and a reduced quality of life for many.",
-   "cn": "其次，曾经供不同背景的人们相聚的公共空间正日益被私有化，导致面向所有人开放的公共设施数量减少，许多人的生活品质下降。"
+   "cn": "其次，曾经供不同背景的人们相聚的公共空间正日益被私有化，导致面向所有人开放的公共设施数量减少，许多人的生活品质下降。",
+   "p": 2
   },
   {
    "en": "Take swimming pools. While in 1950, only 2,500 U.S. families owned pools, by 1999 this number was 4 million.",
-   "cn": "以游泳池为例：1950年只有2,500个美国家庭拥有泳池，而到1999年这一数字达到400万。"
+   "cn": "以游泳池为例：1950年只有2,500个美国家庭拥有泳池，而到1999年这一数字达到400万。",
+   "p": 2
   },
   {
    "en": "At the same time, public municipal pools were often closed, leaving low-income people nowhere to swim.",
-   "cn": "与此同时，市政公共泳池常常关闭，让低收入者无处游泳。"
+   "cn": "与此同时，市政公共泳池常常关闭，让低收入者无处游泳。",
+   "p": 2
   },
   {
    "en": "The trend for bigger housing thus poses ethical questions.",
-   "cn": "因此，更大住房的趋势引发了伦理问题。"
+   "cn": "因此，更大住房的趋势引发了伦理问题。",
+   "p": 3
   },
   {
    "en": "Should Americans accept a system in which the middle and upper classes enjoy a luxurious lifestyle, using the low-wage labor of others?",
-   "cn": "美国人是否应该接受一种中上阶层享受奢华生活方式、却使用他人低薪劳动力的制度？"
+   "cn": "美国人是否应该接受一种中上阶层享受奢华生活方式、却使用他人低薪劳动力的制度？",
+   "p": 3
   },
   {
    "en": "Are we willing to accept a system in which an increase in amenities purchased by the affluent means a reduction in amenities for the poor?",
-   "cn": "我们是否愿意接受这样一种制度：富人购买的便利设施增加，就意味着穷人的便利设施减少？"
+   "cn": "我们是否愿意接受这样一种制度：富人购买的便利设施增加，就意味着穷人的便利设施减少？",
+   "p": 3
   },
   {
    "en": "I believe neither is acceptable.",
-   "cn": "我认为两者都不可接受。"
+   "cn": "我认为两者都不可接受。",
+   "p": 4
   },
   {
    "en": "We must change the way we think: living well does not need to mean having more private spaces; instead, it could mean having more public spaces.",
-   "cn": "我们必须改变思维方式：生活得好并不意味着拥有更多私人空间；相反，它可能意味着拥有更多公共空间。"
+   "cn": "我们必须改变思维方式：生活得好并不意味着拥有更多私人空间；相反，它可能意味着拥有更多公共空间。",
+   "p": 4
   },
   {
    "en": "A better goal than building bigger houses for some is to create more publicly accessible spaces and amenities for all.",
-   "cn": "比起为部分人建造更大的房子，一个更好的目标是为所有人创造更多可公开使用的空间和设施。"
+   "cn": "比起为部分人建造更大的房子，一个更好的目标是为所有人创造更多可公开使用的空间和设施。",
+   "p": 4
   }
  ]
 }

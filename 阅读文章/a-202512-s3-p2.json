@@ -6,83 +6,103 @@
  "sents": [
   {
    "en": "With genetic testing becoming increasingly popular, many people are left wondering exactly how accurate it is.",
-   "cn": "随着基因检测日益普及，许多人心中不免疑惑：它到底有多准确？"
+   "cn": "随着基因检测日益普及，许多人心中不免疑惑：它到底有多准确？",
+   "p": 0
   },
   {
    "en": "Whether you are taking a DNA test to build your extended DNA family tree, or want precise information on inborn (先天的) health conditions, it is important to understand how accurate genetic tests are, and what information we can rely upon.",
-   "cn": "无论你做DNA检测是为了构建庞大的DNA家谱，还是想了解先天健康状况的精确信息，理解基因检测究竟有多准确、以及我们能依赖哪些信息，都十分重要。"
+   "cn": "无论你做DNA检测是为了构建庞大的DNA家谱，还是想了解先天健康状况的精确信息，理解基因检测究竟有多准确、以及我们能依赖哪些信息，都十分重要。",
+   "p": 0
   },
   {
    "en": "How accurate DNA tests are relies greatly upon the kind of test being taken, on the specific question you ask, and on how complex the genetics behind a trait (特征) is.",
-   "cn": "DNA检测的准确性在很大程度上取决于所做的检测类型、你提出的具体问题，以及某一特征背后的遗传学有多复杂。"
+   "cn": "DNA检测的准确性在很大程度上取决于所做的检测类型、你提出的具体问题，以及某一特征背后的遗传学有多复杂。",
+   "p": 1
   },
   {
    "en": "For example, tests for traits that depend on a single gene provide much more reliable results, because you can see whether a disease-causing trait is present.",
-   "cn": "例如，针对由单个基因决定的特征所进行的检测，结果要可靠得多，因为你可以看出是否存在致病特征。"
+   "cn": "例如，针对由单个基因决定的特征所进行的检测，结果要可靠得多，因为你可以看出是否存在致病特征。",
+   "p": 1
   },
   {
    "en": "Ancestry tests claim to reveal our genetic identities.",
-   "cn": "祖源检测声称能揭示我们的基因身份。"
+   "cn": "祖源检测声称能揭示我们的基因身份。",
+   "p": 2
   },
   {
    "en": "But saying you are 30 percent East Asian or American hardly reflects your real ancestry.",
-   "cn": "但说你是30%的东亚人或美洲人，几乎无法反映你真实的祖源。"
+   "cn": "但说你是30%的东亚人或美洲人，几乎无法反映你真实的祖源。",
+   "p": 2
   },
   {
    "en": "What about using DNA tests to discover distant family members?",
-   "cn": "那么，用DNA检测来寻找远房亲戚又如何？"
+   "cn": "那么，用DNA检测来寻找远房亲戚又如何？",
+   "p": 3
   },
   {
    "en": "There are tools to compare one's DNA with others' to find distant relatives based on their genetic identification.",
-   "cn": "有些工具可以将一个人的DNA与他人的进行比对，从而根据其基因识别找到远亲。"
+   "cn": "有些工具可以将一个人的DNA与他人的进行比对，从而根据其基因识别找到远亲。",
+   "p": 3
   },
   {
    "en": "These kinds of applications are generally accurate.",
-   "cn": "这类应用总体上是准确的。"
+   "cn": "这类应用总体上是准确的。",
+   "p": 3
   },
   {
    "en": "It's relatively easy to tell whether two DNA samples belong to close relatives.",
-   "cn": "判断两份DNA样本是否属于近亲相对容易。"
+   "cn": "判断两份DNA样本是否属于近亲相对容易。",
+   "p": 3
   },
   {
    "en": "With distant relatives, results become hazier.",
-   "cn": "而对远亲而言，结果就变得模糊了。"
+   "cn": "而对远亲而言，结果就变得模糊了。",
+   "p": 3
   },
   {
    "en": "Genetic health tests claim to be able to detect certain hereditary (遗传的) diseases, or other health conditions.",
-   "cn": "基因健康检测声称能够发现某些遗传性疾病或其他健康状况。"
+   "cn": "基因健康检测声称能够发现某些遗传性疾病或其他健康状况。",
+   "p": 4
   },
   {
    "en": "While certain rare diseases can be easily identified, most potential health conditions cannot be identified by genetic testing alone.",
-   "cn": "虽然某些罕见病可以轻易识别，但大多数潜在的健康状况无法仅凭基因检测来确定。"
+   "cn": "虽然某些罕见病可以轻易识别，但大多数潜在的健康状况无法仅凭基因检测来确定。",
+   "p": 4
   },
   {
    "en": "The large majority of our traits and diseases also depend upon non-genetic factors, such as lifestyle, the environment, and many others.",
-   "cn": "我们绝大多数的特征和疾病也依赖于非遗传因素，比如生活方式、环境以及许多其他方面。"
+   "cn": "我们绝大多数的特征和疾病也依赖于非遗传因素，比如生活方式、环境以及许多其他方面。",
+   "p": 4
   },
   {
    "en": "Genetic tests for multi-factorial traits are often very tricky to interpret.",
-   "cn": "针对多因素特征（由多个基因共同影响）的遗传检测往往很难解读。"
+   "cn": "针对多因素特征（由多个基因共同影响）的遗传检测往往很难解读。",
+   "p": 5
   },
   {
    "en": "Height, for example, depends on hundreds of genes, each contributing a little to the outcome, together with a bunch of environmental factors.",
-   "cn": "以身高为例，它取决于数百个基因，每个基因都对结果贡献一点点，再加上一系列环境因素。"
+   "cn": "以身高为例，它取决于数百个基因，每个基因都对结果贡献一点点，再加上一系列环境因素。",
+   "p": 5
   },
   {
    "en": "A test can look at many genes at once, but it's difficult to predict how they will play together.",
-   "cn": "一项检测可以一次性考察许多基因，但很难预测它们将如何共同作用。"
+   "cn": "一项检测可以一次性考察许多基因，但很难预测它们将如何共同作用。",
+   "p": 5
   },
   {
    "en": "Then you should also account for non-genetic factors that are not written in the DNA.",
-   "cn": "此外，你还应把未写进DNA中的非遗传因素考虑在内。"
+   "cn": "此外，你还应把未写进DNA中的非遗传因素考虑在内。",
+   "p": 5
   },
   {
    "en": "Tests that offer to find your perfect romantic match and those claiming to predict personality or talents based on your DNA are pure nonsense.",
-   "cn": "那些声称能帮你找到完美恋爱对象、或根据DNA预测性格与天赋的检测，纯属无稽之谈。"
+   "cn": "那些声称能帮你找到完美恋爱对象、或根据DNA预测性格与天赋的检测，纯属无稽之谈。",
+   "p": 6
   },
   {
    "en": "At the moment, the scientific bases for these applications are non-existent or incredibly weak.",
-   "cn": "目前，这些应用的科学依据要么根本不存在，要么极其薄弱。"
+   "cn": "目前，这些应用的科学依据要么根本不存在，要么极其薄弱。",
+   "p": 6
   }
  ]
 }

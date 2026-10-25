@@ -6,95 +6,118 @@
  "sents": [
   {
    "en": "Music is a universal language.",
-   "cn": "音乐是一种通用语言。"
+   "cn": "音乐是一种通用语言。",
+   "p": 0
   },
   {
    "en": "In every culture and country, you will find music.",
-   "cn": "在每一种文化和每一个国家，你都能找到音乐。"
+   "cn": "在每一种文化和每一个国家，你都能找到音乐。",
+   "p": 0
   },
   {
    "en": "It is vitally important across the globe and has the potential to bring people together in peace and harmony.",
-   "cn": "它在全球至关重要，并有可能将人们以和平与和谐凝聚在一起。"
+   "cn": "它在全球至关重要，并有可能将人们以和平与和谐凝聚在一起。",
+   "p": 0
   },
   {
    "en": "One of my favorite experiences in music is seeing musicians from different cultures come together and perform as a group.",
-   "cn": "我在音乐中最喜爱的体验之一，是看到来自不同文化的音乐家聚在一起、作为一个团体表演。"
+   "cn": "我在音乐中最喜爱的体验之一，是看到来自不同文化的音乐家聚在一起、作为一个团体表演。",
+   "p": 0
   },
   {
    "en": "When each culture brings its own unique qualities to the group, an entirely new sound is achieved.",
-   "cn": "当每种文化将自身独特特质带入团体，就会达成一种全新的声音。"
+   "cn": "当每种文化将自身独特特质带入团体，就会达成一种全新的声音。",
+   "p": 0
   },
   {
    "en": "This can create extraordinary results.",
-   "cn": "这能创造出非凡的效果。"
+   "cn": "这能创造出非凡的效果。",
+   "p": 0
   },
   {
    "en": "People can communicate with each other using music as the common language.",
-   "cn": "人们可以用音乐作为共同语言彼此交流。"
+   "cn": "人们可以用音乐作为共同语言彼此交流。",
+   "p": 0
   },
   {
    "en": "One common musical thread between cultures is known as the pentatonic scale.",
-   "cn": "不同文化之间一个共同的音乐纽带被称为五声音阶。"
+   "cn": "不同文化之间一个共同的音乐纽带被称为五声音阶。",
+   "p": 1
   },
   {
    "en": "It is astonishing how many cultures share this tool in approaching music.",
-   "cn": "令人惊讶的是，有这么多文化在接触音乐时共享这一工具。"
+   "cn": "令人惊讶的是，有这么多文化在接触音乐时共享这一工具。",
+   "p": 1
   },
   {
    "en": "The pentatonic scale consists of five notes; \"penta-\" meaning 5, and \"tonic\" meaning tone or note.",
-   "cn": "五声音阶由五个音组成；\"penta-\"意为5，\"tonic\"意为音调或音符。"
+   "cn": "五声音阶由五个音组成；\"penta-\"意为5，\"tonic\"意为音调或音符。",
+   "p": 1
   },
   {
    "en": "This scale can be found in music everywhere including that of Native Americans, Africans, and Asians.",
-   "cn": "这个音阶在世界各地的音乐中都能找到，包括美洲原住民、非洲人和亚洲人的音乐。"
+   "cn": "这个音阶在世界各地的音乐中都能找到，包括美洲原住民、非洲人和亚洲人的音乐。",
+   "p": 1
   },
   {
    "en": "It is also found in popular music, blues, jazz, and rock.",
-   "cn": "它也出现在流行音乐、布鲁斯、爵士和摇滚中。"
+   "cn": "它也出现在流行音乐、布鲁斯、爵士和摇滚中。",
+   "p": 1
   },
   {
    "en": "Using this five-note scale, musicians from around the globe have a medium through which they can relate, communicate, perform, and ultimately understand each other.",
-   "cn": "借助这个五音音阶，来自全球的音乐家拥有了一种媒介，借此他们能够产生联系、交流、表演，并最终相互理解。"
+   "cn": "借助这个五音音阶，来自全球的音乐家拥有了一种媒介，借此他们能够产生联系、交流、表演，并最终相互理解。",
+   "p": 1
   },
   {
    "en": "Music is tied to specific perceptual (感知的), mental, and emotional faculties, including language (all societies put words to their songs), motor control (people in all societies dance), sound analysis (all musical systems have a distinct pitch and quality), and aesthetics (美感) (their tunes and rhythms are balanced between repetitiveness and chaos).",
-   "cn": "音乐与特定的感知（感知的）、智力和情感能力相连，包括语言（所有社会都给歌曲配上歌词）、运动控制（所有社会的人都会跳舞）、声音分析（所有音乐体系都有独特的音高与质地）以及美感（美感）（其曲调与节奏在重复与混沌之间取得平衡）。"
+   "cn": "音乐与特定的感知（感知的）、智力和情感能力相连，包括语言（所有社会都给歌曲配上歌词）、运动控制（所有社会的人都会跳舞）、声音分析（所有音乐体系都有独特的音高与质地）以及美感（美感）（其曲调与节奏在重复与混沌之间取得平衡）。",
+   "p": 2
   },
   {
    "en": "There is no known society that existed without music.",
-   "cn": "已知没有任何一个存在过的社会没有音乐。"
+   "cn": "已知没有任何一个存在过的社会没有音乐。",
+   "p": 3
   },
   {
    "en": "Although each culture has their own specific style and approach to music, you will find that the purposes behind music are very similar across the board.",
-   "cn": "尽管每种文化都有自己独特的音乐风格与方式，你会发现音乐背后的目的在各处都极为相似。"
+   "cn": "尽管每种文化都有自己独特的音乐风格与方式，你会发现音乐背后的目的在各处都极为相似。",
+   "p": 3
   },
   {
    "en": "Music essentially serves to express or change emotions.",
-   "cn": "音乐本质上用于表达或改变情感。"
+   "cn": "音乐本质上用于表达或改变情感。",
+   "p": 3
   },
   {
    "en": "It can cheer you up, sadden you, anger you or excite you.",
-   "cn": "它能让你高兴、悲伤、愤怒或兴奋。"
+   "cn": "它能让你高兴、悲伤、愤怒或兴奋。",
+   "p": 3
   },
   {
    "en": "Music is often ceremonial: used in religion, ceremony, and celebration.",
-   "cn": "音乐常常是仪式性的：用于宗教、典礼和庆祝。"
+   "cn": "音乐常常是仪式性的：用于宗教、典礼和庆祝。",
+   "p": 3
   },
   {
    "en": "Music can simply be recreational: entertaining, joyful and fun.",
-   "cn": "音乐也可以纯粹是娱乐性的：令人愉悦、欢乐而有趣。"
+   "cn": "音乐也可以纯粹是娱乐性的：令人愉悦、欢乐而有趣。",
+   "p": 3
   },
   {
    "en": "Any way you have used music, it is almost certain that every other culture has used music in the very same way.",
-   "cn": "无论你以何种方式使用过音乐，几乎可以肯定每个其他文化都以完全相同的方式使用过音乐。"
+   "cn": "无论你以何种方式使用过音乐，几乎可以肯定每个其他文化都以完全相同的方式使用过音乐。",
+   "p": 3
   },
   {
    "en": "And that is something that bonds all of us.",
-   "cn": "而这正是将我们所有人联结在一起的东西。"
+   "cn": "而这正是将我们所有人联结在一起的东西。",
+   "p": 3
   },
   {
    "en": "We all share a deep love for music and it has the power to unite us.",
-   "cn": "我们都对音乐怀有深沉的爱，而它拥有凝聚我们的力量。"
+   "cn": "我们都对音乐怀有深沉的爱，而它拥有凝聚我们的力量。",
+   "p": 3
   }
  ]
 }

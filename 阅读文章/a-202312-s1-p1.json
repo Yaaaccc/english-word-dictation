@@ -6,75 +6,93 @@
  "sents": [
   {
    "en": "One of my bad habits is saying \"busy\" when people ask me how I'm doing.",
-   "cn": "我的一个坏习惯是，别人问我近况时，我会说“忙”。"
+   "cn": "我的一个坏习惯是，别人问我近况时，我会说“忙”。",
+   "p": 0
   },
   {
    "en": "Sometimes it's because I actually am busy, but other times it's because that's what I think I'm supposed to say.",
-   "cn": "有时是因为我确实忙，但有时是因为我觉得自己应该说这个。"
+   "cn": "有时是因为我确实忙，但有时是因为我觉得自己应该说这个。",
+   "p": 0
   },
   {
    "en": "That's what important people say. That's what people who get promoted say.",
-   "cn": "重要人物都这么说，获得提拔的人也这么说。"
+   "cn": "重要人物都这么说，获得提拔的人也这么说。",
+   "p": 0
   },
   {
    "en": "But working long hours doesn't drive better results. Never taking a vacation won't lead to a promotion.",
-   "cn": "但长时间工作并不会带来更好的结果，从不休假也不会让你升职。"
+   "cn": "但长时间工作并不会带来更好的结果，从不休假也不会让你升职。",
+   "p": 0
   },
   {
    "en": "So why are we so proud to talk about how busy we are all the time?",
-   "cn": "既然如此，我们为什么还总是如此自豪地谈论自己有多忙？"
+   "cn": "既然如此，我们为什么还总是如此自豪地谈论自己有多忙？",
+   "p": 0
   },
   {
    "en": "In 2016, researchers from Columbia, Harvard, and Georgetown conducted a study to figure it out.",
-   "cn": "2016年，来自哥伦比亚大学、哈佛大学和乔治城大学的研究者开展了一项研究来弄清原因。"
+   "cn": "2016年，来自哥伦比亚大学、哈佛大学和乔治城大学的研究者开展了一项研究来弄清原因。",
+   "p": 1
   },
   {
    "en": "They found busy people are perceived to be of high status, and interestingly, these status attributions are heavily influenced by our own beliefs about social mobility.",
-   "cn": "他们发现，忙碌的人被认为地位更高；有趣的是，这种地位归因深受我们自身对社会流动性的信念影响。"
+   "cn": "他们发现，忙碌的人被认为地位更高；有趣的是，这种地位归因深受我们自身对社会流动性的信念影响。",
+   "p": 1
   },
   {
    "en": "In other words, the more we believe that one has the opportunity for success based on hard work, the more we tend to think that people who skip leisure and work all the time are of higher standing.",
-   "cn": "换言之，我们越相信一个人能凭借努力获得成功，就越倾向于认为那些放弃休闲、整天工作的人地位更高。"
+   "cn": "换言之，我们越相信一个人能凭借努力获得成功，就越倾向于认为那些放弃休闲、整天工作的人地位更高。",
+   "p": 1
   },
   {
    "en": "That's why we feel like we have to appear busy, and there's a real perception that if someone is knee-deep in meetings, emails, and stress, then they're probably a big deal.",
-   "cn": "正因如此，我们觉得必须显得忙碌；而且人们确实普遍认为，如果一个人深陷会议、邮件和压力之中，那他多半是个大人物。"
+   "cn": "正因如此，我们觉得必须显得忙碌；而且人们确实普遍认为，如果一个人深陷会议、邮件和压力之中，那他多半是个大人物。",
+   "p": 2
   },
   {
    "en": "This culture of busyness is making it hard for employees to find work-life balance.",
-   "cn": "这种忙碌文化让员工难以兼顾工作与生活。"
+   "cn": "这种忙碌文化让员工难以兼顾工作与生活。",
+   "p": 2
   },
   {
    "en": "According to a recent study, one in five highly engaged employees is at risk of burnout.",
-   "cn": "最近一项研究表明，每五位高度投入的员工中，就有一人面临精疲力竭的风险。"
+   "cn": "最近一项研究表明，每五位高度投入的员工中，就有一人面临精疲力竭的风险。",
+   "p": 2
   },
   {
    "en": "Personally, I'm going to stop saying \"busy\" when people ask me how I am.",
-   "cn": "就我个人而言，当别人问我近况时，我要不再说“忙”了。"
+   "cn": "就我个人而言，当别人问我近况时，我要不再说“忙”了。",
+   "p": 3
   },
   {
    "en": "It sounds self-righteous and sets the wrong tone.",
-   "cn": "这听起来自以为是，也定错了基调。"
+   "cn": "这听起来自以为是，也定错了基调。",
+   "p": 3
   },
   {
    "en": "Phrases like \"I have limited access to email\" and \"I'll respond as soon as I get back\" sound like you're being held against your will from working as opposed to making the most of your time off.",
-   "cn": "“我没法及时查收邮件”“我回来就回复”这类话，听起来像是你被迫无法工作，而不是在充分利用自己的闲暇时光。"
+   "cn": "“我没法及时查收邮件”“我回来就回复”这类话，听起来像是你被迫无法工作，而不是在充分利用自己的闲暇时光。",
+   "p": 3
   },
   {
    "en": "That's why we recently launched the Out of Office Email Generator, a free tool you can use before your next long weekend or trip.",
-   "cn": "正因如此，我们最近推出了“不在办公室邮件生成器”，这是你在下一个长周末或小长假前可以使用的免费工具。"
+   "cn": "正因如此，我们最近推出了“不在办公室邮件生成器”，这是你在下一个长周末或小长假前可以使用的免费工具。",
+   "p": 4
   },
   {
    "en": "You can share loud and proud that you won't be checking email until you're back.",
-   "cn": "你可以大大方方地告知大家，在你回来之前都不会查看邮件。"
+   "cn": "你可以大大方方地告知大家，在你回来之前都不会查看邮件。",
+   "p": 4
   },
   {
    "en": "Managers need to think twice about emailing their teams on the weekend and talking about how busy they are.",
-   "cn": "管理者在周末给团队发邮件、并大谈自己有多忙之前，需要三思。"
+   "cn": "管理者在周末给团队发邮件、并大谈自己有多忙之前，需要三思。",
+   "p": 4
   },
   {
    "en": "Leaders should take time off themselves and encourage employees to do the same.",
-   "cn": "领导者应当自己先抽出时间休息，并鼓励员工也这样做。"
+   "cn": "领导者应当自己先抽出时间休息，并鼓励员工也这样做。",
+   "p": 4
   }
  ]
 }

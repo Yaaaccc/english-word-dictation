@@ -6,75 +6,93 @@
  "sents": [
   {
    "en": "Online classes began to be popularized just a few decades ago.",
-   "cn": "在线课程大约在几十年前开始普及。"
+   "cn": "在线课程大约在几十年前开始普及。",
+   "p": 0
   },
   {
    "en": "They are advertised as a way for adults to finish their education and students to learn the material at their own pace·it is far more compatible for people with busy schedules.",
-   "cn": "它们被宣传为成年人完成学业、学生按自己节奏学习材料的一种方式——这对日程繁忙的人要合适得多。"
+   "cn": "它们被宣传为成年人完成学业、学生按自己节奏学习材料的一种方式——这对日程繁忙的人要合适得多。",
+   "p": 0
   },
   {
    "en": "But after being enrolled in an online course last fall semester, I came to realize online classes were merely a means to fulfill course requirements.",
-   "cn": "但在去年秋季学期报了一门在线课程后，我逐渐意识到在线课程不过是满足课程要求的一种手段。"
+   "cn": "但在去年秋季学期报了一门在线课程后，我逐渐意识到在线课程不过是满足课程要求的一种手段。",
+   "p": 1
   },
   {
    "en": "First of all, students lack the desire to learn, and they simply complete their assignments to receive credit for a passing grade rather than genuinely engage with the course material.",
-   "cn": "首先，学生缺乏学习欲望，他们只是完成作业以获得及格学分的成绩，而非真正投入课程材料。"
+   "cn": "首先，学生缺乏学习欲望，他们只是完成作业以获得及格学分的成绩，而非真正投入课程材料。",
+   "p": 2
   },
   {
    "en": "As online courses tend to have more than 100 students, most of the assignments are short and simple.",
-   "cn": "由于在线课程往往有100多名学生，多数作业简短而简单。"
+   "cn": "由于在线课程往往有100多名学生，多数作业简短而简单。",
+   "p": 3
   },
   {
    "en": "They are not designed for students to interact with the material in depth but designed to be graded easily to accommodate such a large number of students.",
-   "cn": "它们并非为让学生深入接触材料而设计，而是为便于打分以容纳如此多的学生。"
+   "cn": "它们并非为让学生深入接触材料而设计，而是为便于打分以容纳如此多的学生。",
+   "p": 3
   },
   {
    "en": "Perhaps the biggest disadvantage of taking an online class is the absence of face-to-face interaction between the teacher and their students.",
-   "cn": "也许上在线课最大的弊端，是师生之间缺乏面对面互动。"
+   "cn": "也许上在线课最大的弊端，是师生之间缺乏面对面互动。",
+   "p": 4
   },
   {
    "en": "Live sessions are infrequent and are often scheduled during the middle of the day when students have to attend other classes or work.",
-   "cn": "直播课很少，且常安排在学生不得不上其他课或打工的白天时段。"
+   "cn": "直播课很少，且常安排在学生不得不上其他课或打工的白天时段。",
+   "p": 4
   },
   {
    "en": "The office hours of the professor may also be during inconvenient times for many students as well.",
-   "cn": "教授的答疑时间对许多学生来说也可能在不便的时间。"
+   "cn": "教授的答疑时间对许多学生来说也可能在不便的时间。",
+   "p": 4
   },
   {
    "en": "Most interaction with the professor has to be through email which is often impersonal.",
-   "cn": "与教授的大部分互动只能通过邮件，而邮件往往缺乏人情味。"
+   "cn": "与教授的大部分互动只能通过邮件，而邮件往往缺乏人情味。",
+   "p": 4
   },
   {
    "en": "It is nearly impossible for students to build a relationship with their professor.",
-   "cn": "学生几乎不可能与教授建立关系。"
+   "cn": "学生几乎不可能与教授建立关系。",
+   "p": 4
   },
   {
    "en": "There is also little interaction amongst students.",
-   "cn": "学生之间也几乎没有互动。"
+   "cn": "学生之间也几乎没有互动。",
+   "p": 5
   },
   {
    "en": "It can be harder for students to create study groups and form relationships with their peers.",
-   "cn": "学生更难组建学习小组，与同伴建立关系。"
+   "cn": "学生更难组建学习小组，与同伴建立关系。",
+   "p": 5
   },
   {
    "en": "Online classes also require either a computer or laptop and a reliable internet connection.",
-   "cn": "在线课程还需要一台电脑或笔记本以及可靠的网络连接。"
+   "cn": "在线课程还需要一台电脑或笔记本以及可靠的网络连接。",
+   "p": 6
   },
   {
    "en": "Not all students have access to these types of resources, whether it is for financial or other reasons, and some students can be put at a disadvantage.",
-   "cn": "并非所有学生都能获得这类资源，无论是出于经济还是其他原因，一些学生可能处于不利地位。"
+   "cn": "并非所有学生都能获得这类资源，无论是出于经济还是其他原因，一些学生可能处于不利地位。",
+   "p": 6
   },
   {
    "en": "Offering online classes certainly helps students who would otherwise not be able to attend classroom sessions.",
-   "cn": "提供在线课程确实帮助了那些原本无法参加课堂面授的学生。"
+   "cn": "提供在线课程确实帮助了那些原本无法参加课堂面授的学生。",
+   "p": 7
   },
   {
    "en": "However, they fail to provide a genuine education with an emphasis on convenience rather than critical thinking.",
-   "cn": "然而，它们未能提供真正的教育，侧重便利而非批判性思维。"
+   "cn": "然而，它们未能提供真正的教育，侧重便利而非批判性思维。",
+   "p": 7
   },
   {
    "en": "We need restructured online classes in which students can have a learning experience that will actually provide quality education.",
-   "cn": "我们需要重构的在线课程，让学生获得真正能提供优质学习体验的教育。"
+   "cn": "我们需要重构的在线课程，让学生获得真正能提供优质学习体验的教育。",
+   "p": 7
   }
  ]
 }

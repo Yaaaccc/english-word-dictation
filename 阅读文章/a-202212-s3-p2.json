@@ -6,87 +6,108 @@
  "sents": [
   {
    "en": "Research shows that in developed countries, more affluent and educated people tend to consume higher-quality diets·including more fruits and vegetables, fish and whole grains.",
-   "cn": "研究表明，在发达国家，更富裕、受教育程度更高的人往往吃得更优质——包括更多的水果和蔬菜、鱼类和全谷物。"
+   "cn": "研究表明，在发达国家，更富裕、受教育程度更高的人往往吃得更优质——包括更多的水果和蔬菜、鱼类和全谷物。",
+   "p": 0
   },
   {
    "en": "On the contrary, economically disadvantaged people report diets that are nutrient-poor and energy-dense.",
-   "cn": "相反，经济困难人群的饮食则营养贫乏、热量偏高。"
+   "cn": "相反，经济困难人群的饮食则营养贫乏、热量偏高。",
+   "p": 0
   },
   {
    "en": "They are less likely to have food-purchasing habits that conform to public health recommendations.",
-   "cn": "他们的食物购买习惯也不太符合公共卫生建议。"
+   "cn": "他们的食物购买习惯也不太符合公共卫生建议。",
+   "p": 0
   },
   {
    "en": "These dietary differences are often accompanied by higher rates of obesity and diabetes among lower-income people.",
-   "cn": "这些饮食差异往往伴随着低收入人群中更高的肥胖率和糖尿病发病率。"
+   "cn": "这些饮食差异往往伴随着低收入人群中更高的肥胖率和糖尿病发病率。",
+   "p": 1
   },
   {
    "en": "This relationship between social class and diet quality and health is extensively documented.",
-   "cn": "社会阶层与饮食质量及健康之间的这种关系已有大量文献记载。"
+   "cn": "社会阶层与饮食质量及健康之间的这种关系已有大量文献记载。",
+   "p": 1
   },
   {
    "en": "However, the research does not explain why this is the case·a question that has significant implications for designing effective policies and initiatives to improve diets and prevent chronic diseases.",
-   "cn": "然而，研究并未解释原因何在——而这个问题对于设计有效的政策和行动来改善饮食、预防慢性病具有重大意义。"
+   "cn": "然而，研究并未解释原因何在——而这个问题对于设计有效的政策和行动来改善饮食、预防慢性病具有重大意义。",
+   "p": 1
   },
   {
    "en": "Public-health initiatives to promote healthy diets often focus on providing nutrition education and recipes (食谱).",
-   "cn": "推行健康饮食的公共卫生行动通常侧重于提供营养教育和食谱。"
+   "cn": "推行健康饮食的公共卫生行动通常侧重于提供营养教育和食谱。",
+   "p": 2
   },
   {
    "en": "These approaches, however, often presume less food literacy (i.e. food knowledge and skills) among low-income people.",
-   "cn": "然而，这类做法往往预设低收入人群的\"食物素养\"（即食物方面的知识与技能）较低。"
+   "cn": "然而，这类做法往往预设低收入人群的\"食物素养\"（即食物方面的知识与技能）较低。",
+   "p": 2
   },
   {
    "en": "Are unhealthy diets really the result of poor choices, limited food skills and knowledge?",
-   "cn": "不健康的饮食真的源于糟糕的选择、匮乏的食物技能和知识吗？"
+   "cn": "不健康的饮食真的源于糟糕的选择、匮乏的食物技能和知识吗？",
+   "p": 2
   },
   {
    "en": "Research suggests that adults in food-insecure households are just as likely as those in food-secure households to adjust recipes to make them more healthy.",
-   "cn": "研究表明，粮食无保障家庭的成年人调整食谱、使其更健康的可能性，与粮食有保障家庭的人并无二致；"
+   "cn": "研究表明，粮食无保障家庭的成年人调整食谱、使其更健康的可能性，与粮食有保障家庭的人并无二致；",
+   "p": 3
   },
   {
    "en": "They are also just as proficient in food preparation and cooking skills.",
-   "cn": "他们在备餐和烹饪技能上也同样娴熟。"
+   "cn": "他们在备餐和烹饪技能上也同样娴熟。",
+   "p": 3
   },
   {
    "en": "There is no indication that increasing food skills or budgeting skills will reduce food insecurity.",
-   "cn": "没有迹象表明，提高食物技能或预算理财能力会减少粮食无保障问题。"
+   "cn": "没有迹象表明，提高食物技能或预算理财能力会减少粮食无保障问题。",
+   "p": 3
   },
   {
    "en": "Instead, disadvantaged groups are constrained by their economic, material and social circumstances.",
-   "cn": "恰恰相反，弱势群体受到的是自身经济、物质和社会处境的束缚。"
+   "cn": "恰恰相反，弱势群体受到的是自身经济、物质和社会处境的束缚。",
+   "p": 4
   },
   {
    "en": "For example, low income is the strongest predictor of food insecurity in Canada, where one in eight households experiences insufficient access to nutritious foods.",
-   "cn": "例如，在加拿大，低收入是粮食无保障最强的预测指标——那里每八户家庭中就有一户难以获得足够的营养食物。"
+   "cn": "例如，在加拿大，低收入是粮食无保障最强的预测指标——那里每八户家庭中就有一户难以获得足够的营养食物。",
+   "p": 4
   },
   {
    "en": "It's well-established that food prices are an important determinant of food choice.",
-   "cn": "众所周知，食品价格是决定食物选择的重要因素。"
+   "cn": "众所周知，食品价格是决定食物选择的重要因素。",
+   "p": 5
   },
   {
    "en": "Low-income households report that they find it difficult to adopt dietary guidelines because food prices are a barrier to improving their diets.",
-   "cn": "低收入家庭表示，他们难以遵照膳食指南，因为食品价格是改善饮食的一大障碍。"
+   "cn": "低收入家庭表示，他们难以遵照膳食指南，因为食品价格是改善饮食的一大障碍。",
+   "p": 5
   },
   {
    "en": "When researchers estimate the cost of diets people actually eat, higher-quality diets are typically more costly.",
-   "cn": "当研究者估算人们实际所吃饮食的成本时，更高质量的饮食通常花费更多。"
+   "cn": "当研究者估算人们实际所吃饮食的成本时，更高质量的饮食通常花费更多。",
+   "p": 6
   },
   {
    "en": "While this may be so, it does not, in itself, prove that healthy diets are necessarily more expensive or cost-prohibitive.",
-   "cn": "虽然情况也许如此，但这本身并不能证明健康饮食必然更昂贵、更让人负担不起。"
+   "cn": "虽然情况也许如此，但这本身并不能证明健康饮食必然更昂贵、更让人负担不起。",
+   "p": 7
   },
   {
    "en": "After all, not all socioeconomically disadvantaged people consume poor diets.",
-   "cn": "毕竟，并非所有社会经济弱势的人都吃得差。"
+   "cn": "毕竟，并非所有社会经济弱势的人都吃得差。",
+   "p": 7
   },
   {
    "en": "We can easily think of a number of foods and recipes that are both inexpensive and nutritious.",
-   "cn": "我们很容易想出许多既便宜又有营养的食物和菜谱。"
+   "cn": "我们很容易想出许多既便宜又有营养的食物和菜谱。",
+   "p": 8
   },
   {
    "en": "The internet is full of recipes for \"eating well on a budget.\"",
-   "cn": "互联网上到处都是\"精打细算吃得好\"的食谱。"
+   "cn": "互联网上到处都是\"精打细算吃得好\"的食谱。",
+   "p": 8
   }
  ]
 }

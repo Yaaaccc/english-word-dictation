@@ -6,191 +6,238 @@
  "sents": [
   {
    "en": "Freshly juiced fruit has become a basic dietary item · especially for busy, health-conscious consumers who can save time on making (and perhaps even chewing) their food without missing out on nutrients.",
-   "cn": "鲜榨果汁已成为一种基本饮食项目——尤其对那些忙碌、注重健康的消费者而言，他们可以省下去制作（甚至咀嚼）食物的时间，同时不错失营养。"
+   "cn": "鲜榨果汁已成为一种基本饮食项目——尤其对那些忙碌、注重健康的消费者而言，他们可以省下去制作（甚至咀嚼）食物的时间，同时不错失营养。",
+   "p": 0
   },
   {
    "en": "Fruit juice also has been linked to claims that it can help you both lose weight and stay healthy.",
-   "cn": "果汁还被认为既能帮助减肥又能保持健康。"
+   "cn": "果汁还被认为既能帮助减肥又能保持健康。",
+   "p": 0
   },
   {
    "en": "All of which, of course, has made it highly profitable.",
-   "cn": "当然，这一切使其利润极为丰厚。"
+   "cn": "当然，这一切使其利润极为丰厚。",
+   "p": 0
   },
   {
    "en": "The global fruit and vegetable juices market was valued at $154 billion in 2016 and is expected to grow.",
-   "cn": "2016年全球果蔬汁市场规模达1,540亿美元，且预计还会增长。"
+   "cn": "2016年全球果蔬汁市场规模达1,540亿美元，且预计还会增长。",
+   "p": 0
   },
   {
    "en": "But is juicing really as healthy as we think?",
-   "cn": "但榨汁真的像我们想象的那么健康吗？"
+   "cn": "但榨汁真的像我们想象的那么健康吗？",
+   "p": 1
   },
   {
    "en": "Most foods containing fructose·a naturally occurring sugar found in all fruits and fruit juices · don·t seem to have harmful effects as long as they·re not contributing to excess daily calories.",
-   "cn": "大多数含果糖——一种存在于所有水果和果汁中的天然糖——的食物，只要不导致每日热量过剩，似乎并无害处。"
+   "cn": "大多数含果糖——一种存在于所有水果和果汁中的天然糖——的食物，只要不导致每日热量过剩，似乎并无害处。",
+   "p": 1
   },
   {
    "en": "This is because the fibre found in whole fruits is intact, and the sugar is contained within the fruit·s cells.",
-   "cn": "这是因为完整的果肉中纤维完好，糖分被包裹在果实细胞内。"
+   "cn": "这是因为完整的果肉中纤维完好，糖分被包裹在果实细胞内。",
+   "p": 1
   },
   {
    "en": "It takes our digestive system a while to break these cells down and for fructose to enter the bloodstream.",
-   "cn": "我们的消化系统需要一段时间才能将这些细胞分解，让果糖进入血液。"
+   "cn": "我们的消化系统需要一段时间才能将这些细胞分解，让果糖进入血液。",
+   "p": 1
   },
   {
    "en": "But this is not the case with fruit juice.",
-   "cn": "但果汁并非如此。"
+   "cn": "但果汁并非如此。",
+   "p": 2
   },
   {
    "en": "Unlike whole fruit, fruit juice has most of the fibre removed.",
-   "cn": "与完整水果不同，果汁去掉了大部分纤维。"
+   "cn": "与完整水果不同，果汁去掉了大部分纤维。",
+   "p": 2
   },
   {
    "en": "This is why the fructose in fruit juices counts as ·free sugars· · which also include honey and the sugars added to foods.",
-   "cn": "这就是为什么果汁中的果糖被算作“游离糖”——它也包括蜂蜜和添加到食物中的糖。"
+   "cn": "这就是为什么果汁中的果糖被算作“游离糖”——它也包括蜂蜜和添加到食物中的糖。",
+   "p": 2
   },
   {
    "en": "It·s recommended by the World Health Organisation that adults have no more than 30g of added sugar, the equivalent of 150ml of fruit juice, per day.",
-   "cn": "世界卫生组织建议，成年人每天添加糖的摄入量不超过30克，相当于150毫升果汁。"
+   "cn": "世界卫生组织建议，成年人每天添加糖的摄入量不超过30克，相当于150毫升果汁。",
+   "p": 2
   },
   {
    "en": "The problem is that, with the fibre removed, fruit juice· s fructose is absorbed more quickly.",
-   "cn": "问题在于，去掉纤维后，果汁中的果糖吸收得更快。"
+   "cn": "问题在于，去掉纤维后，果汁中的果糖吸收得更快。",
+   "p": 2
   },
   {
    "en": "Sudden increases in blood sugar cause the release of insulin (胰岛素) to bring it back down to a stable level.",
-   "cn": "血糖骤升会促使胰岛素（胰岛素）释放，将其拉回稳定水平。"
+   "cn": "血糖骤升会促使胰岛素（胰岛素）释放，将其拉回稳定水平。",
+   "p": 2
   },
   {
    "en": "Over time, this mechanism can wear out increasing the risk of developing type 2 diabetes.",
-   "cn": "久而久之，这一机制可能失效，从而增加患2型糖尿病的风险。"
+   "cn": "久而久之，这一机制可能失效，从而增加患2型糖尿病的风险。",
+   "p": 2
   },
   {
    "en": "In 2013, researchers analysed the health data of 100,000 people collected between 1986 and 2009 and found that fruit juice consumption was linked with increased risk of type 2 diabetes.",
-   "cn": "2013年，研究人员分析了1986至2009年间收集的10万人健康数据，发现饮用果汁与2型糖尿病风险升高相关。"
+   "cn": "2013年，研究人员分析了1986至2009年间收集的10万人健康数据，发现饮用果汁与2型糖尿病风险升高相关。",
+   "p": 2
   },
   {
    "en": "Another study found a relationship between fruit juice and type 2 diabetes after following the diets and diabetes status of more than 70,000 nurses over 18 years.",
-   "cn": "另一项研究在跟踪逾7万名护士的饮食与糖尿病状况18年后，也发现果汁与2型糖尿病之间存在关联。"
+   "cn": "另一项研究在跟踪逾7万名护士的饮食与糖尿病状况18年后，也发现果汁与2型糖尿病之间存在关联。",
+   "p": 2
   },
   {
    "en": "The researchers explain that the possible reason for this may partly have been the lack of the other components found in whole fruit, like fibre.",
-   "cn": "研究人员解释，可能的原因部分在于缺失了完整水果中的其他成分，如纤维。"
+   "cn": "研究人员解释，可能的原因部分在于缺失了完整水果中的其他成分，如纤维。",
+   "p": 2
   },
   {
    "en": "Juices containing vegetables can provide more nutrients and less sugar than juices made up of just fruit · but they still lack valuable fibre.",
-   "cn": "含蔬菜的果汁比纯水果汁能提供更丰富的营养和更少的糖——但它们仍然缺乏宝贵的纤维。"
+   "cn": "含蔬菜的果汁比纯水果汁能提供更丰富的营养和更少的糖——但它们仍然缺乏宝贵的纤维。",
+   "p": 3
   },
   {
    "en": "Diets high in fibre have been linked to a lower risk of developing heart disease, stroke, high blood pressure and diabetes, and it·s recommended adults consume 30g per day.",
-   "cn": "高纤维饮食与较低的心脏病、中风、高血压和糖尿病患病风险相关，建议成年人每天摄入30克。"
+   "cn": "高纤维饮食与较低的心脏病、中风、高血压和糖尿病患病风险相关，建议成年人每天摄入30克。",
+   "p": 3
   },
   {
    "en": "Aside from the link to type 2 diabetes, many studies agree that fruit juice is harmful if it contributes to an excess in calories.",
-   "cn": "除与2型糖尿病的关联外，许多研究一致认为，如果果汁导致热量过剩，则有害健康。"
+   "cn": "除与2型糖尿病的关联外，许多研究一致认为，如果果汁导致热量过剩，则有害健康。",
+   "p": 4
   },
   {
    "en": "In an analysis of 155 studies, John Sievenpiper, associate professor at the University of Toronto·s Department of Nutritional Sciences, set out to understand if the associations between sugary soft drinks and health · including risk of diabetes and heart disease · were applicable to the food and drink we generally consume as part of a healthy diet.",
-   "cn": "在多伦多大学营养科学系副教授约翰∙西文派珀对155项研究的分析中，他试图弄清含糖软饮料与健康（包括糖尿病和心脏病风险）之间的关联，是否也适用于我们作为健康饮食一部分通常摄入的食物和饮料。"
+   "cn": "在多伦多大学营养科学系副教授约翰∙西文派珀对155项研究的分析中，他试图弄清含糖软饮料与健康（包括糖尿病和心脏病风险）之间的关联，是否也适用于我们作为健康饮食一部分通常摄入的食物和饮料。",
+   "p": 4
   },
   {
    "en": "He compared studies looking into the effects of fructose-containing sugars with control diets free from or lower in these sugars.",
-   "cn": "他将研究果糖类糖分影响的研究，与不含或低含此类糖分的对照饮食研究进行比较。"
+   "cn": "他将研究果糖类糖分影响的研究，与不含或低含此类糖分的对照饮食研究进行比较。",
+   "p": 4
   },
   {
    "en": "His aim?",
-   "cn": "他的目的？"
+   "cn": "他的目的？",
+   "p": 4
   },
   {
    "en": "To isolate the effects of consuming too many calories from the effects of foods containing different sugars.",
-   "cn": "是将摄入过多热量所产生的效应，与含不同糖分食物本身的效应区分开来。"
+   "cn": "是将摄入过多热量所产生的效应，与含不同糖分食物本身的效应区分开来。",
+   "p": 4
   },
   {
    "en": "He found negative effects on blood sugar and insulin levels when food provided excess calories from sugars, including fruit juice.",
-   "cn": "他发现，当食物（包括果汁）提供过多的糖分热量时，会对血糖和胰岛素水平产生负面影响。"
+   "cn": "他发现，当食物（包括果汁）提供过多的糖分热量时，会对血糖和胰岛素水平产生负面影响。",
+   "p": 5
   },
   {
    "en": "However, when the calories weren't in excess overall, there were some advantages to consuming whole fruit · and even fruit juice.",
-   "cn": "然而，当总体热量并未过剩时，食用完整水果——甚至果汁——有一些好处。"
+   "cn": "然而，当总体热量并未过剩时，食用完整水果——甚至果汁——有一些好处。",
+   "p": 5
   },
   {
    "en": "Sievenpiper concludes that the recommended 150ml of fruit juice per day, which is an average serving, is reasonable.",
-   "cn": "西文派珀总结说，建议的每天150毫升果汁（一份平均量）是合理的。"
+   "cn": "西文派珀总结说，建议的每天150毫升果汁（一份平均量）是合理的。",
+   "p": 5
   },
   {
    "en": "The paper concluded that foods containing fructose may have some small benefits for long-term blood sugar control when they don·t lead to over-consumption of calories.",
-   "cn": "论文得出结论：含果糖的食物若不会导致热量摄入过量，可能对长期血糖控制有一定小益处；"
+   "cn": "论文得出结论：含果糖的食物若不会导致热量摄入过量，可能对长期血糖控制有一定小益处；",
+   "p": 5
   },
   {
    "en": "But when they do lead to too many calories, they risk raising blood sugar and insulin levels.",
-   "cn": "但若导致热量过多，则有可能抬高血糖和胰岛素水平。"
+   "cn": "但若导致热量过多，则有可能抬高血糖和胰岛素水平。",
+   "p": 5
   },
   {
    "en": "So while we know that fruit juice can cause diabetes if it·s part of a diet that has more calories overall, it's less clear how juice affects the long-term health of those who aren·t overweight.",
-   "cn": "因此，尽管我们知道，如果果汁是热量总体超标饮食的一部分，可能导致糖尿病，但果汁如何影响非超重人群的长期健康，还不甚明确。"
+   "cn": "因此，尽管我们知道，如果果汁是热量总体超标饮食的一部分，可能导致糖尿病，但果汁如何影响非超重人群的长期健康，还不甚明确。",
+   "p": 6
   },
   {
    "en": "But we have a higher risk of consuming more than the recommended daily number of calories (around 2,000 for women and 2,500 for men) on the days we drink juice, according to research.",
-   "cn": "不过研究显示，在饮用果汁的日子里，我们摄入超过建议每日热量（女性约2,000、男性约2,500）的风险更高。"
+   "cn": "不过研究显示，在饮用果汁的日子里，我们摄入超过建议每日热量（女性约2,000、男性约2,500）的风险更高。",
+   "p": 6
   },
   {
    "en": "Numerous studies have shown that drinking fruit juice doesn ·t make us consume any less of other foods throughout the day.",
-   "cn": "大量研究表明，喝果汁并不会让我们在一天中少吃其他食物"
+   "cn": "大量研究表明，喝果汁并不会让我们在一天中少吃其他食物",
+   "p": 6
   },
   {
    "en": "As it is easy to consume large amounts of fruit juice quite quickly, extra calories are taken in.",
-   "cn": "由于很容易快速摄入大量果汁，于是多余的热量随之而来。"
+   "cn": "由于很容易快速摄入大量果汁，于是多余的热量随之而来。",
+   "p": 7
   },
   {
    "en": "And extra calories can contribute to weight gain.",
-   "cn": "而额外的热量会导致体重增加。"
+   "cn": "而额外的热量会导致体重增加。",
+   "p": 7
   },
   {
    "en": "One way we can improve the effects of fruit juice on our health is making sure we select ripe fruit to retain as much of its goodness as possible, according to Roger Clemens, professor of pharmaceutical (药物的) sciences at the University of Southern California.",
-   "cn": "南加州大学药物（药物的）科学教授罗杰∙克莱门斯认为，改善果汁对健康影响的一种方法，是确保选用成熟水果，以尽可能保留其营养。"
+   "cn": "南加州大学药物（药物的）科学教授罗杰∙克莱门斯认为，改善果汁对健康影响的一种方法，是确保选用成熟水果，以尽可能保留其营养。",
+   "p": 7
   },
   {
    "en": "Another reason for fruit juice·s recent popularity is the argument that it can help to remove poisonous or harmful substances from the body.",
-   "cn": "果汁近来流行的另一个原因，是有人认为它有助于清除体内的有毒或有害物质。"
+   "cn": "果汁近来流行的另一个原因，是有人认为它有助于清除体内的有毒或有害物质。",
+   "p": 8
   },
   {
    "en": "However, ·the whole concept of a juice diet helping to remove poisonous or harmful substances from the body is completely false,· says Clemens.",
-   "cn": "然而，克莱门斯说：“所谓果汁饮食能帮助清除体内有毒或有害物质的整套说法完全错误。"
+   "cn": "然而，克莱门斯说：“所谓果汁饮食能帮助清除体内有毒或有害物质的整套说法完全错误。",
+   "p": 8
   },
   {
    "en": "·We consume compounds every day that may be poisonous and our bodies do a wonderful job of removing and eliminating anything harmful from our bodies.·",
-   "cn": "我们每天都会摄入可能有毒的化合物，而我们的身体在清除和排出任何有害物质方面做得非常出色。”"
+   "cn": "我们每天都会摄入可能有毒的化合物，而我们的身体在清除和排出任何有害物质方面做得非常出色。”",
+   "p": 8
   },
   {
    "en": "And juice isn·t a cure-all for getting your nutrients, either.",
-   "cn": "果汁也不是获取营养的万灵药。"
+   "cn": "果汁也不是获取营养的万灵药。",
+   "p": 9
   },
   {
    "en": "·There are a lot of nutrients contained in the parts of the fruits, such as in apple skins, that are excluded when you juice them,· says Heather Ferris, a professor of medicine.",
-   "cn": "“水果某些部位（如苹果皮）含有大量营养，而榨汁时这些部位被丢弃了，”医学教授希瑟∙费里斯说，“你最终得到的只是带些维生素的糖水。"
+   "cn": "“水果某些部位（如苹果皮）含有大量营养，而榨汁时这些部位被丢弃了，”医学教授希瑟∙费里斯说，“你最终得到的只是带些维生素的糖水。",
+   "p": 9
   },
   {
    "en": "·You end up with sugary water with some vitamins.·",
-   "cn": "”"
+   "cn": "”",
+   "p": 9
   },
   {
    "en": "Plus, she adds, it·s not an ideal way to reach the advised ·five a day·.",
-   "cn": "此外，她补充道，这也不是达到建议“每日五份”的理想方式。"
+   "cn": "此外，她补充道，这也不是达到建议“每日五份”的理想方式。",
+   "p": 10
   },
   {
    "en": "·People try to get five servings of fruit and vegetables per day and don·t realise this isn·t just about getting vitamins,· she says.",
-   "cn": "“人们试图每天摄取五份果蔬，却没有意识到这不仅仅是获取维生素，”她说，“还关乎减少饮食中谷物碳水（碳水化合物）、蛋白质和脂肪的量，并增加纤维。"
+   "cn": "“人们试图每天摄取五份果蔬，却没有意识到这不仅仅是获取维生素，”她说，“还关乎减少饮食中谷物碳水（碳水化合物）、蛋白质和脂肪的量，并增加纤维。",
+   "p": 10
   },
   {
    "en": "·It·s also about reducing the amount of grain carbs (碳水化合物) and protein and fats in our diet, and increasing fibre.” So while fruit juice is better than no fruit at all, there are limits.",
-   "cn": "”因此，尽管果汁总比完全没有水果好，但它也有局限。"
+   "cn": "”因此，尽管果汁总比完全没有水果好，但它也有局限。",
+   "p": 10
   },
   {
    "en": "It particularly comes with risks when we consume more than 150ml of free sugars per day, or when it puts us over our recommended calorie intake.",
-   "cn": "尤其当我们每天摄入超过150毫升游离糖，或它使我们超出建议热量摄入时，风险就来了。"
+   "cn": "尤其当我们每天摄入超过150毫升游离糖，或它使我们超出建议热量摄入时，风险就来了。",
+   "p": 10
   },
   {
    "en": "It provides us with vitamins · but fruit juice is far from a quick fix.",
-   "cn": "它提供维生素——但果汁远非一剂速效良方。"
+   "cn": "它提供维生素——但果汁远非一剂速效良方。",
+   "p": 10
   }
  ]
 }

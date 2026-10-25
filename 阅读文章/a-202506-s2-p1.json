@@ -6,79 +6,98 @@
  "sents": [
   {
    "en": "We all take a little extra effort to look nice for special occasions.",
-   "cn": "我们都会为特殊场合略加打扮、让自己看起来更好看。"
+   "cn": "我们都会为特殊场合略加打扮、让自己看起来更好看。",
+   "p": 0
   },
   {
    "en": "But most of us have conflicting feelings about dressing up and feel guilty about taking the time to focus on clothes.",
-   "cn": "但我们大多数人对盛装打扮心情矛盾，并为花时间关注衣着而感到内疚。"
+   "cn": "但我们大多数人对盛装打扮心情矛盾，并为花时间关注衣着而感到内疚。",
+   "p": 0
   },
   {
    "en": "Science now suggests the right dress may give ourselves the extra edge in our professional and personal lives.",
-   "cn": "科学如今表明，得体的穿着或许能在职业和个人生活中给我们带来额外的优势。"
+   "cn": "科学如今表明，得体的穿着或许能在职业和个人生活中给我们带来额外的优势。",
+   "p": 0
   },
   {
    "en": "We hear sayings like ·dress for the job you want, not the job you have·.",
-   "cn": "我们常听到这样的话：“为你想做的工作而穿，而非为现有的工作而穿”。"
+   "cn": "我们常听到这样的话：“为你想做的工作而穿，而非为现有的工作而穿”。",
+   "p": 1
   },
   {
    "en": "Most people don·t really believe in them, but research into the impact of clothes on behavior now suggests that there may actually be a grain of truth in these sayings.",
-   "cn": "大多数人并不真正相信这些说法，但对服装如何影响行为的研究现在表明，这些俗语或许的确有一点道理。"
+   "cn": "大多数人并不真正相信这些说法，但对服装如何影响行为的研究现在表明，这些俗语或许的确有一点道理。",
+   "p": 1
   },
   {
    "en": "Science says that the clothes we wear affect our behavior, our mood and even the way we interact with others because of the symbolic meaning that we assign to different types of clothing.",
-   "cn": "科学指出，我们穿的衣服会影响我们的行为、情绪，甚至我们与他人的互动方式，因为我们赋予不同类型服装以象征意义。"
+   "cn": "科学指出，我们穿的衣服会影响我们的行为、情绪，甚至我们与他人的互动方式，因为我们赋予不同类型服装以象征意义。",
+   "p": 1
   },
   {
    "en": "We consider some clothes to be powerful some to be fun, and so on.",
-   "cn": "我们认为有些衣服显气场，有些显趣味，以此类推。"
+   "cn": "我们认为有些衣服显气场，有些显趣味，以此类推。",
+   "p": 2
   },
   {
    "en": "We even evaluate people whom we have just met based on their clothes.",
-   "cn": "我们甚至会根据刚见面者的衣着来评价他们。"
+   "cn": "我们甚至会根据刚见面者的衣着来评价他们。",
+   "p": 2
   },
   {
    "en": "We also evaluate ourselves based on what we are wearing because of the way they make us feel.",
-   "cn": "我们也会根据自己所穿的衣服评价自己，因为它们让我们产生某种感受。"
+   "cn": "我们也会根据自己所穿的衣服评价自己，因为它们让我们产生某种感受。",
+   "p": 2
   },
   {
    "en": "This means that the experience of wearing something affects our attitudes and our choice of behavior.",
-   "cn": "这意味着，穿着某件衣服的体验会影响我们的态度和行为选择。"
+   "cn": "这意味着，穿着某件衣服的体验会影响我们的态度和行为选择。",
+   "p": 2
   },
   {
    "en": "There·s a reason tailored jackets are associated with being ·dressed for success·.",
-   "cn": "量身定制的西装夹克之所以与“为成功而穿”联系在一起，是有原因的。"
+   "cn": "量身定制的西装夹克之所以与“为成功而穿”联系在一起，是有原因的。",
+   "p": 3
   },
   {
    "en": "It seems that wearing formal office wear puts us in the right frame of mind to conduct business.",
-   "cn": "看来，穿上正式的办公室着装，能让我们进入处理事务的正确心态。"
+   "cn": "看来，穿上正式的办公室着装，能让我们进入处理事务的正确心态。",
+   "p": 3
   },
   {
    "en": "Wearing power clothing makes us feel more confident and even increases hormones needed for displaying dominance.",
-   "cn": "穿着彰显气场的衣服让我们更自信，甚至增加展现支配力所需的荷尔蒙。"
+   "cn": "穿着彰显气场的衣服让我们更自信，甚至增加展现支配力所需的荷尔蒙。",
+   "p": 3
   },
   {
    "en": "This in turn helps us become better negotiators and abstract thinkers.",
-   "cn": "这反过来又帮助我们成为更好的谈判者和抽象思考者。"
+   "cn": "这反过来又帮助我们成为更好的谈判者和抽象思考者。",
+   "p": 3
   },
   {
    "en": "While a good suit works wonders for our performance in the boardroom, wearing formal wear isn·t a great idea when we want to socialize.",
-   "cn": "虽然一套好西装能让我们在会议室里的表现大放异彩，但当想要社交时，穿正装却不是个好主意。"
+   "cn": "虽然一套好西装能让我们在会议室里的表现大放异彩，但当想要社交时，穿正装却不是个好主意。",
+   "p": 4
   },
   {
    "en": "Studies have found that people tend to be less open and less able to relax when they wear formal clothes.",
-   "cn": "研究发现，人们穿正装时往往更不开放、更难放松。"
+   "cn": "研究发现，人们穿正装时往往更不开放、更难放松。",
+   "p": 4
   },
   {
    "en": "On the other hand, a casual dress helps us become more friendly and creative.",
-   "cn": "另一方面，休闲装能让我们更友善、更有创意。"
+   "cn": "另一方面，休闲装能让我们更友善、更有创意。",
+   "p": 4
   },
   {
    "en": "These findings support the idea of wearing business casuals on a Friday, since colleagues are most likely to take out time to socialize on the last work day of the week.",
-   "cn": "这些发现支持了周五穿商务休闲装的想法，因为同事在一周最后一个工作日最有可能抽时间社交。"
+   "cn": "这些发现支持了周五穿商务休闲装的想法，因为同事在一周最后一个工作日最有可能抽时间社交。",
+   "p": 4
   },
   {
    "en": "I mean, who wants to hang out with people in their suits?",
-   "cn": "我的意思是，谁想和穿西装的人一起闲逛？"
+   "cn": "我的意思是，谁想和穿西装的人一起闲逛？",
+   "p": 4
   }
  ]
 }

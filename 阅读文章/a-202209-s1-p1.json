@@ -6,67 +6,83 @@
  "sents": [
   {
    "en": "Academic dishonesty is nothing new.",
-   "cn": "学术不端并非新鲜事。"
+   "cn": "学术不端并非新鲜事。",
+   "p": 0
   },
   {
    "en": "As long as there have been homework assignments and tests, there have been cheaters.",
-   "cn": "只要有作业和考试，就有作弊者。"
+   "cn": "只要有作业和考试，就有作弊者。",
+   "p": 0
   },
   {
    "en": "The way that cheating looks has changed over time, though, particularly now that technology has made it easier than ever.",
-   "cn": "不过，作弊的形式随着时间发生了变化，尤其是如今科技让作弊比以往任何时候都更容易。"
+   "cn": "不过，作弊的形式随着时间发生了变化，尤其是如今科技让作弊比以往任何时候都更容易。",
+   "p": 0
   },
   {
    "en": "A study by the Josephson Institute of Ethics interviewed 23,000 high school students and asked them a variety of questions about academic ethics.",
-   "cn": "约瑟夫森伦理研究所的一项研究访谈了23,000名高中生，并就学术伦理向他们提出各种问题。"
+   "cn": "约瑟夫森伦理研究所的一项研究访谈了23,000名高中生，并就学术伦理向他们提出各种问题。",
+   "p": 0
   },
   {
    "en": "Of the teens surveyed, 51 percent said that they had knowingly cheated at some point on an exam but that they did not feel uneasy about the behaviour.",
-   "cn": "在接受调查的学生中，51%的人说他们曾在某次考试中蓄意作弊，却并不为此感到不安。"
+   "cn": "在接受调查的学生中，51%的人说他们曾在某次考试中蓄意作弊，却并不为此感到不安。",
+   "p": 0
   },
   {
    "en": "A Common Sense Media survey found that 35 percent of students had cheated via smartphone, though the parents surveyed in that particular study did not believe their kids had ever cheated.",
-   "cn": "常识媒体的一项调查发现，35%的学生曾通过智能手机作弊，尽管该研究中接受调查的父母并不相信自己的孩子曾作弊。"
+   "cn": "常识媒体的一项调查发现，35%的学生曾通过智能手机作弊，尽管该研究中接受调查的父母并不相信自己的孩子曾作弊。",
+   "p": 0
   },
   {
    "en": "In many cases, students did not realize that strategies like looking up answers on a smartphone were actually cheating at all.",
-   "cn": "在许多情况下，学生并未意识到，诸如用智能手机查答案这类做法其实根本就是作弊。"
+   "cn": "在许多情况下，学生并未意识到，诸如用智能手机查答案这类做法其实根本就是作弊。",
+   "p": 0
   },
   {
    "en": "In today's classrooms, students who cheat are rarely caught.",
-   "cn": "在如今的课堂上，作弊的学生很少被抓。"
+   "cn": "在如今的课堂上，作弊的学生很少被抓。",
+   "p": 1
   },
   {
    "en": "There are no formulas written on the insides of hands or students looking across the aisle, or whispering answers to their classmates.",
-   "cn": "没有写在手心里的公式，没有学生隔着过道张望，也没有人向同学低声传递答案。"
+   "cn": "没有写在手心里的公式，没有学生隔着过道张望，也没有人向同学低声传递答案。",
+   "p": 1
   },
   {
    "en": "Today's students use smartphones, tablets or even in-class computers to aid their cheating attempts and leave no trace of their crimes.",
-   "cn": "如今的学生用智能手机、平板电脑甚至课堂电脑来辅助作弊，且不留下任何作案痕迹。"
+   "cn": "如今的学生用智能手机、平板电脑甚至课堂电脑来辅助作弊，且不留下任何作案痕迹。",
+   "p": 1
   },
   {
    "en": "Since cheating through technology is not listed specifically as being against the rules in many school policies, students do not view the actions unethical.",
-   "cn": "由于在许多学校的规章制度中，利用科技作弊并未被明确列为违规，学生们并不认为这些行为不道德。"
+   "cn": "由于在许多学校的规章制度中，利用科技作弊并未被明确列为违规，学生们并不认为这些行为不道德。",
+   "p": 1
   },
   {
    "en": "The technology is being adopted so quickly that school districts cannot adequately keep up with cheating policies, or even awareness campaigns that alert students to the problem with using technology to find answers in a certain way.",
-   "cn": "这项技术被采纳得如此之快，以至于学区无法充分跟上作弊政策的更新，甚至无法及时开展警示学生\"以特定方式用科技找答案\"这一问题的宣传活动。"
+   "cn": "这项技术被采纳得如此之快，以至于学区无法充分跟上作弊政策的更新，甚至无法及时开展警示学生\"以特定方式用科技找答案\"这一问题的宣传活动。",
+   "p": 2
   },
   {
    "en": "From a young age, students learn that answers exist conveniently at their fingertips through search engines and expert websites.",
-   "cn": "从很小的时候起，学生就懂得，通过搜索引擎和专家网站，答案便捷地触手可及。"
+   "cn": "从很小的时候起，学生就懂得，通过搜索引擎和专家网站，答案便捷地触手可及。",
+   "p": 2
   },
   {
    "en": "Schools must develop anti-cheating policies that include technology and these policies must be updated consistently.",
-   "cn": "学校必须制定包含科技在内的反作弊政策，且这些政策必须持续更新。"
+   "cn": "学校必须制定包含科技在内的反作弊政策，且这些政策必须持续更新。",
+   "p": 3
   },
   {
    "en": "Teachers must stay on guard when it comes to what their students are doing in classrooms and how technology could be playing a negative role in the learning process.",
-   "cn": "教师必须对学生课堂上的行为，以及科技可能在学习过程中扮演的负面角色保持警惕。"
+   "cn": "教师必须对学生课堂上的行为，以及科技可能在学习过程中扮演的负面角色保持警惕。",
+   "p": 3
   },
   {
    "en": "Parents must also talk to their kids about the appropriate ways to find academic answers and alert them to unethical behaviours that may seem innocent in their own eyes.",
-   "cn": "家长也必须与孩子谈论寻找学业答案的恰当方式，并提醒他们注意那些在自己眼中看似无害却并不道德的行为。"
+   "cn": "家长也必须与孩子谈论寻找学业答案的恰当方式，并提醒他们注意那些在自己眼中看似无害却并不道德的行为。",
+   "p": 3
   }
  ]
 }

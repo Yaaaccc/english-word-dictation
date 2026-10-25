@@ -6,75 +6,93 @@
  "sents": [
   {
    "en": "Chocolates save us from many things, especially emotional distress.",
-   "cn": "巧克力把我们从许多事情中拯救出来，尤其是情绪困扰。"
+   "cn": "巧克力把我们从许多事情中拯救出来，尤其是情绪困扰。",
+   "p": 0
   },
   {
    "en": "They comfort us in times of trouble, calming down a racing heart by channeling happy calories inside us.",
-   "cn": "它们在困境中抚慰我们，通过在我们体内输送快乐的卡路里来平复狂跳的心脏。"
+   "cn": "它们在困境中抚慰我们，通过在我们体内输送快乐的卡路里来平复狂跳的心脏。",
+   "p": 0
   },
   {
    "en": "We all have faith in chocolates to delight us in an instant!",
-   "cn": "我们都相信巧克力能让我们瞬间开心！"
+   "cn": "我们都相信巧克力能让我们瞬间开心！",
+   "p": 0
   },
   {
    "en": "Recently, chocolate lovers were heartbroken as scientists claimed that they can become extinct by 2050!",
-   "cn": "最近，当科学家宣称巧克力到2050年可能灭绝时，巧克力爱好者们心都碎了！"
+   "cn": "最近，当科学家宣称巧克力到2050年可能灭绝时，巧克力爱好者们心都碎了！",
+   "p": 1
   },
   {
    "en": "But hey, we have some happy news for you.",
-   "cn": "但嘿，我们有一些好消息要告诉你。"
+   "cn": "但嘿，我们有一些好消息要告诉你。",
+   "p": 1
   },
   {
    "en": "Scientists can still help save chocolates from dying out!",
-   "cn": "科学家仍能帮助拯救巧克力免于消亡！"
+   "cn": "科学家仍能帮助拯救巧克力免于消亡！",
+   "p": 1
   },
   {
    "en": "If you are not aware as to why scientists made the statement about the death of this wonderful thing, let us tell you the facts.",
-   "cn": "如果你不清楚科学家为何做出关于这种美妙之物\"死亡\"的声明，让我们告诉你实情。"
+   "cn": "如果你不清楚科学家为何做出关于这种美妙之物\"死亡\"的声明，让我们告诉你实情。",
+   "p": 1
   },
   {
    "en": "Chocolate trees, whose seeds are used to make chocolate, grow in the tropical plant world and require very specific weather conditions to prosper.",
-   "cn": "用于制作巧克力的可可树生长在热带植物世界，需要非常特定的天气条件才能繁茂生长。"
+   "cn": "用于制作巧克力的可可树生长在热带植物世界，需要非常特定的天气条件才能繁茂生长。",
+   "p": 1
   },
   {
    "en": "Now, fifty percent of the world's cocoa (可可) beans come from two countries in West Africa: Cote d'Ivoire and Ghana.",
-   "cn": "如今，全球50%的可可豆来自西非的两个国家：科特迪瓦和加纳。"
+   "cn": "如今，全球50%的可可豆来自西非的两个国家：科特迪瓦和加纳。",
+   "p": 2
   },
   {
    "en": "Scientists believe that both of these countries will experience a 3.8F temperature increase by 2050 due to global warming, endangering the cacao (可可树) farms in the rainforests.",
-   "cn": "科学家认为，受全球变暖影响，到2050年这两个国家气温都将上升3.8华氏度，危及雨林中的可可农场。"
+   "cn": "科学家认为，受全球变暖影响，到2050年这两个国家气温都将上升3.8华氏度，危及雨林中的可可农场。",
+   "p": 2
   },
   {
    "en": "These farms will then have to be shifted to cooler mountainous areas, which are the natural habitat of wildlife.",
-   "cn": "这些农场将不得不迁往更凉爽的山区，而那里是野生动物的自然栖息地。"
+   "cn": "这些农场将不得不迁往更凉爽的山区，而那里是野生动物的自然栖息地。",
+   "p": 2
   },
   {
    "en": "This will lead to some tough decisions: whether to grow chocolate or save wildlife.",
-   "cn": "这将导致一些艰难的抉择：是种植巧克力，还是拯救野生动物。"
+   "cn": "这将导致一些艰难的抉择：是种植巧克力，还是拯救野生动物。",
+   "p": 2
   },
   {
    "en": "Unfortunately, the crisis of global warming has already had a serious negative impact on cacao farms' yields, leading to the prices of chocolates skyrocketing.",
-   "cn": "不幸的是，全球变暖的危机已经对可可农场的产量产生了严重的负面影响，导致巧克力价格飙升。"
+   "cn": "不幸的是，全球变暖的危机已经对可可农场的产量产生了严重的负面影响，导致巧克力价格飙升。",
+   "p": 3
   },
   {
    "en": "Scientists, however, are trying to find a long-term and eco-friendly solution to this problem!",
-   "cn": "然而，科学家正试图找到这一问题的长期且环保的解决方案！"
+   "cn": "然而，科学家正试图找到这一问题的长期且环保的解决方案！",
+   "p": 4
   },
   {
    "en": "They are trying to modify the species with a gene-editing technology, which will transform the seedlings into a species that survives even in a drier and warmer climate.",
-   "cn": "他们正尝试用一种基因编辑技术改造该物种，使幼苗转变为即便在更干燥、更温暖的气候中也能存活的品种。"
+   "cn": "他们正尝试用一种基因编辑技术改造该物种，使幼苗转变为即便在更干燥、更温暖的气候中也能存活的品种。",
+   "p": 4
   },
   {
    "en": "According to a report by The Business Insider, in the University of California's new bio-sciences building, tiny green cacao seedlings are lined up in refrigerated greenhouses for a new experiment by using a technology called CRISPR.",
-   "cn": "根据《商业内幕》的一篇报道，在加州大学新建的生物科学大楼里，微型绿色可可幼苗被排列在冷藏温室中，用于一项运用名为CRISPR技术的新实验。"
+   "cn": "根据《商业内幕》的一篇报道，在加州大学新建的生物科学大楼里，微型绿色可可幼苗被排列在冷藏温室中，用于一项运用名为CRISPR技术的新实验。",
+   "p": 5
   },
   {
    "en": "By manipulating the DNA of plants, this technology is already being used across the world to make plants tougher and cheaper.",
-   "cn": "通过操控植物的DNA，这项技术已在世界各地用于让植物更强健、更廉价。"
+   "cn": "通过操控植物的DNA，这项技术已在世界各地用于让植物更强健、更廉价。",
+   "p": 5
   },
   {
    "en": "Similarly, in this unconventional experiment, scientists will make tiny, precise changes to the DNA of the seedlings to make the cocoa crops survive in warmer and drier climates.",
-   "cn": "同样地，在这项非传统实验中，科学家将对幼苗的DNA做出微小而精确的改动，使可可作物能在更温暖、更干燥的气候中存活。"
+   "cn": "同样地，在这项非传统实验中，科学家将对幼苗的DNA做出微小而精确的改动，使可可作物能在更温暖、更干燥的气候中存活。",
+   "p": 5
   }
  ]
 }

@@ -6,95 +6,118 @@
  "sents": [
   {
    "en": "Is organic food worth the higher price?",
-   "cn": "有机食品是否值更高的价钱？"
+   "cn": "有机食品是否值更高的价钱？",
+   "p": 0
   },
   {
    "en": "It's the classic grocery store dilemma.",
-   "cn": "这是杂货店里经典的两难。"
+   "cn": "这是杂货店里经典的两难。",
+   "p": 0
   },
   {
    "en": "On the one hand, your family dinner table deserves only the best.",
-   "cn": "一方面，你的家庭餐桌只配得上最好的。"
+   "cn": "一方面，你的家庭餐桌只配得上最好的。",
+   "p": 0
   },
   {
    "en": "On the other hand, your wallet can only stretch so far.",
-   "cn": "另一方面，你的钱包又能撑多久呢。"
+   "cn": "另一方面，你的钱包又能撑多久呢。",
+   "p": 0
   },
   {
    "en": "Whether or not to buy organic is a personal decision, said Mike von Massow, professor of Food Agriculture.",
-   "cn": "是否购买有机食品是个人的决定，食品农业教授迈克∙冯∙马索说。"
+   "cn": "是否购买有机食品是个人的决定，食品农业教授迈克∙冯∙马索说。",
+   "p": 0
   },
   {
    "en": "Science won't give a clear-cut answer to the question of whether organic food is \"better.\" There are often trade-offs (权衡) and answers become less definitive depending on the product under consideration.",
-   "cn": "科学不会给出有机食品是否\"更好\"的明确答案。往往存在权衡（权衡），而答案会因所考虑的产品而变得不那么确定。"
+   "cn": "科学不会给出有机食品是否\"更好\"的明确答案。往往存在权衡（权衡），而答案会因所考虑的产品而变得不那么确定。",
+   "p": 1
   },
   {
    "en": "One thing is definitive: Organic and conventionally grown food are equally nutritious.",
-   "cn": "有一点是确定的：有机种植食品与传统种植食品同样有营养。"
+   "cn": "有一点是确定的：有机种植食品与传统种植食品同样有营养。",
+   "p": 1
   },
   {
    "en": "From a nutrition point of view, there is no difference between organic and traditionally grown products.",
-   "cn": "从营养角度看，有机产品与传统种植产品之间没有区别。"
+   "cn": "从营养角度看，有机产品与传统种植产品之间没有区别。",
+   "p": 1
   },
   {
    "en": "Organic products don't necessarily have fewer pesticides (杀虫剂)—in fact, they may have more.",
-   "cn": "有机产品未必含更少农药（杀虫剂）——事实上，可能更多。"
+   "cn": "有机产品未必含更少农药（杀虫剂）——事实上，可能更多。",
+   "p": 2
   },
   {
    "en": "There is also no big difference between organic and non-organic products from a food-safety perspective.",
-   "cn": "从食品安全角度看，有机与非有机产品之间也没有太大差别。"
+   "cn": "从食品安全角度看，有机与非有机产品之间也没有太大差别。",
+   "p": 2
   },
   {
    "en": "Even organic growers use pesticides.",
-   "cn": "即便是有机种植者也会使用农药。"
+   "cn": "即便是有机种植者也会使用农药。",
+   "p": 2
   },
   {
    "en": "Testing shows little if any pesticide remains on conventionally grown products.",
-   "cn": "检测显示，传统种植产品上残留的农药即便有也极少。"
+   "cn": "检测显示，传统种植产品上残留的农药即便有也极少。",
+   "p": 2
   },
   {
    "en": "In fact, organic farmers often use larger quantities of pesticide because they can only use the natural variety of insect-killers.",
-   "cn": "事实上，有机农民往往使用更大剂量的农药，因为他们只能使用天然种类的杀虫剂。"
+   "cn": "事实上，有机农民往往使用更大剂量的农药，因为他们只能使用天然种类的杀虫剂。",
+   "p": 2
   },
   {
    "en": "Chemical pesticides generally kill a much wider range of pests (害虫) than any single natural pesticide.",
-   "cn": "化学农药通常比任何单一天然农药能杀灭更广泛种类的害虫（害虫）。"
+   "cn": "化学农药通常比任何单一天然农药能杀灭更广泛种类的害虫（害虫）。",
+   "p": 2
   },
   {
    "en": "The use of animal waste in organic agriculture can also be a factor in the spread of bacteria like E. coli and salmonella.",
-   "cn": "有机农业中动物粪便的使用，也可能是大肠杆菌和沙门氏菌等细菌传播的一个因素。"
+   "cn": "有机农业中动物粪便的使用，也可能是大肠杆菌和沙门氏菌等细菌传播的一个因素。",
+   "p": 3
   },
   {
    "en": "Over the past 10 years, Canada has seen more food-safety recalls for organic products, proportionally, than for conventional products.",
-   "cn": "过去10年里，加拿大有机食品的安全召回按比例算比传统食品更多。"
+   "cn": "过去10年里，加拿大有机食品的安全召回按比例算比传统食品更多。",
+   "p": 3
   },
   {
    "en": "On the whole, organic agriculture may have a smaller environmental footprint.",
-   "cn": "总体而言，有机农业的环境足迹可能更小。"
+   "cn": "总体而言，有机农业的环境足迹可能更小。",
+   "p": 4
   },
   {
    "en": "That's mostly because the risk of groundwater contamination from organic farming is lower.",
-   "cn": "这主要是因为有机农业造成地下水污染的风险较低。"
+   "cn": "这主要是因为有机农业造成地下水污染的风险较低。",
+   "p": 4
   },
   {
    "en": "Organic farmers never used neonics, the controversial pesticides that have been linked to shrinking bee populations worldwide.",
-   "cn": "有机农民从未使用过新烟碱类（neonics）这种与全球蜜蜂数量减少有关的争议性农药。"
+   "cn": "有机农民从未使用过新烟碱类（neonics）这种与全球蜜蜂数量减少有关的争议性农药。",
+   "p": 4
   },
   {
    "en": "Traditional agriculture has been making \"dramatic improvements\" to reduce its impact on the environment.",
-   "cn": "传统农业一直在做出\"显著改善\"以减少对环境的影响。"
+   "cn": "传统农业一直在做出\"显著改善\"以减少对环境的影响。",
+   "p": 5
   },
   {
    "en": "It isn't a black-and-white picture, though.",
-   "cn": "不过，情况并非黑白分明。"
+   "cn": "不过，情况并非黑白分明。",
+   "p": 5
   },
   {
    "en": "Organic farming is much less efficient when it comes to land use, although yields vary considerably depending on the crop.",
-   "cn": "在土地利用方面，有机农业效率低得多，尽管产量因作物不同而有很大差异。"
+   "cn": "在土地利用方面，有机农业效率低得多，尽管产量因作物不同而有很大差异。",
+   "p": 6
   },
   {
    "en": "On the other hand, advocates of organic farming argue yields and efficiency could be significantly improved if the food industry devoted as much research and money to organic farming as it does conventional agriculture.",
-   "cn": "另一方面，有机农业的支持者认为，如果食品行业像投入传统农业那样，将同样多的研究和资金投入到有机农业上，其产量和效率本可显著提升。"
+   "cn": "另一方面，有机农业的支持者认为，如果食品行业像投入传统农业那样，将同样多的研究和资金投入到有机农业上，其产量和效率本可显著提升。",
+   "p": 7
   }
  ]
 }

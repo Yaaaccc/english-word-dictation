@@ -6,67 +6,83 @@
  "sents": [
   {
    "en": "Supermarkets have long been suffering as one of the thinnest-margined businesses in existence and one of the least-looked-forward-to places to work or visit.",
-   "cn": "长期以来，超市一直处境艰难：它是现存利润率最薄的行业之一，也是最不受人期待的工作或光顾场所之一。"
+   "cn": "长期以来，超市一直处境艰难：它是现存利润率最薄的行业之一，也是最不受人期待的工作或光顾场所之一。",
+   "p": 0
   },
   {
    "en": "For more than a decade, they have been under attack from e-commerce giants, blamed for making Americans fat, and accused of contributing to climate change.",
-   "cn": "十多年来，它们受到电商巨头的冲击，被指责让美国人变胖，并被指控加剧了气候变化。"
+   "cn": "十多年来，它们受到电商巨头的冲击，被指责让美国人变胖，并被指控加剧了气候变化。",
+   "p": 0
   },
   {
    "en": "Supermarkets can technically be defined as giants housing 15,000 to 60,000 different products.",
-   "cn": "从技术上讲，超市可被定义为陈列15,000到60,000种不同商品的巨型场所。"
+   "cn": "从技术上讲，超市可被定义为陈列15,000到60,000种不同商品的巨型场所。",
+   "p": 1
   },
   {
    "en": "The revolutionary idea of a self-service grocery, where people could hunt and gather food from aisles rather than asking a clerk to fetch items from behind a counter, first came about in America.",
-   "cn": "自助式杂货店这一革命性理念——人们可以在过道里自行\"狩猎\"、采集食物，而不必让店员从柜台后取货——最早出现在美国。"
+   "cn": "自助式杂货店这一革命性理念——人们可以在过道里自行\"狩猎\"、采集食物，而不必让店员从柜台后取货——最早出现在美国。",
+   "p": 1
   },
   {
    "en": "There is some debate about which was the very first, but over the years a consensus has built around King Kullen Supermarket, founded in New York in 1930.",
-   "cn": "关于哪家才是第一家，存在一些争议，但多年来，人们逐渐达成了共识：1930年成立于纽约的KingKullen超市是首家。"
+   "cn": "关于哪家才是第一家，存在一些争议，但多年来，人们逐渐达成了共识：1930年成立于纽约的KingKullen超市是首家。",
+   "p": 1
   },
   {
    "en": "For some 300 years, Americans had fed themselves from small stores and public markets.",
-   "cn": "约300年里，美国人一直靠小商店和公共市场获取食物。"
+   "cn": "约300年里，美国人一直靠小商店和公共市场获取食物。",
+   "p": 2
   },
   {
    "en": "Shopping for food involved mud, noisy chickens, clouds of flies, nasty smells, bargaining, and getting short-changed.",
-   "cn": "买食物意味着泥泞、聒噪的鸡群、成团的苍蝇、难闻的气味、讨价还价，以及被少找零钱。"
+   "cn": "买食物意味着泥泞、聒噪的鸡群、成团的苍蝇、难闻的气味、讨价还价，以及被少找零钱。",
+   "p": 2
   },
   {
    "en": "The supermarket imitated the Fordist factory, with its emphasis on efficiency and standardization, and reimagined it as a place to buy food.",
-   "cn": "超市模仿了福特式工厂对效率和标准化的强调，并把它重新想象成一个购买食物的场所。"
+   "cn": "超市模仿了福特式工厂对效率和标准化的强调，并把它重新想象成一个购买食物的场所。",
+   "p": 2
   },
   {
    "en": "Supermarkets may not feel cutting-edge now, but they were a revolution in distribution at the time.",
-   "cn": "超市如今或许已不让人觉得前沿，但在当时它是一场分销革命。"
+   "cn": "超市如今或许已不让人觉得前沿，但在当时它是一场分销革命。",
+   "p": 2
   },
   {
    "en": "They were such strange marvels that, on her first official state visit to the United States in 1957, Queen Elizabeth II insisted on an impromptu tour of a suburban-Maryland Giant Food.",
-   "cn": "它们是如此奇特的奇迹，以至于1957年伊丽莎白二世女王首次对美国进行正式国事访问时，坚持要即兴参观马里兰州郊区的一家GiantFood超市。"
+   "cn": "它们是如此奇特的奇迹，以至于1957年伊丽莎白二世女王首次对美国进行正式国事访问时，坚持要即兴参观马里兰州郊区的一家GiantFood超市。",
+   "p": 2
   },
   {
    "en": "The typical supermarket layout has barely changed over the past 90 years.",
-   "cn": "典型的超市布局在过去90年里几乎没有改变。"
+   "cn": "典型的超市布局在过去90年里几乎没有改变。",
+   "p": 3
   },
   {
    "en": "Most stores open with flowers, fruit and vegetables at the front as a breath of freshness to arouse our appetite.",
-   "cn": "大多数商店把鲜花、水果和蔬菜摆在前方开场，作为一缕清新来唤起我们的食欲。"
+   "cn": "大多数商店把鲜花、水果和蔬菜摆在前方开场，作为一缕清新来唤起我们的食欲。",
+   "p": 3
   },
   {
    "en": "Meanwhile, they keep the milk, eggs, and other daily basics all the way back so you'll travel through as much of the store as possible, and be tempted along the way.",
-   "cn": "与此同时，它们把牛奶、鸡蛋和其他日常必需品放在最里头，好让你尽可能穿过更多店面，一路受到诱惑。"
+   "cn": "与此同时，它们把牛奶、鸡蛋和其他日常必需品放在最里头，好让你尽可能穿过更多店面，一路受到诱惑。",
+   "p": 3
   },
   {
    "en": "In the early days, as the supermarket multiplied, so did our suspicion of it.",
-   "cn": "在早期，随着超市成倍增加，我们对它的怀疑也随之增长。"
+   "cn": "在早期，随着超市成倍增加，我们对它的怀疑也随之增长。",
+   "p": 4
   },
   {
    "en": "We have long feared that this \"revolution in distribution\" uses corporate black magic on our appetite.",
-   "cn": "我们一直担心，这场\"分销革命\"在对我们的食欲使用企业的黑魔法。"
+   "cn": "我们一直担心，这场\"分销革命\"在对我们的食欲使用企业的黑魔法。",
+   "p": 4
   },
   {
    "en": "The book The Hidden Persuaders, published in 1957, warned that supermarkets were putting women in a \"hypnoidal trance,\" causing them to wander aisles bumping into boxes and \"picking things off shelves at random.\"",
-   "cn": "1957年出版的《隐性说服者》一书警告说，超市正把女性置于一种\"催眠恍惚状态\"，让她们在过道里游荡、撞上纸箱，并\"随手从货架上乱拿东西\"。"
+   "cn": "1957年出版的《隐性说服者》一书警告说，超市正把女性置于一种\"催眠恍惚状态\"，让她们在过道里游荡、撞上纸箱，并\"随手从货架上乱拿东西\"。",
+   "p": 4
   }
  ]
 }

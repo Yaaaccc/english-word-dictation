@@ -6,47 +6,58 @@
  "sents": [
   {
    "en": "With obesity now affecting 29% of the population in England, and expected to rise to 35% by 2030, should we now recognise it as a disease?",
-   "cn": "如今肥胖已影响英格兰29%的人口，并预计到2030年升至35%，我们现在是否应将其视为一种疾病？"
+   "cn": "如今肥胖已影响英格兰29%的人口，并预计到2030年升至35%，我们现在是否应将其视为一种疾病？",
+   "p": 0
   },
   {
    "en": "Obesity, in which excess body fat has accumulated to such an extent that health may be adversely affected, meets the dictionary definition of disease, argues Professor John Wilding.",
-   "cn": "约翰∙怀尔丁教授主张，肥胖——即体内多余脂肪累积到可能损害健康的程度——符合字典对疾病的定义。"
+   "cn": "约翰∙怀尔丁教授主张，肥胖——即体内多余脂肪累积到可能损害健康的程度——符合字典对疾病的定义。",
+   "p": 0
   },
   {
    "en": "He points out that more than 200 genes influence weight.",
-   "cn": "他指出，有超过200个基因影响体重。"
+   "cn": "他指出，有超过200个基因影响体重。",
+   "p": 0
   },
   {
    "en": "\"Thus body weight is strongly influenced by biology·it is not an individual's fault if they develop obesity.\" Yet the widespread view is that obesity is self-induced and that it is entirely the individual's responsibility to do something about it.",
-   "cn": "\"因此，体重深受生物学影响——一个人若患上肥胖，并非其个人的过错。\"然而，普遍观点认为肥胖是自我诱发的，并且采取行动加以改善完全是个人责任。"
+   "cn": "\"因此，体重深受生物学影响——一个人若患上肥胖，并非其个人的过错。\"然而，普遍观点认为肥胖是自我诱发的，并且采取行动加以改善完全是个人责任。",
+   "p": 0
   },
   {
    "en": "Recognising obesity as a chronic disease with severe complications rather than a lifestyle choice \"should help reduce the stigma（耻辱）and discrimination experienced by many people with obesity,\" he adds.",
-   "cn": "他补充说，将肥胖视为一种带有严重并发症的慢性疾病，而非一种生活方式选择，\"应有助于减少许多肥胖者所经历的耻辱和歧视\"。"
+   "cn": "他补充说，将肥胖视为一种带有严重并发症的慢性疾病，而非一种生活方式选择，\"应有助于减少许多肥胖者所经历的耻辱和歧视\"。",
+   "p": 0
   },
   {
    "en": "Professor Wilding disagrees that labelling a high proportion of the population as having a disease removes personal responsibility or may overwhelm health services, pointing out that other common diseases, such as high blood pressure and diabetes, require people to take action to manage their condition.",
-   "cn": "怀尔丁教授不同意\"给高比例人口贴上疾病标签会消除个人责任，或可能压垮医疗服务\"的说法，他指出其他常见疾病（如高血压和糖尿病）同样需要人们采取行动来管理病情。"
+   "cn": "怀尔丁教授不同意\"给高比例人口贴上疾病标签会消除个人责任，或可能压垮医疗服务\"的说法，他指出其他常见疾病（如高血压和糖尿病）同样需要人们采取行动来管理病情。",
+   "p": 1
   },
   {
    "en": "He suggests that most people with obesity will eventually develop complications.",
-   "cn": "他认为，大多数肥胖者最终都会出现并发症。"
+   "cn": "他认为，大多数肥胖者最终都会出现并发症。",
+   "p": 1
   },
   {
    "en": "\"But unless we accept that obesity is a disease, we are not going to be able to tackle it,\" he concludes.",
-   "cn": "\"但除非我们承认肥胖是一种疾病，否则我们将无法应对它，\"他总结道。"
+   "cn": "\"但除非我们承认肥胖是一种疾病，否则我们将无法应对它，\"他总结道。",
+   "p": 1
   },
   {
    "en": "But Dr. Richard Pile, a physician with a special interest in diabetes, argues that adopting this approach \"could actually result in worse outcomes for individuals and society.\" He believes that the dictionary definition of disease \"is so vague that we can classify almost anything as a disease\" and says the question is not whether we can, but whether we should, and to what end.",
-   "cn": "但理查德∙派尔博士——一位对糖尿病特别感兴趣的医生——认为，采取这种做法\"实际上可能给个人和社会带来更糟的结果\"。他认为字典对疾病的定义\"如此模糊，以至于我们几乎可以把任何东西都归为疾病\"，并说问题不在于我们能否，而在于我们是否应该，以及目的何在。"
+   "cn": "但理查德∙派尔博士——一位对糖尿病特别感兴趣的医生——认为，采取这种做法\"实际上可能给个人和社会带来更糟的结果\"。他认为字典对疾病的定义\"如此模糊，以至于我们几乎可以把任何东西都归为疾病\"，并说问题不在于我们能否，而在于我们是否应该，以及目的何在。",
+   "p": 2
   },
   {
    "en": "If labelling obesity as a disease was harmless then it wouldn't really matter, he writes.",
-   "cn": "他写道，如果给肥胖贴上疾病标签是无害的，那倒也无关紧要。"
+   "cn": "他写道，如果给肥胖贴上疾病标签是无害的，那倒也无关紧要。",
+   "p": 3
   },
   {
    "en": "But labelling obesity as a disease \"risks reducing autonomy, disempowering and robbing people of the intrinsic（内在的）motivation that is such an important enabler of change.\" What's more, making obesity a disease \"may not benefit patients, but it will benefit healthcare providers and the pharmaceutical（制药的）industry when health insurance and clinical guidelines promote treatment with drugs and surgery,\" he warns.",
-   "cn": "但将肥胖标为疾病\"有可能削弱自主性，让人失去力量，并剥夺人们内在的动力——而那正是促成改变的重要推动因素。\"此外，当健康保险和临床指南提倡用药物和手术进行治疗时，将肥胖变成一种疾病\"或许无益于患者，却会让医疗服务提供者和制药行业受益，\"他警告说。"
+   "cn": "但将肥胖标为疾病\"有可能削弱自主性，让人失去力量，并剥夺人们内在的动力——而那正是促成改变的重要推动因素。\"此外，当健康保险和临床指南提倡用药物和手术进行治疗时，将肥胖变成一种疾病\"或许无益于患者，却会让医疗服务提供者和制药行业受益，\"他警告说。",
+   "p": 3
   }
  ]
 }

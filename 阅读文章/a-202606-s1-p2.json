@@ -6,95 +6,118 @@
  "sents": [
   {
    "en": "It is still controversial whether we are fundamentally generous or selfish and whether these tendencies are shaped by our genes or environment.",
-   "cn": "我们本质上是慷慨还是自私，这些倾向是由基因还是环境塑造的，至今仍有争议。"
+   "cn": "我们本质上是慷慨还是自私，这些倾向是由基因还是环境塑造的，至今仍有争议。",
+   "p": 0
   },
   {
    "en": "Some evidence points to humans being born cooperative.",
-   "cn": "一些证据表明，人类生来就具有合作性。"
+   "cn": "一些证据表明，人类生来就具有合作性。",
+   "p": 1
   },
   {
    "en": "At later stages in life we routinely work together to reach goals and help out in times of need.",
-   "cn": "在生命的后期阶段，我们会例行地共同努力实现目标，并在需要时伸出援手。"
+   "cn": "在生命的后期阶段，我们会例行地共同努力实现目标，并在需要时伸出援手。",
+   "p": 1
   },
   {
    "en": "Yet instances of selfish behavior are also plenty.",
-   "cn": "然而，自私行为的例子也很多。"
+   "cn": "然而，自私行为的例子也很多。",
+   "p": 2
   },
   {
    "en": "One recent study tested people's willingness to set aside selfish interests to reach a greater good.",
-   "cn": "最近一项研究测试了人们放下自私利益以达成更大善意的意愿。"
+   "cn": "最近一项研究测试了人们放下自私利益以达成更大善意的意愿。",
+   "p": 2
   },
   {
    "en": "It found that being selfish was more advantageous than cooperating.",
-   "cn": "研究发现，自私比合作更有利。"
+   "cn": "研究发现，自私比合作更有利。",
+   "p": 2
   },
   {
    "en": "The benefit may be short-lived, however.",
-   "cn": "不过，这种好处可能是短暂的。"
+   "cn": "不过，这种好处可能是短暂的。",
+   "p": 2
   },
   {
    "en": "Another study showed that players who cooperated did better in the long run.",
-   "cn": "另一项研究表明，从长远来看，合作的一方表现更好。"
+   "cn": "另一项研究表明，从长远来看，合作的一方表现更好。",
+   "p": 2
   },
   {
    "en": "It seems that human nature supports both pro-social and selfish traits (特征).",
-   "cn": "看来，人性同时支持亲社会与自私两种特征（特征）。"
+   "cn": "看来，人性同时支持亲社会与自私两种特征（特征）。",
+   "p": 3
   },
   {
    "en": "Genetic studies have made some progress toward identifying their biological roots.",
-   "cn": "基因研究在寻找其生物学根源方面已取得一些进展。"
+   "cn": "基因研究在寻找其生物学根源方面已取得一些进展。",
+   "p": 3
   },
   {
    "en": "By comparing identical twins, who share nearly 100 percent of their genes, and non-identical twins, who share about half, researchers have found overwhelming evidence for genetic effects on behaviors.",
-   "cn": "通过比较几乎共享100%基因的同卵双胞胎，与共享约一半基因的非同卵双胞胎，研究人员找到了基因影响行为的压倒性证据。"
+   "cn": "通过比较几乎共享100%基因的同卵双胞胎，与共享约一半基因的非同卵双胞胎，研究人员找到了基因影响行为的压倒性证据。",
+   "p": 3
   },
   {
    "en": "In these twin studies, identical and non-identical twins are asked, for example, to split a sum of money with a peer.",
-   "cn": "在这类双胞胎研究中，同卵和非同卵双胞胎会被要求，例如，与同伴分一笔钱。"
+   "cn": "在这类双胞胎研究中，同卵和非同卵双胞胎会被要求，例如，与同伴分一笔钱。",
+   "p": 3
   },
   {
    "en": "Such studies often also rely on careful psychological assessments and DNA analysis.",
-   "cn": "这类研究通常还依赖细致的心理评估和DNA分析。"
+   "cn": "这类研究通常还依赖细致的心理评估和DNA分析。",
+   "p": 3
   },
   {
    "en": "Other work highlights specific genes as key players.",
-   "cn": "其他研究突显了特定基因的关键作用。"
+   "cn": "其他研究突显了特定基因的关键作用。",
+   "p": 4
   },
   {
    "en": "My colleagues and I recently identified a gene linked to altruistic (利他的) behavior and found that a particular variant of it was associated with more selfish behavior in preschoolers.",
-   "cn": "我和同事最近识别出一个与利他（利他的）行为相关的基因，并发现它的某个特定变体与学龄前儿童更多的自私行为有关。"
+   "cn": "我和同事最近识别出一个与利他（利他的）行为相关的基因，并发现它的某个特定变体与学龄前儿童更多的自私行为有关。",
+   "p": 4
   },
   {
    "en": "According to evolutionary scientists, cooperative behavior may have evolved first among relatives to promote the continuation of their genetic line.",
-   "cn": "根据进化科学家的观点，合作行为可能最早在亲属间进化出来，以促进其血脉的延续。"
+   "cn": "根据进化科学家的观点，合作行为可能最早在亲属间进化出来，以促进其血脉的延续。",
+   "p": 5
   },
   {
    "en": "As communities diversified, mutual support could have broadened to include individuals not linked by blood.",
-   "cn": "随着社群多样化，相互支持可能扩大到包括无血缘关系的个体。"
+   "cn": "随着社群多样化，相互支持可能扩大到包括无血缘关系的个体。",
+   "p": 5
   },
   {
    "en": "Another possibility is that humans cooperate to gain some advantage, such as boosting reputation.",
-   "cn": "另一种可能性是，人类合作是为了获得某种优势，比如提升声誉。"
+   "cn": "另一种可能性是，人类合作是为了获得某种优势，比如提升声誉。",
+   "p": 5
   },
   {
    "en": "Finally, evolutionary processes take place at the group level.",
-   "cn": "最后，进化过程发生在群体层面。"
+   "cn": "最后，进化过程发生在群体层面。",
+   "p": 5
   },
   {
    "en": "Groups of highly cooperative individuals have higher chances of survival because they can work together to reach goals that are unattainable to less cooperative groups.",
-   "cn": "高度合作个体的群体有更高的生存机会，因为他们能共同努力实现那些合作度较低的群体无法达成的目标。"
+   "cn": "高度合作个体的群体有更高的生存机会，因为他们能共同努力实现那些合作度较低的群体无法达成的目标。",
+   "p": 5
   },
   {
    "en": "Yet almost no behavior is entirely genetic, even among identical twins.",
-   "cn": "然而，几乎没有任何行为是完全由基因决定的，即便在同卵双胞胎中也是如此。"
+   "cn": "然而，几乎没有任何行为是完全由基因决定的，即便在同卵双胞胎中也是如此。",
+   "p": 6
   },
   {
    "en": "Culture, schooling and parenting are important determinants of cooperation.",
-   "cn": "文化、教育和养育是合作的重要决定因素。"
+   "cn": "文化、教育和养育是合作的重要决定因素。",
+   "p": 6
   },
   {
    "en": "Thus, the degree to which we act cooperatively or selfishly is unique to each individual and depends on a variety of genetic and environmental influences.",
-   "cn": "因此，我们表现合作还是自私的程度，对每个人而言都是独特的，并取决于各种基因与环境的影响。"
+   "cn": "因此，我们表现合作还是自私的程度，对每个人而言都是独特的，并取决于各种基因与环境的影响。",
+   "p": 6
   }
  ]
 }

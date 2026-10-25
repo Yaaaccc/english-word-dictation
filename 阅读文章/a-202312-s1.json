@@ -6,167 +6,208 @@
  "sents": [
   {
    "en": "Earlier this year, scientists warned that one in six animal species could go extinct due to climate change.",
-   "cn": "今年早些时候，科学家警告称，由于气候变化，六分之一的动物物种可能灭绝。"
+   "cn": "今年早些时候，科学家警告称，由于气候变化，六分之一的动物物种可能灭绝。",
+   "p": 0
   },
   {
    "en": "Could the same thing happen to our crops and other foodstuffs too?",
-   "cn": "同样的事会不会也发生在我们的农作物和其他食物上呢？"
+   "cn": "同样的事会不会也发生在我们的农作物和其他食物上呢？",
+   "p": 0
   },
   {
    "en": "It's clear that farmers in many parts of the world are going to find things harder in the coming decades.",
-   "cn": "显然，未来几十年里，世界许多地区的农民会发现日子越来越难过。"
+   "cn": "显然，未来几十年里，世界许多地区的农民会发现日子越来越难过。",
+   "p": 1
   },
   {
    "en": "Last week, BBC Future explored one scientist's efforts to help crops cope with the increased probability of droughts.",
-   "cn": "上周，BBCFuture报道了一位科学家帮助农作物应对日益频繁干旱的努力。"
+   "cn": "上周，BBCFuture报道了一位科学家帮助农作物应对日益频繁干旱的努力。",
+   "p": 1
   },
   {
    "en": "By using the genes from resurrection plants, Jill Farrant of the University of Cape Town is exploring whether she can design crops to survive for much longer periods without water.",
-   "cn": "开普敦大学的吉尔∙法兰特正利用“复活植物”的基因，探索能否培育出在更长时间内无需水分也能存活的作物。"
+   "cn": "开普敦大学的吉尔∙法兰特正利用“复活植物”的基因，探索能否培育出在更长时间内无需水分也能存活的作物。",
+   "p": 1
   },
   {
    "en": "But if we can't find ways to protect other foods, will they survive climate change?",
-   "cn": "但如果我们找不到保护其他食物的方法，它们能在气候变化中存活下来吗？"
+   "cn": "但如果我们找不到保护其他食物的方法，它们能在气候变化中存活下来吗？",
+   "p": 2
   },
   {
    "en": "Fortunately, there is some good news on this front.",
-   "cn": "幸运的是，这方面有些好消息。"
+   "cn": "幸运的是，这方面有些好消息。",
+   "p": 2
   },
   {
    "en": "Despite alarmist headlines about \"foods that are going extinct,\" there is no evidence that major food types like beans, chocolate, wine, corn or wheat will cease to exist.",
-   "cn": "尽管有“即将灭绝的食物”之类的惊悚标题，但并没有证据表明豆类、巧克力、葡萄酒、玉米或小麦等主要食物会消失。"
+   "cn": "尽管有“即将灭绝的食物”之类的惊悚标题，但并没有证据表明豆类、巧克力、葡萄酒、玉米或小麦等主要食物会消失。",
+   "p": 2
   },
   {
    "en": "But that doesn't mean it's all good news for future food.",
-   "cn": "但这并不意味着未来食物的前景一片大好。"
+   "cn": "但这并不意味着未来食物的前景一片大好。",
+   "p": 3
   },
   {
    "en": "We will probably have to change where we grow certain crops, as some regions get too hot.",
-   "cn": "随着部分地区变得过热，我们可能不得不改变某些作物的种植地。"
+   "cn": "随着部分地区变得过热，我们可能不得不改变某些作物的种植地。",
+   "p": 3
   },
   {
    "en": "The disadvantage, obviously, is that local farmers will suffer under this situation. And some people may struggle to get the same access to certain foods.",
-   "cn": "显而易见的不利之处是，当地农民将陷入困境，而且有些人可能难以像现在这样获取某些食物。"
+   "cn": "显而易见的不利之处是，当地农民将陷入困境，而且有些人可能难以像现在这样获取某些食物。",
+   "p": 3
   },
   {
    "en": "\"Even if overall food production may be unaffected, food security can still be impacted,\" says Margaret Walsh, a scientist at the US Department of Agriculture's Climate Change Program Office.",
-   "cn": "美国农业部气候变化项目办公室的科学家玛格丽特∙沃尔什说：“即便整体粮食生产可能不受影响，粮食安全仍可能受到损害。"
+   "cn": "美国农业部气候变化项目办公室的科学家玛格丽特∙沃尔什说：“即便整体粮食生产可能不受影响，粮食安全仍可能受到损害。",
+   "p": 3
   },
   {
    "en": "In other words, even if a certain food is still grown on some corner of the Earth, it doesn't mean that everyone will continue to have the same degree of access as today.",
-   "cn": "”换句话说，即便某种食物在地球的某个角落仍被种植，也不意味着所有人都能继续像今天这样方便地获得它。"
+   "cn": "”换句话说，即便某种食物在地球的某个角落仍被种植，也不意味着所有人都能继续像今天这样方便地获得它。",
+   "p": 3
   },
   {
    "en": "Overall, the yields of many foods, from staples to life-enhancing extras such as coffee and chocolate, will likely be impacted by climate change too.",
-   "cn": "总体而言，从主食到咖啡、巧克力等提升生活品质的额外食品，许多食物的产量也可能受到气候变化的影响。"
+   "cn": "总体而言，从主食到咖啡、巧克力等提升生活品质的额外食品，许多食物的产量也可能受到气候变化的影响。",
+   "p": 4
   },
   {
    "en": "How those decreases will be felt will depend on the degree of warming and the crop in question, but in general, \"anything over about 30°C is very bad for crops,\" says Wolfram Schlenker, an associate professor of international and public affairs at Columbia University.",
-   "cn": "这些减产会带来怎样的感受，取决于变暖的程度以及所涉作物，但哥伦比亚大学国际与公共事务副教授沃尔夫拉姆∙施伦克说，一般来说，“任何超过约30°C的温度对作物都非常不利”。"
+   "cn": "这些减产会带来怎样的感受，取决于变暖的程度以及所涉作物，但哥伦比亚大学国际与公共事务副教授沃尔夫拉姆∙施伦克说，一般来说，“任何超过约30°C的温度对作物都非常不利”。",
+   "p": 4
   },
   {
    "en": "In the US·the world's largest producer of corn and soybeans·farms can move north to some degree, Schlenker says.",
-   "cn": "施伦克说，在美国——全球最大的玉米和大豆生产国——农场在某种程度上可以向北迁移。"
+   "cn": "施伦克说，在美国——全球最大的玉米和大豆生产国——农场在某种程度上可以向北迁移。",
+   "p": 5
   },
   {
    "en": "But eventually, yields will likely suffer because the soil north of Iowa declines in quality·a legacy of glacial expansion.",
-   "cn": "但最终产量很可能受损，因为爱荷华州以北的土壤质量下降，这是冰川扩张遗留的结果。"
+   "cn": "但最终产量很可能受损，因为爱荷华州以北的土壤质量下降，这是冰川扩张遗留的结果。",
+   "p": 5
   },
   {
    "en": "Other studies, including studies of wheat in India and corn in Africa, also found that there is a threshold above which yields sharply decline: crops can adapt and move, but only to a point.",
-   "cn": "其他研究，包括印度小麦和非洲玉米的研究，也发现存在一个阈值，超过该阈值产量就会急剧下降：作物可以适应和迁移，但只能到一定程度。"
+   "cn": "其他研究，包括印度小麦和非洲玉米的研究，也发现存在一个阈值，超过该阈值产量就会急剧下降：作物可以适应和迁移，但只能到一定程度。",
+   "p": 5
   },
   {
    "en": "\"What's common to all studies is the finding that extreme heat is damaging to crop growth, although exact cutoffs vary by crop,\" Schlenker says.",
-   "cn": "“所有研究的共同发现是极端高温会损害作物生长，尽管具体临界点因作物而异，”施伦克说。"
+   "cn": "“所有研究的共同发现是极端高温会损害作物生长，尽管具体临界点因作物而异，”施伦克说。",
+   "p": 5
   },
   {
    "en": "\"If predictions for the end of the century are true, though, I think a lot of agricultural areas in the US will see significant hits.\"",
-   "cn": "“不过，如果本世纪末的预测成真，我认为美国许多农业区都会遭受严重冲击。”"
+   "cn": "“不过，如果本世纪末的预测成真，我认为美国许多农业区都会遭受严重冲击。”",
+   "p": 5
   },
   {
    "en": "Under current conditions, about 4% of the world's croplands experience drought in any given year, but by the end of the century those conditions are forecasted to jump to about 18% per year.",
-   "cn": "在目前的条件下，全球约4%的耕地在任何一年都会遭遇干旱，但到本世纪末，这一比例预计将跃升至每年约18%。"
+   "cn": "在目前的条件下，全球约4%的耕地在任何一年都会遭遇干旱，但到本世纪末，这一比例预计将跃升至每年约18%。",
+   "p": 6
   },
   {
    "en": "Some studies indicate that horticulture crops·generally, everything besides staples·may be impacted most severely, largely because they tend to be confined to a smaller geographic area.",
-   "cn": "一些研究表明，园艺作物——大体上即除主食以外的一切——可能受到最严重的影响，主要是因为它们往往局限于较小的地理区域。"
+   "cn": "一些研究表明，园艺作物——大体上即除主食以外的一切——可能受到最严重的影响，主要是因为它们往往局限于较小的地理区域。",
+   "p": 6
   },
   {
    "en": "Researcher Andrew Jarvis and his colleagues found that 80% of coffee-growing zones in Central America and Brazil could become unsuitable by 2050, for example, while climate change will likely have \"great impacts\" on cocoa production in West Africa.",
-   "cn": "例如，研究者安德鲁∙贾维斯及其同事发现，到2050年，中美洲和巴西80%的咖啡种植区可能变得不再适宜；与此同时，气候变化很可能给西非的可可生产带来“巨大影响”。"
+   "cn": "例如，研究者安德鲁∙贾维斯及其同事发现，到2050年，中美洲和巴西80%的咖啡种植区可能变得不再适宜；与此同时，气候变化很可能给西非的可可生产带来“巨大影响”。",
+   "p": 6
   },
   {
    "en": "\"High quality chocolate will be less available in the future, and if you want it, you'll have to pay a lot more for it,\" Jarvis says.",
-   "cn": "贾维斯说：“未来高品质巧克力将更难买到，想要的话，你得花贵得多的价钱。”"
+   "cn": "贾维斯说：“未来高品质巧克力将更难买到，想要的话，你得花贵得多的价钱。”",
+   "p": 6
   },
   {
    "en": "This means that, for those who can afford it, some foods will simply cost them more in the future.",
-   "cn": "这意味着，对负担得起的人来说，未来某些食物无非是更贵一些。"
+   "cn": "这意味着，对负担得起的人来说，未来某些食物无非是更贵一些。",
+   "p": 7
   },
   {
    "en": "But for poorer people, those same price jumps will likely cause certain foods to go extinct from their diets.",
-   "cn": "但对较贫困的人群而言，同样的涨价可能导致某些食物从他们的饮食中彻底消失。"
+   "cn": "但对较贫困的人群而言，同样的涨价可能导致某些食物从他们的饮食中彻底消失。",
+   "p": 7
   },
   {
    "en": "\"The more you reduce, the shorter the supply, and the higher the price will jump,\" Schlenker says.",
-   "cn": "施伦克说：“你削减得越多，供应就越短，价格就跳得越高。”"
+   "cn": "施伦克说：“你削减得越多，供应就越短，价格就跳得越高。”",
+   "p": 7
   },
   {
    "en": "Another potential climate change-induced problem is our dependence on commodity crops ·wheat, soybeans, corn and rice·which currently provide humanity with 75% of its calories, either directly or indirectly through the animals we raise on those crops.",
-   "cn": "气候变化引发的另一个潜在问题是我们对大宗商品作物的依赖——小麦、大豆、玉米和大米——它们目前直接或间接（通过我们用这些作物饲养的动物）为人类提供75%的热量。"
+   "cn": "气候变化引发的另一个潜在问题是我们对大宗商品作物的依赖——小麦、大豆、玉米和大米——它们目前直接或间接（通过我们用这些作物饲养的动物）为人类提供75%的热量。",
+   "p": 8
   },
   {
    "en": "Jarvis and his colleagues also found that, over the past five decades, the world has seen an increasing standardisation of diets; the foods we eat globally today are 36% more similar than they were in 1961.",
-   "cn": "贾维斯及其同事还发现，过去五十年里，世界饮食的标准化日益增强；今天全球所吃的食物比1961年相似度高出36%。"
+   "cn": "贾维斯及其同事还发现，过去五十年里，世界饮食的标准化日益增强；今天全球所吃的食物比1961年相似度高出36%。",
+   "p": 8
   },
   {
    "en": "While this can be good news for the world's poorest people who now consume more calories, protein and fat than in the past, homogeneity and over-dependence on a handful of staples leaves us vulnerable to threats such as drought, disease and pests·all of which are predicted to worsen in many parts of the world as a result of climate change.",
-   "cn": "虽然这对如今摄入更多热量、蛋白质和脂肪的全球最贫困人口或许是好事，但这种同质化以及对少数几种主食的过度依赖，使我们易受干旱、病害和虫害等威胁——而据预测，这些威胁在世界许多地区会因气候变化而加剧。"
+   "cn": "虽然这对如今摄入更多热量、蛋白质和脂肪的全球最贫困人口或许是好事，但这种同质化以及对少数几种主食的过度依赖，使我们易受干旱、病害和虫害等威胁——而据预测，这些威胁在世界许多地区会因气候变化而加剧。",
+   "p": 8
   },
   {
    "en": "There are ways we could soften the coming blow to the global food supply, however.",
-   "cn": "不过，我们有办法减轻即将到来的对全球粮食供应的冲击。"
+   "cn": "不过，我们有办法减轻即将到来的对全球粮食供应的冲击。",
+   "p": 9
   },
   {
    "en": "Like Farrant's work with resurrection crops, a number of companies, organisations and researchers are aiming to create drought- and temperature-resistant crops through genetic engineering and conventional breeding.",
-   "cn": "与法兰特对复活植物的研究类似，许多公司、机构和研究者正试图通过基因工程和传统育种，培育抗旱、抗高温的作物。"
+   "cn": "与法兰特对复活植物的研究类似，许多公司、机构和研究者正试图通过基因工程和传统育种，培育抗旱、抗高温的作物。",
+   "p": 9
   },
   {
    "en": "For now, the jury is still out as to how successful those endeavours will be.",
-   "cn": "就目前而言，这些努力能否成功尚无定论。"
+   "cn": "就目前而言，这些努力能否成功尚无定论。",
+   "p": 9
   },
   {
    "en": "\"The people at Monsanto who I've talked to are much more optimistic that they'll be able to engineer heat-tolerant crops,\" Schlenker says.",
-   "cn": "施伦克说：“我交谈过的孟山都员工对培育耐热作物更有信心；"
+   "cn": "施伦克说：“我交谈过的孟山都员工对培育耐热作物更有信心；",
+   "p": 9
   },
   {
    "en": "\"On the other hand, scientists at the USDA who I've spoken with are much more cautious.\"",
-   "cn": "另一方面，我与美国农业部科学家的交流则谨慎得多。”"
+   "cn": "另一方面，我与美国农业部科学家的交流则谨慎得多。”",
+   "p": 9
   },
   {
    "en": "Until genetic engineering comes to fruition, other strategies might also help in some places, including applying more fertiliser, implementing better irrigation, using machinery that gets crops out of the field faster or installing storage facilities to delay spoilage.",
-   "cn": "在基因工程取得成果之前，其他策略在某些地方也可能有用，包括增施肥料、改善灌溉、使用能更快将作物清出田间的机械，或安装仓储设施以延缓腐败。"
+   "cn": "在基因工程取得成果之前，其他策略在某些地方也可能有用，包括增施肥料、改善灌溉、使用能更快将作物清出田间的机械，或安装仓储设施以延缓腐败。",
+   "p": 10
   },
   {
    "en": "\"Many places could benefit a great deal just by using technologies that already exist,\" Walsh says.",
-   "cn": "沃尔什说：“许多地方仅凭现有技术就能获益良多。"
+   "cn": "沃尔什说：“许多地方仅凭现有技术就能获益良多。",
+   "p": 10
   },
   {
    "en": "\"General farm management can go a long way toward easing changes.\"",
-   "cn": "常规的农场管理能极大缓解这些变化带来的影响。”"
+   "cn": "常规的农场管理能极大缓解这些变化带来的影响。”",
+   "p": 10
   },
   {
    "en": "Finally, diversifying our diet away from heat-sensitive wheat, corn, rice and other crops could also help.",
-   "cn": "最后，让我们饮食多样化、少依赖怕热的小麦、玉米、大米等作物也会有帮助。"
+   "cn": "最后，让我们饮食多样化、少依赖怕热的小麦、玉米、大米等作物也会有帮助。",
+   "p": 11
   },
   {
    "en": "\"We've seen profound changes in the last decades in what we eat largely as a result of international trade, and I think that trend toward more diversification will continue,\" Jarvis says.",
-   "cn": "贾维斯说：“近几十年来，我们的饮食因国际贸易发生了深刻变化，我认为这种更加多样化的趋势将会持续。"
+   "cn": "贾维斯说：“近几十年来，我们的饮食因国际贸易发生了深刻变化，我认为这种更加多样化的趋势将会持续。",
+   "p": 11
   },
   {
    "en": "\"Depending on a greater number of plant species creates a more vigorous and less risky food system·and one that provides a broader range of nutritional requirements.\"",
-   "cn": "依赖更多植物种类，会造就一个更有活力、风险更低的食物体系——也能提供更广泛的营养需求。”"
+   "cn": "依赖更多植物种类，会造就一个更有活力、风险更低的食物体系——也能提供更广泛的营养需求。”",
+   "p": 11
   }
  ]
 }

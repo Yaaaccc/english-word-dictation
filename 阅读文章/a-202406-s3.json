@@ -6,187 +6,233 @@
  "sents": [
   {
    "en": "Certain institutions, such as schools are likely to close when bad weather, such as snow, flooding, or extreme heat or cold, causes travel difficulties, power outages (断供) or otherwise endangers public safety.",
-   "cn": "某些机构（如学校）在恶劣天气——如降雪、洪涝，或极端高温严寒——造成出行困难、断电或危及公共安全时，往往会关闭。"
+   "cn": "某些机构（如学校）在恶劣天气——如降雪、洪涝，或极端高温严寒——造成出行困难、断电或危及公共安全时，往往会关闭。",
+   "p": 0
   },
   {
    "en": "When snowy weather arrives in the US, it means the chance of school children benefiting from the long-standing tradition of the \"snow day\", when schools are forced to close and students get an unexpected day off.",
-   "cn": "当美国迎来雪天，意味着学童有机会享受由来已久的“雪假”传统：学校被迫停课，学生意外得享一天假期。"
+   "cn": "当美国迎来雪天，意味着学童有机会享受由来已久的“雪假”传统：学校被迫停课，学生意外得享一天假期。",
+   "p": 0
   },
   {
    "en": "The criterion for a snow day is primarily the inability of school buses to operate safely on their routes and danger to children who walk to school.",
-   "cn": "判定“雪假”的主要标准，是校车无法安全运营，以及步行上学儿童面临危险。"
+   "cn": "判定“雪假”的主要标准，是校车无法安全运营，以及步行上学儿童面临危险。",
+   "p": 1
   },
   {
    "en": "Often, the school remains officially open even though buses do not run and classes are canceled.",
-   "cn": "通常，即便校车停运、课程取消，学校名义上仍开放。"
+   "cn": "通常，即便校车停运、课程取消，学校名义上仍开放。",
+   "p": 1
   },
   {
    "en": "Severe weather that causes cancellation or delay is more likely in regions that are less able to handle the situation.",
-   "cn": "在应对能力较弱的地区，导致停课或延误的恶劣天气更常见。"
+   "cn": "在应对能力较弱的地区，导致停课或延误的恶劣天气更常见。",
+   "p": 1
   },
   {
    "en": "Snow days are less common in more northern areas of the United States that are used to heavy winter snowfall because municipalities are well equipped to clear roads and remove snow.",
-   "cn": "在美国更靠北、习惯冬季大雪的地区，雪假反而较少，因为市政部门清雪除冰设备齐全。"
+   "cn": "在美国更靠北、习惯冬季大雪的地区，雪假反而较少，因为市政部门清雪除冰设备齐全。",
+   "p": 1
   },
   {
    "en": "In areas less accustomed to snow, even small snowfalls of an inch or two may render roads unsafe.",
-   "cn": "在不常下雪的地区，哪怕一两英寸的小雪也可能让道路变得危险。"
+   "cn": "在不常下雪的地区，哪怕一两英寸的小雪也可能让道路变得危险。",
+   "p": 1
   },
   {
    "en": "Snow days are a familiar theme in American film and TV shows, with children getting the good news and then running outside for some seasonal snowman-building and snowball throwing, against a background of joyful pop music.",
-   "cn": "雪假是美国影视作品中常见的主题：孩子们得知好消息后，伴着欢快的流行乐跑出门，堆雪人、打雪仗。"
+   "cn": "雪假是美国影视作品中常见的主题：孩子们得知好消息后，伴着欢快的流行乐跑出门，堆雪人、打雪仗。",
+   "p": 2
   },
   {
    "en": "But the tradition is now over for pupils in several US states such as South Carolina, Nevada, Georgia and Indiana.",
-   "cn": "但在南卡罗来纳、内华达、佐治亚、印第安纳等几个州，这一传统如今已告终。"
+   "cn": "但在南卡罗来纳、内华达、佐治亚、印第安纳等几个州，这一传统如今已告终。",
+   "p": 2
   },
   {
    "en": "This academic year, many school boards have introduced policies which require students to work from home if the school is shut by snow or extreme weather.",
-   "cn": "本学年，许多学区出台了政策：若学校因雪或极端天气停课，学生须在家学习。"
+   "cn": "本学年，许多学区出台了政策：若学校因雪或极端天气停课，学生须在家学习。",
+   "p": 2
   },
   {
    "en": "They are known as \"e-learning days\", which certainly sounds less fun than a snow day.",
-   "cn": "这被称为“在线学习日”，听起来当然不如雪假有趣。"
+   "cn": "这被称为“在线学习日”，听起来当然不如雪假有趣。",
+   "p": 2
   },
   {
    "en": "Teachers are also losing their snow days and instead will be expected to be on hand to take a virtual register and answer students' questions online.",
-   "cn": "教师们也在失去雪假，取而代之的是须随时在线点名、答疑。"
+   "cn": "教师们也在失去雪假，取而代之的是须随时在线点名、答疑。",
+   "p": 3
   },
   {
    "en": "A pilot programme in a school district in Anderson County, South Carolina, has supplied students with electronic tablets loaded with assignments to complete in the event of a school closure.",
-   "cn": "南卡罗来纳州安德森县某学区的一项试点项目，为学生配备了装载作业任务的电子平板，以备停课时完成。"
+   "cn": "南卡罗来纳州安德森县某学区的一项试点项目，为学生配备了装载作业任务的电子平板，以备停课时完成。",
+   "p": 3
   },
   {
    "en": "If it is successful, it could be rolled out across the state.",
-   "cn": "若试点成功，便可在全州推广。"
+   "cn": "若试点成功，便可在全州推广。",
+   "p": 3
   },
   {
    "en": "But some parents object to the new policy if the vigorous debate on the Facebook page of Anderson County school district is anything to go by.",
-   "cn": "不过，从安德森县学区脸书页面上激烈的争论来看，一些家长反对这项新政策。"
+   "cn": "不过，从安德森县学区脸书页面上激烈的争论来看，一些家长反对这项新政策。",
+   "p": 4
   },
   {
    "en": "\"When it snows, let the kids enjoy it.\" said one commenter.",
-   "cn": "“下雪时就让孩子们好好享受吧。"
+   "cn": "“下雪时就让孩子们好好享受吧。",
+   "p": 4
   },
   {
    "en": "Another said the decision would \"ruin school even more\", and someone else called snow days \"a fun part of childhood\".",
-   "cn": "”一位评论者说。"
+   "cn": "”一位评论者说。",
+   "p": 4
   },
   {
    "en": "But supporters of the policy say it means children will miss fewer days of school.",
-   "cn": "另一位称这一决定将“让学校雪上加霜”，还有人把雪假称作“童年有趣的一部分”。"
+   "cn": "另一位称这一决定将“让学校雪上加霜”，还有人把雪假称作“童年有趣的一部分”。",
+   "p": 4
   },
   {
    "en": "It will also bring to an end a less popular US high school tradition: the \"make-up day\" which requires students in many states to make up the time lost due to weather by working during school holidays.",
-   "cn": "但政策的支持者表示，这意味着孩子缺课的天数会减少，还将终结美国高中一项不太受欢迎的传统——“补课日”：许多州要求学生利用节假日上课，补回因天气损失的时间。"
+   "cn": "但政策的支持者表示，这意味着孩子缺课的天数会减少，还将终结美国高中一项不太受欢迎的传统——“补课日”：许多州要求学生利用节假日上课，补回因天气损失的时间。",
+   "p": 4
   },
   {
    "en": "Students in North Carolina already have several make-up days scheduled because of school closures during Hurricane Florence, which struck in September.",
-   "cn": "北卡罗来纳州的学生因9月“佛罗伦萨”飓风期间的停课，已安排了数个补课日。"
+   "cn": "北卡罗来纳州的学生因9月“佛罗伦萨”飓风期间的停课，已安排了数个补课日。",
+   "p": 5
   },
   {
    "en": "Tom Wilson, the superintendent (主管) of Anderson County school district said the change away from snow days makes practical and financial sense.",
-   "cn": "安德森县学区主管汤姆∙威尔逊表示，取消雪假在实务与财务上都说得通。"
+   "cn": "安德森县学区主管汤姆∙威尔逊表示，取消雪假在实务与财务上都说得通。",
+   "p": 5
   },
   {
    "en": "He said technology has changed every profession, so it makes sense to use it to \"eliminate\" make-up days.",
-   "cn": "他说，技术已改变各行各业，用它来“消除”补课日理所当然。"
+   "cn": "他说，技术已改变各行各业，用它来“消除”补课日理所当然。",
+   "p": 5
   },
   {
    "en": "Adam Baker of the Department of Education in Indiana said e-learning days were proving a \"great success\".",
-   "cn": "印第安纳州教育部亚当∙贝克称，在线学习日被证明是“巨大成功”。"
+   "cn": "印第安纳州教育部亚当∙贝克称，在线学习日被证明是“巨大成功”。",
+   "p": 5
   },
   {
    "en": "He said most Indiana schools already use digital devices during lessons, so it was an \"easy decision\" to extend this to days when schools are closed.",
-   "cn": "他说该州多数学校上课已在使用数字设备，因此将其延伸至停课日是个“轻松的决定”。"
+   "cn": "他说该州多数学校上课已在使用数字设备，因此将其延伸至停课日是个“轻松的决定”。",
+   "p": 5
   },
   {
    "en": "He denies the decision is depriving children of the chance to enjoy the snow.",
-   "cn": "他否认这一决定剥夺了孩子享受雪的机会。"
+   "cn": "他否认这一决定剥夺了孩子享受雪的机会。",
+   "p": 5
   },
   {
    "en": "\"Students are still able to enjoy snow days and outside time,\" he said. \"Many have PE and science assignments that have them out enjoying the weather.\" But local school superintendents in Ohio are resisting proposals to adopt e-learning days.",
-   "cn": "“学生仍能在雪天和户外时光中尽兴，”他说，“许多人都有体育和科学作业，让他们出门感受天气。"
+   "cn": "“学生仍能在雪天和户外时光中尽兴，”他说，“许多人都有体育和科学作业，让他们出门感受天气。",
+   "p": 5
   },
   {
    "en": "They fear that students without internet access at home will be disadvantaged by the policy, and superintendent Tom Roth is concerned that e-learning days will offer a lower quality of education.",
-   "cn": "”但俄亥俄州的地方学区主管们正抵制采用在线学习日的提议。他们担心，家中无网络接入的学生会因此处于劣势；主管汤姆∙罗斯则担忧，在线学习日提供的教育质量较低。"
+   "cn": "”但俄亥俄州的地方学区主管们正抵制采用在线学习日的提议。他们担心，家中无网络接入的学生会因此处于劣势；主管汤姆∙罗斯则担忧，在线学习日提供的教育质量较低。",
+   "p": 5
   },
   {
    "en": "There are also so-called \"blizzard bags\", with assignments that children take home ahead of an expected snow closure.",
-   "cn": "还有所谓的“暴雪包”——孩子在预计停课前带回家、内含作业的袋子。"
+   "cn": "还有所谓的“暴雪包”——孩子在预计停课前带回家、内含作业的袋子。",
+   "p": 6
   },
   {
    "en": "But Mr. Roth says it is not sufficient as a replacement.",
-   "cn": "但罗斯先生说，它不足以作为替代。"
+   "cn": "但罗斯先生说，它不足以作为替代。",
+   "p": 6
   },
   {
    "en": "\"I think we still need the class time to give our kids the education that they deserve.\" he said.",
-   "cn": "“我认为我们仍需要课堂时间，才能给孩子应得的教育。"
+   "cn": "“我认为我们仍需要课堂时间，才能给孩子应得的教育。",
+   "p": 6
   },
   {
    "en": "\"You can't get that with a blizzard bag or doing the work from home like that.",
-   "cn": "”他说，“靠暴雪包或在家那样做作业，是得不到的。"
+   "cn": "”他说，“靠暴雪包或在家那样做作业，是得不到的。",
+   "p": 6
   },
   {
    "en": "It's not going to be as effective.\"",
-   "cn": "那样做没那么有效。”"
+   "cn": "那样做没那么有效。”",
+   "p": 6
   },
   {
    "en": "There is a long-running debate on whether missing days of school affects attainment.",
-   "cn": "关于缺课是否影响学业，争论由来已久。"
+   "cn": "关于缺课是否影响学业，争论由来已久。",
+   "p": 7
   },
   {
    "en": "In England, there has been a focus on tackling absenteeism (旷课) from school.",
-   "cn": "在英国，人们一直关注如何治理校园旷课。"
+   "cn": "在英国，人们一直关注如何治理校园旷课。",
+   "p": 7
   },
   {
    "en": "The Department for Education (DFE) published research in 2016 arguing that missing any days at school could have a negative impact on results.",
-   "cn": "教育部（DFE）2016年发布的研究称，缺任何一天课都可能对成绩产生负面影响。"
+   "cn": "教育部（DFE）2016年发布的研究称，缺任何一天课都可能对成绩产生负面影响。",
+   "p": 7
   },
   {
    "en": "Even a few days lost in a year could be enough to miss out on getting a good exam grade, the DFE's research concluded.",
-   "cn": "DFE的研究结论是：即便一年中仅缺几天，也可能错失好的考试成绩。"
+   "cn": "DFE的研究结论是：即便一年中仅缺几天，也可能错失好的考试成绩。",
+   "p": 7
   },
   {
    "en": "This differed from the findings of a study from Harvard University in the US, which concluded that missing a few occasional days because of the weather did not damage learning.",
-   "cn": "这与美国哈佛大学一项研究的发现不同——后者认为，因天气偶尔缺几天课并不会损害学习。"
+   "cn": "这与美国哈佛大学一项研究的发现不同——后者认为，因天气偶尔缺几天课并不会损害学习。",
+   "p": 7
   },
   {
    "en": "The Harvard study examined seven years of school results data and could not find any impact from snow closures.",
-   "cn": "这项哈佛研究考察了七年的学校成绩数据，未发现雪天停课有任何影响。"
+   "cn": "这项哈佛研究考察了七年的学校成绩数据，未发现雪天停课有任何影响。",
+   "p": 8
   },
   {
    "en": "What caused more disruption was when schools tried to stay open in bad weather even though many staff and pupils were absent.",
-   "cn": "造成更大混乱的，是学校在恶劣天气中仍试图开课，而大量师生缺席。"
+   "cn": "造成更大混乱的，是学校在恶劣天气中仍试图开课，而大量师生缺席。",
+   "p": 8
   },
   {
    "en": "But weather can make a difference to school results, according to another piece of Harvard research published last summer. It's hot weather that has the negative impact.",
-   "cn": "不过，据去年夏天发表的另一项哈佛研究，天气确实会影响学校成绩——带来负面影响的是炎热天气。"
+   "cn": "不过，据去年夏天发表的另一项哈佛研究，天气确实会影响学校成绩——带来负面影响的是炎热天气。",
+   "p": 8
   },
   {
    "en": "The results of 10 million school students were examined over 13 years and researchers found a \"significant\" link between years with extremely hot weather and lower results.",
-   "cn": "研究者对1000万名学生在13年间的成绩进行分析，发现“极端炎热天气的年份”与“较低成绩”之间存在显著关联。"
+   "cn": "研究者对1000万名学生在13年间的成绩进行分析，发现“极端炎热天气的年份”与“较低成绩”之间存在显著关联。",
+   "p": 8
   },
   {
    "en": "It's obvious that students should go to school every day to get the most out of education.",
-   "cn": "显而易见，学生应每天到校，才能最大化地受益于教育。"
+   "cn": "显而易见，学生应每天到校，才能最大化地受益于教育。",
+   "p": 9
   },
   {
    "en": "In cases of extreme weather, students don't always have that option.",
-   "cn": "但在极端天气下，学生并非总能有此选择。"
+   "cn": "但在极端天气下，学生并非总能有此选择。",
+   "p": 9
   },
   {
    "en": "However, research shows that authorised absences from school such as during extreme weather are less problematic for students than absences that are not authorised.",
-   "cn": "然而研究表明，诸如极端天气期间的经准假缺勤，对学生造成的麻烦要少于未经准假的缺勤。"
+   "cn": "然而研究表明，诸如极端天气期间的经准假缺勤，对学生造成的麻烦要少于未经准假的缺勤。",
+   "p": 9
   },
   {
    "en": "This is because unauthorised absences tend to reflect patterns and behaviors of student disengagement or the possible negative attitudes of parents towards education that students adopt and carry with them through schooling.",
-   "cn": "这是因为，未经准假的缺勤往往反映出学生疏离学业的行为模式，或学生从父母那里习得并带入整个求学过程的、对教育的消极态度。"
+   "cn": "这是因为，未经准假的缺勤往往反映出学生疏离学业的行为模式，或学生从父母那里习得并带入整个求学过程的、对教育的消极态度。",
+   "p": 9
   },
   {
    "en": "The level of impact on students' educational performance is all to do with the length of time that a student is absent from school and how regularly this occurs.",
-   "cn": "缺勤对学生学业表现的影响程度，完全取决于缺勤时长以及发生的频繁程度。"
+   "cn": "缺勤对学生学业表现的影响程度，完全取决于缺勤时长以及发生的频繁程度。",
+   "p": 9
   }
  ]
 }

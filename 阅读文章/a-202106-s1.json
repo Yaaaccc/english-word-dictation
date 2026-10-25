@@ -6,171 +6,213 @@
  "sents": [
   {
    "en": "This month, more than 4 million students across the nation will begin high school. Many will do well. But many will not.",
-   "cn": "本月，全国将有超过400万名学生开始上高中。"
+   "cn": "本月，全国将有超过400万名学生开始上高中。",
+   "p": 0
   },
   {
    "en": "Consider that nearly two-thirds of students will experience the \"ninth-grade shock,\" which refers to a dramatic drop in a student's academic performance.",
-   "cn": "许多人会表现良好，但许多人不会。要知道，近三分之二的学生会经历\"九年级冲击\"，即学业成绩急剧下滑。"
+   "cn": "许多人会表现良好，但许多人不会。要知道，近三分之二的学生会经历\"九年级冲击\"，即学业成绩急剧下滑。",
+   "p": 0
   },
   {
    "en": "Some students cope with this shock by avoiding challenges. For instance, they may drop difficult coursework.",
-   "cn": "一些学生通过回避挑战来应对这种冲击，例如放弃难度大的课程；"
+   "cn": "一些学生通过回避挑战来应对这种冲击，例如放弃难度大的课程；",
+   "p": 0
   },
   {
    "en": "Others may experience a hopelessness that results in failing their core classes, such as English, science and math.",
-   "cn": "另一些则可能陷入绝望，导致英语、科学和数学等核心课程不及格。"
+   "cn": "另一些则可能陷入绝望，导致英语、科学和数学等核心课程不及格。",
+   "p": 0
   },
   {
    "en": "This should matter a great deal to parents, teachers and policymakers.",
-   "cn": "这应当引起家长、教师和政策制定者的高度重视。"
+   "cn": "这应当引起家长、教师和政策制定者的高度重视。",
+   "p": 1
   },
   {
    "en": "Ultimately it should matter to the students themselves and society at large, because students' experience of transitioning to the ninth grade can have long-term consequences not only for the students themselves but for their home communities.",
-   "cn": "归根结底，它也关系到学生自身乃至整个社会，因为学生向九年级过渡的经历，不仅对学生本人、也对其所在社区具有长远影响。"
+   "cn": "归根结底，它也关系到学生自身乃至整个社会，因为学生向九年级过渡的经历，不仅对学生本人、也对其所在社区具有长远影响。",
+   "p": 1
   },
   {
    "en": "We make these observations as research psychologists who have studied how schools and families can help young people thrive.",
-   "cn": "我们作为研究心理学家，长期关注学校与家庭如何帮助青少年茁壮成长，因而提出上述观察。"
+   "cn": "我们作为研究心理学家，长期关注学校与家庭如何帮助青少年茁壮成长，因而提出上述观察。",
+   "p": 1
   },
   {
    "en": "In the new global economy, students who fail to finish the ninth grade with passing grades in college preparatory coursework are very unlikely to graduate on time and go on to get jobs.",
-   "cn": "在新的全球经济中，未能以合格成绩完成九年级大学预备课程的学生，几乎不可能按时毕业并找到工作。"
+   "cn": "在新的全球经济中，未能以合格成绩完成九年级大学预备课程的学生，几乎不可能按时毕业并找到工作。",
+   "p": 2
   },
   {
    "en": "One study has calculated that the lifetime benefit to the local economy for a single additional student who completes high school is half a million dollars or more.",
-   "cn": "一项研究测算，每多一名完成高中学业的学生，为地方经济带来的终身收益达50万美元或更多。"
+   "cn": "一项研究测算，每多一名完成高中学业的学生，为地方经济带来的终身收益达50万美元或更多。",
+   "p": 2
   },
   {
    "en": "This is based on higher earnings and avoided costs in health care, crime, welfare dependence and other things.",
-   "cn": "这基于更高的收入，以及在医疗、犯罪、福利依赖等方面节省的成本。"
+   "cn": "这基于更高的收入，以及在医疗、犯罪、福利依赖等方面节省的成本。",
+   "p": 2
   },
   {
    "en": "The consequences of doing poorly in the ninth grade can impact more than students' ability to find a good job. It can also impact the extent to which they enjoy life.",
-   "cn": "九年级表现不佳的后果，影响的不仅是学生找到好工作的能力，还会影响他们享受生活的程度。"
+   "cn": "九年级表现不佳的后果，影响的不仅是学生找到好工作的能力，还会影响他们享受生活的程度。",
+   "p": 3
   },
   {
    "en": "Students lose many of the friends they turned to for support when they move from the eighth to the ninth grade.",
-   "cn": "学生从八年级升入九年级时，会失去许多曾经寻求支持的朋友。"
+   "cn": "学生从八年级升入九年级时，会失去许多曾经寻求支持的朋友。",
+   "p": 3
   },
   {
    "en": "One study of ninth-grade students found that 50 percent of friendships among ninth graders changed from one month to the next, signaling striking instability in friendships.",
-   "cn": "一项针对九年级学生的研究发现，九年级学生之间50%的友谊逐月发生变化，显示出友谊惊人的不稳定性。"
+   "cn": "一项针对九年级学生的研究发现，九年级学生之间50%的友谊逐月发生变化，显示出友谊惊人的不稳定性。",
+   "p": 3
   },
   {
    "en": "In addition, studies find the first year of high school typically shows one of the greatest increases in depression of any year over the lifespan.",
-   "cn": "此外，研究发现，高中一年级通常是人一生中抑郁症增幅最大的年份之一。"
+   "cn": "此外，研究发现，高中一年级通常是人一生中抑郁症增幅最大的年份之一。",
+   "p": 4
   },
   {
    "en": "Researchers think that one explanation is that ties to friends are broken while academic demands are rising.",
-   "cn": "研究人员认为，一种解释是：在学业要求不断上升的同时，与朋友的联系却被切断。"
+   "cn": "研究人员认为，一种解释是：在学业要求不断上升的同时，与朋友的联系却被切断。",
+   "p": 4
   },
   {
    "en": "Furthermore, most adult cases of clinical depression first emerge in adolescence.",
-   "cn": "而且，大多数成年临床抑郁症病例最早出现在青春期。"
+   "cn": "而且，大多数成年临床抑郁症病例最早出现在青春期。",
+   "p": 4
   },
   {
    "en": "The World Health Organization reports that depression has the greatest burden of disease worldwide, in terms of the total cost of treatment and the loss of productivity.",
-   "cn": "世界卫生组织报告称，就治疗总费用和生产力损失而言，抑郁症在全球范围内的疾病负担最重。"
+   "cn": "世界卫生组织报告称，就治疗总费用和生产力损失而言，抑郁症在全球范围内的疾病负担最重。",
+   "p": 4
   },
   {
    "en": "Given all that's riding on having a successful ninth grade experience, it pays to explore what can be done to meet the academic, social and emotional challenges of the transition to high school.",
-   "cn": "鉴于成功的九年级经历如此重要，值得探索可以做些什么来应对升入高中这一过渡期的学业、社交和情感挑战。"
+   "cn": "鉴于成功的九年级经历如此重要，值得探索可以做些什么来应对升入高中这一过渡期的学业、社交和情感挑战。",
+   "p": 5
   },
   {
    "en": "So far, our studies have yielded one main insight: Students' beliefs about change·their beliefs about whether people are stuck one way forever, or whether people can change their personalities and abilities·are related to their ability to cope, succeed academically and maintain good mental health.",
-   "cn": "迄今为止，我们的研究得出了一个主要洞见：学生对\"改变\"的信念——即他们认为人是永远固定不变的，还是可以转变性格与能力——与他们应对困难、取得学业成功以及保持良好心理健康的能力相关。"
+   "cn": "迄今为止，我们的研究得出了一个主要洞见：学生对\"改变\"的信念——即他们认为人是永远固定不变的，还是可以转变性格与能力——与他们应对困难、取得学业成功以及保持良好心理健康的能力相关。",
+   "p": 5
   },
   {
    "en": "Past research has called these beliefs \"mindsets,\" with a \"fixed mindset\" referring to the belief that people cannot change and a \"growth mindset\" referring to the belief that people can change.",
-   "cn": "以往的研究将这些信念称为\"思维模式\"（mindset）：\"固定型思维\"指认为人无法改变，\"成长型思维\"指认为人能够改变。"
+   "cn": "以往的研究将这些信念称为\"思维模式\"（mindset）：\"固定型思维\"指认为人无法改变，\"成长型思维\"指认为人能够改变。",
+   "p": 5
   },
   {
    "en": "In one recent study, we examined 360 adolescents' beliefs about the nature of \"smartness\"·that is, their fixed mindsets about intelligence.",
-   "cn": "在最近的一项研究中，我们考察了360名青少年对\"聪明\"本质的看法，即他们对智力的固定型思维。"
+   "cn": "在最近的一项研究中，我们考察了360名青少年对\"聪明\"本质的看法，即他们对智力的固定型思维。",
+   "p": 6
   },
   {
    "en": "We then assessed biological stress responses for students whose grades were dropping by examining their stress hormones.",
-   "cn": "随后，我们通过检测成绩下滑学生的应激激素，评估其生理压力反应。"
+   "cn": "随后，我们通过检测成绩下滑学生的应激激素，评估其生理压力反应。",
+   "p": 6
   },
   {
    "en": "Students who believed that intelligence is fixed·that you are stuck being \"not smart\" if you struggle in school·showed higher levels of stress hormones when their grades were declining at the beginning of the ninth grade.",
-   "cn": "那些认为智力是固定的人——即认为在校挣扎就意味着\"不聪明\"——在九年级初期成绩下降时，表现出更高水平的应激激素。"
+   "cn": "那些认为智力是固定的人——即认为在校挣扎就意味着\"不聪明\"——在九年级初期成绩下降时，表现出更高水平的应激激素。",
+   "p": 6
   },
   {
    "en": "If students believed that intelligence could improve·that is to say, when they held more of a growth mindset of intelligence·they showed lower levels of stress hormones when their grades were declining.",
-   "cn": "如果学生相信智力可以提升——也就是说，当他们更多持有智力的成长型思维时——成绩下滑时表现出的应激激素水平更低。"
+   "cn": "如果学生相信智力可以提升——也就是说，当他们更多持有智力的成长型思维时——成绩下滑时表现出的应激激素水平更低。",
+   "p": 6
   },
   {
    "en": "This was an exciting result because it showed that the body's stress responses are not determined solely by one's grades.",
-   "cn": "这是一个令人兴奋的结果，因为它表明身体的压力反应并非仅由成绩决定；"
+   "cn": "这是一个令人兴奋的结果，因为它表明身体的压力反应并非仅由成绩决定；",
+   "p": 6
   },
   {
    "en": "Instead, declining grades only predicted worse stress hormones among students who believed that worsening grades were a permanent and hopeless state of affairs.",
-   "cn": "相反，只有在那些认为成绩下滑是永久而无望状态的学生身上，成绩下降才会预示更差的应激激素水平。"
+   "cn": "相反，只有在那些认为成绩下滑是永久而无望状态的学生身上，成绩下降才会预示更差的应激激素水平。",
+   "p": 6
   },
   {
    "en": "We also investigated the social side of the high school transition.",
-   "cn": "我们还研究了高中过渡期的社交层面。"
+   "cn": "我们还研究了高中过渡期的社交层面。",
+   "p": 7
   },
   {
    "en": "In this study, instead of teaching students that their smartness can change, we taught them that their social standing·that is, whether they are bullied or excluded or left out·can change over time.",
-   "cn": "在这项研究中，我们没有教导学生\"聪明\"可以改变，而是让他们明白自己的社交地位——即是否被欺负、排斥或冷落——会随时间改变。"
+   "cn": "在这项研究中，我们没有教导学生\"聪明\"可以改变，而是让他们明白自己的社交地位——即是否被欺负、排斥或冷落——会随时间改变。",
+   "p": 7
   },
   {
    "en": "We then looked at high school students' stress responses to daily social difficulties.",
-   "cn": "随后，我们观察了高中生对日常社交困难的应激反应。"
+   "cn": "随后，我们观察了高中生对日常社交困难的应激反应。",
+   "p": 7
   },
   {
    "en": "That is, we taught them a growth mindset about their social lives.",
-   "cn": "也就是说，我们向他们灌输了关于社交生活的成长型思维。"
+   "cn": "也就是说，我们向他们灌输了关于社交生活的成长型思维。",
+   "p": 7
   },
   {
    "en": "In this study, students came into the laboratory and were asked to give a public speech in front of upper-year students. The topic of the speech was what makes one popular in high school.",
-   "cn": "在这项研究中，学生进入实验室，被要求在高年级学生面前做公开演讲，主题是\"是什么让一个人在高中受欢迎\"。"
+   "cn": "在这项研究中，学生进入实验室，被要求在高年级学生面前做公开演讲，主题是\"是什么让一个人在高中受欢迎\"。",
+   "p": 7
   },
   {
    "en": "Following this, students had to complete a difficult mental math task in front of the same upper-year students.",
-   "cn": "之后，学生还要在相同的高年级学生面前完成一道困难的心算任务。"
+   "cn": "之后，学生还要在相同的高年级学生面前完成一道困难的心算任务。",
+   "p": 7
   },
   {
    "en": "Experiment results showed that students who were not taught that people can change showed poor stress responses.",
-   "cn": "实验结果表明，未被告知\"人是可以改变的\"的学生，表现出较差的压力反应。"
+   "cn": "实验结果表明，未被告知\"人是可以改变的\"的学生，表现出较差的压力反应。",
+   "p": 8
   },
   {
    "en": "When these students gave the speech, their blood vessels contracted and their hearts pumped less blood through the body·both responses that the body shows when it is preparing for damage or defeat after a physical threat.",
-   "cn": "这些学生演讲时，血管收缩，心脏泵向全身的血液减少——这些都是身体在面临身体威胁、准备承受损伤或失败时出现的反应。"
+   "cn": "这些学生演讲时，血管收缩，心脏泵向全身的血液减少——这些都是身体在面临身体威胁、准备承受损伤或失败时出现的反应。",
+   "p": 8
   },
   {
    "en": "Then they gave worse speeches and made more mistakes in math.",
-   "cn": "随后他们演讲更差，数学题也错得更多。"
+   "cn": "随后他们演讲更差，数学题也错得更多。",
+   "p": 8
   },
   {
    "en": "But when students were taught that people can change, they had better responses to stress, in part because they felt like they had the resources to deal with the demanding situation.",
-   "cn": "但当学生被教导\"人是可以改变的\"时，他们对压力的反应更好，部分原因是他们觉得自己拥有应对高要求情境的资源。"
+   "cn": "但当学生被教导\"人是可以改变的\"时，他们对压力的反应更好，部分原因是他们觉得自己拥有应对高要求情境的资源。",
+   "p": 8
   },
   {
    "en": "Students who got the growth mindset intervention showed less-contracted blood vessels and their hearts pumped more blood·both of which contributed to more oxygen getting to the brain, and, ultimately, better performance on the speech and mental math tasks.",
-   "cn": "接受成长型思维干预的学生血管收缩较轻，心脏泵血更多——两者都有助于更多氧气进入大脑，并最终在演讲和心算任务中表现更好。"
+   "cn": "接受成长型思维干预的学生血管收缩较轻，心脏泵血更多——两者都有助于更多氧气进入大脑，并最终在演讲和心算任务中表现更好。",
+   "p": 8
   },
   {
    "en": "These findings lead to several possibilities that we are investigating further.",
-   "cn": "这些发现引出了几种我们正进一步研究的可能性。"
+   "cn": "这些发现引出了几种我们正进一步研究的可能性。",
+   "p": 9
   },
   {
    "en": "First, we are working to replicate these findings in more diverse school communities.",
-   "cn": "首先，我们正在努力在更多元化的学校群体中复现这些发现。"
+   "cn": "首先，我们正在努力在更多元化的学校群体中复现这些发现。",
+   "p": 9
   },
   {
    "en": "We want to know in which types of schools and for which kinds of students these growth mindset ideas help young people adapt to the challenges of high school.",
-   "cn": "我们想知道，在哪些类型的学校、对哪类学生，这些成长型思维理念能帮助年轻人适应高中的挑战。"
+   "cn": "我们想知道，在哪些类型的学校、对哪类学生，这些成长型思维理念能帮助年轻人适应高中的挑战。",
+   "p": 9
   },
   {
    "en": "We also hope to learn how teachers, parents or school counselors can help students keep their ongoing academic or social difficulties in perspective.",
-   "cn": "我们也希望了解教师、家长或学校辅导员如何帮助学生正确看待正在经历的学业或社交困难。"
+   "cn": "我们也希望了解教师、家长或学校辅导员如何帮助学生正确看待正在经历的学业或社交困难。",
+   "p": 9
   },
   {
    "en": "We wonder what would happen if schools helped to make beliefs about the potential for change and improvement a larger feature of the overall school culture, especially for students starting the ninth grade.",
-   "cn": "我们不禁设想，如果学校将\"改变与进步的可能性\"这一信念更大程度地融入整体校园文化，尤其是对刚升入九年级的学生，会发生什么。"
+   "cn": "我们不禁设想，如果学校将\"改变与进步的可能性\"这一信念更大程度地融入整体校园文化，尤其是对刚升入九年级的学生，会发生什么。",
+   "p": 9
   }
  ]
 }

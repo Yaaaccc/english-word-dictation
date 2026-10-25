@@ -6,79 +6,98 @@
  "sents": [
   {
    "en": "People who systematically underestimate themselves and their own performance suffer from the so-called Impostor Phenomenon.",
-   "cn": "那些系统性低估自己及其表现的人，患有所谓的\"冒名顶替现象\"。"
+   "cn": "那些系统性低估自己及其表现的人，患有所谓的\"冒名顶替现象\"。",
+   "p": 0
   },
   {
    "en": "They think that any success is due to external circumstances or just luck and chance.",
-   "cn": "他们认为任何成功都源于外部境况，或仅仅是运气和偶然。"
+   "cn": "他们认为任何成功都源于外部境况，或仅仅是运气和偶然。",
+   "p": 0
   },
   {
    "en": "Those people live in constant fear that their \"deception\" will be exposed.",
-   "cn": "这些人时刻生活在恐惧中，害怕自己的\"欺骗\"会被揭穿。"
+   "cn": "这些人时刻生活在恐惧中，害怕自己的\"欺骗\"会被揭穿。",
+   "p": 0
   },
   {
    "en": "It is common for people to question their abilities now and again.",
-   "cn": "人们时不时质疑自己的能力，这很常见。"
+   "cn": "人们时不时质疑自己的能力，这很常见。",
+   "p": 1
   },
   {
    "en": "A healthy amount of reflection and self-doubt can protect a person from acting impulsively.",
-   "cn": "适度的反思与自我怀疑能防止一个人冲动行事。"
+   "cn": "适度的反思与自我怀疑能防止一个人冲动行事。",
+   "p": 1
   },
   {
    "en": "However, there are people who are permanently plagued by a massive amount of self-doubt despite delivering a good performance.",
-   "cn": "然而，有些人尽管表现出色，却长期被强烈的自我怀疑所困扰。"
+   "cn": "然而，有些人尽管表现出色，却长期被强烈的自我怀疑所困扰。",
+   "p": 1
   },
   {
    "en": "They think that all of their successes are not a product of their skill or hard work, instead they attribute their own successes to external circumstances, for example, to luck and chance, or believe that their performance is massively overestimated by others.",
-   "cn": "他们认为自己的所有成功都不是技能或努力的结果，反而将成功归因于外部境况，例如运气和偶然，或相信自己表现被他人严重高估。"
+   "cn": "他们认为自己的所有成功都不是技能或努力的结果，反而将成功归因于外部境况，例如运气和偶然，或相信自己表现被他人严重高估。",
+   "p": 1
   },
   {
    "en": "Failures, on the other hand, are always internalised as the result of their own shortcomings.",
-   "cn": "另一方面，失败则总被内化为自身缺点的结果。"
+   "cn": "另一方面，失败则总被内化为自身缺点的结果。",
+   "p": 1
   },
   {
    "en": "Psychologists from Martin Luther University Halle-Wittenberg examined the topic for the first time under real-life conditions.",
-   "cn": "哈勒-维滕贝格马丁路德大学的心理学家首次在真实生活条件下考察了这一主题。"
+   "cn": "哈勒-维滕贝格马丁路德大学的心理学家首次在真实生活条件下考察了这一主题。",
+   "p": 2
   },
   {
    "en": "Seventy-six participants completed a range of intelligence tests and received positive feedback on them, regardless of their actual performance.",
-   "cn": "76名参与者完成了一系列智力测试，并得到了正面反馈，无论其实际表现如何。"
+   "cn": "76名参与者完成了一系列智力测试，并得到了正面反馈，无论其实际表现如何。",
+   "p": 2
   },
   {
    "en": "They were then asked why they think they did so well.",
-   "cn": "随后他们被问及为何认为自己做得这么好。"
+   "cn": "随后他们被问及为何认为自己做得这么好。",
+   "p": 2
   },
   {
    "en": "The study showed two things: First, the self-reported degree of Impostor Phenomenon is not related to actual measured intelligence or performance.",
-   "cn": "研究显示了两点：第一，自我报告的冒名顶替现象程度与实际测得的智力或表现无关。"
+   "cn": "研究显示了两点：第一，自我报告的冒名顶替现象程度与实际测得的智力或表现无关。",
+   "p": 3
   },
   {
    "en": "Secondly, the test supported the assumption that people with a tendency to exhibit the Impostor Phenomenon devalue their objectively measured performance and attribute positive results to external causes such as luck and chance, but not to their own abilities.",
-   "cn": "第二，测试支持了这样一种假设：有冒名顶替倾向的人会贬低自己客观测得的表现，并将积极结果归因于运气和偶然等外部原因，而非自身能力。"
+   "cn": "第二，测试支持了这样一种假设：有冒名顶替倾向的人会贬低自己客观测得的表现，并将积极结果归因于运气和偶然等外部原因，而非自身能力。",
+   "p": 3
   },
   {
    "en": "These results are also completely unrelated to age and gender.",
-   "cn": "这些结果也完全与年龄和性别无关。"
+   "cn": "这些结果也完全与年龄和性别无关。",
+   "p": 3
   },
   {
    "en": "A permanent underestimation of one's own abilities is often accompanied by the fear that this supposed intellectual deception will be exposed sooner or later and that they will pay the price for this.",
-   "cn": "长期低估自身能力，往往伴随着一种恐惧：这种假想中的智力欺骗迟早会被揭穿，而他们将为此付出代价。"
+   "cn": "长期低估自身能力，往往伴随着一种恐惧：这种假想中的智力欺骗迟早会被揭穿，而他们将为此付出代价。",
+   "p": 4
   },
   {
    "en": "The Impostor Phenomenon was first described in 1978 by US psychologists Pauline Clance and Suzanne Imes.",
-   "cn": "冒名顶替现象于1978年由美国心理学家宝琳∙克兰斯和苏珊娜∙艾姆斯首次描述。"
+   "cn": "冒名顶替现象于1978年由美国心理学家宝琳∙克兰斯和苏珊娜∙艾姆斯首次描述。",
+   "p": 4
   },
   {
    "en": "They observed that there is a particularly high number of successful women who do not think they are very intelligent.",
-   "cn": "他们观察到，有许多成功的女性并不认为自己很聪明。"
+   "cn": "他们观察到，有许多成功的女性并不认为自己很聪明。",
+   "p": 4
   },
   {
    "en": "The Impostor Phenomenon is not defined as a mental illness.",
-   "cn": "冒名顶替现象不被定义为精神疾病。"
+   "cn": "冒名顶替现象不被定义为精神疾病。",
+   "p": 4
   },
   {
    "en": "However, people who suffer from it show a higher vulnerability to depression.",
-   "cn": "然而，受其困扰的人表现出更高的抑郁易感性。"
+   "cn": "然而，受其困扰的人表现出更高的抑郁易感性。",
+   "p": 4
   }
  ]
 }

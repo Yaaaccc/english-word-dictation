@@ -6,75 +6,93 @@
  "sents": [
   {
    "en": "In 2020, the Nobel Peace Prize was awarded to the World Food Programme (WFP).",
-   "cn": "2020年，诺贝尔和平奖被授予世界粮食计划署（WFP）。"
+   "cn": "2020年，诺贝尔和平奖被授予世界粮食计划署（WFP）。",
+   "p": 0
   },
   {
    "en": "Why a Nobel Prize for the WFP, and why now?",
-   "cn": "为什么把诺贝尔和平奖颁给世界粮食计划署？"
+   "cn": "为什么把诺贝尔和平奖颁给世界粮食计划署？",
+   "p": 1
   },
   {
    "en": "In 2019, the WFP assisted nearly 100 million people in 88 countries.",
-   "cn": "又为什么是现在？"
+   "cn": "又为什么是现在？",
+   "p": 1
   },
   {
    "en": "It is the safety net for those who fall off the edge of existence.",
-   "cn": "2019年，该署向88个国家的近1亿人提供了援助。"
+   "cn": "2019年，该署向88个国家的近1亿人提供了援助。",
+   "p": 1
   },
   {
    "en": "It is a response to solving the problem of food instability.",
-   "cn": "它是那些濒临生存边缘的人们的安全网，是对解决粮食不稳定问题的一种回应。"
+   "cn": "它是那些濒临生存边缘的人们的安全网，是对解决粮食不稳定问题的一种回应。",
+   "p": 1
   },
   {
    "en": "Its Nobel Prize reminds us all of the moral hazard in imagining that the poor and vulnerable are somebody else's problem.",
-   "cn": "它获得诺贝尔奖提醒我们所有人：把穷人和弱势群体当作别人的问题，本身就是一种道德风险。"
+   "cn": "它获得诺贝尔奖提醒我们所有人：把穷人和弱势群体当作别人的问题，本身就是一种道德风险。",
+   "p": 1
   },
   {
    "en": "The WFP has been around since 1961 and has been the global coordinator of nationally based efforts to avoid disasters with food aid.",
-   "cn": "世界粮食计划署自1961年成立以来，一直是以粮食援助预防灾难的各国行动的全球协调者。"
+   "cn": "世界粮食计划署自1961年成立以来，一直是以粮食援助预防灾难的各国行动的全球协调者。",
+   "p": 2
   },
   {
    "en": "Despite decades of effort to eliminate hunger, the latest estimate is that about 11% of people on the planet (about 820 million people) are suffering daily undernourishment.",
-   "cn": "尽管消除饥饿的努力已持续数十年，最新估计仍显示，地球上约11%的人口（约8.2亿人）每天都在忍受营养不良。"
+   "cn": "尽管消除饥饿的努力已持续数十年，最新估计仍显示，地球上约11%的人口（约8.2亿人）每天都在忍受营养不良。",
+   "p": 2
   },
   {
    "en": "Progress at reducing undernourishment has stopped despite gains through the 1990s and 2000s.",
-   "cn": "虽然20世纪90年代和21世纪头十年曾取得进展，但减少营养不良的进程如今已陷入停滞。"
+   "cn": "虽然20世纪90年代和21世纪头十年曾取得进展，但减少营养不良的进程如今已陷入停滞。",
+   "p": 2
   },
   {
    "en": "Developed countries sometimes offer food and aid to developing ones, but at a price.",
-   "cn": "发达国家有时会向发展中国家提供粮食和援助，但附带代价。"
+   "cn": "发达国家有时会向发展中国家提供粮食和援助，但附带代价。",
+   "p": 3
   },
   {
    "en": "One American philosopher stated that addressing the needs of the poor and vulnerable is about more than money·it is mostly about creating conditions under which prosperity and opportunity can thrive.",
-   "cn": "一位美国哲学家曾指出，满足穷人和弱势群体的需求不只是钱的问题——它主要在于创造能让繁荣与机会蓬勃发展的条件。"
+   "cn": "一位美国哲学家曾指出，满足穷人和弱势群体的需求不只是钱的问题——它主要在于创造能让繁荣与机会蓬勃发展的条件。",
+   "p": 3
   },
   {
    "en": "When aid is offered with heavy conditions attached, like loan repayment or food for resources, it often widens the gap between rich and poor and sustains the old world order.",
-   "cn": "当援助附带苛刻条件（如偿还贷款或以粮食换取资源）时，它往往扩大贫富差距，并维系旧的世界秩序。"
+   "cn": "当援助附带苛刻条件（如偿还贷款或以粮食换取资源）时，它往往扩大贫富差距，并维系旧的世界秩序。",
+   "p": 3
   },
   {
    "en": "This is why the work of the WFP is so vital.",
-   "cn": "这正是世界粮食计划署的工作如此重要的原因。"
+   "cn": "这正是世界粮食计划署的工作如此重要的原因。",
+   "p": 3
   },
   {
    "en": "The scientific community, however, can provide a helping hand to the WFP.",
-   "cn": "不过，科学界也可以向世界粮食计划署伸出援手。"
+   "cn": "不过，科学界也可以向世界粮食计划署伸出援手。",
+   "p": 4
   },
   {
    "en": "By sharing knowledge of agriculture and climate with peers in countries most vulnerable to poverty and hunger, scientists can help reduce these problems.",
-   "cn": "通过把农业和气候知识分享给最易陷入贫困与饥饿的国家的同行，科学家能够帮助减轻这些问题。"
+   "cn": "通过把农业和气候知识分享给最易陷入贫困与饥饿的国家的同行，科学家能够帮助减轻这些问题。",
+   "p": 4
   },
   {
    "en": "By making its voice heard, science can lead by example.",
-   "cn": "通过发出自己的声音，科学可以以身作则。"
+   "cn": "通过发出自己的声音，科学可以以身作则。",
+   "p": 4
   },
   {
    "en": "The ability to overcome food shortages that must be built into some of the poorest countries will not come from loans from wealthy countries, which may have food problems of their own, or world economic institutions.",
-   "cn": "一些最贫穷的国家必须建立起克服粮食短缺的能力，而这种能力不会来自富裕国家（它们自己或许也有粮食问题）的贷款，也不会来自世界经济机构。"
+   "cn": "一些最贫穷的国家必须建立起克服粮食短缺的能力，而这种能力不会来自富裕国家（它们自己或许也有粮食问题）的贷款，也不会来自世界经济机构。",
+   "p": 4
   },
   {
    "en": "This ability will be built upon self-confident people using open and shared scientific knowledge to pull themselves out of their misery.",
-   "cn": "它将建立在自信的人民之上——他们利用开放共享的科学知识，把自己从苦难中解脱出来。"
+   "cn": "它将建立在自信的人民之上——他们利用开放共享的科学知识，把自己从苦难中解脱出来。",
+   "p": 4
   }
  ]
 }

@@ -6,183 +6,228 @@
  "sents": [
   {
    "en": "Hal Hershfield, a psychologist at the UCLA Anderson School of Management, wanted to know why people weren't saving for retirement.",
-   "cn": "加州大学洛杉矶分校安德森管理学院的心理学家哈尔∙赫什菲尔德想知道，人们为何不为退休而储蓄。"
+   "cn": "加州大学洛杉矶分校安德森管理学院的心理学家哈尔∙赫什菲尔德想知道，人们为何不为退休而储蓄。",
+   "p": 0
   },
   {
    "en": "Across the board, people are living longer.",
-   "cn": "总体而言，人们寿命越来越长。"
+   "cn": "总体而言，人们寿命越来越长。",
+   "p": 0
   },
   {
    "en": "Logically, they'll need more money to live comfortably in their post-work years.",
-   "cn": "从逻辑上讲，他们退休后需要更多钱才能舒舒服服地生活。"
+   "cn": "从逻辑上讲，他们退休后需要更多钱才能舒舒服服地生活。",
+   "p": 0
   },
   {
    "en": "And yet, savings rates in the U.S. have gone down in recent decades, not up.",
-   "cn": "然而，近几十年美国的储蓄率不升反降。"
+   "cn": "然而，近几十年美国的储蓄率不升反降。",
+   "p": 0
   },
   {
    "en": "To help explain this seemingly irrational behavior, Hershfield and his team scanned the brains of study participants while asking them to what degree various traits (特征) · like \"honorable\" or \"funny\" · applied to their current self, their future self, a current other, or a future other.",
-   "cn": "为解释这种看似非理性的行为，赫什菲尔德及其团队在研究中扫描了参与者的脑部，同时询问他们诸如“honorable（正直）”或“funny（幽默）”等特质在多大程度上适用于其当前的自我、未来的自我、当前的其他人，或未来的其他人。"
+   "cn": "为解释这种看似非理性的行为，赫什菲尔德及其团队在研究中扫描了参与者的脑部，同时询问他们诸如“honorable（正直）”或“funny（幽默）”等特质在多大程度上适用于其当前的自我、未来的自我、当前的其他人，或未来的其他人。",
+   "p": 1
   },
   {
    "en": "As participants answered, Hershfield's team recorded which parts of their brains lit up.",
-   "cn": "参与者作答时，团队记录了他们大脑的哪些区域被激活。"
+   "cn": "参与者作答时，团队记录了他们大脑的哪些区域被激活。",
+   "p": 1
   },
   {
    "en": "Unsurprisingly, people's brains were most active when thinking about their current selves and least active when thinking about a current other.",
-   "cn": "不出所料，人们在思考当前自我时大脑最活跃，在思考当前其他人时最不活跃。"
+   "cn": "不出所料，人们在思考当前自我时大脑最活跃，在思考当前其他人时最不活跃。",
+   "p": 1
   },
   {
    "en": "But the team found that participants' brain activity while considering their future selves more closely resembled their brain activity while thinking about a current other rather than the current self.",
-   "cn": "但团队发现，参与者思考未来自我时的大脑活动，更像是在思考当前其他人，而非当前自我。"
+   "cn": "但团队发现，参与者思考未来自我时的大脑活动，更像是在思考当前其他人，而非当前自我。",
+   "p": 1
   },
   {
    "en": "Put in practical terms, when thinking of yourself in a month or a year or a decade, your brain registers that person in ways similar to how it would register Taylor Swift or the mailman.",
-   "cn": "说得实际一点，当你想到一个月、一年或十年后的自己时，你的大脑对那个人的反应，与你想到泰勒∙斯威夫特或邮差时类似。"
+   "cn": "说得实际一点，当你想到一个月、一年或十年后的自己时，你的大脑对那个人的反应，与你想到泰勒∙斯威夫特或邮差时类似。",
+   "p": 2
   },
   {
    "en": "Understood in that way, saving for retirement is the equivalent of giving money away to someone else entirely.",
-   "cn": "照此理解，为退休储蓄就等同于把钱完全赠予另一个人。"
+   "cn": "照此理解，为退休储蓄就等同于把钱完全赠予另一个人。",
+   "p": 2
   },
   {
    "en": "In light of Hershfield's study, one simple question arises: Is it possible to make our present selves give a damn about our future selves?",
-   "cn": "鉴于赫什菲尔德的研究，一个简单的疑问浮现：我们能否让现在的自己真正在乎未来的自己？"
+   "cn": "鉴于赫什菲尔德的研究，一个简单的疑问浮现：我们能否让现在的自己真正在乎未来的自己？",
+   "p": 3
   },
   {
    "en": "The answers are anything but simple.",
-   "cn": "答案绝非简单。"
+   "cn": "答案绝非简单。",
+   "p": 3
   },
   {
    "en": "Seen through the lens of the present self versus the future self, our self-defeating actions · like choosing to watch television rather than go to the gym · suddenly make perfect sense.",
-   "cn": "以“当下自我”对抗“未来自我”的视角来看，那些损害自身的行为——比如选择看电视而非去健身房——忽然就完全说得通了。"
+   "cn": "以“当下自我”对抗“未来自我”的视角来看，那些损害自身的行为——比如选择看电视而非去健身房——忽然就完全说得通了。",
+   "p": 4
   },
   {
    "en": "We get to enjoy the very concrete, immediate benefits of our actions while someone else (namely: our future selves) suffers the hypothetical (假设的) far-off consequences.",
-   "cn": "我们享受行为所带来的具体而即时的好处，而后果却由另一个人（即未来的自己）来承担那些假想的、遥远的影响。"
+   "cn": "我们享受行为所带来的具体而即时的好处，而后果却由另一个人（即未来的自己）来承担那些假想的、遥远的影响。",
+   "p": 4
   },
   {
    "en": "As a result, the decisions we make for our present selves often look very different from our decisions for our future selves.",
-   "cn": "于是，我们为当下自我所做的决定，往往与为未来自我所做的决定大相径庭。"
+   "cn": "于是，我们为当下自我所做的决定，往往与为未来自我所做的决定大相径庭。",
+   "p": 4
   },
   {
    "en": "We believe that tomorrow will be different. We believe that we will be different tomorrow, but in doing so, we prioritize our current mood over the consequences of our inaction for the future self.",
-   "cn": "我们相信明天会不同，相信明天的自己会变，但这样一来，我们把当下的心情置于优先位置，胜过因不作为而对未来自我造成的后果。"
+   "cn": "我们相信明天会不同，相信明天的自己会变，但这样一来，我们把当下的心情置于优先位置，胜过因不作为而对未来自我造成的后果。",
+   "p": 4
   },
   {
    "en": "Understanding our procrastination (拖延) through the lens of the present and future selves, we're left with three possible solutions: The first is to force your future self to do whatever your present self doesn't want to do.",
-   "cn": "以当下与未来自我的视角来理解我们的拖延，我们会得到三种可能的解决方案：第一种是强迫未来的自己去做当下自己不想做的事。"
+   "cn": "以当下与未来自我的视角来理解我们的拖延，我们会得到三种可能的解决方案：第一种是强迫未来的自己去做当下自己不想做的事。",
+   "p": 5
   },
   {
    "en": "The second is to convince your present self that your future self is, in fact, still you.",
-   "cn": "第二种是说服当下的自己，未来的自己其实仍是你自己。"
+   "cn": "第二种是说服当下的自己，未来的自己其实仍是你自己。",
+   "p": 5
   },
   {
    "en": "If the central problem is that we think of our future selves as other people, it follows that trying to identify more closely with our future selves will encourage us to make better long-term decisions.",
-   "cn": "如果核心问题在于我们把未来的自己当成别人，那么，尝试与未来的自己建立更紧密的认同，就会促使我们做出更好的长期决策。"
+   "cn": "如果核心问题在于我们把未来的自己当成别人，那么，尝试与未来的自己建立更紧密的认同，就会促使我们做出更好的长期决策。",
+   "p": 5
   },
   {
    "en": "In a follow-up study, Hershfield wanted to explore ways to bridge the disconnect between the present and future selves and encourage people to save more for retirement.",
-   "cn": "在一项后续研究中，赫什菲尔德想探索如何弥合当下自我与未来自我之间的脱节，并鼓励人们为退休多储蓄。"
+   "cn": "在一项后续研究中，赫什菲尔德想探索如何弥合当下自我与未来自我之间的脱节，并鼓励人们为退休多储蓄。",
+   "p": 6
   },
   {
    "en": "He and his team took photos of study participants, and then used image processing to visually age their faces.",
-   "cn": "他和团队为研究参与者拍照，然后用图像处理技术让他们的面容在视觉上变老。"
+   "cn": "他和团队为研究参与者拍照，然后用图像处理技术让他们的面容在视觉上变老。",
+   "p": 6
   },
   {
    "en": "Participants were then placed in a virtual reality setting where they could look into a mirror and see their aged selves looking back at them.",
-   "cn": "参与者随后被置于虚拟现实环境中，可以照镜子看到年老的自己正回望着他们。"
+   "cn": "参与者随后被置于虚拟现实环境中，可以照镜子看到年老的自己正回望着他们。",
+   "p": 6
   },
   {
    "en": "Participants who saw their aged selves said they would save 30% more of their salary for retirement than the control group.",
-   "cn": "看到年老自己的参与者表示，他们愿意比对照组多存30%的工资用于退休储蓄。"
+   "cn": "看到年老自己的参与者表示，他们愿意比对照组多存30%的工资用于退休储蓄。",
+   "p": 6
   },
   {
    "en": "Whatever your long-term goals may be·getting in better shape, launching your own business, writing a book · thinking about your deadline in terms of days rather than months or years can help you wrap your mind around how close the future really is.",
-   "cn": "无论你的长期目标是什么——塑身、创业，还是写一本书——用“天”而非“月”或“年”来思考你的截止期限，能帮助你切身意识到未来其实离你有多近。"
+   "cn": "无论你的长期目标是什么——塑身、创业，还是写一本书——用“天”而非“月”或“年”来思考你的截止期限，能帮助你切身意识到未来其实离你有多近。",
+   "p": 7
   },
   {
    "en": "The third solution is to forget about your future self and use your present self's love of instant gratification (满足感) to your advantage.",
-   "cn": "第三种方案是抛开未来的自己，转而利用当下自我对即时满足感的喜爱。"
+   "cn": "第三种方案是抛开未来的自己，转而利用当下自我对即时满足感的喜爱。",
+   "p": 8
   },
   {
    "en": "While the two tactics (手段) above can be effective in making better long-term choices, in the end, you're still struggling against human nature.",
-   "cn": "尽管上述两种手段有助于做出更好的长期选择，但归根结底，你仍在与人性抗争。"
+   "cn": "尽管上述两种手段有助于做出更好的长期选择，但归根结底，你仍在与人性抗争。",
+   "p": 8
   },
   {
    "en": "Our brains are hardwired for instant gratification.",
-   "cn": "我们的大脑天生追求即时满足。"
+   "cn": "我们的大脑天生追求即时满足。",
+   "p": 8
   },
   {
    "en": "Instead of fighting your present self's need for immediate rewards, why not use it to your advantage?",
-   "cn": "与其对抗当下自我对即时回报的需求，何不加以利用？"
+   "cn": "与其对抗当下自我对即时回报的需求，何不加以利用？",
+   "p": 8
   },
   {
    "en": "When most of us set goals, we focus on long-term results we want to see · e.g. losing weight, getting a promotion, retiring in comfort, etc. While those visions of our future selves can be inspiring, when it comes to actually doing the day-to-day work, it may be more effective to reframe activities in terms of their immediate, or at least very near-term rewards.",
-   "cn": "我们大多数人设定目标时，关注的是想看到的长期结果——比如减重、升职、舒舒服服地退休等。尽管这些未来自我的愿景能激励人心，但在真正日复一日地做事时，把活动重新框定为即时、或至少是极短期的回报，或许更有效。"
+   "cn": "我们大多数人设定目标时，关注的是想看到的长期结果——比如减重、升职、舒舒服服地退休等。尽管这些未来自我的愿景能激励人心，但在真正日复一日地做事时，把活动重新框定为即时、或至少是极短期的回报，或许更有效。",
+   "p": 8
   },
   {
    "en": "Take writing this article, for instance.",
-   "cn": "以写这篇文章为例。"
+   "cn": "以写这篇文章为例。",
+   "p": 9
   },
   {
    "en": "It's easy for me to imagine how amazing it will feel at the end of the workday to have this article done.",
-   "cn": "我很容易想象，在工作日结束时把文章写完会有多畅快。"
+   "cn": "我很容易想象，在工作日结束时把文章写完会有多畅快。",
+   "p": 9
   },
   {
    "en": "This isn't just my opinion.",
-   "cn": "这不只是我个人的看法。"
+   "cn": "这不只是我个人的看法。",
+   "p": 9
   },
   {
    "en": "Research partners Kaitlin Woolley of Cornell University and Ayelet Fishbach of the University of Chicago have made a career out of studying the differences between the goals that people achieve and the ones that fall to the wayside.",
-   "cn": "康奈尔大学的凯特琳∙伍利与芝加哥大学的阿耶莱特∙菲什巴赫这对研究伙伴，正是以研究“人们实现的目标”与“半途而废的目标”之间的差异为业的。"
+   "cn": "康奈尔大学的凯特琳∙伍利与芝加哥大学的阿耶莱特∙菲什巴赫这对研究伙伴，正是以研究“人们实现的目标”与“半途而废的目标”之间的差异为业的。",
+   "p": 9
   },
   {
    "en": "\"In one study, we asked people online about the goals they set at the beginning of the year.",
-   "cn": "“在一项研究中，我们在线询问人们在年初设定的目标。"
+   "cn": "“在一项研究中，我们在线询问人们在年初设定的目标。",
+   "p": 10
   },
   {
    "en": "Most people set goals to achieve delayed, long-term benefits, such as career advancement, debt repayment, or improved health.",
-   "cn": "多数人设定目标是为了获得延迟的、长期的收益，比如职业晋升、偿还债务或改善健康。"
+   "cn": "多数人设定目标是为了获得延迟的、长期的收益，比如职业晋升、偿还债务或改善健康。",
+   "p": 10
   },
   {
    "en": "We asked these individuals how enjoyable it was to pursue their goal, as well as how important their goal was.",
-   "cn": "我们询问这些人，追求目标的过程有多愉快，以及他们的目标有多重要。"
+   "cn": "我们询问这些人，追求目标的过程有多愉快，以及他们的目标有多重要。",
+   "p": 10
   },
   {
    "en": "We also asked whether they were still working on their goals two months after setting them.",
-   "cn": "我们还询问了他们在设定目标两个月后是否仍在坚持。"
+   "cn": "我们还询问了他们在设定目标两个月后是否仍在坚持。",
+   "p": 10
   },
   {
    "en": "We found that enjoyment predicted people's goal persistence two months after setting the goal far more than how important they rated their goal to be.\" Woolley said.",
-   "cn": "我们发现，比起目标的重要性评分，追求目标的乐趣更能预测人们在设定目标两个月后的坚持程度。”伍利说。"
+   "cn": "我们发现，比起目标的重要性评分，追求目标的乐趣更能预测人们在设定目标两个月后的坚持程度。”伍利说。",
+   "p": 10
   },
   {
    "en": "This pattern held true across a wide variety of goals from exercising to studying to eating healthier foods.",
-   "cn": "这一规律适用于从锻炼、学习到健康饮食的各类目标。"
+   "cn": "这一规律适用于从锻炼、学习到健康饮食的各类目标。",
+   "p": 11
   },
   {
    "en": "For example, people ate 50% more of a healthy food when directed to focus on the good taste rather than the long-term health benefits.",
-   "cn": "例如，当人们被引导去关注健康食品的美味、而非其长期健康益处时，会多吃50%。"
+   "cn": "例如，当人们被引导去关注健康食品的美味、而非其长期健康益处时，会多吃50%。",
+   "p": 11
   },
   {
    "en": "Other studies have shown a greater uptake of exercise in people who were told to think of the enjoyment of doing the exercise now rather than future health gains.",
-   "cn": "其他研究也显示，那些被告知去体味当下运动之乐、而非未来健康收益的人，锻炼的积极性更高。"
+   "cn": "其他研究也显示，那些被告知去体味当下运动之乐、而非未来健康收益的人，锻炼的积极性更高。",
+   "p": 11
   },
   {
    "en": "These findings suggest that when it comes to achieving your goals, enjoying the process itself is more important than wanting the long-term benefits.",
-   "cn": "这些发现表明，在实现目标这件事上，享受过程本身比追求长期收益更重要。"
+   "cn": "这些发现表明，在实现目标这件事上，享受过程本身比追求长期收益更重要。",
+   "p": 12
   },
   {
    "en": "In other words, present self trumps (战胜) future self.",
-   "cn": "换言之，当下自我战胜了未来自我。"
+   "cn": "换言之，当下自我战胜了未来自我。",
+   "p": 12
   },
   {
    "en": "Who says instant gratification has to be a bad thing?",
-   "cn": "谁说即时满足就一定是坏事？"
+   "cn": "谁说即时满足就一定是坏事？",
+   "p": 12
   },
   {
    "en": "By all means, set ambitious long-term goals for your future self, but when it comes to actually following through day-to-day, make sure your present self knows what's in it for her too.",
-   "cn": "你尽管为未来的自己设定远大长期目标，但在真正日复一日地执行时，务必让你的当下自我也知道她能得到什么好处。"
+   "cn": "你尽管为未来的自己设定远大长期目标，但在真正日复一日地执行时，务必让你的当下自我也知道她能得到什么好处。",
+   "p": 12
   }
  ]
 }

@@ -6,75 +6,93 @@
  "sents": [
   {
    "en": "Educators and business leaders have more in common than it may seem.",
-   "cn": "教育工作者与企业领导者之间的共同点，可能比表面上看起来要多。"
+   "cn": "教育工作者与企业领导者之间的共同点，可能比表面上看起来要多。",
+   "p": 0
   },
   {
    "en": "Teachers want to prepare students for a successful future.",
-   "cn": "教师希望为学生成功的未来做好准备；"
+   "cn": "教师希望为学生成功的未来做好准备；",
+   "p": 0
   },
   {
    "en": "Technology companies have an interest in developing a workforce with the STEM (science, technology, engineering and math) skills needed to grow the company and advance the industry.",
-   "cn": "科技公司则有兴趣培养出具备STEM（科学、技术、工程与数学）技能的员工，以推动公司发展和行业进步。"
+   "cn": "科技公司则有兴趣培养出具备STEM（科学、技术、工程与数学）技能的员工，以推动公司发展和行业进步。",
+   "p": 0
   },
   {
    "en": "How can they work together to achieve these goals?",
-   "cn": "他们如何协作实现这些目标？"
+   "cn": "他们如何协作实现这些目标？",
+   "p": 0
   },
   {
    "en": "Play may be the answer.",
-   "cn": "也许答案就是\"玩\"。"
+   "cn": "也许答案就是\"玩\"。",
+   "p": 0
   },
   {
    "en": "Focusing on STEM skills is important, but the reality is that STEM skills are enhanced and more relevant when combined with traditional, hands-on creative activities.",
-   "cn": "重视STEM技能固然重要，但现实是，当STEM技能与传统、动手型的创造性活动相结合时，会得到增强且更具现实意义。"
+   "cn": "重视STEM技能固然重要，但现实是，当STEM技能与传统、动手型的创造性活动相结合时，会得到增强且更具现实意义。",
+   "p": 1
   },
   {
    "en": "This combination is proving to be the best way to prepare today's children to be the makers and builders of tomorrow.",
-   "cn": "这种结合正被证明是培养当今儿童成为未来创造者与建设者的最佳方式。"
+   "cn": "这种结合正被证明是培养当今儿童成为未来创造者与建设者的最佳方式。",
+   "p": 1
   },
   {
    "en": "That is why technology companies are partnering with educators to bring back good, old-fashioned play.",
-   "cn": "正因如此，科技公司正与教育工作者合作，重新提倡良好而老式的\"玩\"。"
+   "cn": "正因如此，科技公司正与教育工作者合作，重新提倡良好而老式的\"玩\"。",
+   "p": 1
   },
   {
    "en": "In fact many experts argue that the most important 21st-century skills aren't related to specific technologies or subject matter, but to creativity; skills like imagination, problem-finding and problem-solving, teamwork, optimism, patience and the ability to experiment and take risks.",
-   "cn": "事实上，许多专家认为，最重要的21世纪技能并不关乎特定技术或学科内容，而是关乎创造力：诸如想象力、发现问题与解决问题、团队协作、乐观、耐心，以及实验与冒险的能力。"
+   "cn": "事实上，许多专家认为，最重要的21世纪技能并不关乎特定技术或学科内容，而是关乎创造力：诸如想象力、发现问题与解决问题、团队协作、乐观、耐心，以及实验与冒险的能力。",
+   "p": 2
   },
   {
    "en": "These are skills acquired when kids tinker.",
-   "cn": "这些技能是孩子们在\"捣鼓\"（tinker）时获得的。"
+   "cn": "这些技能是孩子们在\"捣鼓\"（tinker）时获得的。",
+   "p": 2
   },
   {
    "en": "High-tech industries such as NASA's Jet Propulsion Laboratory have found that their best overall problem solvers were master tinkerers in their youth.",
-   "cn": "诸如美国宇航局喷气推进实验室等高科技行业发现，他们最优秀的综合问题解决者，在年轻时都是捣鼓高手。"
+   "cn": "诸如美国宇航局喷气推进实验室等高科技行业发现，他们最优秀的综合问题解决者，在年轻时都是捣鼓高手。",
+   "p": 2
   },
   {
    "en": "There are cognitive benefits of doing things the way we did as children·building something, tearing it down, then building it up again.",
-   "cn": "以我们儿时做事的方式——搭建某物、拆掉它、再重新搭起来——去做事，具有认知上的益处。"
+   "cn": "以我们儿时做事的方式——搭建某物、拆掉它、再重新搭起来——去做事，具有认知上的益处。",
+   "p": 3
   },
   {
    "en": "Research shows that given 15 minutes of free play, four- and five-year-olds will spend a third of this time engaged in spatial, mathematical, and architectural activities.",
-   "cn": "研究表明，在15分钟的自由玩耍中，四五岁的儿童会把其中三分之一的时间用于空间、数学和建筑类活动。"
+   "cn": "研究表明，在15分钟的自由玩耍中，四五岁的儿童会把其中三分之一的时间用于空间、数学和建筑类活动。",
+   "p": 3
   },
   {
    "en": "This type of play·especially with building blocks·helps children discover and develop key principles in math and geometry.",
-   "cn": "这类玩耍——尤其是搭积木——有助于儿童发现并掌握数学与几何中的关键原理。"
+   "cn": "这类玩耍——尤其是搭积木——有助于儿童发现并掌握数学与几何中的关键原理。",
+   "p": 3
   },
   {
    "en": "If play and building are critical to 21st-century skill development, that's really good news for two reasons: Children are born builders, makers, and creators, so fostering 21st-century skills may be as simple as giving kids room to play, tinker and try things out, even as they grow older.",
-   "cn": "如果玩耍和搭建对21世纪技能的培养至关重要，这确实是个好消息，原因有二：儿童生来就是建设者、创造者和制造者，因此培养21世纪技能或许很简单，只需给孩子玩耍、捣鼓和尝试的空间，即便他们逐渐长大也一样。"
+   "cn": "如果玩耍和搭建对21世纪技能的培养至关重要，这确实是个好消息，原因有二：儿童生来就是建设者、创造者和制造者，因此培养21世纪技能或许很简单，只需给孩子玩耍、捣鼓和尝试的空间，即便他们逐渐长大也一样。",
+   "p": 4
   },
   {
    "en": "Secondly, it doesn't take 21st-century technology to foster 21st-century skills.",
-   "cn": "其次，培养21世纪技能并不需要21世纪的技术。"
+   "cn": "其次，培养21世纪技能并不需要21世纪的技术。",
+   "p": 4
   },
   {
    "en": "This is especially important for under-resourced schools and communities.",
-   "cn": "这对资源不足的学校和社区尤为重要。"
+   "cn": "这对资源不足的学校和社区尤为重要。",
+   "p": 4
   },
   {
    "en": "Taking whatever materials are handy and tinkering with them is a simple way to engage those important \"maker\" skills. And anyone, anywhere, can do it.",
-   "cn": "随手取用现成材料并加以摆弄，就是调动那些重要\"创客\"技能的简单方式，而且任何人在任何地方都能做到。"
+   "cn": "随手取用现成材料并加以摆弄，就是调动那些重要\"创客\"技能的简单方式，而且任何人在任何地方都能做到。",
+   "p": 4
   }
  ]
 }

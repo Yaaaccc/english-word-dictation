@@ -6,67 +6,83 @@
  "sents": [
   {
    "en": "Do you ever blend up a protein drink for breakfast or grab a protein bar following an afternoon workout?",
-   "cn": "你可曾为早餐打一杯蛋白饮，或在下午锻炼后抓一根蛋白棒？"
+   "cn": "你可曾为早餐打一杯蛋白饮，或在下午锻炼后抓一根蛋白棒？",
+   "p": 0
   },
   {
    "en": "If so, you are likely among the millions of people in search of more protein-rich diets.",
-   "cn": "如果是，你可能属于那数百万追求更高蛋白饮食的人之列。"
+   "cn": "如果是，你可能属于那数百万追求更高蛋白饮食的人之列。",
+   "p": 0
   },
   {
    "en": "Protein-enriched products are found everywhere.",
-   "cn": "富含蛋白质的产品随处可见。"
+   "cn": "富含蛋白质的产品随处可见。",
+   "p": 1
   },
   {
    "en": "But contrary to all the publicity that everyone needs more protein, most Americans get twice as much as they need.",
-   "cn": "但与\"人人都需要更多蛋白质\"的各种宣传相反，大多数美国人摄入的蛋白质是他们所需的两倍。"
+   "cn": "但与\"人人都需要更多蛋白质\"的各种宣传相反，大多数美国人摄入的蛋白质是他们所需的两倍。",
+   "p": 1
   },
   {
    "en": "Many of us living in the most developed countries are buying into a myth of protein deficiency created by food companies and self-identified health experts.",
-   "cn": "我们许多生活在最发达国家的人，正轻信着由食品公司和自封的健康专家所编造的\"蛋白质缺乏\"神话。"
+   "cn": "我们许多生活在最发达国家的人，正轻信着由食品公司和自封的健康专家所编造的\"蛋白质缺乏\"神话。",
+   "p": 2
   },
   {
    "en": "Global retail sales of protein supplement products reached an astonishing US$18.9 billion in 2020.",
-   "cn": "2020年，蛋白质补充剂的全球零售额达到了惊人的189亿美元。"
+   "cn": "2020年，蛋白质补充剂的全球零售额达到了惊人的189亿美元。",
+   "p": 2
   },
   {
    "en": "But are we really in need of more protein?",
-   "cn": "但我们真的需要更多蛋白质吗？"
+   "cn": "但我们真的需要更多蛋白质吗？",
+   "p": 3
   },
   {
    "en": "Physicians in the U.S. have never actually examined a patient with protein deficiency because simply by eating an adequate number of daily calories we are also most likely getting enough protein.",
-   "cn": "美国的医生从未真正诊治过蛋白质缺乏的患者，因为只要摄入足够的每日热量，我们很可能也同时获得了充足的蛋白质。"
+   "cn": "美国的医生从未真正诊治过蛋白质缺乏的患者，因为只要摄入足够的每日热量，我们很可能也同时获得了充足的蛋白质。",
+   "p": 3
   },
   {
    "en": "In fact, Americans currently consume almost twice the National Academy of Medicine's recommended daily intake of protein although the most desirable protein intake may vary depending on age and activity level.",
-   "cn": "事实上，美国人目前的蛋白质摄入量几乎是医学研究院每日推荐摄入量的两倍，尽管最理想的蛋白摄入量可能因年龄与活动水平而异。"
+   "cn": "事实上，美国人目前的蛋白质摄入量几乎是医学研究院每日推荐摄入量的两倍，尽管最理想的蛋白摄入量可能因年龄与活动水平而异。",
+   "p": 4
   },
   {
    "en": "For example, if you're a dedicated athlete you might need to consume higher quantities of protein.",
-   "cn": "例如，如果你是位敬业的运动员，可能需要摄入更高量的蛋白质。"
+   "cn": "例如，如果你是位敬业的运动员，可能需要摄入更高量的蛋白质。",
+   "p": 5
   },
   {
    "en": "Generally, though, a 140-pound person should not exceed 120 grams of protein per day, particularly because a high protein diet can strain kidney and liver function and increase risks of developing heart disease and cancer.",
-   "cn": "但一般而言，一个140磅的人每日蛋白质摄入量不应超过120克，特别是因为高蛋白饮食会加重肾脏与肝脏负担，并增加患心脏病与癌症的风险。"
+   "cn": "但一般而言，一个140磅的人每日蛋白质摄入量不应超过120克，特别是因为高蛋白饮食会加重肾脏与肝脏负担，并增加患心脏病与癌症的风险。",
+   "p": 5
   },
   {
    "en": "While fats and sugar have taken the beating in turns since over a century ago, protein has managed to remain our red-hot favorite.",
-   "cn": "尽管脂肪和糖自一个多世纪前起就轮流遭受抨击，蛋白质却始终稳居我们炙手可热的偏爱之选。"
+   "cn": "尽管脂肪和糖自一个多世纪前起就轮流遭受抨击，蛋白质却始终稳居我们炙手可热的偏爱之选。",
+   "p": 6
   },
   {
    "en": "In the 1970s through the 1990s, protein products remained visible but moved back somewhat with the dietary spotlight firmly fixed on low-calorie, low-fat, sugar-free snack foods and beverages following the publication of studies linking sugar and saturated (饱和的) fat consumption to heart disease.",
-   "cn": "在20世纪70年代至90年代，蛋白质产品仍可见，但随着将糖与饱和（饱和的）脂肪摄入与心脏病关联的研究发表，饮食焦点牢牢锁定在低热量、低脂肪、无糖的零食与饮料上，蛋白质产品有所退居次席。"
+   "cn": "在20世纪70年代至90年代，蛋白质产品仍可见，但随着将糖与饱和（饱和的）脂肪摄入与心脏病关联的研究发表，饮食焦点牢牢锁定在低热量、低脂肪、无糖的零食与饮料上，蛋白质产品有所退居次席。",
+   "p": 7
   },
   {
    "en": "Later research in 2003, however, suggested high-protein diets could aid in weight loss, and protein quickly regained its former nutrient-superstar status.",
-   "cn": "然而，2003年后来的研究表明高蛋白饮食有助于减重，蛋白质迅速重获其昔日的\"营养超级明星\"地位。"
+   "cn": "然而，2003年后来的研究表明高蛋白饮食有助于减重，蛋白质迅速重获其昔日的\"营养超级明星\"地位。",
+   "p": 8
   },
   {
    "en": "Now most people living in high-income nations are consuming enough protein.",
-   "cn": "如今，高收入国家的大多数人摄入的蛋白质已经足够。"
+   "cn": "如今，高收入国家的大多数人摄入的蛋白质已经足够。",
+   "p": 9
   },
   {
    "en": "When we replace meals with a protein bar or drink, we also risk missing out on the rich sources of antioxidants (抗氧化剂), vitamins and many other benefits of real food.",
-   "cn": "当我们用蛋白棒或蛋白饮代替正餐时，也冒着错失真正食物中丰富的抗氧化剂（抗氧化剂）、维生素以及诸多其他益处的风险。"
+   "cn": "当我们用蛋白棒或蛋白饮代替正餐时，也冒着错失真正食物中丰富的抗氧化剂（抗氧化剂）、维生素以及诸多其他益处的风险。",
+   "p": 9
   }
  ]
 }

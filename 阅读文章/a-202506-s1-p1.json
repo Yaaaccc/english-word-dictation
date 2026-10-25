@@ -6,63 +6,78 @@
  "sents": [
   {
    "en": "New research suggests that pandas may be at risk of dying out because they are too comfortable.",
-   "cn": "新研究表明，大熊猫可能因为过于安逸而面临灭绝风险。"
+   "cn": "新研究表明，大熊猫可能因为过于安逸而面临灭绝风险。",
+   "p": 0
   },
   {
    "en": "Experts say too much happiness can stop the bears from searching for new mates.",
-   "cn": "专家称，过度的安逸会阻止这些熊去寻找新的配偶。"
+   "cn": "专家称，过度的安逸会阻止这些熊去寻找新的配偶。",
+   "p": 0
   },
   {
    "en": "Environmentalists have long believed that building roads or homes near the bears may threaten their survival by ·reducing or fragmenting their natural habitats·, The Times reported.",
-   "cn": "据《泰晤士报》报道，环保主义者长期以来认为，在熊猫附近修建道路或房屋，会通过“缩减或割裂其自然栖息地”而威胁其生存。"
+   "cn": "据《泰晤士报》报道，环保主义者长期以来认为，在熊猫附近修建道路或房屋，会通过“缩减或割裂其自然栖息地”而威胁其生存。",
+   "p": 1
   },
   {
    "en": "But the new research suggests that a ·modest degree of discomfort and fragmentation· may actually help preserve panda populations.",
-   "cn": "但这项新研究表明，一定程度的“不适与割裂”实际上可能有助于保护熊猫种群。"
+   "cn": "但这项新研究表明，一定程度的“不适与割裂”实际上可能有助于保护熊猫种群。",
+   "p": 1
   },
   {
    "en": "The research was conducted by scientists from Michigan State University.",
-   "cn": "该研究由密歇根州立大学的科学家开展。"
+   "cn": "该研究由密歇根州立大学的科学家开展。",
+   "p": 2
   },
   {
    "en": "It concluded that pandas fail to wander off in search of new mates if they find their habitat too comfortable, resulting in a lack of vital genetic diversity.",
-   "cn": "其结论是，如果熊猫觉得栖息地过于舒适，就不会外出寻找新配偶，从而导致关键遗传多样性的缺失。"
+   "cn": "其结论是，如果熊猫觉得栖息地过于舒适，就不会外出寻找新配偶，从而导致关键遗传多样性的缺失。",
+   "p": 2
   },
   {
    "en": "For their study · outlined in a paper in the journal Conservation Biology · the team looked at genetic diversity and spread among a Chinese panda population.",
-   "cn": "在发表于《保护生物学》期刊的一篇论文中，研究团队概述了这项研究；他们考察了中国一个熊猫种群的遗传多样性与分布情况。"
+   "cn": "在发表于《保护生物学》期刊的一篇论文中，研究团队概述了这项研究；他们考察了中国一个熊猫种群的遗传多样性与分布情况。",
+   "p": 3
   },
   {
    "en": "The ideal level of perfectly livable habitat was found to be only 80% of an area, with the remainder either too harsh or too affected by human activity.",
-   "cn": "研究发现，完全适宜居住的栖息地理想水平仅为某个区域的80%，其余部分要么过于恶劣，要么受人类活动影响过大。"
+   "cn": "研究发现，完全适宜居住的栖息地理想水平仅为某个区域的80%，其余部分要么过于恶劣，要么受人类活动影响过大。",
+   "p": 3
   },
   {
    "en": "The experts concluded that pandas should ideally ·be happy enough to thrive, but not so content that they don't want to move around and find new mates·.",
-   "cn": "专家们得出的结论是，理想状况下，熊猫应当“快乐得足以繁盛，却又不会安逸到不想四处走动、寻找新配偶”。"
+   "cn": "专家们得出的结论是，理想状况下，熊猫应当“快乐得足以繁盛，却又不会安逸到不想四处走动、寻找新配偶”。",
+   "p": 4
   },
   {
    "en": "Their conclusions about what The Guardian described as this ·sweet spot· are in line with the so-called Goldilocks principle: that there can be just the right amount of something.",
-   "cn": "他们关于被《卫报》描述为“最佳平衡点”的结论，与所谓的“金发姑娘原则”相一致：凡事都可能存在恰到好处的量。"
+   "cn": "他们关于被《卫报》描述为“最佳平衡点”的结论，与所谓的“金发姑娘原则”相一致：凡事都可能存在恰到好处的量。",
+   "p": 5
   },
   {
    "en": "The concept has been applied to a wide range of disciplines, from developmental psychology to economics and engineering.",
-   "cn": "这一概念已被应用于从发展心理学到经济学和工程学等广泛学科。"
+   "cn": "这一概念已被应用于从发展心理学到经济学和工程学等广泛学科。",
+   "p": 5
   },
   {
    "en": "Claudio Sillero, a professor of conservation biology at Oxford University, told the newspaper that the new findings could have implications beyond panda conservation.",
-   "cn": "牛津大学保护生物学教授克劳迪奥∙西莱罗告诉该报，这些新发现的意义可能超越熊猫保护本身。"
+   "cn": "牛津大学保护生物学教授克劳迪奥∙西莱罗告诉该报，这些新发现的意义可能超越熊猫保护本身。",
+   "p": 6
   },
   {
    "en": "·Most large animals that eat meat live in increasingly fragmented landscapes,· said Sillero, who was not involved in the research.",
-   "cn": "“大多数食肉的大型动物生活在日益割裂的景观中，”并未参与该研究的西莱罗说，“它们与人类活动之间关系的混乱本质，很可能促使更多动物分散或迁徙更远，并可能带来更强的基因连通性和更高的种群延续性。"
+   "cn": "“大多数食肉的大型动物生活在日益割裂的景观中，”并未参与该研究的西莱罗说，“它们与人类活动之间关系的混乱本质，很可能促使更多动物分散或迁徙更远，并可能带来更强的基因连通性和更高的种群延续性。",
+   "p": 7
   },
   {
    "en": "·It may well be that the messy nature of their relationship with human efforts induces more animals to scatter or travel further, and might result in greater genetic connectivity and enhanced population persistence.·",
-   "cn": "”"
+   "cn": "”",
+   "p": 7
   },
   {
    "en": "The most recent count of pandas found that there were more than 1,800 left in the wild, putting them on the list of vulnerable, but not endangered, species.",
-   "cn": "最近一次统计发现，野外大熊猫数量超过1,800只，使其被列入“易危”而非“濒危”物种名单。"
+   "cn": "最近一次统计发现，野外大熊猫数量超过1,800只，使其被列入“易危”而非“濒危”物种名单。",
+   "p": 8
   }
  ]
 }

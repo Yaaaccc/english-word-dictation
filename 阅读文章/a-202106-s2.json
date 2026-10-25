@@ -6,207 +6,258 @@
  "sents": [
   {
    "en": "Numbers do not exist in all cultures.",
-   "cn": "数字并非存在于所有文化中。"
+   "cn": "数字并非存在于所有文化中。",
+   "p": 0
   },
   {
    "en": "There are numberless hunter-gatherers in Amazonia, living along branches of the world's largest river.",
-   "cn": "亚马逊地区有一些不会数数的狩猎采集者，生活在世界最大河流的支流沿岸。"
+   "cn": "亚马逊地区有一些不会数数的狩猎采集者，生活在世界最大河流的支流沿岸。",
+   "p": 0
   },
   {
    "en": "Instead of using words for precise quantities, these people rely exclusively on terms similar to \"a few\" or \"some.\" In contrast, our own lives are governed by numbers.",
-   "cn": "这些人完全不使用表示精确数量的词，而是只用类似\"几个\"或\"一些\"这样的说法。"
+   "cn": "这些人完全不使用表示精确数量的词，而是只用类似\"几个\"或\"一些\"这样的说法。",
+   "p": 0
   },
   {
    "en": "As you read this, you are likely aware of what time it is, how old you are, your checking account balance, your weight and so on.",
-   "cn": "相反，我们的生活被数字所支配：当你读到这里时，很可能清楚现在几点、自己多大、支票账户余额多少、体重几何等等。"
+   "cn": "相反，我们的生活被数字所支配：当你读到这里时，很可能清楚现在几点、自己多大、支票账户余额多少、体重几何等等。",
+   "p": 0
   },
   {
    "en": "The exact numbers we think with impact everything in our lives.",
-   "cn": "我们思考时所用的精确数字，影响着生活中的一切。"
+   "cn": "我们思考时所用的精确数字，影响着生活中的一切。",
+   "p": 0
   },
   {
    "en": "But, in a historical sense, number-conscious people like us are the unusual ones.",
-   "cn": "但从历史角度看，像我们这样有数字意识的人反而是不寻常的。"
+   "cn": "但从历史角度看，像我们这样有数字意识的人反而是不寻常的。",
+   "p": 1
   },
   {
    "en": "For the bulk of our species' approximately 200,000-year lifespan, we had no means of precisely representing quantities.",
-   "cn": "在人类约20万年历史的大部分时间里，我们都没有精确表示数量的方法。"
+   "cn": "在人类约20万年历史的大部分时间里，我们都没有精确表示数量的方法。",
+   "p": 1
   },
   {
    "en": "What's more, the 7,000 or so languages that exist today vary dramatically in how they utilize numbers.",
-   "cn": "更重要的是，今天存在的约7000种语言，在如何使用数字上差异巨大。"
+   "cn": "更重要的是，今天存在的约7000种语言，在如何使用数字上差异巨大。",
+   "p": 1
   },
   {
    "en": "Speakers of anumeric, or numberless, languages offer a window into how the invention of numbers reshaped the human experience.",
-   "cn": "使用无数字语言（anumeric）的人，为我们提供了一扇窗口，得以窥见数字的发明如何重塑了人类经验。"
+   "cn": "使用无数字语言（anumeric）的人，为我们提供了一扇窗口，得以窥见数字的发明如何重塑了人类经验。",
+   "p": 2
   },
   {
    "en": "Cultures without numbers, or with only one or two precise numbers, include the Munduruku and Piraha in Amazonia.",
-   "cn": "没有数字、或只有一两个精确数字的文化，包括亚马逊地区的蒙杜鲁库人和皮拉罕人。"
+   "cn": "没有数字、或只有一两个精确数字的文化，包括亚马逊地区的蒙杜鲁库人和皮拉罕人。",
+   "p": 2
   },
   {
    "en": "Researchers have also studied some adults in Nicaragua who were never taught number words.",
-   "cn": "研究人员还研究过尼加拉瓜一些从未学过数字词的成年人。"
+   "cn": "研究人员还研究过尼加拉瓜一些从未学过数字词的成年人。",
+   "p": 2
   },
   {
    "en": "Without numbers, healthy human adults struggle to precisely distinguish and recall quantities as low as four.",
-   "cn": "没有数字，健康的成年人都难以精确区分和回忆低至四个的数量。"
+   "cn": "没有数字，健康的成年人都难以精确区分和回忆低至四个的数量。",
+   "p": 2
   },
   {
    "en": "In an experiment, a researcher will place nuts into a can one at a time and then remove them one by one.",
-   "cn": "在一项实验中，研究者将坚果一颗一颗放进罐子，再一颗一颗取出；"
+   "cn": "在一项实验中，研究者将坚果一颗一颗放进罐子，再一颗一颗取出；",
+   "p": 2
   },
   {
    "en": "The person watching is asked to signal when all the nuts have been removed.",
-   "cn": "观看者被要求在所有坚果都被取出时发出信号。"
+   "cn": "观看者被要求在所有坚果都被取出时发出信号。",
+   "p": 2
   },
   {
    "en": "Responses suggest that anumeric people have some trouble keeping track of how many nuts remain in the can, even if there are only four or five in total.",
-   "cn": "结果表明，无数字的人即便罐中总共只有四五颗坚果，也难以跟踪还剩多少。"
+   "cn": "结果表明，无数字的人即便罐中总共只有四五颗坚果，也难以跟踪还剩多少。",
+   "p": 2
   },
   {
    "en": "This and many other experiments have led to a simple conclusion: When people do not have number words, they struggle to make quantitative distinctions that probably seem natural to someone like you or me.",
-   "cn": "这项实验以及许多其他实验引出了一个简单的结论：当人没有数字词汇时，他们很难做出数量上的区分，而这种区分对你我这样的人来说或许再自然不过。"
+   "cn": "这项实验以及许多其他实验引出了一个简单的结论：当人没有数字词汇时，他们很难做出数量上的区分，而这种区分对你我这样的人来说或许再自然不过。",
+   "p": 3
   },
   {
    "en": "While only a small portion of the world's languages are anumeric or nearly anumeric, they demonstrate that number words are not a human universal.",
-   "cn": "尽管世界上只有一小部分语言是无数字或近乎无数字的，但它们证明数字词并非人类普遍拥有。"
+   "cn": "尽管世界上只有一小部分语言是无数字或近乎无数字的，但它们证明数字词并非人类普遍拥有。",
+   "p": 3
   },
   {
    "en": "It is worth stressing that these anumeric people are cognitively normal, well-adapted to the surroundings they have dominated for centuries.",
-   "cn": "值得强调的是，这些无数字的人在认知上是正常的，且十分适应他们数百年来所主宰的环境。"
+   "cn": "值得强调的是，这些无数字的人在认知上是正常的，且十分适应他们数百年来所主宰的环境。",
+   "p": 4
   },
   {
    "en": "As a child, I spent some time living with anumeric people, the Piraha who live along the banks of the black Maici River.",
-   "cn": "小时候，我曾与无数字的人——居住在黑色马伊西河沿岸的皮拉罕人——共同生活过一段时间。"
+   "cn": "小时候，我曾与无数字的人——居住在黑色马伊西河沿岸的皮拉罕人——共同生活过一段时间。",
+   "p": 4
   },
   {
    "en": "Like other outsiders, I was continually impressed by their superior understanding of the ecology we shared.",
-   "cn": "像其他外来者一样，他们对我们共享的生态环境那种卓越的理解力，令我不断感到震撼。"
+   "cn": "像其他外来者一样，他们对我们共享的生态环境那种卓越的理解力，令我不断感到震撼。",
+   "p": 4
   },
   {
    "en": "Yet numberless people struggle with tasks that require precise discrimination between quantities.",
-   "cn": "然而，无数字的人在面对需要精确区分数量的任务时会感到吃力。"
+   "cn": "然而，无数字的人在面对需要精确区分数量的任务时会感到吃力。",
+   "p": 4
   },
   {
    "en": "Perhaps this should be unsurprising. After all, without counting, how can someone tell whether there are, say, seven or eight coconuts in a tree?",
-   "cn": "这或许不应令人意外：毕竟，不会数数，又怎知树上有七个还是八个椰子？"
+   "cn": "这或许不应令人意外：毕竟，不会数数，又怎知树上有七个还是八个椰子？",
+   "p": 4
   },
   {
    "en": "Such seemingly straightforward distinctions become blurry through numberless eyes.",
-   "cn": "如此看似直白的区分，在无数字的眼中变得模糊。"
+   "cn": "如此看似直白的区分，在无数字的眼中变得模糊。",
+   "p": 4
   },
   {
    "en": "This conclusion is echoed by work with anumeric children in industrialized societies.",
-   "cn": "工业化社会中针对无数字儿童的研究，也印证了这一结论。"
+   "cn": "工业化社会中针对无数字儿童的研究，也印证了这一结论。",
+   "p": 5
   },
   {
    "en": "Prior to being spoon-fed number words, children can only approximately discriminate quantities beyond three.",
-   "cn": "在被灌输数字词之前，儿童只能大致区分三个以上的数量。"
+   "cn": "在被灌输数字词之前，儿童只能大致区分三个以上的数量。",
+   "p": 5
   },
   {
    "en": "We must be handed the cognitive tools of numbers before we can consistently and easily recognize higher quantities.",
-   "cn": "我们必须先获得数字这一认知工具，才能稳定而轻松地识别更大的数量。"
+   "cn": "我们必须先获得数字这一认知工具，才能稳定而轻松地识别更大的数量。",
+   "p": 5
   },
   {
    "en": "In fact, acquiring the exact meaning of number words is a painstaking process that takes children years.",
-   "cn": "事实上，掌握数字词的精确含义是一个艰苦的过程，要花儿童数年时间。"
+   "cn": "事实上，掌握数字词的精确含义是一个艰苦的过程，要花儿童数年时间。",
+   "p": 5
   },
   {
    "en": "Initially, kids learn numbers much like they learn letters. They recognize that numbers are organized sequentially, but have little awareness of what each individual number means.",
-   "cn": "起初，孩子学数字很像学字母：他们认识到数字是按顺序组织的，却对各数字的具体含义知之甚少。"
+   "cn": "起初，孩子学数字很像学字母：他们认识到数字是按顺序组织的，却对各数字的具体含义知之甚少。",
+   "p": 5
   },
   {
    "en": "With time, they start to understand that a given number represents a quantity greater by one than the number coming before it.",
-   "cn": "随着时间推移，他们才逐渐明白，某个数字所代表的数量，比它前面的数字多一。"
+   "cn": "随着时间推移，他们才逐渐明白，某个数字所代表的数量，比它前面的数字多一。",
+   "p": 5
   },
   {
    "en": "This \"successor principle\" is part of the foundation of our numerical cognition, but requires extensive practice to understand.",
-   "cn": "这一\"后继原则\"是我们数字认知的基础之一，但需要大量练习才能理解。"
+   "cn": "这一\"后继原则\"是我们数字认知的基础之一，但需要大量练习才能理解。",
+   "p": 5
   },
   {
    "en": "None of us, then, is really a \"numbers person.\" We are not born to handle quantitative distinctions skillfully.",
-   "cn": "那么，我们中没有谁是真正的\"数字人\"。我们并非生来就能娴熟地处理数量区分。"
+   "cn": "那么，我们中没有谁是真正的\"数字人\"。我们并非生来就能娴熟地处理数量区分。",
+   "p": 6
   },
   {
    "en": "In the absence of the cultural traditions that fill our lives with numbers from infancy, we would all struggle with even basic quantitative distinctions.",
-   "cn": "若没有那种从婴儿期起就用数字填满我们生活的文化传统，我们连基本的数量区分都会感到吃力。"
+   "cn": "若没有那种从婴儿期起就用数字填满我们生活的文化传统，我们连基本的数量区分都会感到吃力。",
+   "p": 6
   },
   {
    "en": "Number words and their written forms transform our quantitative reasoning as they are introduced into our cognitive experience by our parents, peers and school teachers.",
-   "cn": "数字词及其书写形式，经由父母、同伴和老师的引入进入我们的认知经验，从而改变了我们的数量推理。"
+   "cn": "数字词及其书写形式，经由父母、同伴和老师的引入进入我们的认知经验，从而改变了我们的数量推理。",
+   "p": 6
   },
   {
    "en": "The process seems so normal that we sometimes think of it as a natural part of growing up, but it is not.",
-   "cn": "这一过程看似平常，我们甚至有时把它当作成长的自然组成部分，但其实并非如此。"
+   "cn": "这一过程看似平常，我们甚至有时把它当作成长的自然组成部分，但其实并非如此。",
+   "p": 6
   },
   {
    "en": "Human brains come equipped with certain quantitative instincts that are refined with age, but these instincts are very limited.",
-   "cn": "人脑天生具备某些数量本能，并随年龄而精炼，但这些本能非常有限。"
+   "cn": "人脑天生具备某些数量本能，并随年龄而精炼，但这些本能非常有限。",
+   "p": 6
   },
   {
    "en": "Compared with other mammals, our numerical instincts are not as remarkable as many assume.",
-   "cn": "与其他哺乳动物相比，我们的数字本能并不像许多人想象的那样出色。"
+   "cn": "与其他哺乳动物相比，我们的数字本能并不像许多人想象的那样出色。",
+   "p": 7
   },
   {
    "en": "We even share some basic instinctual quantitative reasoning with distant non-mammalian relatives like birds.",
-   "cn": "我们甚至与鸟类这样远缘的非哺乳动物亲戚，共享一些基本的本能性数量推理能力。"
+   "cn": "我们甚至与鸟类这样远缘的非哺乳动物亲戚，共享一些基本的本能性数量推理能力。",
+   "p": 7
   },
   {
    "en": "Indeed, work with some other species suggests they too can refine their quantitative thought if they are introduced to the cognitive power tools we call numbers.",
-   "cn": "事实上，对其他一些物种的研究表明，如果让它们接触我们称之为数字的认知强力工具，它们也能精炼自己的数量思维。"
+   "cn": "事实上，对其他一些物种的研究表明，如果让它们接触我们称之为数字的认知强力工具，它们也能精炼自己的数量思维。",
+   "p": 7
   },
   {
    "en": "So, how did we ever invent \"unnatural\" numbers in the first place?",
-   "cn": "那么，我们究竟是如何在一开始就发明了这些\"非自然\"的数字？"
+   "cn": "那么，我们究竟是如何在一开始就发明了这些\"非自然\"的数字？",
+   "p": 8
   },
   {
    "en": "The answer is, literally, at your fingertips.",
-   "cn": "答案，字面上就藏在你的指尖。"
+   "cn": "答案，字面上就藏在你的指尖。",
+   "p": 8
   },
   {
    "en": "The bulk of the world's languages use base-10, base-20 or base-5 number systems. That is, these smaller numbers are the basis of larger numbers.",
-   "cn": "世界上大多数语言使用十进制、二十进制或五进制的数字系统，也就是说，这些较小的数字是更大数字的基础。"
+   "cn": "世界上大多数语言使用十进制、二十进制或五进制的数字系统，也就是说，这些较小的数字是更大数字的基础。",
+   "p": 8
   },
   {
    "en": "English is a base-10 or decimal language, as evidenced by words like 14 (\"four\" + \"10\") and 31 (\"three\" × \"10\" + \"one\"). We speak a decimal language because an ancestral tongue, proto-Indo-European, was decimally based.",
-   "cn": "英语是一种十进制（decimal）语言，证据见于诸如14（\"四\"+\"十\"）和31（\"三\"×\"十\"+\"一\"）这样的词。"
+   "cn": "英语是一种十进制（decimal）语言，证据见于诸如14（\"四\"+\"十\"）和31（\"三\"×\"十\"+\"一\"）这样的词。",
+   "p": 8
   },
   {
    "en": "Proto-Indo-European was decimally oriented because, as in so many cultures, our ancestors' hands served as the gateway to the realization that \"five fingers on one hand is the same as five fingers on the other.\" Such momentary thoughts were represented in words and passed down across generations.",
-   "cn": "我们说十进制语言，是因为其先祖语言——原始印欧语——是以十进制为基础的。原始印欧语的十进制取向，是因为在众多文化中，我们祖先的双手充当了通往这样一种认识的门户：\"一只手上的五根手指，与另一只手上的五根手指相同。"
+   "cn": "我们说十进制语言，是因为其先祖语言——原始印欧语——是以十进制为基础的。原始印欧语的十进制取向，是因为在众多文化中，我们祖先的双手充当了通往这样一种认识的门户：\"一只手上的五根手指，与另一只手上的五根手指相同。",
+   "p": 8
   },
   {
    "en": "This is why the word \"five\" in many languages is derived from the word for \"hand.\" Most number systems, then, are the by-product of two key factors: the human capacity for language and our inclination for focusing on our hands and fingers.",
-   "cn": "\"这类瞬间的念头被用词语表达出来，并代代相传。这就是为什么许多语言中\"五\"这个词，源于表示\"手\"的词。因此，大多数数字系统，是人类语言能力与我们对双手和手指专注倾向这两个关键因素共同作用的副产品。"
+   "cn": "\"这类瞬间的念头被用词语表达出来，并代代相传。这就是为什么许多语言中\"五\"这个词，源于表示\"手\"的词。因此，大多数数字系统，是人类语言能力与我们对双手和手指专注倾向这两个关键因素共同作用的副产品。",
+   "p": 8
   },
   {
    "en": "This manual fixation ·an indirect by-product of walking upright on two legs·has helped yield numbers in most cultures, but not all.",
-   "cn": "这种对手的执念——作为双足直立行走的间接副产品——帮助大多数文化产生了数字，但并非全部。"
+   "cn": "这种对手的执念——作为双足直立行走的间接副产品——帮助大多数文化产生了数字，但并非全部。",
+   "p": 8
   },
   {
    "en": "Cultures without numbers also offer insight into the cognitive influence of particular numeric traditions.",
-   "cn": "没有数字的文化，也让我们得以洞察特定数字传统所带来的认知影响。"
+   "cn": "没有数字的文化，也让我们得以洞察特定数字传统所带来的认知影响。",
+   "p": 9
   },
   {
    "en": "Consider what time it is. Your day is ruled by minutes and seconds, but these concepts are not real in any physical sense and are nonexistent to numberless people.",
-   "cn": "想想现在几点：你的一天被分秒所统治，但这些概念在物理意义上并非真实存在，对无数字的人来说更是根本不存在。"
+   "cn": "想想现在几点：你的一天被分秒所统治，但这些概念在物理意义上并非真实存在，对无数字的人来说更是根本不存在。",
+   "p": 9
   },
   {
    "en": "Minutes and seconds are the verbal and written representations of an uncommon base-60 number system used in ancient Mesopotamia.",
-   "cn": "分和秒，是古代美索不达米亚使用的一种罕见的六十进制数字系统的口头与书面表达；"
+   "cn": "分和秒，是古代美索不达米亚使用的一种罕见的六十进制数字系统的口头与书面表达；",
+   "p": 9
   },
   {
    "en": "They reside in our minds, numerical artifacts that not all humans inherit conceptually.",
-   "cn": "它们栖息于我们的心智中，是一种并非所有人概念上都继承了的\"数字人工制品\"。"
+   "cn": "它们栖息于我们的心智中，是一种并非所有人概念上都继承了的\"数字人工制品\"。",
+   "p": 9
   },
   {
    "en": "Research on the language of numbers shows, more and more, that one of our species' key characteristics is tremendous linguistic and cognitive diversity.",
-   "cn": "关于数字语言的研究越来越表明，我们物种的一个关键特征，是巨大的语言与认知多样性。"
+   "cn": "关于数字语言的研究越来越表明，我们物种的一个关键特征，是巨大的语言与认知多样性。",
+   "p": 10
   },
   {
    "en": "If we are to truly understand how much our cognitive lives differ cross-culturally, we must continually explore the depths of our species' linguistic diversity.",
-   "cn": "若要真正理解我们的认知生活在跨文化间存在多大差异，就必须持续探索我们物种语言多样性的深度。"
+   "cn": "若要真正理解我们的认知生活在跨文化间存在多大差异，就必须持续探索我们物种语言多样性的深度。",
+   "p": 10
   }
  ]
 }

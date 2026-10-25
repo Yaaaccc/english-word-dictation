@@ -6,239 +6,298 @@
  "sents": [
   {
    "en": "Ageism and long-term unemployment are most damaging for those in the second half of their careers.",
-   "cn": "年龄歧视和长期失业对职业生涯后半程的人伤害最大。"
+   "cn": "年龄歧视和长期失业对职业生涯后半程的人伤害最大。",
+   "p": 0
   },
   {
    "en": "Changing careers is hard.",
-   "cn": "转行很难。"
+   "cn": "转行很难。",
+   "p": 0
   },
   {
    "en": "Getting back into work after you've been laid off is even harder.",
-   "cn": "被解雇后重新就业更难。"
+   "cn": "被解雇后重新就业更难。",
+   "p": 0
   },
   {
    "en": "Those over 45 make up the bulk of the long-term unemployed, in America and elsewhere.",
-   "cn": "在美国及其他地方，45岁以上的人占了长期失业者的大多数。"
+   "cn": "在美国及其他地方，45岁以上的人占了长期失业者的大多数。",
+   "p": 0
   },
   {
    "en": "Hiring managers admit they are reluctant to hire those over 40 or 45, arguing they probably won't be a good ·fit,· their experience won't be relevant to the workplace, and they'll be unable or unwilling to learn new skills.",
-   "cn": "招聘经理承认，他们不愿雇用40岁或45岁以上的人，理由是这些人可能\"不合拍\"、经验与职场不相关，并且他们没能力或不愿学习新技能。"
+   "cn": "招聘经理承认，他们不愿雇用40岁或45岁以上的人，理由是这些人可能\"不合拍\"、经验与职场不相关，并且他们没能力或不愿学习新技能。",
+   "p": 0
   },
   {
    "en": "But the one thing that can really make a difference?",
-   "cn": "但真正能带来改变的一件事是什么？"
+   "cn": "但真正能带来改变的一件事是什么？",
+   "p": 1
   },
   {
    "en": "More education and training.",
-   "cn": "更多的教育和培训。"
+   "cn": "更多的教育和培训。",
+   "p": 1
   },
   {
    "en": "These are the results from a new study by Generation, a nonprofit founded by former McKinsey consultants.",
-   "cn": "这是Generation（一家由前麦肯锡顾问创立的非营利组织）一项新研究的结论。"
+   "cn": "这是Generation（一家由前麦肯锡顾问创立的非营利组织）一项新研究的结论。",
+   "p": 1
   },
   {
    "en": "They've just published a global survey on midcareer employment, based on surveys of over 5,000 workers and managers in seven countries.",
-   "cn": "他们刚刚发布了一份关于中年就业的全球调查，基于对七个国家超过5000名工人和管理者的调查。"
+   "cn": "他们刚刚发布了一份关于中年就业的全球调查，基于对七个国家超过5000名工人和管理者的调查。",
+   "p": 1
   },
   {
    "en": "·Older midcareer workers...make up the bulk of the long-term unemployed in many countries,· Generation's analysts write in their report.",
-   "cn": "\"在许多国家，较年长的中年劳动者……构成了长期失业者的大多数，\"Generation的分析师在报告中写道。"
+   "cn": "\"在许多国家，较年长的中年劳动者……构成了长期失业者的大多数，\"Generation的分析师在报告中写道。",
+   "p": 2
   },
   {
    "en": "Those over 45 comprise over 40% of the long-term unemployed, for example.",
-   "cn": "例如，45岁以上的人占长期失业者的40%以上。"
+   "cn": "例如，45岁以上的人占长期失业者的40%以上。",
+   "p": 2
   },
   {
    "en": "And if you're out of work past the age of 45, there's nearly a two in three chance you'll be out of work for over a year, they find.",
-   "cn": "他们发现，如果你在45岁之后失业，有近三分之二的可能失业超过一年。"
+   "cn": "他们发现，如果你在45岁之后失业，有近三分之二的可能失业超过一年。",
+   "p": 2
   },
   {
    "en": "· Midcareer individuals are finding it harder to get jobs,· they write.",
-   "cn": "\"中年人发现越来越难找到工作，\"他们写道。"
+   "cn": "\"中年人发现越来越难找到工作，\"他们写道。",
+   "p": 2
   },
   {
    "en": "·People age 45+ face persistent and rising pressure in the global job market.",
-   "cn": "\"45岁以上的人群在全球就业市场上面临持续且不断上升的压力。"
+   "cn": "\"45岁以上的人群在全球就业市场上面临持续且不断上升的压力。",
+   "p": 2
   },
   {
    "en": "They are unemployed for much longer than the average, and their age is indeed one of the greatest barriers to their finding a job.·",
-   "cn": "他们失业的时间远长于平均水平，而年龄确实是他们找工作的最大障碍之一。\""
+   "cn": "他们失业的时间远长于平均水平，而年龄确实是他们找工作的最大障碍之一。\"",
+   "p": 2
   },
   {
    "en": "A substantial part of this, they report, is ·widespread ageism· on the part of hiring managers.",
-   "cn": "他们报告称，这其中很大一部分原因是招聘经理的\"普遍年龄歧视\"。"
+   "cn": "他们报告称，这其中很大一部分原因是招聘经理的\"普遍年龄歧视\"。",
+   "p": 3
   },
   {
    "en": "Although such managers admit that post-45 hires turn out on average to be just as good as or better than younger workers, they still don't want to hire them.",
-   "cn": "尽管这些经理承认，45岁后雇用的员工平均而言与年轻员工一样好甚至更好，他们仍然不想雇用这些人。"
+   "cn": "尽管这些经理承认，45岁后雇用的员工平均而言与年轻员工一样好甚至更好，他们仍然不想雇用这些人。",
+   "p": 3
   },
   {
    "en": "· Hiring managers have a strong perception bias against 45+ job candidates · they believe that members of this age group have poor skills and low adaptability,· Generation's analysts report.",
-   "cn": "\"招聘经理对45岁以上的求职者存在强烈的认知偏见——他们认为这个年龄段的人技能差、适应性低，\"Generation的分析师报告说。"
+   "cn": "\"招聘经理对45岁以上的求职者存在强烈的认知偏见——他们认为这个年龄段的人技能差、适应性低，\"Generation的分析师报告说。",
+   "p": 3
   },
   {
    "en": "The survey results are remarkable.",
-   "cn": "调查结果引人注目。"
+   "cn": "调查结果引人注目。",
+   "p": 4
   },
   {
    "en": "Hiring managers are three times as likely to rate job applicants age 35-44 as a better ·fit· than those over 45.",
-   "cn": "招聘经理认为35至44岁的求职者比45岁以上者\"更合适\"的可能性，是后者的三倍。"
+   "cn": "招聘经理认为35至44岁的求职者比45岁以上者\"更合适\"的可能性，是后者的三倍。",
+   "p": 4
   },
   {
    "en": "They rate the post-45 job seekers lower on average on all three measures · even experience · than those ages 18 to 34.",
-   "cn": "与18至34岁的人相比，他们对45岁以上求职者在三项指标——甚至包括经验——上的平均评分都更低。"
+   "cn": "与18至34岁的人相比，他们对45岁以上求职者在三项指标——甚至包括经验——上的平均评分都更低。",
+   "p": 4
   },
   {
    "en": "This is true even though nearly nine managers in 10 also said their post-45 workers were as good as or better than younger employees in the same jobs.",
-   "cn": "尽管近十分之九的经理也表示，他们45岁以上的员工与从事相同岗位的年轻员工一样好甚至更好，情况依然如此。"
+   "cn": "尽管近十分之九的经理也表示，他们45岁以上的员工与从事相同岗位的年轻员工一样好甚至更好，情况依然如此。",
+   "p": 4
   },
   {
    "en": "Their biggest fears about hiring those over 45?",
-   "cn": "他们对雇用45岁以上者最大的担忧是什么？"
+   "cn": "他们对雇用45岁以上者最大的担忧是什么？",
+   "p": 5
   },
   {
    "en": "Managers said they worry that older hires will be reluctant to try new technologies, and will be unable to learn new skills.",
-   "cn": "经理们说，他们担心年长的雇员不愿尝试新技术，并且学不会新技能。"
+   "cn": "经理们说，他们担心年长的雇员不愿尝试新技术，并且学不会新技能。",
+   "p": 5
   },
   {
    "en": "Besides, the majority of hiring managers are under 45 · and seem reluctant to hire people older than themselves.",
-   "cn": "此外，大多数招聘经理都在45岁以下——而且似乎不愿雇用比自己年长的人。"
+   "cn": "此外，大多数招聘经理都在45岁以下——而且似乎不愿雇用比自己年长的人。",
+   "p": 5
   },
   {
    "en": "But here's the good news.",
-   "cn": "但好消息来了。"
+   "cn": "但好消息来了。",
+   "p": 6
   },
   {
    "en": "Older workers who've actively engaged in more education and training relevant to their jobs turn this pretty much on its head.",
-   "cn": "那些积极接受与自身工作相关的更多教育和培训的年长劳动者，几乎把这一局面彻底扭转。"
+   "cn": "那些积极接受与自身工作相关的更多教育和培训的年长劳动者，几乎把这一局面彻底扭转。",
+   "p": 6
   },
   {
    "en": "Three-quarters of hiring managers said they'd be more likely to hire an over-45 who had relevant education, training or credentials (文凭).",
-   "cn": "四分之三的招聘经理表示，他们更有可能雇用拥有相关教育、培训或文凭的45岁以上者。"
+   "cn": "四分之三的招聘经理表示，他们更有可能雇用拥有相关教育、培训或文凭的45岁以上者。",
+   "p": 6
   },
   {
    "en": "Among those over 45 who'd successfully switched careers, 74% said training helped them get their new job.",
-   "cn": "在成功转行的45岁以上人群中，74%的人说培训帮助他们得到了新工作。"
+   "cn": "在成功转行的45岁以上人群中，74%的人说培训帮助他们得到了新工作。",
+   "p": 6
   },
   {
    "en": "·Midcareer switchers overwhelmingly say that training enabled them to shift to a new career path,· the analysts write.",
-   "cn": "\"绝大多数中年转行者都说，培训使他们得以转向新的职业道路，\"分析师写道。"
+   "cn": "\"绝大多数中年转行者都说，培训使他们得以转向新的职业道路，\"分析师写道。",
+   "p": 7
   },
   {
    "en": "And when they asked over-45 candidates about their attitudes, they found that ·those who are excited by training are unemployed for less time, receive more job offers, and are more satisfied by the job offers they receive.·",
-   "cn": "而当他们询问45岁以上的求职者对其态度时，发现\"那些对培训感到兴奋的人，失业时间更短、收到的录用通知更多，并且对自己收到的录用通知更满意。\""
+   "cn": "而当他们询问45岁以上的求职者对其态度时，发现\"那些对培训感到兴奋的人，失业时间更短、收到的录用通知更多，并且对自己收到的录用通知更满意。\"",
+   "p": 7
   },
   {
    "en": "Hiring managers said training was three times more likely to get them to hire applicants over age 45 than, say, government subsidies (补贴).",
-   "cn": "招聘经理表示，与政府的补贴之类相比，培训让他们雇用45岁以上求职者的可能性要高三倍。"
+   "cn": "招聘经理表示，与政府的补贴之类相比，培训让他们雇用45岁以上求职者的可能性要高三倍。",
+   "p": 8
   },
   {
    "en": "What training are we talking about?",
-   "cn": "我们所说的培训是什么？"
+   "cn": "我们所说的培训是什么？",
+   "p": 8
   },
   {
    "en": "Obviously it depends on the job.",
-   "cn": "显然取决于具体工作。"
+   "cn": "显然取决于具体工作。",
+   "p": 8
   },
   {
    "en": "And, yes, managers are most likely to be impressed by industry qualifications you get in school.",
-   "cn": "没错，经理们最可能被你在学校获得的行业资格所打动。"
+   "cn": "没错，经理们最可能被你在学校获得的行业资格所打动。",
+   "p": 8
   },
   {
    "en": "These things cost money, and time.",
-   "cn": "这些东西既花钱又花时间。"
+   "cn": "这些东西既花钱又花时间。",
+   "p": 8
   },
   {
    "en": "But these aren't the only things helpful.",
-   "cn": "但这些并非唯一有用的东西。"
+   "cn": "但这些并非唯一有用的东西。",
+   "p": 8
   },
   {
    "en": "Those who had successfully changed careers after 45 told Generation that education and training had been a big help · and that included in-person, on-the-job training, ·informal learning,· and online courses · with or without certification.",
-   "cn": "那些在45岁后成功转行的人告诉Generation，教育和培训帮了大忙——这其中既包括面对面的在职培训、\"非正式学习\"，也包括在线课程——无论是否获得认证。"
+   "cn": "那些在45岁后成功转行的人告诉Generation，教育和培训帮了大忙——这其中既包括面对面的在职培训、\"非正式学习\"，也包括在线课程——无论是否获得认证。",
+   "p": 8
   },
   {
    "en": "If they think we're too old to learn new skills after we're 45, just learning some new skills may have an effect on its own.",
-   "cn": "如果他们觉得我们45岁之后就太老而学不会新技能，那么仅仅学一些新技能本身或许就能产生影响。"
+   "cn": "如果他们觉得我们45岁之后就太老而学不会新技能，那么仅仅学一些新技能本身或许就能产生影响。",
+   "p": 9
   },
   {
    "en": "There's a downside to this.",
-   "cn": "这也有不利的一面。"
+   "cn": "这也有不利的一面。",
+   "p": 9
   },
   {
    "en": "The people least interested in retraining are more likely to come from historically disadvantaged communities, more likely to have low incomes, and are more likely to have the least schooling after getting their high-school diploma or earlier.",
-   "cn": "对再培训最不感兴趣的人，更可能来自历史上处于弱势的群体，更可能收入微薄，并且在拿到高中文凭或更早之后受教育最少。"
+   "cn": "对再培训最不感兴趣的人，更可能来自历史上处于弱势的群体，更可能收入微薄，并且在拿到高中文凭或更早之后受教育最少。",
+   "p": 9
   },
   {
    "en": "On average, post-45 job switchers with higher incomes participate in 2.5 training programs each.",
-   "cn": "平均而言，收入较高的45岁后换工作者每人参加2.5个培训项目。"
+   "cn": "平均而言，收入较高的45岁后换工作者每人参加2.5个培训项目。",
+   "p": 9
   },
   {
    "en": "Those with lower incomes: 0.9 programs on average.",
-   "cn": "而收入较低者：平均每人0.9个。"
+   "cn": "而收入较低者：平均每人0.9个。",
+   "p": 9
   },
   {
    "en": "Many years ago, I wrote about a study which found that employers are much more likely to hire a college graduate who has some work experience in the industry than a college graduate who took the ·right· degree.",
-   "cn": "许多年前，我曾写过一项研究，该研究发现，雇主远比雇用拿\"正确\"学位的大学毕业生，更倾向于雇用在本行业有些工作经验的大学毕业生。"
+   "cn": "许多年前，我曾写过一项研究，该研究发现，雇主远比雇用拿\"正确\"学位的大学毕业生，更倾向于雇用在本行业有些工作经验的大学毕业生。",
+   "p": 10
   },
   {
    "en": "A bank is more likely to hire a literature graduate who spent their summers working in their local bank than a finance or economics graduate who spent their summers surfing or traveling around Italy.",
-   "cn": "一家银行更可能雇用暑假在当地银行打工的文学专业毕业生，而不是暑假去冲浪或环游意大利的金融或经济专业毕业生。"
+   "cn": "一家银行更可能雇用暑假在当地银行打工的文学专业毕业生，而不是暑假去冲浪或环游意大利的金融或经济专业毕业生。",
+   "p": 10
   },
   {
    "en": "They've learned through long experience.",
-   "cn": "他们是通过长期的经验学到这一点的。"
+   "cn": "他们是通过长期的经验学到这一点的。",
+   "p": 10
   },
   {
    "en": "The person who worked in the bank is more likely ready, willing and able to be part of the team and do the job from day 1.",
-   "cn": "在银行工作过的人更可能从第一天起就准备就绪、心甘情愿且能够成为团队一员并胜任工作。"
+   "cn": "在银行工作过的人更可能从第一天起就准备就绪、心甘情愿且能够成为团队一员并胜任工作。",
+   "p": 10
   },
   {
    "en": "We can rail against ·ageism· all we like.",
-   "cn": "我们可以尽情抨击\"年龄歧视\"。"
+   "cn": "我们可以尽情抨击\"年龄歧视\"。",
+   "p": 11
   },
   {
    "en": "It gets us nowhere.",
-   "cn": "但这毫无用处。"
+   "cn": "但这毫无用处。",
+   "p": 11
   },
   {
    "en": "And it's easy to forget that employers, like everyone else, are under time pressure and are just trying to solve problems.",
-   "cn": "而且很容易忘记，雇主和所有人一样，也面临时间压力，只是在努力解决问题。"
+   "cn": "而且很容易忘记，雇主和所有人一样，也面临时间压力，只是在努力解决问题。",
+   "p": 11
   },
   {
    "en": "Any and all ·training,· including inexpensive and informal training, is going to help resolve their worries about hiring someone over 45.",
-   "cn": "任何和所有的\"培训\"——包括廉价和非正式的培训——都将有助于打消他们对雇用45岁以上者的顾虑。"
+   "cn": "任何和所有的\"培训\"——包括廉价和非正式的培训——都将有助于打消他们对雇用45岁以上者的顾虑。",
+   "p": 11
   },
   {
    "en": "And it has never been easier or cheaper to gain instruction in new skills, thanks to the internet.",
-   "cn": "而且，多亏了互联网，学习新技能的指导从未像今天这样容易或便宜。"
+   "cn": "而且，多亏了互联网，学习新技能的指导从未像今天这样容易或便宜。",
+   "p": 11
   },
   {
    "en": "Online schools like Udemy and Lynda.com offer sweet deals at sign-up.",
-   "cn": "像Udemy和Lynda.com这样的在线学校在注册时提供优惠。"
+   "cn": "像Udemy和Lynda.com这样的在线学校在注册时提供优惠。",
+   "p": 11
   },
   {
    "en": "And courses on YouTube are free.",
-   "cn": "YouTube上的课程则是免费的。"
+   "cn": "YouTube上的课程则是免费的。",
+   "p": 11
   },
   {
    "en": "Bottom line?",
-   "cn": "归根结底？"
+   "cn": "归根结底？",
+   "p": 12
   },
   {
    "en": "Yes, it really can be difficult getting a new job after age 45, let alone changing careers.",
-   "cn": "是的，45岁之后找一份新工作确实可能很难，更别提转行了。"
+   "cn": "是的，45岁之后找一份新工作确实可能很难，更别提转行了。",
+   "p": 12
   },
   {
    "en": "One of the best things we can do to help ourselves is to go online and learn new, relevant skills.",
-   "cn": "我们能为自己做的最好的事情之一，就是上网学习新的、相关的技能。"
+   "cn": "我们能为自己做的最好的事情之一，就是上网学习新的、相关的技能。",
+   "p": 12
   },
   {
    "en": "Sadly, the people who most need the help are least likely to take it · which raises a challenge for society as a whole.",
-   "cn": "可悲的是，最需要帮助的人最可能不去接受帮助——这给整个社会提出了一个挑战。"
+   "cn": "可悲的是，最需要帮助的人最可能不去接受帮助——这给整个社会提出了一个挑战。",
+   "p": 12
   },
   {
    "en": "Not only do we not want to see lives go to waste, but we all benefit if more people are working and fewer are unemployed",
-   "cn": "我们不仅不愿看到生命被白白浪费，而且如果工作的人更多、失业的人更少，我们所有人都会受益。"
+   "cn": "我们不仅不愿看到生命被白白浪费，而且如果工作的人更多、失业的人更少，我们所有人都会受益。",
+   "p": 12
   }
  ]
 }

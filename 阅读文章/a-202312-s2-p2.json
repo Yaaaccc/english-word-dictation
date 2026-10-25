@@ -6,67 +6,83 @@
  "sents": [
   {
    "en": "A multitasker is one who can perform two or more tasks effectively at the same time, which·apart from the obvious differences·is similar to what a computer does.",
-   "cn": "所谓“多面手”，是指能同时高效完成两项或更多任务的人，这——除了显而易见的差异外——与计算机的工作方式相似。"
+   "cn": "所谓“多面手”，是指能同时高效完成两项或更多任务的人，这——除了显而易见的差异外——与计算机的工作方式相似。",
+   "p": 0
   },
   {
    "en": "The concept does indeed come from the realms of technology, where it is used to refer to an operating system that can execute multiple tasks at the same time.",
-   "cn": "这个概念确实源自技术领域，在那里它用来指能够同时执行多个任务的操作系统。"
+   "cn": "这个概念确实源自技术领域，在那里它用来指能够同时执行多个任务的操作系统。",
+   "p": 0
   },
   {
    "en": "However, the question is: can a person really be a multitasker?",
-   "cn": "然而问题是：人真的能成为多面手吗？"
+   "cn": "然而问题是：人真的能成为多面手吗？",
+   "p": 0
   },
   {
    "en": "For most scientists, the answer is no. So much so that, according to experts in neuroscience, our brains do not handle multitasking situations well.",
-   "cn": "对大多数科学家而言，答案是不能。以至于神经系统科学的专家表示，我们的大脑并不擅长应对多任务情境。"
+   "cn": "对大多数科学家而言，答案是不能。以至于神经系统科学的专家表示，我们的大脑并不擅长应对多任务情境。",
+   "p": 1
   },
   {
    "en": "As soon as two tasks require our attention, productivity suffers.",
-   "cn": "一旦两项任务都要求我们投入注意力，效率就会下降。"
+   "cn": "一旦两项任务都要求我们投入注意力，效率就会下降。",
+   "p": 1
   },
   {
    "en": "What we call multitasking, therefore, is in reality the ability to move more or less quickly from one task to another.",
-   "cn": "因此，我们所谓的“多任务”，实际上是从一项任务切换到另一项任务、且切换速度快慢不一的能力。"
+   "cn": "因此，我们所谓的“多任务”，实际上是从一项任务切换到另一项任务、且切换速度快慢不一的能力。",
+   "p": 1
   },
   {
    "en": "This requires two essential conditions: that one of the tasks needs to be automatic, like walking or eating, and that they both need different mental processes.",
-   "cn": "这需要两个必要条件：其中一项任务必须是自动化的，比如走路或吃饭；并且两项任务需要运用不同的心理过程。"
+   "cn": "这需要两个必要条件：其中一项任务必须是自动化的，比如走路或吃饭；并且两项任务需要运用不同的心理过程。",
+   "p": 1
   },
   {
    "en": "Answering the phone and writing at the same time, for example.",
-   "cn": "例如，一边接电话一边写字。"
+   "cn": "例如，一边接电话一边写字。",
+   "p": 1
   },
   {
    "en": "However, on the other side of the coin there are people who maintain that it is possible to be, or at least seem to be, multitasking.",
-   "cn": "然而，另一方面，也有人坚持认为，人有可能做到、或至少看上去是在进行多任务处理。"
+   "cn": "然而，另一方面，也有人坚持认为，人有可能做到、或至少看上去是在进行多任务处理。",
+   "p": 2
   },
   {
    "en": "A recent study concluded that regardless of whether people are actually handling several tasks or not, the mere fact that they perceive this activity as multitasking has a positive effect on their performance.",
-   "cn": "最近一项研究得出结论：无论人们是否真的在同时处理多项任务，只要他们把这一活动感知为多任务，就会对表现产生积极影响。"
+   "cn": "最近一项研究得出结论：无论人们是否真的在同时处理多项任务，只要他们把这一活动感知为多任务，就会对表现产生积极影响。",
+   "p": 2
   },
   {
    "en": "The business perspective offers a different view: multitasking is understood as the ability to adapt to all types of environment within a company and effectively undertake different activities within a set time frame.",
-   "cn": "商业视角提供了不同的看法：多任务被视为适应公司内各类环境、并在既定时间框架内有效开展不同活动的能力。"
+   "cn": "商业视角提供了不同的看法：多任务被视为适应公司内各类环境、并在既定时间框架内有效开展不同活动的能力。",
+   "p": 3
   },
   {
    "en": "Indeed, many companies look for people who are skilled in multitasking to improve their productivity.",
-   "cn": "事实上，许多公司都在寻找擅长多任务的人，以提升生产率。"
+   "cn": "事实上，许多公司都在寻找擅长多任务的人，以提升生产率。",
+   "p": 3
   },
   {
    "en": "From this different perspective, you can not only be multitasking but this ability can also be taught: something that is easier in fluid organisations, which favour flexibility in their working practices.",
-   "cn": "从这一不同视角看，你不仅能成为多面手，这种能力还可以被传授：在崇尚灵活工作方式的柔性组织中，这更容易做到。"
+   "cn": "从这一不同视角看，你不仅能成为多面手，这种能力还可以被传授：在崇尚灵活工作方式的柔性组织中，这更容易做到。",
+   "p": 3
   },
   {
    "en": "The benefits of multitasking are clear.",
-   "cn": "多任务处理的好处显而易见。"
+   "cn": "多任务处理的好处显而易见。",
+   "p": 4
   },
   {
    "en": "Being quicker and more efficient increases our performance and the number of tasks completed.",
-   "cn": "更快、更高效能提升我们的表现和完成任务的数量。"
+   "cn": "更快、更高效能提升我们的表现和完成任务的数量。",
+   "p": 4
   },
   {
    "en": "But having to pay attention to several things at once means that the powers of concentration are reduced and that can lead to more mistakes.",
-   "cn": "但同时关注多件事意味着专注力下降，而这可能导致更多错误。"
+   "cn": "但同时关注多件事意味着专注力下降，而这可能导致更多错误。",
+   "p": 4
   }
  ]
 }

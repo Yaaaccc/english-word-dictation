@@ -6,79 +6,98 @@
  "sents": [
   {
    "en": "Junk food is now a staple of many Americans' diets.",
-   "cn": "垃圾食品如今已是许多美国人饮食中的主食。"
+   "cn": "垃圾食品如今已是许多美国人饮食中的主食。",
+   "p": 0
   },
   {
    "en": "Advertising campaigns from the snack food companies, often featuring sports stars, send the message that we can neutralize any negative effects of consuming their products simply by getting more physical exercise.",
-   "cn": "零食公司的广告活动常常邀请体育明星代言，传达这样一种信息：只要多运动，就能抵消食用其产品带来的任何负面影响。"
+   "cn": "零食公司的广告活动常常邀请体育明星代言，传达这样一种信息：只要多运动，就能抵消食用其产品带来的任何负面影响。",
+   "p": 0
   },
   {
    "en": "But recent studies show a lack of exercise is not to blame for rising obesity rates. Bad diets are.",
-   "cn": "但最近的研究表明，缺乏锻炼并非肥胖率上升的罪魁祸首，糟糕的饮食才是。"
+   "cn": "但最近的研究表明，缺乏锻炼并非肥胖率上升的罪魁祸首，糟糕的饮食才是。",
+   "p": 0
   },
   {
    "en": "Interventions (干预) to help reduce junk food consumption are especially important for children and teenagers.",
-   "cn": "帮助减少垃圾食品摄入的干预措施对儿童和青少年尤其重要。"
+   "cn": "帮助减少垃圾食品摄入的干预措施对儿童和青少年尤其重要。",
+   "p": 1
   },
   {
    "en": "Prevention is better than cure because obesity is so difficult to treat.",
-   "cn": "预防胜于治疗，因为肥胖极难治愈。"
+   "cn": "预防胜于治疗，因为肥胖极难治愈。",
+   "p": 1
   },
   {
    "en": "Unfortunately, while health education has shown some success among young children, teens have been harder to reach.",
-   "cn": "遗憾的是，尽管健康教育在幼童中取得了一些成效，但青少年却更难触及。"
+   "cn": "遗憾的是，尽管健康教育在幼童中取得了一些成效，但青少年却更难触及。",
+   "p": 1
   },
   {
    "en": "Now a large-scale study has tried an innovative approach to change teenagers' attitudes towards healthy eating, and the results are promising.",
-   "cn": "如今，一项大规模研究尝试用一种创新方法来改变青少年对健康饮食的态度，结果令人鼓舞。"
+   "cn": "如今，一项大规模研究尝试用一种创新方法来改变青少年对健康饮食的态度，结果令人鼓舞。",
+   "p": 2
   },
   {
    "en": "The researchers argued that previous interventions have probably been unsuccessful because of a major flaw: they focused on a future, healthier you and assumed that this would be enough motivation for teenagers.",
-   "cn": "研究人员认为，以往的干预很可能失败，原因在于一个重大缺陷：它们聚焦于\"未来更健康的你\"，并假定这足以成为青少年的动力。"
+   "cn": "研究人员认为，以往的干预很可能失败，原因在于一个重大缺陷：它们聚焦于\"未来更健康的你\"，并假定这足以成为青少年的动力。",
+   "p": 2
   },
   {
    "en": "In contrast, the new intervention cleverly exploits teenagers' instinct for rebelliousness and autonomy, and the value they place on social justice.",
-   "cn": "相比之下，这项新干预巧妙利用了青少年的叛逆本能和自主意识，以及他们所看重的公平正义。"
+   "cn": "相比之下，这项新干预巧妙利用了青少年的叛逆本能和自主意识，以及他们所看重的公平正义。",
+   "p": 2
   },
   {
    "en": "To do this, researchers had students read an article on the food industry.",
-   "cn": "为此，研究人员让学生阅读了一篇关于食品行业的文章。"
+   "cn": "为此，研究人员让学生阅读了一篇关于食品行业的文章。",
+   "p": 3
   },
   {
    "en": "It revealed a secret about the manipulative and deceptive strategies used to make junk food more addictive and characterize the products as healthy.",
-   "cn": "文章揭露了一个秘密：企业运用操纵性和欺骗性策略，让垃圾食品更易令人上瘾，并将其包装成健康产品。"
+   "cn": "文章揭露了一个秘密：企业运用操纵性和欺骗性策略，让垃圾食品更易令人上瘾，并将其包装成健康产品。",
+   "p": 3
   },
   {
    "en": "The article also explained how advertising campaigns specifically target very young and poor people, causing harm for these vulnerable groups.",
-   "cn": "文章还解释了广告活动如何专门针对年龄很小和贫困的人群，给这些弱势群体造成伤害。"
+   "cn": "文章还解释了广告活动如何专门针对年龄很小和贫困的人群，给这些弱势群体造成伤害。",
+   "p": 3
   },
   {
    "en": "Afterwards, the participants read a fictional survey of teens who wanted to ·fight back against the companies by buying and eating less processed food·.",
-   "cn": "随后，参与者阅读了一项虚构的调查，调查中的青少年想要\"通过少买、少吃加工食品来反击这些公司\"。"
+   "cn": "随后，参与者阅读了一项虚构的调查，调查中的青少年想要\"通过少买、少吃加工食品来反击这些公司\"。",
+   "p": 4
   },
   {
    "en": "After the intervention, participants associated healthy eating with autonomy and social justice.",
-   "cn": "干预之后，参与者将健康饮食与自主和公平正义联系在一起。"
+   "cn": "干预之后，参与者将健康饮食与自主和公平正义联系在一起。",
+   "p": 5
   },
   {
    "en": "The teenagers also rated healthy eating as being more appealing.",
-   "cn": "青少年也觉得健康饮食更具吸引力。"
+   "cn": "青少年也觉得健康饮食更具吸引力。",
+   "p": 5
   },
   {
    "en": "Importantly, there were also some promising effects of the new intervention on actual behavior.",
-   "cn": "重要的是，这项新干预在实际行为上也产生了一些令人鼓舞的效果。"
+   "cn": "重要的是，这项新干预在实际行为上也产生了一些令人鼓舞的效果。",
+   "p": 5
   },
   {
    "en": "A day later the students were offered a choice of snacks and drinks in a seemingly unrelated context.",
-   "cn": "一天后，学生在看似无关的情境下被提供多种零食和饮料的选择。"
+   "cn": "一天后，学生在看似无关的情境下被提供多种零食和饮料的选择。",
+   "p": 5
   },
   {
    "en": "The teens chose healthy snacks and drinks (such as fruit or water) more often over unhealthy options (like biscuits and soda).",
-   "cn": "这些青少年更频繁地选择健康零食和饮品（如水果或水），而非不健康选项（如饼干和汽水）。"
+   "cn": "这些青少年更频繁地选择健康零食和饮品（如水果或水），而非不健康选项（如饼干和汽水）。",
+   "p": 5
   },
   {
    "en": "Apparently associating a healthy diet with teenagers' own values seems to be a promising avenue to prevent obesity.",
-   "cn": "显然，将健康饮食与青少年自身的价值观联系起来，似乎是一条预防肥胖的可行之路。"
+   "cn": "显然，将健康饮食与青少年自身的价值观联系起来，似乎是一条预防肥胖的可行之路。",
+   "p": 5
   }
  ]
 }

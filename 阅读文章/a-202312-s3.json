@@ -6,227 +6,283 @@
  "sents": [
   {
    "en": "As a parent of two boys at primary school, I worry about the issues associated with teenagers and social media.",
-   "cn": "作为一名有两个上小学的男孩的父亲，我担心与青少年和社交媒体相关的问题。"
+   "cn": "作为一名有两个上小学的男孩的父亲，我担心与青少年和社交媒体相关的问题。",
+   "p": 0
   },
   {
    "en": "Newspapers are constantly filled with frightening accounts of drug addiction and aggressive behaviour supposedly caused by violent videogames.",
-   "cn": "报纸上总充斥着耸人听闻的报道，声称暴力电子游戏导致了毒瘾和攻击性行为。"
+   "cn": "报纸上总充斥着耸人听闻的报道，声称暴力电子游戏导致了毒瘾和攻击性行为。",
+   "p": 0
   },
   {
    "en": "But even when these accounts touch on real concerns, they do not really reflect the great mass of everyday teenage social behaviour: the online chat, the texting, the surfing, and the emergence of a new teenage sphere that is conducted digitally.",
-   "cn": "但即便这些报道触及了真实担忧，它们也并未真正反映青少年日常社交生活的主体：在线聊天、发短信、上网，以及一个以数字化方式展开的新青少年圈层的兴起。"
+   "cn": "但即便这些报道触及了真实担忧，它们也并未真正反映青少年日常社交生活的主体：在线聊天、发短信、上网，以及一个以数字化方式展开的新青少年圈层的兴起。",
+   "p": 0
   },
   {
    "en": "New technologies always provoke generational panic, which usually has more to do with adult fears than with the lives of teenagers.",
-   "cn": "新技术总会引发代际恐慌，而这种恐慌通常与成年人的恐惧有关，而非青少年的真实生活。"
+   "cn": "新技术总会引发代际恐慌，而这种恐慌通常与成年人的恐惧有关，而非青少年的真实生活。",
+   "p": 1
   },
   {
    "en": "In the 1930s, parents worried that radio was gaining \"an irresistible hold of their children\".",
-   "cn": "20世纪30年代，父母担心广播对孩子们产生了“难以抗拒的掌控力”；"
+   "cn": "20世纪30年代，父母担心广播对孩子们产生了“难以抗拒的掌控力”；",
+   "p": 1
   },
   {
    "en": "In the 80s, the great danger was the Sony Walkman.",
-   "cn": "80年代，巨大的危险则是索尼随身听。"
+   "cn": "80年代，巨大的危险则是索尼随身听。",
+   "p": 1
   },
   {
    "en": "When you look at today's digital activity, the facts are much more positive than you might expect.",
-   "cn": "当你审视如今的数字化活动时，事实比你预想的要积极得多。"
+   "cn": "当你审视如今的数字化活动时，事实比你预想的要积极得多。",
+   "p": 1
   },
   {
    "en": "Indeed, social scientists who study young people have found that their digital use can be inventive and even beneficial.",
-   "cn": "事实上，研究年轻人的社会科学家发现，青少年对数字技术的使用可以极富创意，甚至有益。"
+   "cn": "事实上，研究年轻人的社会科学家发现，青少年对数字技术的使用可以极富创意，甚至有益。",
+   "p": 2
   },
   {
    "en": "This is true not just in terms of their social lives, but their education too.",
-   "cn": "这不仅体现在社交生活上，也体现在教育上。"
+   "cn": "这不仅体现在社交生活上，也体现在教育上。",
+   "p": 2
   },
   {
    "en": "So if you use a ton of social media, do you become unable, or unwilling, to engage in face-to-face contact?",
-   "cn": "那么，如果你大量使用社交媒体，是否会变得无法或不愿进行面对面交流？"
+   "cn": "那么，如果你大量使用社交媒体，是否会变得无法或不愿进行面对面交流？",
+   "p": 2
   },
   {
    "en": "The evidence suggests not.",
-   "cn": "证据表明并不会。"
+   "cn": "证据表明并不会。",
+   "p": 2
   },
   {
    "en": "Research by Amanda Lenhart of the Pew Research Centre, a US think tank, found that the most passionate texters are also the kids most likely to spend time with friends in person.",
-   "cn": "美国智库皮尤研究中心的阿曼达∙伦哈特的研究发现，最热衷发短信的孩子，也最有可能与朋友当面相处。"
+   "cn": "美国智库皮尤研究中心的阿曼达∙伦哈特的研究发现，最热衷发短信的孩子，也最有可能与朋友当面相处。",
+   "p": 2
   },
   {
    "en": "One form of socialising doesn't replace the other. It expands it.",
-   "cn": "一种社交方式并不会取代另一种，而是扩展了它。"
+   "cn": "一种社交方式并不会取代另一种，而是扩展了它。",
+   "p": 2
   },
   {
    "en": "\"Kids still spend time face to face,\" Lenhart says.",
-   "cn": "“孩子们仍然会面对面地相处，”伦哈特说。"
+   "cn": "“孩子们仍然会面对面地相处，”伦哈特说。",
+   "p": 3
   },
   {
    "en": "Indeed, as they get older and are given more freedom, they often ease up on social networking.",
-   "cn": "的确，随着年龄增长、获得更多自由，他们往往会减少社交网络的使用。"
+   "cn": "的确，随着年龄增长、获得更多自由，他们往往会减少社交网络的使用。",
+   "p": 3
   },
   {
    "en": "Early on, the web is their \"third space\", but by the late teens, it's replaced in reaction to greater independence.",
-   "cn": "起初，网络是他们的“第三空间”，但到了青少年后期，出于对更大独立性的回应，它会被取代。"
+   "cn": "起初，网络是他们的“第三空间”，但到了青少年后期，出于对更大独立性的回应，它会被取代。",
+   "p": 3
   },
   {
    "en": "They have to be on Facebook, to know what's going on among friends and family, but they are ambivalent about it, says Rebecca Eynon, a research fellow at the Oxford Internet Institute, who has interviewed about 200 British teenagers over three years.",
-   "cn": "牛津互联网研究所的研究员丽贝卡∙艾农在三年来采访了约200名英国青少年后发现，他们为了了解亲友近况不得不上Facebook，但对它又态度矛盾。"
+   "cn": "牛津互联网研究所的研究员丽贝卡∙艾农在三年来采访了约200名英国青少年后发现，他们为了了解亲友近况不得不上Facebook，但对它又态度矛盾。",
+   "p": 3
   },
   {
    "en": "As they gain experience with living online, they begin to adjust their behaviour, struggling with new communication skills, as they do in the real world.",
-   "cn": "随着积累online生活的经验，他们开始调整自己的行为，努力掌握新的沟通技巧，就像在现实世界中所做的那样。"
+   "cn": "随着积累online生活的经验，他们开始调整自己的行为，努力掌握新的沟通技巧，就像在现实世界中所做的那样。",
+   "p": 3
   },
   {
    "en": "Parents are wrong to worry that kids don't care about privacy.",
-   "cn": "父母担心孩子不在乎隐私，这种担忧是错的。"
+   "cn": "父母担心孩子不在乎隐私，这种担忧是错的。",
+   "p": 4
   },
   {
    "en": "In fact, they spend hours changing Facebook settings or using quick-delete sharing tools, such as Snapchat, to minimise their traces.",
-   "cn": "事实上，他们花数小时更改Facebook设置，或使用Snapchat这类可快速删除的分享工具，以尽量减少自己的痕迹。"
+   "cn": "事实上，他们花数小时更改Facebook设置，或使用Snapchat这类可快速删除的分享工具，以尽量减少自己的痕迹。",
+   "p": 4
   },
   {
    "en": "Or they post a photograph on Instagram, have a pleasant conversation with friends and then delete it so that no traces remain.",
-   "cn": "或者他们在Instagram上发一张照片，与朋友愉快地聊上一通，然后删除，让痕迹荡然无存。"
+   "cn": "或者他们在Instagram上发一张照片，与朋友愉快地聊上一通，然后删除，让痕迹荡然无存。",
+   "p": 4
   },
   {
    "en": "This is not to say that kids always use good judgment.",
-   "cn": "这并不是说孩子总能做出正确判断。"
+   "cn": "这并不是说孩子总能做出正确判断。",
+   "p": 5
   },
   {
    "en": "Like everyone else, they make mistakes·sometimes serious ones.",
-   "cn": "像其他人一样，他们也会犯错——有时还很严重。"
+   "cn": "像其他人一样，他们也会犯错——有时还很严重。",
+   "p": 5
   },
   {
    "en": "But working out how to behave online is a new social skill.",
-   "cn": "但学会如何在网上行事是一项新的社交技能。"
+   "cn": "但学会如何在网上行事是一项新的社交技能。",
+   "p": 5
   },
   {
    "en": "While there's plenty of drama and messiness online, it is not, for most teens, a cycle of non-stop abuse: a Pew study found only 15% of teens said someone had bullied them online in the last 12 months.",
-   "cn": "尽管网上不乏闹剧和混乱，但对大多数青少年来说，这并不是无休止的欺凌循环：皮尤的一项研究发现，只有15%的青少年表示过去12个月里有人在网上欺负过他们。"
+   "cn": "尽管网上不乏闹剧和混乱，但对大多数青少年来说，这并不是无休止的欺凌循环：皮尤的一项研究发现，只有15%的青少年表示过去12个月里有人在网上欺负过他们。",
+   "p": 5
   },
   {
    "en": "But surely all this short-form writing is affecting literacy?",
-   "cn": "但如此大量的短式写作肯定会影响读写能力吧？"
+   "cn": "但如此大量的短式写作肯定会影响读写能力吧？",
+   "p": 6
   },
   {
    "en": "Certainly, teachers worry.",
-   "cn": "教师们的确很担心。"
+   "cn": "教师们的确很担心。",
+   "p": 6
   },
   {
    "en": "They say that kids use overly casual language and text-speak in writing, and don't have as much patience for long reading and complex arguments.",
-   "cn": "他们说孩子在写作中使用过于随意的语言和短信式表达，对长篇阅读和复杂论证也缺乏耐心。"
+   "cn": "他们说孩子在写作中使用过于随意的语言和短信式表达，对长篇阅读和复杂论证也缺乏耐心。",
+   "p": 6
   },
   {
    "en": "Yet studies of first-year college papers suggest these anxieties may be partly based on misguided nostalgia.",
-   "cn": "然而，对大学一年级论文的研究表明，这些焦虑部分可能源于错误的怀旧情绪。"
+   "cn": "然而，对大学一年级论文的研究表明，这些焦虑部分可能源于错误的怀旧情绪。",
+   "p": 6
   },
   {
    "en": "When Stanford University scholar Andrea Lunsford gathered data on the rates of errors in \"freshman composition\" papers going back to 1917, she found that they were virtually identical to today.",
-   "cn": "当斯坦福学者安德莉亚∙伦斯福德收集了可追溯到1917年的“新生作文”错误率数据时，她发现其与今天几乎一模一样。"
+   "cn": "当斯坦福学者安德莉亚∙伦斯福德收集了可追溯到1917年的“新生作文”错误率数据时，她发现其与今天几乎一模一样。",
+   "p": 6
   },
   {
    "en": "But even as error rates stayed stable, student essays have blossomed in size and complexity.",
-   "cn": "然而，尽管错误率保持稳定，学生论文在篇幅和复杂度上却已大幅增长。"
+   "cn": "然而，尽管错误率保持稳定，学生论文在篇幅和复杂度上却已大幅增长。",
+   "p": 7
   },
   {
    "en": "They are now six times longer and, unlike older \"what I did this summer\" essays, they offer arguments supported by evidence.",
-   "cn": "如今它们长达过去的六倍，并且不同于过去“我这个暑假做了什么”式的文章，现在论文提供的是有证据支撑的论证。"
+   "cn": "如今它们长达过去的六倍，并且不同于过去“我这个暑假做了什么”式的文章，现在论文提供的是有证据支撑的论证。",
+   "p": 7
   },
   {
    "en": "Why?",
-   "cn": "为什么？"
+   "cn": "为什么？",
+   "p": 7
   },
   {
    "en": "Computers have vastly increased the ability of students to gather information, sample different points of view and write more fluidly.",
-   "cn": "计算机极大地提升了学生收集信息、采撷不同观点并更流畅地写作的能力。"
+   "cn": "计算机极大地提升了学生收集信息、采撷不同观点并更流畅地写作的能力。",
+   "p": 7
   },
   {
    "en": "When linguist Naomi Baron studied students' instant messaging even then she found surprisingly rare usage of short forms such as \"u\" for \"you\", and as students got older, they began to write in more grammatical sentences.",
-   "cn": "语言学家娜奥米∙巴伦研究学生的即时通讯时发现，即便在当时，“u”代替“you”这类简写的使用也少得出奇；而且随着年龄增长，学生开始写出更合乎语法的句子。"
+   "cn": "语言学家娜奥米∙巴伦研究学生的即时通讯时发现，即便在当时，“u”代替“you”这类简写的使用也少得出奇；而且随着年龄增长，学生开始写出更合乎语法的句子。",
+   "p": 8
   },
   {
    "en": "That is because they want to appear more adult, and they know how adults are expected to write.",
-   "cn": "这是因为他们想显得更成熟，也知道成年人应当怎样写。"
+   "cn": "这是因为他们想显得更成熟，也知道成年人应当怎样写。",
+   "p": 8
   },
   {
    "en": "Clearly, teaching teens formal writing is still crucial, but texting probably isn't destroying their ability to learn it.",
-   "cn": "显然，教青少年正式写作仍然至关重要，但发短信大概并未摧毁他们学习这种能力的可能。"
+   "cn": "显然，教青少年正式写作仍然至关重要，但发短信大概并未摧毁他们学习这种能力的可能。",
+   "p": 8
   },
   {
    "en": "It is probably true that fewer kids are heavy readers compared with two generations ago, when cheap paperbacks boosted rates of reading.",
-   "cn": "与两代人之前——那时廉价平装书提升了阅读率——相比，如今重度阅读的孩子可能确实更少了。"
+   "cn": "与两代人之前——那时廉价平装书提升了阅读率——相比，如今重度阅读的孩子可能确实更少了。",
+   "p": 9
   },
   {
    "en": "But even back then, a minority of people·perhaps 20%·were lifelong heavy readers, and it was cable TV, not the internet, that struck a blow at that culture in the 1980s.",
-   "cn": "但即便那时，也只有少数人（约20%）是一生的重度读者；而在20世纪80年代，给这种阅读文化带来打击的是有线电视，而非互联网。"
+   "cn": "但即便那时，也只有少数人（约20%）是一生的重度读者；而在20世纪80年代，给这种阅读文化带来打击的是有线电视，而非互联网。",
+   "p": 9
   },
   {
    "en": "Still, 15% or more of kids are found to be deeply bookish.",
-   "cn": "尽管如此，仍有15%或更多的孩子被发现极度嗜书。"
+   "cn": "尽管如此，仍有15%或更多的孩子被发现极度嗜书。",
+   "p": 9
   },
   {
    "en": "In fact, the online world offers kids remarkable opportunities to become literate and creative because young people can now publish ideas not just to their friends, but to the world.",
-   "cn": "事实上，网络世界为孩子们提供了成为有读写能力与创造力的人的绝佳机会，因为年轻人如今不仅能向朋友、也能向全世界发布想法。"
+   "cn": "事实上，网络世界为孩子们提供了成为有读写能力与创造力的人的绝佳机会，因为年轻人如今不仅能向朋友、也能向全世界发布想法。",
+   "p": 9
   },
   {
    "en": "And it turns out that when they write for strangers, their sense of \"authentic audience\" makes them work harder, push themselves further, and create powerful new communicative forms.",
-   "cn": "而且事实证明，当他们为陌生人写作时，“真实读者”的意识会让他们更努力、更上一层楼，并创造出有力的新型交流形式。"
+   "cn": "而且事实证明，当他们为陌生人写作时，“真实读者”的意识会让他们更努力、更上一层楼，并创造出有力的新型交流形式。",
+   "p": 9
   },
   {
    "en": "Few would deny that too much time online can be harmful.",
-   "cn": "很少有人会否认，上网时间过长可能有害。"
+   "cn": "很少有人会否认，上网时间过长可能有害。",
+   "p": 10
   },
   {
    "en": "Some of the dangers are emotional: hurting someone from a distance is not the same as hurting them face to face.",
-   "cn": "其中一些危险是情感层面的：从远处伤害一个人，不同于面对面伤害他。"
+   "cn": "其中一些危险是情感层面的：从远处伤害一个人，不同于面对面伤害他。",
+   "p": 10
   },
   {
    "en": "If we're lucky, the legal environment will change to make teenagers' online lives less likely to haunt them later on.",
-   "cn": "如果幸运的话，法律环境将会改变，使青少年的网络生活不太可能在日后缠扰他们。"
+   "cn": "如果幸运的话，法律环境将会改变，使青少年的网络生活不太可能在日后缠扰他们。",
+   "p": 10
   },
   {
    "en": "Just last week, California passed a law allowing minors to demand that internet firms erase their digital past and the EU has considered similar legislation.",
-   "cn": "就在上周，加利福尼亚州通过了一项法律，允许未成年人要求互联网公司删除他们的数字过往，欧盟也在考虑类似的立法。"
+   "cn": "就在上周，加利福尼亚州通过了一项法律，允许未成年人要求互联网公司删除他们的数字过往，欧盟也在考虑类似的立法。",
+   "p": 10
   },
   {
    "en": "Distraction is also a serious issue.",
-   "cn": "分心也是个严重问题。"
+   "cn": "分心也是个严重问题。",
+   "p": 11
   },
   {
    "en": "When kids switch from chat to music to homework, they are indeed likely to have trouble doing each task well.",
-   "cn": "当孩子从聊天切换到音乐再到作业，确实可能难以把每件事都做好。"
+   "cn": "当孩子从聊天切换到音乐再到作业，确实可能难以把每件事都做好。",
+   "p": 11
   },
   {
    "en": "And studies show that pupils don't fact-check information online·\"smart searching\" is a skill schools need to teach urgently.",
-   "cn": "研究显示，学生不会在网上核实信息——“聪明搜索”是学校亟需教授的技能。"
+   "cn": "研究显示，学生不会在网上核实信息——“聪明搜索”是学校亟需教授的技能。",
+   "p": 11
   },
   {
    "en": "It's also true that too much social networking and game playing can cut into schoolwork and sleep.",
-   "cn": "同样，过多的社交网络和游戏也会挤占学业与睡眠。"
+   "cn": "同样，过多的社交网络和游戏也会挤占学业与睡眠。",
+   "p": 11
   },
   {
    "en": "This is precisely why parents still need to set firm boundaries around it, as with any other distraction.",
-   "cn": "这正是父母仍需像对待其他干扰一样，为其设定明确界限的原因。"
+   "cn": "这正是父母仍需像对待其他干扰一样，为其设定明确界限的原因。",
+   "p": 11
   },
   {
    "en": "So what's the best way to cope?",
-   "cn": "那么最好的应对之道是什么？"
+   "cn": "那么最好的应对之道是什么？",
+   "p": 12
   },
   {
    "en": "The same boring old advice that applies to everything in parenting: moderation.",
-   "cn": "还是那条适用于育儿一切方面的老生常谈：适度。"
+   "cn": "还是那条适用于育儿一切方面的老生常谈：适度。",
+   "p": 12
   },
   {
    "en": "Rebecca Eynon argues that it's key to model good behaviour.",
-   "cn": "丽贝卡∙艾农认为，关键在于以身作则。"
+   "cn": "丽贝卡∙艾农认为，关键在于以身作则。",
+   "p": 12
   },
   {
    "en": "Parents who stare non-stop at their phones and don't read books are likely to breed kids who will do the same.",
-   "cn": "那些一刻不离手机、不读书的父母，很可能养出同样的孩子。"
+   "cn": "那些一刻不离手机、不读书的父母，很可能养出同样的孩子。",
+   "p": 12
   },
   {
    "en": "As ever, we ought to be careful about our own behaviour.",
-   "cn": "一如既往，我们应当留意自己的行为。"
+   "cn": "一如既往，我们应当留意自己的行为。",
+   "p": 12
   }
  ]
 }

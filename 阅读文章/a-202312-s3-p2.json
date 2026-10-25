@@ -6,51 +6,63 @@
  "sents": [
   {
    "en": "People in business often make decisions based on their own personal feelings or instincts.",
-   "cn": "商界人士常凭个人感受或直觉做决定。"
+   "cn": "商界人士常凭个人感受或直觉做决定。",
+   "p": 0
   },
   {
    "en": "It is quite horrifying to see people being guided by some unknown force.",
-   "cn": "看着人们被某种未知力量牵引，着实令人心惊。"
+   "cn": "看着人们被某种未知力量牵引，着实令人心惊。",
+   "p": 0
   },
   {
    "en": "But how wise is it, really, to let your instincts drive your decisions?",
-   "cn": "但让直觉驱动你的决策，究竟有多明智呢？"
+   "cn": "但让直觉驱动你的决策，究竟有多明智呢？",
+   "p": 0
   },
   {
    "en": "In the decision-making process, relying on instincts only makes sense when you have a vast experience to support you.",
-   "cn": "在决策过程中，依赖直觉只有在你拥有丰富经验支撑时才说得通。"
+   "cn": "在决策过程中，依赖直觉只有在你拥有丰富经验支撑时才说得通。",
+   "p": 1
   },
   {
    "en": "Simply \"feeling\" that something is right or should be done is highly subjective and can drown you.",
-   "cn": "仅仅“感觉”某件事正确或应当去做，是高度主观的，也会让你陷入困境。"
+   "cn": "仅仅“感觉”某件事正确或应当去做，是高度主观的，也会让你陷入困境。",
+   "p": 1
   },
   {
    "en": "On the other hand, there is a more rational approach to making decisions.",
-   "cn": "另一方面，还有一种更理性的决策方式。"
+   "cn": "另一方面，还有一种更理性的决策方式。",
+   "p": 2
   },
   {
    "en": "Data and analysis have long been associated with informed decisions.",
-   "cn": "数据与分析长久以来都与明智决策相关联。"
+   "cn": "数据与分析长久以来都与明智决策相关联。",
+   "p": 2
   },
   {
    "en": "These reduce the likelihood of errors and increase the chances of success.",
-   "cn": "它们能降低出错概率，提高成功机会。"
+   "cn": "它们能降低出错概率，提高成功机会。",
+   "p": 2
   },
   {
    "en": "Big, systematic data is mostly the foundation of most of our decisions, personal and business alike.",
-   "cn": "庞大而系统的数据，几乎是我们大多数决策——无论是个人还是商业——的基础。"
+   "cn": "庞大而系统的数据，几乎是我们大多数决策——无论是个人还是商业——的基础。",
+   "p": 2
   },
   {
    "en": "But with its extreme usability comes a complication: what do you do if you strongly feel something should not be done, even if the data insists that it should?",
-   "cn": "但随之极其实用性而来的，是一个难题：如果你强烈觉得某件事不该做，即便数据坚持认为应该做，你该怎么办？"
+   "cn": "但随之极其实用性而来的，是一个难题：如果你强烈觉得某件事不该做，即便数据坚持认为应该做，你该怎么办？",
+   "p": 2
   },
   {
    "en": "This seemingly easy question is what drives the need to understand the relationship between instincts and data in the decision-making process.",
-   "cn": "这个看似简单的问题，正促使我们去理解决策过程中直觉与数据之间的关系。"
+   "cn": "这个看似简单的问题，正促使我们去理解决策过程中直觉与数据之间的关系。",
+   "p": 3
   },
   {
    "en": "Without making things complicated, the solution to this dilemma is using data and instincts in conjunction to arrive at the best possible decisions.",
-   "cn": "无需把事情复杂化，这一两难困境的解决之道，就是将数据与直觉结合使用，以得出尽可能最优的决策。"
+   "cn": "无需把事情复杂化，这一两难困境的解决之道，就是将数据与直觉结合使用，以得出尽可能最优的决策。",
+   "p": 3
   }
  ]
 }

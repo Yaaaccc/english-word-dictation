@@ -6,71 +6,88 @@
  "sents": [
   {
    "en": "Recognizing when a friend or colleague feels sad, angry or surprised is key to getting along with others.",
-   "cn": "察觉朋友或同事何时感到悲伤、愤怒或惊讶，是与人相处的关键。"
+   "cn": "察觉朋友或同事何时感到悲伤、愤怒或惊讶，是与人相处的关键。",
+   "p": 0
   },
   {
    "en": "But a new study suggests that being sensitive to people's feelings may sometimes come with an extra dose of stress.",
-   "cn": "但一项新研究表明，对他人的情绪敏感，有时可能带来额外的压力。"
+   "cn": "但一项新研究表明，对他人的情绪敏感，有时可能带来额外的压力。",
+   "p": 0
   },
   {
    "en": "This and other research challenge the prevailing view that emotional intelligence is uniformly beneficial to its bearer.",
-   "cn": "这项研究及其他研究，挑战了\"情商对其拥有者总是有益\"这一主流观点。"
+   "cn": "这项研究及其他研究，挑战了\"情商对其拥有者总是有益\"这一主流观点。",
+   "p": 0
   },
   {
    "en": "In a study, psychologist Myriam Bechtoldt of the Frankfurt School of Finance and Management in Germany asked 166 male university students a series of questions to measure their emotional intelligence.",
-   "cn": "在一项研究中，德国法兰克福金融与管理学院的心理学教授米里亚姆∙贝希托尔特向166名男大学生提出一系列问题，以衡量他们的情商。"
+   "cn": "在一项研究中，德国法兰克福金融与管理学院的心理学教授米里亚姆∙贝希托尔特向166名男大学生提出一系列问题，以衡量他们的情商。",
+   "p": 1
   },
   {
    "en": "For example, they showed the students photographs of people's faces and asked them to what extent feelings such as happiness or disgust were being expressed.",
-   "cn": "例如，他们向学生展示人们的面部照片，并询问他们快乐或厌恶等情绪在多大程度上被表达了出来。"
+   "cn": "例如，他们向学生展示人们的面部照片，并询问他们快乐或厌恶等情绪在多大程度上被表达了出来。",
+   "p": 1
   },
   {
    "en": "The students then had to give job talks in front of judges who displayed serious facial expressions.",
-   "cn": "随后，这些学生须在面无表情的评委面前做求职演讲。"
+   "cn": "随后，这些学生须在面无表情的评委面前做求职演讲。",
+   "p": 1
   },
   {
    "en": "The scientists measured concentrations of stress hormones in the students' saliva before and after the talk.",
-   "cn": "科学家在演讲前后测量了学生唾液中的压力激素水平。"
+   "cn": "科学家在演讲前后测量了学生唾液中的压力激素水平。",
+   "p": 1
   },
   {
    "en": "In students who were rated more emotionally intelligent, the stress measures increased more during the experiment and took longer to go back to baseline.",
-   "cn": "在被评为情商更高的学生身上，压力指标在实验期间上升得更多，且需要更长时间才回落到基线水平。"
+   "cn": "在被评为情商更高的学生身上，压力指标在实验期间上升得更多，且需要更长时间才回落到基线水平。",
+   "p": 2
   },
   {
    "en": "The findings suggest that some people may be too emotionally clever for their own good, says Bechtoldt.",
-   "cn": "贝希托尔特说，这些发现表明，有些人可能\"情商过高反而于己无益\"。"
+   "cn": "贝希托尔特说，这些发现表明，有些人可能\"情商过高反而于己无益\"。",
+   "p": 2
   },
   {
    "en": "\"Sometimes you can be so good at something that it causes trouble,\" she notes.",
-   "cn": "\"有时你某件事做得太好，反而会带来麻烦，\"她指出。"
+   "cn": "\"有时你某件事做得太好，反而会带来麻烦，\"她指出。",
+   "p": 2
   },
   {
    "en": "Indeed, the study adds to previous research hinting at a dark side of emotional intelligence.",
-   "cn": "的确，这项研究补充了此前暗示情商存在阴暗面的研究。"
+   "cn": "的确，这项研究补充了此前暗示情商存在阴暗面的研究。",
+   "p": 3
   },
   {
    "en": "A study published in 2002 in Personality and Individual Differences suggested that emotionally perceptive people might be particularly influenced by feelings of depression and hopelessness.",
-   "cn": "2002年发表于《人格与个体差异》的一项研究指出，情绪感知力强的人可能尤其容易受到抑郁和绝望情绪的影响。"
+   "cn": "2002年发表于《人格与个体差异》的一项研究指出，情绪感知力强的人可能尤其容易受到抑郁和绝望情绪的影响。",
+   "p": 3
   },
   {
    "en": "Furthermore, several studies have implied that emotional intelligence can be used to manipulate others for personal gains.",
-   "cn": "此外，多项研究表明，情商可被用来操纵他人以谋取私利。"
+   "cn": "此外，多项研究表明，情商可被用来操纵他人以谋取私利。",
+   "p": 3
   },
   {
    "en": "More research is needed to see how exactly the relation between emotional intelligence and stress would play out in women and in people of different ages and education levels.",
-   "cn": "还需更多研究，才能弄清情商与压力之间的关系在女性和不同年龄、教育水平的人群中究竟如何体现。"
+   "cn": "还需更多研究，才能弄清情商与压力之间的关系在女性和不同年龄、教育水平的人群中究竟如何体现。",
+   "p": 4
   },
   {
    "en": "Nevertheless, emotional intelligence is a useful skill to have, as long as you learn to also properly cope with emotions·both others' and your own, says Bechtoldt.",
-   "cn": "不过，贝希托尔特说，情商仍是一项有用的技能，前提是你也要学会恰当地应对情绪——无论是他人的还是自己的。"
+   "cn": "不过，贝希托尔特说，情商仍是一项有用的技能，前提是你也要学会恰当地应对情绪——无论是他人的还是自己的。",
+   "p": 4
   },
   {
    "en": "For example, some sensitive individuals may assume responsibility for other people's sadness or anger, which ultimately stresses them out.",
-   "cn": "例如，一些敏感的人可能会把别人的悲伤或愤怒揽到自己身上，这最终会让他们压力倍增。"
+   "cn": "例如，一些敏感的人可能会把别人的悲伤或愤怒揽到自己身上，这最终会让他们压力倍增。",
+   "p": 4
   },
   {
    "en": "Remember, as Bechtoldt says, \"you are not responsible for how other people feel.\"",
-   "cn": "请记住，正如贝希托尔特所言：\"你无需为别人的感受负责。\""
+   "cn": "请记住，正如贝希托尔特所言：\"你无需为别人的感受负责。\"",
+   "p": 4
   }
  ]
 }

@@ -6,79 +6,98 @@
  "sents": [
   {
    "en": "All living organisms on Earth are exposed to a 24-hour day-night cycle.",
-   "cn": "地球上所有生物都暴露在24小时昼夜循环中。"
+   "cn": "地球上所有生物都暴露在24小时昼夜循环中。",
+   "p": 0
   },
   {
    "en": "This cycle is the reason why people rest at night and are active during the day.",
-   "cn": "这一循环正是人们夜间休息、白天活动的原因。"
+   "cn": "这一循环正是人们夜间休息、白天活动的原因。",
+   "p": 0
   },
   {
    "en": "Consequently, all human body functions also follow this daily rhythm, and the timing of behaviors like exercise or food intake can significantly influence your health.",
-   "cn": "因此，人体所有的功能也都遵循这种日常节律，而运动或进食等行为的时间安排会显著影响你的健康。"
+   "cn": "因此，人体所有的功能也都遵循这种日常节律，而运动或进食等行为的时间安排会显著影响你的健康。",
+   "p": 0
   },
   {
    "en": "For example, eating at night can lead to weight gain over time because food intake at night leads to increased fat storage.",
-   "cn": "例如，夜间进食久而久之会导致体重增加，因为夜间摄入食物会增加脂肪储存。"
+   "cn": "例如，夜间进食久而久之会导致体重增加，因为夜间摄入食物会增加脂肪储存。",
+   "p": 0
   },
   {
    "en": "Many drug targets in the body follow a 24-hour cycle, too.",
-   "cn": "人体内许多药物作用靶点同样遵循24小时周期。"
+   "cn": "人体内许多药物作用靶点同样遵循24小时周期。",
+   "p": 1
   },
   {
    "en": "This means that the specific proteins a drug is designed to modify can react differently to the medicine over the course of a 24-hour time period.",
-   "cn": "这意味着，一种药物旨在调节的特定蛋白质，在24小时内的不同时段对药物的反应可能不同。"
+   "cn": "这意味着，一种药物旨在调节的特定蛋白质，在24小时内的不同时段对药物的反应可能不同。",
+   "p": 1
   },
   {
    "en": "Because how the body responds to a drug can differ depending on the time it is taken, it logically follows that taking medicines at specific times could help increase their effectiveness and reduce unwanted side effects.",
-   "cn": "由于身体对药物的反应会因服药时间而异，顺理成章地，在特定时间服药有助于增强药效并减少不必要的副作用。"
+   "cn": "由于身体对药物的反应会因服药时间而异，顺理成章地，在特定时间服药有助于增强药效并减少不必要的副作用。",
+   "p": 1
   },
   {
    "en": "When doctors prescribe medicine for people, they rarely consider the best time to take it.",
-   "cn": "医生为患者开药时，很少考虑最佳的服药时间。"
+   "cn": "医生为患者开药时，很少考虑最佳的服药时间。",
+   "p": 2
   },
   {
    "en": "There are two main reasons for that oversight.",
-   "cn": "这种疏忽主要有两个原因。"
+   "cn": "这种疏忽主要有两个原因。",
+   "p": 2
   },
   {
    "en": "First, many physicians are not aware that some drugs work better during a specific time of the day.",
-   "cn": "首先，许多医生并不知道某些药物在一天中的特定时段效果更好。"
+   "cn": "首先，许多医生并不知道某些药物在一天中的特定时段效果更好。",
+   "p": 2
   },
   {
    "en": "And second, most drugs have not been studied for possible different effects during a 24-hour cycle.",
-   "cn": "其次，大多数药物尚未针对24小时周期内可能出现的不同效应进行研究。"
+   "cn": "其次，大多数药物尚未针对24小时周期内可能出现的不同效应进行研究。",
+   "p": 2
   },
   {
    "en": "Therefore, patients are directed to take most drugs during the morning or evening primarily to ensure compliance.",
-   "cn": "因此，患者被要求在早晨或晚上服用大多数药物，主要目的是为了确保遵医嘱服药。"
+   "cn": "因此，患者被要求在早晨或晚上服用大多数药物，主要目的是为了确保遵医嘱服药。",
+   "p": 2
   },
   {
    "en": "Over 50 years ago, researchers found that the cholesterol drug simvastatin is more effective at lowering cholesterol levels when taken at night rather than during the day.",
-   "cn": "50多年前，研究人员发现，降胆固醇药物辛伐他汀（simvastatin）在夜间服用比在白天服用更能有效降低胆固醇水平。"
+   "cn": "50多年前，研究人员发现，降胆固醇药物辛伐他汀（simvastatin）在夜间服用比在白天服用更能有效降低胆固醇水平。",
+   "p": 3
   },
   {
    "en": "This is because the liver enzyme (酶) these drugs target is more active at night.",
-   "cn": "这是因为该类药物所作用的肝脏酶在夜间更为活跃。"
+   "cn": "这是因为该类药物所作用的肝脏酶在夜间更为活跃。",
+   "p": 3
   },
   {
    "en": "Taking medicine at the wrong time can even cause harm.",
-   "cn": "在错误的时间服药甚至会造成伤害。"
+   "cn": "在错误的时间服药甚至会造成伤害。",
+   "p": 4
   },
   {
    "en": "My colleagues and I wondered whether midazolam, the most common sedative (镇静剂) used in surgical procedures worldwide, might interfere with the internal clock that protects the heart at night.",
-   "cn": "我和同事曾思考，全球外科手术中最常用的镇静剂咪达唑仑（midazolam）是否可能干扰夜间保护心脏的生物钟。"
+   "cn": "我和同事曾思考，全球外科手术中最常用的镇静剂咪达唑仑（midazolam）是否可能干扰夜间保护心脏的生物钟。",
+   "p": 4
   },
   {
    "en": "Currently, there are no guidelines regarding when midazolam should be administered.",
-   "cn": "目前，关于咪达唑仑应在何时给药，尚无相关指南。"
+   "cn": "目前，关于咪达唑仑应在何时给药，尚无相关指南。",
+   "p": 4
   },
   {
    "en": "More research is needed to determine the best times to administer treatments for different diseases.",
-   "cn": "还需要开展更多研究，以确定治疗不同疾病的最佳给药时间。"
+   "cn": "还需要开展更多研究，以确定治疗不同疾病的最佳给药时间。",
+   "p": 5
   },
   {
    "en": "I believe taking drug timing into account could help make treatments more effective and help more people worldwide.",
-   "cn": "我相信，把服药时间纳入考量，有助于让治疗更有效，并惠及全球更多的人。"
+   "cn": "我相信，把服药时间纳入考量，有助于让治疗更有效，并惠及全球更多的人。",
+   "p": 5
   }
  ]
 }

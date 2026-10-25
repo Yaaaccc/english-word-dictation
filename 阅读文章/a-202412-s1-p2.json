@@ -6,91 +6,113 @@
  "sents": [
   {
    "en": "Engineering in the U.S. has long been a male-dominated profession.",
-   "cn": "在美国，工程学长期以来一直是男性主导的专业。"
+   "cn": "在美国，工程学长期以来一直是男性主导的专业。",
+   "p": 0
   },
   {
    "en": "Fifty years ago, it looked like that might change.",
-   "cn": "五十年前，情况似乎可能改变。"
+   "cn": "五十年前，情况似乎可能改变。",
+   "p": 0
   },
   {
    "en": "In 1970, the percentage of women majoring in engineering was less than 1%.",
-   "cn": "1970年，主修工程学的女性比例不到1%。"
+   "cn": "1970年，主修工程学的女性比例不到1%。",
+   "p": 0
   },
   {
    "en": "In 1979, that number was 9%.",
-   "cn": "1979年，这一数字为9%。"
+   "cn": "1979年，这一数字为9%。",
+   "p": 0
   },
   {
    "en": "Many hoped women would continue to enter the field at the same rate.",
-   "cn": "许多人希望女性能以同样的速度继续进入这一领域。"
+   "cn": "许多人希望女性能以同样的速度继续进入这一领域。",
+   "p": 0
   },
   {
    "en": "But that's not what happened.",
-   "cn": "但事实并非如此。"
+   "cn": "但事实并非如此。",
+   "p": 0
   },
   {
    "en": "Today, only 21% of engineering majors are women, a number largely unchanged since 2000.",
-   "cn": "如今，工程学专业的女性仅占21%，这一数字自2000年以来基本未变。"
+   "cn": "如今，工程学专业的女性仅占21%，这一数字自2000年以来基本未变。",
+   "p": 0
   },
   {
    "en": "I am a historian who, along with my colleagues, surveyed 251 women engineers who graduated from college in the 1970s.",
-   "cn": "我是一名历史学家，曾与同事一起调查了251位在1970年代大学毕业的女性工程师。"
+   "cn": "我是一名历史学家，曾与同事一起调查了251位在1970年代大学毕业的女性工程师。",
+   "p": 1
   },
   {
    "en": "These pioneers reflected on the challenges they faced · and had advice for women entering the field today.",
-   "cn": "这些先驱回顾了她们所面临的挑战，并为如今进入该领域的女性提供了建议。"
+   "cn": "这些先驱回顾了她们所面临的挑战，并为如今进入该领域的女性提供了建议。",
+   "p": 1
   },
   {
    "en": "One survey taker explained, \"The greatest challenge for me was continuing to believe in myself, when all the messages I was getting were that I would never be taken seriously or promoted or given raises at the same rate as men, who were clearly less qualified and not as smart as I was.\"",
-   "cn": "一位受访者解释说：\"对我来说最大的挑战，是在收到所有那些信号——我永远不会被认真对待、不会像男性那样获得晋升或加薪，而他们明明资历更浅、也不如我聪明——的情况下，依然相信自己。\""
+   "cn": "一位受访者解释说：\"对我来说最大的挑战，是在收到所有那些信号——我永远不会被认真对待、不会像男性那样获得晋升或加薪，而他们明明资历更浅、也不如我聪明——的情况下，依然相信自己。\"",
+   "p": 2
   },
   {
    "en": "A chemical engineer who worked in manufacturing agreed, \"You have to prove yourself just because you are female.",
-   "cn": "一位在制造业工作的化学工程师表示赞同：\"仅仅因为你是女性，你就必须证明自己。"
+   "cn": "一位在制造业工作的化学工程师表示赞同：\"仅仅因为你是女性，你就必须证明自己。",
+   "p": 3
   },
   {
    "en": "And you have to work twice as hard!\"",
-   "cn": "而且你得加倍努力"
+   "cn": "而且你得加倍努力",
+   "p": 3
   },
   {
    "en": "！\" A civil engineer said, \"We are 'women engineers.' People don't refer to a man as a 'man engineer' · he's an engineer.",
-   "cn": "一位土木工程师说：\"我们是'女工程师'。人们不会把男性称作'男工程师'——他就是工程师。"
+   "cn": "一位土木工程师说：\"我们是'女工程师'。人们不会把男性称作'男工程师'——他就是工程师。",
+   "p": 4
   },
   {
    "en": "We are constantly reminded that we don't truly belong.\" Another civil engineer stated, \"On many levels, you're never quite one of the groups.\"",
-   "cn": "我们不断被提醒，自己并不真正属于这里。\"另一位土木工程师说：\"在诸多层面，你始终不完全是群体中的一员。"
+   "cn": "我们不断被提醒，自己并不真正属于这里。\"另一位土木工程师说：\"在诸多层面，你始终不完全是群体中的一员。",
+   "p": 4
   },
   {
    "en": "Women also talked about family caregiving responsibilities.",
-   "cn": "女性还谈到了家庭照护责任。"
+   "cn": "女性还谈到了家庭照护责任。",
+   "p": 5
   },
   {
    "en": "A retired vice president from a major chemical company stated, \"Young women engineers are on an equal footing until they have children, then they struggle to balance work and family·and compete with men who don't have the same household responsibilities.\"",
-   "cn": "一家大型化工公司的退休副总裁说：\"年轻女工程师在生育前处于平等地位，之后便要艰难地平衡工作与家庭——并与没有同样家务负担的男性竞争。\""
+   "cn": "一家大型化工公司的退休副总裁说：\"年轻女工程师在生育前处于平等地位，之后便要艰难地平衡工作与家庭——并与没有同样家务负担的男性竞争。\"",
+   "p": 5
   },
   {
    "en": "But over the years, things have changed a lot.",
-   "cn": "但多年来，情况已大为改观。"
+   "cn": "但多年来，情况已大为改观。",
+   "p": 6
   },
   {
    "en": "Young women engineers are more accepted mostly because there are just more of them.",
-   "cn": "年轻女工程师更容易被接受，主要因为她们的人数变多了。"
+   "cn": "年轻女工程师更容易被接受，主要因为她们的人数变多了。",
+   "p": 6
   },
   {
    "en": "Many women engineers hailed the benefits of their chosen career.",
-   "cn": "许多女工程师称赞自己所选职业的好处。"
+   "cn": "许多女工程师称赞自己所选职业的好处。",
+   "p": 6
   },
   {
    "en": "A program manager in manufacturing stated that engineering is the best degree.",
-   "cn": "一位制造业项目经理说，工程学是最好的学位。"
+   "cn": "一位制造业项目经理说，工程学是最好的学位。",
+   "p": 6
   },
   {
    "en": "A mechanical engineer said, \"It will give you the flexibility to do almost anything.",
-   "cn": "一位机械工程师说：\"它能让你灵活地去做几乎任何事。"
+   "cn": "一位机械工程师说：\"它能让你灵活地去做几乎任何事。",
+   "p": 6
   },
   {
    "en": "It is also satisfying to see the effects of what you have done.\"",
-   "cn": "看到自己所作所为产生的效果，也令人满足。\""
+   "cn": "看到自己所作所为产生的效果，也令人满足。\"",
+   "p": 6
   }
  ]
 }

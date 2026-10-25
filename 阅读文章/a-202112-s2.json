@@ -6,239 +6,298 @@
  "sents": [
   {
    "en": "Humans are creatures of habit.",
-   "cn": "人类是习惯的动物。"
+   "cn": "人类是习惯的动物。",
+   "p": 0
   },
   {
    "en": "We love to establish a routine and stick with it. Then we often put ourselves on auto-pilot.",
-   "cn": "我们喜欢建立一套常规并坚持遵循，然后常常让自己进入自动驾驶模式。"
+   "cn": "我们喜欢建立一套常规并坚持遵循，然后常常让自己进入自动驾驶模式。",
+   "p": 0
   },
   {
    "en": "Routines can be incredibly useful in helping you get things done.",
-   "cn": "常规在帮你把事情做完方面极其有用。"
+   "cn": "常规在帮你把事情做完方面极其有用。",
+   "p": 0
   },
   {
    "en": "However, too much of a routine can also make you incredibly boring.",
-   "cn": "然而，过多的常规也会让你变得极其无聊。"
+   "cn": "然而，过多的常规也会让你变得极其无聊。",
+   "p": 0
   },
   {
    "en": "Nevertheless, many people live lives that are boringly predictable, or live a life where everything is outlined or planned.",
-   "cn": "尽管如此，许多人的生活无聊得可以预测，或者活在一个一切都被勾勒或规划好的生活里。"
+   "cn": "尽管如此，许多人的生活无聊得可以预测，或者活在一个一切都被勾勒或规划好的生活里。",
+   "p": 0
   },
   {
    "en": "To tell the truth, interesting people are more popular among their friends.",
-   "cn": "说实话，有趣的人在朋友中更受欢迎。"
+   "cn": "说实话，有趣的人在朋友中更受欢迎。",
+   "p": 1
   },
   {
    "en": "If you don't arouse someone's curiosity or brighten someone's day, you probably come across as being a little bit dull.",
-   "cn": "如果你不能激起某人的好奇心，也不能点亮某人的一天，你大概会显得有点沉闷。"
+   "cn": "如果你不能激起某人的好奇心，也不能点亮某人的一天，你大概会显得有点沉闷。",
+   "p": 1
   },
   {
    "en": "But that doesn't mean your life has ended and you can't do anything to change it.",
-   "cn": "但这并不意味着你的生活已经结束、你无法做任何改变。"
+   "cn": "但这并不意味着你的生活已经结束、你无法做任何改变。",
+   "p": 1
   },
   {
    "en": "If you find yourself searching for something to say beyond small talk, try these tactics to find more interesting approaches to conversation.",
-   "cn": "如果你发现自己除了闲聊之外还在搜寻可说的话题，不妨试试这些策略，寻找更有趣的谈话方式。"
+   "cn": "如果你发现自己除了闲聊之外还在搜寻可说的话题，不妨试试这些策略，寻找更有趣的谈话方式。",
+   "p": 1
   },
   {
    "en": "Recently, I was at a gathering of colleagues when someone turned to me and asked, \"So, what's new with you?\" Ordinarily, I think I'm a good conversationalist.",
-   "cn": "最近，我在一个同事聚会上，有人转向我问：\"那么，你最近有什么新鲜事？\"平时，我觉得自己是个不错的谈话者。"
+   "cn": "最近，我在一个同事聚会上，有人转向我问：\"那么，你最近有什么新鲜事？\"平时，我觉得自己是个不错的谈话者。",
+   "p": 2
   },
   {
    "en": "After all, it's literally my job to talk to people and tell their stories or share their advice.",
-   "cn": "毕竟，与人交谈、讲述他们的故事或分享他们的建议，简直就是我的工作。"
+   "cn": "毕竟，与人交谈、讲述他们的故事或分享他们的建议，简直就是我的工作。",
+   "p": 2
   },
   {
    "en": "And that's not exactly an unexpected question.",
-   "cn": "而且这也不是一个意料之外的问题。"
+   "cn": "而且这也不是一个意料之外的问题。",
+   "p": 2
   },
   {
    "en": "Still, the only \"new-to-me\" topics that came to mind were my daughter's basketball tournament（锦标赛）and my feelings about that morning's political headlines·neither amusing nor appropriate topics at that moment.",
-   "cn": "尽管如此，我脑海中浮现的唯一\"对我而言新鲜\"的话题，是我女儿的篮球锦标赛，以及我对那天早上政治新闻标题的感受——在当时都既不好笑也不合适。"
+   "cn": "尽管如此，我脑海中浮现的唯一\"对我而言新鲜\"的话题，是我女儿的篮球锦标赛，以及我对那天早上政治新闻标题的感受——在当时都既不好笑也不合适。",
+   "p": 2
   },
   {
    "en": "Oh, no, I thought.",
-   "cn": "哦，不，我想。"
+   "cn": "哦，不，我想。",
+   "p": 3
   },
   {
    "en": "Have I become boring?",
-   "cn": "我变得无聊了吗？"
+   "cn": "我变得无聊了吗？",
+   "p": 3
   },
   {
    "en": "But sharing our experiences in an authentic way to connect with other people is what makes us interesting, says associate professor Michael Pirson.",
-   "cn": "但副教授迈克尔∙皮尔森说，以真实的方式分享我们的经历、从而与他人建立联系，正是让我们变得有趣的原因。"
+   "cn": "但副教授迈克尔∙皮尔森说，以真实的方式分享我们的经历、从而与他人建立联系，正是让我们变得有趣的原因。",
+   "p": 3
   },
   {
    "en": "The hesitation I felt in not sharing the ordinary things that were happening in my life, and the wild mental search for something more interesting, may have backfired and made me seem less interesting.",
-   "cn": "我所感受到的那种不愿分享生活中寻常小事的迟疑，以及脑海中疯狂搜寻更\"有趣\"之事的举动，可能适得其反，反而让我显得没那么有趣。"
+   "cn": "我所感受到的那种不愿分享生活中寻常小事的迟疑，以及脑海中疯狂搜寻更\"有趣\"之事的举动，可能适得其反，反而让我显得没那么有趣。",
+   "p": 3
   },
   {
    "en": "\"If someone is making up some conversation that might be interesting, it's probably not going to land well,\" says Pirson, whose expertise includes trust and well-being, mindfulness, and humanistic management.",
-   "cn": "\"如果有人在编造一段或许有趣的对话，它很可能不会奏效，\"皮尔森说，他的专长包括信任与幸福、正念以及人本管理。"
+   "cn": "\"如果有人在编造一段或许有趣的对话，它很可能不会奏效，\"皮尔森说，他的专长包括信任与幸福、正念以及人本管理。",
+   "p": 4
   },
   {
    "en": "\"It's going to feel like a made-up conversation that people don't necessarily want to tune in to.\"",
-   "cn": "\"这会让人感觉像是一段编造的对话，人们未必想听进去。\""
+   "cn": "\"这会让人感觉像是一段编造的对话，人们未必想听进去。\"",
+   "p": 4
   },
   {
    "en": "The most interesting people aren't those who've gone on some Eat, Pray, Love journey to find themselves.",
-   "cn": "最有趣的人，并非那些踏上《美食、祈祷、爱》式旅程去寻找自我的人。"
+   "cn": "最有趣的人，并非那些踏上《美食、祈祷、爱》式旅程去寻找自我的人。",
+   "p": 5
   },
   {
    "en": "Instead, Pirson says, they're those who examine the ordinary.",
-   "cn": "皮尔森说，相反，他们是那些审视平凡的人。"
+   "cn": "皮尔森说，相反，他们是那些审视平凡的人。",
+   "p": 5
   },
   {
    "en": "\"Often, the 'boring things' may not be boring at all.",
-   "cn": "\"通常，那些'无聊的事'可能根本不无聊。"
+   "cn": "\"通常，那些'无聊的事'可能根本不无聊。",
+   "p": 5
   },
   {
    "en": "Maybe they are actually little miracles,\" he says.",
-   "cn": "也许它们其实是小小的奇迹，\"他说。"
+   "cn": "也许它们其实是小小的奇迹，\"他说。",
+   "p": 5
   },
   {
    "en": "Share your observations about the world around you·interesting stories you heard or things you noticed·and you may be surprised by the universal connection they inspire.",
-   "cn": "分享你对周围世界的观察——你听到的有趣故事，或你注意到的事情——你或许会被它们所激发的普遍共鸣所惊讶。"
+   "cn": "分享你对周围世界的观察——你听到的有趣故事，或你注意到的事情——你或许会被它们所激发的普遍共鸣所惊讶。",
+   "p": 5
   },
   {
    "en": "This is essentially how Jessica Hagy starts her day.",
-   "cn": "这本质上就是杰西卡∙哈吉开启一天的方式。"
+   "cn": "这本质上就是杰西卡∙哈吉开启一天的方式。",
+   "p": 6
   },
   {
    "en": "The author of How to Be Interesting: An Instruction Manual, Hagy spends a lot of time thinking about what's interesting to her.",
-   "cn": "《如何变得有趣：一份说明书》一书的作者哈吉，花很多时间思考什么让她感兴趣。"
+   "cn": "《如何变得有趣：一份说明书》一书的作者哈吉，花很多时间思考什么让她感兴趣。",
+   "p": 6
   },
   {
    "en": "People who are interesting are persistently curious, she says.",
-   "cn": "她说，有趣的人始终保持着好奇。"
+   "cn": "她说，有趣的人始终保持着好奇。",
+   "p": 6
   },
   {
    "en": "Think about the everyday things around you and ask questions about them.",
-   "cn": "想想你身边的日常事物，并对它们提出问题。"
+   "cn": "想想你身边的日常事物，并对它们提出问题。",
+   "p": 7
   },
   {
    "en": "What is that roadside monument I see on my way to work every day?",
-   "cn": "每天上班路上我看到的那个路边纪念碑是什么？"
+   "cn": "每天上班路上我看到的那个路边纪念碑是什么？",
+   "p": 7
   },
   {
    "en": "Who built that interesting building in my city?",
-   "cn": "我市那座有趣的建筑是谁建的？"
+   "cn": "我市那座有趣的建筑是谁建的？",
+   "p": 7
   },
   {
    "en": "What nearby attractions haven't I visited?",
-   "cn": "附近还有哪些景点我没去过？"
+   "cn": "附近还有哪些景点我没去过？",
+   "p": 7
   },
   {
    "en": "Why do people do things that way?",
-   "cn": "人们为何那样做事？"
+   "cn": "人们为何那样做事？",
+   "p": 7
   },
   {
    "en": "Use what you find to ask more questions and learn more about the world around you.",
-   "cn": "用你的发现去提出更多问题，更多地了解你周围的世界。"
+   "cn": "用你的发现去提出更多问题，更多地了解你周围的世界。",
+   "p": 7
   },
   {
    "en": "\"Having that sort of curiosity is almost like a protective gear from getting into boredom,\" she says.",
-   "cn": "\"拥有那种好奇心，几乎像是一件防止陷入无聊的防护装备，\"她说。"
+   "cn": "\"拥有那种好奇心，几乎像是一件防止陷入无聊的防护装备，\"她说。",
+   "p": 7
   },
   {
    "en": "And when you find things that are truly interesting to you, share them.",
-   "cn": "当你发现真正让你感兴趣的事物时，就分享它们。"
+   "cn": "当你发现真正让你感兴趣的事物时，就分享它们。",
+   "p": 7
   },
   {
    "en": "Television veteran Audrey Morrissey, executive producer of NBC's The Voice, is always looking for what will make a person or story interesting to viewers. It's usually a matter of individuality.",
-   "cn": "电视界资深人士奥黛丽∙莫里西，NBC《好声音》的执行制片人，一直在寻找能让一个人或一段故事对观众而言变得有趣的元素。"
+   "cn": "电视界资深人士奥黛丽∙莫里西，NBC《好声音》的执行制片人，一直在寻找能让一个人或一段故事对观众而言变得有趣的元素。",
+   "p": 8
   },
   {
    "en": "\"Having a strong point of view, signature style, or being a super-enthusiast in a particular field makes someone interesting,\" she says.",
-   "cn": "这通常关乎个性。\"拥有鲜明的观点、标志性的风格，或成为某个特定领域的超级爱好者，会让人变得有趣，\"她说。"
+   "cn": "这通常关乎个性。\"拥有鲜明的观点、标志性的风格，或成为某个特定领域的超级爱好者，会让人变得有趣，\"她说。",
+   "p": 8
   },
   {
    "en": "That means embracing what is truly interesting or unique about yourself.",
-   "cn": "这意味着接纳你身上真正有趣或独特之处。"
+   "cn": "这意味着接纳你身上真正有趣或独特之处。",
+   "p": 8
   },
   {
    "en": "\"Many people are 'not boring' in the way that they can carry a conversation or can be good at a social gathering, etc. To be interesting means that you have lived life, taken risks, traveled, sought out experience to learn for yourself and share with others,\" she says.",
-   "cn": "\"许多人的'不无聊'体现在他们能主导对话、善于社交聚会等等。而要变得有趣，意味着你经历过生活、冒过险、旅行过、主动寻求经验来亲自学习并分享给他人，\"她说。"
+   "cn": "\"许多人的'不无聊'体现在他们能主导对话、善于社交聚会等等。而要变得有趣，意味着你经历过生活、冒过险、旅行过、主动寻求经验来亲自学习并分享给他人，\"她说。",
+   "p": 8
   },
   {
    "en": "Of course, it's possible to be a fountain of knowledge and a boring person, says public relations consultant Andrea Pass.",
-   "cn": "当然，一个人既可能是知识源泉，也可能是个无聊的人，公关顾问安德莉亚∙帕斯说。"
+   "cn": "当然，一个人既可能是知识源泉，也可能是个无聊的人，公关顾问安德莉亚∙帕斯说。",
+   "p": 9
   },
   {
    "en": "Paying attention to the listener is an important part of having a conversation that's interesting to both parties.",
-   "cn": "关注倾听者，是进行一场对双方都有趣的谈话的重要部分。"
+   "cn": "关注倾听者，是进行一场对双方都有趣的谈话的重要部分。",
+   "p": 9
   },
   {
    "en": "Talking on and on about what's interesting to you isn't going to make you an interesting person, she says.",
-   "cn": "她表示，滔滔不绝地谈论你自己感兴趣的事，并不会让你成为一个有趣的人。"
+   "cn": "她表示，滔滔不绝地谈论你自己感兴趣的事，并不会让你成为一个有趣的人。",
+   "p": 9
   },
   {
    "en": "\"If the listener is not paying attention, it's your sign to shorten the story or change direction.",
-   "cn": "\"如果倾听者没有在听，那就是你要缩短故事或改变方向的信号。"
+   "cn": "\"如果倾听者没有在听，那就是你要缩短故事或改变方向的信号。",
+   "p": 10
   },
   {
    "en": "Make sure to bring the audience into the conversation so that it is not one-sided,\" Pass says.",
-   "cn": "务必把听众拉进对话，使它不至于变成单向的，\"帕斯说。"
+   "cn": "务必把听众拉进对话，使它不至于变成单向的，\"帕斯说。",
+   "p": 10
   },
   {
    "en": "Be a better listener yourself, and give others opportunities to participate in the conversation by inviting them with questions or requests to share their own experiences or thoughts.",
-   "cn": "你自己要做一个更好的倾听者，并通过提问或邀请他人分享自己的经历或想法，给他人参与对话的机会。"
+   "cn": "你自己要做一个更好的倾听者，并通过提问或邀请他人分享自己的经历或想法，给他人参与对话的机会。",
+   "p": 10
   },
   {
    "en": "(e.g., \"Now, tell me about your favorite book,\" or \"Have you ever been to that attraction?\") Questions are a powerful tool, especially when they encourage others to disclose information about themselves.",
-   "cn": "（例如：\"那么，跟我说说你最喜欢的书吧，\"或者\"你去过那个景点吗？\"）提问是一种强有力的工具，尤其是当它们鼓励他人透露关于自己的信息时。"
+   "cn": "（例如：\"那么，跟我说说你最喜欢的书吧，\"或者\"你去过那个景点吗？\"）提问是一种强有力的工具，尤其是当它们鼓励他人透露关于自己的信息时。",
+   "p": 10
   },
   {
    "en": "A 2012 study from the University of California, Santa Barbara, found that roughly 40% of the time we are talking, we're disclosing subjective information about our experience.",
-   "cn": "加州大学圣巴巴拉分校2012年的一项研究发现，在我们谈话的时间里，大约40%的时候我们都在披露关于自身经历的主观信息。"
+   "cn": "加州大学圣巴巴拉分校2012年的一项研究发现，在我们谈话的时间里，大约40%的时候我们都在披露关于自身经历的主观信息。",
+   "p": 10
   },
   {
    "en": "And when we're doing so, our brains are more engaged.",
-   "cn": "而当我们这样做时，大脑会更投入。"
+   "cn": "而当我们这样做时，大脑会更投入。",
+   "p": 10
   },
   {
    "en": "So one strategy to leave others with the impression that you're a sparkling conversation partner is to get others to talk about themselves.",
-   "cn": "因此，给别人留下你是个闪闪发光的谈话伙伴这一印象的一个策略，就是让别人谈他们自己。"
+   "cn": "因此，给别人留下你是个闪闪发光的谈话伙伴这一印象的一个策略，就是让别人谈他们自己。",
+   "p": 10
   },
   {
    "en": "Being relatable is also essential, Morrissey says.",
-   "cn": "易于产生共鸣也很重要，莫里西说。"
+   "cn": "易于产生共鸣也很重要，莫里西说。",
+   "p": 11
   },
   {
    "en": "\"The best entertainment and storytelling comes from people who are relatable·those who don't shy away from opening up but freely share who they are and what they care about.",
-   "cn": "\"最棒的娱乐和故事讲述，来自那些让人有共鸣的人——他们不回避敞开心扉，而是坦然地分享自己是谁、在乎什么。"
+   "cn": "\"最棒的娱乐和故事讲述，来自那些让人有共鸣的人——他们不回避敞开心扉，而是坦然地分享自己是谁、在乎什么。",
+   "p": 11
   },
   {
    "en": "These are the people viewers most relate to and find interesting.",
-   "cn": "这些正是观众最有共鸣、也觉得有趣的人。"
+   "cn": "这些正是观众最有共鸣、也觉得有趣的人。",
+   "p": 11
   },
   {
    "en": "Being authentic, honest, and vulnerable is always interesting.\"",
-   "cn": "真实、诚实且坦然示弱，总是有趣的。\""
+   "cn": "真实、诚实且坦然示弱，总是有趣的。\"",
+   "p": 11
   },
   {
    "en": "I have now come to realize that being boring, in actuality, is not only about who you are as a person, but also how you present yourself.",
-   "cn": "我现在终于意识到，无聊实际上不仅关乎你这个人本身是谁，也关乎你如何展示自己。"
+   "cn": "我现在终于意识到，无聊实际上不仅关乎你这个人本身是谁，也关乎你如何展示自己。",
+   "p": 12
   },
   {
    "en": "No matter what, make sure you are having fun in life.",
-   "cn": "无论如何，确保你在生活中玩得开心。"
+   "cn": "无论如何，确保你在生活中玩得开心。",
+   "p": 12
   },
   {
    "en": "Because when you are enjoying, people around you will begin to enjoy as well.",
-   "cn": "因为当你享受时，你周围的人也会开始享受。"
+   "cn": "因为当你享受时，你周围的人也会开始享受。",
+   "p": 12
   },
   {
    "en": "Show some interest in them and they will definitely show some in you.",
-   "cn": "对他们表现出一些兴趣，他们也一定会对你表现出一些兴趣。"
+   "cn": "对他们表现出一些兴趣，他们也一定会对你表现出一些兴趣。",
+   "p": 12
   },
   {
    "en": "If you are a very reserved person, this could be a little difficult at first.",
-   "cn": "如果你是个非常内敛的人，一开始这或许有点困难。"
+   "cn": "如果你是个非常内敛的人，一开始这或许有点困难。",
+   "p": 12
   },
   {
    "en": "But with a little effort, you can definitely improve.",
-   "cn": "但稍加努力，你一定能改善。"
+   "cn": "但稍加努力，你一定能改善。",
+   "p": 12
   }
  ]
 }

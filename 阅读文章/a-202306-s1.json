@@ -6,223 +6,278 @@
  "sents": [
   {
    "en": "We're growing more used to chatting to our computers, phones and smart speakers through voice assistants like Amazon's Alexa, Apple's Siri and Microsoft's Cortana.",
-   "cn": "我们越来越习惯通过Amazon的Alexa、Apple的Siri和Microsoft的Cortana等语音助手，与电脑、手机和智能音箱聊天。"
+   "cn": "我们越来越习惯通过Amazon的Alexa、Apple的Siri和Microsoft的Cortana等语音助手，与电脑、手机和智能音箱聊天。",
+   "p": 0
   },
   {
    "en": "Blind and partially sighted people have been using text-to-speech converters for decades.",
-   "cn": "盲人和弱视者使用文字转语音转换器已有数十年之久。"
+   "cn": "盲人和弱视者使用文字转语音转换器已有数十年之久。",
+   "p": 0
   },
   {
    "en": "Out of these assistants, Siri is the most well-known.",
-   "cn": "在这些助手中，Siri最为知名。"
+   "cn": "在这些助手中，Siri最为知名。",
+   "p": 1
   },
   {
    "en": "The assistant uses voice inquiries and a natural-language user interface to answer questions.",
-   "cn": "该助手使用语音询问和自然语言用户界面来回答问题。"
+   "cn": "该助手使用语音询问和自然语言用户界面来回答问题。",
+   "p": 1
   },
   {
    "en": "The software adapts to users' individual language usages, searches, and preferences, with continuing use.",
-   "cn": "随着持续使用，该软件会适应用户个人的语言习惯、搜索和偏好。"
+   "cn": "随着持续使用，该软件会适应用户个人的语言习惯、搜索和偏好。",
+   "p": 1
   },
   {
    "en": "Some think voice could soon take over from typing and clicking as the main way to interact online.",
-   "cn": "有人认为，语音可能很快会取代打字和点击，成为在线交互的主要方式。"
+   "cn": "有人认为，语音可能很快会取代打字和点击，成为在线交互的主要方式。",
+   "p": 2
   },
   {
    "en": "But what are the challenges of moving to \"the spoken web\"?",
-   "cn": "但转向\"语音网络\"面临哪些挑战呢？"
+   "cn": "但转向\"语音网络\"面临哪些挑战呢？",
+   "p": 2
   },
   {
    "en": "What use is written online content if you can't read?",
-   "cn": "如果你不识字，网上的文字内容又有何用？"
+   "cn": "如果你不识字，网上的文字内容又有何用？",
+   "p": 3
   },
   {
    "en": "That is the situation facing illiterate African farmers.",
-   "cn": "这正是那些不识字的非洲农民所面临的处境。"
+   "cn": "这正是那些不识字的非洲农民所面临的处境。",
+   "p": 3
   },
   {
    "en": "They are often denied crucial information the web offers many others.",
-   "cn": "他们往往被剥夺了网络提供给许多其他人的关键信息。"
+   "cn": "他们往往被剥夺了网络提供给许多其他人的关键信息。",
+   "p": 3
   },
   {
    "en": "With a literacy rate in some parts of Africa at only 22.6%, farmers are often \"underpaid for their produce because they might be unaware of the prevailing prices,\" says Francis Dittoh, a researcher behind Mr Meteo, a speech-based weather information service.",
-   "cn": "在非洲某些地区，识字率仅为22.6%，\"农民常常因可能不了解当前价格而被压低农产品售价，\"基于语音的天气信息服务MrMeteo背后的研究者FrancisDittoh说。"
+   "cn": "在非洲某些地区，识字率仅为22.6%，\"农民常常因可能不了解当前价格而被压低农产品售价，\"基于语音的天气信息服务MrMeteo背后的研究者FrancisDittoh说。",
+   "p": 3
   },
   {
    "en": "\"The most frequently heard complaint is about rainfall predictions,\" says Mr Dittoh, who lives in Tamale, northern Ghana.",
-   "cn": "\"最常听到的抱怨是关于降雨预报的，\"住在加纳北部塔马利的Dittoh先生说，\"他们告诉我们，祖辈用来预测天气的方法如今似乎不那么灵验了。"
+   "cn": "\"最常听到的抱怨是关于降雨预报的，\"住在加纳北部塔马利的Dittoh先生说，\"他们告诉我们，祖辈用来预测天气的方法如今似乎不那么灵验了。",
+   "p": 4
   },
   {
    "en": "\"They tell us the methods their forefathers used to predict the weather don't seem to work as well these days.\" This is down to climate change, he believes.",
-   "cn": "\"他认为，这归咎于气候变化。"
+   "cn": "\"他认为，这归咎于气候变化。",
+   "p": 4
   },
   {
    "en": "Yet knowing when it's going to rain is vital for farmers wanting to sow seeds, irrigate crops or take their animals out to the fields to feed on grass.",
-   "cn": "然而，对想要播种、灌溉庄稼或把牲口赶到田间吃草的农民来说，知道何时会下雨至关重要。"
+   "cn": "然而，对想要播种、灌溉庄稼或把牲口赶到田间吃草的农民来说，知道何时会下雨至关重要。",
+   "p": 4
   },
   {
    "en": "Mr Dittoh says the idea of converting online weather reports into speech came from the farmers themselves, after a workshop in the village of Guabuligah.",
-   "cn": "Dittoh先生说，把在线天气报告转换成语音的想法，源于农民自己——在一次于Guabuligah村举办的研讨会上。"
+   "cn": "Dittoh先生说，把在线天气报告转换成语音的想法，源于农民自己——在一次于Guabuligah村举办的研讨会上。",
+   "p": 5
   },
   {
    "en": "\"They came up with this,\" he says.",
-   "cn": "\"是他们想出这个主意的，\"他说。"
+   "cn": "\"是他们想出这个主意的，\"他说。",
+   "p": 5
   },
   {
    "en": "Mr Meteo takes the online weather forecast, converts it to a short recording in the appropriate language and makes it available on a basic phone.",
-   "cn": "MrMeteo获取在线天气预报，将其转换成相应语言的简短录音，并通过普通手机提供。"
+   "cn": "MrMeteo获取在线天气预报，将其转换成相应语言的简短录音，并通过普通手机提供。",
+   "p": 5
   },
   {
    "en": "Farmers ring up to receive the information.",
-   "cn": "农民打电话即可接收信息。"
+   "cn": "农民打电话即可接收信息。",
+   "p": 5
   },
   {
    "en": "The local language Dagbani is spoken by 1.2 million people but is not served by any online translation applications.",
-   "cn": "当地语言Dagbani有120万人使用，但没有任何在线翻译应用支持它。"
+   "cn": "当地语言Dagbani有120万人使用，但没有任何在线翻译应用支持它。",
+   "p": 5
   },
   {
    "en": "The service was designed to be cheap and easy to run, says Mr Dittoh.",
-   "cn": "Dittoh先生说，该服务被设计得便宜且易于运行。"
+   "cn": "Dittoh先生说，该服务被设计得便宜且易于运行。",
+   "p": 5
   },
   {
    "en": "He plans to begin field tests this month, working with Tamale's Savanna Agricultural Research Institute.",
-   "cn": "他计划本月开始实地测试，与塔马利的萨凡纳农业研究所合作。"
+   "cn": "他计划本月开始实地测试，与塔马利的萨凡纳农业研究所合作。",
+   "p": 5
   },
   {
    "en": "The spoken web could also help the one-in-five adults in Europe and the U.S. with poor reading skills.",
-   "cn": "语音网络还能帮助欧美五分之一、阅读能力较差的成年人。"
+   "cn": "语音网络还能帮助欧美五分之一、阅读能力较差的成年人。",
+   "p": 6
   },
   {
    "en": "But building the spoken web·web-to-voice and voice-to-web·isn't straightforward.",
-   "cn": "但构建语音网络——即网络转语音与语音转网络——并非易事。"
+   "cn": "但构建语音网络——即网络转语音与语音转网络——并非易事。",
+   "p": 6
   },
   {
    "en": "For software to understand pizza is served at Italian restaurants is easy.",
-   "cn": "让软件理解\"意大利餐厅供应披萨\"很容易。"
+   "cn": "让软件理解\"意大利餐厅供应披萨\"很容易。",
+   "p": 6
   },
   {
    "en": "To cover multiple domains and to be able to have a conversation with users on every single topic is still a long way off.",
-   "cn": "而要覆盖多个领域、并能就每一个话题与用户对话，仍遥不可及。"
+   "cn": "而要覆盖多个领域、并能就每一个话题与用户对话，仍遥不可及。",
+   "p": 6
   },
   {
    "en": "So although many computer assistants can answer simple questions about the weather and play music for us, anything resembling a wide-ranging human conversation is decades away.",
-   "cn": "因此，尽管许多电脑助手能回答关于天气的简单问题、为我们播放音乐，但任何类似广泛人类对话的东西都还要几十年才能实现。"
+   "cn": "因此，尽管许多电脑助手能回答关于天气的简单问题、为我们播放音乐，但任何类似广泛人类对话的东西都还要几十年才能实现。",
+   "p": 7
   },
   {
    "en": "Artificial intelligence just isn't smart enough yet.",
-   "cn": "人工智能目前还不够聪明。"
+   "cn": "人工智能目前还不够聪明。",
+   "p": 7
   },
   {
    "en": "Even turning your voice into text· automatic speech recognition·is one of the hardest problems to solve, as there are as many ways to pronounce things as there are people on the planet.",
-   "cn": "即便把你的语音转成文字——自动语音识别——也是最难解决的问题之一，因为发音方式的数量，与这个星球上的人口一样多。"
+   "cn": "即便把你的语音转成文字——自动语音识别——也是最难解决的问题之一，因为发音方式的数量，与这个星球上的人口一样多。",
+   "p": 7
   },
   {
    "en": "Siri has often been praised for its ability to interpret our casual language and deliver very specific and accurate results, sometimes even providing additional information.",
-   "cn": "Siri常因能解读我们的日常语言并给出非常具体、准确的结果而受到称赞，有时甚至提供额外信息。"
+   "cn": "Siri常因能解读我们的日常语言并给出非常具体、准确的结果而受到称赞，有时甚至提供额外信息。",
+   "p": 8
   },
   {
    "en": "But it is still somewhat restricted, particularly when the language moves away from stiffer commands into more human interactions.",
-   "cn": "但它仍有一定局限，尤其当语言从生硬的命令转向更人性化的交流时。"
+   "cn": "但它仍有一定局限，尤其当语言从生硬的命令转向更人性化的交流时。",
+   "p": 8
   },
   {
    "en": "In one example, the phrase \"Send a text to Jason, Clint, Sam, and Lee saying we're having dinner at Silver Cloud restaurant\" was interpreted as sending a message to Jason only, containing the text \"Clint Sam and Lee saying we're having dinner at Silver Cloud restaurant\".",
-   "cn": "举个例子，短语\"给Jason、Clint、Sam和Lee发短信，说我们在SilverCloud餐厅吃饭\"被理解为只给Jason发消息，内容为\"ClintSam和Lee说我们在SilverCloud餐厅吃饭\"。"
+   "cn": "举个例子，短语\"给Jason、Clint、Sam和Lee发短信，说我们在SilverCloud餐厅吃饭\"被理解为只给Jason发消息，内容为\"ClintSam和Lee说我们在SilverCloud餐厅吃饭\"。",
+   "p": 8
   },
   {
    "en": "It has also been noted that Siri lacks a proper editing function, as saying \"Edit message to say: we're at Silver Cloud restaurant and you should come find us\" generates \"Clint Sam and Lee saying we're having dinner at Silver Cloud restaurant to say we're at Silver Cloud restaurant and you should come find us\".",
-   "cn": "还有人指出，Siri缺少合适的编辑功能，因为说\"把消息编辑为：我们在SilverCloud餐厅，你来找我们\"会生成\"ClintSam和Lee说我们在SilverCloud餐厅吃饭，说我们在SilverCloud餐厅，你来找我们\"。"
+   "cn": "还有人指出，Siri缺少合适的编辑功能，因为说\"把消息编辑为：我们在SilverCloud餐厅，你来找我们\"会生成\"ClintSam和Lee说我们在SilverCloud餐厅吃饭，说我们在SilverCloud餐厅，你来找我们\"。",
+   "p": 8
   },
   {
    "en": "Using voice interaction feels far more intimate than surfing the net the old-fashioned way.",
-   "cn": "使用语音交互比用老办法上网感觉亲密得多。"
+   "cn": "使用语音交互比用老办法上网感觉亲密得多。",
+   "p": 9
   },
   {
    "en": "This is intentional as the informal tone of the assistant helps create an emotional attachment.",
-   "cn": "这是有意为之的，因为助手随意的语调有助于建立情感依恋。"
+   "cn": "这是有意为之的，因为助手随意的语调有助于建立情感依恋。",
+   "p": 9
   },
   {
    "en": "But if something speaks, it must also listen.",
-   "cn": "但如果有什么东西会说话，它也必须会倾听。"
+   "cn": "但如果有什么东西会说话，它也必须会倾听。",
+   "p": 9
   },
   {
    "en": "Our phones are always near us and they are collecting data about us all the time.",
-   "cn": "我们的手机总在身边，且一直收集关于我们的数据。"
+   "cn": "我们的手机总在身边，且一直收集关于我们的数据。",
+   "p": 9
   },
   {
    "en": "This has also raised privacy concerns.",
-   "cn": "这也引发了隐私方面的担忧。"
+   "cn": "这也引发了隐私方面的担忧。",
+   "p": 9
   },
   {
    "en": "The American Civil Liberties Union has stated that digital assistants create a threat to privacy from hackers.",
-   "cn": "美国公民自由联盟表示，数字助手构成了来自黑客的隐私威胁。"
+   "cn": "美国公民自由联盟表示，数字助手构成了来自黑客的隐私威胁。",
+   "p": 9
   },
   {
    "en": "Some people have other concerns.",
-   "cn": "有些人还有别的担忧。"
+   "cn": "有些人还有别的担忧。",
+   "p": 9
   },
   {
    "en": "They worry assistants will one day be used to deliver advertising directly to us.",
-   "cn": "他们担心助手有朝一日会被用来直接向他们投放广告。"
+   "cn": "他们担心助手有朝一日会被用来直接向他们投放广告。",
+   "p": 9
   },
   {
    "en": "But digital voices need more personality to make them popular.",
-   "cn": "但数字语音需要更多个性才能流行起来。"
+   "cn": "但数字语音需要更多个性才能流行起来。",
+   "p": 10
   },
   {
    "en": "Robots are not yet witty, Siri is boring.",
-   "cn": "机器人还不够风趣，Siri也很无趣。"
+   "cn": "机器人还不够风趣，Siri也很无趣。",
+   "p": 10
   },
   {
    "en": "The benefits of using voice instead of tapping fingers obviously depend on the context.",
-   "cn": "相比敲键盘，使用语音的好处显然取决于具体场景。"
+   "cn": "相比敲键盘，使用语音的好处显然取决于具体场景。",
+   "p": 10
   },
   {
    "en": "Doctors completing online forms about their patients by speech, for example, can dictate 150 words a minute, three times faster than typing on a keyboard.",
-   "cn": "例如，医生通过语音填写关于病人的在线表单，每分钟可口述150个词，是键盘打字的三倍速。"
+   "cn": "例如，医生通过语音填写关于病人的在线表单，每分钟可口述150个词，是键盘打字的三倍速。",
+   "p": 10
   },
   {
    "en": "This enables them to spend less time on administration and more time with patients.",
-   "cn": "这让他们能把更少时间花在行政事务上，更多时间留给病人。"
+   "cn": "这让他们能把更少时间花在行政事务上，更多时间留给病人。",
+   "p": 10
   },
   {
    "en": "Last year, speech recognition company Nuance helped a doctors' surgery in Dukinfield, near Manchester, set up a speech system for the practice's six doctors.",
-   "cn": "去年，语音识别公司Nuance帮助曼彻斯特附近Dukinfield的一家诊所，为其六名医生建立了语音系统。"
+   "cn": "去年，语音识别公司Nuance帮助曼彻斯特附近Dukinfield的一家诊所，为其六名医生建立了语音系统。",
+   "p": 11
   },
   {
    "en": "Now they can dictate notes on a patient's health condition and treatment and a smart assistant automatically enters the information into the right fields on a web form.",
-   "cn": "如今他们可以口述关于病人健康状况和治疗的记录，智能助手会自动将信息填入网页表单的相应字段。"
+   "cn": "如今他们可以口述关于病人健康状况和治疗的记录，智能助手会自动将信息填入网页表单的相应字段。",
+   "p": 11
   },
   {
    "en": "Previously, the doctors made voice recordings that were then transcribed by secretaries·a process that was costly and likely to cause delays.",
-   "cn": "此前，医生们录制语音，再由秘书转写——这一过程成本高且容易造成延误。"
+   "cn": "此前，医生们录制语音，再由秘书转写——这一过程成本高且容易造成延误。",
+   "p": 11
   },
   {
    "en": "The new system means letters to patients now have more detail.",
-   "cn": "新系统意味着现在写给病人的信内容更详细。"
+   "cn": "新系统意味着现在写给病人的信内容更详细。",
+   "p": 11
   },
   {
    "en": "Using voice also makes sense when you're doing other things with your hands.",
-   "cn": "当你双手忙着别的事时，使用语音也很有意义。"
+   "cn": "当你双手忙着别的事时，使用语音也很有意义。",
+   "p": 12
   },
   {
    "en": "Think about when you're cooking, and you just want to know what the next step in the recipe is.",
-   "cn": "想想你做饭的时候，只想知道食谱的下一步是什么。"
+   "cn": "想想你做饭的时候，只想知道食谱的下一步是什么。",
+   "p": 12
   },
   {
    "en": "Your hands are covered with oil; you're not going to get on the iPad, so it's a lot more natural to talk.",
-   "cn": "你的手上沾满油；你不会去拿iPad，所以开口说话自然得多。"
+   "cn": "你的手上沾满油；你不会去拿iPad，所以开口说话自然得多。",
+   "p": 12
   },
   {
    "en": "And speech obviously makes sense when you're driving.",
-   "cn": "而在开车时，语音显然也说得通。"
+   "cn": "而在开车时，语音显然也说得通。",
+   "p": 12
   },
   {
    "en": "In the U.S., 29% of adults admit they surf behind the wheel, according to insurance firm State Farm. This is up from 13% in 2009.",
-   "cn": "据保险公司StateFarm称，美国29%的成年人承认他们在握方向盘时上网。"
+   "cn": "据保险公司StateFarm称，美国29%的成年人承认他们在握方向盘时上网。",
+   "p": 12
   },
   {
    "en": "No wonder using mobile phones while driving causes more crashes a year than drink driving, says the U.S. National Safety Council.",
-   "cn": "这一比例高于2009年的13%。美国国家安全委员会说，难怪开车时使用手机会导致每年比酒驾更多的车祸。"
+   "cn": "这一比例高于2009年的13%。美国国家安全委员会说，难怪开车时使用手机会导致每年比酒驾更多的车祸。",
+   "p": 12
   }
  ]
 }

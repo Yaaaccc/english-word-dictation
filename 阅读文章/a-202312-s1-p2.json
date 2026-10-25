@@ -6,63 +6,78 @@
  "sents": [
   {
    "en": "Female employees consistently pay lower airfares than men do for the same flights because they tend to book earlier.",
-   "cn": "女性员工在购买相同航班时，支付的机票价格consistently低于男性，因为她们往往更早预订。"
+   "cn": "女性员工在购买相同航班时，支付的机票价格consistently低于男性，因为她们往往更早预订。",
+   "p": 0
   },
   {
    "en": "We compared the airfare paid by employees in the same position within a company for the same class of travel and used a common statistical technique to account for other factors that might affect differences in airfares.",
-   "cn": "我们比较了同一家公司、相同职级员工在同等舱位旅行时所支付的机票价格，并采用一种常用的统计技术来剔除可能影响机票差价的其他因素。"
+   "cn": "我们比较了同一家公司、相同职级员工在同等舱位旅行时所支付的机票价格，并采用一种常用的统计技术来剔除可能影响机票差价的其他因素。",
+   "p": 1
   },
   {
    "en": "We found that women paid on average $18 less per ticket than their male colleagues.",
-   "cn": "我们发现，女性平均每张票比男性同事少付18美元。"
+   "cn": "我们发现，女性平均每张票比男性同事少付18美元。",
+   "p": 1
   },
   {
    "en": "Further investigation allowed us to conclude that this gap is largely explained by the fact that women tended to book earlier than men, 1.8 days on average.",
-   "cn": "进一步的调查让我们得出结论：这一差距在很大程度上是因为女性往往比男性更早预订，平均早1.8天。"
+   "cn": "进一步的调查让我们得出结论：这一差距在很大程度上是因为女性往往比男性更早预订，平均早1.8天。",
+   "p": 1
   },
   {
    "en": "We wanted to determine what was causing these gender differences in booking business trips so we tested a variety of possible explanations, such as women choosing to plan ahead or male frequent travelers being inclined to book late.",
-   "cn": "我们想弄清造成这种商务出行预订性别差异的原因，于是测试了多种可能的解释，比如女性倾向于提前规划，或常出差的男性倾向于晚订。"
+   "cn": "我们想弄清造成这种商务出行预订性别差异的原因，于是测试了多种可能的解释，比如女性倾向于提前规划，或常出差的男性倾向于晚订。",
+   "p": 2
   },
   {
    "en": "None of these explained away the gender gap, so we applied data collected from surveys that express consumer preferences that play a central role in economic decisions, such as patience and risk avoidance.",
-   "cn": "这些都没能解释掉这一性别差距，于是我们采用了调查中收集的、在经济决策中起核心作用的消费者偏好数据，如耐心和规避风险。"
+   "cn": "这些都没能解释掉这一性别差距，于是我们采用了调查中收集的、在经济决策中起核心作用的消费者偏好数据，如耐心和规避风险。",
+   "p": 2
   },
   {
    "en": "We found that only the concept of \"negative reciprocity\"·in which an employee who feels unfairly treated engages in negative behaviors, such as spending their company's money less carefully·explains these differences.",
-   "cn": "我们发现，唯一能解释这些差异的是“负面互惠”这一概念——即感到受到不公对待的员工会做出消极行为，比如不那么仔细地花公司的钱。"
+   "cn": "我们发现，唯一能解释这些差异的是“负面互惠”这一概念——即感到受到不公对待的员工会做出消极行为，比如不那么仔细地花公司的钱。",
+   "p": 3
   },
   {
    "en": "The surveys showed men tend to exhibit more of these negative behaviors than women.",
-   "cn": "调查显示，男性比女性更容易表现出这类消极行为。"
+   "cn": "调查显示，男性比女性更容易表现出这类消极行为。",
+   "p": 3
   },
   {
    "en": "This isn't to say that all men engage in these behaviors·or that booking relatively late is a sign of abnormal behavior.",
-   "cn": "这并不是说所有男性都会这样做，也不是说相对晚订就是异常行为的标志。"
+   "cn": "这并不是说所有男性都会这样做，也不是说相对晚订就是异常行为的标志。",
+   "p": 3
   },
   {
    "en": "It only means that the gender gap disappears when we plug in the negative reciprocity variable.",
-   "cn": "它只意味着，当我们把“负面互惠”这一变量纳入后，性别差距就消失了。"
+   "cn": "它只意味着，当我们把“负面互惠”这一变量纳入后，性别差距就消失了。",
+   "p": 3
   },
   {
    "en": "Prior research on negative reciprocity among workers found that it can result in lower employee motivation, business performance and workplace morale and culture.",
-   "cn": "此前关于员工负面互惠的研究发现，它会导致员工积极性、企业业绩以及职场士气与文化下降。"
+   "cn": "此前关于员工负面互惠的研究发现，它会导致员工积极性、企业业绩以及职场士气与文化下降。",
+   "p": 4
   },
   {
    "en": "Our results show another way these negative behaviors can manifest themselves, like in airline bookings, and add to evidence that women are less likely to engage in them.",
-   "cn": "我们的结果展示了这些消极行为的另一种表现方式，例如在机票预订上，并进一步证明女性较少做出此类行为。"
+   "cn": "我们的结果展示了这些消极行为的另一种表现方式，例如在机票预订上，并进一步证明女性较少做出此类行为。",
+   "p": 5
   },
   {
    "en": "Companies spend significant sums of money on business travel.",
-   "cn": "公司在商务旅行上花费巨资。"
+   "cn": "公司在商务旅行上花费巨资。",
+   "p": 6
   },
   {
    "en": "While that $18 difference per ticket may seem small, it adds up.",
-   "cn": "虽然每张票18美元的差额看似很小，但积少成多。"
+   "cn": "虽然每张票18美元的差额看似很小，但积少成多。",
+   "p": 6
   },
   {
    "en": "Our analysis suggests early booking by women can translate into savings of $1 million a year for a large multinational company with 20,000 regular travelers.",
-   "cn": "我们的分析表明，对于一家拥有2万名经常出差员工的跨国大公司，女性的提前预订每年可转化为100万美元的节省。"
+   "cn": "我们的分析表明，对于一家拥有2万名经常出差员工的跨国大公司，女性的提前预订每年可转化为100万美元的节省。",
+   "p": 6
   }
  ]
 }
