@@ -6813,7 +6813,10 @@ button.small{ padding:6px 12px; font-size:12.5px; }
       var savedRate = null;
       try { savedRate = localStorage.getItem(K_RATE2); } catch (e) {}
       applyReadRate(savedRate ? +savedRate : 0.92);
-      rRate.addEventListener("input", function () { applyReadRate(+rRate.value); });
+      rRate.addEventListener("input", function () {
+        applyReadRate(+rRate.value);
+        if (trackEl && !trackEl.paused) { try { trackEl.playbackRate = readRate; } catch (e) {} }
+      });
     }
 
     /* ---------- 朗读整篇（2026-10-25 加） ----------
@@ -6876,6 +6879,9 @@ button.small{ padding:6px 12px; font-size:12.5px; }
       var span = track.p[from] || [0, 0];
       var begin = function () {
         try { a.currentTime = span[0]; } catch (e) {}
+        /* 语速：预生成 mp3 只能用 playbackRate；preservesPitch 保持音调不变（默认 true） */
+        try { a.preservesPitch = true; } catch (e) {}
+        try { a.playbackRate = readRate; } catch (e) {}
         var p = a.play();
         if (p && p.catch) p.catch(function () {});
         if (trackTimer) clearInterval(trackTimer);
