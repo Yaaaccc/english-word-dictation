@@ -98,11 +98,47 @@
   },
   {
    "en": "With the help of engineering students at high schools in Maine, Horn and Wang have also built a robot simulation (模拟) that shows how bilateral control can suppress phantom traffic jams.",
-   "cn": "在缅因州高中工程学生的帮助下，霍恩和汪还搭建了一个机器人模拟（模拟），展示双边控制如何抑制幽灵堵车。研究人员说，增大车辆间距会削弱某辆车前方车辆的减速效应，从而使减速不会恶化到形成幽灵堵车的程度。K)Avideofromtheprojectshowsatrainofautonomousrobotsrunningalongatrackwithoutbilateralcontrol:theyeventuallybackupinphantomjams.Butwhentherobotsareswitchedovertobilateralcontrol(byflashingthelightsintheroom),eachautonomousrobottriestokeepitselfhalfwaybetweentherobotinfrontandtheonebehind;thephantomjamsdisappearasaresult,Hornsaid.K）该项目的一段视频显示，一列自主机器人在没有双边控制的情况下沿轨道运行：它们最终在幽灵堵车中倒退堵塞。但霍恩说，当机器人切换到双边控制（通过闪烁室内灯光），每个自主机器人都试图让自己保持在前后机器人正中间；结果幽灵堵车消失了。L)Sincestartinghisresearchonphantomtrafficjams,Hornhaslearnedthatschoolsoffishandflocksofbirdsandbatsusesimilarspacingstrategiestoavoidhittingeachotherwhileswimmingorflyingindenselypackedgroups.Inparticular,studiesofmillionsofbatsemergingatduskfromcavesinSoutheastAsiashowedthateachbatusedaformofbilateralcontroltoreducethelikelihoodofcollisionswithotherbatsinthedenselypackedswarm(一大群),Homsaid.L）自开始研究幽灵堵车以来，霍恩了解到，鱼群、鸟群和蝙蝠群在密集群体中游动或飞行时，会使用类似的间距策略以避免互相碰撞。特别是，对东南亚黄昏时分从洞穴涌出的数百万只蝙蝠的研究显示，每只蝙蝠都使用某种形式的双边控制，以降低在密集蝠群（一大群）中与其他蝙蝠碰撞的可能性，霍恩说。M)Unlikebats,birdsandfish,however,humanshavedifficultyjudgingdistancesbehindthem.Toaddressthatweakness,HornisnowworkingwiththecarcompanyToyotatoenableaformofbilateralcontrolviamodificationstoexistingadaptivecruisecontrolsystems,whichuseforward-facingsensorstojudgethedistancetothevehicleahead.Thebilateralcontrolapproachwouldincludeaddingrear-facingsensorstodeterminethedistancetothevehiclefollowingacar.M）然而，与蝙蝠、鸟和鱼不同，人类难以判断身后距离。为弥补这一弱点，霍恩正与丰田汽车公司合作，通过对现有自适应巡航控制系统（使用前向传感器判断与前车距离）进行改装，来实现一种双边控制。该双边控制方法将包括增加后向传感器，以确定与后随车辆的距离。N)Butuntilthosesystemsbecomestandard,humandriverscanhelpreducephantomtrafficjamssimplybynotfollowingthecarinfrontsoclosely.AsHornargues,·There·sabsolutelynoadvantageoftailgatingthecarinfrontofyou.·N）但在这些系统成为标准之前，人类驾驶者只需不与前车跟得那么近，就能帮助减少幽灵堵车。"
+   "cn": "在缅因州高中工程学生的帮助下，霍恩和汪还搭建了一个机器人模拟（模拟），展示双边控制如何抑制幽灵堵车。"
   },
   {
    "en": "Increasing the spacing of vehicles dampens the effect of slowdowns by cars in front of a given car, so that the slowing is not worsened until it becomes a phantom jam, the researchers said.",
-   "cn": "正如霍恩所言：“紧跟你前面的车绝对没有任何好处。”36.Theage-longmysteryhasnowbeenresolvedastohowphantomtrafficjamsarecaused.36.关于幽灵堵车是如何形成的，这个长久以来的谜团如今已被解开。37.Itispossibletonearlydoublethehourlythroughputperlanebyadoptingbilateralcontrol.37.采用双边控制，有可能将近每条车道每小时的通行量翻倍。38.AccordingtoHorn,driversmakingconstantadjustmentsforequalspacingbetweencarsinaflowoftrafficcanhelpreducephantomtrafficjams.38.据霍恩称，驾驶者在车流中不断调整以保持车辆间距相等，有助于减少幽灵堵车。39.Beforesystemsforbilateralcontrolareinstalled,driversshouldnotfollowthecarinfronttoocloselysoastoreducephantomtrafficjams.39.在双边控制系统安装之前，驾驶者不应过于紧跟前车，以减少幽灵堵车。40.Hornsaidwithsomesimplemodificationstotheexistingequipmentinnewvehicles,theirspacingbilateralcontrolcouldbeaccomplished.40.霍恩说，通过对新车现有设备做些简单改装，就能实现其间距双边控制。41.Driverscaughtupinphantomtrafficjamsarelikelytothinkanaccidenthashappenedorsomeconstructionisgoingon.41.陷入幽灵堵车的驾驶者，很可能会以为发生了事故或正在进行某种施工。42.Twosetsofsensorswouldbeusedtohelpdriversdeterminethedistancesbetweencars.42.将使用两套传感器来帮助驾驶者确定车辆之间的距离。43.SolvingtheproblemofphantomjamscouldsaveAmericabillionsofdollarseveryyear.43.解决幽灵堵车问题，每年可为美国节省数十亿美元。44.Inaphantomtrafficjam,thecarsinthesamelaneslowdownoneafteranother,creatingawave-likeeffect.44.在幽灵堵车中，同一车道上的车辆依次减速，形成波浪般的效应。45.Hornhasfoundthatcertaincreaturesusestrategiessimilartobilateralcontroltoavoidhittingeachotherwhilemovingindensecrowds.45.霍恩发现，某些生物会使用类似于双边控制的策略，在密集群体中移动时避免互相碰撞。"
+   "cn": "研究人员说，增大车辆间距会削弱某辆车前方车辆的减速效应，从而使减速不会恶化到形成幽灵堵车的程度。"
+  },
+  {
+   "en": "A video from the project shows a train of autonomous robots running along a track without bilateral control: they eventually back up in phantom jams.",
+   "cn": "该项目的一段视频显示，一列自主机器人在没有双边控制的情况下沿轨道运行：它们最终在幽灵堵车中倒退堵塞。但霍恩说，当机器人切换到双边控制（通过闪烁室内灯光），每个自主机器人都试图让自己保持在前后机器人正中间；"
+  },
+  {
+   "en": "But when the robots are switched over to bilateral control (by flashing the lights in the room), each autonomous robot tries to keep itself halfway between the robot in front and the one behind; the phantom jams disappear as a result, Horn said.",
+   "cn": "结果幽灵堵车消失了。"
+  },
+  {
+   "en": "Since starting his research on phantom traffic jams, Horn has learned that schools of fish and flocks of birds and bats use similar spacing strategies to avoid hitting each other while swimming or flying in densely packed groups.",
+   "cn": "自开始研究幽灵堵车以来，霍恩了解到，鱼群、鸟群和蝙蝠群在密集群体中游动或飞行时，会使用类似的间距策略以避免互相碰撞。"
+  },
+  {
+   "en": "In particular, studies of millions of bats emerging at dusk from caves in Southeast Asia showed that each bat used a form of bilateral control to reduce the likelihood of collisions with other bats in the densely packed swarm (一大群), Hom said.",
+   "cn": "特别是，对东南亚黄昏时分从洞穴涌出的数百万只蝙蝠的研究显示，每只蝙蝠都使用某种形式的双边控制，以降低在密集蝠群（一大群）中与其他蝙蝠碰撞的可能性，霍恩说。"
+  },
+  {
+   "en": "Unlike bats, birds and fish, however, humans have difficulty judging distances behind them.",
+   "cn": "然而，与蝙蝠、鸟和鱼不同，人类难以判断身后距离。"
+  },
+  {
+   "en": "To address that weakness, Horn is now working with the car company Toyota to enable a form of bilateral control via modifications to existing adaptive cruise control systems, which use forward-facing sensors to judge the distance to the vehicle ahead.",
+   "cn": "为弥补这一弱点，霍恩正与丰田汽车公司合作，通过对现有自适应巡航控制系统（使用前向传感器判断与前车距离）进行改装，来实现一种双边控制。"
+  },
+  {
+   "en": "The bilateral control approach would include adding rear-facing sensors to determine the distance to the vehicle following a car.",
+   "cn": "该双边控制方法将包括增加后向传感器，以确定与后随车辆的距离。"
+  },
+  {
+   "en": "But until those systems become standard, human drivers can help reduce phantom traffic jams simply by not following the car in front so closely.",
+   "cn": "但在这些系统成为标准之前，人类驾驶者只需不与前车跟得那么近，就能帮助减少幽灵堵车。正如霍恩所言：“紧跟你前面的车绝对没有任何好处。"
+  },
+  {
+   "en": "As Horn argues, ·There·s absolutely no advantage of tailgating the car in front of you.·",
+   "cn": "”"
   }
  ]
 }
