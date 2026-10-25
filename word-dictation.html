@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="referrer" content="no-referrer">
 <title>英语单词听写</title>
 <!-- PWA（与原版一致：加到主屏幕后全屏运行、断网也能练） -->
 <link rel="manifest" href="manifest.json">
@@ -6834,6 +6835,67 @@ button.small{ padding:6px 12px; font-size:12.5px; }
       }
       return en.filter(function (v) { return /microsoft/i.test(v.name) && !v.localService; })[0] || en[0];
     }
+    /* ---------- 离线音轨（2026-10-25 加）----------
+       阅读音频/{id}.mp3 是整篇朗读，{id}.json 是逐句起止时间。
+       同域静态文件：不受 Referer 限制、不依赖系统语音引擎，Via 这类浏览器也能播。 */
+    var AUDIO_DIR = "%E9%98%85%E8%AF%BB%E9%9F%B3%E9%A2%91";   // "阅读音频"
+    var track = null, trackEl = null, trackTimer = null;
+
+    function loadTrack(id) {
+      track = null;
+      if (trackEl) { try { trackEl.pause(); } catch (e) {} }
+      if (trackTimer) { clearInterval(trackTimer); trackTimer = null; }
+      fetch(AUDIO_DIR + "/" + encodeURIComponent(id) + ".json", { cache: "force-cache" })
+        .then(function (r) { return r.ok ? r.json() : null; })
+        .then(function (j) { track = (j && j.p && j.p.length) ? j : null; })
+        .catch(function () { track = null; });
+    }
+    function trackElReady() {
+      if (!trackEl) {
+        trackEl = new Audio();
+        trackEl.preload = "auto";
+        trackEl.addEventListener("timeupdate", onTrackTime);
+        trackEl.addEventListener("ended", function () { stopSpeak(); });
+      }
+      return trackEl;
+    }
+    function onTrackTime() {
+      if (!track || !trackEl || !speaking) return;
+      var t = trackEl.currentTime, idx = 0;
+      for (var i = 0; i < track.p.length; i++) {
+        if (t >= track.p[i][0] && t < track.p[i][1]) { idx = i; break; }
+      }
+      markCur(idx);
+      if (rProgFill) rProgFill.style.width = (((idx + 1) / track.p.length) * 100).toFixed(1) + "%";
+      var el = rBody.querySelector('.rsent[data-i="' + idx + '"]');
+      if (el && el !== window.__lastScrolled) { window.__lastScrolled = el; try { el.scrollIntoView({ block: "center", behavior: "smooth" }); } catch (e) {} }
+    }
+    function playTrack(from, single) {
+      var a = trackElReady();
+      var src = AUDIO_DIR + "/" + encodeURIComponent(cur.id) + ".mp3";
+      var span = track.p[from] || [0, 0];
+      var begin = function () {
+        try { a.currentTime = span[0]; } catch (e) {}
+        var p = a.play();
+        if (p && p.catch) p.catch(function () {});
+        if (trackTimer) clearInterval(trackTimer);
+        if (single) {
+          /* 只读一句：到句末就停 */
+          trackTimer = setInterval(function () {
+            if (!trackEl) return;
+            if (trackEl.currentTime >= span[1] - 0.06) { stopSpeak(); }
+          }, 120);
+        }
+      };
+      if (a.getAttribute("src") !== src) {
+        a.onloadedmetadata = function () { a.onloadedmetadata = null; begin(); };
+        a.src = src;
+        try { a.load(); } catch (e) {}
+      } else {
+        begin();
+      }
+    }
+
     /* 设备有没有可用的语音引擎（手机/平板上 getVoices() 常为空 —— 设置页「英文发音」空白就是它） */
     function canTTS() {
       /* 有音色列表才认为语音合成真的可用；否则（Via 等 WebView 常返回空）改走百度在线音频。 */
@@ -6847,7 +6909,13 @@ button.small{ padding:6px 12px; font-size:12.5px; }
       var finished = false;
       var finish = function (ok) { if (finished) return; finished = true; if (onEnd) onEnd(ok); };
       try {
-        if (!readAudio) readAudio = new Audio();
+        if (!readAudio) {
+          readAudio = new Audio();
+          /* 关键：百度对「Referer 不是它自己」的请求返回 200 但**内容为空**（实测 text/html 0 字节）。
+             浏览器默认会带 Referer，所以必须显式关掉，否则音频永远加载不出来。 */
+          try { readAudio.referrerPolicy = "no-referrer"; } catch (e) {}
+          try { readAudio.crossOrigin = "anonymous"; } catch (e) {}
+        }
         var a = readAudio;
         var spd = Math.min(6, Math.max(1, Math.round((rate || 1) * 3.3)));   // 0.92≈3(正常)，0.6≈2，1.4≈5
         a.onended = function () { finish(true); };
@@ -6868,6 +6936,8 @@ button.small{ padding:6px 12px; font-size:12.5px; }
       if (rView) rView.classList.remove("read-speaking");
       if (rProg) rProg.classList.add("hidden");
       if (rProgFill) rProgFill.style.width = "0%";
+      if (trackEl) { try { trackEl.pause(); } catch (e) {} }
+      if (trackTimer) { clearInterval(trackTimer); trackTimer = null; }
     }
     function speakFrom(start, single) {
       if (!cur) return;
@@ -6885,6 +6955,11 @@ button.small{ padding:6px 12px; font-size:12.5px; }
       /* 音色列表为空时（Via/某些 WebView），无法确认引擎是否真的工作：
          连续 3 句都等不到 onstart 就判定为不支持，避免「进度条在跑但没声音」。 */
       var useTTS = canTTS();
+      /* 优先用离线音轨：同域 mp3，不依赖引擎/在线接口 */
+      if (track) {
+        playTrack(Math.max(0, Math.min(track.p.length - 1, start | 0)), single);
+        return;
+      }
       var strict = false;          // 走百度时不需要 onstart 检测
       var noStart = 0;
       (function next(i) {
@@ -7020,6 +7095,7 @@ button.small{ padding:6px 12px; font-size:12.5px; }
           renderBody();
           rS.classList.add("hidden");
           rV.classList.remove("hidden");
+          loadTrack(art.id);       // 有离线音轨就用它（同域 mp3，无引擎/网络接口依赖）
         })
         .catch(function (e) { rHint.textContent = "文章加载失败：" + e.message; });
     }
