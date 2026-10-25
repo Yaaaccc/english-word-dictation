@@ -1257,13 +1257,14 @@ button.small{ padding:6px 12px; font-size:12.5px; }
 .read-modes{ display:inline-flex; gap:2px; padding:2px; border-radius:999px; background:rgba(16,24,40,.06); flex:none; }
 .read-mode{ border:none; background:transparent; color:#5B6578; border-radius:999px; padding:5px 13px; font-size:12.5px; font-weight:700; box-shadow:none; }
 .read-mode.on{ background:#fff; color:#101828; box-shadow:0 1px 3px rgba(16,24,40,.14); }
-.read-focus{
+.read-focus, .read-speak{
   width:30px; height:30px; border-radius:50%; flex:none; padding:0; margin-left:4px;
   display:inline-flex; align-items:center; justify-content:center; cursor:pointer;
   border:1px solid rgba(16,24,40,.12); background:#fff; color:#98A2B6;
   font-size:13px; box-shadow:none;
 }
-.read-focus[aria-pressed="true"]{ background:var(--violet); color:#fff; border-color:var(--violet); box-shadow:0 3px 10px -3px rgba(122,63,212,.5); }
+.read-focus[aria-pressed="true"], .read-speak[aria-pressed="true"]{ background:var(--violet); color:#fff; border-color:var(--violet); box-shadow:0 3px 10px -3px rgba(122,63,212,.5); }
+#readView.read-speaking .read-body .rsent.cur{ background:rgba(122,63,212,.10); }
 .read-body{
   flex:1; min-height:0; overflow:auto; margin:0;
   padding:18px 40px 10px;
@@ -1296,8 +1297,8 @@ button.small{ padding:6px 12px; font-size:12.5px; }
   .read-modes{ background:rgba(255,255,255,.07); }
   .read-mode{ color:#9AA3B5; }
   .read-mode.on{ background:#2A3040; color:#F0F3FA; box-shadow:inset 0 1px 0 rgba(255,255,255,.08); }
-  .read-focus{ background:#222836; border-color:rgba(255,255,255,.1); color:#8B96B2; }
-  .read-focus[aria-pressed="true"]{ background:var(--violet); border-color:var(--violet); color:#fff; }
+  .read-focus, .read-speak{ background:#222836; border-color:rgba(255,255,255,.1); color:#8B96B2; }
+  .read-focus[aria-pressed="true"], .read-speak[aria-pressed="true"]{ background:var(--violet); border-color:var(--violet); color:#fff; }
   .read-body{ color:#E9ECF3; }
   .read-body .rsent .cnline{ color:#9AA3B5; }
   #readView.read-focus-on .read-body .rsent.cur .cnline{ color:#C3CBDB; }
@@ -2004,6 +2005,7 @@ button.small{ padding:6px 12px; font-size:12.5px; }
           <button class="read-mode" data-m="cn" type="button">中</button>
         </span>
         <button class="read-focus" id="readFocus" type="button" aria-pressed="false" title="专注模式：只突出当前句" aria-label="专注模式">◉</button>
+        <button class="read-speak" id="readSpeak" type="button" aria-pressed="false" title="从当前句开始朗读整篇" aria-label="朗读">🔊</button>
       </div>
       <div id="readBody" class="read-body"></div>
       <div class="read-foot">
@@ -6736,6 +6738,67 @@ button.small{ padding:6px 12px; font-size:12.5px; }
       });
     }
 
+    /* ---------- 朗读整篇（2026-10-25 加） ----------
+       从当前句开始，一句一句读下去，读到的句子高亮并滚到屏幕中间；再点按钮停止。
+       音色规则与听写模块一致：优先 Microsoft Ava Online (Natural) 单语版 → 其它 Ava → Aria → 微软在线英文。 */
+    var rSpeak = document.getElementById("readSpeak");
+    var speaking = false, speakToken = 0;
+    function pickEnVoice() {
+      if (!window.speechSynthesis) return null;
+      var vs = speechSynthesis.getVoices() || [];
+      var en = vs.filter(function (v) { return /^en([-_]|$)/i.test(v.lang); });
+      if (!en.length) return null;
+      var pats = [/microsoft\s+ava\s+online\s*\(natural\)/i, /ava/i, /aria/i, /microsoft.*online.*english/i];
+      for (var i = 0; i < pats.length; i++) {
+        var hit = en.filter(function (v) { return pats[i].test(v.name); })[0];
+        if (hit) return hit;
+      }
+      return en.filter(function (v) { return /microsoft/i.test(v.name) && !v.localService; })[0] || en[0];
+    }
+    function stopSpeak() {
+      speaking = false;
+      speakToken++;
+      try { if (window.speechSynthesis) speechSynthesis.cancel(); } catch (e) {}
+      if (rSpeak) rSpeak.setAttribute("aria-pressed", "false");
+      if (rView) rView.classList.remove("read-speaking");
+    }
+    function speakFrom(start) {
+      if (!cur || !window.speechSynthesis) return;
+      stopSpeak();
+      speaking = true;
+      var tok = speakToken;
+      if (rSpeak) rSpeak.setAttribute("aria-pressed", "true");
+      if (rView) rView.classList.add("read-speaking");
+      var v = pickEnVoice();
+      var total = cur.sents.length;
+      (function next(i) {
+        if (!speaking || tok !== speakToken || i >= total) { stopSpeak(); return; }
+        markCur(i);
+        var el = rBody.querySelector('.rsent[data-i="' + i + '"]');
+        if (el && el.scrollIntoView) { try { el.scrollIntoView({ block: "center", behavior: "smooth" }); } catch (e) {} }
+        var txt = cur.sents[i].en;
+        var u = new SpeechSynthesisUtterance(txt);
+        if (v) u.voice = v;
+        u.lang = "en-US";
+        u.rate = 0.92;
+        /* 兜底：个别设备/浏览器上 utterance 可能既不 end 也不 error（实测无头环境就这样），
+           按估算时长加保险丝，避免整篇朗读卡死在某一句。 */
+        var guard = setTimeout(function () {
+          if (speaking && tok === speakToken) next(i + 1);
+        }, Math.min(12000, Math.max(3000, txt.length * 65)) + 4000);
+        u.onend = function () { clearTimeout(guard); next(i + 1); };
+        u.onerror = function () { clearTimeout(guard); next(i + 1); };
+        try { speechSynthesis.speak(u); } catch (e) { clearTimeout(guard); stopSpeak(); }
+      })(Math.max(0, Math.min(total - 1, start | 0)));
+    }
+    if (rSpeak) {
+      rSpeak.addEventListener("click", function (e) {
+        e.stopPropagation();
+        if (speaking) stopSpeak();
+        else speakFrom(curSel == null ? 0 : curSel);
+      });
+    }
+
     function doneMap() { try { return JSON.parse(localStorage.getItem(K_DONE) || "{}"); } catch (e) { return {}; } }
     function esc(t) { return String(t).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
 
@@ -6800,6 +6863,7 @@ button.small{ padding:6px 12px; font-size:12.5px; }
     function hideTrans() { rTrans.classList.add("hidden"); }
 
     function openArticle(id) {
+      stopSpeak();   // 换文章先停朗读
       /* 2026-10-25：no-cache 而非 force-cache。force-cache 下浏览器一旦缓存过该 JSON 就永不校验，
          重新导入同一篇（改错字/换译文）或新增文章都会看不到；no-cache 只多一次 304 校验。 */
       fetch("阅读文章/a-" + encodeURIComponent(id) + ".json", { cache: "no-cache" })
@@ -6840,11 +6904,11 @@ button.small{ padding:6px 12px; font-size:12.5px; }
     });
     rS.addEventListener("click", function (e) { e.stopPropagation(); });
     rV.addEventListener("click", function (e) { e.stopPropagation(); });
-    document.addEventListener("click", function () { if (!rV.classList.contains("hidden")) { rV.classList.add("hidden"); hideTrans(); } });
+    document.addEventListener("click", function () { if (!rV.classList.contains("hidden")) { rV.classList.add("hidden"); hideTrans(); stopSpeak(); } });
     document.addEventListener("keydown", function (e) {
       if (e.key !== "Escape") return;
       if (!rTrans.classList.contains("hidden")) { hideTrans(); return; }
-      if (!rV.classList.contains("hidden")) { rV.classList.add("hidden"); rS.classList.remove("hidden"); return; }
+      if (!rV.classList.contains("hidden")) { rV.classList.add("hidden"); rS.classList.remove("hidden"); stopSpeak(); return; }
       rS.classList.add("hidden");
     });
 
@@ -6856,7 +6920,7 @@ button.small{ padding:6px 12px; font-size:12.5px; }
     rSearch.addEventListener("input", function () { renderList(rSearch.value); });
 
     /* 阅读页交互 */
-    document.getElementById("readBack").addEventListener("click", function () { rV.classList.add("hidden"); rS.classList.remove("hidden"); hideTrans(); renderList(rSearch.value); });
+    document.getElementById("readBack").addEventListener("click", function () { rV.classList.add("hidden"); rS.classList.remove("hidden"); hideTrans(); stopSpeak(); renderList(rSearch.value); });
     var modeBtns = rV.querySelectorAll(".read-mode");
     for (var mi = 0; mi < modeBtns.length; mi++) {
       modeBtns[mi].addEventListener("click", function () {
