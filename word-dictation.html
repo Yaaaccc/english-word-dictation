@@ -2415,11 +2415,12 @@ button.small{ padding:6px 12px; font-size:12.5px; }
   var EXAM_DICT = null, examDictPromise = null;
   function loadExamDict() {
     if (!examDictPromise) {
-      /* 2026-10-25：此处原为 { cache: "force-cache" }，已移除。
-         force-cache 在缓存过期后仍直接用旧副本、不向服务器校验；而 exam-examples.json 每天随抓取更新，
-         会导致新真题例句进不来（本地 server 发 no-store 所以本地永远测不出）。用默认策略：10 分钟内用缓存，
-         过期后自动 304 校验，几乎不耗流量。 */
-      examDictPromise = fetch("exam-examples.json")
+      /* 2026-10-25 二改：这几个数据文件很大（exam-examples 347KB / example-dict 835KB / quiz-pool 300KB），
+         国内拉 GitHub Pages 单次要 5-15 秒。上午改成默认策略后首屏从「秒开」变成「等十几秒」，
+         所以改用「日期版本号 + force-cache」：当天 URL 固定 → 命中本地缓存、不走网络；
+         跨天 URL 变 → 自动重新下载一次。既不天天拉全量，也不会永远用旧副本。 */
+    var _dd = new Date(), DAY = "" + _dd.getFullYear() + ("0" + (_dd.getMonth() + 1)).slice(-2) + ("0" + _dd.getDate()).slice(-2);
+      examDictPromise = fetch("exam-examples.json?d=" + DAY, { cache: "force-cache" })
         .then(function (r) { return r.ok ? r.json() : {}; })
         .then(function (j) { EXAM_DICT = j || {}; return EXAM_DICT; })
         .catch(function () { EXAM_DICT = {}; return EXAM_DICT; });
@@ -2997,7 +2998,8 @@ button.small{ padding:6px 12px; font-size:12.5px; }
   var quizPoolPromise = null;
   function loadQuizPool() {
     if (!quizPoolPromise) {
-      quizPoolPromise = fetch("quiz-pool.json")
+    var _dd = new Date(), DAY = "" + _dd.getFullYear() + ("0" + (_dd.getMonth() + 1)).slice(-2) + ("0" + _dd.getDate()).slice(-2);
+      quizPoolPromise = fetch("quiz-pool.json?v=20261023", { cache: "force-cache" })
         .then(function (r) { return r.ok ? r.json() : {}; })
         .catch(function () { return {}; });
     }
@@ -4322,7 +4324,8 @@ button.small{ padding:6px 12px; font-size:12.5px; }
   function loadExampleDict() {
     if (EXAMPLE_DICT) return Promise.resolve(EXAMPLE_DICT);
     if (exampleDictPromise) return exampleDictPromise;
-    exampleDictPromise = fetch("example-dict.json")
+    var _dd = new Date(), DAY = "" + _dd.getFullYear() + ("0" + (_dd.getMonth() + 1)).slice(-2) + ("0" + _dd.getDate()).slice(-2);
+    exampleDictPromise = fetch("example-dict.json?d=" + DAY, { cache: "force-cache" })
       .then(function (r) { return r.ok ? r.json() : {}; })
       .then(function (d) {
         EXAMPLE_DICT = (d && typeof d === "object") ? d : {};
@@ -5277,7 +5280,8 @@ button.small{ padding:6px 12px; font-size:12.5px; }
   function wpdfLoadDict() {
     if (WPDF_DICT) return Promise.resolve(WPDF_DICT);
     if (wpdfDictPromise) return wpdfDictPromise;
-    wpdfDictPromise = fetch("example-dict.json")
+    var _dd = new Date(), DAY = "" + _dd.getFullYear() + ("0" + (_dd.getMonth() + 1)).slice(-2) + ("0" + _dd.getDate()).slice(-2);
+    wpdfDictPromise = fetch("example-dict.json?d=" + DAY, { cache: "force-cache" })
       .then(function (r) { return r.ok ? r.json() : {}; })
       .then(function (d) {
         WPDF_DICT = (d && typeof d === "object") ? d : {};
