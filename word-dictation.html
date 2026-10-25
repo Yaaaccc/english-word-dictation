@@ -1275,6 +1275,8 @@ button.small{ padding:6px 12px; font-size:12.5px; }
   font-family:Georgia, "Songti SC", "SimSun", serif;
 }
 .read-body .rsent{ display:block; cursor:pointer; border-radius:4px; padding:0; margin:0; transition:background .12s, opacity .18s; }
+/* 段落首句：与上一段拉开距离（配合导入时的 p 段号） */
+.read-body .rsent.para-first{ margin-top:22px; }
 .read-body .rsent:hover{ background:rgba(122,63,212,.06); }
 .read-body .rsent.sel{ background:rgba(122,63,212,.09); }
 .read-body .rsent .cnline{
@@ -1292,6 +1294,25 @@ button.small{ padding:6px 12px; font-size:12.5px; }
 #readView.read-speaking .read-body .rsent.cur .cnline{ color:#4A4A4A; }
 .read-foot{ display:flex; align-items:center; gap:10px; margin:0; padding:11px 40px 15px; border-top:1px solid rgba(16,24,40,.06); flex:none; }
 .read-foot .read-tip{ font-size:11px; color:#8A94A8; }
+.read-rate{ display:inline-flex; align-items:center; gap:7px; flex:none; font-size:11.5px; color:#6B6B6B; }
+.read-rate input[type=range]{ width:112px; }
+.read-rate b{ font-size:11.5px; color:#101828; font-weight:700; min-width:40px; font-variant-numeric:tabular-nums; }
+@media (prefers-color-scheme: dark){
+  .read-rate{ color:#9AA3B5; }
+  .read-rate b{ color:#E9ECF3; }
+}
+/* 逐句播放小按钮：贴右边缘，平时很淡，鼠标移上去或按下去才明显 */
+.read-body .rsent{ position:relative; padding-right:34px; }
+.rsent-play{
+  position:absolute; right:0; top:1px; width:26px; height:26px; padding:0;
+  display:inline-flex; align-items:center; justify-content:center;
+  border:none; border-radius:50%; background:transparent; color:#8A94A8;
+  font-size:13px; line-height:1; opacity:.26; cursor:pointer; box-shadow:none;
+  transition:opacity .15s, background .15s, color .15s;
+}
+.read-body .rsent:hover .rsent-play{ opacity:.85; }
+.rsent-play:hover{ background:rgba(122,63,212,.12); color:var(--violet); opacity:1; }
+.rsent-play:active{ background:rgba(122,63,212,.2); }
 #readDoneBtn.done{ background:var(--green-soft); border-color:var(--green-line); color:var(--green); }
 
 /* 深色模式：深色纸（不跟随玻璃） */
@@ -1322,7 +1343,12 @@ button.small{ padding:6px 12px; font-size:12.5px; }
   .read-mode{ padding:5px 10px; font-size:12px; }
   .read-body{ padding:14px 18px 8px; font-size:18.5px; line-height:2.0; }
   .read-body .rsent .cnline{ font-size:15px; margin:4px 0 15px; }
-  .read-foot{ padding:9px 18px 13px; }
+  .read-foot{ padding:9px 18px 13px; gap:8px; flex-wrap:wrap; }
+  .read-foot .read-tip{ display:none; }
+  .read-rate input[type=range]{ width:86px; }
+  .read-body .rsent{ padding-right:28px; }
+  .read-body .rsent.para-first{ margin-top:17px; }
+  .rsent-play{ opacity:.4; width:24px; height:24px; }
   #readView.read-focus-on .read-body .rsent.cur,
 #readView.read-speaking .read-body .rsent.cur{ margin-left:-8px; padding-left:5px; border-left-width:2px; }
 }
@@ -2020,7 +2046,12 @@ button.small{ padding:6px 12px; font-size:12.5px; }
       <div id="readBody" class="read-body"></div>
       <div class="read-foot">
         <button class="small" id="readDoneBtn" type="button">✓ 标为已读</button>
-        <span class="read-tip">点句子看翻译 · 划选文字合并翻译 · 点单词查义收生词 · 紫底 = 词书词汇</span>
+        <label class="read-rate" for="readRate" title="朗读语速">
+          <span>语速</span>
+          <input type="range" id="readRate" min="0.6" max="1.4" step="0.05" value="0.92" aria-label="朗读语速">
+          <b id="readRateVal">0.92×</b>
+        </label>
+        <span class="read-tip">点句子看翻译 · 点 🔊 朗读</span>
       </div>
     </div>
   </div>
@@ -6748,6 +6779,24 @@ button.small{ padding:6px 12px; font-size:12.5px; }
       });
     }
 
+    /* ---------- 朗读语速（2026-10-25 加，与听写的语速设置分开存） ---------- */
+    var rRate = document.getElementById("readRate");
+    var rRateVal = document.getElementById("readRateVal");
+    var K_RATE2 = "dictationReadRate";
+    var readRate = 0.92;
+    function applyReadRate(v) {
+      readRate = Math.max(0.6, Math.min(1.4, isNaN(v) ? 0.92 : v));
+      if (rRate) rRate.value = String(readRate);
+      if (rRateVal) rRateVal.textContent = readRate.toFixed(2).replace(/\.?0+$/, "") + "×";
+      try { localStorage.setItem(K_RATE2, String(readRate)); } catch (e) {}
+    }
+    if (rRate) {
+      var savedRate = null;
+      try { savedRate = localStorage.getItem(K_RATE2); } catch (e) {}
+      applyReadRate(savedRate ? +savedRate : 0.92);
+      rRate.addEventListener("input", function () { applyReadRate(+rRate.value); });
+    }
+
     /* ---------- 朗读整篇（2026-10-25 加） ----------
        从当前句开始，一句一句读下去，读到的句子高亮并滚到屏幕中间；再点按钮停止。
        音色规则与听写模块一致：优先 Microsoft Ava Online (Natural) 单语版 → 其它 Ava → Aria → 微软在线英文。 */
@@ -6776,7 +6825,7 @@ button.small{ padding:6px 12px; font-size:12.5px; }
       if (rProg) rProg.classList.add("hidden");
       if (rProgFill) rProgFill.style.width = "0%";
     }
-    function speakFrom(start) {
+    function speakFrom(start, single) {
       if (!cur || !window.speechSynthesis) return;
       stopSpeak();
       speaking = true;
@@ -6796,14 +6845,15 @@ button.small{ padding:6px 12px; font-size:12.5px; }
         var u = new SpeechSynthesisUtterance(txt);
         if (v) u.voice = v;
         u.lang = "en-US";
-        u.rate = 0.92;
+        u.rate = readRate;
         /* 兜底：个别设备/浏览器上 utterance 可能既不 end 也不 error（实测无头环境就这样），
            按估算时长加保险丝，避免整篇朗读卡死在某一句。 */
         var guard = setTimeout(function () {
           if (speaking && tok === speakToken) next(i + 1);
         }, Math.min(12000, Math.max(3000, txt.length * 65)) + 4000);
-        u.onend = function () { clearTimeout(guard); next(i + 1); };
-        u.onerror = function () { clearTimeout(guard); next(i + 1); };
+        var done = function () { clearTimeout(guard); if (single) stopSpeak(); else next(i + 1); };
+        u.onend = done;
+        u.onerror = done;
         try { speechSynthesis.speak(u); } catch (e) { clearTimeout(guard); stopSpeak(); }
       })(Math.max(0, Math.min(total - 1, start | 0)));
     }
@@ -6840,10 +6890,15 @@ button.small{ padding:6px 12px; font-size:12.5px; }
     function renderBody() {
       if (!cur) return;
       rBody.className = "read-body" + (curMode === "cn" ? " rmode-cn" : "");
-      var html = "";
+      var html = "", prevP = null;
       for (var i = 0; i < cur.sents.length; i++) {
         var s = cur.sents[i];
-        html += '<span class="rsent" data-i="' + i + '">';
+        /* 2026-10-25：段落感。导入时给每句写了 p（段号），换段时拉开间距，
+           不然整篇只有句距、看起来是一大坨。旧数据没有 p 就退化为不拉。 */
+        var newPara = (i > 0 && typeof s.p === "number" && s.p !== prevP);
+        if (typeof s.p === "number") prevP = s.p;
+        html += '<span class="rsent' + (newPara ? " para-first" : "") + '" data-i="' + i + '">';
+        if (curMode !== "cn") html += '<button class="rsent-play" data-i="' + i + '" type="button" tabindex="-1" aria-label="朗读第 ' + (i + 1) + ' 句">🔊</button>';
         if (curMode === "en") html += sentHtml(s.en) + " ";
         else if (curMode === "cn") html += esc(s.cn || "（缺译）");
         else html += sentHtml(s.en) + ' <span class="cnline">' + esc(s.cn || "（缺译）") + "</span>";
@@ -6962,6 +7017,8 @@ button.small{ padding:6px 12px; font-size:12.5px; }
 
     /* 点句 → 翻译小卡（cn 模式不响应；点在词上交给查义卡，不弹翻译） */
     rBody.addEventListener("click", function (e) {
+      var pb = e.target.closest ? e.target.closest(".rsent-play") : null;
+      if (pb) { e.stopPropagation(); speakFrom(+pb.getAttribute("data-i"), true); return; }
       if (e.target.closest(".ex-w")) { hideTrans(); return; }
       var sent = e.target.closest ? e.target.closest(".rsent") : null;
       if (!sent || !cur) return;
