@@ -6845,7 +6845,7 @@ button.small{ padding:6px 12px; font-size:12.5px; }
       track = null;
       if (trackEl) { try { trackEl.pause(); } catch (e) {} }
       if (trackTimer) { clearInterval(trackTimer); trackTimer = null; }
-      fetch(AUDIO_DIR + "/" + encodeURIComponent(id) + ".json", { cache: "force-cache" })
+      fetch(AUDIO_DIR + "/" + encodeURIComponent(id) + ".json?v=ava", { cache: "force-cache" })
         .then(function (r) { return r.ok ? r.json() : null; })
         .then(function (j) { track = (j && j.p && j.p.length) ? j : null; })
         .catch(function () { track = null; });
@@ -6872,7 +6872,7 @@ button.small{ padding:6px 12px; font-size:12.5px; }
     }
     function playTrack(from, single) {
       var a = trackElReady();
-      var src = AUDIO_DIR + "/" + encodeURIComponent(cur.id) + ".mp3";
+      var src = AUDIO_DIR + "/" + encodeURIComponent(cur.id) + ".mp3?v=ava";
       var span = track.p[from] || [0, 0];
       var begin = function () {
         try { a.currentTime = span[0]; } catch (e) {}
