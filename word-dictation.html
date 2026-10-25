@@ -4117,6 +4117,19 @@ button.small{ padding:6px 12px; font-size:12.5px; }
   if ("speechSynthesis" in window) {
     speechSynthesis.onvoiceschanged = loadVoices;
     setTimeout(loadVoices, 300);
+    /* 2026-10-25：Via 这类 Android WebView 经常**不触发** voiceschanged，
+       而首次 getVoices() 又返回空 —— 结果就是设置页「英文发音」永远空白、朗读无声。
+       这里加轮询兜底：引擎晚就绪也能补上，最多试 12 次（约 6 秒）。 */
+    (function pollVoices() {
+      var tries = 0;
+      var t = setInterval(function () {
+        tries++;
+        try {
+          if (speechSynthesis.getVoices().length > 0) { loadVoices(); clearInterval(t); return; }
+        } catch (e) {}
+        if (tries >= 12) clearInterval(t);
+      }, 500);
+    })();
   } else {
     voiceHint.textContent = "当前浏览器不支持语音合成，建议使用 Chrome / Edge。";
   }
@@ -6823,8 +6836,9 @@ button.small{ padding:6px 12px; font-size:12.5px; }
     }
     /* 设备有没有可用的语音引擎（手机/平板上 getVoices() 常为空 —— 设置页「英文发音」空白就是它） */
     function canTTS() {
-      try { return ("speechSynthesis" in window) && speechSynthesis.getVoices().length > 0; }
-      catch (e) { return false; }
+      /* 2026-10-25：不再要求 getVoices() 非空 —— Android WebView/Via 上引擎存在但列表可能为空，
+         此时不指定 voice、直接用默认引擎照样能读。真空环境会在 utterance 的 onerror 里暴露。 */
+      try { return ("speechSynthesis" in window); } catch (e) { return false; }
     }
     /* 没有语音引擎时走有道在线音频（和听写里单词/例句同一个音源），语速用 playbackRate */
     var readAudio = null;
@@ -6875,6 +6889,11 @@ button.small{ padding:6px 12px; font-size:12.5px; }
       if (rProg) rProg.classList.remove("hidden");
       var v = pickEnVoice();
       var total = cur.sents.length;
+      /* 音色列表为空时（Via/某些 WebView），无法确认引擎是否真的工作：
+         连续 3 句都等不到 onstart 就判定为不支持，避免「进度条在跑但没声音」。 */
+      var strict = true;
+      try { strict = (speechSynthesis.getVoices().length === 0); } catch (e) {}
+      var noStart = 0;
       (function next(i) {
         if (!speaking || tok !== speakToken || i >= total) { stopSpeak(); return; }
         markCur(i);
@@ -6893,8 +6912,18 @@ button.small{ padding:6px 12px; font-size:12.5px; }
         /* 兜底：个别设备/浏览器上 utterance 可能既不 end 也不 error（实测无头环境就这样），
            按估算时长加保险丝，避免整篇朗读卡死在某一句。 */
         var guard = setTimeout(function () {
-          if (speaking && tok === speakToken) next(i + 1);
+          if (!speaking || tok !== speakToken) return;
+          if (strict) {
+            noStart++;
+            if (noStart >= 3) {
+              if (window.__dictationToast) window.__dictationToast("这台浏览器读不出来（没有可用语音），试试 Edge 或安装系统语音引擎");
+              stopSpeak();
+              return;
+            }
+          }
+          next(i + 1);
         }, Math.min(12000, Math.max(3000, txt.length * 65)) + 4000);
+        u.onstart = function () { noStart = 0; };
         var done = function () { clearTimeout(guard); if (single) stopSpeak(); else next(i + 1); };
         u.onend = done;
         u.onerror = done;
