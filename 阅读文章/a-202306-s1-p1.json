@@ -2,7 +2,7 @@
  "id": "202306-s1-p1",
  "exam": "2023年6月 第1套 · 仔细阅读 P1",
  "title": "The United States is facing a housing crisis: Affordable hou…",
- "layout": "L1整篇英+中",
+ "layout": "L2段落对照",
  "sents": [
   {
    "en": "The United States is facing a housing crisis: Affordable housing is inadequate, while luxury homes abound, and homelessness remains a persistent problem.",
@@ -30,7 +30,7 @@
   },
   {
    "en": "What's more, homes built in the 2000s were more likely than earlier models to have more of all types of spaces: bedrooms, bathrooms, living rooms, dining rooms, recreation rooms and garages.",
-   "cn": "更重要的是，2000年代建造的住宅比早期型号更可能拥有更多各类空间：卧室、浴室、客厅、餐厅、娱乐室和车库。"
+   "cn": "更重要的是，2000年代建造的住宅比早期住宅更可能拥有更多各类空间：卧室、浴室、客厅、餐厅、娱乐室和车库。"
   },
   {
    "en": "There are consequences of living big.",
@@ -46,11 +46,11 @@
   },
   {
    "en": "Second, once-public spaces, where people from diverse backgrounds used to come together, have increasingly become privatized, leading to a reduction in the number of public facilities available to all, and a reduced quality of life for many.",
-   "cn": "其次，曾经人们来自不同背景、聚在一起的公共空间，正日益被私有化，导致面向所有人开放的公共设施数量减少，许多人的生活品质下降。以游泳池为例。"
+   "cn": "其次，曾经供不同背景的人们相聚的公共空间正日益被私有化，导致面向所有人开放的公共设施数量减少，许多人的生活品质下降。"
   },
   {
    "en": "Take swimming pools. While in 1950, only 2,500 U.S. families owned pools, by 1999 this number was 4 million.",
-   "cn": "1950年只有2,500个美国家庭拥有泳池，而到1999年这一数字达到400万。"
+   "cn": "以游泳池为例：1950年只有2,500个美国家庭拥有泳池，而到1999年这一数字达到400万。"
   },
   {
    "en": "At the same time, public municipal pools were often closed, leaving low-income people nowhere to swim.",
@@ -66,7 +66,7 @@
   },
   {
    "en": "Are we willing to accept a system in which an increase in amenities purchased by the affluent means a reduction in amenities for the poor?",
-   "cn": "我们是否愿意接受这样一种制度：富人购买便利设施的增加，意味着穷人便利设施的减少？"
+   "cn": "我们是否愿意接受这样一种制度：富人购买的便利设施增加，就意味着穷人的便利设施减少？"
   },
   {
    "en": "I believe neither is acceptable.",
