@@ -6655,7 +6655,9 @@ button.small{ padding:6px 12px; font-size:12.5px; }
     function hideTrans() { rTrans.classList.add("hidden"); }
 
     function openArticle(id) {
-      fetch("阅读文章/a-" + encodeURIComponent(id) + ".json", { cache: "force-cache" })
+      /* 2026-10-25：no-cache 而非 force-cache。force-cache 下浏览器一旦缓存过该 JSON 就永不校验，
+         重新导入同一篇（改错字/换译文）或新增文章都会看不到；no-cache 只多一次 304 校验。 */
+      fetch("阅读文章/a-" + encodeURIComponent(id) + ".json", { cache: "no-cache" })
         .then(function (r) { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
         .then(function (art) {
           cur = art; curMode = "en";
@@ -6677,8 +6679,19 @@ button.small{ padding:6px 12px; font-size:12.5px; }
       if (!willOpen) return;
       rV.classList.add("hidden"); hideTrans();
       var p = idx ? Promise.resolve() :
-        fetch("阅读文章/index.json", { cache: "force-cache" }).then(function (r) { return r.json(); }).then(function (j) { idx = j; });
+        fetch("阅读文章/index.json", { cache: "no-cache" }).then(function (r) { return r.json(); }).then(function (j) { idx = j; });
       p.then(function () { renderList(rSearch.value); });
+      /* 已缓存过列表时，后台再校验一次：新增/删除文章后不刷新页面也能看到 */
+      if (idx) {
+        fetch("阅读文章/index.json", { cache: "no-cache" })
+          .then(function (r) { return r.json(); })
+          .then(function (j) {
+            if (JSON.stringify(j) === JSON.stringify(idx)) return;
+            idx = j;
+            if (!rS.classList.contains("hidden")) renderList(rSearch.value);
+          })
+          .catch(function () {});
+      }
     });
     rS.addEventListener("click", function (e) { e.stopPropagation(); });
     rV.addEventListener("click", function (e) { e.stopPropagation(); });
@@ -6777,7 +6790,7 @@ button.small{ padding:6px 12px; font-size:12.5px; }
     /* 目标词表惰性加载（阅读打开时才拉一次） */
     rT.addEventListener("click", function () {
       if (targets) return;
-      fetch("阅读文章/targets.json", { cache: "force-cache" })
+      fetch("阅读文章/targets.json", { cache: "no-cache" })
         .then(function (r) { return r.json(); })
         .then(function (j) { targets = j; if (cur) renderBody(); })
         .catch(function () {});
