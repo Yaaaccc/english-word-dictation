@@ -10,7 +10,7 @@
  *
  * 改版本号会让旧缓存整体作废，重新预缓存。
  */
-const VERSION = "dictation-v2-2026-10-25";
+const VERSION = "dictation-v3-2026-10-25";
 const CORE = [
   "./word-dictation.html",
   "./manifest.json",
