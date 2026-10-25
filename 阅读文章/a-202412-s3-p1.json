@@ -1,0 +1,80 @@
+{
+ "id": "202412-s3-p1",
+ "exam": "2024年12月 第3套 · 仔细阅读 P1",
+ "title": "Research in human-vehicle interaction has shown even systems…",
+ "layout": "L2段落对照",
+ "sents": [
+  {
+   "en": "Research in human-vehicle interaction has shown even systems designed to automate driving are far from being error-proof.",
+   "cn": "人机交互的研究表明，即便是为自动驾驶而设计的系统也远非万无一失。"
+  },
+  {
+   "en": "Recent evidence points to drivers' limited understanding of what these systems can and cannot do as a contributing factor to system misuse.",
+   "cn": "近期证据指出，驾驶员对这些系统能做什么、不能做什么理解有限，是导致系统被误用的一个因素。"
+  },
+  {
+   "en": "A recent study tackles the issue of over-trusting drivers and the resulting system misuse from a legal viewpoint.",
+   "cn": "最近一项研究从法律视角探讨了驾驶员过度信任及由此导致的系统误用问题。"
+  },
+  {
+   "en": "It looks at what the manufacturers of self-driving cars should legally do to ensure that drivers understand how to use the vehicles appropriately.",
+   "cn": "它审视自动驾驶汽车制造商在法律上应当做些什么，以确保驾驶员懂得如何恰当地使用车辆。"
+  },
+  {
+   "en": "One solution suggested in the study involves requiring buyers to sign end-user license agreements (EULAs), similar to the terms and conditions that require agreement when using new software products.",
+   "cn": "该研究提出的一个解决方案，是要求买家签署最终用户许可协议（EULA），类似于使用新软件产品时需要同意的条款与条件。但这远非理想。"
+  },
+  {
+   "en": "But this is far from ideal.",
+   "cn": "该协议可能无法向驾驶员提供足够信息，导致对协议请求的性质及其含义产生困惑。"
+  },
+  {
+   "en": "The agreement may not provide enough information to the driver, leading to confusion about the nature of the requests for agreement and their implications.",
+   "cn": "此外，大多数终端用户并不阅读EULA。"
+  },
+  {
+   "en": "Further, most end users don't read EULAs. A 2017 study shows 91 percent of people agree to them without reading. Among young people, 97 percent agree without reviewing the terms.",
+   "cn": "2017年的一项研究显示，91%的人不经阅读便同意，在年轻人中，这一比例高达97%。"
+  },
+  {
+   "en": "The issue is that, unlike using a smartphone app, operating a car has serious safety risks, whether the driver is human or software.",
+   "cn": "问题在于，与使用智能手机应用不同，操作汽车存在严重的安全风险，无论驾驶员是人还是软件。"
+  },
+  {
+   "en": "And human drivers need to consent to take responsibility for the outcomes of the software and hardware.",
+   "cn": "而且人类驾驶员需要同意对软件与硬件的结果承担责任。"
+  },
+  {
+   "en": "\"Warning fatigue\" and distracted driving are also causes for concern.",
+   "cn": "\"警告疲劳\"与分心驾驶同样令人担忧。"
+  },
+  {
+   "en": "For example, a driver, annoyed after receiving continuous warnings, could decide to just ignore the message.",
+   "cn": "例如，一名驾驶员在接连收到警告后感到厌烦，可能决定干脆忽略提示。"
+  },
+  {
+   "en": "Or, if the message is presented while the vehicle is in motion, it could represent a distraction.",
+   "cn": "或者，如果提示在车辆行驶时出现，可能造成分心。"
+  },
+  {
+   "en": "Given these limitations and concerns, even if this mode of obtaining consent is to move forward, it likely won't fully protect automakers from their legal liability should the system malfunction (发生故障) or an accident occur.",
+   "cn": "鉴于这些局限与担忧，即便这种获取同意的方式得以推进，一旦系统发生故障（发生故障）或发生事故，它很可能也无法让汽车制造商完全免于法律责任。"
+  },
+  {
+   "en": "Driver training for self-driving vehicles can help ensure that drivers fully understand system capabilities and limitations.",
+   "cn": "针对自动驾驶汽车的驾驶员培训，有助于确保驾驶员充分理解系统的能力与局限。"
+  },
+  {
+   "en": "This needs to occur beyond the vehicle purchase.",
+   "cn": "这需要在购车之外进行。"
+  },
+  {
+   "en": "Recent evidence shows even relying on the information provided by the seller is not going to answer many questions.",
+   "cn": "近期证据表明，即便依赖卖方提供的信息，也难以回答许多疑问。"
+  },
+  {
+   "en": "All of this considered, the road forward for self-driving cars is not going to be a smooth ride after all.",
+   "cn": "综合考量这一切，自动驾驶汽车的前进之路终究不会是一路平坦。"
+  }
+ ]
+}

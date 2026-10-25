@@ -1,0 +1,108 @@
+{
+ "id": "202506-s3",
+ "exam": "2025年6月 第3套",
+ "title": "·Phantom· Traffic Jams Are Real·And Scientists Know How to Stop Them ｜ “幽灵”堵车是真实存在的——而科学家知道如何阻止它们",
+ "layout": "字母段落(A-J)",
+ "sents": [
+  {
+   "en": "·Phantom· traffic jams are a common problem of most big cities, either in developed or in developing countries, but one kind of traffic jams in particular can be especially frustrating.",
+   "cn": "“幽灵”交通堵塞是大多数大城市（无论发达国家还是发展中国家）的常见问题，但有一种交通堵塞尤其令人沮丧。"
+  },
+  {
+   "en": "These are generally known as ·phantom· traffic jams, in which dense traffic crawls to a halt for no apparent reason at all.",
+   "cn": "这通常被称为“幽灵”堵车：密集的车流毫无明显原因地缓慢停滞下来。"
+  },
+  {
+   "en": "·When caught in such a traffic jam, it is common for drivers to assume that there must be an accident, or construction or something,· said Massachusetts Institute of Technology (MIT) computer science professor Berthold Horn. ·And then you drive and drive and drive... and there isn·t anything there.·",
+   "cn": "“陷入这种堵车时，司机通常会以为一定是出了事故，或是在施工，或是别的什么原因，”麻省理工学院（MIT）计算机科学教授伯托尔德∙霍恩说，“然后你开啊开啊开……却什么也没有。”"
+  },
+  {
+   "en": "The exact cause of these phantom traffic jams has long remained a mystery.",
+   "cn": "这些幽灵堵车确切的成因长期成谜。"
+  },
+  {
+   "en": "But now, new research has found the cause and researchers may have come up with a solution for this frustrating traffic pattern: maintaining equal spacing between cars on the road, rather than driving so closely behind another vehicle that a collision (碰撞) is likely if that vehicle brakes suddenly.",
+   "cn": "但现在，新研究找到了原因，研究人员或许已为这种令人沮丧的交通模式想出对策：在路上保持车辆间距相等，而不是紧跟前车，以至于当前车急刹时很可能发生碰撞（碰撞）。"
+  },
+  {
+   "en": "Horn said phantom traffic jams are an emergent property of the flow of vehicles down a highway.",
+   "cn": "霍恩说，幽灵堵车是车辆沿高速公路流动时涌现出的一种特性。"
+  },
+  {
+   "en": "A phantom jam begins when a car in dense traffic slows down even slightly, which causes the car behind that vehicle to slow even more · and the slowing action spreads backward through the lane of traffic like a wave, getting worse the farther it spreads, Eventually, the cars far behind are forced to stop completely or risk hitting the slower vehicles ahead · and so the traffic grinds to a halt over nothing, Horn said.",
+   "cn": "当密集车流中有一辆车哪怕只是稍稍减速，就会让后车减速更多——这种减速像波浪一样向后传播，传播得越远越严重。霍恩说，最终，后方远处的车辆被迫完全停下，否则就有撞上前方慢车的风险——于是交通在毫无缘由的情况下陷入停滞。"
+  },
+  {
+   "en": "Horn has been working on the problem of phantom traffic jams for years, and he has come up with a solution: By splitting the difference between the cars in front and the cars behind, the spacing of cars in a stream of traffic can act as a damper (抑制) on phantom traffic jams.",
+   "cn": "霍恩研究幽灵堵车问题已有多年，并想出了一个解决方案：通过取前后车位置之差的一半，车流中的车间距就能起到抑制（抑制）幽灵堵车的作用。"
+  },
+  {
+   "en": "That is, it can prevent the slow-down effect from being amplified ( 增强) by the cars that follow behind, he said.",
+   "cn": "他说，也就是说，它能防止减速效应被后随车辆放大（增强）。"
+  },
+  {
+   "en": "In essence, each driver would constantly make adjustments to keep their car roughly halfway between the car in front and the car behind.",
+   "cn": "本质上，每位驾驶者会不断调整，使自己的车大致保持在前后两车的正中间。"
+  },
+  {
+   "en": "Horn calls this method of vehicle spacing bilateral (双边的) control and he said it could be achieved with relatively simple modifications to the adaptive cruise control that many new cars already have.",
+   "cn": "霍恩将这种车辆间距方法称为双边（双边的）控制，他表示，通过对许多新车已配备的自适应巡航控制做相对简单的改装即可实现。"
+  },
+  {
+   "en": "Adaptive cruise control is a driver assistance technology that sets a maximum speed for vehicles and automatically slows the speed of the car when traffic is sensed in front of the vehicle.",
+   "cn": "自适应巡航控制是一种驾驶辅助技术，为车辆设定最高速度，并在感知到前方有车时自动减速。"
+  },
+  {
+   "en": "The technology is also known as autonomous cruise control.",
+   "cn": "该技术也称为自主巡航控制。"
+  },
+  {
+   "en": "Such modifications, Horn said, could help fight phantom jams within a few years, maybe decades before an alternative solution, such as networked self-driving cars, becomes a reality on the roads.",
+   "cn": "霍恩说，这样的改装能在几年内帮助对抗幽灵堵车，或许比联网自动驾驶汽车等替代方案早几十年在道路上成为现实。"
+  },
+  {
+   "en": "Traffic jams are caused by a number of factors, such as roads that are poorly designed or over-capacity, localized factors like city traffic-lighting patterns, and events like accidents and construction.",
+   "cn": "交通堵塞由多种因素引起，例如设计不良或超负荷的道路、像城市交通信号灯配时这样的局部因素，以及事故和施工等事件。"
+  },
+  {
+   "en": "But phantom traffic jams can make all those problems worse, Horn said.",
+   "cn": "但霍恩说，幽灵堵车会让所有这些问题的后果更糟。"
+  },
+  {
+   "en": "And the researchers in the new study have calculated that solving phantom jams could save at least some of the estimated $121 billion per year that traffic jams are estimated to cost the U.S. economy, Horn told Live Science.",
+   "cn": "霍恩告诉《生命科学》，这项新研究的研究人员计算过，解决幽灵堵车至少能节省交通堵塞估计每年给美国经济造成约1,210亿美元损失中的一部分。"
+  },
+  {
+   "en": "New research by Horn and MIT postdoctoral associate Liang Wang, published in the journal IEEE Transactions on Intelligent Transportation Systems, shows how bilateral control can fight the problem.",
+   "cn": "霍恩与麻省理工学院博士后梁王（LiangWang）的新研究发表在《IEEE智能交通系统汇刊》上，展示了双边控制如何对抗这一问题。研究人员建立了真实交通状况的计算机模型，展示了典型的美国高速公路如何从使用双边控制的车辆中受益。"
+  },
+  {
+   "en": "The researchers made computer models of real-world traffic conditions, showing how a typical U.S. freeway could benefit from cars using bilateral control.",
+   "cn": "霍恩说，当人类驾驶者未能减速、从而避免了紧跟（紧跟）前车时，这一点就会发挥作用。他补充道：“在今天的合理条件下，每条车道每小时可能通过1,800辆车（通行量）。"
+  },
+  {
+   "en": "That would be in place when human drivers fail to slow down, thus avoiding tailgating (紧跟) the car in front, Horn said.",
+   "cn": "但有了双边控制，你几乎可以让其翻倍。"
+  },
+  {
+   "en": "“Under reasonable conditions today, you might get 1,800 cars per lane per hour throughput (the volume of traffic passing through),· he added. ·But with bilateral control you could almost double that.·",
+   "cn": "”"
+  },
+  {
+   "en": "The main alternative to increasing traffic throughput per lane has been to build more lanes and more highways, and putting in new roads is very expensive, he said.",
+   "cn": "他说，提高每条车道通行量的主要替代方案一直是修建更多车道和更多高速公路，而新建道路非常昂贵。"
+  },
+  {
+   "en": "·If we can increase the throughput on major highways, even if it's only by 50 percent that would be a big deal,· Horn said.",
+   "cn": "“如果我们能提高主干道的通行量，哪怕只提高50%，也将是件大事，”霍恩说。"
+  },
+  {
+   "en": "With the help of engineering students at high schools in Maine, Horn and Wang have also built a robot simulation (模拟) that shows how bilateral control can suppress phantom traffic jams.",
+   "cn": "在缅因州高中工程学生的帮助下，霍恩和汪还搭建了一个机器人模拟（模拟），展示双边控制如何抑制幽灵堵车。研究人员说，增大车辆间距会削弱某辆车前方车辆的减速效应，从而使减速不会恶化到形成幽灵堵车的程度。K)Avideofromtheprojectshowsatrainofautonomousrobotsrunningalongatrackwithoutbilateralcontrol:theyeventuallybackupinphantomjams.Butwhentherobotsareswitchedovertobilateralcontrol(byflashingthelightsintheroom),eachautonomousrobottriestokeepitselfhalfwaybetweentherobotinfrontandtheonebehind;thephantomjamsdisappearasaresult,Hornsaid.K）该项目的一段视频显示，一列自主机器人在没有双边控制的情况下沿轨道运行：它们最终在幽灵堵车中倒退堵塞。但霍恩说，当机器人切换到双边控制（通过闪烁室内灯光），每个自主机器人都试图让自己保持在前后机器人正中间；结果幽灵堵车消失了。L)Sincestartinghisresearchonphantomtrafficjams,Hornhaslearnedthatschoolsoffishandflocksofbirdsandbatsusesimilarspacingstrategiestoavoidhittingeachotherwhileswimmingorflyingindenselypackedgroups.Inparticular,studiesofmillionsofbatsemergingatduskfromcavesinSoutheastAsiashowedthateachbatusedaformofbilateralcontroltoreducethelikelihoodofcollisionswithotherbatsinthedenselypackedswarm(一大群),Homsaid.L）自开始研究幽灵堵车以来，霍恩了解到，鱼群、鸟群和蝙蝠群在密集群体中游动或飞行时，会使用类似的间距策略以避免互相碰撞。特别是，对东南亚黄昏时分从洞穴涌出的数百万只蝙蝠的研究显示，每只蝙蝠都使用某种形式的双边控制，以降低在密集蝠群（一大群）中与其他蝙蝠碰撞的可能性，霍恩说。M)Unlikebats,birdsandfish,however,humanshavedifficultyjudgingdistancesbehindthem.Toaddressthatweakness,HornisnowworkingwiththecarcompanyToyotatoenableaformofbilateralcontrolviamodificationstoexistingadaptivecruisecontrolsystems,whichuseforward-facingsensorstojudgethedistancetothevehicleahead.Thebilateralcontrolapproachwouldincludeaddingrear-facingsensorstodeterminethedistancetothevehiclefollowingacar.M）然而，与蝙蝠、鸟和鱼不同，人类难以判断身后距离。为弥补这一弱点，霍恩正与丰田汽车公司合作，通过对现有自适应巡航控制系统（使用前向传感器判断与前车距离）进行改装，来实现一种双边控制。该双边控制方法将包括增加后向传感器，以确定与后随车辆的距离。N)Butuntilthosesystemsbecomestandard,humandriverscanhelpreducephantomtrafficjamssimplybynotfollowingthecarinfrontsoclosely.AsHornargues,·There·sabsolutelynoadvantageoftailgatingthecarinfrontofyou.·N）但在这些系统成为标准之前，人类驾驶者只需不与前车跟得那么近，就能帮助减少幽灵堵车。"
+  },
+  {
+   "en": "Increasing the spacing of vehicles dampens the effect of slowdowns by cars in front of a given car, so that the slowing is not worsened until it becomes a phantom jam, the researchers said.",
+   "cn": "正如霍恩所言：“紧跟你前面的车绝对没有任何好处。”36.Theage-longmysteryhasnowbeenresolvedastohowphantomtrafficjamsarecaused.36.关于幽灵堵车是如何形成的，这个长久以来的谜团如今已被解开。37.Itispossibletonearlydoublethehourlythroughputperlanebyadoptingbilateralcontrol.37.采用双边控制，有可能将近每条车道每小时的通行量翻倍。38.AccordingtoHorn,driversmakingconstantadjustmentsforequalspacingbetweencarsinaflowoftrafficcanhelpreducephantomtrafficjams.38.据霍恩称，驾驶者在车流中不断调整以保持车辆间距相等，有助于减少幽灵堵车。39.Beforesystemsforbilateralcontrolareinstalled,driversshouldnotfollowthecarinfronttoocloselysoastoreducephantomtrafficjams.39.在双边控制系统安装之前，驾驶者不应过于紧跟前车，以减少幽灵堵车。40.Hornsaidwithsomesimplemodificationstotheexistingequipmentinnewvehicles,theirspacingbilateralcontrolcouldbeaccomplished.40.霍恩说，通过对新车现有设备做些简单改装，就能实现其间距双边控制。41.Driverscaughtupinphantomtrafficjamsarelikelytothinkanaccidenthashappenedorsomeconstructionisgoingon.41.陷入幽灵堵车的驾驶者，很可能会以为发生了事故或正在进行某种施工。42.Twosetsofsensorswouldbeusedtohelpdriversdeterminethedistancesbetweencars.42.将使用两套传感器来帮助驾驶者确定车辆之间的距离。43.SolvingtheproblemofphantomjamscouldsaveAmericabillionsofdollarseveryyear.43.解决幽灵堵车问题，每年可为美国节省数十亿美元。44.Inaphantomtrafficjam,thecarsinthesamelaneslowdownoneafteranother,creatingawave-likeeffect.44.在幽灵堵车中，同一车道上的车辆依次减速，形成波浪般的效应。45.Hornhasfoundthatcertaincreaturesusestrategiessimilartobilateralcontroltoavoidhittingeachotherwhilemovingindensecrowds.45.霍恩发现，某些生物会使用类似于双边控制的策略，在密集群体中移动时避免互相碰撞。"
+  }
+ ]
+}
