@@ -2597,6 +2597,11 @@ button.small{ padding:6px 12px; font-size:12.5px; }
     var item = currentWord();
     var exam = item ? examFor(item.text) : null;
     if (!exam || !exam.en) return false;
+    /* 没语音引擎时不要静默失败：句子走不了有道（实测 >2 词即 500） */
+    if (!(("speechSynthesis" in window) && voices.length > 0)) {
+      if (window.__dictationToast) window.__dictationToast("这台设备没有语音引擎，读不了长句。请启用系统的「文字转语音」");
+      return false;
+    }
     stopSpeech();
     emitExampleToken(-1);
     if (state.mode === "play") clearTimeout(playTimer);   // 别让自动连播把这一句抢走
@@ -6816,6 +6821,32 @@ button.small{ padding:6px 12px; font-size:12.5px; }
       }
       return en.filter(function (v) { return /microsoft/i.test(v.name) && !v.localService; })[0] || en[0];
     }
+    /* 设备有没有可用的语音引擎（手机/平板上 getVoices() 常为空 —— 设置页「英文发音」空白就是它） */
+    function canTTS() {
+      try { return ("speechSynthesis" in window) && speechSynthesis.getVoices().length > 0; }
+      catch (e) { return false; }
+    }
+    /* 没有语音引擎时走有道在线音频（和听写里单词/例句同一个音源），语速用 playbackRate */
+    var readAudio = null;
+    function sayOnline(text, rate, onEnd) {
+      try {
+        if (!readAudio) readAudio = new Audio();
+        var a = readAudio, done = false;
+        var finish = function (ok) {
+          if (done) return; done = true;
+          a.onended = a.onerror = null;
+          clearTimeout(timer);
+          if (onEnd) onEnd(ok);
+        };
+        var timer = setTimeout(function () { finish(false); }, 15000);
+        a.onended = function () { finish(true); };
+        a.onerror = function () { finish(false); };
+        a.src = "https://dict.youdao.com/dictvoice?audio=" + encodeURIComponent(text) + "&type=2";
+        try { a.playbackRate = Math.min(1.6, Math.max(0.6, rate || 1)); } catch (e) {}
+        var p = a.play();
+        if (p && p.catch) p.catch(function () { finish(false); });
+      } catch (e) { if (onEnd) onEnd(false); }
+    }
     function stopSpeak() {
       speaking = false;
       speakToken++;
@@ -6826,7 +6857,16 @@ button.small{ padding:6px 12px; font-size:12.5px; }
       if (rProgFill) rProgFill.style.width = "0%";
     }
     function speakFrom(start, single) {
-      if (!cur || !window.speechSynthesis) return;
+      if (!cur) return;
+      /* 手机/平板常见：系统没有语音引擎（设置页「英文发音」空白就是它）。
+         有道在线音频只能读 1-2 个词（实测 this is a test 直接 500），读不了整句，
+         所以这里不再假装降级，而是明确告诉用户缺什么。 */
+      if (!canTTS()) {
+        if (window.__dictationToast) {
+          window.__dictationToast("这台设备没有语音引擎，无法朗读。请到系统设置里启用「文字转语音」");
+        }
+        return;
+      }
       stopSpeak();
       speaking = true;
       var tok = speakToken;
@@ -6842,6 +6882,10 @@ button.small{ padding:6px 12px; font-size:12.5px; }
         var el = rBody.querySelector('.rsent[data-i="' + i + '"]');
         if (el && el.scrollIntoView) { try { el.scrollIntoView({ block: "center", behavior: "smooth" }); } catch (e) {} }
         var txt = cur.sents[i].en;
+        var step = function () {
+          if (!speaking || tok !== speakToken) return;
+          if (single) stopSpeak(); else next(i + 1);
+        };
         var u = new SpeechSynthesisUtterance(txt);
         if (v) u.voice = v;
         u.lang = "en-US";
