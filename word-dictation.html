@@ -2420,7 +2420,7 @@ button.small{ padding:6px 12px; font-size:12.5px; }
          所以改用「日期版本号 + force-cache」：当天 URL 固定 → 命中本地缓存、不走网络；
          跨天 URL 变 → 自动重新下载一次。既不天天拉全量，也不会永远用旧副本。 */
     var _dd = new Date(), DAY = "" + _dd.getFullYear() + ("0" + (_dd.getMonth() + 1)).slice(-2) + ("0" + _dd.getDate()).slice(-2);
-      examDictPromise = fetch("exam-examples.json?d=" + DAY, { cache: "force-cache" })
+      examDictPromise = fetch("exam-examples.json?d=" + DAY, { cache: "force-cache", priority: "low" })
         .then(function (r) { return r.ok ? r.json() : {}; })
         .then(function (j) { EXAM_DICT = j || {}; return EXAM_DICT; })
         .catch(function () { EXAM_DICT = {}; return EXAM_DICT; });
@@ -2435,8 +2435,8 @@ button.small{ padding:6px 12px; font-size:12.5px; }
   /* 同上：真题词典 347KB，等首屏加载完再拉，别和词表抢带宽（2026-10-25） */
   (function () {
     function warmExam() { loadExamDict(); }
-    if (document.readyState === "complete") setTimeout(warmExam, 700);
-    else window.addEventListener("load", function () { setTimeout(warmExam, 700); });
+    if (document.readyState === "complete") setTimeout(warmExam, 0);
+    else window.addEventListener("load", warmExam);
   })();
 
   function setExamplePanel(item) {
@@ -4330,7 +4330,7 @@ button.small{ padding:6px 12px; font-size:12.5px; }
     if (EXAMPLE_DICT) return Promise.resolve(EXAMPLE_DICT);
     if (exampleDictPromise) return exampleDictPromise;
     var _dd = new Date(), DAY = "" + _dd.getFullYear() + ("0" + (_dd.getMonth() + 1)).slice(-2) + ("0" + _dd.getDate()).slice(-2);
-    exampleDictPromise = fetch("example-dict.json?d=" + DAY, { cache: "force-cache" })
+    exampleDictPromise = fetch("example-dict.json?d=" + DAY, { cache: "force-cache", priority: "low" })
       .then(function (r) { return r.ok ? r.json() : {}; })
       .then(function (d) {
         EXAMPLE_DICT = (d && typeof d === "object") ? d : {};
@@ -4806,8 +4806,8 @@ button.small{ padding:6px 12px; font-size:12.5px; }
   // 预热：词典 835KB，国内拉一次要十几秒。原先在初始化就发起，会和首屏词表抢带宽，
   // 导致「已载入词书」迟迟不出现。改为等 load 之后再拉，首屏资源先行。
   function warmExampleDict() { loadExampleDict().then(paintExampleWords); }
-  if (document.readyState === "complete") setTimeout(warmExampleDict, 600);
-  else window.addEventListener("load", function () { setTimeout(warmExampleDict, 600); });
+  if (document.readyState === "complete") setTimeout(warmExampleDict, 0);
+  else window.addEventListener("load", warmExampleDict);
 
   // progressBar 的宽度是 style 属性变更，单独盯属性
   if ($("progressBar")) {
@@ -5288,7 +5288,7 @@ button.small{ padding:6px 12px; font-size:12.5px; }
     if (WPDF_DICT) return Promise.resolve(WPDF_DICT);
     if (wpdfDictPromise) return wpdfDictPromise;
     var _dd = new Date(), DAY = "" + _dd.getFullYear() + ("0" + (_dd.getMonth() + 1)).slice(-2) + ("0" + _dd.getDate()).slice(-2);
-    wpdfDictPromise = fetch("example-dict.json?d=" + DAY, { cache: "force-cache" })
+    wpdfDictPromise = fetch("example-dict.json?d=" + DAY, { cache: "force-cache", priority: "low" })
       .then(function (r) { return r.ok ? r.json() : {}; })
       .then(function (d) {
         WPDF_DICT = (d && typeof d === "object") ? d : {};
