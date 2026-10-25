@@ -5369,6 +5369,8 @@ body{
       $("planStatus").textContent = "「生成并上传」要在电脑上打开才能用（手机只负责改计划）。";
       return;
     }
+    /* 日期交给服务端算（以电脑系统时间为准），这里只算个显示用的字符串。
+       之前用浏览器时间算，手机时间不准就会生成错误的日期。 */
     var now = new Date();
     var p2 = function (x) { return String(x).padStart(2, "0"); };
     var today = now.getFullYear() + "-" + p2(now.getMonth() + 1) + "-" + p2(now.getDate());
@@ -5383,7 +5385,7 @@ body{
     try {
       var r = await fetch("/api/build-today", {
         method: "POST", headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ date: date, rebuild: !norebuild })
+        body: JSON.stringify({ which: which, rebuild: !norebuild })
       });
       var j = await r.json();
       if (!j || !j.ok) { $("planStatus").textContent = "启动失败"; return; }
