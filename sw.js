@@ -10,18 +10,17 @@
  *
  * 改版本号会让旧缓存整体作废，重新预缓存。
  */
-const VERSION = "dictation-v3-2026-10-25";
+const VERSION = "dictation-v4-2026-10-25";
+/* 2026-10-25：三个大数据文件（example-dict 835KB / exam-examples 347KB / quiz-pool 300KB）
+   不再预缓存 —— 页面会带日期版本号请求它们，由运行时缓存接管，避免 install 时重复下 1.5MB。 */
 const CORE = [
   "./word-dictation.html",
   "./manifest.json",
   "./icon-192.png",
   "./icon-512.png",
-  "./exam-examples.json",
-  "./example-dict.json",
-  "./quiz-pool.json",
   "./dates.json",
-    "./wallpaper.jpg",
-    "./wallpaper-blur.jpg",
+  "./wallpaper.jpg",
+  "./wallpaper-blur.jpg",
 ];
 
 self.addEventListener("install", (e) => {
@@ -53,6 +52,27 @@ self.addEventListener("fetch", (e) => {
 
   const isPage = /\.html?$/i.test(url.pathname) || url.pathname.endsWith("/");
   const isData = /\.(json|txt)$/i.test(url.pathname);
+
+  // 带版本参数的数据文件（页面用 example-dict.json?d=20261025 这种）：
+  // URL 本身即版本号，可以安全地「缓存优先」。否则每次都走 network-first，
+  // 国内拉 GitHub Pages 要 5-15 秒（2026-10-25 首屏变慢的根因）。
+  if (isData && /[?&](d|v)=\d+/.test(url.search)) {
+    e.respondWith(
+      caches.match(req).then((hit) => {
+        if (hit) return hit;
+        return fetch(req)
+          .then((res) => {
+            if (res && res.ok) {
+              const cp = res.clone();
+              caches.open(VERSION).then((c) => c.put(req, cp));
+            }
+            return res;
+          })
+          .catch(() => caches.match(req));
+      })
+    );
+    return;
+  }
 
   if (isPage || isData) {
     // 先网络，失败回缓存
