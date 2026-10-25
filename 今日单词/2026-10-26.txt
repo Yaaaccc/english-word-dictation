@@ -1,3 +1,43 @@
+reverse|v. 彻底转变；adj. 反向的；v. 撤销；n. 相反；v. 使颠倒；v. 倒车；n. 背面；n. 倒档；adj. 背面的|He reversed the coin and examined it carefully.|他把硬币倒过来，仔细检查。||
+missing|adj. 缺少的；adj. 失踪的|Her daughter has been missing for 20 years.|她的女儿已经走失20年了。||
+corresponding|adj. 相应的，由此引起的|Company losses were 40 percent worse than in the corresponding period last year.|与去年同期相比，公司亏损增加了40%。||
+interrupt|v. 打断；v. 打扰；v. 遮住|Would you mind not interrupting all the time?|请你别老是插嘴好吗？||
+token|n. 象征；n. 代币；adj. 象征性的|As a token of goodwill, I'm going to write another letter.|为了证明我的善意，我打算再写一封信。||
+projector|n. 放映机，投影仪|We need a projector for the meeting.|会议中我们要用到放映机。||
+implement|v. 贯彻，实行|A new work programme for young people will be implemented .|一项针对年轻人的新工作项目将被执行。||
+resignation|n. 辞职；n. 顺从；n. 辞职信|He handed over his resignation letter last Friday.|他上周五递上了自己的辞呈。||
+classification|n. 分类；n. 类别|The classification of the new species is still in debate due to their strange features.|新物种外形奇特，故对他们的分类仍在讨论中。||
+minority|n. 少数；n. 少数民族|Only a small minority of students are interested in politics these days.|目前，只有极少数同学对政治感兴趣。||
+indication|n. 表明，标示，象征|Being unable to walk in a straight line is a clear indication of getting drunk.|无法走直线是醉酒的明显迹象。||
+utilize|v. 利用；v. 使用|They were the first to utilize fire as a kind of weapon.|他们是第一个把火用作武器的。||
+inevitable|adj. 不可避免的|Failure was an inevitable consequence of the decision.|这个决定不可避免地会导致失败。||
+profit|n. 利润；v. 获利；n. 益处；n. 利益；v. 有益于|The company made a healthy profit on the deal.|公司在这笔生意中获利颇丰。||
+editorial|n. 社论；adj. 编辑的，主编的|The paper follows an editorial policy that puts great emphasis on foreign news.|本报遵循非常重视外国新闻的编辑政策。||
+segment|n. 部分；n. 片段|She cleaned a small segment of the painting.|她擦干净了这幅画的一小部分。||
+prominent|adj. 杰出的；adj. 重要的；adj. 显眼的；adj. 突出的|As the leader, he played a prominent part in the team's victory.|作为队长，他在小组的胜利中发挥了重要作用。||
+faint|adj. 微弱的；n. 昏厥；v. 昏厥；adj. 可能性不大的；adj. 头晕目眩的|I skipped breakfast, and now I am beginning to feel a little faint .|我没吃早饭，现在开始觉得有些眩晕了。||
+ethnic|adj. 种族的；adj. 少数民族的|Pupils in this school are from different ethnic groups.|这所学校的小学生来自不同的少数民族。||
+pit|n. 洞，坑；v. 使竞争，使经受考验；n. 矿井；n. 果核|We dug a shallow pit and put the seeds in it.|我们挖了一个浅坑，把种子撒在里面。||
+heading|n. 标题|The heading of the article needs to be modified.|这篇文章的标题需要修改。||
+extinguish|v. 熄灭，扑灭|Firefighters tried to extinguish the flames.|消防员奋力救火。||
+faculty|n. 全体教职人员；n. 能力；n. 天赋|Both faculty and students oppose the policy.|全体教职工和学生都反对这一政策。||
+damn|v. 谴责；adj. 可恶的；adj. 完全的；v. 该死；adv. 该死；adv. 极其|His play was damned by the critics and closed after three weeks.|他的剧遭到了批评家指责，三周以后就停演了。||
+clap|n. 爆裂声；v. 鼓掌，拍手；n. 鼓掌；n. 轻拍；v. 轻拍某人|She clapped her hands in delight.|她高兴地拍手。||
+inflation|n. 通货膨胀；n. 充气|The new government's prime task is to reduce the level of inflation .|新政府的主要任务是减低通货膨胀的水平。||
+reference|n. 参考；n. 推荐信；n. 提及；n. 引文；v. 提及；v. 参考|There is no further reference to him in her diary.|她的日记中没有进一步提到他。||
+shrink|v. 缩小；v. 收缩；v. 退缩；v. 起皱纹|The tumour had shrunk to the size of a pea.|肿瘤已缩小到豌豆大小。||
+container|n. 容器；n. 集装箱|They stored food in a container .|他们把食物储藏在一个容器里。||
+slogan|n. 广告语；n. 标语|The company has dropped its original advertising slogan and is trying to come up with a new one.|这家公司已放弃了最初的广告口号，现正努力想出一句新口号。||
+imaginative|adj. 富于想象力的；adj. 有独创性的|He is an imaginative writer who has written some great science fiction.|他是一位富有想象力的作家，他写过一些优秀的科幻小说。||
+orientation|n. 迎新会；n. 取向；n. 方向|Companies have been forced into a greater orientation to the market.|各公司不得不作出转变，更加面向市场。||
+inclusive|adj. 全部包含在内的；adj. 范围广泛的|The rent is inclusive of water and heating.|租金包括水费和暖气费。||
+span|n. 持续时间；v. 横跨；n. 跨度；n. 范围；n. 宽度；v. 持续；v. 包括|Modern medicine has increased man's life span .|现代医学延长了人的寿命。||
+prior|adj. 先前的；adj. 优先的；adj. 在前面的|I have to catch up with my colleagues because I have no prior experience.|我得赶上我的同事，因为我没有先前的经验。||
+architect|n. 建筑师；n. 缔造者|The author of the guidebook is an architect by profession.|该手册的作者任职建筑师。||
+competitive|adj. 有竞争力的；adj. 竞争的|Nobody can entirely keep away from this competitive world.|没有人能够完全远离这个竞争社会。||
+cabin|n. 舱室；n. 小木屋|There is a bush of bramble in front of the cabin .|小木屋前有一丛黑莓。||
+coverage|n. 覆盖范围；n. 新闻报道|There was extensive TV coverage of the wedding.|这场婚礼被电视广泛地报道了一番。||
+strategic|adj. 战略的|The United Nations Peacekeeping Forces made a strategic withdrawal.|联合国维和部队作出了战略性撤退。||
 historic|adj. 历史上重大的；adj. 历史的|This battle is of historic meaning.|这一战具有历史意义。||
 enable|v. 使可能，使能够|The loan enabled Jan to buy the car.|这笔贷款使简有能力买下这辆车。||
 dense|adj. 密集的；adj. 浓密的；adj. 复杂难懂的|The forest was quite dense at that time.|那时，森林还很茂密。||
@@ -8,63 +48,3 @@ afford|v. 负担得起；v. 支付得起；v. 提供|None of them could afford �
 defeat|n. 失利；v. 挫败；n. 击败；v. 打败|He defeated the champion in three sets.|他三盘击败了冠军。||
 implication|n. 可能的影响；n. 含义，暗指|The team failed to consider the implications of their actions.|这个团队没有考虑到他们的行动产生的影响。||
 influence|v. 影响；n. 影响；n. 势力；n. 有影响的人或事物；v. 对…起作用|What exactly is the influence of television on children?|电视对儿童究竟有什么影响？||
-electric|adj. 电动的；adj. 发电的；adj. 令人激动的|an electric motor|电动机||
-hence|adv. 因此，所以；adv. 此后|The cost of transport is a major expense. Hence factory location is an important consideration.|运输成本是一大笔支出，因此工厂选址是重要的考虑因素。||
-leading|adj. 一流的；adj. 领先的；adj. 最重要的|He got a chance to play a leading role in the movie.|他得到了一个在那部电影中扮演主角的机会。||
-resent|v. 愤恨，憎恶|I deeply resented her criticism.|我对她的批评感到非常气愤。||
-upward|adj. 向上的；adv. 向上；adj. 上涨的；adv. 上涨|The upward movement in property prices may continue.|房地产价格的上涨可能会继续下去。||
-helpless|adj. 无助的；adj. 无法抑制的|The boy began to feel depressed and helpless .|这男孩他开始觉得沮丧、无助。||
-deadly|adj. 致命的；adj. 极度的；adv. 极其；adv. 死一般地|Ill-disposed waste of cities may cause deadly diseases to local people.|城市废弃物若处理不当，会让当地民众患上致命的疾病。||
-instructor|n. 教练，导师|The driving instructor told me to pull up at the post office.|驾驶教练让我在邮局停车。||
-critical|adj. 极重要的；adj. 批判的；adj. 病危的；adj. 评判客观的|The choice of your career path is critical to your future.|职业道路的选择对你的未来至关重要。||
-companion|n. 同伴；n. 伴侣；n. 成套物之一；n. 同行者|Fear was the hostages' constant companion .|人质一直伴有恐惧情绪。||
-recommend|v. 建议，劝告；v. 推荐|Can you recommend a good hotel?|你能推荐一家好的宾馆吗？||
-reject|v. 拒绝；v. 排斥；v. 嫌弃|He was afraid she would reject him because he was a foreigner.|他担心女孩会因他不是本国人而拒绝他。||
-momentary|adj. 短暂的，短促的，片刻的|Her feeling of fear was only momentary .|她的恐惧感仅是瞬息间的。||
-contemporary|adj. 当代的；n. 同时代的人；adj. 同时代的|We have no contemporary account of the battle.|我们没有当时人们对这一战役的记载。||
-blend|v. 融合；v. 混合；n. 融合；n. 混合物；v. 调和|Blend the flour, eggs, milk and sugar together, bake it for 20 minutes, and then you'll have a delicious cake.|把面粉、鸡蛋、牛奶和糖搅拌在一起，烘烤20分钟，然后你就能吃到非常美味的蛋糕了。||
-spacecraft|n. 宇宙飞船|The US has sent several spacecraft to Mars to investigate evidence of life on the planet.|美国已将多艘宇宙飞船送往火星，以调查该星球上存在生命的证据。||
-sacrifice|n. 牺牲；v. 牺牲，献出；n. 祭品；n. 献祭；v. 献祭|Her parents made sacrifices so that she could have a good education.|为了让她受良好的教育，她的父母作了很多牺牲。||
-cabinet|n. 橱柜；n. 内阁|The cabinet minister votes for a proposal of environmental protection.|这位内阁大臣投票支持环境保护的提案。||
-exaggerate|v. 夸大，夸张|Don't trust him for he tends to exaggerate his merits.|别相信他，因为他总爱夸大自己的优点。||
-elevator|n. 电梯|We'd better take the elevator to the office on the ninth floor.|我们最好坐电梯去九楼的办公室。||
-dimension|n. 方面；n. 维度；n. 尺寸；n. 规模|We should take all the dimensions into consideration.|我们应当考虑各个维度的问题。||
-flexible|adj. 灵活的；adj. 柔韧的；adj. 易弯曲的|We need a foreign policy that is more flexible .|我们需要一个更为灵活的外交政策。||
-multiple|adj. 许多的 ，多种多样的|She suffered multiple injuries in the car crash.|她在车祸中多处受伤。||
-quantitative|adj. 数量的；adj. 定量的|There is no difference between the two in quantitative terms.|两者在数量上毫无差别。||
-underline|v. 强调；v. 画线标出|His failures underline how easily things can go wrong.|他的失败表明出差错是多么容易。||
-harden|v. 使硬化；v. 使更坚定|Fast cooling from extremely high temperatures will harden the steel.|从极度高温迅速冷却会使钢硬化。||
-monstrous|adj. 巨大的；adj. 丑恶的；adj. 骇人的|All the students were burning with anger at this monstrous crime.|所有的学生对这残暴的罪行都感到无比的愤慨。||
-patch|n. 小块；n. 膏药；n. 补丁；v. 打补丁|My mother sewed patches on the knees of my blue jeans.|我母亲在我牛仔裤的膝盖位置缝上了补丁。||
-bulk|n. 大部分；n. 大量|The truck can transport a bulk of goods.|卡车可以运载大宗货物。||
-norm|n. 惯例；n. 准则；n. 标准|She considered people to be products of the values and norms of the society they lived in.|她认为人是所在社会价值和规范的产物。||
-invariably|adv. 总是；adv. 不变地|His decision is invariably correct.|他的决定总是正确的。||
-resume|n. 简历；v. 重新开始；v. 恢复；n. 概要；v. 继续|The meeting is expected to resume early tomorrow.|预计明天早些时候会议会继续召开。||
-chill|n. 凉意；n. 着凉；n. 害怕；v. 使变冷；v. 惊吓；v. 放松；adj. 阴冷的，寒冷的|The night air chilled his bones.|夜间的寒气使他感到冰冷彻骨。||
-superficial|adj. 表面的；adj. 肤浅的|He is too superficial to appreciate great literature like this.|他太肤浅，无法欣赏这类文学巨著。||
-humble|adj. 谦卑的；adj. 卑贱的|The reason for his success is that he is always humble enough to learn from his mistakes.|他之所以能成功，是因为能一直虚心从错误中吸取教训。||
-monster|n. 怪物；n. 巨物；adj. 巨大的|This machine is a real monster .|这台机器真是个庞然大物。||
-feedback|n. 反馈|The feedback from your clients is crucial to improve your work.|客户的反馈对改善你们的工作至关重要。||
-meantime|n. 其间，其时；adv. 同时，当时|He will be here soon. In the meantime , can you try to relax?|他马上就会到。在此期间，你能试着休息一下吗？||
-embarrass|v. 使尴尬，使为难|Meeting adults embarrassed the shy child.|遇见大人使这个害羞的孩子很困窘。||
-remark|n. 评论；n. 言论；v. 评论，说|He made a number of rude remarks about the food.|关于这里的食物他说了许多无礼的评论。||
-fare|v. 表现，进展；n. 车费；n. 伙食|We took a taxi home and split the fare .|我们共乘一辆出租车回家并且平摊了车费。||
-persevere|v. 坚持不懈，孜孜不倦|You have to persevere with difficult students.|对难教的学生你必须坚持诲人不倦的精神。||
-perspective|n. 观点；n. 视角|The experience gave him a different perspective on life.|这段经历让他对人生产生了不一样的看法。||
-suburb|n. 郊区|She lives in a suburb of New York City, and spends lots of time commuting.|她住在纽约市的一个郊区，来回通勤要花很长时间。||
-acute|adj. 严重的；adj. 灵敏的；adj. 剧烈的|There is an acute shortage of water.|水严重短缺。||
-waterproof|adj. 防水的|This coat is waterproof , and can keep you dry on rainy days.|这件外套是防水的，你在下雨的时候穿上不会被淋湿。||
-priest|n. 牧师，神职人员|He has been a Christian priest in a German church since 1996.|他自1996年来就一直在德国一座基督教堂担任牧师。||
-breed|v. 繁殖；v. 导致；n. 品种；v. 饲养；n. 类型；v. 孕育|His horse is of the best breed .|他的马是最好的品种。||
-rhythm|n. 韵律，节律；n. 规律性变化|Let's dance to the rhythm of the music!|让我们随着音乐的节奏跳舞吧！||
-conclusion|n. 结论；n. 结束；n. 推断|I've come to the conclusion that he is an excellent math teacher.|我得出的结论是，他是一个优秀的数学老师。||
-justice|n. 公正，正义；n. 司法；n. 法官|They are demanding equal rights and justice .|他们要求平等的权利和公正的待遇。||
-balcony|n. 阳台；n. （剧院的）楼座|We had a room with a balcony overlooking the sea.|我们有间带阳台的房间，从那里可以俯瞰大海。||
-desire|n. 欲望，渴望；v. 渴望；n. 渴望的事|Everyone has a desire for peace and happiness.|每个人都渴望和平和幸福。||
-rib|n. 排骨；n. 肋骨|He fell off a ladder and broke his ribs .|他从梯子上摔了下来，摔断了几根肋骨。||
-intensive|adj. 集中使用的；adj. 加强的；adj. 彻底的；adj. 强有力的|I will take two weeks of intensive training for the competition.|我将为这场比赛进行两个星期的密集训练。||
-graduate|n. 毕业生；adj. 研究生的；v. 毕业；v. 获得学位；v. 授予…学位|She'll graduate from Peking University this July.|今年七月，她将从北京大学毕业。||
-advantageous|adj. 有利的，有益的|A free trade agreement would be advantageous to both countries.|自由贸易协定对两国都有利。||
-slide|n. 下跌；v. 滑行；v. 下跌；n. 滑梯；n. 滑行；n. 幻灯片；v. 悄悄移动|The automatic doors slide open.|自动门自动滑开。||
-dump|v. 丢弃；n. 垃圾场；v. 倾销；v. 倒空|Tons of waste dumped into the sea every year threatens the life of marine creatures.|每年有数吨废料被倒入海中，对海洋生物的生命造成了威胁。||
-tendency|n. 倾向；n. 趋势|He started to display artistic tendencies when he was just a little child.|他还是个小孩的时候就显现出了艺术偏好。||
