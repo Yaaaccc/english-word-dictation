@@ -1,3 +1,23 @@
+morality|n. 道德（准则）|Wisdom without morality is like a ring without a gem.|没有道德的智慧就像没有宝石的戒指。||
+bloom|v. 开花；n. 花；v. 繁荣|Most flowers bloom in springtime.|大多数花在春天开放。||
+lease|v. 租用，出租；n. 租约，租契|The lease runs out next year.|这份租约明年到期。||
+pat|v. 轻拍，轻抚；n. 轻拍|My grandfather patted me on the head affectionately.|爷爷慈爱地拍了拍我的头。||
+particularly|adv. 特别，尤其；adv. 异乎寻常地|He didn't particularly want to go, but he had to.|他并不是特别想去，但又不得不去。||
+ignorance|n. 无知|They fought a long battle against prejudice and ignorance .|他们为反对偏见与无知而战。||
+transportation|n. 运输（系统）；n. 交通工具|I go to work by public transportation .|我搭乘公共交通工具上班。||
+debt|n. 负债；n. 恩情|I need to pay off all my debts before I leave the country.|我得在离开该国前偿清所有债务。||
+interaction|n. 互动；n. 相互作用；n. 交流；n. 直接接触|The interaction of the two groups brought about many interesting ideas.|两个组相互交流，产生了许多有趣的想法。||
+congress|n. 国会；n. 代表大会|The UN will open a congress of delegates from the most industrial countries on global warming.|联合国将举行由最发达工业国组成的代表大会，讨论全球变暖问题。||
+widen|v. 加宽，变宽|With economy growing, many roads in China's villages are widened .|随着经济发展，中国乡村的许多道路都得到了拓宽。||
+indicate|v. 表明，暗示，指出；v. 简要陈述|Record profits in the retail market indicate a boom in the economy.|零售市场上有史以来的最高利润显示出经济的突飞猛进。||
+insert|v. 插入，嵌入；n. 插页，插入物|They inserted a tube in his mouth to help him breathe.|他们在他嘴里插了根导管帮助他呼吸。||
+desirable|adj. 可取的；adj. 值得拥有的；adj. 理想的|The city with a friendly climate is a desirable place to live.|这座城市气候宜人，是个令人向往的居住地。||
+imply|v. 暗指；v. 意味，表明|His speech implied a lack of responsibility in the company management.|他的讲话暗示了公司管理层缺乏责任感。||
+restore|v. 恢复；v. 修复；v. 使复位；v. 使复职|The measures are intended to restore public confidence in the government.|这些举措旨在恢复公众对政府的信心。||
+spill|v. 洒出，溢出；n. 洒出（量），溢出（量）；v. 散落；v. 蜂拥而出|I managed to carry three full glasses without spilling a drop.|我拿了满满的三杯水，不洒一滴。||
+command|v. 掌控；n. 命令；n. 掌握；n. 管辖；v. 命令；v. 指挥|Begin when I give the command .|我发出命令时开始。||
+relevant|adj. 紧密相关的；adj. 有意义的|Religions are closely relevant to people's lives in that country.|在那个国家，宗教和人们的生活紧密相关。||
+neutral|adj. 中立的；adj. 非彩色的；adj. 不确定的|A judge must remain neutral .|裁判必须要保持中立。||
 addition|phrase. （in addition to）除…之外；phrase. （in addition）此外，另外；n. 添加物；n. 增加；n. 加法|Children start learning addition and subtraction in primary school.|孩子们从小学开始学习加减法。||
 leisure|n. 闲暇；n. 休闲|What do you do in your leisure time?|你业余时间都会做些什么？||
 terminal|n. 航站楼；n. 终端；n. 终点站；adj. 末端的；adj. 晚期的|A second terminal was opened in 2008.|第二个航空站是于2008年开始运营的。||
@@ -28,23 +48,3 @@ overwhelm|v. 使不知所措；v. 压垮；v. 击败|She was overwhelmed by feel
 philosopher|n. 哲学家|Many great Greek philosophers contributed to modern Western thought.|许多伟大的希腊哲学家促成了现代西方思想的形成。||
 classify|v. 分类，归类|The books in the library are classified according to subject.|图书馆的书按学科分类。||
 routine|n. 惯例，日常工作；adj. 例行的；adj. 日常的；adj. 乏味的|We are trying to get the baby into a routine for feeding and sleeping.|我们努力让婴儿按时进食和睡觉。||
-reverse|v. 彻底转变；adj. 反向的；v. 撤销；n. 相反；v. 使颠倒；v. 倒车；n. 背面；n. 倒档；adj. 背面的|He reversed the coin and examined it carefully.|他把硬币倒过来，仔细检查。||
-missing|adj. 缺少的；adj. 失踪的|Her daughter has been missing for 20 years.|她的女儿已经走失20年了。||
-corresponding|adj. 相应的，由此引起的|Company losses were 40 percent worse than in the corresponding period last year.|与去年同期相比，公司亏损增加了40%。||
-interrupt|v. 打断；v. 打扰；v. 遮住|Would you mind not interrupting all the time?|请你别老是插嘴好吗？||
-token|n. 象征；n. 代币；adj. 象征性的|As a token of goodwill, I'm going to write another letter.|为了证明我的善意，我打算再写一封信。||
-projector|n. 放映机，投影仪|We need a projector for the meeting.|会议中我们要用到放映机。||
-implement|v. 贯彻，实行|A new work programme for young people will be implemented .|一项针对年轻人的新工作项目将被执行。||
-resignation|n. 辞职；n. 顺从；n. 辞职信|He handed over his resignation letter last Friday.|他上周五递上了自己的辞呈。||
-classification|n. 分类；n. 类别|The classification of the new species is still in debate due to their strange features.|新物种外形奇特，故对他们的分类仍在讨论中。||
-minority|n. 少数；n. 少数民族|Only a small minority of students are interested in politics these days.|目前，只有极少数同学对政治感兴趣。||
-indication|n. 表明，标示，象征|Being unable to walk in a straight line is a clear indication of getting drunk.|无法走直线是醉酒的明显迹象。||
-utilize|v. 利用；v. 使用|They were the first to utilize fire as a kind of weapon.|他们是第一个把火用作武器的。||
-inevitable|adj. 不可避免的|Failure was an inevitable consequence of the decision.|这个决定不可避免地会导致失败。||
-profit|n. 利润；v. 获利；n. 益处；n. 利益；v. 有益于|The company made a healthy profit on the deal.|公司在这笔生意中获利颇丰。||
-editorial|n. 社论；adj. 编辑的，主编的|The paper follows an editorial policy that puts great emphasis on foreign news.|本报遵循非常重视外国新闻的编辑政策。||
-segment|n. 部分；n. 片段|She cleaned a small segment of the painting.|她擦干净了这幅画的一小部分。||
-prominent|adj. 杰出的；adj. 重要的；adj. 显眼的；adj. 突出的|As the leader, he played a prominent part in the team's victory.|作为队长，他在小组的胜利中发挥了重要作用。||
-faint|adj. 微弱的；n. 昏厥；v. 昏厥；adj. 可能性不大的；adj. 头晕目眩的|I skipped breakfast, and now I am beginning to feel a little faint .|我没吃早饭，现在开始觉得有些眩晕了。||
-ethnic|adj. 种族的；adj. 少数民族的|Pupils in this school are from different ethnic groups.|这所学校的小学生来自不同的少数民族。||
-pit|n. 洞，坑；v. 使竞争，使经受考验；n. 矿井；n. 果核|We dug a shallow pit and put the seeds in it.|我们挖了一个浅坑，把种子撒在里面。||
