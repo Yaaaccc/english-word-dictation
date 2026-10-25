@@ -2432,7 +2432,12 @@ button.small{ padding:6px 12px; font-size:12.5px; }
     var k = String(word || "").replace(/[^A-Za-z'\-]/g, "").toLowerCase();
     return EXAM_DICT[k] || null;
   }
-  loadExamDict();
+  /* 同上：真题词典 347KB，等首屏加载完再拉，别和词表抢带宽（2026-10-25） */
+  (function () {
+    function warmExam() { loadExamDict(); }
+    if (document.readyState === "complete") setTimeout(warmExam, 700);
+    else window.addEventListener("load", function () { setTimeout(warmExam, 700); });
+  })();
 
   function setExamplePanel(item) {
     var panel = $("examplePanel");
@@ -4798,9 +4803,11 @@ button.small{ padding:6px 12px; font-size:12.5px; }
     window.addEventListener("resize", scheduleReposition);
   })();
 
-  // 预热：页面一开就在后台拉词典，等真去点词的时候已经是热的（不阻塞任何东西）
-  // 词典是异步来的，到了就把难词标记补上（例句此刻可能已经渲染好了）
-  loadExampleDict().then(paintExampleWords);
+  // 预热：词典 835KB，国内拉一次要十几秒。原先在初始化就发起，会和首屏词表抢带宽，
+  // 导致「已载入词书」迟迟不出现。改为等 load 之后再拉，首屏资源先行。
+  function warmExampleDict() { loadExampleDict().then(paintExampleWords); }
+  if (document.readyState === "complete") setTimeout(warmExampleDict, 600);
+  else window.addEventListener("load", function () { setTimeout(warmExampleDict, 600); });
 
   // progressBar 的宽度是 style 属性变更，单独盯属性
   if ($("progressBar")) {
