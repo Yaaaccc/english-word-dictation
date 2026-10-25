@@ -761,6 +761,18 @@ html:not([data-nav]) #idleView:not(.hidden){ animation:stageRise .35s cubic-bezi
   background:var(--amber-soft); border-radius:12px; padding:10px 12px;
   border:1px solid rgba(161,106,36,.22);
 }
+
+/* 官方笔记板：搬进连播舞台（搜词台下方），加大加醒目 */
+.note-board{ width:100%; margin-top:12px; }
+.note-board .ex-label{ color:var(--amber); font-size:11.5px; margin:0 0 6px; letter-spacing:1.2px; }
+.note-board #diffText{
+  font-size:15px; line-height:1.8; text-align:left;
+  background:linear-gradient(163deg, var(--amber-soft), rgba(226,184,120,.06));
+  border:1px solid rgba(169,106,36,.28); border-radius:14px;
+  padding:13px 16px; max-height:180px; overflow:auto;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.25), 0 10px 24px -16px rgba(169,116,47,.5);
+}
+.note-board:has(#diffLabel.hidden){ display:none; }   /* 该词没有辨析 → 整块隐藏 */
 #phraseText{ font-size:13.5px; line-height:1.8; color:var(--violet-d); }
 .phrase-list{ display:flex; flex-wrap:wrap; gap:6px; }
 .phrase-pill{
@@ -1428,6 +1440,10 @@ button.small{ padding:6px 12px; font-size:12.5px; }
           </div>
         </div>
         <!-- 回想释义（四选一）· 2026-10-23 加 -->
+        <div class="note-board">
+          <div id="diffLabel" class="hidden ex-label">官方笔记</div>
+          <div id="diffText"></div>
+        </div>
         <div id="quizStage" class="hidden">
           <div class="quiz-wrap">
             <div class="quiz-dir-row">
@@ -1496,8 +1512,6 @@ button.small{ padding:6px 12px; font-size:12.5px; }
         <button class="ex-mini-btn" id="examSpeakBtn" type="button" title="朗读真题例句" aria-label="朗读真题例句">🔊 朗读</button>
       </div>
       <div id="examText" class="ex-text"></div>
-      <div id="diffLabel" class="hidden ex-label">官方笔记</div>
-      <div id="diffText"></div>
       <div id="phraseLabel" class="hidden ex-label">短语</div>
       <div id="phraseText"></div>
     </div>
@@ -3678,7 +3692,7 @@ button.small{ padding:6px 12px; font-size:12.5px; }
        ④ 设置面板 / 学习记录面板打开时不切词。 */
   var wheelLockUntil = 0;
   var WHEEL_ZONE_SEL = "#runView > .statusline, #runView > .progress-wrap, #playStage > .play-note, #playStage > .controls";
-  var WHEEL_INNER_SCROLL = ".order-list, .order-scroll, .done-scroll, .stats-scroll";
+  var WHEEL_INNER_SCROLL = ".order-list, .order-scroll, .done-scroll, .stats-scroll, .note-board";
   function wheelInZone(node) {
     return !!(node && node.closest && node.closest(WHEEL_ZONE_SEL));
   }
