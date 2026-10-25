@@ -1216,6 +1216,86 @@ button.small{ padding:6px 12px; font-size:12.5px; }
 }
 
 /* ============================================================
+   13.5 长篇阅读（列表 Sheet / 阅读页 / 点句翻译小卡）
+   ============================================================ */
+#readSheet{ max-height:min(80dvh,760px); }
+.read-list{ margin-top:12px; max-height:min(56dvh,520px); overflow:auto; display:grid; gap:8px; }
+.read-group{ font-size:11.5px; color:var(--muted-2); letter-spacing:1.2px; font-weight:700; margin:8px 0 2px; }
+.read-item{
+  display:flex; align-items:center; gap:10px; text-align:left; width:100%;
+  background:var(--soft); border:1px solid var(--line-2); border-radius:12px;
+  padding:10px 14px; cursor:pointer; font-family:inherit; font-size:13px;
+  color:var(--ink-2); box-shadow:var(--sh-1);
+  transition:background .14s, border-color .14s, color .14s, transform .12s;
+}
+.read-item:hover{ background:var(--violet-soft); border-color:var(--violet-line); color:var(--violet-d); transform:translateX(2px); }
+.read-item .ri-done{ color:var(--green); font-weight:800; flex:none; width:16px; }
+.read-item .ri-title{ flex:1; min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; color:var(--ink); }
+.read-item .ri-exam{ flex:none; font-size:11px; color:var(--muted-2); }
+
+/* 阅读页：大视口 Sheet */
+#readView{ max-height:94dvh; height:94dvh; width:min(1080px, calc(100vw - 16px)); }
+.read-head{ display:flex; align-items:center; gap:12px; padding-right:40px; }
+.read-title{ flex:1; min-width:0; font-size:14px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.read-modes{ display:inline-flex; gap:2px; padding:2px; border-radius:999px; background:var(--seg); border:1px solid var(--line); flex:none; }
+.read-mode{ border:none; background:transparent; color:var(--muted); border-radius:999px; padding:5px 13px; font-size:12.5px; font-weight:700; box-shadow:none; }
+.read-mode.on{ background:var(--card-solid); color:var(--ink); box-shadow:var(--sh-1); }
+.read-body{
+  margin-top:12px; overflow:auto; flex:1; min-height:0;
+  font-size:16.5px; line-height:1.95; color:var(--ink-2); text-align:left;
+  padding:4px 6px 12px 2px;
+}
+.read-body .rsent{ cursor:pointer; border-radius:4px; padding:1px 1px; transition:background .12s; }
+.read-body .rsent:hover{ background:var(--violet-soft); }
+.read-body .rsent.sel{ background:var(--violet-soft); box-shadow:inset 0 -2px 0 0 var(--violet); }
+.read-body .rsent .cnline{ display:block; color:var(--muted); font-size:14px; line-height:1.7; margin:2px 0 10px; }
+.read-body.rmode-cn .rsent{ cursor:default; }
+.read-body .rtgt{ background:var(--mark); border-radius:3px; padding:0 2px; }
+.read-foot{ display:flex; align-items:center; gap:10px; margin-top:10px; }
+.read-foot .read-tip{ font-size:11px; color:var(--muted-2); }
+#readDoneBtn.done{ background:var(--green-soft); border-color:var(--green-line); color:var(--green); }
+
+/* 点句翻译小卡（底部浮层，位于 Dock 上方） */
+#readTrans{
+  position:fixed; left:0; right:0; bottom:86px; margin:0 auto; width:fit-content;
+  max-width:min(720px, calc(100vw - 24px)); z-index:136;
+  background:linear-gradient(163deg, rgba(255,255,255,calc(var(--glass-op,1)*.95)), rgba(255,255,255,calc(var(--glass-op,1)*.9)));
+  -webkit-backdrop-filter:blur(24px) saturate(160%);
+  backdrop-filter:blur(24px) saturate(160%);
+  border:1px solid rgba(255,255,255,.6); border-radius:18px;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.7), var(--sh-3);
+  padding:10px 16px 12px;
+}
+@media (prefers-color-scheme: dark){
+  #readTrans{
+    background:linear-gradient(163deg, rgba(26,33,56,calc(var(--glass-op,1)*.95)), rgba(18,24,42,calc(var(--glass-op,1)*.9)));
+    border-color:rgba(255,255,255,.12);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.15), var(--sh-3);
+  }
+}
+#readTrans.hidden{ display:none; }
+#readTrans .rt-head{ display:flex; align-items:center; gap:8px; margin-bottom:4px; }
+#readTrans .rt-head span{ font-size:11px; color:var(--violet-d); font-weight:700; letter-spacing:1px; }
+#readTrans .rt-head button{
+  margin-left:auto; width:24px; height:24px; padding:0; border-radius:50%;
+  border:1px solid var(--line); background:var(--soft); color:var(--muted);
+  cursor:pointer; font-size:11px; box-shadow:none;
+}
+#readTrans #rtText{ font-size:15px; line-height:1.75; color:var(--ink); max-height:34dvh; overflow:auto; }
+
+/* 划选浮动的「译」按钮 */
+#readSelBtn{
+  position:absolute; z-index:8; display:none;
+  border-radius:999px; padding:4px 12px; font-size:12px; font-weight:700;
+  background:var(--primary-grad); border-color:transparent; color:#fff;
+  box-shadow:0 6px 14px -6px var(--btn-shadow); cursor:pointer;
+}
+@media (max-width:720px){
+  #readView{ width:calc(100vw - 12px); }
+  .read-body{ font-size:15.5px; }
+}
+
+/* ============================================================
    14. 打印（导出错词/生词 PDF）—— 白纸黑字
    ============================================================ */
 .print-only{ display:none; }
@@ -1834,8 +1914,49 @@ button.small{ padding:6px 12px; font-size:12.5px; }
           <path d="M4.6 17.4 9.6 12.8 13.2 16 15.8 13.9 19.4 16.8" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
       </button>
+      <button class="icon-btn" id="readToggle" type="button" title="长篇阅读（真题文章 + 点句翻译）" aria-label="长篇阅读">
+        <svg viewBox="0 0 24 24" fill="none">
+          <path d="M5 4.5h9.5a2.5 2.5 0 0 1 2.5 2.5v12.5H7.5A2.5 2.5 0 0 1 5 17V4.5z" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"/>
+          <path d="M17 7h2v12.5H8.5" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"/>
+          <path d="M8.2 8.6h5.4M8.2 12h5.4M8.2 15.4h3.4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+        </svg>
+      </button>
     </div>
   </nav>
+
+  <!-- 长篇阅读（2026-10-25 加）：列表 + 阅读页 + 点句翻译小卡 -->
+  <div id="readSheet" class="settings glass-sheet hidden" role="dialog" aria-label="长篇阅读列表">
+    <div class="settings-inner">
+      <h3>长篇阅读</h3>
+      <input id="readSearch" type="text" autocomplete="off" placeholder="搜标题 / 年份 / 套数" style="width:100%;">
+      <div id="readList" class="read-list"></div>
+      <div class="hint" id="readHint">文章库还没建立：把带翻译的长篇阅读 PDF 放进「阅读原文」文件夹，跑导入脚本即可。</div>
+    </div>
+  </div>
+
+  <div id="readView" class="settings glass-sheet hidden read-view" role="dialog" aria-label="阅读">
+    <div class="settings-inner">
+      <div class="read-head">
+        <button class="small" id="readBack" type="button">← 列表</button>
+        <b id="readTitle" class="read-title"></b>
+        <span class="read-modes">
+          <button class="read-mode on" data-m="en" type="button">英</button>
+          <button class="read-mode" data-m="bi" type="button">对照</button>
+          <button class="read-mode" data-m="cn" type="button">中</button>
+        </span>
+      </div>
+      <div id="readBody" class="read-body"></div>
+      <div class="read-foot">
+        <button class="small" id="readDoneBtn" type="button">✓ 标为已读</button>
+        <span class="read-tip">点句子看翻译 · 划选文字合并翻译 · 点单词查义收生词 · 紫底 = 词书词汇</span>
+      </div>
+    </div>
+  </div>
+
+  <div id="readTrans" class="hidden" role="status" aria-live="polite">
+    <div class="rt-head"><span id="rtLabel"></span><button id="rtClose" type="button" aria-label="收起">✕</button></div>
+    <div id="rtText"></div>
+  </div>
 
   <div id="bgPanel" class="hidden" role="dialog" aria-label="外观设置">
     <div class="bg-title">背景</div>
@@ -4542,6 +4663,8 @@ button.small{ padding:6px 12px; font-size:12.5px; }
     if (exmEl) exmEl.addEventListener("click", onWordClick);
     var diEl = $("diffText");                     // 官方笔记区也能点（2026-10-14 加）
     if (diEl) diEl.addEventListener("click", onWordClick);
+    var rdEl = $("readBody");                     // 长篇阅读区也能点（2026-10-25 加）
+    if (rdEl) rdEl.addEventListener("click", onWordClick);
     var spk = $("defCardSpeak");
     if (spk) {
       spk.addEventListener("click", function (e) {
@@ -6450,6 +6573,215 @@ button.small{ padding:6px 12px; font-size:12.5px; }
       b2.addEventListener("click", function () { bp.classList.add("hidden"); });
       bp.insertBefore(b2, bp.firstChild);
     }
+  })();
+
+  /* ---------- 5.6 长篇阅读层（列表 / 阅读页 / 点句译 / 划选译 / 目标词高亮 / 已读） ---------- */
+  (function () {
+    var rT = document.getElementById("readToggle");
+    var rS = document.getElementById("readSheet");
+    var rV = document.getElementById("readView");
+    if (!rT || !rS || !rV) return;
+    var K_DONE = "dictationReadDone";
+    var idx = null, targets = null, cur = null, curMode = "en", curSel = null;
+    var rList = document.getElementById("readList");
+    var rHint = document.getElementById("readHint");
+    var rBody = document.getElementById("readBody");
+    var rTitle = document.getElementById("readTitle");
+    var rSearch = document.getElementById("readSearch");
+    var rTrans = document.getElementById("readTrans");
+    var rtText = document.getElementById("rtText");
+    var rtLabel = document.getElementById("rtLabel");
+
+    function doneMap() { try { return JSON.parse(localStorage.getItem(K_DONE) || "{}"); } catch (e) { return {}; } }
+    function esc(t) { return String(t).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
+
+    /* 词书目标词（含简单变形） */
+    function isTarget(w) {
+      if (!targets) return false;
+      var k = w.toLowerCase();
+      if (targets.indexOf(k) >= 0) return true;
+      var stems = [k.replace(/ies$/, "y"), k.replace(/es$/, ""), k.replace(/s$/, ""),
+                   k.replace(/ing$/, ""), k.replace(/ing$/, "e"), k.replace(/ed$/, ""), k.replace(/ed$/, "e"), k.replace(/ied$/, "y")];
+      for (var i = 0; i < stems.length; i++) if (stems[i] !== k && stems[i].length > 2 && targets.indexOf(stems[i]) >= 0) return true;
+      return false;
+    }
+
+    /* 英句 → 逐词 span（.ex-w 供查义卡；.rtgt = 词书词高亮） */
+    function sentHtml(en) {
+      return en.replace(/[A-Za-z][A-Za-z'’\-]*/g, function (w) {
+        var cls = isTarget(w) ? "ex-w rtgt" : "ex-w";
+        return '<span class="' + cls + '" data-w="' + esc(w.toLowerCase()) + '">' + w + "</span>";
+      });
+    }
+
+    function renderBody() {
+      if (!cur) return;
+      rBody.className = "read-body" + (curMode === "cn" ? " rmode-cn" : "");
+      var html = "";
+      for (var i = 0; i < cur.sents.length; i++) {
+        var s = cur.sents[i];
+        html += '<span class="rsent" data-i="' + i + '">';
+        if (curMode === "en") html += sentHtml(s.en) + " ";
+        else if (curMode === "cn") html += esc(s.cn || "（缺译）");
+        else html += sentHtml(s.en) + ' <span class="cnline">' + esc(s.cn || "（缺译）") + "</span>";
+        html += "</span>";
+      }
+      rBody.innerHTML = html;
+      rBody.scrollTop = 0;
+    }
+
+    function renderList(filter) {
+      if (!idx) return;
+      var dm = doneMap(), f = (filter || "").trim().toLowerCase();
+      var html = "", lastExam = "";
+      for (var i = 0; i < idx.length; i++) {
+        var a = idx[i];
+        if (f && (a.exam + " " + a.title).toLowerCase().indexOf(f) < 0) continue;
+        if (a.exam !== lastExam) { lastExam = a.exam; html += '<div class="read-group">' + esc(a.exam) + "</div>"; }
+        html += '<button class="read-item" data-id="' + esc(a.id) + '" type="button">' +
+          '<span class="ri-done">' + (dm[a.id] ? "✓" : "") + "</span>" +
+          '<span class="ri-title">' + esc(a.title) + "</span>" +
+          '<span class="ri-exam">' + esc(a.id) + "</span></button>";
+      }
+      rList.innerHTML = html || '<div class="hint">没有匹配的文章。</div>';
+      rHint.textContent = idx.length ? "共 " + idx.length + " 篇 · 已读 " + Object.keys(dm).filter(function (k) { return dm[k] && idx.some(function (a) { return a.id === k; }); }).length + " 篇" : rHint.textContent;
+    }
+
+    function showTrans(label, text) {
+      rtLabel.textContent = label;
+      rtText.textContent = text;
+      rTrans.classList.remove("hidden");
+    }
+    function hideTrans() { rTrans.classList.add("hidden"); }
+
+    function openArticle(id) {
+      fetch("阅读文章/a-" + encodeURIComponent(id) + ".json", { cache: "force-cache" })
+        .then(function (r) { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
+        .then(function (art) {
+          cur = art; curMode = "en";
+          rTitle.textContent = art.exam + " · " + (art.sents.length + " 句");
+          document.getElementById("readDoneBtn").classList.toggle("done", !!doneMap()[id]);
+          document.getElementById("readDoneBtn").dataset.id = id;
+          renderBody();
+          rS.classList.add("hidden");
+          rV.classList.remove("hidden");
+        })
+        .catch(function (e) { rHint.textContent = "文章加载失败：" + e.message; });
+    }
+
+    /* 入口按钮 */
+    rT.addEventListener("click", function (e) {
+      e.stopPropagation();
+      var willOpen = rS.classList.contains("hidden");
+      rS.classList.toggle("hidden");
+      if (!willOpen) return;
+      rV.classList.add("hidden"); hideTrans();
+      var p = idx ? Promise.resolve() :
+        fetch("阅读文章/index.json", { cache: "force-cache" }).then(function (r) { return r.json(); }).then(function (j) { idx = j; });
+      p.then(function () { renderList(rSearch.value); });
+    });
+    rS.addEventListener("click", function (e) { e.stopPropagation(); });
+    rV.addEventListener("click", function (e) { e.stopPropagation(); });
+    document.addEventListener("click", function () { if (!rV.classList.contains("hidden")) { rV.classList.add("hidden"); hideTrans(); } });
+    document.addEventListener("keydown", function (e) {
+      if (e.key !== "Escape") return;
+      if (!rTrans.classList.contains("hidden")) { hideTrans(); return; }
+      if (!rV.classList.contains("hidden")) { rV.classList.add("hidden"); rS.classList.remove("hidden"); return; }
+      rS.classList.add("hidden");
+    });
+
+    /* 列表点文章 / 搜索 */
+    rList.addEventListener("click", function (e) {
+      var it = e.target.closest ? e.target.closest(".read-item") : null;
+      if (it) openArticle(it.getAttribute("data-id"));
+    });
+    rSearch.addEventListener("input", function () { renderList(rSearch.value); });
+
+    /* 阅读页交互 */
+    document.getElementById("readBack").addEventListener("click", function () { rV.classList.add("hidden"); rS.classList.remove("hidden"); hideTrans(); renderList(rSearch.value); });
+    var modeBtns = rV.querySelectorAll(".read-mode");
+    for (var mi = 0; mi < modeBtns.length; mi++) {
+      modeBtns[mi].addEventListener("click", function () {
+        curMode = this.getAttribute("data-m");
+        for (var j = 0; j < modeBtns.length; j++) modeBtns[j].classList.toggle("on", modeBtns[j] === this);
+        renderBody();
+      });
+    }
+    document.getElementById("readDoneBtn").addEventListener("click", function () {
+      var id = this.dataset.id, dm = doneMap();
+      dm[id] = !dm[id];
+      try { localStorage.setItem(K_DONE, JSON.stringify(dm)); } catch (e) {}
+      this.classList.toggle("done", dm[id]);
+      this.textContent = dm[id] ? "✓ 已读（点此撤销）" : "✓ 标为已读";
+    });
+    /* 滚到底自动标已读 */
+    rBody.addEventListener("scroll", function () {
+      if (rBody.scrollTop + rBody.clientHeight >= rBody.scrollHeight - 24) {
+        var b = document.getElementById("readDoneBtn"), dm = doneMap();
+        if (b.dataset.id && !dm[b.dataset.id]) b.click();
+      }
+    });
+
+    /* 点句 → 翻译小卡（cn 模式不响应；点在词上交给查义卡，不弹翻译） */
+    rBody.addEventListener("click", function (e) {
+      if (e.target.closest(".ex-w")) { hideTrans(); return; }
+      var sent = e.target.closest ? e.target.closest(".rsent") : null;
+      if (!sent || !cur) return;
+      var i = +sent.getAttribute("data-i");
+      curSel = i;
+      var prev = rBody.querySelector(".rsent.sel");
+      if (prev) prev.classList.remove("sel");
+      sent.classList.add("sel");
+      var cnT = cur.sents[i].cn;
+      if (!cnT && i > 0 && cur.sents[i - 1].cn) cnT = "（这句较短，与上一句合并翻译）" + cur.sents[i - 1].cn;
+      showTrans("第 " + (i + 1) + " 句 · " + cur.id, cnT || "（这句缺译，检查导入）");
+    });
+    document.getElementById("rtClose").addEventListener("click", function () {
+      hideTrans();
+      var p = rBody.querySelector(".rsent.sel"); if (p) p.classList.remove("sel");
+    });
+
+    /* 划选 → 浮动「译」→ 覆盖句合并翻译 */
+    var selBtn = document.createElement("button");
+    selBtn.id = "readSelBtn"; selBtn.type = "button"; selBtn.textContent = "译";
+    rV.querySelector(".settings-inner").appendChild(selBtn);
+    rBody.addEventListener("mouseup", function () {
+      setTimeout(function () {
+        var sel = window.getSelection();
+        if (!sel || sel.isCollapsed || !rBody.contains(sel.anchorNode)) { selBtn.style.display = "none"; return; }
+        var rng = sel.getRangeAt(0), re = rBody.getBoundingClientRect();
+        selBtn.style.display = "block";
+        selBtn.style.left = Math.max(6, rng.getBoundingClientRect().left - re.left + rBody.offsetLeft - 6) + "px";
+        selBtn.style.top = (rng.getBoundingClientRect().top - re.top + rBody.offsetTop - 32) + "px";
+      }, 0);
+    });
+    selBtn.addEventListener("click", function () {
+      selBtn.style.display = "none";
+      var sel = window.getSelection();
+      if (!sel || sel.isCollapsed || !cur) return;
+      var hit = [], sentEls = rBody.querySelectorAll(".rsent");
+      for (var i = 0; i < sentEls.length; i++) {
+        if (sel.rangeCount && sel.getRangeAt(0).intersectsNode(sentEls[i])) hit.push(i);
+      }
+      if (!hit.length) { var n = sel.anchorNode && sel.anchorNode.parentElement && sel.anchorNode.parentElement.closest(".rsent"); if (n) hit.push(+n.getAttribute("data-i")); }
+      if (!hit.length) return;
+      var cn = hit.map(function (k) {
+        var c = cur.sents[k].cn;
+        if (!c && k > 0 && cur.sents[k - 1].cn) c = cur.sents[k - 1].cn;   // 短句合并翻译回退
+        return c || "";
+      }).join(" ");
+      showTrans("所选 " + (hit[0] + 1) + "~" + (hit[hit.length - 1] + 1) + " 句", cn || "（覆盖句缺译）");
+      window.getSelection().removeAllRanges();
+    });
+
+    /* 目标词表惰性加载（阅读打开时才拉一次） */
+    rT.addEventListener("click", function () {
+      if (targets) return;
+      fetch("阅读文章/targets.json", { cache: "force-cache" })
+        .then(function (r) { return r.json(); })
+        .then(function (j) { targets = j; if (cur) renderBody(); })
+        .catch(function () {});
+    });
   })();
 
   /* ---------- 5. 液态滑标 ---------- */
