@@ -6836,30 +6836,29 @@ button.small{ padding:6px 12px; font-size:12.5px; }
     }
     /* 设备有没有可用的语音引擎（手机/平板上 getVoices() 常为空 —— 设置页「英文发音」空白就是它） */
     function canTTS() {
-      /* 2026-10-25：不再要求 getVoices() 非空 —— Android WebView/Via 上引擎存在但列表可能为空，
-         此时不指定 voice、直接用默认引擎照样能读。真空环境会在 utterance 的 onerror 里暴露。 */
-      try { return ("speechSynthesis" in window); } catch (e) { return false; }
+      /* 有音色列表才认为语音合成真的可用；否则（Via 等 WebView 常返回空）改走百度在线音频。 */
+      try { return ("speechSynthesis" in window) && speechSynthesis.getVoices().length > 0; }
+      catch (e) { return false; }
     }
-    /* 没有语音引擎时走有道在线音频（和听写里单词/例句同一个音源），语速用 playbackRate */
+    /* 没有可用语音引擎时，走百度翻译的公开 TTS（实测：无 Referer、540 字符内均正常返回 mp3）。
+       有道 dictvoice 只能读 1-2 个词，读不了整句，所以不用它。 */
     var readAudio = null;
-    function sayOnline(text, rate, onEnd) {
+    function sayBaidu(text, rate, onEnd) {
+      var finished = false;
+      var finish = function (ok) { if (finished) return; finished = true; if (onEnd) onEnd(ok); };
       try {
         if (!readAudio) readAudio = new Audio();
-        var a = readAudio, done = false;
-        var finish = function (ok) {
-          if (done) return; done = true;
-          a.onended = a.onerror = null;
-          clearTimeout(timer);
-          if (onEnd) onEnd(ok);
-        };
-        var timer = setTimeout(function () { finish(false); }, 15000);
+        var a = readAudio;
+        var spd = Math.min(6, Math.max(1, Math.round((rate || 1) * 3.3)));   // 0.92≈3(正常)，0.6≈2，1.4≈5
         a.onended = function () { finish(true); };
         a.onerror = function () { finish(false); };
-        a.src = "https://dict.youdao.com/dictvoice?audio=" + encodeURIComponent(text) + "&type=2";
-        try { a.playbackRate = Math.min(1.6, Math.max(0.6, rate || 1)); } catch (e) {}
+        a.src = "https://fanyi.baidu.com/gettts?lan=en&text=" + encodeURIComponent(text) + "&spd=" + spd + "&source=web";
+        var tm = setTimeout(function () { finish(false); }, Math.min(20000, Math.max(6000, text.length * 90)));
+        a.onended = function () { clearTimeout(tm); finish(true); };
+        a.onerror = function () { clearTimeout(tm); finish(false); };
         var p = a.play();
-        if (p && p.catch) p.catch(function () { finish(false); });
-      } catch (e) { if (onEnd) onEnd(false); }
+        if (p && p.catch) p.catch(function () { clearTimeout(tm); finish(false); });
+      } catch (e) { finish(false); }
     }
     function stopSpeak() {
       speaking = false;
@@ -6875,12 +6874,6 @@ button.small{ padding:6px 12px; font-size:12.5px; }
       /* 手机/平板常见：系统没有语音引擎（设置页「英文发音」空白就是它）。
          有道在线音频只能读 1-2 个词（实测 this is a test 直接 500），读不了整句，
          所以这里不再假装降级，而是明确告诉用户缺什么。 */
-      if (!canTTS()) {
-        if (window.__dictationToast) {
-          window.__dictationToast("这台设备没有语音引擎，无法朗读。请到系统设置里启用「文字转语音」");
-        }
-        return;
-      }
       stopSpeak();
       speaking = true;
       var tok = speakToken;
@@ -6891,8 +6884,8 @@ button.small{ padding:6px 12px; font-size:12.5px; }
       var total = cur.sents.length;
       /* 音色列表为空时（Via/某些 WebView），无法确认引擎是否真的工作：
          连续 3 句都等不到 onstart 就判定为不支持，避免「进度条在跑但没声音」。 */
-      var strict = true;
-      try { strict = (speechSynthesis.getVoices().length === 0); } catch (e) {}
+      var useTTS = canTTS();
+      var strict = false;          // 走百度时不需要 onstart 检测
       var noStart = 0;
       (function next(i) {
         if (!speaking || tok !== speakToken || i >= total) { stopSpeak(); return; }
@@ -6905,6 +6898,13 @@ button.small{ padding:6px 12px; font-size:12.5px; }
           if (!speaking || tok !== speakToken) return;
           if (single) stopSpeak(); else next(i + 1);
         };
+        if (!useTTS) {
+          sayBaidu(txt, readRate, function (ok) {
+            if (!ok) { noStart++; if (noStart >= 3) { if (window.__dictationToast) window.__dictationToast("在线朗读也失败了，检查网络后重试"); stopSpeak(); } }
+            step();
+          });
+          return;
+        }
         var u = new SpeechSynthesisUtterance(txt);
         if (v) u.voice = v;
         u.lang = "en-US";
