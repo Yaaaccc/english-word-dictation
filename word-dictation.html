@@ -1979,6 +1979,13 @@ button.small{ padding:6px 12px; font-size:12.5px; }
       <span class="bg-lab">卡片透明度</span>
       <input type="range" id="glassOp" min="0" max="100" value="0" aria-label="卡片透明度">
     </div>
+    <div class="row-line">
+      <label for="bgLink" style="display:inline-flex;align-items:center;gap:6px;cursor:pointer;flex:none;font-size:12px;color:var(--muted);font-weight:600">
+        <input type="checkbox" id="bgLink" style="width:14px;height:14px;margin:0;accent-color:var(--violet)">
+        与背景浓度联动
+      </label>
+      <span id="bgLinkHint" style="flex:1;min-width:0;font-size:10.5px;color:var(--muted-2);line-height:1.4">背景越透，卡片越实</span>
+    </div>
 
     <div class="bg-title bg-title-2">主题色</div>
     <div class="sw-row">
@@ -6473,6 +6480,28 @@ button.small{ padding:6px 12px; font-size:12.5px; }
     function applyGlassOp(v) {
       document.documentElement.style.setProperty("--glass-op", String(Math.max(0, Math.min(1, 1 - v / 100))));
     }
+
+    /* 联动（2026-10-25 加）：勾选后由「背景浓度」反向驱动「卡片透明度」——
+       背景越透（veil 大）→ 卡片越实（glass 小），保证字看得清；
+       veil=0 时卡片全透也无所谓（背后本来就是不透明的纯色面纱）。
+       反向拖「卡片透明度」会自动取消联动，避免两条滑杆互相打架。 */
+    var lk = document.getElementById("bgLink");
+    var K_LINK = "dictationBgLink";
+    var linkOn = false;
+    function syncFromVeil() {
+      if (!linkOn || !go || !ve) return;
+      var g = Math.max(0, Math.min(100, 100 - (+ve.value)));
+      go.value = g;
+      applyGlassOp(g);
+      try { localStorage.setItem("dictationGlassOp", String(g)); } catch (e) {}
+    }
+    function setLink(on) {
+      linkOn = !!on;
+      if (lk) lk.checked = linkOn;
+      try { localStorage.setItem(K_LINK, linkOn ? "1" : "0"); } catch (e) {}
+      if (linkOn) syncFromVeil();
+    }
+
     var savedOp = null;
     try { savedOp = localStorage.getItem("dictationGlassOp"); } catch (e) {}
     if (savedOp !== null && go) { go.value = savedOp; applyGlassOp(+savedOp); }
@@ -6480,22 +6509,35 @@ button.small{ padding:6px 12px; font-size:12.5px; }
       go.addEventListener("input", function () {
         applyGlassOp(+go.value);
         try { localStorage.setItem("dictationGlassOp", String(go.value)); } catch (e) {}
+        if (linkOn) setLink(false);   // 手动拖卡片 = 退出联动
       });
+    }
+
+    /* 联动开关：恢复上次状态（按当前背景浓度校准一次） */
+    if (lk) {
+      var savedLink = null;
+      try { savedLink = localStorage.getItem(K_LINK); } catch (e) {}
+      linkOn = savedLink === "1";
+      lk.checked = linkOn;
+      lk.addEventListener("change", function () { setLink(lk.checked); });
+      if (linkOn) syncFromVeil();
     }
 
     /* 恢复默认 */
     document.getElementById("bgResetBtn").addEventListener("click", function () {
-      try { localStorage.removeItem(K_BG); localStorage.removeItem(K_VEIL); localStorage.removeItem(K_BLUR); localStorage.removeItem("dictationGlassOp"); } catch (e) {}
+      try { localStorage.removeItem(K_BG); localStorage.removeItem(K_VEIL); localStorage.removeItem(K_BLUR); localStorage.removeItem("dictationGlassOp"); localStorage.removeItem(K_LINK); } catch (e) {}
       applyBg("wallpaper");
       if (ve) ve.value = 38;
       applyVeil(38);
       if (go) go.value = 0;
       applyGlassOp(0);
+      linkOn = false;
+      if (lk) lk.checked = false;
     });
 
-    /* 浓度滑杆 */
+    /* 浓度滑杆（联动开启时，拖背景会同步驱动卡片） */
     if (ve) {
-      ve.addEventListener("input", function () { applyVeil(+ve.value); });
+      ve.addEventListener("input", function () { applyVeil(+ve.value); syncFromVeil(); });
       ve.addEventListener("change", function () {
         try { localStorage.setItem(K_VEIL, String(ve.value)); } catch (e) {}
       });
