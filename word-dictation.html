@@ -1265,6 +1265,9 @@ button.small{ padding:6px 12px; font-size:12.5px; }
 }
 .read-focus[aria-pressed="true"], .read-speak[aria-pressed="true"]{ background:var(--violet); color:#fff; border-color:var(--violet); box-shadow:0 3px 10px -3px rgba(122,63,212,.5); }
 #readView.read-speaking .read-body .rsent.cur{ background:rgba(122,63,212,.10); }
+.read-prog{ height:2px; flex:none; overflow:hidden; background:rgba(16,24,40,.07); }
+.read-prog i{ display:block; height:100%; width:0; background:var(--violet); transition:width .3s linear; }
+.read-prog.hidden{ display:none; }
 .read-body{
   flex:1; min-height:0; overflow:auto; margin:0;
   padding:18px 40px 10px;
@@ -1296,6 +1299,7 @@ button.small{ padding:6px 12px; font-size:12.5px; }
   #readView{ background:#0C0E13 !important; }
   #readView .settings-inner{ background:#15181F; box-shadow:0 0 80px -30px #000; }
   .read-head{ border-bottom-color:rgba(255,255,255,.08); }
+  .read-prog{ background:rgba(255,255,255,.08); }
   .read-title{ color:#E9ECF3; }
   .read-modes{ background:rgba(255,255,255,.07); }
   .read-mode{ color:#9AA3B5; }
@@ -2012,6 +2016,7 @@ button.small{ padding:6px 12px; font-size:12.5px; }
         <button class="read-focus" id="readFocus" type="button" aria-pressed="false" title="专注模式：只突出当前句" aria-label="专注模式">◉</button>
         <button class="read-speak" id="readSpeak" type="button" aria-pressed="false" title="从当前句开始朗读整篇" aria-label="朗读">🔊</button>
       </div>
+      <div class="read-prog hidden" id="readProg" aria-hidden="true"><i></i></div>
       <div id="readBody" class="read-body"></div>
       <div class="read-foot">
         <button class="small" id="readDoneBtn" type="button">✓ 标为已读</button>
@@ -6747,6 +6752,8 @@ button.small{ padding:6px 12px; font-size:12.5px; }
        从当前句开始，一句一句读下去，读到的句子高亮并滚到屏幕中间；再点按钮停止。
        音色规则与听写模块一致：优先 Microsoft Ava Online (Natural) 单语版 → 其它 Ava → Aria → 微软在线英文。 */
     var rSpeak = document.getElementById("readSpeak");
+    var rProg = document.getElementById("readProg");
+    var rProgFill = rProg ? rProg.querySelector("i") : null;
     var speaking = false, speakToken = 0;
     function pickEnVoice() {
       if (!window.speechSynthesis) return null;
@@ -6766,6 +6773,8 @@ button.small{ padding:6px 12px; font-size:12.5px; }
       try { if (window.speechSynthesis) speechSynthesis.cancel(); } catch (e) {}
       if (rSpeak) rSpeak.setAttribute("aria-pressed", "false");
       if (rView) rView.classList.remove("read-speaking");
+      if (rProg) rProg.classList.add("hidden");
+      if (rProgFill) rProgFill.style.width = "0%";
     }
     function speakFrom(start) {
       if (!cur || !window.speechSynthesis) return;
@@ -6774,11 +6783,13 @@ button.small{ padding:6px 12px; font-size:12.5px; }
       var tok = speakToken;
       if (rSpeak) rSpeak.setAttribute("aria-pressed", "true");
       if (rView) rView.classList.add("read-speaking");
+      if (rProg) rProg.classList.remove("hidden");
       var v = pickEnVoice();
       var total = cur.sents.length;
       (function next(i) {
         if (!speaking || tok !== speakToken || i >= total) { stopSpeak(); return; }
         markCur(i);
+        if (rProgFill) rProgFill.style.width = (((i + 1) / total) * 100).toFixed(1) + "%";
         var el = rBody.querySelector('.rsent[data-i="' + i + '"]');
         if (el && el.scrollIntoView) { try { el.scrollIntoView({ block: "center", behavior: "smooth" }); } catch (e) {} }
         var txt = cur.sents[i].en;
