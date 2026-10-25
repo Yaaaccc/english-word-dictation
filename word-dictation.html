@@ -1155,6 +1155,7 @@ body{
     <div class="controls" style="margin-top:12px;">
       <button class="primary" id="planBuildToday" type="button">生成并上传今天</button>
       <button class="primary" id="planBuildTomorrow" type="button">生成并上传明天</button>
+      <button class="small" id="planUploadToday" type="button">只补传今天</button>
       <button class="small" id="planSaveBtn" type="button">只保存计划</button>
       <button class="small" id="planClearBtn" type="button">全部恢复默认</button>
       <button class="small" id="planTokenBtn" type="button">配置同步</button>
@@ -5352,8 +5353,9 @@ body{
   /* 保存 + 立刻生成并上传今天（2026-10-24 加）
      只在电脑上有效：需要本地服务的 /api/build-today。手机上只保存，晚上自动处理。 */
   /* 手动生成（2026-10-25）：不再依赖定时任务，改成网页上点按钮。
-     which = "today" | "tomorrow" */
-  async function planBuildDate(which) {
+     which = "today" | "tomorrow"
+     norebuild = true → 只补传（不重新渲染 PDF），用于"材料已生成但没传上"的补救 */
+  async function planBuildDate(which, norebuild) {
     var ok = await planSave();
     if (!ok) {
       /* 保存没成功就别装作在生成 —— 线上没配 token 时这是最常见的原因 */
@@ -5375,10 +5377,13 @@ body{
       var t = new Date(now.getTime() + 86400000);
       date = t.getFullYear() + "-" + p2(t.getMonth() + 1) + "-" + p2(t.getDate());
     }
-    $("planStatus").textContent = "已保存，开始生成 " + date + " …（约 3~5 分钟，别关页面）";
+    $("planStatus").textContent = norebuild
+      ? "只补传 " + date + "（不重新生成，约 1 分钟）…"
+      : "已保存，开始生成 " + date + " …（约 3~5 分钟，别关页面）";
     try {
       var r = await fetch("/api/build-today", {
-        method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ date: date })
+        method: "POST", headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ date: date, rebuild: !norebuild })
       });
       var j = await r.json();
       if (!j || !j.ok) { $("planStatus").textContent = "启动失败"; return; }
@@ -5390,6 +5395,7 @@ body{
   }
   function planBuildToday() { return planBuildDate("today"); }
   function planBuildTomorrow() { return planBuildDate("tomorrow"); }
+  function planUploadToday() { return planBuildDate("today", true); }
   function planPollBuild() {
     fetch("/api/build-status", { cache: "no-store" })
       .then(function (r) { return r.json(); })
@@ -5425,6 +5431,7 @@ body{
     if ($("planSaveBtn")) $("planSaveBtn").addEventListener("click", planSave);
     if ($("planBuildToday")) $("planBuildToday").addEventListener("click", planBuildToday);
     if ($("planBuildTomorrow")) $("planBuildTomorrow").addEventListener("click", planBuildTomorrow);
+    if ($("planUploadToday")) $("planUploadToday").addEventListener("click", planUploadToday);
     if ($("planClearBtn")) {
       $("planClearBtn").addEventListener("click", function () {
         planDays = {};
