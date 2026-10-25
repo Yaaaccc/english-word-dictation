@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>浏览器兼容自查</title>
+<style>
+  body{ margin:0; padding:18px 16px 30px; background:#faf9f6; color:#1a1a1a;
+        font-family:-apple-system,"Segoe UI","Microsoft YaHei",sans-serif; line-height:1.7; }
+  h1{ font-size:17px; margin:0 0 4px; }
+  .sub{ font-size:12px; color:#6b7280; margin:0 0 16px; }
+  table{ width:100%; border-collapse:collapse; font-size:13px; }
+  td{ padding:7px 4px; border-bottom:1px solid #e8e5de; vertical-align:top; }
+  td.k{ width:44%; color:#4b5563; }
+  td.v{ font-weight:600; word-break:break-all; }
+  .ok{ color:#0a7d3e; } .no{ color:#b42318; } .warn{ color:#b45309; }
+  .box{ background:#fff; border:1px solid #e8e5de; border-radius:10px; padding:12px 14px; margin-top:14px; font-size:12px; }
+  code{ background:#f1efe9; padding:1px 4px; border-radius:4px; font-size:11.5px; }
+</style>
+</head>
+<body>
+<h1>浏览器兼容自查</h1>
+<p class="sub">在出问题的浏览器里打开这一页，把结果截图给助手即可。</p>
+<table id="t"></table>
+<div class="box" id="tail">正在检测…</div>
+
+<script>
+var rows = [];
+function add(k, v, cls) {
+  rows.push('<tr><td class="k">' + k + '</td><td class="v ' + (cls || '') + '">' + v + '</td></tr>');
+  document.getElementById("t").innerHTML = rows.join("");
+}
+function yes(b) { return b ? "支持" : "不支持"; }
+function cls(b) { return b ? "ok" : "no"; }
+
+/* 1. 身份 */
+add("浏览器 UA", navigator.userAgent);
+add("设备像素比 / 屏幕", window.devicePixelRatio + " / " + screen.width + "×" + screen.height);
+
+/* 2. 现代 CSS */
+var d = document.createElement("div");
+d.style.height = "100dvh";
+add("CSS 单位 dvh", d.style.height === "100dvh" ? "支持" : "不支持", cls(d.style.height === "100dvh"));
+
+var d2 = document.createElement("div");
+d2.style.inset = "0";
+add("CSS inset 简写", d2.style.inset !== "" ? "支持" : "不支持", cls(d2.style.inset !== ""));
+
+add("CSS 变量", window.CSS && CSS.supports && CSS.supports("color", "var(--x)") ? "支持" : "不支持",
+    cls(window.CSS && CSS.supports && CSS.supports("color", "var(--x)")));
+
+add("backdrop-filter", (window.CSS && CSS.supports && (CSS.supports("backdrop-filter", "blur(4px)") || CSS.supports("-webkit-backdrop-filter", "blur(4px)"))) ? "支持" : "不支持");
+
+/* 3. JS 语法特性（用 new Function 探测，避免整页解析失败） */
+function probe(code) { try { new Function(code)(); return true; } catch (e) { return false; } }
+add("可选链 a?.b", yes(probe('var a={}; return a?.b;')), cls(probe('var a={}; return a?.b;')));
+add("空值合并 ??", yes(probe('var a=null; return a ?? 1;')), cls(probe('var a=null; return a ?? 1;')));
+add("Array.prototype.at", yes(typeof [].at === "function"), cls(typeof [].at === "function"));
+add("String.padStart", yes(typeof "".padStart === "function"), cls(typeof "".padStart === "function"));
+
+/* 4. 功能 */
+add("localStorage", (function () { try { localStorage.setItem("_t", "1"); localStorage.removeItem("_t"); return "可用"; } catch (e) { return "被禁"; } })());
+add("Service Worker", "serviceWorker" in navigator ? "支持" : "不支持");
+add("语音合成", "speechSynthesis" in window ? "支持" : "不支持", cls("speechSynthesis" in window));
+
+var vn = -1;
+try { vn = window.speechSynthesis ? speechSynthesis.getVoices().length : -1; } catch (e) {}
+add("可用音色数", vn < 0 ? "读不到" : vn + " 个", vn > 0 ? "ok" : "warn");
+
+/* 5. 线上页面版本（关键：判断是不是缓存了旧版） */
+document.getElementById("tail").textContent = "正在核对线上版本…";
+fetch("word-dictation.html?probe=" + Date.now(), { cache: "no-store" })
+  .then(function (r) { return r.text(); })
+  .then(function (t) {
+    var hasSpeak = t.indexOf("readSpeak") >= 0;
+    var hasPaper = t.indexOf("read-focus-on") >= 0;
+    add("线上 HTML 大小", Math.round(t.length / 1024) + " KB");
+    add("线上含「朗读」按钮", hasSpeak ? "是（新版）" : "否（旧版）", cls(hasSpeak));
+    add("线上含阅读纸面样式", hasPaper ? "是" : "否", cls(hasPaper));
+
+    /* 本地缓存里是哪一版 */
+    return fetch("word-dictation.html", { cache: "force-cache" })
+      .then(function (r2) { return r2.text(); })
+      .then(function (t2) {
+        var cachedNew = t2.indexOf("readSpeak") >= 0;
+        add("本地缓存版本", cachedNew ? "新版" : "旧版（需清缓存）", cachedNew ? "ok" : "no");
+        if (!cachedNew && hasSpeak) {
+          add("诊断结论", "服务器已是新版，但这个浏览器还在用旧缓存", "no");
+        } else if (!hasSpeak) {
+          add("诊断结论", "服务器上就是旧版 —— 等部署完成或检查发布", "warn");
+        } else {
+          add("诊断结论", "版本没问题，问题在别处（看上面的支持项）", "ok");
+        }
+        document.getElementById("tail").textContent = "检测完成。请截图这一页。";
+      });
+  })
+  .catch(function (e) {
+    add("线上 HTML 拉取", "失败：" + e.message, "no");
+    document.getElementById("tail").textContent = "检测完成（有失败项）。请截图这一页。";
+  });
+</script>
+</body>
+</html>
