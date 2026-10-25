@@ -1,0 +1,168 @@
+{
+ "id": "202306-s1",
+ "exam": "2023年6月 第1套",
+ "title": "The spoken web ｜ 语音网络",
+ "layout": "字母段落(A-J)",
+ "sents": [
+  {
+   "en": "We're growing more used to chatting to our computers, phones and smart speakers through voice assistants like Amazon's Alexa, Apple's Siri and Microsoft's Cortana.",
+   "cn": "我们越来越习惯通过Amazon的Alexa、Apple的Siri和Microsoft的Cortana等语音助手，与电脑、手机和智能音箱聊天。"
+  },
+  {
+   "en": "Blind and partially sighted people have been using text-to-speech converters for decades.",
+   "cn": "盲人和弱视者使用文字转语音转换器已有数十年之久。"
+  },
+  {
+   "en": "Out of these assistants, Siri is the most well-known.",
+   "cn": "在这些助手中，Siri最为知名。"
+  },
+  {
+   "en": "The assistant uses voice inquiries and a natural-language user interface to answer questions.",
+   "cn": "该助手使用语音询问和自然语言用户界面来回答问题。"
+  },
+  {
+   "en": "The software adapts to users' individual language usages, searches, and preferences, with continuing use.",
+   "cn": "随着持续使用，该软件会适应用户个人的语言习惯、搜索和偏好。"
+  },
+  {
+   "en": "Some think voice could soon take over from typing and clicking as the main way to interact online.",
+   "cn": "有人认为，语音可能很快会取代打字和点击，成为在线交互的主要方式。"
+  },
+  {
+   "en": "But what are the challenges of moving to \"the spoken web\"?",
+   "cn": "但转向\"语音网络\"面临哪些挑战呢？"
+  },
+  {
+   "en": "What use is written online content if you can't read?",
+   "cn": "如果你不识字，网上的文字内容又有何用？"
+  },
+  {
+   "en": "That is the situation facing illiterate African farmers.",
+   "cn": "这正是那些不识字的非洲农民所面临的处境。"
+  },
+  {
+   "en": "They are often denied crucial information the web offers many others.",
+   "cn": "他们往往被剥夺了网络提供给许多其他人的关键信息。"
+  },
+  {
+   "en": "With a literacy rate in some parts of Africa at only 22.6%, farmers are often \"underpaid for their produce because they might be unaware of the prevailing prices,\" says Francis Dittoh, a researcher behind Mr Meteo, a speech-based weather information service.",
+   "cn": "在非洲某些地区，识字率仅为22.6%，\"农民常常因可能不了解当前价格而被压低农产品售价，\"基于语音的天气信息服务MrMeteo背后的研究者FrancisDittoh说。"
+  },
+  {
+   "en": "\"The most frequently heard complaint is about rainfall predictions,\" says Mr Dittoh, who lives in Tamale, northern Ghana.",
+   "cn": "\"最常听到的抱怨是关于降雨预报的，\"住在加纳北部塔马利的Dittoh先生说，\"他们告诉我们，祖辈用来预测天气的方法如今似乎不那么灵验了。"
+  },
+  {
+   "en": "\"They tell us the methods their forefathers used to predict the weather don't seem to work as well these days.\" This is down to climate change, he believes.",
+   "cn": "\"他认为，这归咎于气候变化。"
+  },
+  {
+   "en": "Yet knowing when it's going to rain is vital for farmers wanting to sow seeds, irrigate crops or take their animals out to the fields to feed on grass.",
+   "cn": "然而，对想要播种、灌溉庄稼或把牲口赶到田间吃草的农民来说，知道何时会下雨至关重要。"
+  },
+  {
+   "en": "Mr Dittoh says the idea of converting online weather reports into speech came from the farmers themselves, after a workshop in the village of Guabuligah.",
+   "cn": "Dittoh先生说，把在线天气报告转换成语音的想法，源于农民自己——在一次于Guabuligah村举办的研讨会上。"
+  },
+  {
+   "en": "\"They came up with this,\" he says.",
+   "cn": "\"是他们想出这个主意的，\"他说。"
+  },
+  {
+   "en": "Mr Meteo takes the online weather forecast, converts it to a short recording in the appropriate language and makes it available on a basic phone.",
+   "cn": "MrMeteo获取在线天气预报，将其转换成相应语言的简短录音，并通过普通手机提供。"
+  },
+  {
+   "en": "Farmers ring up to receive the information.",
+   "cn": "农民打电话即可接收信息。"
+  },
+  {
+   "en": "The local language Dagbani is spoken by 1.2 million people but is not served by any online translation applications.",
+   "cn": "当地语言Dagbani有120万人使用，但没有任何在线翻译应用支持它。"
+  },
+  {
+   "en": "The service was designed to be cheap and easy to run, says Mr Dittoh.",
+   "cn": "Dittoh先生说，该服务被设计得便宜且易于运行。"
+  },
+  {
+   "en": "He plans to begin field tests this month, working with Tamale's Savanna Agricultural Research Institute.",
+   "cn": "他计划本月开始实地测试，与塔马利的萨凡纳农业研究所合作。"
+  },
+  {
+   "en": "The spoken web could also help the one-in-five adults in Europe and the U.S. with poor reading skills.",
+   "cn": "语音网络还能帮助欧美五分之一、阅读能力较差的成年人。"
+  },
+  {
+   "en": "But building the spoken web·web-to-voice and voice-to-web·isn't straightforward.",
+   "cn": "但构建语音网络——即网络转语音与语音转网络——并非易事。"
+  },
+  {
+   "en": "For software to understand pizza is served at Italian restaurants is easy.",
+   "cn": "让软件理解\"意大利餐厅供应披萨\"很容易。"
+  },
+  {
+   "en": "To cover multiple domains and to be able to have a conversation with users on every single topic is still a long way off.",
+   "cn": "而要覆盖多个领域、并能就每一个话题与用户对话，仍遥不可及。"
+  },
+  {
+   "en": "So although many computer assistants can answer simple questions about the weather and play music for us, anything resembling a wide-ranging human conversation is decades away.",
+   "cn": "因此，尽管许多电脑助手能回答关于天气的简单问题、为我们播放音乐，但任何类似广泛人类对话的东西都还要几十年才能实现。"
+  },
+  {
+   "en": "Artificial intelligence just isn't smart enough yet.",
+   "cn": "人工智能目前还不够聪明。"
+  },
+  {
+   "en": "Even turning your voice into text· automatic speech recognition·is one of the hardest problems to solve, as there are as many ways to pronounce things as there are people on the planet.",
+   "cn": "即便把你的语音转成文字——自动语音识别——也是最难解决的问题之一，因为发音方式的数量，与这个星球上的人口一样多。"
+  },
+  {
+   "en": "Siri has often been praised for its ability to interpret our casual language and deliver very specific and accurate results, sometimes even providing additional information.",
+   "cn": "Siri常因能解读我们的日常语言并给出非常具体、准确的结果而受到称赞，有时甚至提供额外信息。"
+  },
+  {
+   "en": "But it is still somewhat restricted, particularly when the language moves away from stiffer commands into more human interactions.",
+   "cn": "但它仍有一定局限，尤其当语言从生硬的命令转向更人性化的交流时。"
+  },
+  {
+   "en": "In one example, the phrase \"Send a text to Jason, Clint, Sam, and Lee saying we're having dinner at Silver Cloud restaurant\" was interpreted as sending a message to Jason only, containing the text \"Clint Sam and Lee saying we're having dinner at Silver Cloud restaurant\".",
+   "cn": "举个例子，短语\"给Jason、Clint、Sam和Lee发短信，说我们在SilverCloud餐厅吃饭\"被理解为只给Jason发消息，内容为\"ClintSam和Lee说我们在SilverCloud餐厅吃饭\"。"
+  },
+  {
+   "en": "It has also been noted that Siri lacks a proper editing function, as saying \"Edit message to say: we're at Silver Cloud restaurant and you should come find us\" generates \"Clint Sam and Lee saying we're having dinner at Silver Cloud restaurant to say we're at Silver Cloud restaurant and you should come find us\".",
+   "cn": "还有人指出，Siri缺少合适的编辑功能，因为说\"把消息编辑为：我们在SilverCloud餐厅，你来找我们\"会生成\"ClintSam和Lee说我们在SilverCloud餐厅吃饭，说我们在SilverCloud餐厅，你来找我们\"。"
+  },
+  {
+   "en": "Using voice interaction feels far more intimate than surfing the net the old-fashioned way.",
+   "cn": "使用语音交互比用老办法上网感觉亲密得多。这是有意为之的，因为助手随意的语调有助于建立情感依恋。但如果有什么东西会说话，它也必须会倾听。我们的手机总在身边，且一直收集关于我们的数据。这也引发了隐私方面的担忧。美国公民自由联盟表示，数字助手构成了来自黑客的隐私威胁。"
+  },
+  {
+   "en": "This is intentional as the informal tone of the assistant helps create an emotional attachment.",
+   "cn": "有些人还有别的担忧。他们担心助手有朝一日会被用来直接向他们投放广告。K)Butdigitalvoicesneedmorepersonalitytomakethempopular.Robotsarenotyetwitty,Siriisboring.Thebenefitsofusingvoiceinsteadoftappingfingersobviouslydependonthecontext.Doctorscompletingonlineformsabouttheirpatientsbyspeech,forexample,candictate150wordsaminute,threetimesfasterthantypingonakeyboard.Thisenablesthemtospendlesstimeonadministrationandmoretimewithpatients.K）但数字语音需要更多个性才能流行起来。机器人还不够风趣，Siri也很无趣。相比敲键盘，使用语音的好处显然取决于具体场景。例如，医生通过语音填写关于病人的在线表单，每分钟可口述150个词，是键盘打字的三倍速。"
+  },
+  {
+   "en": "But if something speaks, it must also listen.",
+   "cn": "这让他们能把更少时间花在行政事务上，更多时间留给病人。L)Lastyear,speechrecognitioncompanyNuancehelpedadoctors'surgeryinDukinfield,nearManchester,setupaspeechsystemforthepractice'ssixdoctors.Nowtheycandictatenotesonapatient'shealthconditionandtreatmentandasmartassistantautomaticallyenterstheinformationintotherightfieldsonawebform.Previously,thedoctorsmadevoicerecordingsthatwerethentranscribedbysecretaries·aprocessthatwascostlyandlikelytocausedelays.Thenewsystemmeansletterstopatientsnowhavemoredetail.L）去年，语音识别公司Nuance帮助曼彻斯特附近Dukinfield的一家诊所，为其六名医生建立了语音系统。如今他们可以口述关于病人健康状况和治疗的记录，智能助手会自动将信息填入网页表单的相应字段。"
+  },
+  {
+   "en": "Our phones are always near us and they are collecting data about us all the time.",
+   "cn": "此前，医生们录制语音，再由秘书转写——这一过程成本高且容易造成延误。新系统意味着现在写给病人的信内容更详细。M)Usingvoicealsomakessensewhenyou'redoingotherthingswithyourhands.Thinkaboutwhenyou'recooking,andyoujustwanttoknowwhatthenextstepintherecipeis.Yourhandsarecoveredwithoil;you'renotgoingtogetontheiPad,soit'salotmorenaturaltotalk.Andspeechobviouslymakessensewhenyou'redriving.IntheU.S.,29%ofadultsadmittheysurfbehindthewheel,accordingtoinsurancefirmStateFarm.Thisisupfrom13%in2009.Nowonderusingmobilephoneswhiledrivingcausesmorecrashesayearthandrinkdriving,saystheU.S.NationalSafetyCouncil.M）当你双手忙着别的事时，使用语音也很有意义。想想你做饭的时候，只想知道食谱的下一步是什么。你的手上沾满油；"
+  },
+  {
+   "en": "This has also raised privacy concerns.",
+   "cn": "你不会去拿iPad，所以开口说话自然得多。而在开车时，语音显然也说得通。"
+  },
+  {
+   "en": "The American Civil Liberties Union has stated that digital assistants create a threat to privacy from hackers.",
+   "cn": "据保险公司StateFarm称，美国29%的成年人承认他们在握方向盘时上网。这一比例高于2009年的13%。美国国家安全委员会说，难怪开车时使用手机会导致每年比酒驾更多的车祸。36.AccordingtoFrancisDittoh,theirspeech-basedweatherinformationservicewasmeanttobeinexpensiveandeasytouse.36.据FrancisDittoh说，他们基于语音的天气信息服务旨在做到便宜且易于使用。37.Usingvoiceinsteadoftypingenablesdoctorstospendmoretimetakingcareofpatients.37.用语音代替打字，能让医生把更多时间花在照料病人上。38.Itisextremelydifficulttoconvertvoiceintotextbecauseofdifferentpronunciations.38.由于发音各不相同，把语音转换成文字极其困难。39.Africanfarmersunabletoreadoftendon'thaveaccesstoimportantinformationconveyedonline.39.不识字的非洲农民往往无法获取网络传递的重要信息。"
+  },
+  {
+   "en": "Some people have other concerns.",
+   "cn": "40.Somephoneusersworryadvertiserswilltakeadvantageofvoiceassistantstosendadsdirectlytothem.40.一些手机用户担心广告商会利用语音助手直接向他们推送广告。41.Thespokenwebishelpfulwhenone'shandsareoccupied.41.当双手被占用时，语音网络很有帮助。"
+  },
+  {
+   "en": "They worry assistants will one day be used to deliver advertising directly to us.",
+   "cn": "42.Somepeoplebelieveonlineinteractionwouldsoondependmainlyonvoice.42.一些人认为，在线交互很快将主要依赖语音。43.Settingupaspokenwebisbynomeansaneasytask.43.建立语音网络绝非易事。44.Weatherinformationisextremelyimportanttofarmers.44.天气信息对农民极其重要。45.Somepeopleareconcernedaboutprivacybecausetheirphonesareconstantlycollectingtheirpersonalinformation.45.一些人担忧隐私，因为他们的手机在不断收集个人信息。"
+  }
+ ]
+}
