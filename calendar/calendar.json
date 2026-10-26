@@ -1,0 +1,1939 @@
+{
+ "generated_at": "2026-10-26 17:29",
+ "start": "2026-09-19",
+ "total_days": 30,
+ "unit": "lesson",
+ "tail_mode": "split",
+ "period_len": 30,
+ "wrong_day": 2,
+ "sameday": true,
+ "fill_mode": "today",
+ "days": [
+  {
+   "date": "2026-09-19",
+   "md": "9月19日",
+   "day": 1,
+   "tail": false,
+   "done": true,
+   "type": "study",
+   "k": 1,
+   "review_day": false,
+   "rows": [
+    {
+     "text": "9月19日",
+     "color": 1,
+     "label": "1",
+     "filled": false
+    },
+    {
+     "text": "9月19日",
+     "color": 1,
+     "label": "1",
+     "filled": true
+    },
+    {
+     "text": "9月19日",
+     "color": 1,
+     "label": "1",
+     "filled": true
+    },
+    {
+     "text": "9月19日",
+     "color": 1,
+     "label": "1",
+     "filled": true
+    },
+    {
+     "text": "9月19日",
+     "color": 1,
+     "label": "1",
+     "filled": true
+    }
+   ]
+  },
+  {
+   "date": "2026-09-20",
+   "md": "9月20日",
+   "day": 2,
+   "tail": false,
+   "done": true,
+   "type": "study",
+   "k": 2,
+   "review_day": false,
+   "rows": [
+    {
+     "text": "9月20日",
+     "color": 1,
+     "label": "1",
+     "filled": false
+    },
+    {
+     "text": "9月19日",
+     "color": 2,
+     "label": "2",
+     "filled": false
+    },
+    {
+     "text": "9月20日",
+     "color": 1,
+     "label": "1",
+     "filled": true
+    },
+    {
+     "text": "9月20日",
+     "color": 1,
+     "label": "1",
+     "filled": true
+    },
+    {
+     "text": "9月20日",
+     "color": 1,
+     "label": "1",
+     "filled": true
+    }
+   ]
+  },
+  {
+   "date": "2026-09-21",
+   "md": "9月21日",
+   "day": 3,
+   "tail": false,
+   "done": true,
+   "type": "study",
+   "k": 3,
+   "review_day": false,
+   "rows": [
+    {
+     "text": "9月21日",
+     "color": 1,
+     "label": "1",
+     "filled": false
+    },
+    {
+     "text": "9月20日",
+     "color": 2,
+     "label": "2",
+     "filled": false
+    },
+    {
+     "text": "9月21日",
+     "color": 1,
+     "label": "1",
+     "filled": true
+    },
+    {
+     "text": "9月21日",
+     "color": 1,
+     "label": "1",
+     "filled": true
+    },
+    {
+     "text": "9月21日",
+     "color": 1,
+     "label": "1",
+     "filled": true
+    }
+   ]
+  },
+  {
+   "date": "2026-09-22",
+   "md": "9月22日",
+   "day": 4,
+   "tail": false,
+   "done": true,
+   "type": "study",
+   "k": 4,
+   "review_day": false,
+   "rows": [
+    {
+     "text": "9月22日",
+     "color": 1,
+     "label": "1",
+     "filled": false
+    },
+    {
+     "text": "9月21日",
+     "color": 2,
+     "label": "2",
+     "filled": false
+    },
+    {
+     "text": "9月19日",
+     "color": 3,
+     "label": "3",
+     "filled": false
+    },
+    {
+     "text": "9月22日",
+     "color": 1,
+     "label": "1",
+     "filled": true
+    },
+    {
+     "text": "9月22日",
+     "color": 1,
+     "label": "1",
+     "filled": true
+    }
+   ]
+  },
+  {
+   "date": "2026-09-23",
+   "md": "9月23日",
+   "day": 5,
+   "tail": false,
+   "done": true,
+   "type": "study",
+   "k": 5,
+   "review_day": false,
+   "rows": [
+    {
+     "text": "9月23日",
+     "color": 1,
+     "label": "1",
+     "filled": false
+    },
+    {
+     "text": "9月22日",
+     "color": 2,
+     "label": "2",
+     "filled": false
+    },
+    {
+     "text": "9月20日",
+     "color": 3,
+     "label": "3",
+     "filled": false
+    },
+    {
+     "text": "9月23日",
+     "color": 1,
+     "label": "1",
+     "filled": true
+    },
+    {
+     "text": "9月23日",
+     "color": 1,
+     "label": "1",
+     "filled": true
+    },
+    {
+     "text": "错词复习",
+     "color": 6,
+     "label": "错词",
+     "filled": false
+    }
+   ]
+  },
+  {
+   "date": "2026-09-24",
+   "md": "9月24日",
+   "day": 6,
+   "tail": false,
+   "done": true,
+   "type": "study",
+   "k": 6,
+   "review_day": false,
+   "rows": [
+    {
+     "text": "9月24日",
+     "color": 1,
+     "label": "1",
+     "filled": false
+    },
+    {
+     "text": "9月23日",
+     "color": 2,
+     "label": "2",
+     "filled": false
+    },
+    {
+     "text": "9月21日",
+     "color": 3,
+     "label": "3",
+     "filled": false
+    },
+    {
+     "text": "9月24日",
+     "color": 1,
+     "label": "1",
+     "filled": true
+    },
+    {
+     "text": "9月24日",
+     "color": 1,
+     "label": "1",
+     "filled": true
+    }
+   ]
+  },
+  {
+   "date": "2026-09-25",
+   "md": "9月25日",
+   "day": 7,
+   "tail": false,
+   "done": true,
+   "type": "study",
+   "k": 7,
+   "review_day": false,
+   "rows": [
+    {
+     "text": "9月25日",
+     "color": 1,
+     "label": "1",
+     "filled": false
+    },
+    {
+     "text": "9月24日",
+     "color": 2,
+     "label": "2",
+     "filled": false
+    },
+    {
+     "text": "9月22日",
+     "color": 3,
+     "label": "3",
+     "filled": false
+    },
+    {
+     "text": "9月19日",
+     "color": 4,
+     "label": "4",
+     "filled": false
+    },
+    {
+     "text": "9月25日",
+     "color": 1,
+     "label": "1",
+     "filled": true
+    }
+   ]
+  },
+  {
+   "date": "2026-09-26",
+   "md": "9月26日",
+   "day": 8,
+   "tail": false,
+   "done": true,
+   "type": "study",
+   "k": 8,
+   "review_day": false,
+   "rows": [
+    {
+     "text": "9月26日",
+     "color": 1,
+     "label": "1",
+     "filled": false
+    },
+    {
+     "text": "9月25日",
+     "color": 2,
+     "label": "2",
+     "filled": false
+    },
+    {
+     "text": "9月23日",
+     "color": 3,
+     "label": "3",
+     "filled": false
+    },
+    {
+     "text": "9月20日",
+     "color": 4,
+     "label": "4",
+     "filled": false
+    },
+    {
+     "text": "9月26日",
+     "color": 1,
+     "label": "1",
+     "filled": true
+    }
+   ]
+  },
+  {
+   "date": "2026-09-27",
+   "md": "9月27日",
+   "day": 9,
+   "tail": false,
+   "done": true,
+   "type": "study",
+   "k": 9,
+   "review_day": false,
+   "rows": [
+    {
+     "text": "9月27日",
+     "color": 1,
+     "label": "1",
+     "filled": false
+    },
+    {
+     "text": "9月26日",
+     "color": 2,
+     "label": "2",
+     "filled": false
+    },
+    {
+     "text": "9月24日",
+     "color": 3,
+     "label": "3",
+     "filled": false
+    },
+    {
+     "text": "9月21日",
+     "color": 4,
+     "label": "4",
+     "filled": false
+    },
+    {
+     "text": "9月27日",
+     "color": 1,
+     "label": "1",
+     "filled": true
+    }
+   ]
+  },
+  {
+   "date": "2026-09-28",
+   "md": "9月28日",
+   "day": 10,
+   "tail": false,
+   "done": true,
+   "type": "study",
+   "k": 10,
+   "review_day": false,
+   "rows": [
+    {
+     "text": "9月28日",
+     "color": 1,
+     "label": "1",
+     "filled": false
+    },
+    {
+     "text": "9月27日",
+     "color": 2,
+     "label": "2",
+     "filled": false
+    },
+    {
+     "text": "9月25日",
+     "color": 3,
+     "label": "3",
+     "filled": false
+    },
+    {
+     "text": "9月22日",
+     "color": 4,
+     "label": "4",
+     "filled": false
+    },
+    {
+     "text": "9月28日",
+     "color": 1,
+     "label": "1",
+     "filled": true
+    }
+   ]
+  },
+  {
+   "date": "2026-09-29",
+   "md": "9月29日",
+   "day": 11,
+   "tail": false,
+   "done": true,
+   "type": "study",
+   "k": 11,
+   "review_day": false,
+   "rows": [
+    {
+     "text": "9月29日",
+     "color": 1,
+     "label": "1",
+     "filled": false
+    },
+    {
+     "text": "9月28日",
+     "color": 2,
+     "label": "2",
+     "filled": false
+    },
+    {
+     "text": "9月26日",
+     "color": 3,
+     "label": "3",
+     "filled": false
+    },
+    {
+     "text": "9月23日",
+     "color": 4,
+     "label": "4",
+     "filled": false
+    },
+    {
+     "text": "9月29日",
+     "color": 1,
+     "label": "1",
+     "filled": true
+    }
+   ]
+  },
+  {
+   "date": "2026-09-30",
+   "md": "9月30日",
+   "day": 12,
+   "tail": false,
+   "done": true,
+   "type": "study",
+   "k": 12,
+   "review_day": false,
+   "rows": [
+    {
+     "text": "9月30日",
+     "color": 1,
+     "label": "1",
+     "filled": false
+    },
+    {
+     "text": "9月29日",
+     "color": 2,
+     "label": "2",
+     "filled": false
+    },
+    {
+     "text": "9月27日",
+     "color": 3,
+     "label": "3",
+     "filled": false
+    },
+    {
+     "text": "9月24日",
+     "color": 4,
+     "label": "4",
+     "filled": false
+    },
+    {
+     "text": "9月30日",
+     "color": 1,
+     "label": "1",
+     "filled": true
+    },
+    {
+     "text": "错词复习",
+     "color": 6,
+     "label": "错词",
+     "filled": false
+    }
+   ]
+  },
+  {
+   "date": "2026-10-01",
+   "md": "10月1日",
+   "day": 13,
+   "tail": false,
+   "done": true,
+   "type": "study",
+   "k": 13,
+   "review_day": false,
+   "rows": [
+    {
+     "text": "10月1日",
+     "color": 1,
+     "label": "1",
+     "filled": false
+    },
+    {
+     "text": "9月30日",
+     "color": 2,
+     "label": "2",
+     "filled": false
+    },
+    {
+     "text": "9月28日",
+     "color": 3,
+     "label": "3",
+     "filled": false
+    },
+    {
+     "text": "9月25日",
+     "color": 4,
+     "label": "4",
+     "filled": false
+    },
+    {
+     "text": "10月1日",
+     "color": 1,
+     "label": "1",
+     "filled": true
+    }
+   ]
+  },
+  {
+   "date": "2026-10-02",
+   "md": "10月2日",
+   "day": 14,
+   "tail": false,
+   "done": true,
+   "type": "study",
+   "k": 14,
+   "review_day": false,
+   "rows": [
+    {
+     "text": "10月2日",
+     "color": 1,
+     "label": "1",
+     "filled": false
+    },
+    {
+     "text": "10月1日",
+     "color": 2,
+     "label": "2",
+     "filled": false
+    },
+    {
+     "text": "9月29日",
+     "color": 3,
+     "label": "3",
+     "filled": false
+    },
+    {
+     "text": "9月26日",
+     "color": 4,
+     "label": "4",
+     "filled": false
+    },
+    {
+     "text": "10月2日",
+     "color": 1,
+     "label": "1",
+     "filled": true
+    }
+   ]
+  },
+  {
+   "date": "2026-10-03",
+   "md": "10月3日",
+   "day": 15,
+   "tail": false,
+   "done": true,
+   "type": "study",
+   "k": 15,
+   "review_day": false,
+   "rows": [
+    {
+     "text": "10月3日",
+     "color": 1,
+     "label": "1",
+     "filled": false
+    },
+    {
+     "text": "10月2日",
+     "color": 2,
+     "label": "2",
+     "filled": false
+    },
+    {
+     "text": "9月30日",
+     "color": 3,
+     "label": "3",
+     "filled": false
+    },
+    {
+     "text": "9月27日",
+     "color": 4,
+     "label": "4",
+     "filled": false
+    },
+    {
+     "text": "10月3日",
+     "color": 1,
+     "label": "1",
+     "filled": true
+    }
+   ]
+  },
+  {
+   "date": "2026-10-04",
+   "md": "10月4日",
+   "day": 16,
+   "tail": false,
+   "done": true,
+   "type": "study",
+   "k": 16,
+   "review_day": false,
+   "rows": [
+    {
+     "text": "10月4日",
+     "color": 1,
+     "label": "1",
+     "filled": false
+    },
+    {
+     "text": "10月3日",
+     "color": 2,
+     "label": "2",
+     "filled": false
+    },
+    {
+     "text": "10月1日",
+     "color": 3,
+     "label": "3",
+     "filled": false
+    },
+    {
+     "text": "9月28日",
+     "color": 4,
+     "label": "4",
+     "filled": false
+    },
+    {
+     "text": "9月19日",
+     "color": 5,
+     "label": "5",
+     "filled": false
+    }
+   ]
+  },
+  {
+   "date": "2026-10-05",
+   "md": "10月5日",
+   "day": 17,
+   "tail": false,
+   "done": true,
+   "type": "study",
+   "k": 17,
+   "review_day": false,
+   "rows": [
+    {
+     "text": "10月5日",
+     "color": 1,
+     "label": "1",
+     "filled": false
+    },
+    {
+     "text": "10月4日",
+     "color": 2,
+     "label": "2",
+     "filled": false
+    },
+    {
+     "text": "10月2日",
+     "color": 3,
+     "label": "3",
+     "filled": false
+    },
+    {
+     "text": "9月29日",
+     "color": 4,
+     "label": "4",
+     "filled": false
+    },
+    {
+     "text": "9月20日",
+     "color": 5,
+     "label": "5",
+     "filled": false
+    }
+   ]
+  },
+  {
+   "date": "2026-10-06",
+   "md": "10月6日",
+   "day": 18,
+   "tail": false,
+   "done": true,
+   "type": "study",
+   "k": 18,
+   "review_day": false,
+   "rows": [
+    {
+     "text": "10月6日",
+     "color": 1,
+     "label": "1",
+     "filled": false
+    },
+    {
+     "text": "10月5日",
+     "color": 2,
+     "label": "2",
+     "filled": false
+    },
+    {
+     "text": "10月3日",
+     "color": 3,
+     "label": "3",
+     "filled": false
+    },
+    {
+     "text": "9月30日",
+     "color": 4,
+     "label": "4",
+     "filled": false
+    },
+    {
+     "text": "9月21日",
+     "color": 5,
+     "label": "5",
+     "filled": false
+    }
+   ]
+  },
+  {
+   "date": "2026-10-07",
+   "md": "10月7日",
+   "day": 19,
+   "tail": false,
+   "done": true,
+   "type": "study",
+   "k": 19,
+   "review_day": false,
+   "rows": [
+    {
+     "text": "10月7日",
+     "color": 1,
+     "label": "1",
+     "filled": false
+    },
+    {
+     "text": "10月6日",
+     "color": 2,
+     "label": "2",
+     "filled": false
+    },
+    {
+     "text": "10月4日",
+     "color": 3,
+     "label": "3",
+     "filled": false
+    },
+    {
+     "text": "10月1日",
+     "color": 4,
+     "label": "4",
+     "filled": false
+    },
+    {
+     "text": "9月22日",
+     "color": 5,
+     "label": "5",
+     "filled": false
+    },
+    {
+     "text": "错词复习",
+     "color": 6,
+     "label": "错词",
+     "filled": false
+    }
+   ]
+  },
+  {
+   "date": "2026-10-08",
+   "md": "10月8日",
+   "day": 20,
+   "tail": false,
+   "done": true,
+   "type": "study",
+   "k": 20,
+   "review_day": false,
+   "rows": [
+    {
+     "text": "10月8日",
+     "color": 1,
+     "label": "1",
+     "filled": false
+    },
+    {
+     "text": "10月7日",
+     "color": 2,
+     "label": "2",
+     "filled": false
+    },
+    {
+     "text": "10月5日",
+     "color": 3,
+     "label": "3",
+     "filled": false
+    },
+    {
+     "text": "10月2日",
+     "color": 4,
+     "label": "4",
+     "filled": false
+    },
+    {
+     "text": "9月23日",
+     "color": 5,
+     "label": "5",
+     "filled": false
+    }
+   ]
+  },
+  {
+   "date": "2026-10-09",
+   "md": "10月9日",
+   "day": 21,
+   "tail": false,
+   "done": true,
+   "type": "study",
+   "k": 21,
+   "review_day": false,
+   "rows": [
+    {
+     "text": "10月9日",
+     "color": 1,
+     "label": "1",
+     "filled": false
+    },
+    {
+     "text": "10月8日",
+     "color": 2,
+     "label": "2",
+     "filled": false
+    },
+    {
+     "text": "10月6日",
+     "color": 3,
+     "label": "3",
+     "filled": false
+    },
+    {
+     "text": "10月3日",
+     "color": 4,
+     "label": "4",
+     "filled": false
+    },
+    {
+     "text": "9月24日",
+     "color": 5,
+     "label": "5",
+     "filled": false
+    }
+   ]
+  },
+  {
+   "date": "2026-10-10",
+   "md": "10月10日",
+   "day": 22,
+   "tail": false,
+   "done": true,
+   "type": "study",
+   "k": 22,
+   "review_day": false,
+   "rows": [
+    {
+     "text": "10月10日",
+     "color": 1,
+     "label": "1",
+     "filled": false
+    },
+    {
+     "text": "10月9日",
+     "color": 2,
+     "label": "2",
+     "filled": false
+    },
+    {
+     "text": "10月7日",
+     "color": 3,
+     "label": "3",
+     "filled": false
+    },
+    {
+     "text": "10月4日",
+     "color": 4,
+     "label": "4",
+     "filled": false
+    },
+    {
+     "text": "9月25日",
+     "color": 5,
+     "label": "5",
+     "filled": false
+    }
+   ]
+  },
+  {
+   "date": "2026-10-11",
+   "md": "10月11日",
+   "day": 23,
+   "tail": false,
+   "done": true,
+   "type": "study",
+   "k": 23,
+   "review_day": false,
+   "rows": [
+    {
+     "text": "10月11日",
+     "color": 1,
+     "label": "1",
+     "filled": false
+    },
+    {
+     "text": "10月10日",
+     "color": 2,
+     "label": "2",
+     "filled": false
+    },
+    {
+     "text": "10月8日",
+     "color": 3,
+     "label": "3",
+     "filled": false
+    },
+    {
+     "text": "10月5日",
+     "color": 4,
+     "label": "4",
+     "filled": false
+    },
+    {
+     "text": "9月26日",
+     "color": 5,
+     "label": "5",
+     "filled": false
+    }
+   ]
+  },
+  {
+   "date": "2026-10-12",
+   "md": "10月12日",
+   "day": 24,
+   "tail": false,
+   "done": true,
+   "type": "study",
+   "k": 24,
+   "review_day": false,
+   "rows": [
+    {
+     "text": "10月12日",
+     "color": 1,
+     "label": "1",
+     "filled": false
+    },
+    {
+     "text": "10月11日",
+     "color": 2,
+     "label": "2",
+     "filled": false
+    },
+    {
+     "text": "10月9日",
+     "color": 3,
+     "label": "3",
+     "filled": false
+    },
+    {
+     "text": "10月6日",
+     "color": 4,
+     "label": "4",
+     "filled": false
+    },
+    {
+     "text": "9月27日",
+     "color": 5,
+     "label": "5",
+     "filled": false
+    }
+   ]
+  },
+  {
+   "date": "2026-10-13",
+   "md": "10月13日",
+   "day": 25,
+   "tail": false,
+   "done": true,
+   "type": "study",
+   "k": 25,
+   "review_day": false,
+   "rows": [
+    {
+     "text": "10月13日",
+     "color": 1,
+     "label": "1",
+     "filled": false
+    },
+    {
+     "text": "10月12日",
+     "color": 2,
+     "label": "2",
+     "filled": false
+    },
+    {
+     "text": "10月10日",
+     "color": 3,
+     "label": "3",
+     "filled": false
+    },
+    {
+     "text": "10月7日",
+     "color": 4,
+     "label": "4",
+     "filled": false
+    },
+    {
+     "text": "9月28日",
+     "color": 5,
+     "label": "5",
+     "filled": false
+    }
+   ]
+  },
+  {
+   "date": "2026-10-14",
+   "md": "10月14日",
+   "day": 26,
+   "tail": false,
+   "done": true,
+   "type": "study",
+   "k": 26,
+   "review_day": false,
+   "rows": [
+    {
+     "text": "10月14日",
+     "color": 1,
+     "label": "1",
+     "filled": false
+    },
+    {
+     "text": "10月13日",
+     "color": 2,
+     "label": "2",
+     "filled": false
+    },
+    {
+     "text": "10月11日",
+     "color": 3,
+     "label": "3",
+     "filled": false
+    },
+    {
+     "text": "10月8日",
+     "color": 4,
+     "label": "4",
+     "filled": false
+    },
+    {
+     "text": "9月29日",
+     "color": 5,
+     "label": "5",
+     "filled": false
+    },
+    {
+     "text": "错词复习",
+     "color": 6,
+     "label": "错词",
+     "filled": false
+    }
+   ]
+  },
+  {
+   "date": "2026-10-15",
+   "md": "10月15日",
+   "day": 27,
+   "tail": false,
+   "done": true,
+   "type": "study",
+   "k": 27,
+   "review_day": false,
+   "rows": [
+    {
+     "text": "10月15日",
+     "color": 1,
+     "label": "1",
+     "filled": false
+    },
+    {
+     "text": "10月14日",
+     "color": 2,
+     "label": "2",
+     "filled": false
+    },
+    {
+     "text": "10月12日",
+     "color": 3,
+     "label": "3",
+     "filled": false
+    },
+    {
+     "text": "10月9日",
+     "color": 4,
+     "label": "4",
+     "filled": false
+    },
+    {
+     "text": "9月30日",
+     "color": 5,
+     "label": "5",
+     "filled": false
+    }
+   ]
+  },
+  {
+   "date": "2026-10-16",
+   "md": "10月16日",
+   "day": 28,
+   "tail": false,
+   "done": true,
+   "type": "study",
+   "k": 28,
+   "review_day": false,
+   "rows": [
+    {
+     "text": "10月16日",
+     "color": 1,
+     "label": "1",
+     "filled": false
+    },
+    {
+     "text": "10月15日",
+     "color": 2,
+     "label": "2",
+     "filled": false
+    },
+    {
+     "text": "10月13日",
+     "color": 3,
+     "label": "3",
+     "filled": false
+    },
+    {
+     "text": "10月10日",
+     "color": 4,
+     "label": "4",
+     "filled": false
+    },
+    {
+     "text": "10月1日",
+     "color": 5,
+     "label": "5",
+     "filled": false
+    }
+   ]
+  },
+  {
+   "date": "2026-10-17",
+   "md": "10月17日",
+   "day": 29,
+   "tail": false,
+   "done": true,
+   "type": "study",
+   "k": 29,
+   "review_day": false,
+   "rows": [
+    {
+     "text": "10月17日",
+     "color": 1,
+     "label": "1",
+     "filled": false
+    },
+    {
+     "text": "10月16日",
+     "color": 2,
+     "label": "2",
+     "filled": false
+    },
+    {
+     "text": "10月14日",
+     "color": 3,
+     "label": "3",
+     "filled": false
+    },
+    {
+     "text": "10月11日",
+     "color": 4,
+     "label": "4",
+     "filled": false
+    },
+    {
+     "text": "10月2日",
+     "color": 5,
+     "label": "5",
+     "filled": false
+    }
+   ]
+  },
+  {
+   "date": "2026-10-18",
+   "md": "10月18日",
+   "day": 30,
+   "tail": false,
+   "done": true,
+   "type": "study",
+   "k": 30,
+   "review_day": false,
+   "rows": [
+    {
+     "text": "10月18日",
+     "color": 1,
+     "label": "1",
+     "filled": false
+    },
+    {
+     "text": "10月17日",
+     "color": 2,
+     "label": "2",
+     "filled": false
+    },
+    {
+     "text": "10月15日",
+     "color": 3,
+     "label": "3",
+     "filled": false
+    },
+    {
+     "text": "10月12日",
+     "color": 4,
+     "label": "4",
+     "filled": false
+    },
+    {
+     "text": "10月3日",
+     "color": 5,
+     "label": "5",
+     "filled": false
+    }
+   ]
+  },
+  {
+   "date": "2026-10-19",
+   "md": "10月19日",
+   "day": 31,
+   "tail": true,
+   "done": true,
+   "type": "study",
+   "k": 31,
+   "review_day": true,
+   "rows": [
+    {
+     "text": "10月18日",
+     "color": 2,
+     "label": "2",
+     "filled": true
+    },
+    {
+     "text": "10月18日",
+     "color": 2,
+     "label": "2",
+     "filled": false
+    },
+    {
+     "text": "10月16日",
+     "color": 3,
+     "label": "3",
+     "filled": false
+    },
+    {
+     "text": "10月13日",
+     "color": 4,
+     "label": "4",
+     "filled": false
+    },
+    {
+     "text": "10月4日",
+     "color": 5,
+     "label": "5",
+     "filled": false
+    }
+   ]
+  },
+  {
+   "date": "2026-10-20",
+   "md": "10月20日",
+   "day": 32,
+   "tail": true,
+   "done": true,
+   "type": "study",
+   "k": 32,
+   "review_day": true,
+   "rows": [
+    {
+     "text": "10月17日",
+     "color": 3,
+     "label": "3",
+     "filled": true
+    },
+    {
+     "text": "10月17日",
+     "color": 3,
+     "label": "3",
+     "filled": true
+    },
+    {
+     "text": "10月17日",
+     "color": 3,
+     "label": "3",
+     "filled": false
+    },
+    {
+     "text": "10月14日",
+     "color": 4,
+     "label": "4",
+     "filled": false
+    },
+    {
+     "text": "10月5日",
+     "color": 5,
+     "label": "5",
+     "filled": false
+    }
+   ]
+  },
+  {
+   "date": "2026-10-21",
+   "md": "10月21日",
+   "day": 33,
+   "tail": true,
+   "done": true,
+   "type": "study",
+   "k": 33,
+   "review_day": true,
+   "rows": [
+    {
+     "text": "10月18日",
+     "color": 3,
+     "label": "3",
+     "filled": true
+    },
+    {
+     "text": "10月18日",
+     "color": 3,
+     "label": "3",
+     "filled": true
+    },
+    {
+     "text": "10月18日",
+     "color": 3,
+     "label": "3",
+     "filled": false
+    },
+    {
+     "text": "10月15日",
+     "color": 4,
+     "label": "4",
+     "filled": false
+    },
+    {
+     "text": "10月6日",
+     "color": 5,
+     "label": "5",
+     "filled": false
+    },
+    {
+     "text": "错词复习",
+     "color": 6,
+     "label": "错词",
+     "filled": false
+    }
+   ]
+  },
+  {
+   "date": "2026-10-22",
+   "md": "10月22日",
+   "day": 34,
+   "tail": true,
+   "done": true,
+   "type": "study",
+   "k": 34,
+   "review_day": true,
+   "rows": [
+    {
+     "text": "10月16日",
+     "color": 4,
+     "label": "4",
+     "filled": true
+    },
+    {
+     "text": "10月16日",
+     "color": 4,
+     "label": "4",
+     "filled": true
+    },
+    {
+     "text": "10月16日",
+     "color": 4,
+     "label": "4",
+     "filled": true
+    },
+    {
+     "text": "10月16日",
+     "color": 4,
+     "label": "4",
+     "filled": false
+    },
+    {
+     "text": "10月7日",
+     "color": 5,
+     "label": "5",
+     "filled": false
+    }
+   ]
+  },
+  {
+   "date": "2026-10-23",
+   "md": "10月23日",
+   "day": 35,
+   "tail": true,
+   "done": true,
+   "type": "study",
+   "k": 35,
+   "review_day": true,
+   "rows": [
+    {
+     "text": "10月17日",
+     "color": 4,
+     "label": "4",
+     "filled": true
+    },
+    {
+     "text": "10月17日",
+     "color": 4,
+     "label": "4",
+     "filled": true
+    },
+    {
+     "text": "10月17日",
+     "color": 4,
+     "label": "4",
+     "filled": true
+    },
+    {
+     "text": "10月17日",
+     "color": 4,
+     "label": "4",
+     "filled": false
+    },
+    {
+     "text": "10月8日",
+     "color": 5,
+     "label": "5",
+     "filled": false
+    }
+   ]
+  },
+  {
+   "date": "2026-10-24",
+   "md": "10月24日",
+   "day": 36,
+   "tail": true,
+   "done": true,
+   "type": "study",
+   "k": 36,
+   "review_day": true,
+   "rows": [
+    {
+     "text": "10月18日",
+     "color": 4,
+     "label": "4",
+     "filled": true
+    },
+    {
+     "text": "10月18日",
+     "color": 4,
+     "label": "4",
+     "filled": true
+    },
+    {
+     "text": "10月18日",
+     "color": 4,
+     "label": "4",
+     "filled": true
+    },
+    {
+     "text": "10月18日",
+     "color": 4,
+     "label": "4",
+     "filled": false
+    },
+    {
+     "text": "10月9日",
+     "color": 5,
+     "label": "5",
+     "filled": false
+    }
+   ]
+  },
+  {
+   "date": "2026-10-25",
+   "md": "10月25日",
+   "day": 37,
+   "tail": true,
+   "done": true,
+   "type": "study",
+   "k": 37,
+   "review_day": true,
+   "rows": [
+    {
+     "text": "10月10日",
+     "color": 5,
+     "label": "5",
+     "filled": true
+    },
+    {
+     "text": "10月10日",
+     "color": 5,
+     "label": "5",
+     "filled": true
+    },
+    {
+     "text": "10月10日",
+     "color": 5,
+     "label": "5",
+     "filled": true
+    },
+    {
+     "text": "10月10日",
+     "color": 5,
+     "label": "5",
+     "filled": true
+    },
+    {
+     "text": "10月10日",
+     "color": 5,
+     "label": "5",
+     "filled": false
+    }
+   ]
+  },
+  {
+   "date": "2026-10-26",
+   "md": "10月26日",
+   "day": 38,
+   "tail": true,
+   "done": true,
+   "type": "study",
+   "k": 38,
+   "review_day": true,
+   "rows": [
+    {
+     "text": "10月11日",
+     "color": 5,
+     "label": "5",
+     "filled": true
+    },
+    {
+     "text": "10月11日",
+     "color": 5,
+     "label": "5",
+     "filled": true
+    },
+    {
+     "text": "10月11日",
+     "color": 5,
+     "label": "5",
+     "filled": true
+    },
+    {
+     "text": "10月11日",
+     "color": 5,
+     "label": "5",
+     "filled": true
+    },
+    {
+     "text": "10月11日",
+     "color": 5,
+     "label": "5",
+     "filled": false
+    }
+   ]
+  },
+  {
+   "date": "2026-10-27",
+   "md": "10月27日",
+   "day": 39,
+   "tail": true,
+   "done": false,
+   "type": "study",
+   "k": 39,
+   "review_day": true,
+   "rows": [
+    {
+     "text": "10月12日",
+     "color": 5,
+     "label": "5",
+     "filled": true
+    },
+    {
+     "text": "10月12日",
+     "color": 5,
+     "label": "5",
+     "filled": true
+    },
+    {
+     "text": "10月12日",
+     "color": 5,
+     "label": "5",
+     "filled": true
+    },
+    {
+     "text": "10月12日",
+     "color": 5,
+     "label": "5",
+     "filled": true
+    },
+    {
+     "text": "10月12日",
+     "color": 5,
+     "label": "5",
+     "filled": false
+    }
+   ]
+  },
+  {
+   "date": "2026-10-28",
+   "md": "10月28日",
+   "day": 40,
+   "tail": true,
+   "done": false,
+   "type": "study",
+   "k": 40,
+   "review_day": true,
+   "rows": [
+    {
+     "text": "10月13日",
+     "color": 5,
+     "label": "5",
+     "filled": true
+    },
+    {
+     "text": "10月13日",
+     "color": 5,
+     "label": "5",
+     "filled": true
+    },
+    {
+     "text": "10月13日",
+     "color": 5,
+     "label": "5",
+     "filled": true
+    },
+    {
+     "text": "10月13日",
+     "color": 5,
+     "label": "5",
+     "filled": true
+    },
+    {
+     "text": "10月13日",
+     "color": 5,
+     "label": "5",
+     "filled": false
+    },
+    {
+     "text": "错词复习",
+     "color": 6,
+     "label": "错词",
+     "filled": false
+    }
+   ]
+  },
+  {
+   "date": "2026-10-29",
+   "md": "10月29日",
+   "day": 41,
+   "tail": true,
+   "done": false,
+   "type": "study",
+   "k": 41,
+   "review_day": true,
+   "rows": [
+    {
+     "text": "10月14日",
+     "color": 5,
+     "label": "5",
+     "filled": true
+    },
+    {
+     "text": "10月14日",
+     "color": 5,
+     "label": "5",
+     "filled": true
+    },
+    {
+     "text": "10月14日",
+     "color": 5,
+     "label": "5",
+     "filled": true
+    },
+    {
+     "text": "10月14日",
+     "color": 5,
+     "label": "5",
+     "filled": true
+    },
+    {
+     "text": "10月14日",
+     "color": 5,
+     "label": "5",
+     "filled": false
+    }
+   ]
+  },
+  {
+   "date": "2026-10-30",
+   "md": "10月30日",
+   "day": 42,
+   "tail": true,
+   "done": false,
+   "type": "study",
+   "k": 42,
+   "review_day": true,
+   "rows": [
+    {
+     "text": "10月15日",
+     "color": 5,
+     "label": "5",
+     "filled": true
+    },
+    {
+     "text": "10月15日",
+     "color": 5,
+     "label": "5",
+     "filled": true
+    },
+    {
+     "text": "10月15日",
+     "color": 5,
+     "label": "5",
+     "filled": true
+    },
+    {
+     "text": "10月15日",
+     "color": 5,
+     "label": "5",
+     "filled": true
+    },
+    {
+     "text": "10月15日",
+     "color": 5,
+     "label": "5",
+     "filled": false
+    }
+   ]
+  },
+  {
+   "date": "2026-10-31",
+   "md": "10月31日",
+   "day": 43,
+   "tail": true,
+   "done": false,
+   "type": "study",
+   "k": 43,
+   "review_day": true,
+   "rows": [
+    {
+     "text": "10月16日",
+     "color": 5,
+     "label": "5",
+     "filled": true
+    },
+    {
+     "text": "10月16日",
+     "color": 5,
+     "label": "5",
+     "filled": true
+    },
+    {
+     "text": "10月16日",
+     "color": 5,
+     "label": "5",
+     "filled": true
+    },
+    {
+     "text": "10月16日",
+     "color": 5,
+     "label": "5",
+     "filled": true
+    },
+    {
+     "text": "10月16日",
+     "color": 5,
+     "label": "5",
+     "filled": false
+    }
+   ]
+  },
+  {
+   "date": "2026-11-01",
+   "md": "11月1日",
+   "day": 44,
+   "tail": true,
+   "done": false,
+   "type": "study",
+   "k": 44,
+   "review_day": true,
+   "rows": [
+    {
+     "text": "10月17日",
+     "color": 5,
+     "label": "5",
+     "filled": true
+    },
+    {
+     "text": "10月17日",
+     "color": 5,
+     "label": "5",
+     "filled": true
+    },
+    {
+     "text": "10月17日",
+     "color": 5,
+     "label": "5",
+     "filled": true
+    },
+    {
+     "text": "10月17日",
+     "color": 5,
+     "label": "5",
+     "filled": true
+    },
+    {
+     "text": "10月17日",
+     "color": 5,
+     "label": "5",
+     "filled": false
+    }
+   ]
+  },
+  {
+   "date": "2026-11-02",
+   "md": "11月2日",
+   "day": 45,
+   "tail": true,
+   "done": false,
+   "type": "study",
+   "k": 45,
+   "review_day": true,
+   "rows": [
+    {
+     "text": "10月18日",
+     "color": 5,
+     "label": "5",
+     "filled": true
+    },
+    {
+     "text": "10月18日",
+     "color": 5,
+     "label": "5",
+     "filled": true
+    },
+    {
+     "text": "10月18日",
+     "color": 5,
+     "label": "5",
+     "filled": true
+    },
+    {
+     "text": "10月18日",
+     "color": 5,
+     "label": "5",
+     "filled": true
+    },
+    {
+     "text": "10月18日",
+     "color": 5,
+     "label": "5",
+     "filled": false
+    }
+   ]
+  }
+ ]
+}
