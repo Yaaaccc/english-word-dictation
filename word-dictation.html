@@ -2040,6 +2040,16 @@ button.small{ padding:6px 12px; font-size:12.5px; }
           <path d="M8.2 8.6h5.4M8.2 12h5.4M8.2 15.4h3.4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
         </svg>
       </button>
+      <!-- 2026-10-26 加：艾宾浩斯复习日历（独立页 calendar/index.html）；用原生 <a> 免弹窗拦截 -->
+      <a class="icon-btn" id="calOpen" href="calendar/index.html" target="_blank" rel="noopener"
+         style="text-decoration:none" title="艾宾浩斯日历（今天学什么 + 全程计划）" aria-label="艾宾浩斯日历">
+        <svg viewBox="0 0 24 24" fill="none">
+          <rect x="3.6" y="4.8" width="16.8" height="16.4" rx="3" stroke="currentColor" stroke-width="1.9"/>
+          <path d="M3.6 9.6h16.8" stroke="currentColor" stroke-width="1.9"/>
+          <path d="M8 2.8v3.6M16 2.8v3.6" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/>
+          <path d="M9.2 14.8l2.1 2.1 3.6-3.8" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
     </div>
   </nav>
 
@@ -6854,6 +6864,10 @@ button.small{ padding:6px 12px; font-size:12.5px; }
       bp.insertBefore(b2, bp.firstChild);
     }
   })();
+
+  /* ---------- 5.5b 艾宾浩斯日历入口（2026-10-26 加）：Dock 链接 → 独立页。
+     入口是原生 <a href="calendar/index.html" target="_blank">（#calOpen），
+     导航行为由浏览器保证，无需 JS 绑定。 ---------- */
 
   /* ---------- 5.6 长篇阅读层（列表 / 阅读页 / 点句译 / 划选译 / 目标词高亮 / 已读） ---------- */
   (function () {
