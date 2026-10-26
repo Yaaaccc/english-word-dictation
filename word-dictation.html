@@ -3942,6 +3942,10 @@ button.small{ padding:6px 12px; font-size:12.5px; }
   async function loadDateWords(date, _retry) {
     var status = $("dateStatus");
     var seq = ++dateLoadSeq;
+    /* 点下日期的这一刻就把旧会话的自走定时器停掉（2026-10-26）：
+       新词表要等 fetch，线上 1~2s；旧的四选一「自动下一题」若正好在
+       这个窗口到点，会先跳一题、再被重启顶回第 1 题 —— 视觉上是闪一下。 */
+    if (window.__dictationHooks && window.__dictationHooks.isRunning()) clearSessionTimers();
     try {
       var r = await fetch(fileFor(date), { cache: "no-store" });
       if (!r.ok) throw new Error("HTTP " + r.status);
