@@ -1462,6 +1462,44 @@ button.small{ padding:6px 12px; font-size:12.5px; }
 
 
 /* ============================================================
+   13.6 每日提醒条（12 点后明天的内容还没生成时出现）
+   ============================================================ */
+#todoRemind{
+  position:fixed; top:78px; left:50%; transform:translateX(-50%);
+  z-index:90; width:fit-content; max-width:min(680px, 92vw);
+  display:flex; align-items:center; gap:10px;
+  background:linear-gradient(163deg, rgba(255,214,150,.94), rgba(255,201,120,.9));
+  border:1px solid rgba(169,106,36,.4); border-radius:16px;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.5), 0 14px 32px -14px rgba(120,70,10,.5);
+  padding:10px 14px; font-size:13.5px; color:#4a3208;
+}
+@media (prefers-color-scheme: dark){
+  #todoRemind{
+    background:linear-gradient(163deg, rgba(90,60,12,.94), rgba(70,45,8,.9));
+    border-color:rgba(226,184,120,.45); color:#F5E3C0;
+  }
+}
+#todoRemind .tr-ico{ font-size:16px; flex:none; }
+#todoRemind .tr-text{ line-height:1.45; }
+#todoRemind .tr-text b{ color:inherit; }
+#todoRemind .tr-go{
+  flex:none; border-radius:10px; padding:7px 14px; font-size:13px; font-weight:700;
+  background:linear-gradient(145deg, #E0902A, #C07310); border:1px solid rgba(120,70,10,.4);
+  color:#fff; cursor:pointer; font-family:inherit; box-shadow:inset 0 1px 0 rgba(255,255,255,.35);
+}
+#todoRemind .tr-go:hover{ filter:brightness(1.08); }
+#todoRemind .tr-x{
+  flex:none; width:26px; height:26px; padding:0; border-radius:50%;
+  border:1px solid rgba(120,70,10,.35); background:rgba(255,255,255,.25);
+  color:inherit; cursor:pointer; font-size:11px; line-height:1; font-family:inherit;
+}
+#todoRemind .tr-x:hover{ background:rgba(255,255,255,.45); }
+@media (max-width:720px){
+  #todoRemind{ top:86px; flex-wrap:wrap; padding:9px 12px; }
+  #todoRemind .tr-text{ flex:1 1 calc(100% - 90px); }
+}
+
+/* ============================================================
    14. 打印（导出错词/生词 PDF）—— 白纸黑字
    ============================================================ */
 .print-only{ display:none; }
@@ -7704,6 +7742,63 @@ button.small{ padding:6px 12px; font-size:12.5px; }
       } catch (e) {}
       lb.value = val || "http://127.0.0.1:8787";
     });
+  })();
+
+  /* ---------- 5.58 每日提醒：12 点后明天的听写还没生成就提醒（Yac 2026-10-25） ---------- */
+  (function () {
+    var BAR = "todoRemind";
+    function tmrKey() {
+      var d = new Date(Date.now() + 86400000);
+      var p = function (x) { return String(x).padStart(2, "0"); };
+      return d.getFullYear() + "-" + p(d.getMonth() + 1) + "-" + p(d.getDate());
+    }
+    function skipped() {
+      try { return (JSON.parse(localStorage.getItem("dictationRemindSkip") || "{}").d === tmrKey()); } catch (e) { return false; }
+    }
+    function removeBar() { var b = document.getElementById(BAR); if (b) b.remove(); }
+    function showBar() {
+      if (document.getElementById(BAR)) return;
+      var b = document.createElement("div");
+      b.id = BAR;
+      b.innerHTML = '<span class="tr-ico">⏰</span>' +
+        '<span class="tr-text"><b>明天的听写内容还没生成</b>——点这里去生成并上传（约 4 分钟，GoodNotes 里就有）</span>' +
+        '<button class="tr-go" type="button">去生成</button>' +
+        '<button class="tr-x" type="button" title="今天不再提醒">✕</button>';
+      document.body.appendChild(b);
+      b.querySelector(".tr-go").addEventListener("click", function () {
+        var $ = function (id) { return document.getElementById(id); };
+        $("planPanel").classList.remove("hidden");
+        var sp = $("settingsPanel"), st = $("statsPanel");
+        if (sp) sp.classList.add("hidden");
+        if (st) st.classList.add("hidden");
+        b.remove();
+        $("planPanel").scrollIntoView({ block: "start" });
+      });
+      b.querySelector(".tr-x").addEventListener("click", function () {
+        try { localStorage.setItem("dictationRemindSkip", JSON.stringify({ d: tmrKey() })); } catch (e) {}
+        removeBar();
+      });
+    }
+    function check() {
+      if (new Date().getHours() < 12) return;   // 只在中午 12 点后提醒
+      if (skipped()) return;
+      var h = window.__dictationHooks;
+      if (h && h.isRunning()) return;           // 练习中不打扰（下次载入再查）
+      var tmr = tmrKey();
+      /* 明天的 每日新词例句 json 在线/本地存在 = 已生成（sync 时一并上传）。
+         只对明确的 404 提醒；网络/服务不可用时不误报。 */
+      fetch("每日新词例句/" + tmr + ".json", { cache: "no-store" })
+        .then(function (r) {
+          if (r.ok) return;                     // 已生成
+          if (r.status === 404) { showBar(); return; }
+          /* 其他状态码：不确定，不提醒 */
+        })
+        .catch(function () {
+          /* 本地服务不可用/断网：无法判定，不提醒（避免假警报） */
+        });
+    }
+    window.addEventListener("load", function () { setTimeout(check, 1500); });
+    setInterval(check, 30 * 60 * 1000);         // 每 30 分钟复查一次（生成了就自动消失）
   })();
 
   /* ---------- 5. 液态滑标 ---------- */
