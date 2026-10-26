@@ -1942,6 +1942,8 @@ button.small{ padding:6px 12px; font-size:12.5px; }
       <button class="small" id="planSaveBtn" type="button">只保存计划</button>
       <button class="small" id="planClearBtn" type="button">全部恢复默认</button>
       <button class="small" id="planTokenBtn" type="button">配置同步</button>
+        <span class="mini-note" style="margin:0 0 0 10px;">本机服务地址</span>
+        <input id="localBase" type="text" placeholder="http://127.0.0.1:8787" style="flex:1;min-width:200px;">
     </div>
     <div class="mini-note" id="planStatus" style="margin-top:8px;"></div>
     <div class="hidden" id="planTokenBox" style="margin-top:10px;">
@@ -6329,7 +6331,28 @@ button.small{ padding:6px 12px; font-size:12.5px; }
     }
     var isLocal = isLocalHost();
     if (!isLocal) {
-      $("planStatus").textContent = "「生成并上传」要在电脑上打开才能用（手机只负责改计划）。";
+      /* 线上 → 本地 跳转：先存好计划（上一步 planSave 已过），再探测本机服务，
+         探到就跳过去自动生成；探不到给明确指引（计划数字已上云，不会丢）。 */
+      var base = "http://127.0.0.1:8787";
+      try { base = (localStorage.getItem("dictationLocalBase") || base).replace(/\/+$/, ""); } catch (eL) {}
+      $("planStatus").textContent = "已保存。正在找你电脑上的本地服务（" + base + "）…";
+      var reachable = false;
+      try {
+        await Promise.race([
+          fetch(base + "/api/dates", { mode: "no-cors", cache: "no-store" }).then(function () { reachable = true; }),
+          new Promise(function (_r, rej) { setTimeout(function () { rej(new Error("timeout")); }, 2500); })
+        ]);
+      } catch (eProbe) { reachable = false; }
+      if (reachable) {
+        $("planStatus").textContent = "找到本地服务，正在跳转过去继续生成（约 3~5 分钟，完成后 GoodNotes 里就有）…";
+        setTimeout(function () {
+          location.href = base + "/word-dictation.html?build=" + which + (norebuild ? "&norebuild=1" : "");
+        }, 700);
+        return;
+      }
+      $("planStatus").innerHTML = "<b>没找到本地服务</b>（计划已保存，数字不会丢）。<br>"
+        + "电脑上双击「打开本地网页.bat」启动服务，回到这里再点一次即可自动跳转；<br>"
+        + "iPad 连同一 Wi-Fi/热点时，把下面「本机服务地址」改成 http://电脑局域网IP:8787 再试。";
       return;
     }
     /* 日期交给服务端算（以电脑系统时间为准），这里只算个显示用的字符串。
@@ -6361,6 +6384,24 @@ button.small{ padding:6px 12px; font-size:12.5px; }
   function planBuildToday() { return planBuildDate("today"); }
   function planBuildTomorrow() { return planBuildDate("tomorrow"); }
   function planUploadToday() { return planBuildDate("today", true); }
+  /* 线上「跳转到本地」落地：?build=today|tomorrow(&norebuild=1) → 自动开面板并开始生成（2026-10-25） */
+  (function () {
+    var q = new URLSearchParams(location.search);
+    var b = q.get("build");
+    if (!b || (b !== "today" && b !== "tomorrow") || !isLocalHost()) return;
+    history.replaceState(null, "", location.pathname);   /* 消费掉参数，刷新不重触发 */
+    var openPanel = function () {
+      $("planPanel").classList.remove("hidden");
+      var sp = $("settingsPanel"), st = $("statsPanel");
+      if (sp) sp.classList.add("hidden");
+      if (st) st.classList.add("hidden");
+      $("planStatus").textContent = "从线上跳转而来：正在开始生成 " + (b === "tomorrow" ? "明天" : "今天") + " …";
+    };
+    var go = function () { planBuildDate(b, q.get("norebuild") === "1"); };
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", function () { setTimeout(openPanel, 350); setTimeout(go, 900); });
+    } else { setTimeout(openPanel, 350); setTimeout(go, 900); }
+  })();
   function planPollBuild() {
     fetch("/api/build-status", { cache: "no-store" })
       .then(function (r) { return r.json(); })
@@ -7647,6 +7688,21 @@ button.small{ padding:6px 12px; font-size:12.5px; }
         .then(function (r) { return r.json(); })
         .then(function (j) { targets = j; if (cur) renderBody(); })
         .catch(function () {});
+    });
+  })();
+
+  /* ---------- 5.55 「本机服务地址」输入（线上跳转目标；iPad 填局域网 IP） ---------- */
+  (function () {
+    var lb = document.getElementById("localBase");
+    if (!lb) return;
+    try { var v = localStorage.getItem("dictationLocalBase"); if (v) lb.value = v; } catch (e) {}
+    lb.addEventListener("change", function () {
+      var val = lb.value.trim().replace(/\/+$/, "");
+      try {
+        if (val) localStorage.setItem("dictationLocalBase", val);
+        else localStorage.removeItem("dictationLocalBase");
+      } catch (e) {}
+      lb.value = val || "http://127.0.0.1:8787";
     });
   })();
 
