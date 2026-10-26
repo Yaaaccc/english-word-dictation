@@ -681,23 +681,25 @@ html:not([data-nav]) #idleView:not(.hidden){ animation:stageRise .35s cubic-bezi
 .quiz-opt .opt-main{ font-size:17px; font-weight:600; line-height:1.35; }
 .quiz-opt .opt-gloss{
   display:none; font-size:12px; line-height:1.5; font-weight:400;
-  color:var(--muted-2); margin-top:2px; word-break:break-word;
+  color:var(--muted); margin-top:2px; word-break:break-word;   /* 用 muted 不用 muted-2：后者在浅底上对比度不够（2026-10-26） */
 }
 .quiz-opt.show-gloss .opt-gloss{ display:block; }
 .quiz-opt.ok .opt-gloss{ color:var(--green); }
 .quiz-opt.bad .opt-gloss{ color:var(--red); }
 .quiz-tip{ color:var(--muted); font-size:12.5px; margin:8px 0 14px; }
+/* 答完隐藏提示行：省下的高度留给释义行（2026-10-26） */
+#quizStage.answered .quiz-tip{ display:none; }
 .quiz-options{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; }
 @media (max-width:760px){
-  .quiz-options{ grid-template-columns:minmax(0,1fr); gap:9px; }
+  .quiz-options{ grid-template-columns:minmax(0,1fr); gap:8px; }
   /* 底部 Dock 是 fixed 的（约 100px），#runView 只留了 18px —— 加释义行后
      第 4 个选项和「下一题」会被挡住，这里单独给四选一舞台留出高度（2026-10-26） */
   #quizStage{ padding-bottom:104px; }
   /* 特异性要压过下面的 .quiz-opt{min-height:64px}（媒体查询在它前面，同权重会被反超） */
-  .quiz-opt.is-word{ padding:10px 13px; min-height:auto; }
+  .quiz-opt.is-word{ padding:9px 12px; min-height:auto; }
   .quiz-opt .opt-main{ font-size:16px; }
-  .quiz-opt .opt-gloss{ font-size:11.5px; line-height:1.45; }
-  .quiz-word.is-cn{ font-size:19px; line-height:1.45; }
+  .quiz-opt .opt-gloss{ font-size:11px; line-height:1.4; margin-top:1px; }
+  .quiz-word.is-cn{ font-size:18.5px; line-height:1.42; }
 }
 .quiz-opt{
   display:flex; gap:10px; align-items:flex-start; width:100%; min-height:64px;
@@ -718,7 +720,9 @@ html:not([data-nav]) #idleView:not(.hidden){ animation:stageRise .35s cubic-bezi
 .quiz-opt.bad{
   border-color:var(--red-line); background:var(--red-soft);
 }
-.quiz-opt:disabled{ cursor:default; transform:none; }
+/* 答题后选项只是「锁交互」，不是「不可用」：全局 button:disabled{opacity:.42}
+   会把单词和下面那行释义一起糊成背景色（2026-10-26 用户反馈）。这里恢复不透明。 */
+.quiz-opt:disabled{ cursor:default; transform:none; opacity:1; }
 .quiz-foot{ display:flex; justify-content:flex-end; gap:10px; margin-top:14px; }
 
 /* —— 完成页 —— */
@@ -3343,6 +3347,7 @@ button.small{ padding:6px 12px; font-size:12.5px; }
     if (!item) { finishType(); return; }
     state.quizItem = item;
     state.quizAnswered = false;
+    $("quizStage").classList.remove("answered");   /* 新题：答题提示重新出现（2026-10-26） */
     clearExamplePanel();   /* 出新题：例句/官方笔记/词族一并收起，答题前不剧透也不残留（2026-10-26 修） */
     var dir = state.quizDir;
     /* en2cn：题干=单词、答案=释义；cn2en：题干=释义、答案=单词。
@@ -3407,6 +3412,8 @@ button.small{ padding:6px 12px; font-size:12.5px; }
   }
 
   function quizLock() {
+    /* 答完这行提示就没用了，收掉它把高度让给释义行（手机端第 4 项因此能露出来） */
+    $("quizStage").classList.add("answered");
     var kids = $("quizOptions").children;
     for (var i = 0; i < kids.length; i++) {
       kids[i].disabled = true;
