@@ -83,7 +83,7 @@ h1 .dot{width:10px;height:10px;border-radius:3px;background:var(--purple);displa
   <span><i style="background:var(--c3)"></i>复习+3 · 视译</span>
   <span><i style="background:var(--c4)"></i>复习+6 · 听写</span>
   <span><i style="background:var(--c5)"></i>复习+15 · 回看</span>
-  <span><i style="background:var(--c6)"></i>错词复习</span>
+  <span id="lgWrong" style="display:none"><i style="background:var(--c6)"></i>错词复习</span>
 </div>
 <div id="todayBox"></div>
 <div class="sect" id="mainSect">学习期</div>
@@ -113,6 +113,7 @@ function esc(s){return String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','
 function render(data){
   document.getElementById('meta').textContent =
     '起算 ' + data.start + ' · 共 ' + data.total_days + ' 课（学习日制） · 数据生成于 ' + data.generated_at;
+  document.getElementById('lgWrong').style.display = (data.wrong_day != null) ? '' : 'none';
   const byDate = {}; data.days.forEach(d=>byDate[d.date]=d);
   const today = byDate[todayStr];
   const studyAll = data.days.filter(d=>d.type==='study');
