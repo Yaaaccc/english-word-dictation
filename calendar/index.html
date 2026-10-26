@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#7A3FD4">
+<title>艾宾浩斯复习计划 · 网页版</title>
+<style>
+:root{
+  --purple:#7A3FD4;
+  --c1:#F5DE8F; --c2:#F08CAD; --c3:#F5B366; --c4:#99D18C; --c5:#94B8ED; --c6:#CCC2E6;
+  --empty:#EDEDEF; --line:#E4E4E8; --txt:#333; --sub:#888;
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{
+  font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;
+  background:#F4F3F7;color:var(--txt);padding:14px 12px 40px;
+  max-width:1080px;margin:0 auto;
+}
+h1{font-size:19px;display:flex;align-items:center;gap:8px;margin:4px 2px 2px}
+h1 .dot{width:10px;height:10px;border-radius:3px;background:var(--purple);display:inline-block}
+.meta{font-size:12px;color:var(--sub);margin:4px 2px 14px}
+.legend{display:flex;flex-wrap:wrap;gap:6px 10px;font-size:11.5px;color:var(--sub);margin:0 2px 14px}
+.legend span{display:inline-flex;align-items:center;gap:4px}
+.legend i{width:14px;height:9px;border-radius:2px;display:inline-block}
+/* ---------- 今日卡 ---------- */
+.today{
+  background:#fff;border-radius:16px;padding:18px 16px 14px;
+  box-shadow:0 4px 18px rgba(90,60,150,.10);border:2px solid var(--purple);
+  margin-bottom:22px;
+}
+.today .tt{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:4px}
+.today .tt b{font-size:17px}
+.today .tt .tag{font-size:12px;color:var(--purple);font-weight:600}
+.today .prog{font-size:12.5px;color:var(--sub);margin:3px 0 12px}
+.trow{display:flex;align-items:center;gap:10px;border-radius:10px;padding:10px 12px;margin-bottom:8px}
+.trow .no{font-weight:700;font-size:14px;width:18px}
+.trow .tx{flex:1;font-size:15px;font-weight:600}
+.trow .lb{font-size:12px;opacity:.75;font-weight:600}
+.trow.strip{background:#F7F7F9;border:1px dashed var(--line);color:#555;font-size:13px;padding:8px 12px}
+.idle{font-size:14.5px;color:#666;line-height:1.7;padding:6px 2px}
+/* ---------- 全程日历 ---------- */
+.sect{font-size:13.5px;font-weight:700;color:#555;margin:18px 4px 10px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(158px,1fr));gap:10px}
+.card{background:#fff;border-radius:12px;overflow:hidden;border:1.5px solid transparent;
+  box-shadow:0 1px 4px rgba(0,0,0,.06);display:flex;flex-direction:column}
+.card.today{border-color:var(--purple);box-shadow:0 4px 14px rgba(122,63,212,.22)}
+.chead{display:flex;justify-content:space-between;align-items:center;
+  background:#F0F0F2;font-size:11.5px;padding:5px 8px}
+.card.done .chead{background:#CCEBD1;color:#218540}
+.chead .dno{font-weight:700;color:#333}
+.card.done .chead .dno{color:#218540}
+.chead .dt{color:#777}
+.cbody{display:flex;min-height:86px}
+.bar{width:16px;display:flex;align-items:center;justify-content:center;
+  background:var(--c1);flex:none}
+.bar span{writing-mode:vertical-rl;transform:rotate(180deg);font-size:9.5px;
+  font-weight:700;color:#333;letter-spacing:1px;white-space:nowrap}
+.crows{flex:1;display:flex;flex-direction:column}
+.crow{flex:1;display:flex;align-items:center;gap:4px;padding:0 6px;font-size:10.5px;color:#222;min-height:0}
+.crow .n{font-weight:700;width:10px;flex:none}
+.crow .t{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.crow .l{font-weight:700;font-size:9.5px}
+.crow.empty{background:var(--empty);color:#9A9AA0;justify-content:center}
+.strip2{background:#F2F2F4;font-size:9.5px;color:#555;padding:3px 7px;border-top:1px solid var(--line)}
+/* 休息/轻休 */
+.rest-card{background:#E7E7EA;color:#777;display:flex;align-items:center;justify-content:center;
+  min-height:96px;font-size:13px;letter-spacing:2px;border-radius:12px}
+.light-card{background:#F3F7FC;border-radius:12px;min-height:96px;padding:10px 12px;
+  display:flex;flex-direction:column;gap:6px}
+.light-card .lt{font-size:11px;font-weight:700;color:#8C7333}
+.light-card .lb2{font-size:12px;color:#666}
+.err{background:#FFF3F3;border:1px solid #F2C4C4;color:#A33;border-radius:12px;padding:14px;font-size:13.5px}
+@media (min-width:720px){ body{padding-top:22px} h1{font-size:22px} }
+</style>
+</head>
+<body>
+<h1><span class="dot"></span>艾宾浩斯复习计划</h1>
+<div class="meta" id="meta">加载中…</div>
+<div class="legend">
+  <span><i style="background:var(--c1)"></i>学习新课</span>
+  <span><i style="background:var(--c2)"></i>复习+1 · 读译</span>
+  <span><i style="background:var(--c3)"></i>复习+3 · 视译</span>
+  <span><i style="background:var(--c4)"></i>复习+6 · 听写</span>
+  <span><i style="background:var(--c5)"></i>复习+15 · 回看</span>
+  <span><i style="background:var(--c6)"></i>错词复习</span>
+</div>
+<div id="todayBox"></div>
+<div class="sect" id="mainSect">学习期</div>
+<div class="grid" id="mainGrid"></div>
+<div id="tailWrap" style="display:none">
+  <div class="sect">续册 · 收尾复习</div>
+  <div class="grid" id="tailGrid"></div>
+</div>
+
+<script>
+window.__jsErrors = [];
+window.addEventListener('error', function(e){ window.__jsErrors.push(e.message || 'unknown'); });
+const COLORS = {1:'#F5DE8F',2:'#F08CAD',3:'#F5B366',4:'#99D18C',5:'#94B8ED',6:'#CCC2E6'};
+const ROUND  = {1:'学新',2:'复+1',3:'复+3',4:'复+6',5:'复+15',6:'错词'};
+const pad = n => String(n).padStart(2,'0');
+const todayStr = (()=>{const d=new Date();return d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate());})();
+
+fetch('calendar.json?ts='+Date.now(), {cache:'no-cache'})
+  .then(r=>{ if(!r.ok) throw new Error('HTTP '+r.status); return r.json(); })
+  .then(render)
+  .catch(e=>{ document.getElementById('meta').textContent='';
+    document.getElementById('todayBox').innerHTML =
+      '<div class="err">日历数据加载失败（'+e.message+'）。<br>请稍后刷新，或在电脑上双击「双击生成计划.bat」重新同步。</div>'; });
+
+function esc(s){return String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
+
+function render(data){
+  document.getElementById('meta').textContent =
+    '起算 ' + data.start + ' · 共 ' + data.total_days + ' 课（学习日制） · 数据生成于 ' + data.generated_at;
+  const byDate = {}; data.days.forEach(d=>byDate[d.date]=d);
+  const today = byDate[todayStr];
+  const studyAll = data.days.filter(d=>d.type==='study');
+
+  /* ---- 今日卡 ---- */
+  let th = '';
+  if(!data.days.length){ th = '<div class="idle">还没有计划。请在电脑上双击「双击生成计划.bat」生成。</div>'; }
+  else if(!today && todayStr < data.days[0].date){
+    th = '<div class="idle">本轮还没开始，' + data.days[0].md + ' 开始第一天。</div>';
+  } else if(!today){
+    th = '<div class="idle">本轮已走完（最后一天 ' + data.days[data.days.length-1].md +
+         '）。开始新一轮：电脑上双击 bat → 输 4。</div>';
+  } else if(today.type==='rest'){
+    th = '<div class="idle">今天（' + today.md + '）是完全休息日，什么都不用做 🛋️ 整套计划已自动顺延。</div>';
+  } else if(today.type==='light'){
+    th = '<div class="idle">今天（' + today.md + '）是<b>轻休日</b>：不学新课，花几分钟回看「' +
+         esc(today.lookback||'最近学的那一课') + '」就行。</div>';
+  } else {
+    const k = today.k, total = data.total_days;
+    const doneCnt = studyAll.filter(d=>d.date<todayStr).length;
+    const inTail = k > total;
+    const tag = inTail ? '续册 · 收尾复习' : (today.review_day ? '收尾复习日' : '第 ' + k + ' 天');
+    const prog = inTail
+      ? '正册 ' + total + ' 课已全部学完 · 现在是续册收尾复习（续册第 ' + (k - total) + ' 天），今天无新课，只走复习链'
+      : '学习进度：第 ' + k + ' / ' + total + ' 个学习日，已完成 ' + doneCnt + ' 个' +
+        (today.review_day ? ' · 今天无新课，只走复习链' : '');
+    th = '<div class="today">' +
+      '<div class="tt"><b>今天 · ' + today.md + '</b><span class="tag">' + tag + '</span></div>' +
+      '<div class="prog">' + prog + '</div>' +
+      today.rows.map((r,i)=>{
+        if(r.color==null) return '';
+        return '<div class="trow" style="background:'+COLORS[r.color]+'">' +
+          '<span class="no">'+(i+1)+'</span>' +
+          '<span class="tx">'+esc(r.text)+'</span>' +
+          '<span class="lb">'+ROUND[r.color]+' · 第'+r.label+'遍</span></div>';
+      }).join('') +
+      (data.sameday ? '<div class="trow strip">🌙 睡前回看：今天主课再过一遍' +
+        (today.review_day?'（本日无新课）':'') + '</div>' : '') +
+      '</div>';
+  }
+  document.getElementById('todayBox').innerHTML = th;
+
+  /* ---- 全程日历 ---- */
+  const mk = e => {
+    if(e.type==='rest')
+      return '<div class="rest-card">休 息</div>';
+    if(e.type==='light')
+      return '<div class="light-card"><div class="lt">轻休 · 第'+e.day+'天</div>' +
+             '<div class="lb2">回看 ' + esc(e.lookback||'上一课') + '</div>' +
+             '<div class="lb2" style="color:#999">'+e.md+(e.done?' · 已过':'')+'</div></div>';
+    const isToday = e.date===todayStr;
+    const head = e.done ? '已完成' : (e.review_day ? '复习日' : '');
+    const bar = e.review_day ? COLORS[5] : COLORS[1];
+    let html = '<div class="card'+(e.done?' done':'')+(isToday?' today':'')+'">' +
+      '<div class="chead"><span class="dno">第'+e.day+'天</span>' +
+      '<span style="color:'+(e.done?'#218540':'#5973A6')+';font-size:10px">'+head+'</span>' +
+      '<span class="dt">'+e.md+'</span></div>' +
+      '<div class="cbody"><div class="bar" style="background:'+bar+'"><span>'+e.md+'</span></div>' +
+      '<div class="crows">' +
+      e.rows.map((r,i)=> r.color==null
+        ? '<div class="crow empty">—</div>'
+        : '<div class="crow" style="background:'+COLORS[r.color]+'">' +
+          '<span class="n">'+(i+1)+'</span><span class="t">'+esc(r.text)+'</span>' +
+          '<span class="l">'+r.label+'</span></div>'
+      ).join('') +
+      '</div></div>' +
+      (data.sameday ? '<div class="strip2">'+(e.review_day?'本日无新课':'睡前回看')+'</div>' : '') +
+      '</div>';
+    return html;
+  };
+  const main = data.days.filter(d=>!d.tail), tail = data.days.filter(d=>d.tail);
+  document.getElementById('mainGrid').innerHTML = main.map(mk).join('');
+  if(tail.length){
+    document.getElementById('tailWrap').style.display='';
+    document.getElementById('tailGrid').innerHTML = tail.map(mk).join('');
+  }
+  document.getElementById('mainSect').textContent =
+    '学习期（第1~' + data.period_len + '天' + (data.total_days? ' · ' + data.total_days + ' 课':'') + '）';
+}
+</script>
+</body>
+</html>
