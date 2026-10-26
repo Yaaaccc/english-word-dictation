@@ -33,12 +33,24 @@ h1 .dot{width:10px;height:10px;border-radius:3px;background:var(--purple);displa
 .today .tt b{font-size:17px}
 .today .tt .tag{font-size:12px;color:var(--purple);font-weight:600}
 .today .prog{font-size:12.5px;color:var(--sub);margin:3px 0 12px}
-.trow{display:flex;align-items:center;gap:10px;border-radius:10px;padding:10px 12px;margin-bottom:8px}
+.trow{display:flex;align-items:center;gap:10px;border-radius:10px;padding:10px 12px;margin-bottom:8px;cursor:pointer}
 .trow .no{font-weight:700;font-size:14px;width:18px}
 .trow .tx{flex:1;font-size:15px;font-weight:600}
 .trow .lb{font-size:12px;opacity:.75;font-weight:600}
 .trow.strip{background:#F7F7F9;border:1px dashed var(--line);color:#555;font-size:13px;padding:8px 12px}
 .idle{font-size:14.5px;color:#666;line-height:1.7;padding:6px 2px}
+/* 勾选框（2026-10-26 加）：与听写页共用 localStorage「ebingDone」同步 */
+.ck{flex:none;display:flex;align-items:center;justify-content:center;
+  width:17px;height:17px;border-radius:5px;font-weight:800;color:#1F7A3D;line-height:1;
+  border:1.5px solid rgba(0,0,0,.32);background:rgba(255,255,255,.55)}
+.trow.done .tx{text-decoration:line-through;opacity:.55}
+.trow.done .ck::after{content:"✓"}
+.trow.strip.done b{text-decoration:line-through;opacity:.6}
+.trow.strip.done .ck::after{content:"✓"}
+.crow{cursor:pointer}
+.crow .ck{width:11px;height:11px;border-radius:3px;font-size:8px}
+.crow.done .t{text-decoration:line-through;opacity:.5}
+.crow.done .ck::after{content:"✓"}
 /* ---------- 全程日历 ---------- */
 .sect{font-size:13.5px;font-weight:700;color:#555;margin:18px 4px 10px}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(158px,1fr));gap:10px}
@@ -110,7 +122,15 @@ fetch('calendar.json?ts='+Date.now(), {cache:'no-cache'})
 
 function esc(s){return String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
 
+/* ---- 勾选状态（2026-10-26 加）：与听写页同 origin 共享 localStorage「ebingDone」 ---- */
+const K_DONE = 'ebingDone';
+let curData = null;
+const loadDone = () => { try { return JSON.parse(localStorage.getItem(K_DONE) || '{}'); } catch (e) { return {}; } };
+const saveDone = m => { try { localStorage.setItem(K_DONE, JSON.stringify(m)); } catch (e) {} };
+const isDone = (date, idx) => { const m = loadDone(); return !!(m[date] && m[date][idx]); };
+
 function render(data){
+  curData = data;
   document.getElementById('meta').textContent =
     '起算 ' + data.start + ' · 共 ' + data.total_days + ' 课（学习日制） · 数据生成于 ' + data.generated_at;
   document.getElementById('lgWrong').style.display = (data.wrong_day != null) ? '' : 'none';
@@ -145,12 +165,15 @@ function render(data){
       '<div class="prog">' + prog + '</div>' +
       today.rows.map((r,i)=>{
         if(r.color==null) return '';
-        return '<div class="trow" style="background:'+COLORS[r.color]+'">' +
+        const dn = isDone(todayStr, String(i));
+        return '<div class="trow'+(dn?' done':'')+'" data-date="'+todayStr+'" data-idx="'+i+'" style="background:'+COLORS[r.color]+'">' +
+          '<span class="ck"></span>' +
           '<span class="no">'+(i+1)+'</span>' +
           '<span class="tx">'+esc(r.text)+'</span>' +
           '<span class="lb">'+ROUND[r.color]+' · 第'+r.label+'遍</span></div>';
       }).join('') +
-      (data.sameday ? '<div class="trow strip">🌙 睡前回看：今天主课再过一遍' +
+      (data.sameday ? '<div class="trow strip'+(isDone(todayStr,'s')?' done':'')+'" data-date="'+todayStr+'" data-idx="s">' +
+        '<span class="ck"></span><span>🌙 睡前回看：今天主课再过一遍' +
         (today.review_day?'（本日无新课）':'') + '</div>' : '') +
       '</div>';
   }
@@ -173,12 +196,14 @@ function render(data){
       '<span class="dt">'+e.md+'</span></div>' +
       '<div class="cbody"><div class="bar" style="background:'+bar+'"><span>'+e.md+'</span></div>' +
       '<div class="crows">' +
-      e.rows.map((r,i)=> r.color==null
-        ? '<div class="crow empty">—</div>'
-        : '<div class="crow" style="background:'+COLORS[r.color]+'">' +
+      e.rows.map((r,i)=>{
+        if(r.color==null) return '<div class="crow empty">—</div>';
+        const dn = isDone(e.date, String(i));
+        return '<div class="crow'+(dn?' done':'')+'" data-date="'+e.date+'" data-idx="'+i+'" style="background:'+COLORS[r.color]+'">' +
+          '<span class="ck"></span>' +
           '<span class="n">'+(i+1)+'</span><span class="t">'+esc(r.text)+'</span>' +
-          '<span class="l">'+r.label+'</span></div>'
-      ).join('') +
+          '<span class="l">'+r.label+'</span></div>';
+      }).join('') +
       '</div></div>' +
       (data.sameday ? '<div class="strip2">'+(e.review_day?'本日无新课':'睡前回看')+'</div>' : '') +
       '</div>';
@@ -193,6 +218,21 @@ function render(data){
   document.getElementById('mainSect').textContent =
     '学习期（第1~' + data.period_len + '天' + (data.total_days? ' · ' + data.total_days + ' 课':'') + '）';
 }
+
+/* ---- 点击任意一行切换勾选；另一标签页（如听写页）改动经 storage 回流 ---- */
+document.addEventListener('click', ev=>{
+  const el = ev.target.closest('[data-date][data-idx]');
+  if(!el || !curData) return;
+  const dt = el.getAttribute('data-date'), idx = el.getAttribute('data-idx');
+  const m = loadDone();
+  if(!m[dt]) m[dt] = {};
+  m[dt][idx] = !m[dt][idx];
+  saveDone(m);
+  render(curData);
+});
+window.addEventListener('storage', ev=>{
+  if(ev.key === K_DONE && curData) render(curData);
+});
 </script>
 </body>
 </html>
