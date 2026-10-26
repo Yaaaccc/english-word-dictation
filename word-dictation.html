@@ -674,10 +674,31 @@ html:not([data-nav]) #idleView:not(.hidden){ animation:stageRise .35s cubic-bezi
   line-height:1.1;
 }
 .quiz-word.is-cn{ font-size:clamp(20px,2.4vw,26px); font-weight:600; line-height:1.5; letter-spacing:0; }
-.quiz-opt.is-word{ font-size:17px; font-weight:600; }
+.quiz-opt.is-word{
+  flex-direction:column; align-items:flex-start; gap:2px;   /* 主词一行、释义一行（2026-10-26） */
+  font-size:17px; font-weight:600;
+}
+.quiz-opt .opt-main{ font-size:17px; font-weight:600; line-height:1.35; }
+.quiz-opt .opt-gloss{
+  display:none; font-size:12px; line-height:1.5; font-weight:400;
+  color:var(--muted-2); margin-top:2px; word-break:break-word;
+}
+.quiz-opt.show-gloss .opt-gloss{ display:block; }
+.quiz-opt.ok .opt-gloss{ color:var(--green); }
+.quiz-opt.bad .opt-gloss{ color:var(--red); }
 .quiz-tip{ color:var(--muted); font-size:12.5px; margin:8px 0 14px; }
 .quiz-options{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; }
-@media (max-width:760px){ .quiz-options{ grid-template-columns:minmax(0,1fr); } }
+@media (max-width:760px){
+  .quiz-options{ grid-template-columns:minmax(0,1fr); gap:9px; }
+  /* 底部 Dock 是 fixed 的（约 100px），#runView 只留了 18px —— 加释义行后
+     第 4 个选项和「下一题」会被挡住，这里单独给四选一舞台留出高度（2026-10-26） */
+  #quizStage{ padding-bottom:104px; }
+  /* 特异性要压过下面的 .quiz-opt{min-height:64px}（媒体查询在它前面，同权重会被反超） */
+  .quiz-opt.is-word{ padding:10px 13px; min-height:auto; }
+  .quiz-opt .opt-main{ font-size:16px; }
+  .quiz-opt .opt-gloss{ font-size:11.5px; line-height:1.45; }
+  .quiz-word.is-cn{ font-size:19px; line-height:1.45; }
+}
 .quiz-opt{
   display:flex; gap:10px; align-items:flex-start; width:100%; min-height:64px;
   background:var(--card-solid); border:1px solid var(--line); border-radius:16px;
@@ -3207,6 +3228,79 @@ button.small{ padding:6px 12px; font-size:12.5px; }
     return quizPoolPromise;
   }
 
+  function quizPrefixLen(a, b) {
+    var n = Math.min(a.length, b.length), i = 0;
+    while (i < n && a.charAt(i) === b.charAt(i)) i++;
+    return i;
+  }
+  /* 编辑距离是否 ≤ max（只在 max 很小的时候用，纯粹做「形近」判定） */
+  function quizEditNear(a, b, max) {
+    if (Math.abs(a.length - b.length) > max) return false;
+    if (a === b) return true;
+    var prev = [], cur = [], i, j;
+    for (j = 0; j <= b.length; j++) prev[j] = j;
+    for (i = 1; i <= a.length; i++) {
+      cur[0] = i;
+      for (j = 1; j <= b.length; j++) {
+        cur[j] = Math.min(prev[j] + 1, cur[j - 1] + 1, prev[j - 1] + (a.charAt(i - 1) === b.charAt(j - 1) ? 0 : 1));
+      }
+      for (j = 0; j <= b.length; j++) prev[j] = cur[j];
+    }
+    return prev[b.length] <= max;
+  }
+
+  /* 中→英的干扰项（2026-10-26 改）：从「最像答案」逐层降级。
+     改之前的写法是「随机起点 + 往后连续取 3 个」—— 词池按字母序排，
+     所以三个错误项必然落在同一字母段：实测 96% 三个首字母全同，
+     其中 90% 还和答案首字母不同，题目直接退化成「找不同首字母」。
+     现在按 同首字母+词长±2 → 同首字母 → 形近 → 随机 取，全部来自真实词池。 */
+  function quizPicksCn2En(item, pos, n, banned) {
+    var pool = state.quizPool || {};
+    var ans = String(item.text || "").trim();
+    var low = ans.toLowerCase();
+    var first = low.charAt(0);
+    var alen = ans.length;
+    var seen = {};
+    seen[normalize(ans)] = 1;
+
+    function usable(o) {
+      if (!o || !o.w) return false;
+      var key = normalize(o.w);
+      return !banned[key] && !seen[key];
+    }
+    var out = [];
+    function take(list) {
+      var arr = shuffleCopy(list);
+      for (var i = 0; i < arr.length && out.length < n; i++) {
+        var o = arr[i];
+        if (!usable(o)) continue;
+        seen[normalize(o.w)] = 1;
+        out.push({ val: o.w, gloss: String(o.m || "").trim() });
+      }
+    }
+
+    /* 同词性优先；同词性不够才扩到别的词性 ——「像答案」优先于「同词性」 */
+    var primary = pool[pos] || [];
+    var others = [];
+    ["adj", "n", "v", "adv", "other"].forEach(function (k) {
+      if (k !== pos) others = others.concat(pool[k] || []);
+    });
+    var sameFirst = function (o) { return String(o.w || "").toLowerCase().charAt(0) === first; };
+
+    take(primary.filter(function (o) {
+      return sameFirst(o) && Math.abs(o.w.length - alen) <= 2;
+    }));
+    if (out.length < n) take(primary.filter(sameFirst));
+    if (out.length < n) take(primary.filter(function (o) {
+      var w = String(o.w || "").toLowerCase();
+      return quizPrefixLen(w, low) >= 3 || quizEditNear(w, low, 2);
+    }));
+    if (out.length < n) take(others.filter(sameFirst));
+    if (out.length < n) take(primary);
+    if (out.length < n) take(others);
+    return out;
+  }
+
   function quizPicks(item, dir, n) {
     n = n || 3;
     var correct = dir === "en2cn" ? String(item.meaning || "").trim() : String(item.text || "").trim();
@@ -3221,6 +3315,9 @@ button.small{ padding:6px 12px; font-size:12.5px; }
     banned[normalize(correct)] = 1;
     banned[normalize(item.text)] = 1;
 
+    /* 中→英：走分层。英→中保持原逻辑（选项本身就是释义，不存在「形近」） */
+    if (dir !== "en2cn") return quizPicksCn2En(item, pos, n, banned);
+
     var pool = state.quizPool || {};
     var order = [pos, "adj", "n", "v", "adv", "other"];
     var out = [], seen = {};
@@ -3230,12 +3327,12 @@ button.small{ padding:6px 12px; font-size:12.5px; }
       var start = Math.floor(Math.random() * arr.length);
       for (var i = 0; i < arr.length && out.length < n; i++) {
         var o = arr[(start + i) % arr.length];
-        var val = dir === "en2cn" ? o.m : o.w;
+        var val = o.m;
         if (!val) continue;
         var key = normalize(val);
         if (banned[key] || seen[key]) continue;
         seen[key] = 1;
-        out.push(val);
+        out.push({ val: val, gloss: null });
       }
     }
     return out;
@@ -3261,12 +3358,13 @@ button.small{ padding:6px 12px; font-size:12.5px; }
     /* 兜底：干扰项池没加载好时，用当天词补足，至少还能做题（并说明原因，不假装正常） */
     if (picks.length < 3) {
       var used = {}; used[normalize(correct)] = 1;
-      picks.forEach(function (x) { used[normalize(x)] = 1; });
+      picks.forEach(function (x) { used[normalize(x.val)] = 1; });
       state.words.forEach(function (w) {
         if (picks.length >= 3) return;
         var v = dir === "en2cn" ? String(w.meaning || "").trim() : String(w.text || "").trim();
         if (!v || used[normalize(v)]) return;
-        used[normalize(v)] = 1; picks.push(v);
+        used[normalize(v)] = 1;
+        picks.push({ val: v, gloss: dir === "en2cn" ? null : String(w.meaning || "").trim() });
       });
     }
     if ($("quizTip")) {
@@ -3276,7 +3374,10 @@ button.small{ padding:6px 12px; font-size:12.5px; }
     }
     var box = $("quizOptions");
     box.innerHTML = "";
-    shuffleCopy([correct].concat(picks)).forEach(function (val) {
+    /* 正确项也带释义（中→英方向取当天词表的 meaning），答完四个选项都能对照 */
+    var allOpts = [{ val: correct, gloss: dir === "en2cn" ? null : String(item.meaning || "").trim() }].concat(picks);
+    shuffleCopy(allOpts).forEach(function (o) {
+      var val = o.val;
       var b = document.createElement("button");
       b.type = "button";
       b.className = "quiz-opt";
@@ -3288,7 +3389,14 @@ button.small{ padding:6px 12px; font-size:12.5px; }
           : "<span>" + esc(val) + "</span>";
       } else {
         b.classList.add("is-word");
-        b.innerHTML = "<span>" + esc(val) + "</span>";
+        b.innerHTML = '<span class="opt-main">' + esc(val) + "</span>";
+        /* 释义行先渲染、由 CSS 藏着，答完由 quizLock 加 .show-gloss 才亮（2026-10-26） */
+        if (o.gloss) {
+          var gs = document.createElement("span");
+          gs.className = "opt-gloss";
+          gs.textContent = o.gloss;
+          b.appendChild(gs);
+        }
       }
       b.addEventListener("click", function () { quizAnswer(b, val); });
       box.appendChild(b);
@@ -3302,6 +3410,7 @@ button.small{ padding:6px 12px; font-size:12.5px; }
     var kids = $("quizOptions").children;
     for (var i = 0; i < kids.length; i++) {
       kids[i].disabled = true;
+      kids[i].classList.add("show-gloss");   /* 答完才亮释义行（2026-10-26） */
       if (kids[i].getAttribute("data-opt") === state.quizCorrect) kids[i].classList.add("ok");
     }
     $("quizRevealBtn").classList.add("hidden");
@@ -3318,13 +3427,15 @@ button.small{ padding:6px 12px; font-size:12.5px; }
       text: state.quizItem.text, meaning: state.quizItem.meaning, answer: chosen, ok: ok
     });
     renderTypeProgress();
-    try { $("quizNextBtn").focus(); } catch (e) {}
+    /* preventScroll：答完把焦点给「下一题」以便回车继续，但别让页面滚走 ——
+       手机宽度下选项加了释义行，focus 默认滚动会把题干顶出屏幕（2026-10-26） */
+    try { $("quizNextBtn").focus({ preventScroll: true }); } catch (e) {}
     clearTimeout(quizTimer);
     var _gQuiz = state.gen;
     quizTimer = setTimeout(function () {
       if (_gQuiz !== state.gen) return;   /* 旧会话的「自动下一题」：期间切过日期就作废 */
       quizNext();
-    }, ok ? 800 : 1400);   /* 节奏：批次 B 改成「对 2400 / 错 3000」，给释义行留阅读时间 */
+    }, ok ? 2400 : 3000);   /* 2026-10-26：答完要留时间读四个选项的释义，对 2.4s / 错 3.0s（手动「下一题」随时可点） */
   }
 
   /* 看答案：直接亮正确项，这一题记为没答出来（不算"错"，但也不计入答对） */
