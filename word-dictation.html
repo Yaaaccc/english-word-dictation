@@ -3255,9 +3255,7 @@ button.small{ padding:6px 12px; font-size:12.5px; }
     renderTypeProgress();
     try { $("quizNextBtn").focus(); } catch (e) {}
     clearTimeout(quizTimer);
-    /* 答后显示当前词的例句/官方笔记/词族（2026-10-26 修）：自动跳题改为手动点「下一个」/Enter，
-       否则笔记只闪 0.8-1.4 秒根本看不了。节奏与逐个听写模式一致。 */
-    setExamplePanel(state.quizItem);
+    quizTimer = setTimeout(quizNext, ok ? 800 : 1400);   /* 2026-10-26 恢复原节奏（Yac 拍板：quiz 笔记块答题时隐藏） */
   }
 
   /* 看答案：直接亮正确项，这一题记为没答出来（不算"错"，但也不计入答对） */
@@ -3269,7 +3267,6 @@ button.small{ padding:6px 12px; font-size:12.5px; }
       text: state.quizItem.text, meaning: state.quizItem.meaning, answer: "（看答案）", ok: false
     });
     renderTypeProgress();
-    setExamplePanel(state.quizItem);   /* 看答案后笔记/词族跟着出现（2026-10-26 修） */
   }
 
   function quizNext() {
