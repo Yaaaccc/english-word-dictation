@@ -839,6 +839,19 @@ html:not([data-nav]) #idleView:not(.hidden){ animation:stageRise .35s cubic-bezi
 .kbd-item{ display:flex; align-items:center; gap:9px; font-size:12px; color:var(--muted); }
 .kbd-item .keys{ flex:none; display:flex; gap:3px; align-items:center; min-width:92px; }
 
+/* —— 艾宾浩斯今日任务卡（2026-10-26 加）—— */
+.ebing-head{ font-size:12px; color:var(--muted-2); margin:0 0 9px; }
+.ebing-head b{ color:var(--ink-2); font-size:13px; }
+.ebing-row{
+  display:flex; align-items:center; gap:9px; border-radius:9px;
+  padding:8px 11px; margin:0 0 6px; font-size:12.5px; color:#2A2A2E;
+}
+.ebing-row .no{ font-weight:700; width:14px; flex:none; }
+.ebing-row .tx{ flex:1; font-weight:600; min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.ebing-row .lb{ flex:none; font-size:11px; opacity:.72; font-weight:600; }
+.ebing-row.empty{ background:var(--soft-2); color:var(--muted-2); justify-content:center; }
+.ebing-idle{ font-size:12.5px; color:var(--muted); line-height:1.7; padding:2px 0 4px; }
+
 /* ============================================================
    5. 查义小卡（实底白 + 弹簧）
    ============================================================ */
@@ -1770,6 +1783,15 @@ button.small{ padding:6px 12px; font-size:12.5px; }
         <b>建议流程：</b>开始连播 → 听写在纸上 → 没听清按 <kbd>R</kbd> 重播、卡住时按 <kbd>X</kbd> 听例句 → 全部过完再回来看例句卡逐词核对。
       </div>
     </aside>
+
+    <!-- 2026-10-26 加：艾宾浩斯今日任务卡（数据来自 calendar/calendar.json，加载失败自动隐藏） -->
+    <div id="ebingCard" class="tools-card glass hidden">
+      <h4>今日任务 · 艾宾浩斯</h4>
+      <div id="ebingHead" class="ebing-head"></div>
+      <div id="ebingRows"></div>
+      <div id="ebingStrip" class="tip hidden"></div>
+      <div class="tip" style="margin-top:8px"><b>完整计划：</b>点 Dock 里的 📅 图标可查看全部 45 天。</div>
+    </div>
     </aside>
   </main>
 
@@ -6868,6 +6890,66 @@ button.small{ padding:6px 12px; font-size:12.5px; }
   /* ---------- 5.5b 艾宾浩斯日历入口（2026-10-26 加）：Dock 链接 → 独立页。
      入口是原生 <a href="calendar/index.html" target="_blank">（#calOpen），
      导航行为由浏览器保证，无需 JS 绑定。 ---------- */
+
+  /* ---------- 5.5c 艾宾浩斯今日任务卡（2026-10-26 加） ----------
+     读 calendar/calendar.json，把「今天要做哪几件事」渲染成卡片，
+     放在例句卡 / 快捷键卡下面。数据失败或没有今天时整卡隐藏，不碍事。 */
+  (function () {
+    var card = document.getElementById("ebingCard");
+    if (!card) return;
+    var COLORS = {1:"#F5DE8F",2:"#F08CAD",3:"#F5B366",4:"#99D18C",5:"#94B8ED",6:"#CCC2E6"};
+    var ROUND  = {1:"学新",2:"复+1",3:"复+3",4:"复+6",5:"复+15",6:"错词"};
+    function pad(n){ return (n<10?"0":"")+n; }
+    var d = new Date();
+    var todayStr = d.getFullYear()+"-"+pad(d.getMonth()+1)+"-"+pad(d.getDate());
+    function esc(s){ return String(s).replace(/[&<>"]/g, function(c){
+      return {"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"}[c]; }); }
+    fetch("calendar/calendar.json?ts=" + Date.now(), { cache: "no-store" })
+      .then(function (r) {
+        if (!r.ok) throw new Error("HTTP " + r.status);
+        return r.json();
+      })
+      .then(function (data) {
+        var byDate = {};
+        (data.days || []).forEach(function (e) { byDate[e.date] = e; });
+        var today = byDate[todayStr];
+        var head = document.getElementById("ebingHead");
+        var rows = document.getElementById("ebingRows");
+        var strip = document.getElementById("ebingStrip");
+        var html = "", headTxt = "";
+        if (!today) {
+          headTxt = "";
+          html = '<div class="ebing-idle">今天没有艾宾浩斯计划安排。</div>';
+        } else if (today.type === "rest") {
+          headTxt = "<b>" + esc(today.md) + "</b> · 完全休息";
+          html = '<div class="ebing-idle">今天是休息日，什么都不用做，整套计划已自动顺延。</div>';
+        } else if (today.type === "light") {
+          headTxt = "<b>" + esc(today.md) + "</b> · 轻休";
+          html = '<div class="ebing-idle">不学新课，花几分钟回看「' + esc(today.lookback || "最近学的那一课") + "」就行。</div>";
+        } else {
+          var k = today.k, total = data.total_days;
+          var tag = k > total ? "续册收尾" : (today.review_day ? "收尾复习" : "第 " + k + " 天");
+          headTxt = "<b>" + esc(today.md) + "</b> · " + tag;
+          today.rows.forEach(function (r, i) {
+            if (r.color == null) return;
+            html += '<div class="ebing-row" style="background:' + COLORS[r.color] + '">' +
+              '<span class="no">' + (i + 1) + '</span>' +
+              '<span class="tx">' + esc(r.text) + '</span>' +
+              '<span class="lb">' + ROUND[r.color] + " · 第" + r.label + "遍</span></div>";
+          });
+          if (data.sameday) {
+            strip.classList.remove("hidden");
+            strip.innerHTML = "<b>睡前回看：</b>今天主课再过一遍" + (today.review_day ? "（本日无新课）" : "") + "。";
+          }
+        }
+        head.innerHTML = headTxt;
+        rows.innerHTML = html;
+        card.classList.remove("hidden");
+      })
+      .catch(function (e) {
+        if (window.console && console.warn) console.warn("[艾宾浩斯卡] 数据未加载，卡片保持隐藏：", e);
+      });
+  })();
 
   /* ---------- 5.6 长篇阅读层（列表 / 阅读页 / 点句译 / 划选译 / 目标词高亮 / 已读） ---------- */
   (function () {
