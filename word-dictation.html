@@ -3250,7 +3250,18 @@ button.small{ padding:6px 12px; font-size:12.5px; }
     renderTypeProgress();
   }
 
+  /* 一轮练完 → 自动勾任务卡里「当前日期」对应那一项（2026-10-27 加）
+     三种模式（连播 / 打字 / 四选一）任一走到完成都会调到这里；
+     具体勾哪一行由 tail 里的 __ebingAutoTick 按日期文字匹配。 */
+  function autoTickAfterRound() {
+    try {
+      var ds = $("dateSelect");
+      if (ds && ds.value && window.__ebingAutoTick) window.__ebingAutoTick(ds.value);
+    } catch (e) {}
+  }
+
   function finishType() {
+    autoTickAfterRound();
     state.running = false;
     stopSpeech();
     var ok = state.results.filter(function (r) { return r.ok; }).length;
@@ -3717,6 +3728,7 @@ button.small{ padding:6px 12px; font-size:12.5px; }
   }
 
   function finishPlay() {
+    autoTickAfterRound();
     state.running = false;
     stopSpeech();
     clearTimeout(playTimer);
@@ -7602,10 +7614,43 @@ button.small{ padding:6px 12px; font-size:12.5px; }
       if (remote === null) return;          /* 读失败：保持 pulledOk=false，点击时会补一次 */
       pulledOk = true;
       if (!remote || !Object.keys(remote).length) return;
-      if (isLocalHost()) mergeRemote(remote);
-      else saveDone(remote);
+      /* 两端都 merge（2026-10-27 改）：手机端原先直接 saveDone(remote) 覆盖本地，
+         会把「本机自动打勾」的项冲掉（它没写云端，云端里没有）。*/
+      mergeRemote(remote);
       render();
     });
+
+    /* 自动打勾（2026-10-27）：练完某一天的词表，就把任务卡里**那一天对应的行**勾上。
+       例：练完 10-27 的词 → 勾「10月27日」那行；练完 10-26 → 勾「10月26日」那行。
+       有写权限（本地服务 / 已配令牌）才同步云端；否则只记在本机浏览器，本机可见。 */
+    window.__ebingAutoTick = function (dateKey) {
+      if (!dateKey || !lastData) return false;
+      var today = todayEntry(lastData);
+      if (!today || !today.rows) return false;
+      var dstr = String(dateKey);
+      var m2 = /^(\d{4})-(\d{2})-(\d{2})$/.exec(dstr);
+      if (!m2) return false;
+      var label = Number(m2[2]) + "月" + Number(m2[3]) + "日";
+      var idx = -1;
+      today.rows.forEach(function (r, i) {
+        if (r.color == null) return;
+        if (String(r.text || "").indexOf(label) >= 0) idx = i;
+      });
+      if (idx < 0) return false;                 /* 这一天不在今日任务里，不勾 */
+      var m = loadDone();
+      if (!m[todayStr]) m[todayStr] = {};
+      if (m[todayStr][idx]) return false;        /* 已经勾过：不重复提示 */
+      m[todayStr][idx] = true;
+      saveDone(m);
+      render();
+      if (canWrite()) {
+        ebingPush(m).then(function (ok) {
+          if (!ok && window.__dictationToast) window.__dictationToast("已勾选「" + label + "」，但没同步到云端");
+        });
+      }
+      if (window.__dictationToast) window.__dictationToast("已自动勾选「" + label + "」那一项");
+      return true;
+    };
 
     /* 日历页在别的标签页里勾了 → 这里跟着刷新 */
     window.addEventListener("storage", function (ev) {
