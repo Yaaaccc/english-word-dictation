@@ -4461,6 +4461,23 @@ button.small{ padding:6px 12px; font-size:12.5px; }
   }
   window.__closeSheets = closeSheets;
 
+  /* 点面板外面就关掉（2026-10-27 用户要求）——
+     面板内部、Dock 上的入口按钮都不算「外面」：
+       · 面板内部（.glass-sheet 里）点按钮/输入框不该关；
+       · 入口按钮自己带 toggle，先关再 toggle 会变成「关了又开」。
+     iframe（日历）里的点击不会冒泡到父文档，所以在日历卡片里操作不会误关。 */
+  document.addEventListener("click", function (e) {
+    var t = e.target;
+    if (!t || !t.closest) return;
+    if (t.closest(".glass-sheet")) return;
+    if (t.closest("#settingsToggle, #statsToggle, #planToggle, #calOpen, #readToggle, #bgToggle")) return;
+    var anyOpen = ["settingsPanel", "statsPanel", "planPanel", "calPanel", "readSheet", "readView", "bgPanel"].some(function (id) {
+      var el = document.getElementById(id);
+      return !!(el && !el.classList.contains("hidden"));
+    });
+    if (anyOpen) closeSheets();
+  });
+
   /* ---------- 供「学习记录层」调用的只读接口 ----------
      记录层是一段独立的附加脚本，拿不到这里的 state，
      所以在这里开一扇小窗：只暴露"读当前状态"和两个小动作（跳转 / 暂停切换）。
