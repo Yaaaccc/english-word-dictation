@@ -6370,7 +6370,9 @@ button.small{ padding:6px 12px; font-size:12.5px; }
       }
       up.className = cls;
       up.textContent = st;
-      up.title = tip + " · 点一下核对云端";
+      up.title = tip;
+      if (isLocalHost()) up.title += " · 点一下核对云端";
+      else up.disabled = true;          /* 线上没有本地服务，点不了核对 */
       up.setAttribute("data-check", date);
       row.appendChild(lab); row.appendChild(inp); row.appendChild(tag); row.appendChild(up);
       box.appendChild(row);
@@ -6379,15 +6381,33 @@ button.small{ padding:6px 12px; font-size:12.5px; }
   /* 读「上传记录.json」→ 每行标已上传（2026-10-27 加）。
      手机线上没有本地服务，读不到就保持原样（不显示假状态）。 */
   async function planLoadUploaded() {
-    if (!isLocalHost()) return;
     try {
-      var r = await fetch("/api/uploaded-dates", { cache: "no-store" });
-      if (!r.ok) return;
-      var j = await r.json();
-      if (j && j.ok) {
-        planUploaded = j.dates || {};
-        planRender();
+      if (isLocalHost()) {
+        var r = await fetch("/api/uploaded-dates", { cache: "no-store" });
+        if (!r.ok) return;
+        var j = await r.json();
+        if (j && j.ok) { planUploaded = j.dates || {}; planRender(); }
+        return;
       }
+      /* 线上（手机）：本地服务不存在，读仓库里的 uploads.json ——
+         本地每次读上传记录时会把最新一份推上去（2026-10-27）。
+         不读的话线上会一律显示「未上传」，比不显示更误导（用户实测反馈）。 */
+      try {
+        var a = await fetch("https://api.github.com/repos/Yaaaccc/english-word-dictation/contents/uploads.json?t=" + Date.now(), {
+          headers: { "User-Agent": "dictation-web" }, cache: "no-store"
+        });
+        if (a.ok) {
+          var jj = await a.json();
+          var rawb = atob(String(jj.content || "").replace(/\s/g, ""));
+          var bytes = new Uint8Array(rawb.length);
+          for (var i = 0; i < rawb.length; i++) bytes[i] = rawb.charCodeAt(i);
+          planUploaded = JSON.parse(new TextDecoder("utf-8").decode(bytes)) || {};
+          planRender();
+          return;
+        }
+      } catch (e2) {}
+      var r2 = await fetch("uploads.json?ts=" + Date.now(), { cache: "no-store" });
+      if (r2.ok) { planUploaded = (await r2.json()) || {}; planRender(); }
     } catch (e) {}
   }
   /* 云端核对（2026-10-27 加）：一个一个排队跑 —— 底层要开无头浏览器连 Edge 调试端口，
@@ -6395,6 +6415,7 @@ button.small{ padding:6px 12px; font-size:12.5px; }
   var checkQueue = [];
   var checkingNow = false;
   function planCheckDate(date, opts) {
+    if (!isLocalHost()) return;       /* 云端核对要本地服务，线上点了也没用 */
     opts = opts || {};
     var ck = planChecked[date];
     if (!opts.force && ck && Date.now() - (ck.at || 0) < 10 * 60 * 1000) return;
