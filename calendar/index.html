@@ -129,10 +129,69 @@ const loadDone = () => { try { return JSON.parse(localStorage.getItem(K_DONE) ||
 const saveDone = m => { try { localStorage.setItem(K_DONE, JSON.stringify(m)); } catch (e) {} };
 const isDone = (date, idx) => { const m = loadDone(); return !!(m[date] && m[date][idx]); };
 
+/* ---- 跨设备同步（2026-10-27）：电脑上勾 → 推 ebing-done.json；手机线上只读 ---- */
+const EBING_REPO = 'Yaaaccc/english-word-dictation';
+const EBING_FILE = 'ebing-done.json';
+const TOKEN_KEY = 'dictationPlanToken';
+const isLocalHost = () => {
+  const h = location.hostname;
+  return h === '127.0.0.1' || h === 'localhost' ||
+    /^192\.168\./.test(h) || /^10\./.test(h) || /^172\.(1[6-9]|2\d|3[01])\./.test(h);
+};
+const ghToken = () => { try { return localStorage.getItem(TOKEN_KEY) || ''; } catch (e) { return ''; } };
+const canWrite = () => isLocalHost() || !!ghToken();
+async function ebingPull(){
+  try{
+    if(isLocalHost()){
+      const r = await fetch('/api/ebing-done?ts=' + Date.now(), { cache:'no-store' });
+      if(!r.ok) return null;
+      return await r.json();
+    }
+    const r2 = await fetch(EBING_FILE + '?ts=' + Date.now(), { cache:'no-store' });
+    if(!r2.ok) return null;
+    return await r2.json();
+  }catch(e){ return null; }
+}
+function mergeRemote(remote){
+  if(!remote || typeof remote !== 'object') return;
+  const m = loadDone();
+  Object.keys(remote).forEach(date=>{
+    if(!m[date] || typeof m[date] !== 'object') m[date] = {};
+    Object.keys(remote[date] || {}).forEach(idx=>{ if(remote[date][idx]) m[date][idx] = true; });
+  });
+  saveDone(m);
+}
+async function ebingPush(map){
+  const text = JSON.stringify(map);
+  try{
+    if(isLocalHost()){
+      const r = await fetch('/api/ebing-done', { method:'POST', headers:{'Content-Type':'application/json'}, body:text });
+      if(!r.ok) throw new Error('本地服务 ' + r.status);
+      return true;
+    }
+    const tk = ghToken();
+    if(!tk) return false;
+    const url = 'https://api.github.com/repos/' + EBING_REPO + '/contents/' + EBING_FILE;
+    const g = await fetch(url, { headers:{ Authorization:'Bearer ' + tk }, cache:'no-store' });
+    const sha = g.ok ? ((await g.json()).sha || '') : '';
+    const put = await fetch(url, {
+      method:'PUT',
+      headers:{ Authorization:'Bearer ' + tk, 'Content-Type':'application/json' },
+      body: JSON.stringify({
+        message:'更新艾宾浩斯勾选（日历页）',
+        content: btoa(unescape(encodeURIComponent(text))),
+        sha: sha || undefined
+      })
+    });
+    return put.ok;
+  }catch(e){ console.warn('[艾宾浩斯] 同步失败：', e); return false; }
+}
+
 function render(data){
   curData = data;
   document.getElementById('meta').textContent =
-    '起算 ' + data.start + ' · 共 ' + data.total_days + ' 课（学习日制） · 数据生成于 ' + data.generated_at;
+    '起算 ' + data.start + ' · 共 ' + data.total_days + ' 课（学习日制） · 数据生成于 ' + data.generated_at +
+    (canWrite() ? '' : ' · 手机上只读（勾选请在电脑上做）');
   document.getElementById('lgWrong').style.display = (data.wrong_day != null) ? '' : 'none';
   const byDate = {}; data.days.forEach(d=>byDate[d.date]=d);
   const today = byDate[todayStr];
@@ -220,15 +279,40 @@ function render(data){
 }
 
 /* ---- 点击任意一行切换勾选；另一标签页（如听写页）改动经 storage 回流 ---- */
-document.addEventListener('click', ev=>{
+let syncBusy = false;
+let pulledOk = false;      /* 加载时已成功读到云端 → 点击不必再等一次网络 */
+document.addEventListener('click', async ev=>{
   const el = ev.target.closest('[data-date][data-idx]');
   if(!el || !curData) return;
-  const dt = el.getAttribute('data-date'), idx = el.getAttribute('data-idx');
-  const m = loadDone();
-  if(!m[dt]) m[dt] = {};
-  m[dt][idx] = !m[dt][idx];
-  saveDone(m);
-  render(curData);
+  if(!canWrite()) return;                       /* 手机只读（2026-10-27） */
+  if(syncBusy) return;
+  syncBusy = true;
+  try{
+    /* 只有「加载时没读到云端」才补一次：新浏览器/清过缓存时本地为空，
+       直接改会把云端记录冲掉。正常情况直接响应。 */
+    if(!pulledOk){
+      const remote = await ebingPull();
+      if(remote === null){ console.warn('[艾宾浩斯] 没读到云端记录，这次先不勾'); return; }
+      pulledOk = true;
+      mergeRemote(remote);
+    }
+    const dt = el.getAttribute('data-date'), idx = el.getAttribute('data-idx');
+    const m = loadDone();
+    if(!m[dt]) m[dt] = {};
+    m[dt][idx] = !m[dt][idx];
+    saveDone(m);
+    render(curData);
+    await ebingPush(m);
+  }finally{ syncBusy = false; }
+});
+
+/* 拉云端勾选：手机以云端为准；电脑本地与云端合并 */
+ebingPull().then(remote=>{
+  if(remote === null) return;
+  pulledOk = true;
+  if(!remote || !Object.keys(remote).length) return;
+  if(isLocalHost()) mergeRemote(remote); else saveDone(remote);
+  if(curData) render(curData);
 });
 window.addEventListener('storage', ev=>{
   if(ev.key === K_DONE && curData) render(curData);
