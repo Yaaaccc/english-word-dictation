@@ -4834,7 +4834,9 @@ button.small{ padding:6px 12px; font-size:12.5px; }
       for (var i = 0; i < c.length; i++) {
         if (dict[c[i]]) return { entry: dict[c[i]] };
       }
-      return fetchDictApi(key).then(function (e2) { return { entry: e2 }; });
+      /* 传给词典接口时保留原词大小写：库里专有名词存的是 American / UK / DNA，
+         一律转小写会让它们全都查不到（2026-10-27 修）。 */
+      return fetchDictApi(String(w || key)).then(function (e2) { return { entry: e2 }; });
     });
   }
 
