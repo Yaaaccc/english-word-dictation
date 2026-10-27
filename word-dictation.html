@@ -4831,7 +4831,15 @@ button.small{ padding:6px 12px; font-size:12.5px; }
         EXAMPLE_DICT = (d && typeof d === "object") ? d : {};
         return EXAMPLE_DICT;
       })
-      .catch(function () { EXAMPLE_DICT = {}; return EXAMPLE_DICT; });
+      .catch(function () {
+        /* ⚠ 失败不能把空对象缓存住（2026-10-27 修）：原先这里写 EXAMPLE_DICT = {}，
+           之后 `if (EXAMPLE_DICT) return ...` 直接命中，**整个会话所有词都「未收录」**，
+           只有刷新页面才能恢复。用户点 split 查不到就是这个原因（词典里其实有）。
+           这里清回 null，下一次点词会重新拉一次。 */
+        EXAMPLE_DICT = null;
+        exampleDictPromise = null;
+        return {};
+      });
     return exampleDictPromise;
   }
 
