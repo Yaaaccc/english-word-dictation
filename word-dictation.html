@@ -1997,6 +1997,16 @@ button.small{ padding:6px 12px; font-size:12.5px; }
             </select>
           </div>
           <div>
+            <label>四选一答完停留（秒）</label>
+            <div class="row" style="gap:6px;">
+              <input type="number" id="quizStayOk" min="0" max="10" step="0.2" value="2.4"
+                     style="width:100%;text-align:center;" aria-label="答对后停留秒数" title="答对后停留（秒）">
+              <input type="number" id="quizStayBad" min="0" max="10" step="0.2" value="3"
+                     style="width:100%;text-align:center;" aria-label="答错后停留秒数" title="答错后停留（秒）">
+            </div>
+            <div class="hint" style="margin-top:4px;font-size:11px;">左＝答对 / 右＝答错；填 0 表示不自动跳（手动点「下一题」）</div>
+          </div>
+          <div>
             <label for="exampleVoiceSelect">例句发音</label>
             <select id="exampleVoiceSelect" style="width:100%;">
               <option value="natural" selected>自然音色（默认）</option>
@@ -3538,10 +3548,19 @@ button.small{ padding:6px 12px; font-size:12.5px; }
     try { $("quizNextBtn").focus({ preventScroll: true }); } catch (e) {}
     clearTimeout(quizTimer);
     var _gQuiz = state.gen;
-    quizTimer = setTimeout(function () {
-      if (_gQuiz !== state.gen) return;   /* 旧会话的「自动下一题」：期间切过日期就作废 */
-      quizNext();
-    }, ok ? 2400 : 3000);   /* 2026-10-26：答完要留时间读四个选项的释义，对 2.4s / 错 3.0s（手动「下一题」随时可点） */
+    /* 停留时长可在「设置」里改（2026-10-27）：左=答对、右=答错，填 0 = 不自动跳。
+       没配过就用原来的 2.4s / 3.0s。 */
+    var _stayOk = parseFloat(localStorage.getItem("dictationQuizStayOk"));
+    var _stayBad = parseFloat(localStorage.getItem("dictationQuizStayBad"));
+    if (!isFinite(_stayOk)) _stayOk = 2.4;
+    if (!isFinite(_stayBad)) _stayBad = 3;
+    var _stay = ok ? _stayOk : _stayBad;
+    if (_stay > 0) {
+      quizTimer = setTimeout(function () {
+        if (_gQuiz !== state.gen) return;   /* 旧会话的「自动下一题」：期间切过日期就作废 */
+        quizNext();
+      }, _stay * 1000);
+    }
   }
 
   /* 看答案：直接亮正确项，这一题记为没答出来（不算"错"，但也不计入答对） */
@@ -3914,12 +3933,22 @@ button.small{ padding:6px 12px; font-size:12.5px; }
       localStorage.setItem("dictationDirection", directionSelect.value);
       localStorage.setItem("dictationZhVoice", zhVoiceSelect.value);
       localStorage.setItem("dictationAutoExample", $("autoExampleBox").checked ? "1" : "0");
+      if ($("quizStayOk")) localStorage.setItem("dictationQuizStayOk", $("quizStayOk").value);
+      if ($("quizStayBad")) localStorage.setItem("dictationQuizStayBad", $("quizStayBad").value);
       $("startError").textContent = "";
       saveBtn.textContent = "已保存 ✓";
       setTimeout(function () { saveBtn.textContent = "保存单词表"; }, 1200);
     } catch (e) {
       $("startError").textContent = "保存失败：" + e.message;
     }
+  });
+
+  /* 四选一停留时长：改完立刻生效，不必再点「保存单词表」（2026-10-27） */
+  if ($("quizStayOk")) $("quizStayOk").addEventListener("change", function () {
+    try { localStorage.setItem("dictationQuizStayOk", this.value); } catch (e) {}
+  });
+  if ($("quizStayBad")) $("quizStayBad").addEventListener("change", function () {
+    try { localStorage.setItem("dictationQuizStayBad", this.value); } catch (e) {}
   });
 
   $("sampleBtn").addEventListener("click", function () {
@@ -4593,6 +4622,8 @@ button.small{ padding:6px 12px; font-size:12.5px; }
     if (localStorage.getItem("dictationDirection")) directionSelect.value = localStorage.getItem("dictationDirection");
     if (localStorage.getItem("dictationExampleVoice")) $("exampleVoiceSelect").value = localStorage.getItem("dictationExampleVoice");
     $("autoExampleBox").checked = localStorage.getItem("dictationAutoExample") === "1";
+    if ($("quizStayOk") && localStorage.getItem("dictationQuizStayOk")) $("quizStayOk").value = localStorage.getItem("dictationQuizStayOk");
+    if ($("quizStayBad") && localStorage.getItem("dictationQuizStayBad")) $("quizStayBad").value = localStorage.getItem("dictationQuizStayBad");
   } catch (e) { /* 忽略存储错误 */ }
   /* 语速恢复（2026-10-15）：老数据里只有一条 dictationRate（0.7 / 1 / 1.25 三选一）。
      第一次打开新版时，把这条旧值**同时**灌给两个滑块，用户不会觉得语速"被改回去了"；
