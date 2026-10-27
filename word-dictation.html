@@ -4163,9 +4163,7 @@ button.small{ padding:6px 12px; font-size:12.5px; }
   /* Dock 的 📅 → 页面内卡片（2026-10-27 改：原来 target=_blank 跳独立页） */
   function openCalPanel() {
     var p = $("calPanel"); if (!p) return;
-    ["settingsPanel", "statsPanel", "planPanel"].forEach(function (id) {
-      var el = $(id); if (el) el.classList.add("hidden");
-    });
+    closeSheets("calPanel");
     var f = $("calFrame");
     if (f && (!f.getAttribute("src") || f.getAttribute("src") === "about:blank")) {
       f.setAttribute("src", "calendar/index.html?embed=1");
@@ -4449,6 +4447,20 @@ button.small{ padding:6px 12px; font-size:12.5px; }
     showOnly("idleView");
   });
 
+  /* 统一「打开一个面板就把其他收起」（2026-10-27 加）
+     原先每个入口只关自己认识的那两三个：点开长篇阅读再点日历，日历会被压在阅读层
+     下面（用户实测），设置/统计/背景之间也有同样问题。所有入口统一走这里。
+     keep 可以是 id 字符串或数组（阅读层要同时保留 readSheet / readView）。 */
+  function closeSheets(keep) {
+    var keepList = Array.isArray(keep) ? keep : (keep ? [keep] : []);
+    ["settingsPanel", "statsPanel", "planPanel", "calPanel", "readSheet", "readView", "bgPanel"].forEach(function (id) {
+      if (keepList.indexOf(id) >= 0) return;
+      var el = document.getElementById(id);
+      if (el) el.classList.add("hidden");
+    });
+  }
+  window.__closeSheets = closeSheets;
+
   /* ---------- 供「学习记录层」调用的只读接口 ----------
      记录层是一段独立的附加脚本，拿不到这里的 state，
      所以在这里开一扇小窗：只暴露"读当前状态"和两个小动作（跳转 / 暂停切换）。
@@ -4573,11 +4585,8 @@ button.small{ padding:6px 12px; font-size:12.5px; }
   var btn = document.getElementById("settingsToggle");
   btn.addEventListener("click", function () {
     var willOpen = panel.classList.contains("hidden");
+    if (willOpen && window.__closeSheets) window.__closeSheets("settingsPanel");
     panel.classList.toggle("hidden");
-    if (willOpen) {   /* 开设置就把日历卡片收起来（2026-10-27） */
-      var cp = document.getElementById("calPanel");
-      if (cp) cp.classList.add("hidden");
-    }
   });
 })();
 </script>
@@ -6628,6 +6637,7 @@ button.small{ padding:6px 12px; font-size:12.5px; }
         var p = $("planPanel");
         if (!p) return;
         var willOpen = p.classList.contains("hidden");
+        if (willOpen && window.__closeSheets) window.__closeSheets("planPanel");
         p.classList.toggle("hidden");
         if (willOpen) {
           if ($("statsPanel")) $("statsPanel").classList.add("hidden");
@@ -6683,6 +6693,7 @@ button.small{ padding:6px 12px; font-size:12.5px; }
     if (!btn || !panel) return;
     btn.addEventListener("click", function () {
       var willOpen = panel.classList.contains("hidden");
+      if (willOpen && window.__closeSheets) window.__closeSheets("statsPanel");
       panel.classList.toggle("hidden");
       if (willOpen) {
         if (setP) setP.classList.add("hidden");
@@ -7158,7 +7169,12 @@ button.small{ padding:6px 12px; font-size:12.5px; }
     window.addEventListener("online", function () { healWallpaper(0); });
 
     /* 面板开关（点外部 / Esc 收起） */
-    T.addEventListener("click", function (e) { e.stopPropagation(); P.classList.toggle("hidden"); });
+    T.addEventListener("click", function (e) {
+      e.stopPropagation();
+      /* 开背景面板也先收其他（2026-10-27 统一面板互斥） */
+      if (P.classList.contains("hidden") && window.__closeSheets) window.__closeSheets("bgPanel");
+      P.classList.toggle("hidden");
+    });
     P.addEventListener("click", function (e) { e.stopPropagation(); });
     document.addEventListener("click", function () { P.classList.add("hidden"); });
     document.addEventListener("keydown", function (e) { if (e.key === "Escape") P.classList.add("hidden"); });
@@ -7899,6 +7915,8 @@ button.small{ padding:6px 12px; font-size:12.5px; }
     rT.addEventListener("click", function (e) {
       e.stopPropagation();
       var willOpen = rS.classList.contains("hidden");
+      /* 打开阅读层前先把其他面板收起（阅读层自己是 readSheet + readView 两个节点） */
+      if (willOpen && window.__closeSheets) window.__closeSheets(["readSheet", "readView"]);
       rS.classList.toggle("hidden");
       if (!willOpen) return;
       rV.classList.add("hidden"); hideTrans();
