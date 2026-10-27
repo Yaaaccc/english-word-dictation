@@ -17,6 +17,9 @@ body{
   background:#F4F3F7;color:var(--txt);padding:14px 12px 40px;
   max-width:1080px;margin:0 auto;
 }
+/* 嵌进听写页的玻璃卡片时（?embed=1）：去掉自己的底色和页头标题，只留内容（2026-10-27） */
+body.embed{ background:transparent; padding:2px 2px 18px; max-width:none; }
+body.embed h1{ display:none; }
 h1{font-size:19px;display:flex;align-items:center;gap:8px;margin:4px 2px 2px}
 h1 .dot{width:10px;height:10px;border-radius:3px;background:var(--purple);display:inline-block}
 .meta{font-size:12px;color:var(--sub);margin:4px 2px 14px}
@@ -106,6 +109,8 @@ h1 .dot{width:10px;height:10px;border-radius:3px;background:var(--purple);displa
 </div>
 
 <script>
+/* 嵌在听写页卡片里时（?embed=1）隐藏页头、背景透明（2026-10-27） */
+if (location.search.indexOf('embed') >= 0) document.body.classList.add('embed');
 window.__jsErrors = [];
 window.addEventListener('error', function(e){ window.__jsErrors.push(e.message || 'unknown'); });
 const COLORS = {1:'#F5DE8F',2:'#F08CAD',3:'#F5B366',4:'#99D18C',5:'#94B8ED',6:'#CCC2E6'};
