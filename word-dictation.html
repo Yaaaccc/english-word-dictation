@@ -4828,7 +4828,11 @@ button.small{ padding:6px 12px; font-size:12.5px; }
     if (EXAMPLE_DICT) return Promise.resolve(EXAMPLE_DICT);
     if (exampleDictPromise) return exampleDictPromise;
     var _dd = new Date(), DAY = "" + _dd.getFullYear() + ("0" + (_dd.getMonth() + 1)).slice(-2) + ("0" + _dd.getDate()).slice(-2);
-    exampleDictPromise = fetch("example-dict.json?d=" + DAY, { cache: "force-cache", priority: "low" })
+    /* 词典内容版本（2026-10-27 加）：sw.js 对带 d=/v= 数字参数的数据文件是「缓存优先」，
+       同一天里重新生成词典时，光改日期不会刷新。**每次重建 example-dict.json 就把这个数字 +1**，
+       URL 变了才会绕过当天缓存（SW 的正则只认纯数字，别写 1027b 这种）。 */
+    var DICT_VER = 2;
+    exampleDictPromise = fetch("example-dict.json?d=" + DAY + "&v=" + DICT_VER, { cache: "force-cache", priority: "low" })
       .then(function (r) { return r.ok ? r.json() : {}; })
       .then(function (d) {
         EXAMPLE_DICT = (d && typeof d === "object") ? d : {};
