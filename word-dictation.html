@@ -895,11 +895,13 @@ html:not([data-nav]) #idleView:not(.hidden){ animation:stageRise .35s cubic-bezi
 #ebingStrip.done .ck::after{ content:"✓"; }
 #ebingStrip.done b{ text-decoration:line-through; opacity:.55; }
 /* 手机只读态（2026-10-27）：勾选框淡化 + 底部一句说明 */
-#ebingCard.readonly .ebing-row{ cursor:default; }
+/* 仅本机态（2026-10-27）：能勾，但不会同步到其他设备。
+   刚改口径：不再禁止点击 —— 自动勾能写本地，手动点击若只读就会「勾上取消不掉」。 */
+#ebingCard.readonly .ebing-row{ cursor:pointer; }
 #ebingCard.readonly .ebing-row .ck,
-#ebingCard.readonly #ebingStrip .ck{ opacity:.45; }
+#ebingCard.readonly #ebingStrip .ck{ opacity:1; }
 #ebingCard.readonly::after{
-  content:"只读 · 想在这台设备上直接勾：打开 Dock 的「学习计划 → 配置同步」，填一次 GitHub 令牌即可";
+  content:"仅本机 · 勾选不会同步到其他设备（在「学习计划 → 配置同步」填一次令牌即可跨设备）";
   display:block; margin-top:8px; font-size:11px; line-height:1.5; color:var(--muted-2);
 }
 /* ============================================================
@@ -7581,10 +7583,9 @@ button.small{ padding:6px 12px; font-size:12.5px; }
     card.addEventListener("click", async function (ev) {
       var el = ev.target.closest("[data-idx]");
       if (!el || !lastData) return;
-      if (!canWrite()) {
-        toast("只读：打开 Dock 的「学习计划 → 配置同步」填一次令牌，之后就能在这台设备上勾");
-        return;
-      }
+      /* 不再因为「没配令牌」而拒绝点击（2026-10-27 改）：
+         自动打勾已经能写本地，若手动点击却只读，就会出现「勾上了取消不掉」。
+         现在统一为：本地永远可勾/可取消，能写云端就同步，不能就提示仅本机。 */
       if (syncBusy) return;
       syncBusy = true;
       try {
@@ -7604,7 +7605,11 @@ button.small{ padding:6px 12px; font-size:12.5px; }
         saveDone(m);
         render();
         var ok = await ebingPush(m);
-        if (!ok) toast("已在本机勾选，但没同步到云端（看下电脑上的本地服务是否在跑）");
+        if (!ok) {
+          toast(canWrite()
+            ? "已在本机勾选，但没同步到云端（看下电脑上的本地服务是否在跑）"
+            : "已在本机勾选（未配令牌，不会同步到其他设备）");
+        }
       } finally {
         syncBusy = false;
       }
