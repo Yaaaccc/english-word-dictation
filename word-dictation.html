@@ -899,7 +899,7 @@ html:not([data-nav]) #idleView:not(.hidden){ animation:stageRise .35s cubic-bezi
 #ebingCard.readonly .ebing-row .ck,
 #ebingCard.readonly #ebingStrip .ck{ opacity:.45; }
 #ebingCard.readonly::after{
-  content:"只读 · 勾选请在电脑上用「打开本地网页.bat」打开后再做，这里会自动更新";
+  content:"只读 · 想在这台设备上直接勾：打开 Dock 的「学习计划 → 配置同步」，填一次 GitHub 令牌即可";
   display:block; margin-top:8px; font-size:11px; line-height:1.5; color:var(--muted-2);
 }
 /* ============================================================
@@ -7570,7 +7570,7 @@ button.small{ padding:6px 12px; font-size:12.5px; }
       var el = ev.target.closest("[data-idx]");
       if (!el || !lastData) return;
       if (!canWrite()) {
-        toast("只读：勾选请在电脑上用「打开本地网页.bat」打开后再做");
+        toast("只读：打开 Dock 的「学习计划 → 配置同步」填一次令牌，之后就能在这台设备上勾");
         return;
       }
       if (syncBusy) return;
