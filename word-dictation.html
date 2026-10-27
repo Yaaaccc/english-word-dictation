@@ -1016,10 +1016,15 @@ html:not([data-nav]) #idleView:not(.hidden){ animation:stageRise .35s cubic-bezi
 .plan-row .up{
   font-size:11px; text-align:center; padding:3px 5px; border-radius:8px; white-space:nowrap;
   border:1px solid var(--green-line); background:var(--green-soft); color:var(--green); font-weight:600;
+  font-family:inherit; cursor:pointer;
 }
 .plan-row .up.none{
   border-color:var(--line-2); background:transparent; color:var(--muted-2); font-weight:500;
 }
+/* 云端核对的结果（2026-10-27）：记录说传过、云端却没有 = 红；页数不符 = 橙 */
+.plan-row .up.bad{ border-color:var(--red-line); background:var(--red-soft); color:var(--red); }
+.plan-row .up.warn{ border-color:#E3A23C; background:rgba(227,162,60,.14); color:#9A6410; }
+.plan-row .up.busy{ opacity:.65; cursor:default; }
 @media (max-width:620px){
   .plan-row{ grid-template-columns:92px 1fr 74px 52px; gap:7px; font-size:12.5px; }
   .plan-row .tag{ font-size:11px; white-space:nowrap; }
@@ -4826,11 +4831,18 @@ button.small{ padding:6px 12px; font-size:12.5px; }
       if (dict[key]) return { entry: dict[key] };
       // 词典里没有这个词形（JSON 只收例句里实际出现过的形式）→ 试几个常见还原
       var c = [];
-      if (/ies$/.test(key)) c.push(key.slice(0, -3) + "y");
-      if (/es$/.test(key)) c.push(key.slice(0, -2));
-      if (/s$/.test(key) && !/ss$/.test(key)) c.push(key.slice(0, -1));
-      if (/ing$/.test(key)) { c.push(key.slice(0, -3), key.slice(0, -3) + "e"); }
-      if (/ed$/.test(key)) { c.push(key.slice(0, -2), key.slice(0, -1)); }
+      /* 先剥所有格：teenagers' → teenagers、people's → people（2026-10-27 加，手机端主要缺这类） */
+      var np = key.replace(/['’]s$/, "").replace(/['’]$/, "");
+      var bases = (np && np !== key) ? [np, key] : [key];
+      for (var bi = 0; bi < bases.length; bi++) {
+        var b = bases[bi];
+        if (/ies$/.test(b)) c.push(b.slice(0, -3) + "y");
+        if (/es$/.test(b)) c.push(b.slice(0, -2));
+        if (/s$/.test(b) && !/ss$/.test(b)) c.push(b.slice(0, -1));
+        if (/ing$/.test(b)) { c.push(b.slice(0, -3), b.slice(0, -3) + "e"); }
+        if (/ed$/.test(b)) { c.push(b.slice(0, -2), b.slice(0, -1)); }
+        if (b !== key) c.push(b);
+      }
       for (var i = 0; i < c.length; i++) {
         if (dict[c[i]]) return { entry: dict[c[i]] };
       }
@@ -6272,6 +6284,7 @@ button.small{ padding:6px 12px; font-size:12.5px; }
   var planMeta = { startDate: "2026-10-24", startIndex: 801, newPerDay: 50 };
   var planDays = {};
   var planUploaded = {};   /* 日期 → 上传时间（读「上传记录.json」，2026-10-27 加） */
+  var planChecked = {};    /* 日期 → {exists, match, pages, at}：本次真去 GoodNotes 云端核对的结果 */
 
   function isLocalHost() {
     var h = location.hostname;
@@ -6324,12 +6337,32 @@ button.small{ padding:6px 12px; font-size:12.5px; }
       var isToday = date === planTodayStr();
       tag.textContent = (isToday ? "今天 · " : "") + (Number(o.count) > 0 ? "已调整" : "默认 " + planMeta.newPerDay);
       if (isToday) tag.style.color = "var(--blue-d)";
-      /* 已上传标记（2026-10-27 加）：数据来自本机「上传记录.json」，手机上不显示（没有本地服务） */
-      var up = document.createElement("span");
+      /* 已上传标记（2026-10-27 加）：默认读本机「上传记录.json」；
+         点它是去 GoodNotes 云端真查一次 —— 记录只说明「曾经传成功」，
+         用户可能自己把文档删了（记录≠云端还在）。 */
+      var up = document.createElement("button");
+      up.type = "button";
+      var ck = planChecked[date];
       var hasUp = !!planUploaded[date];
-      up.className = "up" + (hasUp ? "" : " none");
-      up.textContent = hasUp ? "已上传" : "未上传";
-      up.title = hasUp ? ("上传于 " + planUploaded[date]) : "还没传到 GoodNotes";
+      var st, cls, tip;
+      if (ck) {
+        if (!ck.exists) {
+          if (ck.soft) { st = "待确认"; cls = "up none"; tip = "自动核对没找到，点一下再确认（可能只是列表没加载完）"; }
+          /* 只有「记录说传过、手动核对后云端确实没有」才是异常（红） */
+          else if (planUploaded[date]) { st = "云端没有"; cls = "up bad"; tip = "记录说传过，但 GoodNotes 里查不到（可能被删了）"; }
+          else { st = "未上传"; cls = "up none"; tip = "还没传到 GoodNotes"; }
+        }
+        else if (!ck.match) { st = "页数不符"; cls = "up warn"; tip = "云端页数与本地 PDF 不一致，建议重传"; }
+        else { st = "已上传"; cls = "up"; tip = "云端已核对" + (ck.pages != null ? "（" + ck.pages + " 页）" : ""); }
+      } else {
+        st = hasUp ? "已上传" : "未上传";
+        cls = "up" + (hasUp ? "" : " none");
+        tip = hasUp ? ("上传于 " + planUploaded[date]) : "还没传到 GoodNotes";
+      }
+      up.className = cls;
+      up.textContent = st;
+      up.title = tip + " · 点一下核对云端";
+      up.setAttribute("data-check", date);
       row.appendChild(lab); row.appendChild(inp); row.appendChild(tag); row.appendChild(up);
       box.appendChild(row);
     });
@@ -6348,12 +6381,59 @@ button.small{ padding:6px 12px; font-size:12.5px; }
       }
     } catch (e) {}
   }
+  /* 云端核对（2026-10-27 加）：一个一个排队跑 —— 底层要开无头浏览器连 Edge 调试端口，
+     并发会互相抢端口。10 分钟内查过的不重复查（force 除外）。 */
+  var checkQueue = [];
+  var checkingNow = false;
+  function planCheckDate(date, opts) {
+    opts = opts || {};
+    var ck = planChecked[date];
+    if (!opts.force && ck && Date.now() - (ck.at || 0) < 10 * 60 * 1000) return;
+    if (checkQueue.some(function (x) { return x.date === date; })) return;
+    checkQueue.push({ date: date, silent: !!opts.silent });
+    planDrainCheck();
+  }
+  async function planDrainCheck() {
+    if (checkingNow) return;
+    checkingNow = true;
+    while (checkQueue.length) {
+      var job = checkQueue.shift();
+      if (!job.silent) {
+        var b = document.querySelector('#planRows .up[data-check="' + job.date + '"]');
+        if (b) { b.textContent = "核对中…"; b.classList.add("busy"); }
+      }
+      try {
+        var r = await fetch("/api/check-uploaded?date=" + encodeURIComponent(job.date) +
+          (planUploaded[job.date] ? "&expect=1" : ""), { cache: "no-store" });
+        var j = null;
+        try { j = await r.json(); } catch (e) {}
+        if (j && j.ok) {
+          /* soft = 自动核对（silent）的结果。冷启动偶尔误报「没找到」，
+             所以自动结果不直接判红，显示成「待确认」，等用户点一下才定论。 */
+          planChecked[job.date] = { exists: !!j.exists, match: !!j.match, pages: j.pages, at: Date.now(), soft: !!job.silent };
+        } else if (j && j.busy) {
+          checkQueue.unshift(job);
+          await new Promise(function (x) { setTimeout(x, 1500); });
+          continue;
+        }
+      } catch (e) {}
+      planRender();
+    }
+    checkingNow = false;
+  }
+
   async function planOpen() {
     var j = await planLoad();
     if (j.meta) planMeta = j.meta;
     planDays = j.days;
     planRender();
-    planLoadUploaded();
+    planLoadUploaded().then(function () {
+      /* 打开面板时后台核对最前 3 天里「记录说有传过」的那几天（没传过的查了也没意义）。
+         silent：不闪「核对中」，慢也不挡操作。 */
+      planTargetDays().slice(0, 3).forEach(function (d) {
+        if (planUploaded[d]) planCheckDate(d, { silent: true });
+      });
+    });
     if ($("planStatus")) {
       $("planStatus").textContent = planToken()
         ? "已配置云端同步，改完点保存就生效。"
@@ -6557,6 +6637,15 @@ button.small{ padding:6px 12px; font-size:12.5px; }
       });
     }
     if ($("planSaveBtn")) $("planSaveBtn").addEventListener("click", planSave);
+    /* 点徽标 = 去云端核对这一天（2026-10-27 加） */
+    if ($("planRows")) {
+      $("planRows").addEventListener("click", function (e) {
+        var b = e.target && e.target.closest ? e.target.closest("[data-check]") : null;
+        if (!b) return;
+        e.preventDefault();
+        planCheckDate(b.getAttribute("data-check"), { force: true });
+      });
+    }
     if ($("planBuildToday")) $("planBuildToday").addEventListener("click", planBuildToday);
     if ($("planBuildTomorrow")) $("planBuildTomorrow").addEventListener("click", planBuildTomorrow);
     if ($("planUploadToday")) $("planUploadToday").addEventListener("click", planUploadToday);
