@@ -891,6 +891,14 @@ html:not([data-nav]) #idleView:not(.hidden){ animation:stageRise .35s cubic-bezi
 #ebingStrip .ck{ width:14px; height:14px; font-size:10px; border-radius:4px; }
 #ebingStrip.done .ck::after{ content:"✓"; }
 #ebingStrip.done b{ text-decoration:line-through; opacity:.55; }
+/* 手机只读态（2026-10-27）：勾选框淡化 + 底部一句说明 */
+#ebingCard.readonly .ebing-row{ cursor:default; }
+#ebingCard.readonly .ebing-row .ck,
+#ebingCard.readonly #ebingStrip .ck{ opacity:.45; }
+#ebingCard.readonly::after{
+  content:"手机上只读 · 勾选请在电脑上做，这里会自动更新";
+  display:block; margin-top:8px; font-size:11px; line-height:1.5; color:var(--muted-2);
+}
 /* ============================================================
    5. 查义小卡（实底白 + 弹簧）
    ============================================================ */
@@ -7160,6 +7168,80 @@ button.small{ padding:6px 12px; font-size:12.5px; }
     var COLORS = {1:"#F5DE8F",2:"#F08CAD",3:"#F5B366",4:"#99D18C",5:"#94B8ED",6:"#CCC2E6"};
     var ROUND  = {1:"学新",2:"复+1",3:"复+3",4:"复+6",5:"复+15",6:"错词"};
     var K_DONE = "ebingDone";
+    /* —— 跨设备同步（2026-10-27）——
+       电脑上勾 → 推到仓库根目录 ebing-done.json → 手机线上只读这份。
+       电脑两条路，能走哪条走哪条：
+         本地服务（127.0.0.1 / 局域网）→ POST /api/ebing-done，用本机 git 凭据推，不用贴 token
+         线上且配过「学习计划 → 配置同步」的 token → 直接 PUT
+       手机（线上、没 token）→ 只读，点行会提示去电脑上勾。 */
+    var EBING_REPO = "Yaaaccc/english-word-dictation";
+    var EBING_FILE = "ebing-done.json";
+    var TOKEN_KEY = "dictationPlanToken";
+    function isLocalHost() {
+      var h = location.hostname;
+      return h === "127.0.0.1" || h === "localhost" ||
+        /^192\.168\./.test(h) || /^10\./.test(h) || /^172\.(1[6-9]|2\d|3[01])\./.test(h);
+    }
+    function ghToken() { try { return localStorage.getItem(TOKEN_KEY) || ""; } catch (e) { return ""; } }
+    function canWrite() { return isLocalHost() || !!ghToken(); }
+    function toast(msg) { if (window.__dictationToast) window.__dictationToast(msg); }
+
+    async function ebingPull() {
+      try {
+        /* 本地必须走服务端读**云端**那份：本目录的 ebing-done.json 只是部署用的空壳，
+           拿它当真相会把云端记录冲掉（2026-10-27 踩过，丢过一次勾选）。 */
+        if (isLocalHost()) {
+          var r = await fetch("/api/ebing-done?ts=" + Date.now(), { cache: "no-store" });
+          if (!r.ok) return null;
+          return await r.json();
+        }
+        var r2 = await fetch(EBING_FILE + "?ts=" + Date.now(), { cache: "no-store" });
+        if (!r2.ok) return null;
+        return await r2.json();
+      } catch (e) { return null; }
+    }
+    /* 云端有、本地没有的勾选补进来（只补 true，不覆盖本地已取消的项） */
+    function mergeRemote(remote) {
+      if (!remote || typeof remote !== "object") return;
+      var m = loadDone();
+      Object.keys(remote).forEach(function (date) {
+        if (!m[date] || typeof m[date] !== "object") m[date] = {};
+        var day = remote[date] || {};
+        Object.keys(day).forEach(function (idx) { if (day[idx]) m[date][idx] = true; });
+      });
+      saveDone(m);
+    }
+    async function ebingPush(map) {
+      var text = JSON.stringify(map);
+      try {
+        if (isLocalHost()) {
+          var r = await fetch("/api/ebing-done", {
+            method: "POST", headers: { "Content-Type": "application/json" }, body: text
+          });
+          if (!r.ok) throw new Error("本地服务 " + r.status);
+          return true;
+        }
+        var tk = ghToken();
+        if (!tk) return false;
+        var url = "https://api.github.com/repos/" + EBING_REPO + "/contents/" + EBING_FILE;
+        var g = await fetch(url, { headers: { Authorization: "Bearer " + tk }, cache: "no-store" });
+        var sha = g.ok ? (await g.json()).sha : "";
+        var put = await fetch(url, {
+          method: "PUT",
+          headers: { Authorization: "Bearer " + tk, "Content-Type": "application/json" },
+          body: JSON.stringify({
+            message: "更新艾宾浩斯勾选（网页）",
+            content: btoa(unescape(encodeURIComponent(text))),
+            sha: sha || undefined
+          })
+        });
+        return put.ok;
+      } catch (e) {
+        if (window.console && console.warn) console.warn("[艾宾浩斯] 同步失败：", e);
+        return false;
+      }
+    }
+
     var lastData = null;
     function pad(n){ return (n<10?"0":"")+n; }
     var d = new Date();
@@ -7217,6 +7299,7 @@ button.small{ padding:6px 12px; font-size:12.5px; }
       }
       head.innerHTML = headTxt;
       rows.innerHTML = html;
+      card.classList.toggle("readonly", !canWrite());   /* 手机：只读态（2026-10-27） */
       card.classList.remove("hidden");
     }
     fetch("calendar/calendar.json?ts=" + Date.now(), { cache: "no-store" })
@@ -7231,18 +7314,50 @@ button.small{ padding:6px 12px; font-size:12.5px; }
       .catch(function (e) {
         if (window.console && console.warn) console.warn("[艾宾浩斯卡] 数据未加载，卡片保持隐藏：", e);
       });
-    /* 点任意一行（或睡前回看条）切换勾选；状态落 localStorage 与日历页共享 */
-    card.addEventListener("click", function (ev) {
+    /* 点任意一行（或睡前回看条）切换勾选；状态落 localStorage，并推到云端给手机看 */
+    var syncBusy = false;
+    var pulledOk = false;      /* 页面加载时已成功读到云端 → 点击不必再等一次网络 */
+    card.addEventListener("click", async function (ev) {
       var el = ev.target.closest("[data-idx]");
       if (!el || !lastData) return;
-      var idx = el.getAttribute("data-idx");
-      if (!todayEntry(lastData)) return;
-      var m = loadDone();
-      if (!m[todayStr]) m[todayStr] = {};
-      m[todayStr][idx] = !m[todayStr][idx];
-      saveDone(m);
+      if (!canWrite()) {
+        toast("手机上是只读的：请在电脑上勾选，这里会自动更新");
+        return;
+      }
+      if (syncBusy) return;
+      syncBusy = true;
+      try {
+        var idx = el.getAttribute("data-idx");
+        if (!todayEntry(lastData)) return;
+        /* 只有「加载时没读到云端」才需要在这里补一次：新浏览器/清过缓存时本地为空，
+           直接改会把云端记录冲掉。正常情况直接响应，点一下不该等 1~2 秒。 */
+        if (!pulledOk) {
+          var remote = await ebingPull();
+          if (remote === null) { toast("没读到云端记录，这次先不勾（检查本地服务/网络）"); return; }
+          pulledOk = true;
+          mergeRemote(remote);
+        }
+        var m = loadDone();
+        if (!m[todayStr]) m[todayStr] = {};
+        m[todayStr][idx] = !m[todayStr][idx];
+        saveDone(m);
+        render();
+        var ok = await ebingPush(m);
+        if (!ok) toast("已在本机勾选，但没同步到云端（看下电脑上的本地服务是否在跑）");
+      } finally {
+        syncBusy = false;
+      }
+    });
+    /* 拉云端勾选：手机（线上）以云端为准；电脑本地与云端合并（不丢任何一边） */
+    ebingPull().then(function (remote) {
+      if (remote === null) return;          /* 读失败：保持 pulledOk=false，点击时会补一次 */
+      pulledOk = true;
+      if (!remote || !Object.keys(remote).length) return;
+      if (isLocalHost()) mergeRemote(remote);
+      else saveDone(remote);
       render();
     });
+
     /* 日历页在别的标签页里勾了 → 这里跟着刷新 */
     window.addEventListener("storage", function (ev) {
       if (ev.key === K_DONE) render();
