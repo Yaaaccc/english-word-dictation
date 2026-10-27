@@ -208,7 +208,7 @@ function render(data){
   curData = data;
   document.getElementById('meta').textContent =
     '起算 ' + data.start + ' · 共 ' + data.total_days + ' 课（学习日制） · 数据生成于 ' + data.generated_at +
-    (canWrite() ? '' : ' · 只读（勾选请在电脑上用「打开本地网页.bat」打开后再做）');
+    (canWrite() ? '' : ' · 只读（想在这台设备上勾：去「学习计划 → 配置同步」填一次令牌）');
   document.getElementById('lgWrong').style.display = (data.wrong_day != null) ? '' : 'none';
   const byDate = {}; data.days.forEach(d=>byDate[d.date]=d);
   const today = byDate[todayStr];
