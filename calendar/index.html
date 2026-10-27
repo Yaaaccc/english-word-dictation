@@ -147,6 +147,18 @@ async function ebingPull(){
       if(!r.ok) return null;
       return await r.json();
     }
+    /* 线上读 GitHub API（Pages 静态文件要 1~3 分钟重建，刚勾完看不到） */
+    try{
+      const a = await fetch('https://api.github.com/repos/' + EBING_REPO + '/contents/' + EBING_FILE + '?t=' + Date.now(),
+        { headers:{ 'User-Agent':'dictation-web' }, cache:'no-store' });
+      if(a.ok){
+        const j = await a.json();
+        const raw = atob(String(j.content || '').replace(/\s/g,''));
+        const bytes = new Uint8Array(raw.length);
+        for(let i=0;i<raw.length;i++) bytes[i] = raw.charCodeAt(i);
+        return JSON.parse(new TextDecoder('utf-8').decode(bytes));
+      }
+    }catch(e2){}
     const r2 = await fetch(EBING_FILE + '?ts=' + Date.now(), { cache:'no-store' });
     if(!r2.ok) return null;
     return await r2.json();
