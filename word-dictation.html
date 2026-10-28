@@ -1910,6 +1910,11 @@ button.small{ padding:6px 12px; font-size:12.5px; }
       <div class="tip">
         <b>建议流程：</b>开始连播 → 听写在纸上 → 没听清按 <kbd>R</kbd> 重播、卡住时按 <kbd>X</kbd> 听例句 → 全部过完再回来看例句卡逐词核对。
       </div>
+      <!-- 2026-10-28 加：构建版本标识。排查「卡片顶部一条线」时无法远程确认用户看到的是哪一版，
+           把版本亮在页面上：报问题时先看这行字，缓存问题一眼识破。 -->
+      <div class="tip" id="buildStamp" style="margin-top:6px; opacity:.55; font-size:10.5px; letter-spacing:.4px;">
+        构建 <b>2026-10-28c</b>
+      </div>
     </aside>
 
     <!-- 2026-10-26 加：艾宾浩斯今日任务卡（数据来自 calendar/calendar.json，加载失败自动隐藏） -->
