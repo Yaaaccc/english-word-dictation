@@ -4996,13 +4996,17 @@ button.small{ padding:6px 12px; font-size:12.5px; }
    *   生词本 = 读句子时手动收下的词（只增不减，靠"查过几次"排序把真生词顶上来）
    *   两者互不覆盖 —— 同一个词可能在两边都出现，那是两件不同的事实。
    *
-   * key 用他去点的那**个词形**（went / studies 各自成条），因为那才是他当时遇到的障碍；
-   * 但释义/标签存的是词典给的原型那一套，列表里一眼能看懂。
+   * key 一律用**原型**（2026-10-28 按 Yac 要求改口径：生词本里只出现原型）。
+   *   以前是"他点到哪个词形就存哪个"（went / studies 各自成条），现在 went → go、
+   *   studies → study，同一原型只占一条，「只练生词本」和导出的也是原型。
+   *   原型取自词典 entry[2]（ECDICT exchange 的 0: 字段，不是靠词尾猜的）。
+   * ⚠ 老数据是按词形存的，启动时 migrateNewBookToBase() 归并一次。
    * ⚠ 这段在 v4 视觉层里，错词本那套存储（readJSON/writeJSON）够不到，
    *   所以这里直接用 localStorage；名单的展示与操作在「学习记录」那一层做
    *   （加完派发 dictation:newbook 事件，让那边自己刷新）。
    * 辨析 diff：只有扇贝词表里带「【辨析】」的词才有，存的是文本原文。 */
   var LS_NEW = "dictationNewWords";
+  var LS_NEW_BAK = "dictationNewWords.bak.beforeBase";   // 归并迁移前的整本备份（可还原）
 
   function readNewBookRaw() {
     try {
@@ -5011,8 +5015,36 @@ button.small{ padding:6px 12px; font-size:12.5px; }
       return (v && typeof v === "object" && Object.prototype.toString.call(v) !== "[object Array]") ? v : {};
     } catch (e) { return {}; }
   }
-  function inNewBook(w) {
+
+  /* 词典给的原型：entry[2]。本身就是原形时为空串（build-example-dict.js 写入时的口径）。 */
+  function baseOfEntry(entry) {
+    var b = (entry && entry[2]) ? String(entry[2]).toLowerCase().trim() : "";
+    return b;
+  }
+
+  /* 这个词该在生词本里用哪个 key —— **一律归到原型**（2026-10-28）。
+     拿不到 entry（还没查完词典 / 词典没收录）时，退一步看本子里有没有哪条
+     记着 base 正是这个词，这样「已在本子」的判定不必等查询结果。 */
+  function bookKeyOf(w, entry) {
     var k = String(w || "").toLowerCase().trim();
+    if (!k) return "";
+    var b = baseOfEntry(entry);
+    var book = readNewBookRaw();
+    if (b && b !== k) {
+      if (book[b]) return b;      // 原型那条已在
+      if (book[k]) return k;      // 老数据还按词形存着，先认它（迁移会合掉）
+      return b;                   // 新条目：用原型
+    }
+    if (book[k]) return k;
+    for (var key in book) {       // 无 entry 时靠 base 字段反查
+      if (!Object.prototype.hasOwnProperty.call(book, key)) continue;
+      if (String(book[key].base || "").toLowerCase().trim() === k) return key;
+    }
+    return k;
+  }
+
+  function inNewBook(w, entry) {
+    var k = bookKeyOf(w, entry);
     return !!(k && readNewBookRaw()[k]);
   }
 
@@ -5035,7 +5067,7 @@ button.small{ padding:6px 12px; font-size:12.5px; }
 
   /* 已在本子里的词：把新查到的音标/释义/标签补进去（**不新建条目**）。 */
   function recordNewWord(w, entry) {
-    var key = String(w || "").toLowerCase().trim();
+    var key = bookKeyOf(w, entry);
     if (!key || !entry) return;
     try {
       var book = readNewBookRaw();
@@ -5043,38 +5075,43 @@ button.small{ padding:6px 12px; font-size:12.5px; }
       if (!old) return;
       old.ph = entry[0] || old.ph || "";
       old.m = entry[1] || old.m || "";
-      old.base = entry[2] || old.base || "";
+      /* key 已是原型时 base 留空 —— 否则列表会显示「threaten 原形 threaten」 */
+      var b = baseOfEntry(entry);
+      old.base = (b && b !== key) ? b : "";
       old.tagLabel = tagLabelOf(entry[3]) || old.tagLabel || "";
       book[key] = old;
       localStorage.setItem(LS_NEW, JSON.stringify(book));
     } catch (e) { /* 存储写不进去也不影响查词本身 */ }
   }
 
-  /* 点卡片里的按钮才进来：新建条目，并把当前词表里的辨析一并存下。 */
+  /* 点卡片里的按钮才进来：新建条目（或给已有原型条目计数 +1），返回实际存的 key。
+     失败返回空串。辨析按**他点的那个词形**去当日词表里找 ——
+     词表里写的是 threatens 就取 threatens 那条，别拿原型去比。 */
   function addToNewBook(w, entry) {
-    var key = String(w || "").toLowerCase().trim();
-    if (!key) return false;
+    var key = bookKeyOf(w, entry);
+    if (!key) return "";
     try {
       var book = readNewBookRaw();
       var old = book[key] || {};
+      var b = baseOfEntry(entry);
       book[key] = {
         w: key,
         ph: (entry && entry[0]) || old.ph || "",
         m: (entry && entry[1]) || old.m || "",
-        base: (entry && entry[2]) || old.base || "",
+        base: (b && b !== key) ? b : (old.base && old.base.toLowerCase() !== key ? old.base : ""),
         tagLabel: tagLabelOf(entry && entry[3]) || old.tagLabel || "",
-        diff: old.diff || diffOfWord(key),
+        diff: old.diff || diffOfWord(key) || diffOfWord(w),
         hits: (old.hits || 0) + 1,
         ts: Date.now()
       };
       localStorage.setItem(LS_NEW, JSON.stringify(book));
-      return true;
-    } catch (e) { return false; }
+      return key;
+    } catch (e) { return ""; }
   }
 
   /* 已在本子里的词：点一次记一次「查过」。不在本子的词不再偷偷建条目。 */
-  function bumpNewWordHit(w) {
-    var key = String(w || "").toLowerCase().trim();
+  function bumpNewWordHit(w, entry) {
+    var key = bookKeyOf(w, entry);
     if (!key) return;
     try {
       var book = readNewBookRaw();
@@ -5085,6 +5122,49 @@ button.small{ padding:6px 12px; font-size:12.5px; }
       localStorage.setItem(LS_NEW, JSON.stringify(book));
     } catch (e) { /* 同上 */ }
   }
+
+  /* 一次性迁移（2026-10-28）：把以前"按词形存"的条目并到原型。
+     threatens(base=threaten) + threaten → 合成一条 threaten，hits 相加、释义取先有的非空。
+     幂等：全是原型时 changed 为 false，一个字节都不写。
+     整本先备份到 dictationNewWords.bak.beforeBase，想还原就把备份写回 dictationNewWords。 */
+  function migrateNewBookToBase() {
+    var book = readNewBookRaw();
+    var keys = Object.keys(book);
+    if (!keys.length) return;
+    var out = {}, changed = false;
+    for (var i = 0; i < keys.length; i++) {
+      var k = keys[i], e = book[k] || {};
+      var b = String(e.base || "").toLowerCase().trim();
+      var tgt = (b && b !== k) ? b : k;
+      if (tgt !== k) changed = true;
+      var cur = out[tgt];
+      if (!cur) {
+        out[tgt] = {
+          w: tgt,
+          ph: e.ph || "",
+          m: e.m || "",
+          base: (b && b !== tgt) ? b : "",
+          tagLabel: e.tagLabel || "",
+          diff: e.diff || "",
+          hits: e.hits || 0,
+          ts: e.ts || 0
+        };
+      } else {
+        cur.ph = cur.ph || e.ph || "";
+        cur.m = cur.m || e.m || "";
+        cur.tagLabel = cur.tagLabel || e.tagLabel || "";
+        cur.diff = cur.diff || e.diff || "";
+        cur.hits = (cur.hits || 0) + (e.hits || 0);
+        cur.ts = Math.max(cur.ts || 0, e.ts || 0);
+      }
+    }
+    if (!changed) return;
+    try {
+      if (!localStorage.getItem(LS_NEW_BAK)) localStorage.setItem(LS_NEW_BAK, JSON.stringify(book));
+      localStorage.setItem(LS_NEW, JSON.stringify(out));
+    } catch (err) { /* 写不进去也不能让页面崩 */ }
+  }
+  migrateNewBookToBase();
 
   /* 朗读卡片上这个词（2026-10-12 加）：
      ⚠ 本段是独立的 IIFE（v4 视觉层），够不到主逻辑里的 speak / stopSpeech ——
@@ -5192,8 +5272,8 @@ button.small{ padding:6px 12px; font-size:12.5px; }
     var already = inNewBook(w);
     defCardCurWord = w;
     defCardCurEntry = null;
-    /* 已在本子：点一次记一次「查过」；没在本子：什么都不写，等他点按钮。 */
-    if (already) bumpNewWordHit(w);
+    /* 不在本子：什么都不写，等他点按钮。已在本子的计数与补数据挪到查词结果
+       回来之后再做 —— 归并到原型后，光凭词形判断不了（点 threatens、本子里存的是 threaten）。 */
     setAddNewBtn(already, !already);
     $("defCardWord").textContent = w;
     $("defCardPh").textContent = "";
@@ -5204,9 +5284,12 @@ button.small{ padding:6px 12px; font-size:12.5px; }
 
     lookupWord(w).then(function (res) {
       var e = res && res.entry;
-      /* 已在本子里的词：把这次查到的音标/释义/标签补进去（recordNewWord 不会新建条目）。
-         写在守卫之前 —— 它只是在补数据，跟卡片最后显示谁无关。 */
-      if (inNewBook(w)) recordNewWord(w, e);
+      /* 已在本子里的词：记一次「查过」+ 把这次查到的音标/释义/标签补进去
+         （两个函数都不会新建条目）。写在守卫之前 —— 它们只是记账，跟卡片最后显示谁无关。 */
+      if (inNewBook(w, e)) {
+        bumpNewWordHit(w, e);
+        recordNewWord(w, e);
+      }
       if (req !== defReqId) return;               // 以下才是卡片 UI：已经点到别的词了，这次结果作废
       defCardCurEntry = e || null;
       if (!e) {
@@ -5220,7 +5303,7 @@ button.small{ padding:6px 12px; font-size:12.5px; }
         setDefCardTags(e[3]);                     // e[3] = 考纲难度标签，没标就不占位
         $("defCardMeaning").textContent = e[1] || "";
       }
-      setAddNewBtn(inNewBook(w), false);
+      setAddNewBtn(inNewBook(w, e), false);
       positionDefCard(el, defCardEl);             // 内容换行后高度会变，位置再校一次
     });
   }
@@ -5333,14 +5416,17 @@ button.small{ padding:6px 12px; font-size:12.5px; }
         e.stopPropagation();
         var w = defCardCurWord;
         if (!w) return;
-        if (inNewBook(w)) return;                     // 已在本子：按钮本来是 disabled，双保险
-        if (!addToNewBook(w, defCardCurEntry)) {
+        if (inNewBook(w, defCardCurEntry)) return;    // 已在本子：按钮本来是 disabled，双保险
+        /* 返回的是**实际存进去的 key**（变形词已归到原型），toast 得说真话，
+           否则点了 threatens 却提示"已加入：threatens"，列表里找不着。 */
+        var saved = addToNewBook(w, defCardCurEntry);
+        if (!saved) {
           if (window.__dictationToast) window.__dictationToast("加入失败：本地存储写不进去");
           return;
         }
         setAddNewBtn(true, false);
-        if (window.__dictationToast) window.__dictationToast("已加入生词本：" + w);
-        document.dispatchEvent(new CustomEvent("dictation:newbook", { detail: { word: w } }));
+        if (window.__dictationToast) window.__dictationToast("已加入生词本：" + saved);
+        document.dispatchEvent(new CustomEvent("dictation:newbook", { detail: { word: saved } }));
       });
     }
     // 点别处收起。⚠ 必须排除 .ex-w 与卡片自身：exEl 的监听先跑并刚把卡片立起来，
@@ -6196,6 +6282,15 @@ button.small{ padding:6px 12px; font-size:12.5px; }
     var b = readJSON(LS_NEW, {});
     return (b && typeof b === "object" && Object.prototype.toString.call(b) !== "[object Array]") ? b : {};
   }
+  /* 一条记录该显示成哪个词（2026-10-28）：一律原型。
+     新数据 key 本身就是原型（base 为空）；万一还有没归并的老条目，兜一下 base。
+     ⚠ 移除按钮仍要用 e.w（真实存储键），别拿这个去 delete。 */
+  function nbWordOf(e) {
+    if (!e) return "";
+    var w = String(e.w || "");
+    var b = e.base ? String(e.base).trim() : "";
+    return (b && b.toLowerCase() !== w.toLowerCase()) ? b : w;
+  }
   function newList() {
     var b = getNewBook(), out = [];
     for (var k in b) { if (Object.prototype.hasOwnProperty.call(b, k)) out.push(b[k]); }
@@ -6213,7 +6308,8 @@ button.small{ padding:6px 12px; font-size:12.5px; }
       return;
     }
     body.innerHTML = list.map(function (e) {
-      var w = esc(e.w) + (e.base ? '<span style="margin-left:5px;font-size:11px;color:var(--muted-2);">原形 ' + esc(e.base) + "</span>" : "");
+      /* 只显示原型（2026-10-28）——同一原型的多个变形并成一条，不再挂「原形 xxx」小字 */
+      var w = esc(nbWordOf(e));
       return "<tr><td>" + w + "</td><td>" + esc(e.m || "—") + "</td><td>" +
              esc(e.tagLabel || "—") + "</td><td>" + (e.hits || 0) +
              '</td><td><button class="small" data-delnew="' + esc(e.w) + '" type="button">移除</button></td></tr>';
@@ -6227,7 +6323,7 @@ button.small{ padding:6px 12px; font-size:12.5px; }
     if (!ta) return;
     if (ta.value.trim()) { try { localStorage.setItem(LS_BAK, ta.value); } catch (e) {} }
     ta.value = items.map(function (e) {
-      return e.w + "|" + (e.m && e.m !== "—" ? e.m : "") + "||||";
+      return nbWordOf(e) + "|" + (e.m && e.m !== "—" ? e.m : "") + "||||";
     }).join("\n");
     ta.dispatchEvent(new Event("input", { bubbles: true }));
     markedThisRound = [];
@@ -6241,8 +6337,8 @@ button.small{ padding:6px 12px; font-size:12.5px; }
      版式仍是横版表格 —— 与错词 PDF 那套竖版卡片不同，两者别混。 */
   function buildNewPrintHTML(items) {
     var rows = items.map(function (e, i) {
-      return "<tr><td class=\"pnum\">" + (i + 1) + "</td><td>" + esc(e.w) +
-             (e.base ? '<div class="pbase">原形 ' + esc(e.base) + "</div>" : "") + "</td><td>" +
+      return "<tr><td class=\"pnum\">" + (i + 1) + "</td><td>" + esc(nbWordOf(e)) +
+             "</td><td>" +
              esc(e.m || "—") + "</td><td class=\"pnote\">" + esc(e.diff || "") + "</td></tr>";
     }).join("");
     return "<h1>生词本 · 单词听写</h1>" +
@@ -6269,7 +6365,7 @@ button.small{ padding:6px 12px; font-size:12.5px; }
     var items = newList();
     if (!items.length) { toast("生词本是空的"); return; }
     var txt = items.map(function (e, i) {
-      return (i + 1) + ". " + e.w + (e.m ? "　" + e.m : "") + (e.tagLabel ? "　[" + e.tagLabel + "]" : "");
+      return (i + 1) + ". " + nbWordOf(e) + (e.m ? "　" + e.m : "") + (e.tagLabel ? "　[" + e.tagLabel + "]" : "");
     }).join("\n");
     function done() { toast("已复制 " + items.length + " 个词"); }
     if (navigator.clipboard && navigator.clipboard.writeText) {
