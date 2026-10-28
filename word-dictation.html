@@ -48,7 +48,9 @@
   --soft-2:#F5F7FB;
 
   /* —— 字（slate 墨色系）—— */
-  --ink:#101828; --ink-2:#39465E; --muted:#5B6578; --muted-2:#8A94A8;
+  /* 灰阶加深（2026-10-28）：原来 --muted-2:#8A94A8 落在半透明玻璃透出的中灰底上几乎同色，
+     换个深壁纸就看不清（用户截图指出）。--muted 同步压深一档，保证小字在浅/深壁纸下都可读。 */
+  --ink:#101828; --ink-2:#39465E; --muted:#4F596D; --muted-2:#6E7A8E;
 
   /* —— 线 —— */
   --line:rgba(16,24,40,.10); --line-2:rgba(16,24,40,.06);
@@ -280,8 +282,10 @@ body{
   /* 玻璃 = 预烘焙模糊图 + 半透填充叠加：视觉与实时 backdrop-filter 几乎无差，
      但滚动/动画零模糊重算（性能修复 2026-10-25）。软背景预设下 --glass-img 为 none，
      卡片半透直接透出本身无细节的渐变底。 */
-  background-image:linear-gradient(163deg, rgba(255,255,255,.74), rgba(255,255,255,.55) 55%, rgba(255,255,255,.64)), var(--glass-img, none);
-  background-image:linear-gradient(163deg, rgba(255,255,255,calc(var(--glass-op,1)*.74)), rgba(255,255,255,calc(var(--glass-op,1)*.55)) 55%, rgba(255,255,255,calc(var(--glass-op,1)*.64))), var(--glass-img, none);
+  /* 底色加实（2026-10-28）：.74/.55/.64 太透，深色壁纸会把卡片底部压成中灰，
+     小字直接糊。提到 .88/.80/.84 —— 仍有透光感，但底色稳定在浅色区间。 */
+  background-image:linear-gradient(163deg, rgba(255,255,255,.88), rgba(255,255,255,.80) 55%, rgba(255,255,255,.84)), var(--glass-img, none);
+  background-image:linear-gradient(163deg, rgba(255,255,255,calc(var(--glass-op,1)*.88)), rgba(255,255,255,calc(var(--glass-op,1)*.80)) 55%, rgba(255,255,255,calc(var(--glass-op,1)*.84))), var(--glass-img, none);
   background-attachment: fixed, fixed;   /* 壁纸副本对齐视口主壁纸：手机端滚动时玻璃才「透」出真背景（2026-10-26 修） */
   background-size:cover, auto;
   background-position:center, center;
@@ -1400,7 +1404,7 @@ button.small{ padding:6px 12px; font-size:12.5px; }
 #readView.read-focus-on .read-body .rsent.cur .cnline,
 #readView.read-speaking .read-body .rsent.cur .cnline{ color:#4A4A4A; }
 .read-foot{ display:flex; align-items:center; gap:10px; margin:0; padding:11px 40px 15px; border-top:1px solid rgba(16,24,40,.06); flex:none; }
-.read-foot .read-tip{ font-size:11px; color:#8A94A8; }
+.read-foot .read-tip{ font-size:11px; color:var(--muted-2); }
 .read-rate{ display:inline-flex; align-items:center; gap:7px; flex:none; font-size:11.5px; color:#6B6B6B; }
 .read-rate input[type=range]{ width:112px; }
 .read-rate b{ font-size:11.5px; color:#101828; font-weight:700; min-width:40px; font-variant-numeric:tabular-nums; }
@@ -1413,7 +1417,7 @@ button.small{ padding:6px 12px; font-size:12.5px; }
 .rsent-play{
   position:absolute; right:0; top:1px; width:26px; height:26px; padding:0;
   display:inline-flex; align-items:center; justify-content:center;
-  border:none; border-radius:50%; background:transparent; color:#8A94A8;
+  border:none; border-radius:50%; background:transparent; color:var(--muted-2);
   font-size:13px; line-height:1; opacity:.26; cursor:pointer; box-shadow:none;
   transition:opacity .15s, background .15s, color .15s;
 }
