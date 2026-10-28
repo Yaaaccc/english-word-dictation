@@ -694,8 +694,10 @@ html:not([data-nav]) #idleView:not(.hidden){ animation:stageRise .35s cubic-bezi
 .quiz-opt.ok .opt-gloss{ color:var(--green); }
 .quiz-opt.bad .opt-gloss{ color:var(--red); }
 .quiz-tip{ color:var(--muted); font-size:12.5px; margin:8px 0 14px; }
-/* 答完隐藏提示行：省下的高度留给释义行（2026-10-26） */
-#quizStage.answered .quiz-tip{ display:none; }
+/* 答完提示行：保留占位但不显示（2026-10-28 用户反馈「选完选项整体往上跳」）。
+   原先用 display:none 省高度给释义行，代价是选项位置上跳约 30px，下一题又跳回来。
+   用 visibility 保留盒子高度，布局不再跳。 */
+#quizStage.answered .quiz-tip{ visibility:hidden; }
 .quiz-options{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; }
 @media (max-width:760px){
   .quiz-options{ grid-template-columns:minmax(0,1fr); gap:8px; }
@@ -728,8 +730,16 @@ html:not([data-nav]) #idleView:not(.hidden){ animation:stageRise .35s cubic-bezi
   border-color:var(--red-line); background:var(--red-soft);
 }
 /* 答题后选项只是「锁交互」，不是「不可用」：全局 button:disabled{opacity:.42}
-   会把单词和下面那行释义一起糊成背景色（2026-10-26 用户反馈）。这里恢复不透明。 */
-.quiz-opt:disabled{ cursor:default; transform:none; opacity:1; }
+   会把单词和下面那行释义一起糊成背景色（2026-10-26 用户反馈）。这里恢复不透明。
+   ⚠ iOS 上 disabled 的 <button> 文字会被系统强制置灰（-webkit-text-fill-color），
+   光设 color 压不住——必须在手机上显式写 text-fill-color，否则答完看不见释义（2026-10-28）。 */
+.quiz-opt:disabled{
+  cursor:default; transform:none; opacity:1;
+  -webkit-text-fill-color:currentColor; color:inherit;
+  text-fill-color:currentColor;
+}
+.quiz-opt.ok:disabled{ color:var(--ink); }
+.quiz-opt.bad:disabled{ color:var(--ink); }
 .quiz-foot{ display:flex; justify-content:flex-end; gap:10px; margin-top:14px; }
 
 /* —— 完成页 —— */
@@ -1961,6 +1971,16 @@ button.small{ padding:6px 12px; font-size:12.5px; }
               <option value="auto" selected>自动选择</option>
             </select>
           </div>
+          <div>
+            <label>四选一答完停留（秒）</label>
+            <div class="row" style="gap:6px;">
+              <input type="number" id="quizStayOk" min="0" max="10" step="0.2" value="2.4"
+                     style="width:100%;text-align:center;" aria-label="答对后停留秒数" title="答对后停留（秒）">
+              <input type="number" id="quizStayBad" min="0" max="10" step="0.2" value="3"
+                     style="width:100%;text-align:center;" aria-label="答错后停留秒数" title="答错后停留（秒）">
+            </div>
+            <div class="hint" style="margin-top:4px;font-size:11px;">左＝答对 / 右＝答错；填 0 表示不自动跳（手动点「下一题」）</div>
+          </div>
           <div class="rate-row">
             <label for="wordRateRange"><span>单词语速</span><b class="rate-val" id="wordRateVal">1.00×</b></label>
             <input type="range" class="rate-range" id="wordRateRange" min="0.5" max="2" step="0.01" value="1"
@@ -2000,16 +2020,6 @@ button.small{ padding:6px 12px; font-size:12.5px; }
               <option value="en2en" selected>听英文 → 写英文</option>
               <option value="cn2en">听中文（释义）→ 写英文</option>
             </select>
-          </div>
-          <div>
-            <label>四选一答完停留（秒）</label>
-            <div class="row" style="gap:6px;">
-              <input type="number" id="quizStayOk" min="0" max="10" step="0.2" value="2.4"
-                     style="width:100%;text-align:center;" aria-label="答对后停留秒数" title="答对后停留（秒）">
-              <input type="number" id="quizStayBad" min="0" max="10" step="0.2" value="3"
-                     style="width:100%;text-align:center;" aria-label="答错后停留秒数" title="答错后停留（秒）">
-            </div>
-            <div class="hint" style="margin-top:4px;font-size:11px;">左＝答对 / 右＝答错；填 0 表示不自动跳（手动点「下一题」）</div>
           </div>
           <div>
             <label for="exampleVoiceSelect">例句发音</label>
