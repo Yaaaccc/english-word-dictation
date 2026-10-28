@@ -6624,10 +6624,12 @@ button.small{ padding:6px 12px; font-size:12.5px; }
     }
   }
   /* 保存 + 立刻生成并上传今天（2026-10-24 加）
-     只在电脑上有效：需要本地服务的 /api/build-today。手机上只保存，晚上自动处理。 */
-  /* 手动生成（2026-10-25）：不再依赖定时任务，改成网页上点按钮。
+     手动生成（2026-10-25）：不再依赖定时任务，改成网页上点按钮。
      which = "today" | "tomorrow"
-     norebuild = true → 只补传（不重新渲染 PDF），用于"材料已生成但没传上"的补救 */
+     norebuild = true → 只补传（不重新渲染 PDF），用于"材料已生成但没传上"的补救
+     线上（2026-10-28 定案）：公网页跨域调本机被浏览器的 Local Network Access 整条掐断，
+     所以走「导航跳转到本地页」—— 跳转不是网络请求，不受该策略限制，这是唯一可靠通路。
+     落到本地页后由 ?build=today|tomorrow 自动起跑，用户不需要再点。 */
   async function planBuildDate(which, norebuild) {
     var ok = await planSave();
     if (!ok) {
@@ -6639,28 +6641,20 @@ button.small{ padding:6px 12px; font-size:12.5px; }
     }
     var isLocal = isLocalHost();
     if (!isLocal) {
-      /* 线上 → 本地 跳转：先存好计划（上一步 planSave 已过），再探测本机服务，
-         探到就跳过去自动生成；探不到给明确指引（计划数字已上云，不会丢）。 */
+      /* ── 线上 → 本地 跳转（2026-10-28 重做）──────────────────────────
+         实测结论：Chrome/Edge 的 Local Network Access 会把「https 公网页 →
+         http://127.0.0.1」的网络请求整个拦掉 —— cors / no-cors / localhost 三种
+         全返回 Failed to fetch，而同源页面正常，说明不是 CORS 头的问题，
+         server.js 配再多 Access-Control-* 也过不去（已实测，见 README 踩坑）。
+         唯一可靠的通路是**页面导航**：location 跳转不是网络请求，不受该策略约束。
+         所以这里不再探测（探测必失败，白等 2.6 秒），直接跳过去。 */
       var base = "http://127.0.0.1:8787";
       try { base = (localStorage.getItem("dictationLocalBase") || base).replace(/\/+$/, ""); } catch (eL) {}
-      $("planStatus").textContent = "已保存。正在找你电脑上的本地服务（" + base + "）…";
-      var reachable = false;
-      try {
-        await Promise.race([
-          fetch(base + "/api/dates", { mode: "no-cors", cache: "no-store" }).then(function () { reachable = true; }),
-          new Promise(function (_r, rej) { setTimeout(function () { rej(new Error("timeout")); }, 2500); })
-        ]);
-      } catch (eProbe) { reachable = false; }
-      if (reachable) {
-        $("planStatus").textContent = "找到本地服务，正在跳转过去继续生成（约 3~5 分钟，完成后 GoodNotes 里就有）…";
-        setTimeout(function () {
-          location.href = base + "/word-dictation.html?build=" + which + (norebuild ? "&norebuild=1" : "");
-        }, 700);
-        return;
-      }
-      $("planStatus").innerHTML = "<b>没找到本地服务</b>（计划已保存，数字不会丢）。<br>"
-        + "电脑上双击「打开本地网页.bat」启动服务，回到这里再点一次即可自动跳转；<br>"
-        + "iPad 连同一 Wi-Fi/热点时，把下面「本机服务地址」改成 http://电脑局域网IP:8787 再试。";
+      var target = base + "/word-dictation.html?build=" + which + (norebuild ? "&norebuild=1" : "");
+      $("planStatus").innerHTML = "已保存。正在打开电脑上的服务，转到本地页执行…<br>"
+        + "<span class=\"mini-note\">若显示「无法访问此网站」，说明本地服务没启动 —— "
+        + "双击工具目录里的「打开本地网页.bat」后，回来再点一次这个按钮。</span>";
+      setTimeout(function () { location.href = target; }, 900);
       return;
     }
     /* 日期交给服务端算（以电脑系统时间为准），这里只算个显示用的字符串。
@@ -6710,14 +6704,15 @@ button.small{ padding:6px 12px; font-size:12.5px; }
       document.addEventListener("DOMContentLoaded", function () { setTimeout(openPanel, 350); setTimeout(go, 900); });
     } else { setTimeout(openPanel, 350); setTimeout(go, 900); }
   })();
-  function planPollBuild() {
-    fetch("/api/build-status", { cache: "no-store" })
+  function planPollBuild(api) {
+    api = api || "";   /* 线上直连时传 http://127.0.0.1:8787；本地版留空走相对路径 */
+    fetch(api + "/api/build-status", { cache: "no-store" })
       .then(function (r) { return r.json(); })
       .then(function (j) {
         if (j && j.running) {
           var tail = (j.log || []).slice(-1).join("");
           $("planStatus").textContent = "生成中… " + String(tail).slice(0, 70);
-          setTimeout(planPollBuild, 3000);
+          setTimeout(function () { planPollBuild(api); }, 3000);
         } else if (j && j.ok) {
           $("planStatus").textContent = "✓ 已生成并上传到 GoodNotes（" + j.date + "）";
           planLoadUploaded();      /* 传完了 → 立刻把那一行标成「已上传」 */
@@ -6726,7 +6721,7 @@ button.small{ padding:6px 12px; font-size:12.5px; }
           $("planStatus").textContent = "✗ 失败：" + String(t).slice(0, 110);
         }
       })
-      .catch(function () { setTimeout(planPollBuild, 3000); });
+      .catch(function () { setTimeout(function () { planPollBuild(api); }, 3000); });
   }
 
   function planBind() {
