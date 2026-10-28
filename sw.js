@@ -10,7 +10,7 @@
  *
  * 改版本号会让旧缓存整体作废，重新预缓存。
  */
-const VERSION = "dictation-v4-2026-10-28c";
+const VERSION = "dictation-v4-2026-10-28d";
 /* 2026-10-25：三个大数据文件（example-dict 835KB / exam-examples 347KB / quiz-pool 300KB）
    不再预缓存 —— 页面会带日期版本号请求它们，由运行时缓存接管，避免 install 时重复下 1.5MB。 */
 const CORE = [
