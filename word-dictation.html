@@ -188,7 +188,7 @@ body{
   background:linear-gradient(163deg, rgba(255,255,255,calc(var(--glass-op,1)*.9)), rgba(255,255,255,calc(var(--glass-op,1)*.78)));
   -webkit-backdrop-filter:blur(24px) saturate(160%);
   backdrop-filter:blur(24px) saturate(160%);
-  border:1px solid rgba(255,255,255,.3);
+  border:1px solid rgba(16,24,40,.07);
   box-shadow:var(--sh-3);
 }
 @media (prefers-color-scheme: dark){
@@ -293,7 +293,7 @@ body{
   /* 边框 + 顶部内高光原来分别是 .55 / .65，在深色壁纸上叠成一条扎眼的亮白线
      （2026-10-27 用户反馈）。现在把顶部内高光去掉、边框降到 .34：
      四周边缘均匀，不再有"顶上一条特别亮"的观感。 */
-  border:1px solid rgba(255,255,255,.34);
+  border:1px solid rgba(16,24,40,.07);
   border-radius:var(--r-l);
   box-shadow:inset 0 -1px 0 rgba(16,24,40,.05), var(--sh-2);
 }
@@ -764,10 +764,11 @@ html:not([data-nav]) #idleView:not(.hidden){ animation:stageRise .35s cubic-bezi
   border-radius:var(--r-l); padding:18px 20px 20px;
   animation:fadeUp .24s cubic-bezier(.2,.8,.3,1);
 }
-.example-card::before{
-  content:""; position:absolute; left:0; top:0; bottom:0; width:3px; z-index:2;
-  background:linear-gradient(180deg, var(--violet-l), var(--violet-d));
-}
+/* 左侧紫色装饰条已去掉（2026-10-28 用户反馈：像一条多余的线）。
+   原规则保留成注释，想恢复就取消注释：
+   .example-card::before{ content:""; position:absolute; left:0; top:0; bottom:0; width:3px; z-index:2;
+     background:linear-gradient(180deg, var(--violet-l), var(--violet-d)); }
+*/
 .example-card .ex-head{ display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; margin-bottom:2px; }
 .ex-word{
   font:700 20px/1.25 "Segoe UI Variable Display","Segoe UI",system-ui,sans-serif;
@@ -975,7 +976,7 @@ html:not([data-nav]) #idleView:not(.hidden){ animation:stageRise .35s cubic-bezi
   background-image:linear-gradient(163deg, rgba(255,255,255,calc(var(--glass-op,1)*.9)), rgba(255,255,255,calc(var(--glass-op,1)*.82))), var(--glass-img, none);
   background-attachment: fixed, fixed;   /* 壁纸副本对齐视口主壁纸：手机端滚动时玻璃才「透」出真背景（2026-10-26 修） */
   background-size:cover, auto; background-position:center, center; background-repeat:no-repeat, no-repeat;
-  border:1px solid rgba(255,255,255,.3);
+  border:1px solid rgba(16,24,40,.07);
   box-shadow:var(--sh-3);
 }
 .settings.glass-sheet:not(.hidden){ animation:sheetUp .36s cubic-bezier(.3,1.2,.5,1) both; }
@@ -1471,7 +1472,7 @@ button.small{ padding:6px 12px; font-size:12.5px; }
   background:linear-gradient(163deg, rgba(255,255,255,calc(var(--glass-op,1)*.95)), rgba(255,255,255,calc(var(--glass-op,1)*.9)));
   -webkit-backdrop-filter:blur(24px) saturate(160%);
   backdrop-filter:blur(24px) saturate(160%);
-  border:1px solid rgba(255,255,255,.3); border-radius:18px;
+  border:1px solid rgba(16,24,40,.07); border-radius:18px;
   box-shadow:var(--sh-3);
   padding:10px 16px 12px;
 }
