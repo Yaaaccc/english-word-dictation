@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-26 17:46",
+ "generated_at": "2026-10-31 21:14",
  "start": "2026-10-08",
  "total_days": 30,
  "unit": "lesson",
@@ -8,6 +8,34 @@
  "wrong_day": null,
  "sameday": true,
  "fill_mode": "today",
+ "weekly_rest": [],
+ "rounds": [
+  {
+   "color": 1,
+   "label": "学习新课",
+   "short": "学新"
+  },
+  {
+   "color": 2,
+   "label": "复习+1 · 读译",
+   "short": "复+1"
+  },
+  {
+   "color": 3,
+   "label": "复习+3 · 视译",
+   "short": "复+3"
+  },
+  {
+   "color": 4,
+   "label": "复习+6 · 听写",
+   "short": "复+6"
+  },
+  {
+   "color": 5,
+   "label": "复习+15 · 回看",
+   "short": "复+15"
+  }
+ ],
  "days": [
   {
    "date": "2026-10-08",
@@ -778,7 +806,7 @@
    "md": "10月27日",
    "day": 20,
    "tail": false,
-   "done": false,
+   "done": true,
    "type": "study",
    "k": 19,
    "review_day": false,
@@ -820,7 +848,7 @@
    "md": "10月28日",
    "day": 21,
    "tail": false,
-   "done": false,
+   "done": true,
    "type": "study",
    "k": 20,
    "review_day": false,
@@ -862,7 +890,7 @@
    "md": "10月29日",
    "day": 22,
    "tail": false,
-   "done": false,
+   "done": true,
    "type": "study",
    "k": 21,
    "review_day": false,
@@ -904,7 +932,7 @@
    "md": "10月30日",
    "day": 23,
    "tail": false,
-   "done": false,
+   "done": true,
    "type": "study",
    "k": 22,
    "review_day": false,
@@ -946,7 +974,7 @@
    "md": "10月31日",
    "day": 24,
    "tail": false,
-   "done": false,
+   "done": true,
    "type": "study",
    "k": 23,
    "review_day": false,
