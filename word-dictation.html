@@ -450,10 +450,7 @@ html[data-nav="fwd"]  #doneView:not(.hidden),
 html[data-nav="fwd"]  #typeStage:not(.hidden),
 html[data-nav="fwd"]  #playStage:not(.hidden),
 html[data-nav="fwd"]  #quizStage:not(.hidden){
-  /* 2026-10-28：both→backwards。both 会把元素永久留在动画合成路径上（data-nav 从不清除），
-     真机 GPU 下背景在层边界出现横向接缝（用户报的「卡片顶部一条线」，headless 无 GPU 复现不出）。
-     backwards 动画结束后元素回归普通渲染，视觉与 to 帧完全一致，零跳动。 */
-  animation:stageFwd .3s cubic-bezier(.22,1,.36,1) backwards;
+  animation:stageFwd .3s cubic-bezier(.22,1,.36,1) both;
 }
 html[data-nav="back"] #idleView:not(.hidden),
 html[data-nav="back"] #runView:not(.hidden),
@@ -461,9 +458,9 @@ html[data-nav="back"] #doneView:not(.hidden),
 html[data-nav="back"] #typeStage:not(.hidden),
 html[data-nav="back"] #playStage:not(.hidden),
 html[data-nav="back"] #quizStage:not(.hidden){
-  animation:stageBack .3s cubic-bezier(.22,1,.36,1) backwards;
+  animation:stageBack .3s cubic-bezier(.22,1,.36,1) both;
 }
-html:not([data-nav]) #idleView:not(.hidden){ animation:stageRise .35s cubic-bezier(.22,1,.36,1) backwards; }
+html:not([data-nav]) #idleView:not(.hidden){ animation:stageRise .35s cubic-bezier(.22,1,.36,1) both; }
 
 /* —— 空态 —— */
 #idleView{ padding:clamp(24px,5vh,52px) 24px; }
@@ -1554,6 +1551,52 @@ button.small{ padding:6px 12px; font-size:12.5px; }
 }
 
 /* ============================================================
+   13.7 功能增强（2026-10-31）：数据管理 / 词书进度 / 连对鼓励 / 错词逾期
+   ============================================================ */
+/* 数据管理分隔线 */
+.feat-sep{ margin:18px 0 0; padding-top:14px; border-top:1px solid var(--line); }
+
+/* 词书进度条 */
+.vocab-progress{
+  margin:14px 0 4px; padding:12px 16px;
+  background:var(--soft); border:1px solid var(--line-2); border-radius:var(--r-m);
+}
+.vocab-progress .vp-head{ display:flex; align-items:baseline; justify-content:space-between; margin-bottom:6px; }
+.vocab-progress .vp-label{ font-size:11.5px; color:var(--muted-2); font-weight:700; letter-spacing:1.2px; }
+.vocab-progress .vp-num{
+  font-size:18px; font-weight:800; font-variant-numeric:tabular-nums;
+  background:var(--primary-grad); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;
+}
+.vocab-progress .vp-bar{
+  height:8px; border-radius:99px; overflow:hidden;
+  background:var(--track); box-shadow:inset 0 1px 2px rgba(16,24,40,.1);
+}
+.vocab-progress .vp-fill{
+  height:100%; border-radius:99px; width:0;
+  background:linear-gradient(90deg, var(--violet-d), var(--violet) 55%, var(--violet-l));
+  box-shadow:0 0 10px rgba(122,63,212,.4);
+  transition:width .8s cubic-bezier(.2,.8,.3,1);
+}
+.vocab-progress .vp-sub{ font-size:11px; color:var(--muted-2); margin-top:4px; }
+
+/* 四选一连对鼓励 */
+.quiz-streak{
+  text-align:center; margin-top:8px;
+  font-size:13px; font-weight:700; color:var(--violet-d);
+  animation:streakPop .4s cubic-bezier(.3,1.5,.5,1);
+}
+.quiz-streak.hidden{ display:none; }
+@keyframes streakPop{ from{ opacity:0; transform:scale(.8); } to{ opacity:1; transform:scale(1); } }
+
+/* 错词本逾期标记 */
+.result-table tr.wb-stale td:first-child{ position:relative; }
+.result-table tr.wb-stale td:first-child::after{
+  content:"⚠"; position:absolute; right:8px; top:50%; transform:translateY(-50%);
+  font-size:11px; color:var(--red); opacity:.7;
+}
+.result-table tr.wb-stale td{ background:rgba(220,74,64,.04); }
+
+/* ============================================================
    14. 打印（导出错词/生词 PDF）—— 白纸黑字
    ============================================================ */
 .print-only{ display:none; }
@@ -1820,7 +1863,7 @@ button.small{ padding:6px 12px; font-size:12.5px; }
               <span id="quizWord" class="quiz-word"></span>
               <button id="quizSpeakBtn" class="replay-btn" type="button" title="读这个单词">🔊</button>
             </div>
-            <div class="quiz-tip" id="quizTip">先回想词义再选择；想不起来就点「看答案」（不算对错）</div>
+            <div id="quizStreak" class="quiz-streak hidden"></div>            <div class="quiz-tip" id="quizTip">先回想词义再选择；想不起来就点「看答案」（不算对错）</div>
             <div id="quizOptions" class="quiz-options"></div>
             <div class="quiz-foot">
               <button id="quizRevealBtn" class="small" type="button">看答案</button>
@@ -1912,11 +1955,6 @@ button.small{ padding:6px 12px; font-size:12.5px; }
       </div>
       <div class="tip">
         <b>建议流程：</b>开始连播 → 听写在纸上 → 没听清按 <kbd>R</kbd> 重播、卡住时按 <kbd>X</kbd> 听例句 → 全部过完再回来看例句卡逐词核对。
-      </div>
-      <!-- 2026-10-28 加：构建版本标识。排查「卡片顶部一条线」时无法远程确认用户看到的是哪一版，
-           把版本亮在页面上：报问题时先看这行字，缓存问题一眼识破。 -->
-      <div class="tip" id="buildStamp" style="margin-top:6px; opacity:.55; font-size:10.5px; letter-spacing:.4px;">
-        构建 <b>2026-10-28d</b>
       </div>
     </aside>
 
@@ -2041,7 +2079,15 @@ button.small{ padding:6px 12px; font-size:12.5px; }
           <input type="checkbox" id="autoExampleBox">
           <span>自动读例句（读完单词后接着读英文例句）</span>
         </div>
-        <div class="hint" id="voiceHint">正在加载语音列表…</div>
+        <div class="feat-sep"></div>
+      <h3>数据管理</h3>
+      <div class="row" style="margin-bottom:8px;">
+        <button class="small" id="btnExportData" type="button">导出学习数据</button>
+        <button class="small" id="btnImportData" type="button">导入学习数据</button>
+        <input type="file" id="importFile" accept=".json" class="hidden">
+        <span class="count" id="dataInfo">练习历史 · 错词本 · 生词本 · 全部设置</span>
+      </div>
+      <div class="hint">导出为一个 JSON 文件存到电脑，导入后覆盖当前数据。建议每周备份一次。</div>      <div class="hint" id="voiceHint">正在加载语音列表…</div>
       </div>
     </div>
   </div>
@@ -2078,7 +2124,14 @@ button.small{ padding:6px 12px; font-size:12.5px; }
 
   <section class="settings glass-sheet hidden" id="statsPanel">
   <div class="settings-inner">
-    <div class="stats-top">
+    <div class="vocab-progress" id="vocabProgress">
+      <div class="vp-head">
+        <span class="vp-label">词书进度</span>
+        <span class="vp-num" id="vpNum">—</span>
+      </div>
+      <div class="vp-bar"><div class="vp-fill" id="vpFill"></div></div>
+      <div class="vp-sub" id="vpSub"></div>
+    </div>    <div class="stats-top">
       <div class="stat-box"><b id="stTotal">0</b><span>累计听写词数</span></div>
       <div class="stat-box"><b id="stStreak">0</b><span>连续练习天数</span></div>
       <div class="stat-box"><b id="stWrong">0</b><span>错词本词数</span></div>
@@ -2261,7 +2314,7 @@ button.small{ padding:6px 12px; font-size:12.5px; }
       <div class="read-prog hidden" id="readProg" aria-hidden="true"><i></i></div>
       <div id="readBody" class="read-body"></div>
       <div class="read-foot">
-        <button class="small" id="readDoneBtn" type="button">✓ 标为已读</button>
+        <button class="small" id="readCollectBtn" type="button">📚 收集本文词书词汇</button>        <button class="small" id="readDoneBtn" type="button">✓ 标为已读</button>
         <label class="read-rate" for="readRate" title="朗读语速">
           <span>语速</span>
           <input type="range" id="readRate" min="0.6" max="1.4" step="0.05" value="0.92" aria-label="朗读语速">
@@ -8363,6 +8416,154 @@ button.small{ padding:6px 12px; font-size:12.5px; }
     }
     window.addEventListener("load", function () { setTimeout(check, 1500); });
     setInterval(check, 30 * 60 * 1000);         // 每 30 分钟复查一次（生成了就自动消失）
+  })();
+
+  /* ---------- 4.5 功能增强（2026-10-31）----------
+     #1 数据导出/导入  #2 词书进度  #3 阅读收集生词
+     #6 错词本逾期标记  #7 四选一连对鼓励                    */
+  (function () {
+    /* ---- #1 数据导出/导入 ---- */
+    var expBtn = document.getElementById("btnExportData");
+    var impBtn = document.getElementById("btnImportData");
+    var impFile = document.getElementById("importFile");
+    var dataInfo = document.getElementById("dataInfo");
+    if (expBtn && impBtn && impFile) {
+      var DATA_KEYS = [];
+      try {
+        for (var i = 0; i < localStorage.length; i++) {
+          var k = localStorage.key(i);
+          if (k && k.indexOf("dictation") === 0) DATA_KEYS.push(k);
+        }
+      } catch (e) {}
+      expBtn.addEventListener("click", function () {
+        var dump = {};
+        DATA_KEYS.forEach(function (k) { try { dump[k] = localStorage.getItem(k); } catch (e) {} });
+        var blob = new Blob([JSON.stringify(dump, null, 1)], { type: "application/json" });
+        var a = document.createElement("a");
+        a.href = URL.createObjectURL(blob);
+        a.download = "单词听写数据_" + new Date().toISOString().slice(0, 10) + ".json";
+        a.click();
+        URL.revokeObjectURL(a.href);
+      });
+      impBtn.addEventListener("click", function () { impFile.click(); });
+      impFile.addEventListener("change", function () {
+        var fi = this, file = fi.files && fi.files[0];
+        if (!file) return;
+        var rd = new FileReader();
+        rd.onload = function () {
+          try {
+            var data = JSON.parse(rd.result);
+            var count = 0;
+            for (var k in data) {
+              if (k.indexOf("dictation") === 0) { localStorage.setItem(k, data[k]); count++; }
+            }
+            if (dataInfo) dataInfo.textContent = "已导入 " + count + " 项，即将刷新…";
+            setTimeout(function () { location.reload(); }, 800);
+          } catch (e) {
+            if (dataInfo) dataInfo.textContent = "导入失败：" + e.message;
+          }
+        };
+        rd.readAsText(file);
+        fi.value = "";
+      });
+    }
+
+    /* ---- #2 词书进度条 ---- */
+    var vpFill = document.getElementById("vpFill");
+    var vpNum = document.getElementById("vpNum");
+    var vpSub = document.getElementById("vpSub");
+    function updateProgress() {
+      if (!vpFill || !vpNum) return;
+      fetch("dates.json", { cache: "no-store" })
+        .then(function (r) { return r.json(); })
+        .then(function (dates) {
+          /* 找词书最新日期 → 该日期的 txt 行数 = 已学到的词数 */
+          var wb = dates.filter(function (d) { return d.source === "词书"; });
+          if (!wb.length) return;
+          var latest = wb[0].date;
+          return fetch(wb[0].file, { cache: "no-store" })
+            .then(function (r) { return r.text(); })
+            .then(function (t) {
+              var lines = t.trim().split("\n").filter(Boolean).length;
+              var total = 1878, startIdx = 801;
+              var learned = lines; /* 第1天=50，第N天=50*N，所以 learned = 50 * 天数 */
+              var days = Math.round(lines / 50) || 1;
+              var pct = Math.min(100, Math.round(learned / total * 100));
+              vpFill.style.width = pct + "%";
+              vpNum.textContent = learned + " / " + total;
+              if (vpSub) vpSub.textContent = "已学 " + learned + " 词（第 " + days + " 天）· 剩余 " + (total - startIdx - learned + 1) + " 词";
+            });
+        })
+        .catch(function () {});
+    }
+    updateProgress();
+
+    /* ---- #6 错词本逾期标记（3 天以上未消除 → 行加 ⚠ 样式） ---- */
+    var wbBody = document.getElementById("wrongBookBody");
+    if (wbBody) {
+      new MutationObserver(function () {
+        var rows = wbBody.querySelectorAll("tr");
+        for (var i = 0; i < rows.length; i++) {
+          var missCell = rows[i].cells[2];
+          if (missCell && parseInt(missCell.textContent) >= 3) {
+            rows[i].classList.add("wb-stale");
+          } else {
+            rows[i].classList.remove("wb-stale");
+          }
+        }
+      }).observe(wbBody, { childList: true, subtree: true });
+    }
+
+    /* ---- #7 四选一连对鼓励 ---- */
+    var quizStage = document.getElementById("quizStage");
+    var streakEl = document.getElementById("quizStreak");
+    if (quizStage && streakEl) {
+      var streak = 0;
+      new MutationObserver(function () {
+        var okBtn = quizStage.querySelector(".quiz-opt.ok");
+        var badBtn = quizStage.querySelector(".quiz-opt.bad");
+        if (okBtn && !badBtn) {
+          streak++;
+          if (streak >= 3 && streak % 5 === 0) {
+            streakEl.textContent = "🎯 连对 " + streak + " 题！继续保持";
+            streakEl.classList.remove("hidden");
+            setTimeout(function () { streakEl.classList.add("hidden"); }, 2200);
+          }
+        } else if (badBtn) {
+          streak = 0;
+        }
+      }).observe(quizStage.querySelector(".quiz-options") || quizStage, { childList: true, subtree: true, attributes: true, attributeFilter: ["class"] });
+    }
+
+    /* ---- #3 阅读收词（在阅读 IIFE 内处理，这里只注册按钮事件） ---- */
+    var rColBtn = document.getElementById("readCollectBtn");
+    if (rColBtn) {
+      rColBtn.addEventListener("click", function () {
+        var targets = null;
+        try { targets = null; } catch (e) {}
+        /* 收集 .rtgt 词（词书高亮词）→ 批量加入生词本 */
+        var tgtSpans = document.querySelectorAll("#readBody .rtgt[data-w]");
+        var added = 0, skipped = 0;
+        var dict = window.__exampleDict || {};
+        for (var i = 0; i < tgtSpans.length; i++) {
+          var w = tgtSpans[i].getAttribute("data-w");
+          if (!w) continue;
+          var nw = null;
+          try { nw = JSON.parse(localStorage.getItem("dictationNewWords") || "{}"); } catch (e) { nw = {}; }
+          if (nw[w]) { skipped++; continue; }
+          var entry = { w: w, ph: "", m: "", base: "", tagLabel: "", diff: "", hits: 1, ts: Date.now() };
+          if (dict[w]) {
+            entry.ph = dict[w][0] || "";
+            entry.m = dict[w][1] || "";
+            entry.base = dict[w][2] || "";
+            entry.tagLabel = dict[w][3] || "";
+          }
+          nw[w] = entry;
+          try { localStorage.setItem("dictationNewWords", JSON.stringify(nw)); added++; } catch (e) {}
+        }
+        if (window.__dictationToast) window.__dictationToast("已收集 " + added + " 个词书词汇到生词本" + (skipped ? "（" + skipped + " 个已存在）" : ""));
+      });
+    }
   })();
 
   /* ---------- 5. 液态滑标 ---------- */
