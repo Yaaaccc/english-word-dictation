@@ -41,6 +41,8 @@ h1 .dot{width:10px;height:10px;border-radius:3px;background:var(--purple);displa
 .trow .tx{flex:1;font-size:15px;font-weight:600}
 .trow .lb{font-size:12px;opacity:.75;font-weight:600}
 .trow.strip{background:#F7F7F9;border:1px dashed var(--line);color:#555;font-size:13px;padding:8px 12px}
+.jump{font-size:11px;color:var(--purple);cursor:pointer;border:1px solid var(--purple);
+  border-radius:99px;padding:2px 9px;font-weight:600}
 .idle{font-size:14.5px;color:#666;line-height:1.7;padding:6px 2px}
 /* 勾选框（2026-10-26 加）：与听写页共用 localStorage「ebingDone」同步 */
 .ck{flex:none;display:flex;align-items:center;justify-content:center;
@@ -77,7 +79,12 @@ h1 .dot{width:10px;height:10px;border-radius:3px;background:var(--purple);displa
 .crow .t{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .crow .l{font-weight:700;font-size:9.5px}
 .crow.empty{background:var(--empty);color:#9A9AA0;justify-content:center}
-.strip2{background:#F2F2F4;font-size:9.5px;color:#555;padding:3px 7px;border-top:1px solid var(--line)}
+.strip2{background:#F2F2F4;font-size:9.5px;color:#555;padding:3px 7px;border-top:1px solid var(--line);
+  display:flex;align-items:center;gap:4px}
+.strip2[data-idx]{cursor:pointer}
+.strip2 .ck{width:11px;height:11px;border-radius:3px;font-size:8px;flex:none}
+.strip2.done .t{text-decoration:line-through;opacity:.55}
+.strip2.done .ck::after{content:"✓"}
 /* 休息/轻休 */
 .rest-card{background:#E7E7EA;color:#777;display:flex;align-items:center;justify-content:center;
   min-height:96px;font-size:13px;letter-spacing:2px;border-radius:12px}
@@ -85,6 +92,10 @@ h1 .dot{width:10px;height:10px;border-radius:3px;background:var(--purple);displa
   display:flex;flex-direction:column;gap:6px}
 .light-card .lt{font-size:11px;font-weight:700;color:#8C7333}
 .light-card .lb2{font-size:12px;color:#666}
+.light-card .lb2.lk{display:flex;align-items:center;gap:4px;cursor:pointer}
+.light-card .lb2 .ck{width:11px;height:11px;border-radius:3px;font-size:8px;flex:none}
+.light-card .lb2.lk.done .t{text-decoration:line-through;opacity:.5}
+.light-card .lb2.lk.done .ck::after{content:"✓"}
 .err{background:#FFF3F3;border:1px solid #F2C4C4;color:#A33;border-radius:12px;padding:14px;font-size:13.5px}
 @media (min-width:720px){ body{padding-top:22px} h1{font-size:22px} }
 </style>
@@ -92,7 +103,7 @@ h1 .dot{width:10px;height:10px;border-radius:3px;background:var(--purple);displa
 <body>
 <h1><span class="dot"></span>艾宾浩斯复习计划</h1>
 <div class="meta" id="meta">加载中…</div>
-<div class="legend">
+<div class="legend" id="legend">
   <span><i style="background:var(--c1)"></i>学习新课</span>
   <span><i style="background:var(--c2)"></i>复习+1 · 读译</span>
   <span><i style="background:var(--c3)"></i>复习+3 · 视译</span>
@@ -206,8 +217,20 @@ async function ebingPush(map){
 
 function render(data){
   curData = data;
+  /* 图例随梯度动态生成（v6：rounds 由导出脚本给出；旧数据走内置兜底） */
+  const rounds = (data.rounds && data.rounds.length) ? data.rounds :
+    [{color:1,label:'学习新课',short:'学新'},{color:2,label:'复习+1 · 读译',short:'复+1'},
+     {color:3,label:'复习+3 · 视译',short:'复+3'},{color:4,label:'复习+6 · 听写',short:'复+6'},
+     {color:5,label:'复习+15 · 回看',short:'复+15'}];
+  const shortMap = {};
+  rounds.forEach(r=>{ shortMap[r.color] = r.short || ROUND[r.color] || ''; });
+  document.getElementById('legend').innerHTML =
+    rounds.map(r=>'<span><i style="background:'+COLORS[r.color]+'"></i>'+esc(r.label)+'</span>').join('');
+  const weekly = data.weekly_rest || [];
   document.getElementById('meta').textContent =
-    '起算 ' + data.start + ' · 共 ' + data.total_days + ' 课（学习日制） · 数据生成于 ' + data.generated_at +
+    '起算 ' + data.start + ' · 共 ' + data.total_days + ' 课（学习日制）' +
+    (weekly.length ? ' · 每周' + weekly.map(w=>'一二三四五六日'[w]).join('、') + '休' : '') +
+    ' · 数据生成于 ' + data.generated_at +
     (canWrite() ? '' : ' · 只读（想在这台设备上勾：去「学习计划 → 配置同步」填一次令牌）');
   document.getElementById('lgWrong').style.display = (data.wrong_day != null) ? '' : 'none';
   const byDate = {}; data.days.forEach(d=>byDate[d.date]=d);
@@ -237,7 +260,8 @@ function render(data){
       : '学习进度：第 ' + k + ' / ' + total + ' 个学习日，已完成 ' + doneCnt + ' 个' +
         (today.review_day ? ' · 今天无新课，只走复习链' : '');
     th = '<div class="today">' +
-      '<div class="tt"><b>今天 · ' + today.md + '</b><span class="tag">' + tag + '</span></div>' +
+      '<div class="tt"><b>今天 · ' + today.md + '</b><span class="tag">' + tag + '</span>' +
+      '<span class="jump" id="jumpToday">在日历中定位 ↓</span></div>' +
       '<div class="prog">' + prog + '</div>' +
       today.rows.map((r,i)=>{
         if(r.color==null) return '';
@@ -246,7 +270,7 @@ function render(data){
           '<span class="ck"></span>' +
           '<span class="no">'+(i+1)+'</span>' +
           '<span class="tx">'+esc(r.text)+'</span>' +
-          '<span class="lb">'+ROUND[r.color]+' · 第'+r.label+'遍</span></div>';
+          '<span class="lb">'+(shortMap[r.color]||ROUND[r.color])+' · 第'+r.label+'遍</span></div>';
       }).join('') +
       (data.sameday ? '<div class="trow strip'+(isDone(todayStr,'s')?' done':'')+'" data-date="'+todayStr+'" data-idx="s">' +
         '<span class="ck"></span><span>🌙 睡前回看：今天主课再过一遍' +
@@ -259,10 +283,13 @@ function render(data){
   const mk = e => {
     if(e.type==='rest')
       return '<div class="rest-card">休 息</div>';
-    if(e.type==='light')
+    if(e.type==='light'){
+      const dn = isDone(e.date, 'l');
       return '<div class="light-card"><div class="lt">轻休 · 第'+e.day+'天</div>' +
-             '<div class="lb2">回看 ' + esc(e.lookback||'上一课') + '</div>' +
+             '<div class="lb2 lk'+(dn?' done':'')+'" data-date="'+e.date+'" data-idx="l">' +
+             '<span class="ck"></span><span class="t">回看 ' + esc(e.lookback||'上一课') + '</span></div>' +
              '<div class="lb2" style="color:#999">'+e.md+(e.done?' · 已过':'')+'</div></div>';
+    }
     const isToday = e.date===todayStr;
     const head = e.done ? '已完成' : (e.review_day ? '复习日' : '');
     const bar = e.review_day ? COLORS[5] : COLORS[1];
@@ -281,7 +308,10 @@ function render(data){
           '<span class="l">'+r.label+'</span></div>';
       }).join('') +
       '</div></div>' +
-      (data.sameday ? '<div class="strip2">'+(e.review_day?'本日无新课':'睡前回看')+'</div>' : '') +
+      (data.sameday ? (!e.review_day ?
+        '<div class="strip2'+(isDone(e.date,'s')?' done':'')+'" data-date="'+e.date+'" data-idx="s">' +
+        '<span class="ck"></span><span class="t">睡前回看</span></div>' :
+        '<div class="strip2">本日无新课</div>') : '') +
       '</div>';
     return html;
   };
@@ -299,6 +329,11 @@ function render(data){
 let syncBusy = false;
 let pulledOk = false;      /* 加载时已成功读到云端 → 点击不必再等一次网络 */
 document.addEventListener('click', async ev=>{
+  if(ev.target && ev.target.id === 'jumpToday'){
+    const el = document.querySelector('#mainGrid .card.today, #tailGrid .card.today');
+    if(el) el.scrollIntoView({behavior:'smooth', block:'center'});
+    return;
+  }
   const el = ev.target.closest('[data-date][data-idx]');
   if(!el || !curData) return;
   if(!canWrite()) return;                       /* 手机只读（2026-10-27） */
