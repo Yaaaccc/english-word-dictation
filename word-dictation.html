@@ -2343,9 +2343,11 @@ button.small{ padding:6px 12px; font-size:12.5px; }
           <button class="read-mode" data-m="cn" type="button">中</button>
         </span>
         <button class="read-focus" id="readFocus" type="button" aria-pressed="false" title="专注模式：只突出当前句" aria-label="专注模式">◉</button>
+        <span class="read-font"><button class="read-font-btn" id="readFontMinus" type="button">A−</button><button class="read-font-btn" id="readFontPlus" type="button">A+</button></span>
         <button class="read-speak" id="readSpeak" type="button" aria-pressed="false" title="从当前句开始朗读整篇" aria-label="朗读">🔊</button>
       </div>
       <div class="read-prog hidden" id="readProg" aria-hidden="true"><i></i></div>
+      <div class="read-scroll-prog"><i id="readScrollFill"></i></div>
       <div id="readBody" class="read-body"></div>
       <div class="read-foot">
         <button class="small" id="readCollectBtn" type="button">📚 收集本文词书词汇</button>        <button class="small" id="readDoneBtn" type="button">✓ 标为已读</button>
@@ -8193,13 +8195,14 @@ button.small{ padding:6px 12px; font-size:12.5px; }
         if (typeof s.p === "number") prevP = s.p;
         html += '<span class="rsent' + (newPara ? " para-first" : "") + '" data-i="' + i + '">';
         if (curMode !== "cn") html += '<button class="rsent-play" data-i="' + i + '" type="button" tabindex="-1" aria-label="朗读第 ' + (i + 1) + ' 句">🔊</button>';
-        if (curMode === "en") html += sentHtml(s.en) + " ";
+        if (curMode === "en") html += sentHtml(s.en) + '<span class="rsent-inline-cn">' + esc(s.cn || "（缺译）") + '</span>';
         else if (curMode === "cn") html += esc(s.cn || "（缺译）");
         else html += sentHtml(s.en) + ' <span class="cnline">' + esc(s.cn || "（缺译）") + "</span>";
         html += "</span>";
       }
+      var savedScroll = rBody._savedScroll || 0;
       rBody.innerHTML = html;
-      rBody.scrollTop = 0;
+      rBody.scrollTop = savedScroll;
       markCur(0);          // 专注模式下默认聚焦第一句
     }
 
@@ -8324,10 +8327,9 @@ button.small{ padding:6px 12px; font-size:12.5px; }
       var prev = rBody.querySelector(".rsent.sel");
       if (prev) prev.classList.remove("sel");
       sent.classList.add("sel");
-      markCur(i);          // 专注模式下：点哪句，哪句变清晰
-      var cnT = cur.sents[i].cn;
-      if (!cnT && i > 0 && cur.sents[i - 1].cn) cnT = "（这句较短，与上一句合并翻译）" + cur.sents[i - 1].cn;
-      showTrans("第 " + (i + 1) + " 句 · " + cur.id, cnT || "（这句缺译，检查导入）");
+      markCur(i);
+      /* v7：点句 → inline 翻译在句下展开/收起（不再用底部弹卡） */
+      sent.classList.toggle("show-cn");
     });
     document.getElementById("rtClose").addEventListener("click", function () {
       hideTrans();
@@ -8677,6 +8679,22 @@ button.small{ padding:6px 12px; font-size:12.5px; }
   place(false);
   setTimeout(function () { place(false); }, 350);
 })();
+
+  /* ---- 阅读体验增强：模式记忆/字号/滚动进度 ---- */
+  (function () {
+    var rB2 = document.getElementById("readBody");
+    if (!rB2) return;
+    var mbs = document.querySelectorAll("#readView .read-mode");
+    try { var sm = localStorage.getItem("dictationReadMode"); if (sm) { for (var i = 0; i < mbs.length; i++) { if (mbs[i].getAttribute("data-m") === sm) { mbs[i].click(); break; } } } } catch (e) {}
+    for (var j = 0; j < mbs.length; j++) { mbs[j].addEventListener("click", function () { try { localStorage.setItem("dictationReadMode", this.getAttribute("data-m")); } catch (e) {} }); }
+    var fm = document.getElementById("readFontMinus");
+    var fp = document.getElementById("readFontPlus");
+    function applyF(v) { rB2.style.fontSize = v + "px"; try { localStorage.setItem("dictationReadFont", String(v)); } catch (e) {} }
+    var cf = 19; try { cf = parseInt(localStorage.getItem("dictationReadFont")) || 19; } catch (e) {}
+    rB2.style.fontSize = cf + "px";
+    if (fm) fm.addEventListener("click", function () { cf = Math.max(14, cf - 2); applyF(cf); });
+    if (fp) fp.addEventListener("click", function () { cf = Math.min(30, cf + 2); applyF(cf); });
+  })();
 </script>
 </body>
 </html>
