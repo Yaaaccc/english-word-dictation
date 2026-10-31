@@ -1597,6 +1597,33 @@ button.small{ padding:6px 12px; font-size:12.5px; }
 .result-table tr.wb-stale td{ background:rgba(220,74,64,.04); }
 
 /* ============================================================
+   13.8 首页学习概览行（开始按钮下方）
+   ============================================================ */
+.daily-overview{
+  display:flex; align-items:center; justify-content:center; gap:0;
+  margin-top:14px; padding:0 16px;
+}
+.daily-overview .do-item{
+  display:flex; flex-direction:column; align-items:center; gap:1px; padding:0 16px;
+}
+.daily-overview .do-item i{
+  font-style:normal; font-size:17px; font-weight:800; font-variant-numeric:tabular-nums;
+}
+.daily-overview .do-item em{
+  font-style:normal; font-size:10.5px; color:var(--muted-2); letter-spacing:.5px;
+}
+.daily-overview .do-ok{ color:var(--green); }
+.daily-overview .do-streak{ color:var(--violet); }
+.daily-overview .do-wrong{ color:var(--red); }
+.daily-overview .do-sep{
+  width:1px; height:24px; background:var(--line); flex:none; margin:0 4px;
+}
+@media (max-width:720px){
+  .daily-overview .do-item{ padding:0 10px; }
+  .daily-overview .do-item i{ font-size:15px; }
+}
+
+/* ============================================================
    14. 打印（导出错词/生词 PDF）—— 白纸黑字
    ============================================================ */
 .print-only{ display:none; }
@@ -1755,6 +1782,13 @@ button.small{ padding:6px 12px; font-size:12.5px; }
         <div class="idle-sub">点开始后自动连播，听到就写在本子上；也可切「逐个听写」打字校对。</div>
         <div class="controls">
           <button class="primary big-btn" id="startPlayBtn">▶ 开始连播</button>
+          <div class="daily-overview" id="dailyOverview">
+            <span class="do-item"><i class="do-ok" id="ovOk">—</i><em>昨日答对率</em></span>
+            <span class="do-sep"></span>
+            <span class="do-item"><i class="do-streak" id="ovStreak">—</i><em>连续天数</em></span>
+            <span class="do-sep"></span>
+            <span class="do-item"><i class="do-wrong" id="ovWrong">—</i><em>错词本</em></span>
+          </div>
           <button class="big-btn" id="startTypeBtn" style="display:none;">▶ 开始逐个听写</button>
           <button class="big-btn" id="startQuizBtn" style="display:none;">▶ 开始选释义</button>
         </div>
@@ -8564,6 +8598,45 @@ button.small{ padding:6px 12px; font-size:12.5px; }
         if (window.__dictationToast) window.__dictationToast("已收集 " + added + " 个词书词汇到生词本" + (skipped ? "（" + skipped + " 个已存在）" : ""));
       });
     }
+  })();
+
+  /* ---------- 5.7 首页学习概览行（昨日数据 + 连续天数 + 错词本） ---------- */
+  (function () {
+    function fill() {
+      var okEl = document.getElementById("ovOk");
+      var strEl = document.getElementById("ovStreak");
+      var wrEl = document.getElementById("ovWrong");
+      if (!okEl) return;
+      /* 昨日答对率 */
+      var hist = [];
+      try { hist = JSON.parse(localStorage.getItem("dictationHistory") || "[]"); } catch (e) {}
+      var d = new Date(Date.now() - 86400000);
+      var p = function (x) { return String(x).padStart(2, "0"); };
+      var yKey = d.getFullYear() + "-" + p(d.getMonth() + 1) + "-" + p(d.getDate());
+      var yEntries = hist.filter(function (e2) { return e2.date === yKey; });
+      if (yEntries.length) {
+        var ok = 0, tot = 0;
+        yEntries.forEach(function (e2) { tot += e2.total || 0; ok += e2.ok || 0; });
+        okEl.textContent = tot ? Math.round(ok / tot * 100) + "%" : "—";
+      } else {
+        okEl.textContent = "—";
+      }
+      /* 连续天数 */
+      var strEl2 = document.getElementById("stStreak");
+      if (strEl2) strEl.textContent = strEl2.textContent;
+      /* 错词本 */
+      var wb = {};
+      try { wb = JSON.parse(localStorage.getItem("dictationWrongBook") || "{}"); } catch (e) {}
+      var wn = Object.keys(wb).length;
+      if (wrEl) wrEl.textContent = wn ? wn + " 个" : "0";
+    }
+    window.addEventListener("load", function () { setTimeout(fill, 2000); });
+    /* 练习结束后面板刷新时也更新 */
+    var stEl = document.getElementById("stStreak");
+    if (stEl) {
+      new MutationObserver(function () { fill(); }).observe(stEl, { childList: true, characterData: true, subtree: true });
+    }
+    fill();
   })();
 
   /* ---------- 5. 液态滑标 ---------- */
