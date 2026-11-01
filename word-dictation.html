@@ -315,7 +315,9 @@ body{
      小字直接糊。提到 .88/.80/.84 —— 仍有透光感，但底色稳定在浅色区间。 */
   background-image:linear-gradient(163deg, rgba(255,255,255,.88), rgba(255,255,255,.80) 55%, rgba(255,255,255,.84)), var(--glass-img, none);
   background-image:linear-gradient(163deg, rgba(255,255,255,calc(var(--glass-op,1)*.88)), rgba(255,255,255,calc(var(--glass-op,1)*.80)) 55%, rgba(255,255,255,calc(var(--glass-op,1)*.84))), var(--glass-img, none);
-  background-attachment: fixed, fixed;   /* 壁纸副本对齐视口主壁纸：手机端滚动时玻璃才「透」出真背景（2026-10-26 修） */
+  /* 2026-11-01 性能修：fixed 附着让壁纸层在每次卡片重绘（切词/滚动）时整层重栅格化，
+     是「切词卡 / 滚动卡」的主因。改 scroll——玻璃里那层是预烘焙的模糊图，观感几乎不变。 */
+  background-attachment: scroll, scroll;
   background-size:cover, cover;
   background-position:center, center;
   background-repeat:no-repeat, no-repeat;
@@ -330,14 +332,14 @@ body{
   .glass{
     background-image:linear-gradient(163deg, rgba(28,35,58,.74), rgba(18,24,42,.64) 55%, rgba(24,31,52,.72)), var(--glass-img, none);
     background-image:linear-gradient(163deg, rgba(28,35,58,calc(var(--glass-op,1)*.74)), rgba(18,24,42,calc(var(--glass-op,1)*.64)) 55%, rgba(24,31,52,calc(var(--glass-op,1)*.72))), var(--glass-img, none);
-    background-attachment: fixed, fixed;   /* 壁纸副本对齐视口主壁纸：手机端滚动时玻璃才「透」出真背景（2026-10-26 修） */
+    background-attachment: scroll, scroll;
     border-color:rgba(255,255,255,.11);
     box-shadow:inset 0 -1px 0 rgba(0,0,0,.35), var(--sh-2);
   }
   .settings.glass-sheet{
     background-image:linear-gradient(163deg, rgba(26,33,56,.9), rgba(18,24,42,.86)), var(--glass-img, none);
     background-image:linear-gradient(163deg, rgba(26,33,56,calc(var(--glass-op,1)*.9)), rgba(18,24,42,calc(var(--glass-op,1)*.86))), var(--glass-img, none);
-    background-attachment: fixed, fixed;   /* 壁纸副本对齐视口主壁纸：手机端滚动时玻璃才「透」出真背景（2026-10-26 修） */
+    background-attachment: scroll, scroll;
     background-size:cover, cover; background-position:center, center; background-repeat:no-repeat, no-repeat;
     border-color:rgba(255,255,255,.12);
     box-shadow:var(--sh-3);
@@ -1013,7 +1015,9 @@ html:not([data-nav]) #idleView:not(.hidden){ animation:stageRise .35s cubic-bezi
   overscroll-behavior:contain;
   background-image:linear-gradient(163deg, rgba(255,255,255,.9), rgba(255,255,255,.82)), var(--glass-img, none);
   background-image:linear-gradient(163deg, rgba(255,255,255,calc(var(--glass-op,1)*.9)), rgba(255,255,255,calc(var(--glass-op,1)*.82))), var(--glass-img, none);
-  background-attachment: fixed, fixed;   /* 壁纸副本对齐视口主壁纸：手机端滚动时玻璃才「透」出真背景（2026-10-26 修） */
+  /* 2026-11-01 性能修：fixed 附着让壁纸层在每次卡片重绘（切词/滚动）时整层重栅格化，
+     是「切词卡 / 滚动卡」的主因。改 scroll——玻璃里那层是预烘焙的模糊图，观感几乎不变。 */
+  background-attachment: scroll, scroll;
   background-size:cover, cover; background-position:center, center; background-repeat:no-repeat, no-repeat;
   border:1px solid rgba(16,24,40,.07);
   box-shadow:var(--sh-3);
@@ -8575,12 +8579,18 @@ button.small{ padding:6px 12px; font-size:12.5px; }
       var max = rBody.scrollHeight - rBody.clientHeight;
       rScrollFill.style.width = (max > 0 ? (rBody.scrollTop / max * 100) : 100).toFixed(1) + "%";
     }
+    /* 滚动 → rAF 节流：一帧最多算一次，滚动期间不再每事件都碰布局 */
+    var scRaf = 0;
     rBody.addEventListener("scroll", function () {
-      updateScrollProg();
-      var max = rBody.scrollHeight - rBody.clientHeight;
-      if (max > 80 && rBody.scrollTop + rBody.clientHeight >= rBody.scrollHeight - 24) {
-        if (rDoneBtn && rDoneBtn.dataset.id && !doneMap()[rDoneBtn.dataset.id]) setDone(rDoneBtn.dataset.id, true);
-      }
+      if (scRaf) return;
+      scRaf = requestAnimationFrame(function () {
+        scRaf = 0;
+        updateScrollProg();
+        var max = rBody.scrollHeight - rBody.clientHeight;
+        if (max > 80 && rBody.scrollTop + rBody.clientHeight >= rBody.scrollHeight - 24) {
+          if (rDoneBtn && rDoneBtn.dataset.id && !doneMap()[rDoneBtn.dataset.id]) setDone(rDoneBtn.dataset.id, true);
+        }
+      });
     });
 
     /* ---------- 阅读页交互 ---------- */
