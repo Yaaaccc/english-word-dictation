@@ -200,6 +200,35 @@ body{
   }
 }
 #bgPanel.hidden{ display:none; }
+
+/* 顺序播放 · 日期上线管理（2026-11-01 加）：样式沿用 bgPanel 的玻璃小卡 */
+#livePanel{
+  position:fixed; left:50%; bottom:86px; transform:translateX(-50%);
+  width:min(460px, calc(100vw - 24px)); z-index:138;
+  border-radius:18px; padding:14px 16px 12px;
+  background:linear-gradient(163deg, rgba(255,255,255,.9), rgba(255,255,255,.78));
+  background:linear-gradient(163deg, rgba(255,255,255,calc(var(--glass-op,1)*.9)), rgba(255,255,255,calc(var(--glass-op,1)*.78)));
+  -webkit-backdrop-filter:blur(24px) saturate(160%);
+  backdrop-filter:blur(24px) saturate(160%);
+  border:1px solid rgba(16,24,40,.07);
+  box-shadow:var(--sh-3);
+}
+@media (prefers-color-scheme: dark){
+  #livePanel{
+    background:linear-gradient(163deg, rgba(26,33,56,.92), rgba(18,24,42,.86));
+    border-color:rgba(255,255,255,.12);
+  }
+}
+#livePanel.hidden{ display:none; }
+#livePanel .lp-title{ font-size:11px; font-weight:700; letter-spacing:1.4px; text-transform:uppercase; color:var(--violet-d); }
+#livePanel .lp-note{ font-size:10.5px; color:var(--muted-2); margin:5px 0 9px; line-height:1.55; }
+#livePanel .lp-btns{ display:flex; gap:8px; align-items:center; }
+#livePanel .live-row{ display:flex; align-items:center; gap:10px; padding:5px 2px; font-size:12.5px; color:var(--ink-2); border-bottom:1px solid var(--line-2); }
+#livePanel .live-row:last-child{ border-bottom:none; }
+#livePanel .live-row .lr-date{ font-family:Consolas,monospace; }
+#livePanel .live-row .lr-flag{ font-size:10.5px; color:var(--muted-2); }
+#livePanel .live-row input[type=checkbox]{ width:15px; height:15px; margin:0 0 0 auto; accent-color:var(--blue); cursor:pointer; }
+#livePanel .live-row.live-future{ opacity:.8; }
 #bgPanel .bg-title{
   font-size:11px; font-weight:700; letter-spacing:1.4px; text-transform:uppercase;
   color:var(--muted-2); margin-bottom:10px;
@@ -1781,6 +1810,7 @@ button.small{ padding:6px 12px; font-size:12.5px; }
         <select id="dateSelect"></select>
         <button class="nav-btn" id="dateNext" type="button" title="后一天" aria-label="后一天">›</button>
         <button class="nav-btn today-btn" id="dateToday" type="button" title="回到今天">今天</button>
+        <button class="nav-btn" id="liveToggle" type="button" title="顺序播放 · 日期上线管理">上线</button>
       </span>
     </div>
     </div>
@@ -2469,6 +2499,18 @@ button.small{ padding:6px 12px; font-size:12.5px; }
     </div>
 
     <div class="bg-note">自定义图片存在本机浏览器里，不会上传；换设备需重新选。颜色同样只记在这台设备上。</div>
+  </div>
+
+  <!-- 顺序播放 · 日期上线管理（2026-11-01 加）：控制哪些日期出现在日期下拉里 -->
+  <div id="livePanel" class="hidden" role="dialog" aria-label="日期上线管理">
+    <div class="lp-title">顺序播放 · 日期上线</div>
+    <div class="lp-note">未上线的日期不出现在日期下拉里。过去与今天默认上线；预生成的未来日期想练哪天就开哪天。只存这台设备。</div>
+    <div class="lp-btns">
+      <button class="small" id="liveOnlyToday" type="button">只开到今天</button>
+      <button class="small" id="liveAll" type="button">全部上线</button>
+      <button class="small" id="liveReset" type="button">恢复默认</button>
+    </div>
+    <div id="liveRows" style="max-height:46vh;overflow:auto;margin-top:8px;"></div>
   </div>
 
   <div id="defCard" class="hidden glass-pop" role="tooltip" aria-live="polite">
@@ -4287,38 +4329,48 @@ button.small{ padding:6px 12px; font-size:12.5px; }
       if (!r.ok) throw new Error("HTTP " + r.status);
       var all = await r.json();
       dateList = all;
-      var src = currentSourceLabel();
-      var dates = all.filter(function (d) { return d.source === src; }).map(function (d) { return d.date; });
-      sel.innerHTML = "";
-      if (!dates.length) {
-        status.textContent = "「" + src + "」还没有按日期保存的单词，可在电脑上运行抓取脚本自动同步到网站。";
-        return;
-      }
-      /* 按月分组（2026-10-24 改）：原来 87 项平铺在一个下拉里，翻以前的日期太累。
-         分组后折成 3 个月，找旧日期一眼能定位到月份。 */
-      var curMonth = "", grp = null;
-      dates.forEach(function (d) {
-        var m = d.slice(0, 7);
-        if (m !== curMonth) {
-          curMonth = m;
-          grp = document.createElement("optgroup");
-          grp.label = m;
-          sel.appendChild(grp);
-        }
-        var o = document.createElement("option");
-        o.value = d;
-        o.textContent = d;
-        grp.appendChild(o);
-      });
-      /* 默认选「今天」——dates.json 是最新在前，直接取第一条会落到未来的 11-08（2026-10-23 修） */
-      var _n = new Date(), _p2 = function (x) { return String(x).padStart(2, "0"); };
-      var _tk = _n.getFullYear() + "-" + _p2(_n.getMonth() + 1) + "-" + _p2(_n.getDate());
-      var _pick = dates.indexOf(_tk) >= 0 ? _tk : dates[0];
-      sel.value = _pick;
-      await loadDateWords(_pick);
+      var pick = renderDateOptions();
+      if (!pick) return;
+      await loadDateWords(pick);
     } catch (e) {
       status.textContent = "日期列表加载失败：单词数据尚未同步到网站，请先在电脑上运行同步脚本";
     }
+  }
+
+  /* 重建日期下拉（2026-11-01 加「上线」过滤）：默认过去+今天上线，
+     预生成的未来日期要手动「上线」才出现（见下方日期上线管理面板）。 */
+  function renderDateOptions(prevSel) {
+    var sel = $("dateSelect");
+    var status = $("dateStatus");
+    var src = currentSourceLabel();
+    var dates = dateList.filter(function (d) { return d.source === src; }).map(function (d) { return d.date; })
+                        .filter(function (d) { return isDateLive(d); });
+    sel.innerHTML = "";
+    if (!dates.length) {
+      status.textContent = "「" + src + "」当前没有已上线的日期——点日期栏的「上线」按钮开启想练的日子。";
+      return "";
+    }
+    /* 按月分组（2026-10-24 改）：原来 87 项平铺在一个下拉里，翻以前的日期太累。
+       分组后折成 3 个月，找旧日期一眼能定位到月份。 */
+    var curMonth = "", grp = null;
+    dates.forEach(function (d) {
+      var m = d.slice(0, 7);
+      if (m !== curMonth) {
+        curMonth = m;
+        grp = document.createElement("optgroup");
+        grp.label = m;
+        sel.appendChild(grp);
+      }
+      var o = document.createElement("option");
+      o.value = d;
+      o.textContent = d;
+      grp.appendChild(o);
+    });
+    /* 默认选「今天」——dates.json 是最新在前，直接取第一条会落到未来的 11-08（2026-10-23 修） */
+    var _tk = todayKey();
+    var _pick = (prevSel && dates.indexOf(prevSel) >= 0) ? prevSel : (dates.indexOf(_tk) >= 0 ? _tk : dates[0]);
+    sel.value = _pick;
+    return _pick;
   }
 
   function currentSourceLabel() {
@@ -4370,6 +4422,80 @@ button.small{ padding:6px 12px; font-size:12.5px; }
     });
   }
   bindDateNav();
+
+  /* ---------- 顺序播放 · 日期上线管理（2026-11-01 加） ----------
+     预生成的未来日期默认不进日期下拉，手动「上线」才出现；过去与今天默认上线。
+     状态存本机 localStorage（dictationLiveDates），换设备各自管理。 */
+  function todayKey() {
+    var d = new Date(), p = function (x) { return String(x).padStart(2, "0"); };
+    return d.getFullYear() + "-" + p(d.getMonth() + 1) + "-" + p(d.getDate());
+  }
+  function liveMap() { try { return JSON.parse(localStorage.getItem("dictationLiveDates") || "{}"); } catch (e) { return {}; } }
+  function saveLiveMap(m) { try { localStorage.setItem("dictationLiveDates", JSON.stringify(m)); } catch (e) {} }
+  function isDateLive(dateLabel) {
+    var m = liveMap();
+    if (Object.prototype.hasOwnProperty.call(m, dateLabel)) return !!m[dateLabel];
+    return dateLabel.slice(0, 10) <= todayKey();   /* 默认：过去+今天上线，未来未上线 */
+  }
+  function escR(s) { return String(s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
+  function renderLiveRows() {
+    var box = $("liveRows");
+    if (!box) return;
+    var src = currentSourceLabel();
+    var rows = dateList.filter(function (d) { return d.source === src; });
+    var tk = todayKey();
+    var html = "";
+    for (var i = 0; i < rows.length; i++) {
+      var label = rows[i].date;
+      var future = label.slice(0, 10) > tk;
+      html += '<label class="live-row' + (future ? " live-future" : "") + '">' +
+        '<span class="lr-date">' + escR(label) + "</span>" +
+        (future ? '<span class="lr-flag">未来</span>' : "") +
+        '<input type="checkbox" data-live="' + escR(label) + '"' + (isDateLive(label) ? " checked" : "") + "></label>";
+    }
+    box.innerHTML = html || '<div class="mini-note">当前来源还没有按日期保存的单词。</div>';
+  }
+  (function () {
+    var btn = $("liveToggle"), panel = $("livePanel");
+    if (!btn || !panel) return;
+    btn.addEventListener("click", function (e) {
+      e.stopPropagation();
+      var willOpen = panel.classList.contains("hidden");
+      if (willOpen) { renderLiveRows(); panel.classList.remove("hidden"); }
+      else panel.classList.add("hidden");
+    });
+    panel.addEventListener("click", function (e) { e.stopPropagation(); });
+    document.addEventListener("click", function () { panel.classList.add("hidden"); });
+    document.addEventListener("keydown", function (e) { if (e.key === "Escape") panel.classList.add("hidden"); });
+    function applyAndLoad() {
+      var cur = $("dateSelect").value;
+      var pick = renderDateOptions(cur);
+      if (pick && pick !== cur) loadDateWords(pick);
+    }
+    $("liveRows").addEventListener("change", function (e) {
+      var cb = (e.target && e.target.closest) ? e.target.closest("input[data-live]") : null;
+      if (!cb) return;
+      var m = liveMap();
+      m[cb.getAttribute("data-live")] = cb.checked;
+      saveLiveMap(m);
+      applyAndLoad();
+    });
+    $("liveOnlyToday").addEventListener("click", function () {
+      var m = liveMap(), tk = todayKey(), src = currentSourceLabel();
+      dateList.filter(function (d) { return d.source === src; }).forEach(function (d) { m[d.date] = d.date.slice(0, 10) <= tk; });
+      saveLiveMap(m); renderLiveRows(); applyAndLoad();
+    });
+    $("liveAll").addEventListener("click", function () {
+      var m = liveMap(), src = currentSourceLabel();
+      dateList.filter(function (d) { return d.source === src; }).forEach(function (d) { m[d.date] = true; });
+      saveLiveMap(m); renderLiveRows(); applyAndLoad();
+    });
+    $("liveReset").addEventListener("click", function () {
+      var m = liveMap(), src = currentSourceLabel();
+      dateList.filter(function (d) { return d.source === src; }).forEach(function (d) { delete m[d.date]; });
+      saveLiveMap(m); renderLiveRows(); applyAndLoad();
+    });
+  })();
 
   /* Dock 的 📅 → 页面内卡片（2026-10-27 改：原来 target=_blank 跳独立页） */
   function openCalPanel() {
