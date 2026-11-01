@@ -1338,180 +1338,202 @@ button.small{ padding:6px 12px; font-size:12.5px; }
 }
 
 /* ============================================================
-   13.5 长篇阅读（列表 Sheet / 阅读页 / 点句翻译小卡）
+   13.5 长篇阅读（2026-11-01 重设计 · 「安静的书桌」版）
+   ------------------------------------------------------------
+   列表页 + 阅读页都是整屏纸面，样式全部收在 #readSheet/#readView
+   两个 id 下，不影响其它面板。要点：
+   · 纯英模式正文零中文（翻译只在 对照/中文 模式出现）；
+   · 句子按段落自然连排（.rd-sent），不再每句一块；
+   · 保留全局查词卡（.ex-w）与词书高亮（.rtgt）两套既有系统；
+   · 亮暗双色用 light-dark() 跟随应用的 color-scheme（:root/媒体查询）。
    ============================================================ */
-#readSheet{ max-height:min(80dvh,760px); }
-.read-list{ margin-top:12px; max-height:min(56dvh,520px); overflow:auto; display:grid; gap:8px; }
-.read-group{ font-size:11.5px; color:var(--muted-2); letter-spacing:1.2px; font-weight:700; margin:8px 0 2px; }
-.read-item{
-  display:flex; align-items:center; gap:10px; text-align:left; width:100%;
-  background:var(--soft); border:1px solid var(--line-2); border-radius:12px;
-  padding:10px 14px; cursor:pointer; font-family:inherit; font-size:13px;
-  color:var(--ink-2); box-shadow:var(--sh-1);
-  transition:background .14s, border-color .14s, color .14s, transform .12s;
-}
-.read-item:hover{ background:var(--violet-soft); border-color:var(--violet-line); color:var(--violet-d); transform:translateX(2px); }
-.read-item .ri-done{ color:var(--green); font-weight:800; flex:none; width:16px; }
-.read-item .ri-title{ flex:1; min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; color:var(--ink); }
-.read-item .ri-exam{ flex:none; font-size:11px; color:var(--muted-2); }
-
-/* 阅读页：大视口 Sheet */
-/* 阅读页：整屏纸面（2026-10-25 改沉浸式；原来是一块玻璃 Sheet，字看不清） */
-#readView{
+#readSheet, #readView{
   left:0; right:0; top:0; bottom:0; transform:none;
   width:100vw; max-width:none; height:100dvh; max-height:100dvh;
   border-radius:0; border:none; padding:0; overflow:hidden;
-  background:#EFEBE3 !important; background-image:none !important;
+  background:light-dark(#F6F5F2,#0E1014) !important;
+  background-image:none !important;
   box-shadow:none; z-index:130;
-  /* 关键：.settings.glass-sheet 的入场动画 sheetUp 结尾是 translate(-50%,0)，
-     animation-fill-mode:both 会让它一直保持 —— 全屏后会整体左移半屏。这里换成纯淡入。 */
-  animation:readFade .22s ease-out both;
+  color:var(--rd-ink);
+  font-family:var(--ui-font);
+  animation:readFade .22s ease-out both;   /* 关键：覆盖 sheetUp 的 translate(-50%,0)（见旧版注释） */
+  /* 「安静的书桌」局部令牌：纸面配色独立于玻璃系统，强调色/语义色沿用应用令牌（跟随主题色设置） */
+  --rd-bg:light-dark(#F6F5F2,#0E1014);
+  --rd-card:light-dark(#FFFFFF,#171A21);
+  --rd-soft:light-dark(#F0EEE9,#232734);
+  --rd-ink:light-dark(#191C21,#E9EBF2);
+  --rd-ink2:light-dark(#565E6C,#A8AFBE);
+  --rd-ink3:light-dark(#8E95A1,#7A8291);
+  --rd-line:light-dark(rgba(25,28,33,.10),rgba(233,235,242,.12));
+  --rd-line2:light-dark(rgba(25,28,33,.06),rgba(233,235,242,.07));
+  --rd-accent-soft:var(--blue-soft);
+  --rd-accent-line:var(--blue-line);
+  --rd-green:var(--green);
+  --rd-green-soft:var(--green-soft);
 }
 @keyframes readFade{ from{ opacity:0 } to{ opacity:1 } }
-#readView .settings-inner{
-  width:min(940px, 100%); height:100%; margin:0 auto; padding:0;
-  display:flex; flex-direction:column;
-  background:#FBF9F4; overflow:hidden;
-  box-shadow:0 0 80px -30px rgba(40,30,10,.45);
+
+/* ---------- 列表页 ---------- */
+#readSheet{ display:flex; flex-direction:column; }
+.rd-lhead{
+  flex:none; display:flex; align-items:center; gap:12px; flex-wrap:wrap;
+  width:100%; max-width:1000px; margin:0 auto; padding:20px 24px 10px;
 }
-.read-head{ display:flex; align-items:center; gap:10px; padding:14px 40px 12px; border-bottom:1px solid rgba(16,24,40,.07); flex:none; }
-.read-title{ flex:1; min-width:0; font-size:14px; color:#1A1A1A; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
-.read-modes{ display:inline-flex; gap:2px; padding:2px; border-radius:999px; background:rgba(16,24,40,.06); flex:none; }
-.read-mode{ border:none; background:transparent; color:#5B6578; border-radius:999px; padding:5px 13px; font-size:12.5px; font-weight:700; box-shadow:none; }
-.read-mode.on{ background:#fff; color:#101828; box-shadow:0 1px 3px rgba(16,24,40,.14); }
-.read-focus, .read-speak{
-  width:30px; height:30px; border-radius:50%; flex:none; padding:0; margin-left:4px;
-  display:inline-flex; align-items:center; justify-content:center; cursor:pointer;
-  border:1px solid rgba(16,24,40,.12); background:#fff; color:#98A2B6;
-  font-size:13px; box-shadow:none;
-}
-.read-focus[aria-pressed="true"], .read-speak[aria-pressed="true"]{ background:var(--violet); color:#fff; border-color:var(--violet); box-shadow:0 3px 10px -3px rgba(122,63,212,.5); }
-#readView.read-speaking .read-body .rsent.cur{ background:rgba(122,63,212,.10); }
-.read-prog{ height:2px; flex:none; overflow:hidden; background:rgba(16,24,40,.07); }
-.read-prog i{ display:block; height:100%; width:0; background:var(--violet); transition:width .3s linear; }
-.read-prog.hidden{ display:none; }
-.read-body{
-  flex:1; min-height:0; overflow:auto; margin:0;
-  padding:18px 40px 10px;
-  font-size:19px; line-height:2.06; color:#1A1A1A; text-align:left;
-  font-family:Georgia, "Songti SC", "SimSun", serif;
-}
-.read-body .rsent{ display:block; cursor:pointer; border-radius:4px; padding:0; margin:0; transition:background .12s, opacity .18s; }
-/* 段落首句：与上一段拉开距离（配合导入时的 p 段号） */
-.read-body .rsent.para-first{ margin-top:22px; }
-.read-body .rsent:hover{ background:rgba(122,63,212,.06); }
-.read-body .rsent.sel{ background:rgba(122,63,212,.09); }
-.read-body .rsent .cnline{
-  display:block; color:#6B6B6B; font-size:15.5px; line-height:1.85; margin:5px 0 17px;
-  font-family:-apple-system, "Segoe UI", "Microsoft YaHei", sans-serif;
-}
-.read-body.rmode-cn .rsent{ cursor:default; }
-.read-body .rtgt{ background:rgba(122,63,212,.14); border-radius:3px; padding:0 2px; }
-/* 专注模式（2026-10-25 加）：当前句清晰，其余淡化；由顶栏 ◉ 开关 */
-#readView.read-focus-on .read-body .rsent,
-#readView.read-speaking .read-body .rsent{ opacity:.30; }
-#readView.read-focus-on .read-body .rsent.cur,
-#readView.read-speaking .read-body .rsent.cur{ opacity:1; border-left:2.5px solid var(--violet); margin-left:-13px; padding-left:10px; }
-#readView.read-focus-on .read-body .rsent.cur .cnline,
-#readView.read-speaking .read-body .rsent.cur .cnline{ color:#4A4A4A; }
-.read-foot{ display:flex; align-items:center; gap:10px; margin:0; padding:11px 40px 15px; border-top:1px solid rgba(16,24,40,.06); flex:none; }
-.read-foot .read-tip{ font-size:11px; color:var(--muted-2); }
-.read-rate{ display:inline-flex; align-items:center; gap:7px; flex:none; font-size:11.5px; color:#6B6B6B; }
-.read-rate input[type=range]{ width:112px; }
-.read-rate b{ font-size:11.5px; color:#101828; font-weight:700; min-width:40px; font-variant-numeric:tabular-nums; }
-@media (prefers-color-scheme: dark){
-  .read-rate{ color:#9AA3B5; }
-  .read-rate b{ color:#E9ECF3; }
-}
-/* 逐句播放小按钮：贴右边缘，平时很淡，鼠标移上去或按下去才明显 */
-.read-body .rsent{ position:relative; padding-right:34px; }
-.rsent-play{
-  position:absolute; right:0; top:1px; width:26px; height:26px; padding:0;
+.rd-logo{
+  width:34px; height:34px; border-radius:10px; flex:none;
+  background:var(--rd-accent-soft); color:var(--blue);
   display:inline-flex; align-items:center; justify-content:center;
-  border:none; border-radius:50%; background:transparent; color:var(--muted-2);
-  font-size:13px; line-height:1; opacity:.26; cursor:pointer; box-shadow:none;
-  transition:opacity .15s, background .15s, color .15s;
 }
-.read-body .rsent:hover .rsent-play{ opacity:.85; }
-.rsent-play:hover{ background:rgba(122,63,212,.12); color:var(--violet); opacity:1; }
-.rsent-play:active{ background:rgba(122,63,212,.2); }
-#readDoneBtn.done{ background:var(--green-soft); border-color:var(--green-line); color:var(--green); }
+.rd-logo svg{ width:18px; height:18px; }
+.rd-h1{ font-size:19px; font-weight:700; margin:0; color:var(--rd-ink); }
+.rd-lsub{ font-size:12.5px; color:var(--rd-ink3); }
+.rd-sp{ flex:1; }
+.rd-search{
+  display:flex; align-items:center; gap:8px;
+  width:300px; max-width:100%; height:36px; padding:0 12px;
+  border:1px solid var(--rd-line); border-radius:9px;
+  background:var(--rd-card); color:var(--rd-ink3);
+}
+.rd-search svg{ width:15px; height:15px; flex:none; }
+.rd-search input{
+  border:none; outline:none; background:transparent; width:100%;
+  font-family:inherit; font-size:13px; color:var(--rd-ink);
+}
+.rd-search input::placeholder{ color:var(--rd-ink3); }
+.rd-lbody{ flex:1; min-height:0; overflow:auto; padding:6px 24px 44px; }
+.rd-list{ max-width:1000px; margin:0 auto; }
+.rd-group{ font-size:11.5px; font-weight:600; letter-spacing:.4px; color:var(--rd-ink3); margin:16px 2px 8px; }
+.rd-lcard{ background:var(--rd-card); border:1px solid var(--rd-line); border-radius:14px; overflow:hidden; }
+.rd-row{
+  display:flex; align-items:center; gap:13px; width:100%; text-align:left;
+  padding:14px 18px; border:none; border-bottom:1px solid var(--rd-line2);
+  background:var(--rd-card); color:var(--rd-ink);
+  font-family:inherit; font-size:13px; cursor:pointer;
+  transition:background .12s;
+}
+.rd-row:last-child{ border-bottom:none; }
+.rd-row:hover{ background:var(--rd-soft); }
+.rd-row .rd-chk{
+  width:21px; height:21px; border-radius:50%; flex:none;
+  border:1.5px solid var(--rd-line); color:transparent;
+  display:inline-flex; align-items:center; justify-content:center;
+}
+.rd-row .rd-chk svg{ width:12px; height:12px; }
+.rd-row .rd-chk.done{ border-color:transparent; background:var(--rd-green-soft); color:var(--rd-green); }
+.rd-row .rd-chk.half{ border-color:var(--rd-accent-line); color:var(--blue); }
+.rd-row .rd-main{ flex:1; min-width:0; display:flex; flex-direction:column; gap:3px; }
+.rd-row .rd-main b{ font-size:14px; font-weight:600; color:var(--rd-ink); }
+.rd-row .rd-main i{ font-style:normal; font-size:11.5px; color:var(--rd-ink3); }
+.rd-row .rd-main i em{ font-style:normal; color:var(--blue); font-weight:600; }
+.rd-row > svg{ width:16px; height:16px; color:var(--rd-ink3); flex:none; }
+.rd-empty{ padding:26px 4px; font-size:13px; color:var(--rd-ink3); }
 
-/* 深色模式：深色纸（不跟随玻璃） */
-@media (prefers-color-scheme: dark){
-  #readView{ background:#0C0E13 !important; }
-  #readView .settings-inner{ background:#15181F; box-shadow:0 0 80px -30px #000; }
-  .read-head{ border-bottom-color:rgba(255,255,255,.08); }
-  .read-prog{ background:rgba(255,255,255,.08); }
-  .read-title{ color:#E9ECF3; }
-  .read-modes{ background:rgba(255,255,255,.07); }
-  .read-mode{ color:#9AA3B5; }
-  .read-mode.on{ background:#2A3040; color:#F0F3FA; box-shadow:inset 0 1px 0 rgba(255,255,255,.08); }
-  .read-focus, .read-speak{ background:#222836; border-color:rgba(255,255,255,.1); color:#8B96B2; }
-  .read-focus[aria-pressed="true"], .read-speak[aria-pressed="true"]{ background:var(--violet); border-color:var(--violet); color:#fff; }
-  .read-body{ color:#E9ECF3; }
-  .read-body .rsent .cnline{ color:#9AA3B5; }
-  #readView.read-focus-on .read-body .rsent.cur .cnline,
-#readView.read-speaking .read-body .rsent.cur .cnline{ color:#C3CBDB; }
-  .read-body .rtgt{ background:rgba(122,63,212,.32); }
-  .read-foot{ border-top-color:rgba(255,255,255,.07); }
+/* ---------- 阅读页 ---------- */
+#readView{ display:flex; flex-direction:column; }
+.rd-rtop{
+  flex:none; display:flex; align-items:center; gap:12px; flex-wrap:wrap;
+  padding:12px 20px; background:var(--rd-card); border-bottom:1px solid var(--rd-line2);
 }
-@media (max-width:720px){
-  #readView .settings-inner{ width:100%; }
-  /* 手机上纸面已铺满，右上角 ✕ 与「← 列表」重复，且白占 44px 把标题挤没 */
-  #readView .sheet-close{ display:none; }
-  .read-head{ padding:12px 14px 10px; gap:6px; padding-right:14px; }
-  .read-title{ font-size:13px; }
-  .read-mode{ padding:5px 10px; font-size:12px; }
-  .read-body{ padding:14px 18px 8px; font-size:18.5px; line-height:2.0; }
-  .read-body .rsent .cnline{ font-size:15px; margin:4px 0 15px; }
-  .read-foot{ padding:9px 18px 13px; gap:8px; flex-wrap:wrap; }
-  .read-foot .read-tip{ display:none; }
-  .read-rate input[type=range]{ width:86px; }
-  .read-body .rsent{ padding-right:28px; }
-  .read-body .rsent.para-first{ margin-top:17px; }
-  .rsent-play{ opacity:.4; width:24px; height:24px; }
-  #readView.read-focus-on .read-body .rsent.cur,
-#readView.read-speaking .read-body .rsent.cur{ margin-left:-8px; padding-left:5px; border-left-width:2px; }
+.rd-logo-sm{ width:30px; height:30px; border-radius:9px; }
+.rd-logo-sm svg{ width:16px; height:16px; }
+.rd-brand{ display:flex; align-items:baseline; gap:9px; min-width:0; }
+.rd-brand b{
+  font-size:14px; font-weight:650; color:var(--rd-ink);
+  white-space:nowrap; overflow:hidden; text-overflow:ellipsis; max-width:46vw;
 }
-
-/* 点句翻译小卡（底部浮层，位于 Dock 上方） */
-#readTrans{
-  position:fixed; left:0; right:0; bottom:86px; margin:0 auto; width:fit-content;
-  max-width:min(720px, calc(100vw - 24px)); z-index:136;
-  background:linear-gradient(163deg, rgba(255,255,255,calc(var(--glass-op,1)*.95)), rgba(255,255,255,calc(var(--glass-op,1)*.9)));
-  -webkit-backdrop-filter:blur(24px) saturate(160%);
-  backdrop-filter:blur(24px) saturate(160%);
-  border:1px solid rgba(16,24,40,.07); border-radius:18px;
-  box-shadow:var(--sh-3);
-  padding:10px 16px 12px;
+.rd-meta{ font-size:11.5px; color:var(--rd-ink3); white-space:nowrap; }
+.rd-tools{ margin-left:auto; display:flex; align-items:center; gap:8px; }
+.rd-vsep{ width:1px; height:20px; background:var(--rd-line); flex:none; }
+.rd-seg{
+  display:inline-flex; gap:2px; padding:3px; flex:none;
+  background:var(--rd-soft); border:1px solid var(--rd-line); border-radius:9px;
 }
-@media (prefers-color-scheme: dark){
-  #readTrans{
-    background:linear-gradient(163deg, rgba(26,33,56,calc(var(--glass-op,1)*.95)), rgba(18,24,42,calc(var(--glass-op,1)*.9)));
-    border-color:rgba(255,255,255,.12);
-    box-shadow:var(--sh-3);
-  }
+.rd-seg .read-mode{
+  border:none; background:transparent; color:var(--rd-ink2);
+  border-radius:6px; padding:5px 14px; font-size:12.5px;
+  font-family:inherit; cursor:pointer; white-space:nowrap;
+  transition:background .12s, color .12s, box-shadow .12s;
 }
-#readTrans.hidden{ display:none; }
-#readTrans .rt-head{ display:flex; align-items:center; gap:8px; margin-bottom:4px; }
-#readTrans .rt-head span{ font-size:11px; color:var(--violet-d); font-weight:700; letter-spacing:1px; }
-#readTrans .rt-head button{
-  margin-left:auto; width:24px; height:24px; padding:0; border-radius:50%;
-  border:1px solid var(--line); background:var(--soft); color:var(--muted);
-  cursor:pointer; font-size:11px; box-shadow:none;
+.rd-seg .read-mode.on{
+  background:var(--rd-card); color:var(--rd-ink); font-weight:600;
+  box-shadow:0 1px 2px light-dark(rgba(15,17,22,.10), rgba(0,0,0,.45));
 }
-#readTrans #rtText{ font-size:15px; line-height:1.75; color:var(--ink); max-height:34dvh; overflow:auto; }
-
-/* 划选浮动的「译」按钮 */
-#readSelBtn{
-  position:absolute; z-index:8; display:none;
-  border-radius:999px; padding:4px 12px; font-size:12px; font-weight:700;
-  background:var(--primary-grad); border-color:transparent; color:#fff;
-  box-shadow:0 6px 14px -6px var(--btn-shadow); cursor:pointer;
+.rd-ibtn{
+  width:32px; height:32px; border-radius:8px; flex:none; padding:0;
+  display:inline-flex; align-items:center; justify-content:center;
+  border:none; background:transparent; color:var(--rd-ink2);
+  font-family:inherit; cursor:pointer;
+  transition:background .12s, color .12s;
 }
-
-
+.rd-ibtn:hover{ background:var(--rd-soft); }
+.rd-ibtn.on{ color:var(--blue); background:var(--rd-accent-soft); }
+.rd-ibtn svg{ width:16px; height:16px; }
+.rd-font-btn{ width:34px; font-size:11px; font-weight:700; }
+.rd-btn{
+  display:inline-flex; align-items:center; gap:6px; height:30px; padding:0 12px;
+  border-radius:8px; border:1px solid var(--rd-line);
+  background:var(--rd-card); color:var(--rd-ink);
+  font-family:inherit; font-size:12px; font-weight:500; cursor:pointer;
+  transition:background .12s;
+}
+.rd-btn:hover{ background:var(--rd-soft); }
+.rd-btn svg{ width:14px; height:14px; }
+.rd-btn.done{ border-color:transparent; background:var(--rd-green-soft); color:var(--rd-green); font-weight:600; }
+/* 双细线进度：上层=朗读进度（朗读时出现），下层=滚动进度（常驻） */
+.read-prog{ flex:none; height:2px; overflow:hidden; }
+.read-prog i{ display:block; height:100%; width:0; background:var(--blue); transition:width .3s linear; }
+.read-prog.hidden{ display:none; }
+.rd-scroll-prog{ flex:none; height:2px; background:var(--rd-line2); }
+.rd-scroll-prog i{ display:block; height:100%; width:0; background:var(--blue); opacity:.45; transition:width .12s linear; }
+/* 正文：段落连排 */
+.rd-body{
+  position:relative; flex:1; min-height:0; overflow:auto;
+  background:var(--rd-bg); font-size:19px;
+}
+.rd-col{ max-width:760px; margin:0 auto; padding:34px 44px 48px; }
+.rd-article{
+  font-family:Georgia, "Times New Roman", "Songti SC", "SimSun", serif;
+  font-size:1em; line-height:1.95; color:var(--rd-ink);
+}
+.rd-article p{ margin:0 0 18px; }
+.rd-article p.rd-p0{ margin-top:0; }
+.rd-article .rd-sent{ transition:background .12s, opacity .18s; border-radius:6px; }
+.rd-article .rd-sent:hover{ background:var(--rd-accent-soft); }
+.rd-article .rd-sent.cur{ background:var(--rd-accent-soft); box-shadow:0 0 0 1px var(--rd-accent-line); }
+.rd-article .ex-w{ cursor:pointer; }
+.rd-article .ex-w:hover{ background:var(--rd-accent-soft); border-radius:3px; }
+.rd-article .ex-w.def-open{ background:var(--rd-accent-soft); box-shadow:0 0 0 1px var(--rd-accent-line); }
+.rd-article .rtgt{ background:var(--rd-accent-soft); border-radius:4px; padding:0 3px; }
+.rd-article .rd-cn{
+  display:inline; font-family:var(--ui-font);
+  font-size:.72em; line-height:1.7; color:var(--rd-ink3); margin:0 5px;
+}
+/* 专注 / 朗读：状态类挂 #readView 上（renderBody 重写的是 .rd-body 内部，不碰 rV 的类） */
+#readView.read-focus-on .rd-article .rd-sent,
+#readView.read-speaking .rd-article .rd-sent{ opacity:.28; }
+#readView.read-focus-on .rd-article .rd-sent.cur,
+#readView.read-speaking .rd-article .rd-sent.cur{ opacity:1; }
+/* 底栏 */
+.rd-rfoot{
+  flex:none; display:flex; align-items:center; gap:14px; flex-wrap:wrap;
+  padding:10px 20px; background:var(--rd-card); border-top:1px solid var(--rd-line2);
+  font-size:12px; color:var(--rd-ink3);
+}
+.rd-cnt{ font-variant-numeric:tabular-nums; color:var(--rd-ink2); }
+.rd-tip{ min-width:0; }
+.rd-rate{ margin-left:auto; display:inline-flex; align-items:center; gap:8px; color:var(--rd-ink3); }
+.rd-rate input[type=range]{ width:110px; accent-color:var(--blue); }
+.rd-rate b{ font-variant-numeric:tabular-nums; color:var(--rd-ink); font-weight:600; min-width:38px; }
+@media (max-width:760px){
+  #readSheet .rd-lhead{ padding:14px 14px 8px; }
+  #readSheet .rd-lbody{ padding:4px 14px 30px; }
+  .rd-rtop{ gap:8px; padding:10px 12px; }
+  .rd-brand .rd-meta{ display:none; }
+  .rd-col{ padding:20px 18px 40px; }
+  .rd-rfoot{ gap:10px; }
+  .rd-rate{ margin-left:0; }
+  .rd-btn{ padding:0 10px; }
+}
 /* ============================================================
    13.6 每日提醒条（12 点后明天的内容还没生成时出现）
    ============================================================ */
@@ -2322,49 +2344,74 @@ button.small{ padding:6px 12px; font-size:12.5px; }
     </div>
   </nav>
 
-  <!-- 长篇阅读（2026-10-25 加）：列表 + 阅读页 + 点句翻译小卡 -->
-  <div id="readSheet" class="settings glass-sheet hidden" role="dialog" aria-label="长篇阅读列表">
-    <div class="settings-inner">
-      <h3>长篇阅读</h3>
-      <input id="readSearch" type="text" autocomplete="off" placeholder="搜标题 / 年份 / 套数" style="width:100%;">
-      <div id="readList" class="read-list"></div>
-      <div class="hint" id="readHint">文章库还没建立：把带翻译的长篇阅读 PDF 放进「阅读原文」文件夹，跑导入脚本即可。</div>
+  <!-- 长篇阅读（2026-11-01 重设计「安静的书桌」）：列表 + 阅读页整屏纸面。
+       纯英模式正文零中文，点词查义走全局 defCard（.ex-w），保留 .rtgt 词书高亮、
+       朗读（音轨/TTS）、专注、已读；点句翻译小卡与划选「译」已移除。 -->
+  <section id="readSheet" class="settings glass-sheet hidden" role="dialog" aria-label="长篇阅读列表">
+    <div class="rd-lhead">
+      <span class="rd-logo" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M4 10v4M8 6.5v11M12 3.5v17M16 7.5v9M20 10.5v3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </span>
+      <h1 class="rd-h1">长篇阅读</h1>
+      <span class="rd-lsub" id="readHint">文章库还没建立：把带翻译的长篇阅读 PDF 放进「阅读原文」文件夹，跑导入脚本即可。</span>
+      <span class="rd-sp"></span>
+      <div class="rd-search">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="1.8"/><path d="m16.2 16.2 4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        <input id="readSearch" type="text" autocomplete="off" placeholder="搜标题 / 年份 / 套数" aria-label="搜索文章">
+      </div>
     </div>
-  </div>
+    <div class="rd-lbody"><div id="readList" class="rd-list"></div></div>
+  </section>
 
-  <div id="readView" class="settings glass-sheet hidden read-view" role="dialog" aria-label="阅读">
-    <div class="settings-inner">
-      <div class="read-head">
-        <button class="small" id="readBack" type="button">← 列表</button>
-        <b id="readTitle" class="read-title"></b>
-        <span class="read-modes">
-          <button class="read-mode on" data-m="en" type="button">英</button>
+  <section id="readView" class="settings glass-sheet hidden" role="dialog" aria-label="阅读">
+    <div class="rd-rtop">
+      <span class="rd-logo rd-logo-sm" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M4 10v4M8 6.5v11M12 3.5v17M16 7.5v9M20 10.5v3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </span>
+      <span class="rd-brand"><b id="readTitle"></b><span class="rd-meta" id="readMeta"></span></span>
+      <div class="rd-tools">
+        <span class="rd-seg" role="group" aria-label="阅读模式">
+          <button class="read-mode on" data-m="en" type="button">英文</button>
           <button class="read-mode" data-m="bi" type="button">对照</button>
-          <button class="read-mode" data-m="cn" type="button">中</button>
+          <button class="read-mode" data-m="cn" type="button">中文</button>
         </span>
-        <button class="read-focus" id="readFocus" type="button" aria-pressed="false" title="专注模式：只突出当前句" aria-label="专注模式">◉</button>
-        <span class="read-font"><button class="read-font-btn" id="readFontMinus" type="button">A−</button><button class="read-font-btn" id="readFontPlus" type="button">A+</button></span>
-        <button class="read-speak" id="readSpeak" type="button" aria-pressed="false" title="从当前句开始朗读整篇" aria-label="朗读">🔊</button>
-      </div>
-      <div class="read-prog hidden" id="readProg" aria-hidden="true"><i></i></div>
-      <div class="read-scroll-prog"><i id="readScrollFill"></i></div>
-      <div id="readBody" class="read-body"></div>
-      <div class="read-foot">
-        <button class="small" id="readCollectBtn" type="button">📚 收集本文词书词汇</button>        <button class="small" id="readDoneBtn" type="button">✓ 标为已读</button>
-        <label class="read-rate" for="readRate" title="朗读语速">
-          <span>语速</span>
-          <input type="range" id="readRate" min="0.6" max="1.4" step="0.05" value="0.92" aria-label="朗读语速">
-          <b id="readRateVal">0.92×</b>
-        </label>
-        <span class="read-tip">点句子看翻译 · 点 🔊 朗读</span>
+        <span class="rd-vsep" aria-hidden="true"></span>
+        <button class="rd-ibtn rd-font-btn" id="readFontMinus" type="button" title="缩小字号" aria-label="缩小字号">A−</button>
+        <button class="rd-ibtn rd-font-btn" id="readFontPlus" type="button" title="放大字号" aria-label="放大字号">A+</button>
+        <button class="rd-ibtn" id="readFocus" type="button" aria-pressed="false" title="专注模式：只突出当前句" aria-label="专注模式">
+          <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="7.2" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="2.4" fill="currentColor"/></svg>
+        </button>
+        <button class="rd-ibtn" id="readSpeak" type="button" aria-pressed="false" title="从当前句开始朗读整篇" aria-label="朗读">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M4 9.5v5h3.2L12 19V5L7.2 9.5H4z" fill="currentColor" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/><path d="M15.5 9.2a4 4 0 0 1 0 5.6M18 6.8a7.4 7.4 0 0 1 0 10.4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </button>
+        <span class="rd-vsep" aria-hidden="true"></span>
+        <button class="rd-btn" id="readBack" type="button">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m14.5 5.5-6.5 6.5 6.5 6.5" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          列表
+        </button>
       </div>
     </div>
-  </div>
-
-  <div id="readTrans" class="hidden" role="status" aria-live="polite">
-    <div class="rt-head"><span id="rtLabel"></span><button id="rtClose" type="button" aria-label="收起">✕</button></div>
-    <div id="rtText"></div>
-  </div>
+    <div class="read-prog hidden" id="readProg" aria-hidden="true"><i></i></div>
+    <div class="rd-scroll-prog" aria-hidden="true"><i id="readScrollFill"></i></div>
+    <div id="readBody" class="rd-body"></div>
+    <div class="rd-rfoot">
+      <button class="rd-btn" id="readCollectBtn" type="button">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6.5 4.5h8.6a1.4 1.4 0 0 1 1.4 1.4v13.6l-5.7-3.4-5.7 3.4V5.9a1.4 1.4 0 0 1 1.4-1.4z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
+        收集本文词书词汇
+      </button>
+      <button class="rd-btn" id="readDoneBtn" type="button">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span id="readDoneTxt">标为已读</span>
+      </button>
+      <span class="rd-cnt" id="readSentCnt"></span>
+      <span class="rd-tip" id="readTip">点词查义 · 点句聚焦</span>
+      <label class="rd-rate" for="readRate" title="朗读语速">
+        <span>语速</span>
+        <input type="range" id="readRate" min="0.6" max="1.4" step="0.05" value="0.92" aria-label="朗读语速">
+        <b id="readRateVal">0.92×</b>
+      </label>
+    </div>
+  </section>
 
   <div id="bgPanel" class="hidden" role="dialog" aria-label="外观设置">
     <div class="bg-title">背景</div>
@@ -4629,6 +4676,7 @@ button.small{ padding:6px 12px; font-size:12.5px; }
     if (!t || !t.closest) return;
     if (t.closest(".glass-sheet")) return;
     if (t.closest("#settingsToggle, #statsToggle, #planToggle, #calOpen, #readToggle, #bgToggle")) return;
+    if (t.closest("#defCard")) return;   /* 2026-11-01 修：点查词卡（如卡片空白处）不再误关已打开的面板 */
     var anyOpen = ["settingsPanel", "statsPanel", "planPanel", "calPanel", "readSheet", "readView", "bgPanel"].some(function (id) {
       var el = document.getElementById(id);
       return !!(el && !el.classList.contains("hidden"));
@@ -7896,39 +7944,51 @@ button.small{ padding:6px 12px; font-size:12.5px; }
       if (ev.key === K_DONE) render();
     });
   })();
-  /* ---------- 5.6 长篇阅读层（列表 / 阅读页 / 点句译 / 划选译 / 目标词高亮 / 已读） ---------- */
+  /* ---------- 5.6 长篇阅读层（2026-11-01 重设计 · 「安静的书桌」版） ----------
+     列表页 + 阅读页（整屏纸面）。与旧版的行为差异：
+     · 纯英模式正文零中文：点句只做选中/聚焦，不再弹点句翻译；划选「译」已移除；
+     · 句子按段落自然连排（.rd-sent），对照模式译文 = 句后浅灰小字；
+     · 记住每篇读到的句子（dictationReadPos），列表里显示「读到 x / y 句」；
+     · 朗读中点任意句 = 从那句重新开始；
+     · 保留既有引擎与数据：离线音轨 / speechSynthesis / 百度降级、
+       全局查词卡（.ex-w + #defCard，5.4 段已把 #readBody 绑进 onWordClick）、
+       词书高亮（.rtgt + targets.json）、已读本（dictationReadDone）、
+       专注（dictationReadFocus）、语速（dictationReadRate）、
+       字号与模式记忆（文件尾部「阅读体验增强」块）。 */
   (function () {
     var rT = document.getElementById("readToggle");
     var rS = document.getElementById("readSheet");
     var rV = document.getElementById("readView");
     if (!rT || !rS || !rV) return;
     var K_DONE = "dictationReadDone";
-    var idx = null, targets = null, cur = null, curMode = "en", curSel = null;
+    var K_POS = "dictationReadPos";                 // 2026-11-01 加
+    var idx = null, targets = null, cur = null, curMode = "en", curSel = 0;
     var rList = document.getElementById("readList");
     var rHint = document.getElementById("readHint");
     var rBody = document.getElementById("readBody");
     var rTitle = document.getElementById("readTitle");
+    var rMeta = document.getElementById("readMeta");
+    var rCnt = document.getElementById("readSentCnt");
+    var rTip = document.getElementById("readTip");
     var rSearch = document.getElementById("readSearch");
-    var rTrans = document.getElementById("readTrans");
-    var rtText = document.getElementById("rtText");
-    var rtLabel = document.getElementById("rtLabel");
+    var rScrollFill = document.getElementById("readScrollFill");
 
-    /* ---------- 专注模式（2026-10-25 加） ----------
-       默认关（= 干净纸面，全部句子清晰）；点顶栏 ◉ 才淡化其余句。
-       状态存在 #readView 的类上，不放 rBody —— renderBody 会重置 rBody.className。 */
-    var rView = document.getElementById("readView");
+    /* 列表行内的小图标（与页面其它内联 SVG 同一套线性风格） */
+    var CHEV_SVG = '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m9.5 5.5 6.5 6.5-6.5 6.5" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+    var CHECK_SVG = '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+    var DOT_SVG = '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="7.2" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="2.4" fill="currentColor"/></svg>';
+
+    function doneMap() { try { return JSON.parse(localStorage.getItem(K_DONE) || "{}"); } catch (e) { return {}; } }
+    function posMap() { try { return JSON.parse(localStorage.getItem(K_POS) || "{}"); } catch (e) { return {}; } }
+    function esc(t) { return String(t).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
+
+    /* ---------- 专注模式（保留旧版行为：状态类挂 #readView） ---------- */
     var rFocus = document.getElementById("readFocus");
     var K_FOCUS = "dictationReadFocus";
     function setFocus(on) {
-      if (rView) rView.classList.toggle("read-focus-on", !!on);
+      rV.classList.toggle("read-focus-on", !!on);
       if (rFocus) rFocus.setAttribute("aria-pressed", on ? "true" : "false");
       try { localStorage.setItem(K_FOCUS, on ? "1" : "0"); } catch (e) {}
-    }
-    function markCur(i) {
-      var old = rBody.querySelector(".rsent.cur");
-      if (old) old.classList.remove("cur");
-      var el = rBody.querySelector('.rsent[data-i="' + i + '"]');
-      if (el) el.classList.add("cur");
     }
     if (rFocus) {
       var savedFocus = null;
@@ -7936,11 +7996,11 @@ button.small{ padding:6px 12px; font-size:12.5px; }
       setFocus(savedFocus === "1");
       rFocus.addEventListener("click", function (e) {
         e.stopPropagation();
-        setFocus(!(rView && rView.classList.contains("read-focus-on")));
+        setFocus(!rV.classList.contains("read-focus-on"));
       });
     }
 
-    /* ---------- 朗读语速（2026-10-25 加，与听写的语速设置分开存） ---------- */
+    /* ---------- 朗读语速（保留：与听写的语速设置分开存） ---------- */
     var rRate = document.getElementById("readRate");
     var rRateVal = document.getElementById("readRateVal");
     var K_RATE2 = "dictationReadRate";
@@ -7961,9 +8021,26 @@ button.small{ padding:6px 12px; font-size:12.5px; }
       });
     }
 
-    /* ---------- 朗读整篇（2026-10-25 加） ----------
-       从当前句开始，一句一句读下去，读到的句子高亮并滚到屏幕中间；再点按钮停止。
-       音色规则与听写模块一致：优先 Microsoft Ava Online (Natural) 单语版 → 其它 Ava → Aria → 微软在线英文。 */
+    /* ---------- 当前句 / 计数 / 提示 ---------- */
+    function updateCnt() {
+      if (rCnt && cur) rCnt.textContent = (curSel + 1) + " / " + cur.sents.length + " 句";
+    }
+    function updateTip() {
+      if (!rTip) return;
+      rTip.textContent = curMode === "en" ? "点词查义 · 点句聚焦"
+                       : curMode === "bi" ? "句后浅灰为译文 · 点词查义"
+                       : "纯中文 · 切回英文 / 对照可查词";
+    }
+    function markCur(i) {
+      curSel = Math.max(0, Math.min(i, cur ? cur.sents.length - 1 : 0));
+      var old = rBody.querySelector(".rd-sent.cur");
+      if (old) old.classList.remove("cur");
+      var el = rBody.querySelector('.rd-sent[data-i="' + curSel + '"]');
+      if (el) el.classList.add("cur");
+      updateCnt();
+    }
+
+    /* ---------- 朗读整篇（保留旧引擎：离线音轨 → speechSynthesis → 百度） ---------- */
     var rSpeak = document.getElementById("readSpeak");
     var rProg = document.getElementById("readProg");
     var rProgFill = rProg ? rProg.querySelector("i") : null;
@@ -7980,10 +8057,8 @@ button.small{ padding:6px 12px; font-size:12.5px; }
       }
       return en.filter(function (v) { return /microsoft/i.test(v.name) && !v.localService; })[0] || en[0];
     }
-    /* ---------- 离线音轨（2026-10-25 加）----------
-       阅读音频/{id}.mp3 是整篇朗读，{id}.json 是逐句起止时间。
-       同域静态文件：不受 Referer 限制、不依赖系统语音引擎，Via 这类浏览器也能播。 */
-    var AUDIO_DIR = "%E9%98%85%E8%AF%BB%E9%9F%B3%E9%A2%91";   // "阅读音频"
+    /* 离线音轨：阅读音频/{id}.mp3 整篇 + {id}.json 逐句起止时间 */
+    var AUDIO_DIR = "%E9%98%85%E8%AF%BB%E9%9F%B3%E9%A2%91";
     var track = null, trackEl = null, trackTimer = null;
 
     function loadTrack(id) {
@@ -8006,13 +8081,13 @@ button.small{ padding:6px 12px; font-size:12.5px; }
     }
     function onTrackTime() {
       if (!track || !trackEl || !speaking) return;
-      var t = trackEl.currentTime, idx = 0;
+      var t = trackEl.currentTime, idx2 = 0;
       for (var i = 0; i < track.p.length; i++) {
-        if (t >= track.p[i][0] && t < track.p[i][1]) { idx = i; break; }
+        if (t >= track.p[i][0] && t < track.p[i][1]) { idx2 = i; break; }
       }
-      markCur(idx);
-      if (rProgFill) rProgFill.style.width = (((idx + 1) / track.p.length) * 100).toFixed(1) + "%";
-      var el = rBody.querySelector('.rsent[data-i="' + idx + '"]');
+      markCur(idx2);
+      if (rProgFill) rProgFill.style.width = (((idx2 + 1) / track.p.length) * 100).toFixed(1) + "%";
+      var el = rBody.querySelector('.rd-sent[data-i="' + idx2 + '"]');
       if (el && el !== window.__lastScrolled) { window.__lastScrolled = el; try { el.scrollIntoView({ block: "center", behavior: "smooth" }); } catch (e) {} }
     }
     function playTrack(from, single) {
@@ -8020,20 +8095,36 @@ button.small{ padding:6px 12px; font-size:12.5px; }
       var src = AUDIO_DIR + "/" + encodeURIComponent(cur.id) + ".mp3?v=ava";
       var span = track.p[from] || [0, 0];
       var begin = function () {
-        try { a.currentTime = span[0]; } catch (e) {}
-        /* 语速：预生成 mp3 只能用 playbackRate；preservesPitch 保持音调不变（默认 true） */
-        try { a.preservesPitch = true; } catch (e) {}
-        try { a.playbackRate = readRate; } catch (e) {}
-        var p = a.play();
-        if (p && p.catch) p.catch(function () {});
-        if (trackTimer) clearInterval(trackTimer);
-        if (single) {
-          /* 只读一句：到句末就停 */
-          trackTimer = setInterval(function () {
-            if (!trackEl) return;
-            if (trackEl.currentTime >= span[1] - 0.06) { stopSpeak(); }
-          }, 120);
-        }
+        /* 2026-11-01 修：seek 是异步的，「设 currentTime 后立刻 play」会从旧位置开播
+           （点句跳转实测停回第 0 句）。改为等 seeked 事件再播，500ms 兜底。 */
+        var startAt = span[0] || 0;
+        var started = false;
+        var doPlay = function () {
+          if (started) return;
+          started = true;
+          var p = a.play();
+          if (p && p.catch) p.catch(function () {});
+          if (trackTimer) clearInterval(trackTimer);
+          if (single) {
+            trackTimer = setInterval(function () {
+              if (!trackEl) return;
+              if (trackEl.currentTime >= span[1] - 0.06) { stopSpeak(); }
+            }, 120);
+          }
+        };
+        try {
+          a.preservesPitch = true;
+          a.playbackRate = readRate;
+          if (startAt > 0.05 && Math.abs(a.currentTime - startAt) > 0.05 && a.readyState > 0) {
+            var onSeeked = function () { a.removeEventListener("seeked", onSeeked); doPlay(); };
+            a.addEventListener("seeked", onSeeked);
+            a.currentTime = startAt;
+            setTimeout(doPlay, 500);
+          } else {
+            a.currentTime = startAt;
+            doPlay();
+          }
+        } catch (e) { doPlay(); }
       };
       if (a.getAttribute("src") !== src) {
         a.onloadedmetadata = function () { a.onloadedmetadata = null; begin(); };
@@ -8043,15 +8134,11 @@ button.small{ padding:6px 12px; font-size:12.5px; }
         begin();
       }
     }
-
-    /* 设备有没有可用的语音引擎（手机/平板上 getVoices() 常为空 —— 设置页「英文发音」空白就是它） */
     function canTTS() {
-      /* 有音色列表才认为语音合成真的可用；否则（Via 等 WebView 常返回空）改走百度在线音频。 */
       try { return ("speechSynthesis" in window) && speechSynthesis.getVoices().length > 0; }
       catch (e) { return false; }
     }
-    /* 没有可用语音引擎时，走百度翻译的公开 TTS（实测：无 Referer、540 字符内均正常返回 mp3）。
-       有道 dictvoice 只能读 1-2 个词，读不了整句，所以不用它。 */
+    /* 无语音引擎时走百度公开 TTS（必须 no-referrer，否则返回 200 但 0 字节） */
     var readAudio = null;
     function sayBaidu(text, rate, onEnd) {
       var finished = false;
@@ -8059,19 +8146,16 @@ button.small{ padding:6px 12px; font-size:12.5px; }
       try {
         if (!readAudio) {
           readAudio = new Audio();
-          /* 关键：百度对「Referer 不是它自己」的请求返回 200 但**内容为空**（实测 text/html 0 字节）。
-             浏览器默认会带 Referer，所以必须显式关掉，否则音频永远加载不出来。 */
           try { readAudio.referrerPolicy = "no-referrer"; } catch (e) {}
           try { readAudio.crossOrigin = "anonymous"; } catch (e) {}
         }
         var a = readAudio;
-        var spd = Math.min(6, Math.max(1, Math.round((rate || 1) * 3.3)));   // 0.92≈3(正常)，0.6≈2，1.4≈5
-        a.onended = function () { finish(true); };
-        a.onerror = function () { finish(false); };
-        a.src = "https://fanyi.baidu.com/gettts?lan=en&text=" + encodeURIComponent(text) + "&spd=" + spd + "&source=web";
-        var tm = setTimeout(function () { finish(false); }, Math.min(20000, Math.max(6000, text.length * 90)));
+        var spd = Math.min(6, Math.max(1, Math.round((rate || 1) * 3.3)));
+        var tm = 0;
         a.onended = function () { clearTimeout(tm); finish(true); };
         a.onerror = function () { clearTimeout(tm); finish(false); };
+        a.src = "https://fanyi.baidu.com/gettts?lan=en&text=" + encodeURIComponent(text) + "&spd=" + spd + "&source=web";
+        tm = setTimeout(function () { finish(false); }, Math.min(20000, Math.max(6000, text.length * 90)));
         var p = a.play();
         if (p && p.catch) p.catch(function () { clearTimeout(tm); finish(false); });
       } catch (e) { finish(false); }
@@ -8081,7 +8165,7 @@ button.small{ padding:6px 12px; font-size:12.5px; }
       speakToken++;
       try { if (window.speechSynthesis) speechSynthesis.cancel(); } catch (e) {}
       if (rSpeak) rSpeak.setAttribute("aria-pressed", "false");
-      if (rView) rView.classList.remove("read-speaking");
+      rV.classList.remove("read-speaking");
       if (rProg) rProg.classList.add("hidden");
       if (rProgFill) rProgFill.style.width = "0%";
       if (trackEl) { try { trackEl.pause(); } catch (e) {} }
@@ -8089,32 +8173,25 @@ button.small{ padding:6px 12px; font-size:12.5px; }
     }
     function speakFrom(start, single) {
       if (!cur) return;
-      /* 手机/平板常见：系统没有语音引擎（设置页「英文发音」空白就是它）。
-         有道在线音频只能读 1-2 个词（实测 this is a test 直接 500），读不了整句，
-         所以这里不再假装降级，而是明确告诉用户缺什么。 */
       stopSpeak();
       speaking = true;
       var tok = speakToken;
       if (rSpeak) rSpeak.setAttribute("aria-pressed", "true");
-      if (rView) rView.classList.add("read-speaking");
+      rV.classList.add("read-speaking");
       if (rProg) rProg.classList.remove("hidden");
       var v = pickEnVoice();
       var total = cur.sents.length;
-      /* 音色列表为空时（Via/某些 WebView），无法确认引擎是否真的工作：
-         连续 3 句都等不到 onstart 就判定为不支持，避免「进度条在跑但没声音」。 */
       var useTTS = canTTS();
-      /* 优先用离线音轨：同域 mp3，不依赖引擎/在线接口 */
       if (track) {
         playTrack(Math.max(0, Math.min(track.p.length - 1, start | 0)), single);
         return;
       }
-      var strict = false;          // 走百度时不需要 onstart 检测
       var noStart = 0;
       (function next(i) {
         if (!speaking || tok !== speakToken || i >= total) { stopSpeak(); return; }
         markCur(i);
         if (rProgFill) rProgFill.style.width = (((i + 1) / total) * 100).toFixed(1) + "%";
-        var el = rBody.querySelector('.rsent[data-i="' + i + '"]');
+        var el = rBody.querySelector('.rd-sent[data-i="' + i + '"]');
         if (el && el.scrollIntoView) { try { el.scrollIntoView({ block: "center", behavior: "smooth" }); } catch (e) {} }
         var txt = cur.sents[i].en;
         var step = function () {
@@ -8132,17 +8209,13 @@ button.small{ padding:6px 12px; font-size:12.5px; }
         if (v) u.voice = v;
         u.lang = "en-US";
         u.rate = readRate;
-        /* 兜底：个别设备/浏览器上 utterance 可能既不 end 也不 error（实测无头环境就这样），
-           按估算时长加保险丝，避免整篇朗读卡死在某一句。 */
         var guard = setTimeout(function () {
           if (!speaking || tok !== speakToken) return;
-          if (strict) {
-            noStart++;
-            if (noStart >= 3) {
-              if (window.__dictationToast) window.__dictationToast("这台浏览器读不出来（没有可用语音），试试 Edge 或安装系统语音引擎");
-              stopSpeak();
-              return;
-            }
+          noStart++;
+          if (noStart >= 3) {
+            if (window.__dictationToast) window.__dictationToast("这台浏览器读不出来（没有可用语音），试试 Edge 或安装系统语音引擎");
+            stopSpeak();
+            return;
           }
           next(i + 1);
         }, Math.min(12000, Math.max(3000, txt.length * 65)) + 4000);
@@ -8157,14 +8230,11 @@ button.small{ padding:6px 12px; font-size:12.5px; }
       rSpeak.addEventListener("click", function (e) {
         e.stopPropagation();
         if (speaking) stopSpeak();
-        else speakFrom(curSel == null ? 0 : curSel);
+        else speakFrom(curSel);
       });
     }
 
-    function doneMap() { try { return JSON.parse(localStorage.getItem(K_DONE) || "{}"); } catch (e) { return {}; } }
-    function esc(t) { return String(t).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
-
-    /* 词书目标词（含简单变形） */
+    /* ---------- 词书目标词（含简单变形）+ 英句逐词 span ---------- */
     function isTarget(w) {
       if (!targets) return false;
       var k = w.toLowerCase();
@@ -8174,90 +8244,205 @@ button.small{ padding:6px 12px; font-size:12.5px; }
       for (var i = 0; i < stems.length; i++) if (stems[i] !== k && stems[i].length > 2 && targets.indexOf(stems[i]) >= 0) return true;
       return false;
     }
-
-    /* 英句 → 逐词 span（.ex-w 供查义卡；.rtgt = 词书词高亮） */
+    /* .ex-w 供全局查词卡；.rtgt = 词书词高亮（「收集本文词书词汇」按钮也认它） */
+    /* 2026-11-01 加：源数据的 en 字段里带括号中文注释（如 subtropical (亚热带的)），
+       纯英 / 对照模式都剥掉 —— 查那个词直接点词查义，中文模式另有整句译文。 */
+    function stripCnGloss(en) {
+      return String(en).replace(/\s*[（(][^()（）]*[\u4e00-\u9fff][^()（）]*[)）]/g, "");
+    }
     function sentHtml(en) {
-      return en.replace(/[A-Za-z][A-Za-z'’\-]*/g, function (w) {
+      return stripCnGloss(en).replace(/[A-Za-z][A-Za-z'’\-]*/g, function (w) {
         var cls = isTarget(w) ? "ex-w rtgt" : "ex-w";
         return '<span class="' + cls + '" data-w="' + esc(w.toLowerCase()) + '">' + w + "</span>";
       });
     }
 
+    /* ---------- 正文渲染：段落连排，纯英模式零中文 ---------- */
     function renderBody() {
       if (!cur) return;
-      rBody.className = "read-body" + (curMode === "cn" ? " rmode-cn" : "");
-      var html = "", prevP = null;
+      var html = "", lastP = null, open = false;
       for (var i = 0; i < cur.sents.length; i++) {
         var s = cur.sents[i];
-        /* 2026-10-25：段落感。导入时给每句写了 p（段号），换段时拉开间距，
-           不然整篇只有句距、看起来是一大坨。旧数据没有 p 就退化为不拉。 */
-        var newPara = (i > 0 && typeof s.p === "number" && s.p !== prevP);
-        if (typeof s.p === "number") prevP = s.p;
-        html += '<span class="rsent' + (newPara ? " para-first" : "") + '" data-i="' + i + '">';
-        if (curMode !== "cn") html += '<button class="rsent-play" data-i="' + i + '" type="button" tabindex="-1" aria-label="朗读第 ' + (i + 1) + ' 句">🔊</button>';
-        if (curMode === "en") html += sentHtml(s.en) + '<span class="rsent-inline-cn">' + esc(s.cn || "（缺译）") + '</span>';
-        else if (curMode === "cn") html += esc(s.cn || "（缺译）");
-        else html += sentHtml(s.en) + ' <span class="cnline">' + esc(s.cn || "（缺译）") + "</span>";
-        html += "</span>";
+        var paraFirst = (typeof s.p === "number" && s.p !== lastP);
+        if (typeof s.p === "number") lastP = s.p;
+        if (paraFirst && open) html += "</p>";
+        if (paraFirst) { html += '<p' + (html === "" ? ' class="rd-p0"' : "") + '>'; open = true; }
+        var inner;
+        if (curMode === "en") inner = sentHtml(s.en);
+        else if (curMode === "bi") inner = sentHtml(s.en) + '<span class="rd-cn">' + esc(s.cn || "") + "</span>";
+        else inner = esc(s.cn || "");
+        html += '<span class="rd-sent' + (i === curSel ? " cur" : "") + '" data-i="' + i + '">' + inner + "</span> ";
       }
+      if (open) html += "</p>";
       var savedScroll = rBody._savedScroll || 0;
-      rBody.innerHTML = html;
+      rBody.innerHTML = '<div class="rd-col"><article class="rd-article">' + html + "</article></div>";
       rBody.scrollTop = savedScroll;
-      markCur(0);          // 专注模式下默认聚焦第一句
+      rBody._savedScroll = 0;
+      updateTip();
+      updateCnt();
     }
 
+    /* ---------- 列表渲染（分组 + 已读/读到一半/未读三态） ---------- */
     function renderList(filter) {
       if (!idx) return;
-      var dm = doneMap(), f = (filter || "").trim().toLowerCase();
-      var html = "", lastExam = "";
+      var dm = doneMap(), pm = posMap(), f = (filter || "").trim().toLowerCase();
+      var html = "", lastExam = "", readCount = 0, shown = 0;
       for (var i = 0; i < idx.length; i++) {
         var a = idx[i];
         if (f && (a.exam + " " + a.title).toLowerCase().indexOf(f) < 0) continue;
-        if (a.exam !== lastExam) { lastExam = a.exam; html += '<div class="read-group">' + esc(a.exam) + "</div>"; }
-        html += '<button class="read-item" data-id="' + esc(a.id) + '" type="button">' +
-          '<span class="ri-done">' + (dm[a.id] ? "✓" : "") + "</span>" +
-          '<span class="ri-title">' + esc(a.title) + "</span>" +
-          '<span class="ri-exam">' + esc(a.id) + "</span></button>";
+        shown++;
+        /* 分组键取「套数」：真实数据 exam 形如「2026年6月 第1套 · 仔细阅读 P1」，
+           直接按整串分组会变成 99 组各 1 行（2026-11-01） */
+        var gk = String(a.exam || "").split("·")[0].trim();
+        if (gk !== lastExam) {
+          if (lastExam !== "") html += "</div>";
+          lastExam = gk;
+          html += '<div class="rd-group">' + esc(gk) + '</div><div class="rd-lcard">';
+        }
+        var done = !!dm[a.id];
+        if (done) readCount++;
+        var p = pm[a.id];
+        var cls = done ? "done" : (typeof p === "number" && p > 0 ? "half" : "");
+        var meta = done ? "已读完" : (typeof p === "number" && p > 0 ? "<em>读到第 " + (p + 1) + " 句</em>" : "未读");
+        html += '<button class="rd-row" data-id="' + esc(a.id) + '" type="button">' +
+          '<span class="rd-chk ' + cls + '">' + (done ? CHECK_SVG : (cls === "half" ? DOT_SVG : "")) + "</span>" +
+          '<span class="rd-main"><b>' + esc(a.title) + "</b><i>" + meta + "</i></span>" + CHEV_SVG + "</button>";
       }
-      rList.innerHTML = html || '<div class="hint">没有匹配的文章。</div>';
-      rHint.textContent = idx.length ? "共 " + idx.length + " 篇 · 已读 " + Object.keys(dm).filter(function (k) { return dm[k] && idx.some(function (a) { return a.id === k; }); }).length + " 篇" : rHint.textContent;
+      if (lastExam !== "") html += "</div>";
+      rList.innerHTML = shown ? html : '<div class="rd-empty">没有匹配的文章。</div>';
+      if (idx.length) rHint.textContent = "共 " + idx.length + " 篇 · 已读 " + readCount + " 篇";
     }
+    /* index.json 没带句数；读到一半的进度直接展示存的句子序号，不开整篇文章 JSON */
 
-    function showTrans(label, text) {
-      rtLabel.textContent = label;
-      rtText.textContent = text;
-      rTrans.classList.remove("hidden");
-    }
-    function hideTrans() { rTrans.classList.add("hidden"); }
-
+    /* ---------- 打开文章 ---------- */
     function openArticle(id) {
-      stopSpeak();   // 换文章先停朗读
-      /* 2026-10-25：no-cache 而非 force-cache。force-cache 下浏览器一旦缓存过该 JSON 就永不校验，
-         重新导入同一篇（改错字/换译文）或新增文章都会看不到；no-cache 只多一次 304 校验。 */
+      stopSpeak();
       fetch("%E9%98%85%E8%AF%BB%E6%96%87%E7%AB%A0/a-" + encodeURIComponent(id) + ".json", { cache: "no-cache" })
         .then(function (r) { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
         .then(function (art) {
-          cur = art; curMode = "en";
-          rTitle.textContent = art.exam + " · " + (art.sents.length + " 句");
-          document.getElementById("readDoneBtn").classList.toggle("done", !!doneMap()[id]);
-          document.getElementById("readDoneBtn").dataset.id = id;
+          cur = art;
+          curSel = 0;
+          var pm = posMap();
+          if (typeof pm[id] === "number") curSel = Math.max(0, Math.min(pm[id], art.sents.length - 1));
+          /* 纯英阅读页只保留英文标题（列表里仍显示完整中英标题） */
+          var t = String(art.title || "");
+          rTitle.textContent = (art.exam ? art.exam + " · " : "") + (t.split("｜")[0].trim() || id);
+          var words = 0;
+          for (var i = 0; i < art.sents.length; i++) words += String(art.sents[i].en || "").trim().split(/\s+/).length;
+          rMeta.textContent = art.sents.length + " 句 · 约 " + words + " 词";
+          var b = document.getElementById("readDoneBtn");
+          if (b) b.dataset.id = id;
+          updateDoneBtn();
           renderBody();
+          rBody.scrollTop = 0;
+          if (rV.classList.contains("read-focus-on") && curSel > 0) {
+            var el = rBody.querySelector('.rd-sent[data-i="' + curSel + '"]');
+            if (el) { try { el.scrollIntoView({ block: "center" }); } catch (e) {} }
+          }
           rS.classList.add("hidden");
           rV.classList.remove("hidden");
-          loadTrack(art.id);       // 有离线音轨就用它（同域 mp3，无引擎/网络接口依赖）
+          updateScrollProg();      /* rV 可见后再量，否则 clientHeight=0 会算出 100% */
+          loadTrack(id);
         })
         .catch(function (e) { rHint.textContent = "文章加载失败：" + e.message; });
     }
 
-    /* 入口按钮 */
+    /* ---------- 已读 ---------- */
+    var rDoneBtn = document.getElementById("readDoneBtn");
+    var rDoneTxt = document.getElementById("readDoneTxt");
+    function updateDoneBtn() {
+      if (!rDoneBtn || !rDoneBtn.dataset.id) return;
+      var dm = doneMap();
+      var on = !!dm[rDoneBtn.dataset.id];
+      rDoneBtn.classList.toggle("done", on);
+      if (rDoneTxt) rDoneTxt.textContent = on ? "已读（点此撤销）" : "标为已读";
+    }
+    function setDone(id, val) {
+      var dm = doneMap();
+      dm[id] = !!val;
+      try { localStorage.setItem(K_DONE, JSON.stringify(dm)); } catch (e) {}
+      updateDoneBtn();
+    }
+    if (rDoneBtn) {
+      rDoneBtn.addEventListener("click", function (e) {
+        e.stopPropagation();
+        if (!this.dataset.id) return;
+        var dm = doneMap();
+        setDone(this.dataset.id, !dm[this.dataset.id]);
+      });
+    }
+
+    /* ---------- 滚动进度 + 滚到底自动已读（内容不足一屏时不自动标） ---------- */
+    function updateScrollProg() {
+      if (!rScrollFill) return;
+      var max = rBody.scrollHeight - rBody.clientHeight;
+      rScrollFill.style.width = (max > 0 ? (rBody.scrollTop / max * 100) : 100).toFixed(1) + "%";
+    }
+    rBody.addEventListener("scroll", function () {
+      updateScrollProg();
+      var max = rBody.scrollHeight - rBody.clientHeight;
+      if (max > 80 && rBody.scrollTop + rBody.clientHeight >= rBody.scrollHeight - 24) {
+        if (rDoneBtn && rDoneBtn.dataset.id && !doneMap()[rDoneBtn.dataset.id]) setDone(rDoneBtn.dataset.id, true);
+      }
+    });
+
+    /* ---------- 阅读页交互 ---------- */
+    /* 点句：选中/聚焦；朗读中点句 = 从那句重读。点词查义由 5.4 段的全局 onWordClick 处理。 */
+    rBody.addEventListener("click", function (e) {
+      if (!cur) return;
+      var sent = (e.target && e.target.closest) ? e.target.closest(".rd-sent") : null;
+      if (!sent) return;
+      var i = +sent.getAttribute("data-i");
+      var changed = (i !== curSel);
+      markCur(i);
+      if (cur.id) {
+        var pm = posMap();
+        pm[cur.id] = curSel;
+        try { localStorage.setItem(K_POS, JSON.stringify(pm)); } catch (err) {}
+      }
+      if (changed && speaking) speakFrom(curSel);
+      else if (changed && rV.classList.contains("read-focus-on")) {
+        var el = rBody.querySelector('.rd-sent[data-i="' + curSel + '"]');
+        if (el) { try { el.scrollIntoView({ block: "center", behavior: "smooth" }); } catch (err) {} }
+      }
+    });
+
+    /* 返回列表 */
+    document.getElementById("readBack").addEventListener("click", function () { backToList(); });
+    function backToList() {
+      stopSpeak();
+      rV.classList.add("hidden");
+      rS.classList.remove("hidden");
+      renderList(rSearch.value);
+      updateScrollProg();
+    }
+
+    /* 三模式（样式类 read-mode/on 保留：文件尾部「阅读体验增强」块按它做记忆恢复） */
+    var modeBtns = rV.querySelectorAll(".read-mode");
+    for (var mi = 0; mi < modeBtns.length; mi++) {
+      modeBtns[mi].addEventListener("click", function () {
+        curMode = this.getAttribute("data-m");
+        for (var j = 0; j < modeBtns.length; j++) modeBtns[j].classList.toggle("on", modeBtns[j] === this);
+        rBody._savedScroll = rBody.scrollTop;      // 模式切换保持阅读位置
+        renderBody();
+      });
+    }
+
+    /* 列表点文章 / 搜索 */
+    rList.addEventListener("click", function (e) {
+      var it = (e.target && e.target.closest) ? e.target.closest(".rd-row") : null;
+      if (it) openArticle(it.getAttribute("data-id"));
+    });
+    rSearch.addEventListener("input", function () { renderList(rSearch.value); });
+
+    /* 入口按钮（Dock 📖） */
     rT.addEventListener("click", function (e) {
       e.stopPropagation();
       var willOpen = rS.classList.contains("hidden");
-      /* 打开阅读层前先把其他面板收起（阅读层自己是 readSheet + readView 两个节点） */
       if (willOpen && window.__closeSheets) window.__closeSheets(["readSheet", "readView"]);
       rS.classList.toggle("hidden");
       if (!willOpen) return;
-      rV.classList.add("hidden"); hideTrans();
+      rV.classList.add("hidden");
       var p = idx ? Promise.resolve() :
         fetch("%E9%98%85%E8%AF%BB%E6%96%87%E7%AB%A0/index.json", { cache: "no-cache" }).then(function (r) { return r.json(); }).then(function (j) { idx = j; });
       p.then(function () { renderList(rSearch.value); });
@@ -8272,111 +8457,30 @@ button.small{ padding:6px 12px; font-size:12.5px; }
           })
           .catch(function () {});
       }
+      /* 词书目标词惰性加载（第一次打开阅读时拉一次） */
+      if (!targets) {
+        fetch("%E9%98%85%E8%AF%BB%E6%96%87%E7%AB%A0/targets.json", { cache: "no-cache" })
+          .then(function (r) { return r.json(); })
+          .then(function (j) { targets = j; if (cur) renderBody(); })
+          .catch(function () {});
+      }
     });
     rS.addEventListener("click", function (e) { e.stopPropagation(); });
     rV.addEventListener("click", function (e) { e.stopPropagation(); });
-    document.addEventListener("click", function () { if (!rV.classList.contains("hidden")) { rV.classList.add("hidden"); hideTrans(); stopSpeak(); } });
+    /* 点面板外面：只收阅读页，不主动拉起列表（列表由全局 closeSheets 一并收起）。
+       ⚠ 2026-11-01 修：旧版没排除 #defCard，在阅读页点查词卡会整层被关掉。 */
+    document.addEventListener("click", function (e) {
+      if (e.target && e.target.closest && e.target.closest("#defCard")) return;
+      if (!rV.classList.contains("hidden")) { rV.classList.add("hidden"); stopSpeak(); }
+    });
+    /* 捕获阶段先跑：查词卡开着时，第一下 Esc 让给全局 5.4 段收卡，别连带退出阅读页 */
     document.addEventListener("keydown", function (e) {
       if (e.key !== "Escape") return;
-      if (!rTrans.classList.contains("hidden")) { hideTrans(); return; }
-      if (!rV.classList.contains("hidden")) { rV.classList.add("hidden"); rS.classList.remove("hidden"); stopSpeak(); return; }
+      var dc = document.getElementById("defCard");
+      if (dc && dc.classList.contains("on")) return;
+      if (!rV.classList.contains("hidden")) { backToList(); return; }
       rS.classList.add("hidden");
-    });
-
-    /* 列表点文章 / 搜索 */
-    rList.addEventListener("click", function (e) {
-      var it = e.target.closest ? e.target.closest(".read-item") : null;
-      if (it) openArticle(it.getAttribute("data-id"));
-    });
-    rSearch.addEventListener("input", function () { renderList(rSearch.value); });
-
-    /* 阅读页交互 */
-    document.getElementById("readBack").addEventListener("click", function () { rV.classList.add("hidden"); rS.classList.remove("hidden"); hideTrans(); stopSpeak(); renderList(rSearch.value); });
-    var modeBtns = rV.querySelectorAll(".read-mode");
-    for (var mi = 0; mi < modeBtns.length; mi++) {
-      modeBtns[mi].addEventListener("click", function () {
-        curMode = this.getAttribute("data-m");
-        for (var j = 0; j < modeBtns.length; j++) modeBtns[j].classList.toggle("on", modeBtns[j] === this);
-        renderBody();
-      });
-    }
-    document.getElementById("readDoneBtn").addEventListener("click", function () {
-      var id = this.dataset.id, dm = doneMap();
-      dm[id] = !dm[id];
-      try { localStorage.setItem(K_DONE, JSON.stringify(dm)); } catch (e) {}
-      this.classList.toggle("done", dm[id]);
-      this.textContent = dm[id] ? "✓ 已读（点此撤销）" : "✓ 标为已读";
-    });
-    /* 滚到底自动标已读 */
-    rBody.addEventListener("scroll", function () {
-      if (rBody.scrollTop + rBody.clientHeight >= rBody.scrollHeight - 24) {
-        var b = document.getElementById("readDoneBtn"), dm = doneMap();
-        if (b.dataset.id && !dm[b.dataset.id]) b.click();
-      }
-    });
-
-    /* 点句 → 翻译小卡（cn 模式不响应；点在词上交给查义卡，不弹翻译） */
-    rBody.addEventListener("click", function (e) {
-      var pb = e.target.closest ? e.target.closest(".rsent-play") : null;
-      if (pb) { e.stopPropagation(); speakFrom(+pb.getAttribute("data-i"), true); return; }
-      if (e.target.closest(".ex-w")) { hideTrans(); return; }
-      var sent = e.target.closest ? e.target.closest(".rsent") : null;
-      if (!sent || !cur) return;
-      var i = +sent.getAttribute("data-i");
-      curSel = i;
-      var prev = rBody.querySelector(".rsent.sel");
-      if (prev) prev.classList.remove("sel");
-      sent.classList.add("sel");
-      markCur(i);
-      /* v7：点句 → inline 翻译在句下展开/收起（不再用底部弹卡） */
-      sent.classList.toggle("show-cn");
-    });
-    document.getElementById("rtClose").addEventListener("click", function () {
-      hideTrans();
-      var p = rBody.querySelector(".rsent.sel"); if (p) p.classList.remove("sel");
-    });
-
-    /* 划选 → 浮动「译」→ 覆盖句合并翻译 */
-    var selBtn = document.createElement("button");
-    selBtn.id = "readSelBtn"; selBtn.type = "button"; selBtn.textContent = "译";
-    rV.querySelector(".settings-inner").appendChild(selBtn);
-    rBody.addEventListener("mouseup", function () {
-      setTimeout(function () {
-        var sel = window.getSelection();
-        if (!sel || sel.isCollapsed || !rBody.contains(sel.anchorNode)) { selBtn.style.display = "none"; return; }
-        var rng = sel.getRangeAt(0), re = rBody.getBoundingClientRect();
-        selBtn.style.display = "block";
-        selBtn.style.left = Math.max(6, rng.getBoundingClientRect().left - re.left + rBody.offsetLeft - 6) + "px";
-        selBtn.style.top = (rng.getBoundingClientRect().top - re.top + rBody.offsetTop - 32) + "px";
-      }, 0);
-    });
-    selBtn.addEventListener("click", function () {
-      selBtn.style.display = "none";
-      var sel = window.getSelection();
-      if (!sel || sel.isCollapsed || !cur) return;
-      var hit = [], sentEls = rBody.querySelectorAll(".rsent");
-      for (var i = 0; i < sentEls.length; i++) {
-        if (sel.rangeCount && sel.getRangeAt(0).intersectsNode(sentEls[i])) hit.push(i);
-      }
-      if (!hit.length) { var n = sel.anchorNode && sel.anchorNode.parentElement && sel.anchorNode.parentElement.closest(".rsent"); if (n) hit.push(+n.getAttribute("data-i")); }
-      if (!hit.length) return;
-      var cn = hit.map(function (k) {
-        var c = cur.sents[k].cn;
-        if (!c && k > 0 && cur.sents[k - 1].cn) c = cur.sents[k - 1].cn;   // 短句合并翻译回退
-        return c || "";
-      }).join(" ");
-      showTrans("所选 " + (hit[0] + 1) + "~" + (hit[hit.length - 1] + 1) + " 句", cn || "（覆盖句缺译）");
-      window.getSelection().removeAllRanges();
-    });
-
-    /* 目标词表惰性加载（阅读打开时才拉一次） */
-    rT.addEventListener("click", function () {
-      if (targets) return;
-      fetch("%E9%98%85%E8%AF%BB%E6%96%87%E7%AB%A0/targets.json", { cache: "no-cache" })
-        .then(function (r) { return r.json(); })
-        .then(function (j) { targets = j; if (cur) renderBody(); })
-        .catch(function () {});
-    });
+    }, true);
   })();
 
   /* ---------- 5.55 「本机服务地址」输入（线上跳转目标；iPad 填局域网 IP） ---------- */
