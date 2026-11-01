@@ -217,6 +217,7 @@ Dock 的「📖」打开真题文章列表（按套数分组，已读 / 读到�
 - 数据兼容：英文源数据里括号中文注释（如 `subtropical (亚热带的)`）在英文 / 对照模式渲染时自动剥离；`dictationReadDone` / `dictationReadFocus` / `dictationReadRate` / `dictationReadMode` / `dictationReadFont` 全部沿用
 - 列表按套数分组（exam 取「·」前段），99 篇不再 99 组
 - sw.js 缓存版本 → `dictation-v4-2026-11-01a`
+- **修：10-28 的「卡片顶部一条线」修复（舞台动画 fill-mode both→backwards）没回写进仓库源码**（踩坑 #8 的剧本重演），真机 GPU 上主卡 fixed 背景横向接缝仍在。本次在源码补齐三处，并核对三个关键帧终点均为 `opacity:1; transform:none`（与自然状态一致，截图逐像素比对 ≤4/255，视觉零差异）；同时把踩坑 #15 要求的「可见构建版本号」补进快捷键卡底部（源码里此前也没有）
 
 ### 2026-10-28
 - **生词本只存原型**：加入 `threatens` 归到 `threaten`、`studies` 归到 `study`，同一原型只占一条，查过次数累加；列表 / 只练生词本 / 导出 PDF / 复制全走原型，不再挂「原形 xxx」小字

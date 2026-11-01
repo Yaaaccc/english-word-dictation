@@ -450,7 +450,7 @@ html[data-nav="fwd"]  #doneView:not(.hidden),
 html[data-nav="fwd"]  #typeStage:not(.hidden),
 html[data-nav="fwd"]  #playStage:not(.hidden),
 html[data-nav="fwd"]  #quizStage:not(.hidden){
-  animation:stageFwd .3s cubic-bezier(.22,1,.36,1) both;
+  animation:stageFwd .3s cubic-bezier(.22,1,.36,1) backwards;   /* 2026-11-01 补：10-28 的修复只落在部署副本没回写源码（踩坑 #8 复发），both 让舞台永久留在合成层，真机 GPU 上 fixed 背景出现横向接缝 */
 }
 html[data-nav="back"] #idleView:not(.hidden),
 html[data-nav="back"] #runView:not(.hidden),
@@ -458,9 +458,9 @@ html[data-nav="back"] #doneView:not(.hidden),
 html[data-nav="back"] #typeStage:not(.hidden),
 html[data-nav="back"] #playStage:not(.hidden),
 html[data-nav="back"] #quizStage:not(.hidden){
-  animation:stageBack .3s cubic-bezier(.22,1,.36,1) both;
+  animation:stageBack .3s cubic-bezier(.22,1,.36,1) backwards;
 }
-html:not([data-nav]) #idleView:not(.hidden){ animation:stageRise .35s cubic-bezier(.22,1,.36,1) both; }
+html:not([data-nav]) #idleView:not(.hidden){ animation:stageRise .35s cubic-bezier(.22,1,.36,1) backwards; }
 
 /* —— 空态 —— */
 #idleView{ padding:clamp(24px,5vh,52px) 24px; }
@@ -2012,6 +2012,7 @@ button.small{ padding:6px 12px; font-size:12.5px; }
       <div class="tip">
         <b>建议流程：</b>开始连播 → 听写在纸上 → 没听清按 <kbd>R</kbd> 重播、卡住时按 <kbd>X</kbd> 听例句 → 全部过完再回来看例句卡逐词核对。
       </div>
+      <div style="margin-top:8px;font-size:10.5px;color:var(--muted-2);letter-spacing:.4px;">构建 2026-11-01a</div>
     </aside>
 
     <!-- 2026-10-26 加：艾宾浩斯今日任务卡（数据来自 calendar/calendar.json，加载失败自动隐藏） -->
