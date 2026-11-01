@@ -2167,6 +2167,11 @@ button.small{ padding:6px 12px; font-size:12.5px; }
         <span class="mini-note" style="margin:0 0 0 10px;">本机服务地址</span>
         <input id="localBase" type="text" placeholder="http://127.0.0.1:8787" style="flex:1;min-width:200px;">
     </div>
+    <div class="controls" style="margin-top:10px;">
+      <label class="switch" style="display:inline-flex;align-items:center;gap:6px;cursor:pointer;"><input type="checkbox" id="calAutoBox"><span>生成计划后自动重排日历</span></label>
+      <button class="small" id="calBuildBtn" type="button">重建日历并上传</button>
+      <span class="mini-note" id="calStatus" style="margin:0;">重排 = 重跑电脑上的生成脚本出新版 calendar.json 并推 GitHub，手机/平板日历随之更新</span>
+    </div>
     <div class="mini-note" id="planStatus" style="margin-top:8px;"></div>
     <div class="hidden" id="planTokenBox" style="margin-top:10px;">
       <div class="mini-note">在 GitHub 生成一个 Fine-grained token（只勾这个仓库的 Contents: Read and write），粘进来。存在本机浏览器，不会写进页面代码。</div>
@@ -6973,6 +6978,12 @@ button.small{ padding:6px 12px; font-size:12.5px; }
         } else if (j && j.ok) {
           $("planStatus").textContent = "✓ 已生成并上传到 GoodNotes（" + j.date + "）";
           planLoadUploaded();      /* 传完了 → 立刻把那一行标成「已上传」 */
+          /* 「生成计划后自动重排日历」开关（2026-11-01 加）：本地版生成成功后自动重排日历 */
+          if (isLocalHost()) {
+            var calAuto = false;
+            try { calAuto = localStorage.getItem("dictationCalAuto") === "1"; } catch (eC) {}
+            if (calAuto) setTimeout(function () { calBuild(); }, 800);
+          }
         } else {
           var t = (j && j.log) ? j.log.slice(-2).join(" / ") : "未知错误";
           $("planStatus").textContent = "✗ 失败：" + String(t).slice(0, 110);
@@ -7009,6 +7020,65 @@ button.small{ padding:6px 12px; font-size:12.5px; }
     if ($("planBuildToday")) $("planBuildToday").addEventListener("click", planBuildToday);
     if ($("planBuildTomorrow")) $("planBuildTomorrow").addEventListener("click", planBuildTomorrow);
     if ($("planUploadToday")) $("planUploadToday").addEventListener("click", planUploadToday);
+
+    /* ---------- 艾宾浩斯日历：网页端重排（2026-11-01 加） ----------
+       此前 calendar.json 只能在电脑上双击「生成计划.bat」重排，网页只能看。
+       这里补上：①「重建日历并上传」按钮（本地版调 /api/calendar-build，服务端跑
+       生成脚本 → 把新 calendar.json 推到 GitHub，手机/平板日历随之更新）；
+       ②「生成计划后自动重排日历」开关（dictationCalAuto，planPollBuild 成功后触发）；
+       ③ 线上版沿用导航跳转通路（?calbuild=1 落到本地页自动执行，与 ?build 同款）。
+       服务端没找到生成脚本 / 旧版服务没有该端点时，都会给出明确提示。 */
+    function calStatus(html) { var el = $("calStatus"); if (el) el.innerHTML = html; }
+    function calRefreshFrame() {
+      var f = $("calFrame");
+      if (f && f.src && f.src.indexOf("about:") !== 0) { var s = f.src; f.src = "about:blank"; setTimeout(function () { f.src = s; }, 60); }
+    }
+    async function calBuild() {
+      var ok = await planSave();
+      if (!ok) { calStatus("<b>保存没成功</b>——重排日历需要最新的计划数据，请用本地版打开再试。"); return; }
+      if (!isLocalHost()) {
+        var base0 = "http://127.0.0.1:8787";
+        try { base0 = (localStorage.getItem("dictationLocalBase") || base0).replace(/\/+$/, ""); } catch (eL) {}
+        calStatus("已保存。转到电脑上的本地页执行重排…");
+        setTimeout(function () { location.href = base0 + "/word-dictation.html?calbuild=1"; }, 900);
+        return;
+      }
+      calStatus("正在重排艾宾浩斯日历（运行电脑上的生成脚本）…");
+      try {
+        var r = await fetch("/api/calendar-build", { method: "POST", headers: { "Content-Type": "application/json" }, body: "{}" });
+        if (r.status === 404) { calStatus("✗ 本地服务没有 /api/calendar-build 端点——请把新版 server.js 更新到工具目录后重启服务。"); return; }
+        var j = await r.json();
+        if (j && j.ok) {
+          calStatus("✓ 日历已重排" + (j.pushed ? "并上传" : "") + "（生成于 " + (j.generated_at || "?") + "）——手机/平板打开日历即新版");
+          calRefreshFrame();
+        } else {
+          calStatus("✗ 重排失败：" + String((j && j.error) || "未知错误"));
+        }
+      } catch (e) { calStatus("✗ 调用失败：" + e.message + "（本地服务在跑吗？）"); }
+    }
+    if ($("calBuildBtn")) $("calBuildBtn").addEventListener("click", function () { calBuild(); });
+    if ($("calAutoBox")) {
+      try { $("calAutoBox").checked = localStorage.getItem("dictationCalAuto") === "1"; } catch (eS) {}
+      $("calAutoBox").addEventListener("change", function () {
+        try { localStorage.setItem("dictationCalAuto", this.checked ? "1" : "0"); } catch (eS2) {}
+      });
+    }
+    /* ?calbuild=1：线上跳转落地（与 ?build 同款） */
+    (function () {
+      var q2 = new URLSearchParams(location.search);
+      if (!q2.get("calbuild") || !isLocalHost()) return;
+      history.replaceState(null, "", location.pathname);
+      var goCal = function () {
+        $("planPanel").classList.remove("hidden");
+        var sp2 = $("settingsPanel"), st2 = $("statsPanel");
+        if (sp2) sp2.classList.add("hidden");
+        if (st2) st2.classList.add("hidden");
+        $("calStatus") && ($("calStatus").textContent = "从线上跳转而来：正在重排日历…");
+        calBuild();
+      };
+      if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", function () { setTimeout(goCal, 900); });
+      else setTimeout(goCal, 900);
+    })();
     if ($("planClearBtn")) {
       $("planClearBtn").addEventListener("click", function () {
         planDays = {};
