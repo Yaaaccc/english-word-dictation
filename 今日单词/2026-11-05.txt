@@ -1,70 +1,70 @@
-reflection|n. 深思；n. 反映；n. 反射；n. 倒影|The girl could see her reflection in the water, shimmering in the moonlight.|女孩看到自己在水中的倒影在月光下闪烁。||
-obligation|n. 义务；n. 职责；n. 承诺|The company has to fulfill the terms of its obligation .|这个公司必须履行合同条款。||
-descend|v. 下降；v. 降临；v. 堕落|The plane safely descended despite the storm.|尽管天降暴风雨，这架飞机还是安全地降落了。||
-reluctant|adj. 不情愿的，勉强的|She was reluctant to admit her mistake when questioned by her parents.|面对父母的质问，她不愿承认自己犯了错。||
-gross|adj. 总的；adj. 令人恶心的；n. 总收入，总量；adj. （利润）毛的|Investments showed a gross profit of 26%.|投资获得26%的总利润。||
-widespread|adj. 普遍的；adj. 分布广的|Bird flu is a widespread disease because it can affect many people quickly.|禽流感是种广泛传播的疾病，因为它能快速传染很多人。||
-punch|n. 一拳，一击；v. 用拳击打；v. 打孔；v. 输入信息|The boxer gave his opponent a punch on the nose.|这个拳击手朝他对手的鼻子上猛击一拳。||
-resemblance|n. 相像，相似|She bears a remarkable resemblance to Amy.|她跟艾米长得非常相似。||
-outlook|n. 观点；n. 世界观；n. 景色；n. 前景|The Oxford graduate has a very positive outlook for his future.|这位牛津毕业生的发展前景非常乐观。||
-oppose|v. 反对；phrase. （as opposed to）相对于；v. 抵抗|This party would bitterly oppose the reintroduction of the death penalty.|本党会强烈反对恢复死刑。||
-bearing|n. 关系；n. 影响；n. 方位；n. 举止|Why should that have any bearing on what I do?|为什么那和我的所为有关？||
-revise|v. 修改，修订；v. 复习|The investigation team has to revise the original plan due to local objections.|由于来自当地的反对，这支考察队不得不修改最初的计划。||
-interview|n. 面试；n. 采访；v. 采访；v. 面试|He has an interview next week for the manager's job.|他下周要接受一个经理职位的面试。||
-pursuit|n. 追求；n. 爱好；n. 追赶|The young man travelled the world in pursuit of his dreams.|这个年轻人周游世界，追寻他的梦想。||
-plague|v. 烦扰；v. 折磨；n. 灾祸；n. 瘟疫|A plague killed many prisoners of war at the time.|当时一场瘟疫夺去了很多战俘的生命。||
-occupation|n. 职业；n. 消遣；n. 占领|The areas under occupation includes major industrial areas.|这些被占领的地方包含主要的工业区。||
-liver|n. 肝脏|His mother died of liver failure.|他的母亲死于肝衰竭。||
-soar|v. 猛增；v. 升空；v. 翱翔；v. 耸立|The average temperature during the day in July soared to 38 degrees Celsius in Shanghai.|上海七月份的日间平均温度骤升到了38摄氏度。||
-rarely|adv. 很少；adv. 稀有地|Nowadays, lots of people rarely spend time reading physical books.|现如今，很多人不怎么花时间去读实体书了。||
-federal|adj. 联邦（政府）的|The federal government has invested a lot to improve the transportation problem.|联邦政府投入了大量资金来改善交通问题。||
-generate|v. 引起；v. 产生（能量）|The company burns coal to generate power for the local community.|这家公司为当地社区烧煤发电。||
-inland|adj. 内陆的，内地的；adv. 向内陆，向内地|The town lies a few kilometres inland .|这个城市位于内陆几公里处。||
-indifferent|adj. 漠不关心的；adj. 一般的|The teenager never watched news reports and was indifferent to current affairs.|这个少年从不看新闻报道，对时事漠不关心。||
-aviation|n. 航空（业）|He devoted all his life to China's aviation .|他的一生都奉献给了中国的航空事业。||
-atomic|adj. 原子的；adj. 原子能的|The atomic structure of an element determines its chemical properties.|元素的原子结构决定了它的化学性质。||
-hazard|n. 危险|Growing levels of pollution represented a serious health hazard to the local population.|日益严重的污染对当地居民的健康构成了重大威胁。||
-penetrate|v. 渗透；v. 穿过，进入|The intense radiation of the nuclear leak can penetrate the skin.|核泄漏的高强度辐射会穿透皮肤。||
-conclude|v. 得出结论；v. 结束；v. 推断出|The report concluded the cheapest option was to close the laboratory.|这份报告得出结论：代价最低廉的选择是关闭实验室。||
-curl|n. 卷曲；v. 使卷曲；v. 蜷缩；n. 卷发；v. 使缠绕|Her hair curls naturally.|她的头发自然卷。||
-extend|v. 延伸；v. 扩大；v. 适用于；v. 允许使用；v. 包括|The government plans to extend the no-smoking zones.|政府计划扩大无烟区。||
-monetary|adj. 金融的，货币的|The government is currently implementing a tight monetary policy.|政府正实施着从紧的货币政策。||
-publicity|n. 宣传；n. 公众的关注；n. 广告|The accident that caused several injuries brought considerable adverse publicity about the school.|这起造成多人受伤的事故给学校带来了大量的负面报道。||
-clarify|v. 阐明|I hope this clarifies my position .|我希望这能阐明我的立场。||
-prose|n. 散文|William published his newest prose on a local magazine.|威廉在当地一家杂志发表了他最新的散文。||
-unemployment|n. 失业；n. 失业人数|Mass unemployment may lead to social instability.|大批失业可能会导致社会不稳定。||
-episode|n. 一段经历；n. 一集；n. 片段；n. 疾病发作期|The soap opera is ending after 175 episodes .|这部肥皂剧在175集后将剧终。||
-institution|n. （院校等）机构；n. 制度；n. 风俗|They work in the same institution .|他们在同一家机构工作。||
-limitation|n. 局限性；n. 缺陷；n. 限制；n. 追诉时效|The state council put a limitation on the city government's budget of next year.|国会对政府明年的预算加以限制。||
-finance|n. 金融；n. 财务状况；v. 为…供给资金；n. 资金|The fund has been used largely to finance schools.|该基金大部分用于了资助学校。||
-breadth|n. 广泛性；n. 宽度|The length of this case is twice its breadth .|这个盒子的长度是其宽度的两倍。||
-likelihood|n. 可能性|We must try our best to reduce the likelihood of war.|我们必须尽最大努力减少战争的可能性。||
-consume|v. 吃，喝；v. 消耗；v. 消费；v. 使充满|Before he died he had consumed a large quantity of alcohol.|他死亡前喝了大量的酒。||
-interference|n. 干扰；n. 干涉，介入|As an adult, I refuse any interference in my work.|作为一个成年人，我拒绝任何干扰我工作的行为。||
-profitable|adj. 盈利的，有利可图的|The problem is that it's not profitable .|问题在于它无利可图。||
-slender|adj. 细长的；adj. 纤细的|The models on stage impressed people with their tall and slender figures.|舞台上模特们高挑又纤细的身材令人们印象深刻。||
-idle|v. 无所事事，闲荡；adj. 空闲的；adj. 无业的；adj. 懒惰的；adj. 漫无目的的|Decreased demand for the products has left the workers idle for a month.|产品需求量的减少让工人闲了一个月。||
-bargain|n. 物美价廉的东西；v. 讨价还价；v. 讲条件；n. 交易|The car was a bargain at that price.|那辆车的价格真便宜。||
-suspicion|n. 怀疑；n. 猜疑|They walked away slowly to avoid causing suspicion .|他们慢慢走开，以免引起怀疑。||
-exclusive|adj. 排斥的；n. 独家报道；adj. 专用的；adj. 独家的|The hotel has exclusive access to the beach.|这家旅馆有通向海滩的专用通道。||
-poverty|n. 贫穷，贫困|They live in extreme poverty .|他们生活在赤贫之中。||
-scandal|n. 丑闻|He committed suicide after the scandal was exposed.|丑闻曝光后，他自杀了。||
-significant|adj. 显著的；adj. 意义重大的；adj. 相当数量的；adj. 意味深长的|It's significant to protect our environment.|保护环境是很有意义的。||
-misfortune|n. 不幸；n. 灾祸|He has known great misfortune in his life.|他一生中经历过巨大的不幸。||
-academic|adj. 学术的；n. 学者；n. 学术；adj. 学院的；n. 大学教师；adj. 偏重理论的|The students will start the new academic year in October.|学生们将在10月开始新的学年。||
-innovation|n. 新方法；n. 变革；n. 新事物|Anesthesia was a great innovation in medicine.|麻醉是一项伟大的医学创新。||
-edit|v. 编辑；v. 校订；n. 编辑；n. 校订；n. 剪辑；v. 剪辑|I know that this draft text will need to be edited .|我知道这篇草稿需要校订。||
-replace|v. 代替；v. 更换|We've replaced the old machine with a computer.|我们用电脑取代了老式的机器。||
-scare|v. 使受惊吓，使害怕；n. 惊恐|It scared me to think I was alone in the building.|想到楼里只有我一个人，怪害怕的。||
-emerge|v. 浮现；adj. （emerging）新兴的；v. 暴露；v. 变得显眼|The sun emerged from the clouds.|太阳从云层露出来了。||
-gradually|adv. 逐渐地|The sound of his footsteps gradually died away as he walked down the aisle.|当他在走廊上越走越远，他的脚步声也慢慢消失。||
-input|n. 输入（的信息）；n. 投入；v. 输入|Edit the input text and re-run the software.|修改输入的文本，重新运行软件。||
-sponsor|v. 赞助；n. 赞助者；n. 发起人；v. 主办|I'm collecting sponsors for next week's charity run.|我正在为下星期的募款赛跑征集捐款者。||
-revolutionary|adj. 革新的；n. 改革者，革命者；adj. 革命的|He knows well about the revolutionary movement.|他对那次革命运动很了解。||
-existence|n. 存在；n. 继续生存；n. 生活（方式）|Global warming could threaten the existence of some rare species.|全球变暖可能威胁珍稀物种的生存。||
-atmosphere|n. 气氛；n. 大气层|The planet has a thick atmosphere .|这颗行星的大气层很厚。||
-genuine|adj. 真正的；adj. 真诚的|Tom looked at her with genuine concern.|汤姆看着她，眼中流露着真切的关心。||
-tedious|adj. 单调的，冗长的|The tedious lecture made students sleepy.|这场冗长乏味的讲座让学生们昏昏欲睡。||
-sympathetic|adj. 有同情心的；adj. 赞成的|She felt sympathetic about her neighbor's misfortune, so she often comforted him.|她对邻居遭遇的不幸感到同情，所以她常常安慰他。||
-complicate|v. 使复杂化|I do not wish to complicate the task further.|我不想使这项任务更复杂。||
-commonplace|adj. 普通的，普遍的；n. 常见的事；n. 老生常谈|Many movies deal with commonplace themes.|许多电影的主题很平庸。||
+drain|n. 消耗；v. 使耗尽；v. 排水；n. 下水道；v. 喝光|The day's events completely drained me of all strength.|这天的事情使我精疲力竭。||
+exert|v. 运用，施加；v. 尽力|I exerted all my strength to move the box.|我使出全身力气去搬这个箱子。||
+viewpoint|n. 观点；n. 角度|The teacher encourages students to think of the issue from different viewpoints .|这位老师鼓励学生从不同的视角考虑这个问题。||
+script|n. 剧本|He has written scripts for a number of successful movies.|他写过一些成功的电影的剧本。||
+admission|n. 准入；n. 承认|No admission after 10 pm.|晚上10点后不得入内。||
+energetic|adj. 精力充沛的；adj. 积极的；adj. 需要剧烈活动的|He seems an energetic person.|他似乎是一个精力充沛的人。||
+phase|n. 阶段，时期；v. 分阶段进行|Our country is entering a new phase of its development.|我们的国家进入了发展的新阶段。||
+expand|v. 扩大；v. 扩展；v. 发展|Metals expand when they are heated.|金属受热会膨胀。||
+attachment|n. 依恋；n. 拥护；n. 附加装置；n. 附件|The child has a strong attachment to its parents.|孩子对父母有强烈的依恋。||
+proposition|n. 观点；n. 提议；n. 主张|He made me a proposition the other day.|他前几天给我提了个建议。||
+filter|n. 过滤器；v. 过滤；v. 筛选|The teacher gave each of us a piece of filter paper before doing the experiment.|做试验前，老师给我们每个人发了一张滤纸。||
+pray|v. 祈祷；v. 祈求|I'll pray for you.|我将为你祈祷。||
+species|n. 物种；n. 同类人|Pandas are endangered species and people have taken measures to protect them.|熊猫属于濒危物种，人们已经对其采取保护措施。||
+specialize|v. 专门研究，专门从事|The French restaurant specializes in seafood.|这家法国餐馆主打海味。||
+writing|n. 写作；n. 作品，著作|The young writer's writing is full of imagination.|这位年轻作家的写作充满想象。||
+panel|n. 镶板；n. 玻璃片；n. 专题讨论小组|One of the glass panels in the front door was cracked.|前门的一块方玻璃破裂了。||
+tend|v. 倾向于；v. 往往会；v. 照料|When I'm tired, I tend to make mistakes.|我累了就容易出错。||
+drift|v. 缓慢移动；n. 漂流；n. 缓慢移动；v. 漂流；v. 使漂浮|The empty boat is drifting out to sea.|这艘空船正向大海漂去。||
+float|v. 漂浮；v. 浮动|The boats were floating gently down the river.|船只沿着小河慢慢漂流。||
+realistic|adj. 可实现的；adj. 逼真的；adj. 现实的；adj. 现实主义的|He's realistic enough to know he's not going to succeed overnight.|他很现实，知道自己的成功不会一蹴而就。||
+lace|v. 在…中添加；n. 蕾丝；n. 鞋带；n. 缎带；v. 用系带束紧|She bought me a lace handkerchief.|她给我买了一块蕾丝手帕。||
+opponent|n. 对手；n. 反对者|He knocked down his opponent in the contest.|他在比赛中击倒了自己的对手。||
+interpretation|n. 解释，说明；n. 口译|It is difficult for many people to accept the interpretation .|很多人难以接受这个解释。||
+liable|adj. 可能…的；adj. 负法律责任的|We are liable to make mistakes.|我们都易犯错误。||
+validity|n. 符合逻辑；n. （法律上的）有效|I would question the validity of that assumption.|我会质疑那个假设的正当性。||
+hollow|adj. 空心的；adj. 无意义的；n. 孔，洞；n. 凹陷处；adj. 凹陷的；adj. 虚伪的|This tree looks high and strong but actually its trunk is hollow .|这棵树看起来又高又壮，实际上树干是空的。||
+dramatic|adj. 显著的；adj. 戏剧（性）的；adj. 激动人心的，引人注目的；adj. 突然的|His attitude towards life had a dramatic change after his wife passed away.|自他妻子去世后，他对生活的态度有了很大变化。||
+detective|n. 侦探；adj. 侦探的；n. 刑侦|The detective tried to reason out how the thief had escaped.|这个侦探反复琢磨想弄明白那个窃贼是怎样逃跑的。||
+payment|n. 支付的款项；n. 支付；n. 报酬|The restaurant doesn't accept payment by credit card.|这家餐厅不接受信用卡支付。||
+render|v. 使变得；v. 给予；v. 表达；v. 翻译|The car accident has rendered him unconscious.|这次车祸让他失去了意识。||
+lump|n. 团，块；n. 肿块|This sauce has lumps in it.|这调味汁里有结块。||
+thrust|phrase. （thrust into）投身于…之中；n. 猛推；n. 刺，戳；n. 推力；v. 猛推；v. 刺，戳|The reporters thrust a microphone in front of him and started to throw questions at him.|记者们把话筒塞到他面前，开始向他提问。||
+option|n. 选项；n. 选择权；n. 选修课|He had no option but to agree.|他除了同意外别无选择。||
+absent|adj. 缺席的；v. 缺席；adj. 心不在焉的；v. 不参加；adj. 缺少的|He was absent from work for two weeks.|他两周没来上班。||
+brand|n. 品牌；v. 把…定性为；phrase. （brand new）全新的；n. 类型；n. 独特的个性|You pay less for the supermarket's own brands .|超市自有品牌的东西便宜些。||
+cart|n. 购物车；n. 运货马车；n. 手推车|A cart was rumbling across the bridge.|一辆马车轰隆隆地从桥上驶过。||
+discipline|n. 学科；n. 自制力；n. 纪律；v. 训练，管教；n. 训练方法；v. 严格要求；v. 惩罚|The school is famous for high standards of discipline .|这所学校因其对纪律要求高著称。||
+furnish|v. 布置房间；v. 供应|The hotel staff furnished the room before the guests checked in.|旅馆工作人员在客人入住前布置好了房间。||
+strive|v. 努力，力争|We encourage all members to strive for the highest standards.|我们鼓励所有成员为达到最高标准而努力。||
+alert|v. 提醒，警告；n. 警戒，警报，警示；adj. 机敏的，机警的|Although he's over eighty his mind is still remarkably alert .|他虽已年过八十，但头脑仍然十分机敏。||
+accommodate|v. 适应；v. 容纳；v. 提供住宿；v. 迎合|Animals have to accommodate to changes in different weather conditions.|动物们不得不适应不同的天气变化。||
+associate|v. 联系，联想；adj. 副的；n. 同事，合伙人；n. 副手；v. 交往|I always associate the smell of baking with my childhood.|一闻到烘烤食物的味道我就想起了童年。||
+candidate|n. 候选人|She is one of the leading candidates for the presidency.|她是总统职位的主要候选人之一。||
+negotiate|v. 协商；v. 谈成|The government will not negotiate with terrorists.|政府不会和恐怖分子谈判。||
+fellowship|n. 奖学金；n. 团体；n. 友谊|They offer students counselling and fellowship .|他们为学生提供咨询和奖学金。||
+burden|n. （精神）负担；v. 使焦虑；v. 使担负；n. 重担|The policy was formulated to reduce the burden of primary students.|制定这项政策是为了减轻小学生的负担。||
+sensitivity|n. 敏感性；n. 灵敏度；n. 体贴|As we all know, she is a girl with great sensitivity .|我们都知道，她是个很敏感的女孩。||
+resistance|n. 免疫力；n. 反抗；n. 抵制；n. 阻力|There was a lot of resistance to the plan when it was first introduced.|该计划刚被采用时，遭到了众多抵制。||
+lobby|v. 游说；n. 门厅；n. 游说（团体）|I met him in a hotel lobby .|我在酒店大厅遇见了他。||
+stability|n. 稳定；n. 稳固|It was a time of political stability and progress.|那是一个政治稳定和进步的时期。||
+mystery|n. 谜；n. 神秘的事物|It is one of the greatest unsolved mysteries of this century.|这是本世纪尚未解决的大奥秘之一。||
+handicap|n. 生理缺陷，残疾；n. 障碍|Despite her handicap , Jane is able to hold down a full-time job.|简尽管有生理缺陷，却能保住一份全职工作。||
+cherish|v. 珍爱；v. 抱有|It was a wonderful occasion which we will cherish for many years to come.|那是一个美好的时刻，我们将多年不忘。||
+dominant|adj. 占支配地位的；adj. 显性的|Peace was the dominant theme of the conference.|和平是大会的首要议题。||
+imaginary|adj. 想象的，虚构的|The Monkey King is an imaginary character in the novel Journey to the West.|孙悟空是小说《西游记》中一个虚构的人物。||
+civil|adj. 公民的；adj. 民用的；adj. 文明的|The issue is related to civil rights.|这一问题与民事权利有关。||
+transplant|n. 器官移植；v. 移植（器官）；v. 移栽|Patients often reject transplanted organs.|患者经常排斥移植的器官。||
+shortage|n. 不足，短缺|Any shortage could push up grain prices.|任何一种短缺都会抬高粮食价格。||
+plentiful|adj. 大量的，充足的|There is a plentiful supply of food on the table on New Year's Eve.|在除夕夜，餐桌上的食物都很丰盛。||
+mess|n. 混乱局面；v. 搞糟；n. 脏乱；v. 弄脏，弄乱；n. 肮脏之物|The kitchen was in a mess .|厨房又脏又乱。||
+slap|v. 拍打；n. 掌击；n. 拍打声；v. 掌掴|He slapped me on the back and congratulated me.|他拍了拍我的后背并祝贺我。||
+composer|n. 作曲家|He's a composer of pop music.|他是流行音乐作家。||
+invade|v. 侵扰；v. 大量涌入；v. 侵略|The enemy forces were preparing to invade our neighboring countries.|敌军当时正准备入侵我们的邻国。||
+explode|v. 激增；v. 爆炸；v. 迸发感情|There was a huge bang as if someone had exploded a rocket outside.|突然一声巨响，仿佛有人在外面引爆了火箭似的。||
+moderate|adj. 适度的，中等的；v. 使缓和；adj. 温和的|Moderate amounts of stress can be beneficial.|适当的压力可能有益。||
+outline|n. 提纲；v. 概括；v. 勾勒；n. 轮廓；n. 草图|This is a brief outline of the events.|这就是事件的简要情况。||
+undertake|v. 着手做，承担；v. 开创（企业）|University professors both teach and undertake research.|大学教授既要教学又要从事研究工作。||
+tuition|n. 学费；n. 教学|She can't afford the university tuition this year.|她付不起今年的大学学费。||
+compromise|n. 折中方案；n. 妥协；v. 妥协；v. 危及；v. 违背原则|In any relationship, you have to make compromises .|在任何关系当中，人们都得作出让步。||
+exposure|n. 暴露；n. 经历；n. 揭露|Long exposure to the sun may cause skin cancer.|长时间暴露在阳光下可能会引起皮肤癌。||
