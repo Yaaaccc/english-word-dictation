@@ -287,7 +287,7 @@ body{
   background-image:linear-gradient(163deg, rgba(255,255,255,.88), rgba(255,255,255,.80) 55%, rgba(255,255,255,.84)), var(--glass-img, none);
   background-image:linear-gradient(163deg, rgba(255,255,255,calc(var(--glass-op,1)*.88)), rgba(255,255,255,calc(var(--glass-op,1)*.80)) 55%, rgba(255,255,255,calc(var(--glass-op,1)*.84))), var(--glass-img, none);
   background-attachment: fixed, fixed;   /* 壁纸副本对齐视口主壁纸：手机端滚动时玻璃才「透」出真背景（2026-10-26 修） */
-  background-size:cover, auto;
+  background-size:cover, cover;
   background-position:center, center;
   background-repeat:no-repeat, no-repeat;
   /* 边框 + 顶部内高光原来分别是 .55 / .65，在深色壁纸上叠成一条扎眼的亮白线
@@ -309,7 +309,7 @@ body{
     background-image:linear-gradient(163deg, rgba(26,33,56,.9), rgba(18,24,42,.86)), var(--glass-img, none);
     background-image:linear-gradient(163deg, rgba(26,33,56,calc(var(--glass-op,1)*.9)), rgba(18,24,42,calc(var(--glass-op,1)*.86))), var(--glass-img, none);
     background-attachment: fixed, fixed;   /* 壁纸副本对齐视口主壁纸：手机端滚动时玻璃才「透」出真背景（2026-10-26 修） */
-    background-size:cover, auto; background-position:center, center; background-repeat:no-repeat, no-repeat;
+    background-size:cover, cover; background-position:center, center; background-repeat:no-repeat, no-repeat;
     border-color:rgba(255,255,255,.12);
     box-shadow:var(--sh-3);
   }
@@ -985,7 +985,7 @@ html:not([data-nav]) #idleView:not(.hidden){ animation:stageRise .35s cubic-bezi
   background-image:linear-gradient(163deg, rgba(255,255,255,.9), rgba(255,255,255,.82)), var(--glass-img, none);
   background-image:linear-gradient(163deg, rgba(255,255,255,calc(var(--glass-op,1)*.9)), rgba(255,255,255,calc(var(--glass-op,1)*.82))), var(--glass-img, none);
   background-attachment: fixed, fixed;   /* 壁纸副本对齐视口主壁纸：手机端滚动时玻璃才「透」出真背景（2026-10-26 修） */
-  background-size:cover, auto; background-position:center, center; background-repeat:no-repeat, no-repeat;
+  background-size:cover, cover; background-position:center, center; background-repeat:no-repeat, no-repeat;
   border:1px solid rgba(16,24,40,.07);
   box-shadow:var(--sh-3);
 }
