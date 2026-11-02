@@ -1,70 +1,50 @@
-identical|adj. 相同的|This is the identical hotel we stayed at last year.|这就是我们去年住过的旅馆。||
-roast|v. 烘，烤；adj. 烘烤的；n. 烤肉；n. 烘烤；v. 烘干|The restaurant serves the most delicious roast beef.|这家餐厅做的烤牛肉最好吃。||
-yearly|adj. 每年的；adv. 每年地；adj. 年度的|We were told that we would get a yearly pay increase during the interview.|面试时我们被告知每年加薪一次。||
-frequent|adj. 频繁的；v. 常去|They made frequent checks on his blood.|他们经常检查他的血液。||
-gang|n. 犯罪团伙；n. 一群人；n. 帮派|He was a member of a street gang before joining the army.|参军前，他曾是街头帮派的一员。||
-massive|adj. 巨大的；adj. 大规模的；adj. 严重的|The explosion made a massive hole in the ground.|爆炸在地面留下了一个巨大的坑。||
-employer|n. 雇主|He was highly praised by his former employer .|他受到了前雇主的高度评价。||
-appropriate|adj. 适当的，合适的；v. 拨款；v. 占用|It would not be appropriate to discuss that now.|现在来讨论那件事不合时宜。||
-personality|n. 个性；n. 魅力；n. 名人|The children all have very different personalities .|孩子们的性格各不相同。||
-infant|n. 婴儿；adj. 供婴儿用的；n. 幼儿；adj. 初创的|The hospital is short of nurses for infants .|医院里照顾婴儿的护士人手不够。||
-singular|adj. 非凡的；n. 单数形式；adj. 单数的；adj. 奇特的|The word "mouse" is the singular form of "mice".|单词mouse是mice的单数形式。||
-antique|n. 古物，古董；adj. 古老的；adj. 古董的|I saw the vase in the window of an antique shop.|我在一家古玩店的橱窗里看见了那个花瓶。||
-magnet|n. 有吸引力的人或物；n. 磁铁|The Forbidden City is a great magnet for foreign tourists.|紫禁城对外国旅游者来说是个有巨大吸引力的地方。||
-psychological|adj. 心理的；adj. 心理学的|We should be concerned with the physical and psychological well-being of our children.|我们应该关心孩子们的身心健康。||
-eve|n. 前夜，前夕|The president was speaking to journalists on the eve of her visit.|那位总统在出访前夕与记者进行了交谈。||
-abstract|adj. 抽象的；v. 抽象化；n. 摘要；v. 写…的摘要；v. 提取；adj. 纯理论的；adj. 不切实际的|The research shows that pre-school children are capable of thinking in abstract terms.|研究表明，学龄前儿童有抽象思维的能力。||
-universal|adj. 普遍的；adj. 全体的，共同的|Agreement on this issue is almost universal .|这个问题几乎取得全体一致的意见。||
-signal|n. 信号；v. 表明；v. 示意；v. 发信号；n. 标志|If you encounter any danger, give us a signal immediately.|如果你遇到任何危险，请立即给我们发出信号。||
-generosity|n. 慷慨，大方|He is a man of great generosity of spirit.|他是一位宽容大度的人。||
-administration|n. 行政部门；n. 经营；n. 管理者；n. 负责人|Administration costs are passed on to the customer.|行政费用被转嫁给了消费者。||
-inherit|v. 遗传；v. 继承；v. 接手|He has no son to inherit his fortune.|他没有儿子来继承他的财富。||
-estimate|v. 估计；n. 估计；n. 估算；n. 估价；v. 估价|I need to estimate the total cost of the journey before booking the tickets.|在订票之前我得估算一下这次旅行的总开销。||
-onward|adv. 从…以后；adj. 继续的；adj. 向前的|Ticket prices include your flight and onward rail journey.|票价包括您的飞行航程和接续的铁路旅费。||
-pitch|v. 推销；n. 音高；v. 扎；phrase. （pitch in）参与并帮助；n. 球场；n. 投球；n. 沥青；v. 投，扔；v. 定位|A basic sense of rhythm and pitch is essential in a music teacher.|基本的韵律感和音高感是音乐老师的必备素质。||
-haunt|v. 挥之不去；n. 常去的场所；v. 萦绕|The memory of that day still haunts me.|我的脑海中常常回想起那天的情景。||
-handbook|n. 手册；n. 指南|We bought a tourist handbook before going travelling.|出去旅游前，我们先买了一本旅游手册。||
-evolution|n. 进化；n. 演变；n. 发展|The professor studies the evolution of animals.|这位教授研究的是动物的进化。||
-slightly|adv. 稍微地，些许地|Our new house isn't that big, but slightly larger than before.|我们的新家没有那么大，但比之前的大一点儿。||
-advertise|v. 为…做广告；v. 宣传|We decided to advertise our new product.|我们决定为我们的新产品做广告。||
-guilty|adj. 使感到内疚的；adj. 犯罪的|I felt guilty about not visiting my parents more often.|我因没有常去看望父母而感到内疚。||
-elbow|n. 肘部；v. 用肘挤|She elbowed her way through the crowd.|她拨开人群挤过去。||
-tender|adj. 温柔的；adj. 年幼的；adj. 嫩的；adj. 纤弱的|Her tender words reminded me of my mother.|她温柔的话语让我想起了我的母亲。||
-conference|n. 正式会议；n. 协商会|The hotel is used for exhibitions, conferences and social events.|这家饭店用于举行展览、大型会议和社交活动。||
-utility|n. 公用事业；n. 功用|The government is responsible for the improvement of the transportation and public utilities .|政府负责改善交通与公共设施。||
-brutal|adj. 野蛮的，残忍的；adj. 不留情面的|Thousands of defenseless people are killed in the brutal attack launched by terrorists.|这次恐怖分子发动的野蛮袭击中，数千名手无寸铁的平民丧生。||
-burial|n. 葬礼|Their bodies were taken home for burial .|他们的尸体被带回家安葬。||
-consciousness|n. 意识；n. 感觉|Love of freedom runs deep in the national consciousness .|对自由的热爱深深地根植于这个民族的意识之中。||
-housing|n. 房屋，住宅；n. 住房供给|The country needs an integrated housing policy for the benefit of all people.|为了全民的利益，这个国家需要一项综合性的住房政策。||
-soften|v. 使柔和；v. 使缓和|Soften the butter in a small pan.|在小平底锅里将黄油化软。||
-alternative|n. 可供选择的事物；adj. 可供选择的；adj. 非传统的；n. 选择之一|Doctors are seeking alternative methods of treatment.|医生们正在寻找其他的治疗方式。||
-bang|n. 砰的一声；phrase. （bang for your buck）花钱后得到的回报；n. 猛击；v. 猛敲；v. 砰地关上；v. 猛摔|The baby was banging the table with his spoon.|小宝宝用调羹敲打着桌子。||
-incline|v. 使倾向于；n. 斜坡，斜面；v. 使倾斜；v. 赞同|The government is more effective than we incline to think.|政府的效率比我们所惯常以为的要高。||
-confine|n. 限制，局限；v. 使局限于；v. 限制；v. 监禁|This work will not be confined to China.|此项工作不会局限于中国。||
-capture|v. 俘获；v. 拍摄；v. 刻画；v. 赢得；v. 引起；n. 捕获，俘获；v. 攻占|He was captured by the enemy during the battle.|他在那次战役中被敌军俘虏了。||
-nourish|v. 抚养，滋养；v. 培养|Milk is all we need to nourish a small baby.|母乳即可为婴儿提供足够的营养。||
-oral|adj. 口头的；adj. 口腔的|Grammar is not very important in oral English.|在英语口语中，语法不是那么重要。||
-resist|v. 抵抗；v. 抵制；v. 使不受…伤害|Neither children nor adults could resist the temptation of a free toy.|孩子和成年人都无法抵挡免费玩具的诱惑。||
-slope|n. 山坡；n. 斜坡；n. 坡度|It can be exhausting to climb up such a steep slope .|爬这么陡的坡可能会让人筋疲力竭。||
-dean|n. 院长，系主任|Our dean hasn't talked to us about this yet.|我们系主任还没跟我们说这件事。||
-efficient|adj. 效率高的；adj. 有能力的|Efficient heating equipment is necessary for the harsh winter.|高效供暖设备对度过寒冬是很有必要的。||
-rod|n. 杆，棒，棍|The concrete walls are strengthened with steel rods .|这座水泥墙是用钢筋加固的。||
-spot|n. 位置；v. 看见，注意到；n. 场所；n. 部分；n. 斑点；n. 排名；n. 污渍；v. 认出|Which has spots , the leopard or the tiger?|有斑点的是豹还是虎？||
-undergo|v. 经历，遭受|We must undergo a training as a preparation for the competition.|为准备比赛，我们必须参加一次训练。||
-strap|n. 带子；n. 表带；n. 皮带；v. 用带子系好；v. 包扎|I prefer a watch with a leather strap , which is less likely to hurt my skin.|我更喜欢皮革表带的手表，它没那么容易伤到皮肤。||
-characteristic|n. 特征，特色；adj. 特有的；adj. 典型的|Genes determine the characteristics of every creature.|基因决定每种生物的特征。||
-inferior|adj. 较差的，级别低的；n. 地位较低的人|Modern music is often considered inferior to that of the past.|现代音乐常被认为不如过去的音乐。||
-cast|v. 投射；v. 抛弃；v. 使人怀疑；n. 全体演员；n. 铸造品|The setting sun cast an orange glow over the mountains.|橘红色的夕阳辉映着群山。||
-absolute|adj. 绝对的；adj. 十足的；adj. 肯定的|I have absolute trust in her.|我绝对信任她。||
-colony|n. 集群；n. 殖民地|India was one of the British colonies in history.|印度历史上曾是英国的殖民地之一。||
-revelation|n. 新发现；n. 揭露的惊人内幕|The revelation of a major scandal led to the company's financial problems.|公司重大丑闻导致了财政问题。||
-banner|n. 横幅；n. 名义；n. 口号|The demonstrators walked along the street, waved banners and voiced their demands.|游行示威者走在街上，挥舞旗帜并高喊着他们的诉求。||
-evolve|v. 逐步发展；v. 进化|It is widely believed that humans and apes evolved from a common ancestor.|人们普遍认为人类和猿类是从同一祖先进化而来。||
-promotion|n. 晋升；n. 促进；n. 促销活动|His promotion means a raise in salary.|他的提升意味着要增加薪水。||
-bankrupt|adj. 破产的；v. 使破产|They went bankrupt in 2009.|他们于2009年破产。||
-polish|v. 润色；v. 擦亮；n. 擦光剂；n. 抛光|My grandmother was used to polishing her glasses before reading.|我的祖母习惯在读书之前先擦亮眼镜。||
-relieve|v. 缓解；v. 使宽慰；v. 减轻；v. 解除负担|Running can relieve stress to some degree.|跑步在某种程度上能消除压力。||
-accord|n. 协议，条约；v. 一致；v. 给予|Your behavior does not accord with your principle.|你的行为与你的原则不符。||
-accordingly|adv. 相应地；adv. 因此|A qualified teacher should know the importance of teaching different students accordingly .|一名合格的教师应当懂得因材施教。||
-religion|n. 宗教；n. 宗教信仰|Is there always a conflict between science and religion ?|科学和宗教信仰之间是否永远存在着冲突？||
-noticeable|adj. 显而易见的；adj. 值得注意的|The effect of the medicine is noticeable especially in young people.|这种药在年轻人中效果尤其显著。||
+sphere|n. 范围，领域；n. 球状物；n. 社会阶层|Her success in the economic reform made her famous in the political sphere .|她成功进行了经济改革，这令她在政界十分出名。||【辨析】adhere     v.黏附，附着；atmosphere n.（包围地球或其他行星的）大气，大气层；hemisphere n.（地球的）半球；scope      n.范围，领域
+forth|adv. 向前，向某处；phrase. （put forth）提出；phrase. （and so forth）等等；adv. 外出，离去|He was very upset and paced back and forth .|他非常沮丧，来回踱着步。||【辨析】foam n.泡沫，气泡
+guitar|n. 吉他|He's really great at playing the guitar .|他的吉他弹得真好。||【辨析】guilty adj.内疚的，羞愧的；guard  n.卫兵，警卫；guide  v.带领，引导（某人至某地） ｜ 【谐音】给他(guitar)"：给他一把吉他。
+definition|n. 定义，释义；n. 清晰度；n. 确切描述|This dictionary is known for its clear simple definitions .|这本词典因其简单明了的释义而著名。||【辨析】definite   adj.清晰的，明晰的；definitely adv.肯定地，当然；deficit    n.亏损，赤字，不足额；deficiency n.缺乏，不足；define     v.给……下定义，解释；defiance   n.违抗，蔑视 ｜ 【谐音】大夫你神了(definition)"：医生，你太神了，定义解释得真清晰。
+fruitful|adj. 富有成效的；adj. 多产的|The prime minister and president had a fruitful discussion on many issues during their meeting.|首相和总统在会晤期间，就多项议题进行了一次成果丰硕的讨论。||【谐音】夫特富(fruitful)"：多产的，富有成果的。
+criminal|n. 罪犯；adj. 刑事的；adj. 犯罪的|Ten criminals were set free today.|今天释放了十名罪犯。||【辨析】critical adj.批判的，爱挑剔的；crime    n.罪，罪行；critic   n.批评家，评论员；crisis   n.危机，紧要关头
+bid|n. 努力争取；n. 投标；v. 努力争取；n. 出价；v. 出价；v. 投标|Several firms have bid for the contract to build the new concert hall.|有几家公司投标，争取建造新音乐厅的合同。||【辨析】rid    v.使……去掉，使……去除；bite   v.咬，咬伤；bias   n.偏见，成见；bet    v.打赌，赌博；bat    n.球棒，球拍；forbid v.禁止 ｜ 【谐音】必得(bid)"：投标时必须得到。 ｜ 【变形】过去式：bid；过去分词：bid；现在分词：bidding
+dim|v. 减弱；adj. 愚蠢的；v. 变暗淡；adj. 暗淡的；adj. 昏暗的；adj. 模糊的|I couldn't see what was on the wall clearly because the light was very dim .|光线太暗，我看不清楚墙上有什么。||【辨析】dip  v.浸，蘸；dam  n.堤，坝；rim  n.（圆形物体的）边沿；dumb adj.哑的，不能说话的；damp adj.潮湿的；deem v.认为，相信；doom n.厄运，劫数 ｜ 【谐音】地墓(dim)"：地下墓室是很昏暗、模糊的。 ｜ 【变形】比较级：dimmer；最高级：dimmest
+pursue|v. 追求；v. 致力于；v. 追赶；v. 延伸；v. 从事|We should pursue our goal with determination.|我们应该下决心追求我们的目标。||【辨析】purse    n.<英>钱包，皮夹子（尤指女用的）；pursuit  n.追求，寻找；persuade v.说服，劝服；purpose  n.目的，意图；purchase n.<正式>购买，采购；resume   v.恢复（职位），回到（座位） ｜ 【谐音】怕羞(pursue)"：追求别人时不要怕羞。 ｜ 【变形】现在分词：pursuing
+breeze|n. 轻而易举的事；n. 微风|People are out walking, and enjoying a gentle breeze on a beautiful day.|天气晴好的日子里，人们喜欢外出享受和煦的微风。||【辨析】bronze  n.青铜；breed   v.交配繁殖；sneeze  v.打喷嚏；squeeze v.挤压，捏 ｜ 【谐音】不睿智(breeze)"：被微风吹傻了。
+organic|adj. 有机的；adj. 器官的|Organic apples are much smaller.|有机苹果要小得多。||【辨析】organ        n.（人体或动植物的）器官；organize     v.组织，筹备；organism     n.生物，有机体，（尤指）微生物；origin       n.起源，起因；organization n.组织，机构；original     adj.起初的，原先的 ｜ 【谐音】鹅肝你看(organic)"：这是有机的器官。
+accompany|v. 伴随；v. 陪伴；v. 给…伴奏|He was accompanied by his wife on the trip.|那次旅行他由妻子陪同。||【辨析】company     n.公司；accomplish  v.完成，实现；accommodate v.为……提供住宿 ｜ 【谐音】尔康陪你(accompany)"：尔康陪伴你一起演奏。 ｜ 【变形】过去式：accompanied；过去分词：accompanied
+frustrate|v. 使沮丧，使懊恼；v. 挫败|What frustrates him is that there's too little money to spend on the project.|使他懊恼的是可用于这个项目的资金太少。||【辨析】frustration n.懊恼，沮丧；fascinate   v.<旧>（尤指蛇）以眼神震慑（人，动物），使无法动弹；facilitate  v.使更容易，使便利 ｜ 【谐音】发誓追他(frustrate)"：没追成功，感到挫败、沮丧。 ｜ 【变形】现在分词：frustrating
+expression|n. 表达；n. 表情；n. 措辞；n. 情感表现|We can see confusion from her expression .|从她的表情中，我们可以看出疑惑。||【辨析】expressive adj.富于表情的，富于表现力的；express    v.表达，表露；depression n.抑郁，沮丧；impression n.印象，感想；experience n.经历，往事；experiment n.实验，试验；depress    v.使抑郁，使沮丧 ｜ 【谐音】一开始不留神(expression)"：就没有表情了。
+settlement|n. 协议；n. 定居点；n. 解决|Negotiators are looking for a peaceful settlement to the dispute.|谈判双方正寻求和平解决争端的办法。||【辨析】statement n.声明，报告；settle    v.结束（争论、争端等），解决（分歧、纠纷等）；agreement n.协议，协定，契约；treatment n.对待，待遇 ｜ 【谐音】塞他馒头(settlement)"：把在村子定居的事解决了，还签了协议。
+canal|n. 运河，沟渠|The goods were transported by canal to the capital.|这些商品经运河运到了首都。||【辨析】camel   n.骆驼；cancel  v.取消（计划好的事情）；channel n.频道，电视频道 ｜ 【谐音】可闹了(canal)"：自从有了运河，可热闹了。
+extreme|adj. 极度的；adj. （运动）极限的；n. 极端；adj. 偏激的；adj. 严重的；adj. 例外的|We are working under extreme pressure at the moment.|目前我们正在极大的压力下工作。||【辨析】extremely adv.极度，非常；extremity n.手足，四肢；extra     adj.额外的；supreme   adj.最高的，至高无上的；excess    n.超过，过量
+immigrate|v. 移民|People from many countries immigrated to the United States and Canada.|许多国家的人移居到美国和加拿大。||【辨析】immigrant   n.（外来）移民，侨民；migrate     v.（候鸟或动物）迁徙；emigrate    v.移居外国，移民；immigration n.移民（入境）；imitate     v.模仿，仿效；irrigate    v.灌溉；emigrant    n.移居外国的人，移民；emigration  n.移居外国，迁移出境 ｜ 【谐音】移民格雷特(immigrate)"：格雷特决定移居到另一个国家。 ｜ 【变形】现在分词：immigrating
+sack|n. 袋；n. 一大袋东西；v. 解雇；v. 洗劫|My amicable neighbor gives me a sack of potatoes which he grew himself.|友善的邻居送了我一袋他自家种的土豆。||【辨析】soak  v.浸泡；suck  v.吸，吮，啜；rack  n.架子，支架；sake  n.利益，好处；stack n.（整齐的）一堆；slack adj.不紧的，松弛的；stake n.股本，股份
+polar|adj. 极地的；adj. 截然相反的；adj. 两极的；adj. 磁极的|Without the sea ice habitat, the polar bear cannot live in the long term.|失去浮冰栖息地，北极熊将无法长期生存下去。||【辨析】solar adj.太阳的，和太阳有关的；pole  n.杆，柱 ｜ 【谐音】破了(polar)"：关系破裂，形成两极对立。
+blond|adj. 金黄色的；n. 金发的人|Her blond hair had just been styled.|她刚把自己的金发修剪了一番。||【辨析】blend  v.（使）混合，调和；blind  adj.失明的，盲的；blood  n.血，血液；blonde adj.金黄色的，浅棕色的；bond   n.纽带，联系；brown  adj.褐色的，棕色的 ｜ 【谐音】波浪的(blond)"：金发的人的头发一般是波浪的。 ｜ 【变形】比较级：blonder；最高级：blondest
+costly|adj. 昂贵的；adj. 代价大的|I hope the costly purchase is well worth it.|我希望这次花大价钱买来的东西能值这个价。||【辨析】cosy adj.温暖舒适的 ｜ 【谐音】靠死得利(costly)"：这是代价很高的。 ｜ 【变形】比较级：costlier；最高级：costliest
+foundation|n. 基础；n. 基金会；n. 地基；n. 根据；n. 基本原理|Respect and friendship provide a solid foundation for marriage.|尊重与友谊为婚姻打下了坚实的基础。||【辨析】function n.功能，职责；fountain n.喷泉；found    v.创办，成立；founder  n.铸造工，铸造厂业主（或厂长） ｜ 【谐音】放地上(foundation)"：就是基础。
+astonish|v. 使…惊讶|She astonished us by saying she was leaving.|她说她要离开，令我们大为惊奇。||【辨析】abolish      v.废除，废止，取消；astonishment n.惊讶，惊愕；establish    v.建立，设立；accomplish   v.完成，实现
+prevalent|adj. 流行的，普遍的|The prevalent opinion is in favour of reform.|舆论普遍支持改革。||【辨析】prevalence n.流行，盛行；prevail    v.流行，盛行；permanent  adj.永久的，永恒的；pregnant   adj.怀孕的，妊娠的；prevailing adj.现存的，存在的 ｜ 【谐音】呸，我冷的(prevalent)"：因为普遍流行的疾病使人感冒发冷。
+banquet|n. 宴会，盛宴|The ceremony included a grand banquet and a formal dance.|典礼包括一场盛大的宴会和一场正式舞会。||【辨析】bouquet  n.花束；bankrupt adj.破产的，倒闭的；budget   n.预算；bandage  n.绷带 ｜ 【谐音】办亏他(banquet)"：举办宴会可能会亏本。
+definitely|adv. 肯定地；adv. 明确地|Have you definitely decided to go to Japan?|你百分之百决定去日本了吗？||【辨析】definite   adj.清晰的，明晰的；definition n.定义，释义；define     v.给……下定义，解释；infinite   adj.无限的，无穷尽的；infinity   n.（时、空、距离）无限，无穷；decisive   adj.果断的，决断的 ｜ 【谐音】大夫你(definitely)"：大夫你肯定太累了。
+inspiration|n. 灵感；n. 鼓舞；n. 鼓舞人心的人或物|Dreams can be a rich source of inspiration for an artist.|梦境可以成为艺术家灵感的丰富源泉。||【辨析】inspiring adj.鼓舞人心的，有激励作用的；inspire   v.激励，鼓舞；instinct  n.本能，天性 ｜ 【谐音】吟诗不累神(inspiration)"：灵感一个接一个，不费神。
+charity|n. 慈善事业；n. 慈善机构|The musicians have raised a large sum of money for charity .|这些音乐家募集了一大笔钱用作慈善。||【辨析】clarify  v.澄清，阐明；security n.保护措施，安全工作；cherish  v.珍视，珍爱；majority n.大多数；charm    n.魅力，魔力；cherry   n.樱桃；chair    n.椅子 ｜ 【谐音】察弱体(charity)"：慈善团体经常关怀弱势群体。 ｜ 【变形】复数形式：charities
+simplify|v. 简化|The application forms have now been simplified .|申请表格现已简化了。||【辨析】simply     adv.仅仅，只，不过；simple     adj.简单的，简明的；specify    v.明确指出；simplicity n.简单（性)，容易（性）；justify    v.是……的正当理由；clarify    v.澄清，阐明；classify   v.把……分类，把……分级 ｜ 【谐音】审批繁(simplify)"：审批繁杂的部分使其简化。 ｜ 【变形】过去式：simplified；过去分词：simplified
+distress|n. 忧虑，悲伤，痛苦；n. 遭难；v. 使苦恼；v. 使焦虑；n. 窘困；v. 使悲伤|Children suffer emotional distress when their parents get divorced.|父母离婚往往会使孩子们经历情感上的痛苦。||【辨析】mistress n.情妇；discreet adj.谨慎的，周到的；distract v.使分心，使转移注意力；depress  v.使抑郁，使沮丧；suppress v.（尤指用武力）镇压，压制；disrupt  v.中断，扰乱；repress  v.压抑（痛苦的情感、回忆等）；dismay   n.担忧
+troublesome|adj. 令人烦恼的，麻烦的|He needs surgery to cure a troublesome back injury.|他需要做手术来治好烦人的背伤。||【辨析】tiresome adj.烦人的，令人厌烦的 ｜ 【谐音】戳不上(troublesome)"：衣服穿不上，真是令人烦恼的。
+transport|n. 交通运输（系统）；n. 交通工具；v. 运输；v. 使…感觉置身于|Taking public transport is beneficial to our environment.|乘坐公共交通工具出行对环境有益。||【辨析】transform      v.使改观，使变形，使转化；transparent    adj.透明的，清澈的；transmit       v.播送，传输，发射；transplant     v.移植（器官、皮肤等）；transit        n.运输，运送；transfer       v.（使）转移，搬迁；translate      v.译，翻译；transportation n.运输，运送；transition     n.过渡，转变；passport       n.护照；transformation n.（彻底或重大的）改观，变化，转变；translation    n.翻译；transaction    n.交易，买卖，业务；transmission   n.（无线电、电视等信号的）播送，发送 ｜ 【谐音】运动(sport)"：船在运动，进行运输。trans（跨越）+ port（港口）= 跨港口运输。
+handy|adj. 手边的；adj. 便于使用的|I bought a handy little tool.|我买了一个好用的小工具。||【辨析】hardy    adj.坚强的，吃苦耐劳的；handle   v.拿；handful  n.一把；handicap n.（生理或智力上的）残障，残疾 ｜ 【谐音】喊弟(handy)"：有事喊弟弟帮忙，很方便。
+complication|n. 并发症；n. 使更复杂化的事物|The bad weather added a further complication to our journey.|恶劣的天气给我们的旅行增加了更多的困难。||【辨析】complicated adj.复杂的，难处理的；complicate  v.使复杂化，使难以理解；implication n.可能的影响（或作用、结果）；application n.正式申请，书面申请；completion  n.完成，结束；complexion  n.肤色，气色；compliment  n.赞扬，称赞；complexity  n.复杂性，错综复杂；complement  v.补充，补足 ｜ 【谐音】看破了开心(complication)"：解决了复杂的问题，并发症也消失了。
+calendar|n. 日程表；n. 历法；n. 日历|An old calendar for 2017 was still on her desk.|她的桌上依然放着2017年的旧日历。||【辨析】candidate n.候选人，申请者；agenda    n.待议事项，议事日程 ｜ 【谐音】看琳达(calendar)"：看琳达的日子是哪天，看看日历。
+applicable|adj. 适用的；adj. 合适的|The new Medicare is only applicable to senior citizens above 60 years old.|新医疗保险规定只适用于60岁以上的老人。||【辨析】applicant   n.申请人；application n.正式申请，书面申请；appliance   n.家用电器，装置；appropriate adj.合适的，相称的 ｜ 【谐音】阿婆来看报(applicable)"：无论什么年纪都是适用的。
+bolt|n. 螺栓；n. 门闩；n. 一道（闪电）；v. 闩上门；v. 用螺栓固定；v. 脱缰；v. 跑开|I closed the door and drew the bolt .|我关上门，拉上了插销。||【辨析】bold   adj.大胆自信的，敢于冒险的；bald   adj.秃头的；ballot n.（无记名）投票选举，投票表决；boiler n.汽锅，锅炉 ｜ 【谐音】保它(bolt)"：门栓就是为了保护它。
+spontaneous|adj. 自发的；adj. 自然的|They greeted him with spontaneous applause.|他们自发地鼓起掌来欢迎他。||【辨析】simultaneous  adj.同时发生的，同步的；instantaneous adj.瞬间发生的，瞬间完成的；homogeneous   adj.同种类的，同性质的
+portable|adj. 便携的；n. 便携式设备|The documents have been typed into a portable computer.|文件已经被输入到一台便携式电脑里了。||【辨析】probable adj.很可能发生（或存在等）的，大概的；porter   n.（火车站、机场等的）行李搬运工人，脚夫；portrait n.（尤指只刻画脸、头和肩部的）肖像，照片，雕像；partial  adj.部分的，不完全的；port     n.港口，避风港；tablet   n.药片，片剂 ｜ 【谐音】破提包(portable)"：所以是便携式的、手提的。
+enthusiasm|n. 热忱；n. 热衷的事物|The younger children often show great enthusiasm for computer games.|小孩子常常对电脑游戏表现出极大的热情。||【辨析】enthusiast   n.热衷者，爱好者；enthusiastic adj.热心的，热情的 ｜ 【谐音】嗯(en)因此(thus)爱(i)阿萨姆(asm)(enthusiasm)"：我对阿萨姆如此热情。
+conscious|adj. 意识到的；adj. 自觉的；adj. 存心的；adj. 清醒的|After careful investigation, the detective was very conscious of what was going on at that moment.|经过小心谨慎的调查，这名侦探清晰地知晓了当时发生了什么。||【辨析】unconscious   adj.（尤指因头部受伤）昏迷的，不省人事的；consensus     n.一致看法，共识；consciousness n.知觉，清醒；conscience    n.良知，良心；conscientious adj.认真的，勤勤恳恳的；cautious      adj.小心的，谨慎的；precious      adj.宝贵的，珍贵的；curious       adj.好奇的，求知欲强的
+classic|n. 经典作品；adj. 典型的；adj. 古典的；n. 优秀的典范；adj. 一流的|This is a classic example of a good essay.|这是好论文的典型案例。||【辨析】class     n.班级；classify  v.把……分类，把……分级；classical adj.经典的，传统的 ｜ 【谐音】可拉稀客(classic)"：可以拉到稀有的客人，典型的案例。
+combination|n. 组合；n. 结合；n. 联盟|The combination of flavours amazed all guests.|混合风味惊艳了所有的宾客。||【辨析】combine v.（使）结合，组合
+creation|n. 创造；n. 作品；n. 创造物|These new policies all emphasize the creation of wealth.|这些新政策全都是为了创造财富。||【辨析】creator    n.创作者，发明者；recreation n.娱乐（活动），消遣（活动）；creativity n.创造力，独创性；criterion  n.尺度，标准，准则
+harmonious|adj. 和谐的；adj. 一致的|There should be a harmonious alliance between management and workers.|管理层与员工之间应该形成和谐的联盟。||【辨析】harmony  n.和声，和弦；humorous adj.幽默的，诙谐的；harm     n.伤害，损害
+occur|v. 发生，出现；v. 存在；v. （想法）突然出现|When exactly did the incident occur ?|这一事件究竟是什么时候发生的？||【辨析】occupy     v.使用（房屋、建筑），居住；occurrence n.发生的事，事件 ｜ 【谐音】恶客(occur)"：一个凶恶的客人突然出现在门口。 ｜ 【变形】过去式：occurred；过去分词：occurred；现在分词：occurring
+strain|v. 使不堪承受；n. 压力；v. 拉伤，损伤；n. 品种；n. 重负；n. 拉伤；v. 尽力；n. 过高要求|I strained my back yesterday.|我昨天背部拉伤了。||【辨析】restrain  v.制止，阻止；stain     v.（被）玷污，留下污渍；grain     名词 n. 谷物，谷粒；drain     v.（使）排出，滤干；stress    n.精神压力，紧张；refrain   v.克制，避免；restraint n.克制，抑制 ｜ 【谐音】死拽(strain)"：要拉住火车就要拉紧。
+industrial|adj. 工业的；adj. 工业发达的|The leading western industrial countries attended the summit.|西方主要工业国家参加了这次峰会。||【辨析】industrialize v.（使）工业化；industrious   adj.勤劳的，勤奋的；industry      n.工业，生产制造；individual    adj.单独的，个别的
+response|n. 反应；n. 回答|I recently received a response from our college.|我最近收到了我们大学的回复。||【辨析】respond     v.（口头或书面）回答，回应；responsive  adj.反应迅速的，积极反应的；respondent  n.（调查表、问卷调查的）答卷人，调查对象；responsible adj.（对某人、某事）负责的 ｜ 【谐音】瑞是棒死(response)"：对这样的称赞，他没有任何响应或答复。
