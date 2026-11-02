@@ -221,13 +221,17 @@ Dock 的「📖」打开真题文章列表，点句翻译、划选译、目标�
 **教训**：
 - `word-dictation.html` **永远不要直接手改**。改 `top.html` / `tail.html` / `word-dictation-v7.html`，再 `node _v5_parts/build.js`。
 - 合并/上传前先跑 `node check_syntax.js` + 双端 UI 差集（`听写工具测试\probe_uidiff.js`），看两边各缺什么，**不要单向覆盖**。
-- 词族只在「答完题 / 点开例句面板」时渲染，**连播模式不显示**是设计如此，不是坏了。
+- 词族在 2026-11-02 之前**只在答完题时渲染**，连播模式不显示 —— 很容易被当成"功能没了"。现在已解耦，两个方向、有没有例句都会渲染。
 
 ---
 
 ## 六、更新日志
 
 ### 2026-11-02
+- **连播模式也能看到「学过相关的」**（用户要求）：原来词族只在 `setExamplePanel()` 里渲染，而连播 `playWord()` 只在「有例句且不是中→英」时才走它，其余情况走 `clearExamplePanel()` 会把词族一起清掉
+  - `playWord` 的 else 分支补 `loadFamilyData(); renderFamilyBoard(item);`，词族与例句面板**解耦**
+  - 位置从「官方笔记」之后**上移到控制区之后、搜索框之前**：辨析动辄一整行长文，会把词族顶到卡片最底部被固定 Dock 盖住，连播时等于看不见（截图实测确认过）
+  - 验收：英→中 / 中→英 两个方向，第 6 词 `criminal→crime`、第 11 词 `organic→organism` 均正常，且例句面板隐藏时词族照样显示
 - **移除右栏「快捷键」说明卡**（用户要求整块去掉）：`<aside class="tools-card glass">` 整段删除，`.kbd-grid` / `.kbd-item` 死样式一并清掉
   - 键盘快捷键**全部照旧可用**（Enter / 方向键 / WASD / R / M / X / 滚轮），只是不再占版面；说明改由 README 承接
   - 卡里的「构建 xxxx」版本号挪到 **设置面板 → 数据管理 底部**（`#buildVer`），排查仍能对版本
