@@ -1944,6 +1944,14 @@ button.small{ padding:6px 12px; font-size:12.5px; }
             <button class="small" id="exampleBtn" type="button">📖 读例句</button>
           </div>
 
+          <!-- 词族提示：今天学的词若是之前学过词的同根变形，在这里高亮 · 2026-10-26 加
+               2026-11-02 再上移到控制区之后：辨析很长，会把词族顶到卡片底部被固定 Dock 盖住，
+               连播时等于看不见。放这里首屏就能露出来。 -->
+          <div id="familyBoard" class="note-board">
+            <div id="familyLabel" class="hidden ex-label">学过相关的</div>
+            <div id="familyText"></div>
+          </div>
+
           <div class="console">
             <div class="console-row">
               <input id="searchInput" class="glass-field" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="🔍 搜索单词 / 释义，Enter 跳到第一个匹配，Esc 清空">
@@ -1972,11 +1980,6 @@ button.small{ padding:6px 12px; font-size:12.5px; }
         <div class="note-board">
           <div id="diffLabel" class="hidden ex-label">官方笔记</div>
           <div id="diffText"></div>
-        </div>
-        <!-- 词族提示：今天学的词若是之前学过词的同根变形，在这里高亮 · 2026-10-26 加 -->
-        <div id="familyBoard" class="note-board">
-          <div id="familyLabel" class="hidden ex-label">学过相关的</div>
-          <div id="familyText"></div>
         </div>
         <div id="quizStage" class="hidden">
           <div class="quiz-wrap">
@@ -3878,8 +3881,12 @@ button.small{ padding:6px 12px; font-size:12.5px; }
     $("playNote").textContent = auto
       ? "正在播放，请听写在本子上…"
       : "手动模式：按 Enter / ↓ / → / S / D 播下一个，↑ / ← / W / A 播上一个，R 重播当前，X 读例句";
+    /* 2026-11-02：连播时词族「学过相关的」要独立显示。
+       原来只有走 setExamplePanel 才会渲染词族，凡是「没例句」或「中→英」的切换都会走
+       clearExamplePanel() 把词族一起清掉 → 用户看到的连播经常没有这一块。
+       clearExamplePanel 之后再补渲染一次，词族就与例句面板解耦。 */
     if (item.exampleEn && $("directionSelect").value !== "cn2en") setExamplePanel(item);
-    else clearExamplePanel();
+    else { clearExamplePanel(); loadFamilyData(); renderFamilyBoard(item); }
     var rate = parseFloat(rateSelect.value) || 1;              // 单词用「单词语速」
     var exRate = parseFloat(exampleRateSelect.value) || 1;     // 例句用「例句语速」（两条独立，2026-10-15）
     var wordDone = speakLoop(spokenText(item), parseInt(repeatSelect.value, 10), rate);
