@@ -1,0 +1,50 @@
+input|n. 输入（的信息）；n. 投入；v. 输入|Edit the input text and re-run the software.|修改输入的文本，重新运行软件。||
+sponsor|v. 赞助；n. 赞助者；n. 发起人；v. 主办|I'm collecting sponsors for next week's charity run.|我正在为下星期的募款赛跑征集捐款者。||
+revolutionary|adj. 革新的；n. 改革者，革命者；adj. 革命的|He knows well about the revolutionary movement.|他对那次革命运动很了解。||
+existence|n. 存在；n. 继续生存；n. 生活（方式）|Global warming could threaten the existence of some rare species.|全球变暖可能威胁珍稀物种的生存。||
+atmosphere|n. 气氛；n. 大气层|The planet has a thick atmosphere .|这颗行星的大气层很厚。||
+genuine|adj. 真正的；adj. 真诚的|Tom looked at her with genuine concern.|汤姆看着她，眼中流露着真切的关心。||
+tedious|adj. 单调的，冗长的|The tedious lecture made students sleepy.|这场冗长乏味的讲座让学生们昏昏欲睡。||
+sympathetic|adj. 有同情心的；adj. 赞成的|She felt sympathetic about her neighbor's misfortune, so she often comforted him.|她对邻居遭遇的不幸感到同情，所以她常常安慰他。||
+complicate|v. 使复杂化|I do not wish to complicate the task further.|我不想使这项任务更复杂。||
+commonplace|adj. 普通的，普遍的；n. 常见的事；n. 老生常谈|Many movies deal with commonplace themes.|许多电影的主题很平庸。||
+assess|v. 评定；v. 估价，估计|It's difficult to assess the effects of these changes.|这些变化带来的效果难以评估。||
+replacement|n. 替代品；n. 接替者；n. 替换|The car was so old that replacement parts couldn't be found.|这辆车太老了，找不到替换零件。||
+universe|n. 宇宙|The idea of a parallel universe is hard to grasp.|认为另有一个平行宇宙的概念是很难理解的。||
+absorption|n. 全神贯注；n. 吸收；n. 合并|A good absorption of nutrition is vital to your health.|营养的良好吸收对你的身体很关键。||
+sociology|n. 社会学|Here you can learn about the requirements to major in sociology at our university.|你可以在此了解到在我们大学主修社会学有哪些要求。||
+impose|v. 强制实行；v. 把…强加于；adj. （imposing）壮观的，使人印象深刻的；v. 使承受|A new tax was imposed on fuel.|对燃料征收一项新税。||
+assistant|n. 助手；n. 助教；adj. 副的；adj. 助理的|The boss wants to employ an assistant to deal with some routine work.|老板想雇一名助理来帮他打理一些日常工作。||
+commerce|n. 商业；n. 贸易|Commerce between China and Africa reached a historic high last year.|去年中国与非洲的贸易达到了历史最高点。||
+solidify|v. 巩固；v. 凝固|The paint had solidified in the tray.|涂料在托盘里凝固了。||
+hint|v. 暗示；n. 暗示；n. 迹象；n. 少许|I won't reply to you directly, but I can give you a hint about the answer.|我不会直接答复你，但我可以给你一点与答案有关的暗示。||
+revolve|v. 以…为中心；v. 旋转；v. 围绕|The earth revolves around the sun.|地球环绕太阳运行。||
+isolate|v. 使孤立；v. 使隔离；v. 使离析|Many people get isolated for observation during the outbreak of the flu.|很多人在流感爆发期间被隔离观察。||
+swell|v. 逐渐扩大；n. 海浪涌动；v. （情绪）高涨；n. 隆起处；n. 增加；v. 肿胀；v. （使）鼓出|Her arm was beginning to swell up where the bee had stung her.|她胳膊给蜜蜂蛰了，肿了起来。||
+establish|v. 建立；v. 创立；v. 证实|The school has established a successful relationship with the local community.|这所学校与当地社区建立了良好的关系。||
+oblige|v. 强迫；v. 照办|I felt obliged to leave after such an unpleasant quarrel.|发生了这样不愉快的争吵之后，我觉得有必要离开。||
+fluctuate|v. 波动；v. 起伏不定|My weight fluctuated wildly depending on how much I ate.|我的体重根据我的食量而波动。||
+wander|v. 漫步；v. 偏离（正道）；v. 走神；n. 漫步|We wandered back towards the car.|我们溜达着回到汽车那里。||
+metallic|adj. 金属般的；adj. 金属制的|His voice sounded harsh and metallic .|他的声音听起来刺耳难听。||
+outstanding|adj. 杰出的；adj. 未偿还的；adj. 显著的；adj. 未处理的|He is famous for his outstanding achievement.|他以杰出的成就而闻名。||
+tray|n. 盘，碟，托盘|The waitress brought us the drinks on a tray .|服务生用托盘把我们的饮料端了过来。||
+startle|v. 使吓一跳|The explosion startled the children.|爆炸声让孩子们吓了一跳。||
+scholar|n. 学者；n. 奖学金获得者|He was the most distinguished scholar in his field.|他是这一领域成就最为卓著的学者。||
+maximum|adj. 最大数量的，最大极限的；n. 最大量；n. 极限|The maximum number of people this elevator can carry is about 10.|这台电梯最多可承载10人。||
+trigger|v. 引起；n. 诱因；n. 扳机；n. 触发器；v. 诱使|He kept his finger on the trigger .|他的手指一直勾着扳机。||
+supply|n. 供应（量）；n. 补给；v. 供应|Supplies of food are almost exhausted.|贮存的食物快吃完了。||
+reinforce|v. 强化；v. 加固；v. 加深|She reinforced her opinion that robots will never replace human beings.|她重申了她的观点，即机器人永远不会取代人类。||
+assume|v. 假设；v. 承担（责任）；v. 假装；v. 就职|It is reasonable to assume (that) the economy will continue to improve.|认为经济将继续好转是有道理的。||
+satisfaction|n. 满足；n. 令人满意的事|She looked back on her career with great satisfaction .|回顾自己的事业，她深感欣慰。||
+suspend|v. 暂停；v. 使停职；v. 悬，挂；v. 推迟|The school suspended the sports meeting.|学校推迟了运动会。||
+reputation|n. 名声，名誉|She, as a teacher, has a really good reputation among her students.|作为一名教师，她在学生之中口碑甚佳。||
+incidence|n. 发生率|This is an area with a high incidence of crime.|这是犯罪高发的一片区域。||
+clue|n. 线索，提示|The police have found the vital clue to the killer's identity.|警方已经找到确认杀手身份的重大线索。||
+procedure|n. 手术；n. 程序；n. 步骤|The procedure of making a complaint is quite complicated.|投诉的手续非常复杂。||
+define|v. 下定义；v. 标出范围；v. 阐明|The powers of a judge are defined by law.|法官的权限是由法律规定的。||
+reliable|adj. 可信赖的，真实可靠的|We are looking for someone who is reliable and hard-working.|我们在物色可靠而又勤奋的人。||
+torture|n. 折磨；v. 折磨；n. 拷问；n. 痛苦；v. 拷问；v. 使痛苦|Many captives in the Nazi concentration camps were tortured by the German soldiers.|纳粹集中营里的许多俘虏遭到了德国士兵的虐待。||
+empire|n. 帝国；n. 商业王国|He owns a business empire .|他坐拥一个大型企业集团。||
+nuisance|n. 讨厌的人或事物|Local residents complained that the noise was a public nuisance .|当地居民抱怨，噪声是对公众利益的损害。||
+highly|adv. 非常；adv. 高标准地；adv. 赞许地|He is a highly successful politician.|他是一位非常成功的政客。||
+spray|v. 喷洒；n. 喷雾（器）；v. 喷射；v. 飞溅|The farmer sprays pesticides on the crops regularly.|农民定期给庄稼喷洒杀虫剂。||

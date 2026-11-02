@@ -1,70 +1,50 @@
-economical|adj. 经济实惠的；adj. 节俭的|Nowadays people can buy good quality clothes online at economical prices.|如今人们可以在网上以非常实惠的价格买到质量很好的衣服。||
-peril|n. 危险，威胁；n. 险情|He managed to survive in spite of great peril and personal suffering.|虽然处境非常危险且历尽磨难，他还是成功地挺过来了。||
-concrete|adj. 具体的；adj. 混凝土的；n. 水泥，混凝土|You'd better give concrete examples to illustrate your ideas.|你最好给出具体的例子来说明你的想法。||
-currency|n. 货币；n. 流通|The president proclaimed that a new currency would be issued.|总统宣布将发行新货币。||
-rouse|v. 唤醒；v. 激起|Persistent awful singing rouses him from a sweet dream.|难听的歌声不断传来，把他从美梦中吵醒了。||
-inclination|n. 倾向；n. 趋势；n. 兴趣|She had neither the time nor the inclination to help them.|她既没有时间也不愿意帮助他们。||
-condemn|v. 谴责；v. 判刑；v. 反对|The government issued a statement condemning the killings.|政府发表声明谴责这些凶杀事件。||
-snack|n. 点心，小吃|He is considering setting up a mobile snack bar.|他在考虑开一家流动小吃店。||
-promote|v. 促进；v. 推销；v. 晋升|These measures are aimed at promoting economic growth.|这些措施旨在促进经济增长。||
-framework|n. 框架；n. 结构|The report provides a framework for further research.|这份报告给进一步的研究提供了框架。||
-manufacture|n. 制造，生产；v. 制造，生产|He works for a company that manufactures parts for cars.|他为一家生产汽车零件的公司工作。||
-landlord|n. 地主，房东|The landlord had promised to redecorate the flat before we moved in.|房东承诺在我们搬进去之前会把公寓重新装修一番。||
-cashier|n. 收银员|She was working as a cashier when robbers threatened her with a knife.|她当收银员时曾被强盗用刀威胁过。||
-whatsoever|adv. 任何，全然|I have no interest whatsoever in what he says.|我对他所说的毫无兴趣。||
-insurance|n. 保险|Your parents bought life insurance for you.|你的父母为你办理了人寿保险。||
-collective|n. 集体（企业）；adj. 集体的，共同的；adj. 总的|They made the collective decision public.|他们将集体的决定公布于众。||
-active|adj. 活跃的；adj. 积极主动的|They were both politically active .|他们两人在政治上都很积极。||
-underestimate|v. 低估，轻视；n. 低估|We underestimated the time it would take to get there.|我们低估了抵达那里所需的时间。||
-distribute|v. 分发；v. 分布；v. 分配|The newspaper is distributed free.|这份报纸免费发送。||
-construct|v. 建造；v. 创建；n. 构想，概念；n. 建造物；v. 形成|When was the bridge constructed ?|那座桥是何时修建的？||
-toll|n. 不利影响；n. 死亡人数；n. 通行费；v. 敲（钟）|The death toll from the bombing has risen to 100.|爆炸造成的死亡人数已上升至100人。||
-expectation|n. 预期，期望；n. 希望|Her performance did not live up to our expectations .|她的表现没有达到我们的预期。||
-illustrate|v. 说明，解释；v. 证明|Can you give an example to illustrate the point?|你能举个例子来说明这一点吗？||
-object|n. 物件；n. 目标；v. 反对；n. 对象|Glass and plastic objects lined the shelves.|架子上排列着玻璃和塑料制品。||
-occasional|adj. 偶尔的|He has such a tight work schedule that he can only make occasional visits to his parents.|他工作安排太紧凑了，只能偶尔探望一下父母。||
-certainty|n. 确实性；n. 确定的事|We have no certainty of success.|我们没有成功的把握。||
-stir|v. 激发；v. 煽动；n. 愤怒；v. 使开始活跃；n. 搅动；v. 搅动；v. 引起|She stirred her coffee.|她搅了搅咖啡。||
-fame|n. 声誉，名望；v. 以…闻名|The novel helped him achieve instant fame .|这部小说助他一夜成名。||
-formula|phrase. （Formula One）一级方程式赛车；n. 方法；n. 公式；n. 配方；n. 惯例|This formula is used to calculate the area of a triangle.|这个公式用于计算三角形的面积。||
-highlight|v. 强调，突出；v. 用荧光笔标记；n. 最精彩的部分|He highlighted the problems they had encountered in the project.|他强调了他们在项目中遇到的问题。||
-whilst|conj. 与…同时；conj. 当…时；conj. 然而；conj. 尽管|He was at his happiest whilst playing computer games.|玩电脑游戏时他最开心了。||
-leap|v. 飞跃，重大转变；v. 跳跃；n. 跳跃；n. 激增；v. 激增|The dog leaped to the door happily when his master came back.|主人回来时，这只狗欢快地向门奔去。||
-confirmation|n. 证实；n. 确定；n. 批准|We are waiting for confirmation of the news.|我们正在等待证实那个消息。||
-departure|n. 离开，出发；n. 背离|His sudden departure threw the office into chaos.|他的突然离去使这个部门陷入一片混乱。||
-vary|v. 有不同；v. 改变|The attitudes towards this issue vary from person to person in this country.|这个国家对该问题的态度因人而异。||
-endurance|n. 耐久力；n. 忍耐力|She exhibited great powers of endurance during the climb.|她在攀登过程中表现出极大的耐力。||
-shade|n. 色度；n. 阴凉处；v. 遮光；n. 阴影|The trees provide shade for the animals in summer.|夏天，这些树为动物提供乘凉的地方。||
-whale|n. 鲸|The blue whale is the largest living thing on the planet.|蓝鲸是地球上体型最大的生物。||
-crucial|adj. 至关重要的，决定性的|The reform of the healthcare system became a topic of crucial importance in the presidential election debate.|医疗系统改革成了总统大选辩论中的至关重要的话题。||
-customary|adj. 习俗的，习惯的|It's customary to give people gifts on their birthdays.|给人送生日礼物是惯常的事。||
-bug|n. 小虫子；n. 程序漏洞；v. 使恼怒；n. 窃听器；v. 装窃听器；v. 窃听|Our test flight was to discover the bugs in the new plane.|试验飞行是为了发现新飞机有何问题。||
-vocabulary|n. 词汇；n. 词汇量；n. 词汇表|Reading will increase your vocabulary .|阅读会增加你的词汇量。||
-announce|v. 公布；v. 宣称|Everyone was silent as he announced the winner of the competition.|当他宣布竞赛的优胜者时，大家都静静地倾听。||
-ambition|n. 抱负；n. 野心|His burning ambition was to study medicine.|他梦寐以求的是学医。||
-compensate|v. 赔偿；v. 弥补|Who will compensate for the losses?|谁将赔偿损失？||
-glorious|adj. 辉煌的；adj. 光荣的|David Beckham had a glorious career as a football player.|大卫·贝克汉姆作为一名足球运动员，拥有辉煌的职业生涯。||
-maiden|phrase. 婚前姓氏，娘家姓（maiden name）；n. 少女，未婚女子|There lived a beautiful maiden .|那儿住着一位美丽的少女。||
-bare|adj. 赤裸的；adj. 空荡荡的；adj. 最基本的；adj. 光秃秃的|It's not only unsafe but also unsanitary to walk in bare feet.|光脚走路既不安全也不卫生。||
-independence|n. 独立；n. 自立|People will never forget those who struggled for the independence of the country.|人民不会忘记那些为了国家的独立而艰苦奋斗的人。||
-expose|v. 使接触；v. 使遭受；v. 揭露；v. 暴露|Miles of sand are exposed at low tide.|在低潮时数英里的沙滩就会显现出来。||
-usage|n. 使用；n. 惯例；n. 利用率|Proper usage of linking words will make your essay more reader-friendly.|合理使用连接词会让你的文章更加易读。||
-outcome|n. 结果，效果|We are waiting to hear the final outcome of the negotiations.|我们在等待谈判的最终结果。||
-various|adj. 各种各样的；adj. 不同的|She took the job for various reasons.|她由于种种原因接受了这份工作。||
-dove|n. 鸽子|Why is the dove often used as a symbol of peace?|为什么鸽子经常被用作和平的象征呢？||
-reception|n. 接待处|Please report to the reception on arrival.|请您在抵达后立即在接待处报到。||
-deceive|v. 误导；v. 欺骗|People are deceived by the advertisement into buying fake goods.|人们受到了这则广告的欺骗，买了假货。||
-clash|n. 冲突；n. 撞击声；n. 差异；n. 碰撞；v. 冲突；v. 撞击|Clashes broke out between police and demonstrators.|警察和示威者之间爆发了冲突。||
-strip|n. 条状物；n. 狭长地带；v. 拆卸；v. 剥夺；v. 脱衣服；v. 剥光|Cut the meat into strips .|把肉切成条。||
-transmit|v. 传播；v. 传输；v. 传达|They received signals transmitted from a satellite.|他们接收到从卫星传送来的信号。||
-sufficient|adj. 足够的，充分的|I have sufficient time to travel after graduating.|毕业后，我有足够的时间去旅行。||
-folk|n. 人们；n. 大伙儿；adj. 民间的，民俗的；n. 人民|I'd like a job working with old folks or kids.|我喜欢与老人或小孩打交道的工作。||
-competitor|n. 竞争对手；n. 参赛者|That company became our lone competitor in the field.|那家公司成了我们在这个领域唯一的竞争对手。||
-wit|n. 智力；n. 明智；n. 风趣|He used his wit to pass the audition for a role in the comedy play.|他运用才智通过了这部喜剧的一个角色的试镜。||
-presently|adv. 目前|The murder case is presently being investigated.|这件谋杀案目前正在调查当中。||
-shameful|adj. 可耻的；adj. 丢脸的|He keeps it a secret because he feels it shameful .|他保守秘密是因为他觉得很丢脸。||
-impulse|n. 冲动；n. 推动力；n. 刺激|He had a sudden impulse to stand up and sing.|他突然有想站起来唱歌的冲动。||
-laser|n. 激光|Using lasers to whiten the teeth can be a bit pricey.|激光美白牙齿的价格比较贵。||
-delegate|v. 授权；n. 代表，会议代表；v. 选派|The new manager was delegated to reorganize the department.|这位新经理被派来重新组织该部门。||
-palm|n. 棕榈树；n. 手掌|She carefully held the butterfly in the palm of her hand.|她小心翼翼地将蝴蝶护在手心。||
-catalog|n. 目录；v. 将…列入目录；v. 记载|Please fax me the layout for the new catalog .|请把新目录的版面编排图样传真给我.||
+acknowledge|v. 承认；v. 认可；v. 确认收到|I had to acknowledge the force of his argument.|我不得不承认他的论据有力。||【辨析】knowledge n.知识，学问 ｜ 【谐音】爱磕(ac)知识(knowledge)"：承认自己博学，因为总是深入研究知识。 ｜ 【变形】现在分词：acknowledging
+attorney|n. 律师|She hired an attorney to handle the contract dispute.|她雇了一位律师来处理合同纠纷。||【辨析】autonomy n.自治，自治权 ｜ 【谐音】额(at)托(tor)你(ney)"：委托你，委托律师帮你打官司，即代理人。
+sequence|n. 顺序；n. 一系列|He had to attend a sequence of meetings.|他得参加一系列会议。||【辨析】sequential  adj.连续的，按顺序的；consequence n.结果，后果；squeeze     v.挤压，捏；subsequent  adj.随后的，接着的；consequent  adj.随之发生的，由此引起的；frequent    adj.频繁的，经常性的 ｜ 【变形】现在分词：sequencing
+independent|adj. 独立的；adj. 自立的；adj. 单独的|Mozambique became independent in 1975.|莫桑比克于1975年获得独立。||【辨析】independence n.独立，自主；dependent    adj.依赖的，依靠的；dependence   n.依赖，依靠 ｜ 【谐音】因地盘等的(independent)"：有自己的地盘，所以独立自主。
+stock|n. 存货，储备物；n. 股份；v. 储备；v. 供应；adj. 老一套的；phrase. 股市（stock market）；n. 债券；n. 牲畜|We have a large stock of toys on sale.|我们有大量的玩具在特价销售。||【辨析】stack    n.（整齐的）一堆；stick    v.粘，贴；shock    n.令人震惊的事；steak    n.肉排，（尤指）牛排；sock     n.短袜；stocking n.（女式）长筒袜；stroke   n.中风；stake    n.股本，股份；strap    n.带子，皮带
+appointment|n. 约会，预约；n. 任命，委派|I called the dentist and made an appointment with him.|我给牙医打了电话，跟他预约了时间。||【辨析】appoint    v.任命，指派；assignment n.作业，任务
+whip|n. 鞭子；v. 鞭打；v. 搅打|The rider lashed the horse with a long whip to speed it up.|骑手用长鞭抽打了下马，让它跑快点。||【辨析】wipe    v.（用布、手等）擦干净，抹掉；weep    v.（通常因悲伤）哭泣，流泪；wrap    v.包，裹，包装；whisper v.耳语，低语，小声说；worship v.敬奉（神）；whistle n.哨子 ｜ 【变形】过去式：whipped；过去分词：whipped；现在分词：whipping
+pack|n. 包，盒；v. 挤满；v. 收拾行李；v. 打包；n. 一群；phrase. （pack ice）聚集的浮冰；n. 大背包；n. 跟在第一集团后的大多数|I haven't packed my suitcase yet.|我的行李箱还没收拾好呢。||【辨析】peak    n.巅峰，顶点；park    n.公园；package n.包裹；pocket  n.衣袋，口袋；parcel  n.<英>包裹，邮包 ｜ 【谐音】派客(pack)"：我是个打包、派送包裹的人。
+rapidity|n. 迅速|The weather can change with amazing rapidity .|天气能以惊人的速度发生变化。||【辨析】rapidly adv.快速地，迅速地；rap     n.说唱音乐 ｜ 【变形】复数形式：rapidities
+formation|n. 形成；n. 形成物；n. 队形|My parents had an important influence on the formation of my personality.|我父母对我性格的养成产生了很重要的影响。||【辨析】format      n.总体安排，计划，设计；formulation n.（政策、计划等的）制定，构想；formulate   v.制定，规划；formal      adj.庄重的，合乎礼仪的；formula     n.计划，方案 ｜ 【谐音】佛没身(formation)"：佛像形成后，原来的材料就没有了。
+coordinate|v. 配合；v. 使动作协调；n. 坐标|The nursing staff coordinate smoothly.|护理人员之间协同配合得很顺畅。||【辨析】cooperate   v.合作，协作；collaborate v.合作，协作 ｜ 【谐音】靠奥迪耐克(coordinate)"：别人才会协调你，配合你。 ｜ 【变形】现在分词：coordinating
+steep|adj. 急剧的；adj. 陡峭的；adj. 难以接受的|As we climbed higher, the path grew steeper .|我们越往上爬，路就越陡峭。||【辨析】sheep n.羊，绵羊；step  n.迈步，脚步；steer v.驾驶（交通工具），掌方向盘；steel n.钢，钢铁；steak n.肉排，（尤指）牛排；sheet n.床单，被单；sheer adj.（用于强调）纯粹的，完全的
+occupy|v. 使忙于；v. 占用；v. 占据|The furniture doesn't occupy much space.|这件家具不是很占地方。||【辨析】occur      v.（尤指意外地）发生；occupant   n.居住者，住户；occupancy  n.居住，占用；occupation n.工作，职业 ｜ 【谐音】阿Q派(occupy)"：忙碌于占领世界。 ｜ 【变形】过去式：occupied；过去分词：occupied
+disappearance|n. 消失，失踪；n. 不再使用|Police are investigating the disappearance of a young woman.|警方正在调查一位年轻女子的失踪案。||【辨析】disappear  v.消失，不见；appearance n.露面，演出；disappoint v.使失望
+dynamic|n. 动态；adj. 动态的；adj. 精力充沛的；n. 动力（学）；adj. 动力的|These countries are characterized by highly dynamic economies.|经济充满活力是这些国家的特色。||【辨析】dramatic adj.巨大而突然的，急剧的；dynasty  n.王朝
+display|n. 陈列；v. 显示；v. 陈列；n. 显示；n. 表演|The exhibition gives artists an opportunity to display their paintings.|这次展览给了画家展示画作的机会。||【谐音】不能(dis)玩(play)"：展示、陈列的东西不能拿来玩。
+hostile|adj. 恶劣的；adj. 怀有敌意的|I don't know why she is hostile to me.|我不知道她为什么对我抱有敌意。||【辨析】host       n.主人；hostility  n.敌意，对抗；hospital   n.医院；hospitable adj.好客的，热情友好的；hesitate   v.犹豫，不愿意
+astonishment|n. 惊讶|To our astonishment , they arrived on time.|使我们惊讶的是，他们准时到了。||【辨析】astonish v.使吃惊，使惊讶
+flourish|v. 茁壮成长；v. 兴旺|These plants flourish in harsher climates.|在更为恶劣的气候下，这些植物长得也很茂盛。||【辨析】nourish v.养育，滋养；furnish v.为（房间或房屋）配备家具；flour   n.面粉，（谷物磨成的）粉；flower  n.花，开花植物 ｜ 【谐音】富啦瑞士(flourish)"：瑞士变富了，就繁荣了。
+lag|n. 时差；v. 落后，滞后；n. 间隔；v. 缓慢移动|Jane lags behind her classmates, so she needs to study harder.|简落在了同学的后面，所以她需要更努力地学习。||【辨析】rag  n.抹布，破布；logo n.（公司或组织的）标识，徽标；drag v.拖，拽；beg  v.乞求，恳求 ｜ 【谐音】拉格(lag)"：比其他人落后或滞后。 ｜ 【变形】过去式：lagged；过去分词：lagged；现在分词：lagging
+remarkable|adj. 非凡的，引人注目的|The output of this month is a remarkable achievement to our company.|本月的产量对我们公司来说是个非常了不起的成就。||【辨析】remark n.言论，评述 ｜ 【谐音】绿马可不(remarkable)"：绿马不显眼，黑马才是值得注意的。
+slice|n. 薄片；n. 部分；v. 把…切成薄片；v. 大幅削减|She had a slice of bread and an egg for breakfast.|她早餐吃了一片面包和一个鸡蛋。||【辨析】slide   v.（使）滑行，滑动；slip    v.滑倒，失足；piece   n.块，张，片，段；silence n.寂静，无声；silver  n.银 ｜ 【谐音】撕裂(sl)冰(ice)"：撕裂开的冰块都是薄片状的。 ｜ 【变形】现在分词：slicing
+participate|v. 参加|She didn't participate in the discussion.|她没有参加讨论。||【辨析】participant   n.参加者，参与者；participation n.参加，参与；particle      n.微粒；particular    adj.特定的，某一的；anticipate    v.预期，预料；particularly  adv.非常，尤其；partial       adj.部分的，不完全的 ｜ 【谐音】party是陪的(participate)"：派对需要人参加。 ｜ 【变形】现在分词：participating
+propose|v. 提议；v. 计划；v. 求婚|The government proposed changes to the education system.|政府建议改变教育制度。||【辨析】proposal    n.提议，建议；purpose     n.目的，意图；proper      adj.真正的，像样的；oppose      v.反抗，阻碍；suppose     v.推断，料想，猜想；compose     v.组成，构成；pose        v.造成，引起（威胁、危险、问题等）；expose      v.暴露，使显露；dispose     v.处理，放置，安排；proposition n.主张，观点 ｜ 【变形】现在分词：proposing
+banker|n. 银行家|He's an investment banker in New York.|他是一位纽约的投资银行家。||【辨析】broker   n.经纪人，中间人；banknote n.钞票，纸币 ｜ 【谐音】办卡(banker)"：在银行办理业务的人。
+gaze|n. 凝视；v. 凝视，注视|She has been gazing out of the window for hours.|她连续盯着窗外几个钟头了。||【辨析】graze  v.吃草；glare  v.怒视，瞪眼；gas    n.气体；gasp   v.（因惊讶或疼痛）喘气；grab   v.攫取，抓住；glance v.一瞥，看一眼 ｜ 【谐音】盖茨(gaze)"：盖茨令世人瞩目，表示注视。 ｜ 【变形】现在分词：gazing
+invalid|adj. 不受法律认可的|People with invalid papers are deported to another country.|持无效证件的人被驱逐到别国。||【辨析】valid    adj.（文件或票证）有效的；validity n.（法律上的）有效，合法，认可；validate v.批准，确认……有效 ｜ 【谐音】in歪理的(invalid)"：歪理多了就是有病，成了病人，说的话也就无效了。
+bucket|n. 桶；n. 大量|They were playing on the beach with their buckets and spades.|他们带着桶和铲子在沙滩上玩。||【辨析】budget  n.预算；basket  n.篮子；bullet  n.子弹，弹丸；rocket  n.火箭；jacket  n.夹克衫，短上衣；pocket  n.衣袋，口袋；ticket  n.票，入场券；bracket n.（固定在墙上的）托架，支架 ｜ 【谐音】扒开它(bucket)"：扒开水桶，里面装满了一桶水。
+pedestrian|n. 行人；adj. 行人的|Vehicles are not allowed on the pedestrian street.|机动车不允许上人行道。||【谐音】怕的是train(pedestrian)"：害怕火车的行人，形容呆板的人。
+awkward|adj. 尴尬的；adj. 难对付的；adj. 笨拙的|At the formal party I felt very awkward .|在正式的舞会上，我感到局促不安。||【辨析】award n.奖，奖品；ward  n.病房，病室 ｜ 【谐音】拗口的(awkward)"：笨拙的，难堪的。
+extent|n. 程度；n. 范围|It is impossible to estimate the extent of the damage.|损坏的程度已经无法估计了。||【辨析】expend    v.花费，消耗，耗尽；extend    v.延伸；intent    adj.专注的，专心致志的；expand    v.扩大，增加；content   adj.满足的，满意的，甘愿的；extension n.延伸，扩展；extensive adj.广阔的；expensive adj.花钱多的，昂贵的；consent   n.许可，允许；intend    v.打算，想要
+peer|n. 同龄人；v. 凝视；n. 同等地位的人|The opinions of his peers are more important to him than his parents' ideas.|在他看来，他同辈人的观点比他父母的观点更为重要。||【辨析】beer  n.啤酒；peep  v.窥视，偷看；pearl n.珍珠
+scratch|v. 划破；n. 划伤；phrase. （start from scratch）从头开始；n. 搔痒；n. 刮擦的刺耳声；v. 挠|The cat's claws scratched the surface of the wooden table.|猫的爪子在木桌表面划出几道痕迹。||【辨析】stretch v.（使）变大，拉长；sketch  n.素描，速写，草图；script  n.剧本，讲稿；screw   n.螺丝（钉）
+combine|v. 结合，联合；v. 兼备；v. 同时参与|Hydrogen and oxygen combine to form water.|氢与氧化合成水。||【辨析】connect     v.（使）连接；combination n.结合体，联合体 ｜ 【谐音】肯伴(combine)"：肯互相陪伴，表示结合、组合。 ｜ 【变形】现在分词：combining
+paperback|n. 简装书|The writer's first novel sold over 30,000 copies in paperback .|这名作家第一部小说的平装本卖了三万多册。||【辨析】feedback n.反馈意见 ｜ 【谐音】纸背(paperback)"：指平装书；"硬背(hardback)"：指精装本。
+historical|adj. 历史的|We must put the event in its historical background.|我们必须将这个事件置于它所在的历史背景中。||【辨析】historic  adj.历史上重要的；historian n.历史学家，史学工作者；history   n.历史；physical  adj.身体的，肉体的 ｜ 【谐音】His story 扣(historical)"：他的故事是有关历史的。
+fleet|n. 车队；n. 舰队|A fleet of ambulances took the injured to the hospital.|救护车队把伤者送往医院。||【谐音】浮力的(fleet)"：有浮力的舰队在海上疾驰。
+heal|v. 康复；v. 治愈；v. 弥合|The doctor healed the gunshot wound in his leg.|医生治好了他腿上的枪伤。||【辨析】zeal n.热情，热忱；hell n.地狱；heap n.（凌乱的）一堆 ｜ 【谐音】喝药(heal)"：喝完药病就痊愈了。
+courageous|adj. 勇敢的|It was a very horrible experience and they were very courageous .|那是一次糟糕的经历，而他们表现得非常勇敢。||【辨析】coverage n.覆盖范围
+narration|n. 叙述；n. 解说|The style of narration in his novel is confusing.|他小说里的叙事方法让人觉得很糊涂。||【辨析】narrative n.记叙文，叙述；narrator  n.（小说或电影的）叙述者，叙事人；narrate   v.讲（故事），叙述；narrow    adj.狭窄的，狭小的 ｜ 【谐音】那瑞神(narration)"：滔滔不绝地讲述自己有多厉害。
+persistence|n. 坚持不懈；n. 持续存在；n. 执意|The doctor couldn't explain the persistence of the fever.|医生无法解释高烧何以持久不退。||【辨析】persistent   adj.执意的，坚持不懈的；insistence   n.坚决要求，坚持主张；persist      v.继续存在，持续；perseverance n.毅力，不屈不挠的精神；resistance   n.反对，抵制；assistance   n.帮助，援助；persevere    v.锲而不舍，坚持不懈；consistent   adj.始终如一的，一贯的
+limb|n. 肢体；n. 树枝；n. 翼|Send for a doctor at once and do not attempt to move the limb .|立即送去看医生，并且不要尝试着移动受伤的肢体。||【辨析】lime n.酸橙（树）；limp v.瘸着脚走，跛行；lame adj.瘸的，跛的，残疾的；dim  adj.暗淡的，昏暗的 ｜ 【谐音】拎吧(limb)"：用肢体去拎东西。
+sideways|adv. 侧着地；adj. 侧着的；adv. 往一侧地|The boy gave the girl a sideways look.|这男孩斜视了那姑娘一眼。||【辨析】freeway n.<美>高速公路 ｜ 【谐音】塞的歪死(sideways)"：东西塞得太斜了。
+legal|adj. 与法律有关的；adj. 合法的，法定的|What she did was perfectly legal .|她的做法完全合法。||【辨析】illegal adj.非法的，违法的；legend  n.传说，传奇故事；eagle   n.鹰，雕；league  n.联盟，同盟；logic   n.逻辑，（做某事的）道理 ｜ 【谐音】理够(legal)"：理由充分就合法。 ｜ 【��片】adj. 合法的
+completion|n. 完成|The job is at last nearing completion .|这项工作终于快要完成了。||【辨析】complexion    n.肤色，气色；completely    adv.完全地，彻底地；complement    v.补充，补足；competent     adj.能干的，能胜任的；competitor    n.竞争者，对手；compliment    n.赞扬，称赞；compete       v.竞争，对抗；implication   n.可能的影响（或作用、结果）；comply        v.遵从，服从；complementary adj.相互补充的，相辅相成的 ｜ 【谐音】看仆力神(completion)"：仆力神完成了他的使命。
+obstacle|n. 障碍；n. 绊脚石|We finally managed to overcome all the obstacles .|我们最终设法克服了所有的障碍。||【谐音】我不是特抠(obstacle)"：不是吝啬，而是面临经济障碍。
+confusion|n. 困惑；n. 混乱；n. 混淆；n. 慌张|The sudden turn in his attitude threw us into considerable confusion .|他态度的突然转变搞得我们一头雾水。||【辨析】confuse    v.使糊涂，使迷惑；confession n.供认，供状 ｜ 【谐音】可分身(confusion)"：分身太多，产生混乱。
+transfer|v. 转移；v. 调动；n. 转移；n. 调动；n. 财产转让；v. 转让；v. 换乘；v. 转变|I am going to transfer some money to your account.|我会转些钱到你的账户上。||【辨析】transform      v.使改观，使变形，使转化；transit        n.运输，运送；transport      n.运输，运送；transmit       v.播送，传输，发射；translate      v.译，翻译；transition     n.过渡，转变；translation    n.翻译；transformation n.（彻底或重大的）改观，变化，转变 ｜ 【谐音】传四方(transfer)"：转移或调任到四面八方。 ｜ 【变形】过去式：transferred；过去分词：transferred；现在分词：transferring
+dictate|v. 支配；v. 口述；v. 命令；n. 原则；n. 命令；v. 听写|He dictated a letter to his assistant.|他口述了一封信给助理。||【辨析】dictation  n.口述，听写；dedicate   v.致力于，献身于；delicate   adj.柔和的，清淡的；indicate   v.表明，标示；desolate   adj.荒无人烟的，荒凉的；deliberate adj.故意的，蓄意的；decent     adj.像样的，尚好的；deceit     n.欺骗，诡计 ｜ 【变形】现在分词：dictating
+restrain|v. 抑制；v. 阻止|He couldn't restrain his curiosity.|他抑制不住自己的好奇心。||【辨析】restraint n.克制，抑制；restrict  v.限制，控制（大小、数量、范围）；strain    n.焦虑，紧张；refrain   v.克制，避免；constrain v.限制，约束 ｜ 【谐音】瑞士(re)卷(strain)"：不要抑制我吃瑞士卷！

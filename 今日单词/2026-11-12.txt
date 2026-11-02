@@ -1,28 +1,50 @@
-badge|n. 象征；n. 徽章；n. 标识；n. 警徽|Chains are a badge of slavery.|锁链是奴役的标志。||
-withstand|v. 经受住；v. 顶住|This building is designed to withstand destructive earthquakes.|这幢大楼的设计让其可以扛住破坏性的地震。||
-objective|n. 目标，目的；adj. 客观（存在）的|We have succeeded in our main objectives .|我们已经成功地达到了主要目标。||
-elect|v. 选举；v. 作出选择|They voted to elect a class president.|他们投票选举了一名班长。||
-manual|n. 手册；adj. 手工的，体力的；adj. 用手操作的|Skilled manual workers are in high demand.|熟练的手工工人很紧缺。||
-romantic|adj. 与爱相关的；adj. 浪漫的；n. 浪漫的人|I'm not interested in a romantic relationship.|我对谈情说爱不感兴趣。||
-entertain|v. 使快乐；v. 款待；v. 心存|She entertained the children with stories.|她讲故事逗孩子们开心。||
-bulb|n. 电灯泡|We need a new 100-watt bulb .|我们需要一盏新的一百瓦灯泡。||
-fairly|adv. 相当地；adv. 公平合理地；adv. 简直|I'm fairly sure that this is the right answer.|我相当肯定这就是正确答案。||
-preference|n. 偏好，偏爱|Many people expressed a strong preference for the original plan.|许多人强烈表示喜欢原计划。||
-conjunction|n. 结合；n. 同时（或同地）发生；n. 连接词|The university worked in conjunction with the police, and found the thief of the laptops.|这所大学与警方合作，找到了偷了这些笔记本的人。||
-compose|v. 撰写；v. 构成；v. 创作|He picked up his guitar and began to compose a song.|他拿起他的吉他，开始写歌。||
-magnetic|adj. 有磁力的；adj. 有魅力的|The compass can be affected by magnetic forces.|指南针可能会受磁力的影响。||
-sympathize|v. 同情；v. 赞同|He really sympathized with the poor baby who lost her mother several days ago.|他非常同情这个几天前失去了母亲的可怜的孩子。||
-precise|adj. 精确的|I can't give you a precise date.|我没法给你精确的日期。||
-mighty|adj. 巨大的；adj. 强有力的；adj. 非凡的；adv. 非常，极其|He struck him with a mighty blow across his shoulder.|他猛一下砸在他的肩膀上。||
-rely|v. 依靠；v. 信赖|As babies, we rely entirely on others for food.|在婴儿时期，我们完全依赖别人喂食。||
-positive|adj. 正面的，积极的；n. 优点；adj. 确信的；adj. 阳性的；n. 阳性；adj. 赞同的|She tried to be more positive about her new job.|她力求对新工作更有信心。||
-operator|n. 操作员；n. 经营者；n. 接线员|We are urgently looking for a professionally trained machine operator .|我们迫切想要招聘一个接受过专业培训的机器操作员。||
-haul|v. 拉，拖；n. 大批赃物；n. 一网鱼|She hauled the box into her room.|她把箱子拖进了房间。||
-squeeze|v. 榨取；v. 挤入；n. 经济困难；v. 挤压；n. 挤压；n. 挤出的液体；n. 拥挤；v. 榨出|He squeezed her hand and smiled at her.|他捏了捏她的手，冲她笑笑。||
-geology|n. 地质学；n. 地质特征|The students went to study the geology of that region.|学生们去研究那个地区的地质情况。||
-agriculture|n. 农业|The number of people employed in agriculture has fallen in the last decade.|过去十年，农业从业人数已经下降。||
-ignorant|adj. 无知的，愚昧的|Many people living in remote areas are ignorant of modern technology.|许多住在偏远地区的人对现代技术一无所知。||
-refusal|n. 拒绝|His refusal to negotiate this matter really made me angry.|他拒绝协商这个问题真的让我很生气。||
-asset|n. 有价值的人或物；n. 资产|His outstanding managerial talents are invaluable assets to his company.|他出色的管理才能是公司的一份无比珍贵的财富。||
-instruction|n. 教授；n. 用法说明；n. 指示|The plant comes with full instructions on how to care for it.|这棵植物附有详尽的护养说明。||
-reaction|n. 反应；n. 反应力；n. 化学反应|Her calm reaction to the news surprised us all.|她对这个消息的反应很冷静，让我们惊讶。||
+usage|n. 使用；n. 惯例；n. 利用率|Proper usage of linking words will make your essay more reader-friendly.|合理使用连接词会让你的文章更加易读。||【谐音】优势(u)使用(sage)"：使用UC浏览器输入地址上网。
+outcome|n. 结果，效果|We are waiting to hear the final outcome of the negotiations.|我们在等待谈判的最终结果。||【辨析】overcome v.克服，解决；outlet   n.（情绪或精力的）发泄方式，发泄途径；outset   n.开始，开端；income   n.收入，收益 ｜ 【谐音】出来(out come)"：事情结果出来了。
+various|adj. 各种各样的；adj. 不同的|She took the job for various reasons.|她由于种种原因接受了这份工作。||【辨析】varied    adj.各种各样的，形形色色的；variety   n.多样化，变化；virus     n.病毒；variable  adj.易变的，多变的；variation n.变化，变动；vary      v.（使）不同，（使）呈现差异
+dove|n. 鸽子|Why is the dove often used as a symbol of peace?|为什么鸽子经常被用作和平的象征呢？||【辨析】dive  v.跳水；dose  n.一剂，一服；doze  v.小睡，打盹；dome  n.穹顶，圆屋顶；dot   n.点，小圆点，点状物；stove n.（取暖或烹饪用的）炉子，火炉
+reception|n. 接待处|Please report to the reception on arrival.|请您在抵达后立即在接待处报到。||【辨析】recession  n.（经济的）衰退（期）；receptive  adj.（对观点、建议等）愿意倾听的，乐于接受的；perception n.看法，认识；reputation n.名誉，名声；receipt    n.发票，收据；recipient  n.<正式>接受者，领受者；receive    v.得到，收到；reject     v.拒绝，否决（提议、建议或请求）
+deceive|v. 误导；v. 欺骗|People are deceived by the advertisement into buying fake goods.|人们受到了这则广告的欺骗，买了假货。||【辨析】deserve  v.值得，应受；deceit   n.欺骗，诡计；decisive adj.果断的，决断的；conceive v.构思，设想；device   n.装置，设备；devise   v.设计，发明；desire   n.愿望，欲望，渴望 ｜ 【谐音】底细无(deceive)"：被欺骗了，底细被摸清，没有了。 ｜ 【变形】现在分词：deceiving
+clash|n. 冲突；n. 撞击声；n. 差异；n. 碰撞；v. 冲突；v. 撞击|Clashes broke out between police and demonstrators.|警察和示威者之间爆发了冲突。||【辨析】crash v.撞车，坠毁；slash v.（用利器）砍，劈；flash v.闪光，闪亮；clasp n.扣子，扣环；cash  n.现款，现金；crush v.压坏，挤压变形；lash  v.猛击，狠打；crack v.破裂，裂开
+strip|n. 条状物；n. 狭长地带；v. 拆卸；v. 剥夺；v. 脱衣服；v. 剥光|Cut the meat into strips .|把肉切成条。||【辨析】strap  n.带子，皮带；stripe n.条纹，线条；stride n.大步，阔步；script n.剧本，讲稿；scrap  n.（纸、布等的）碎片，小块；scrape v.（用小刀等）刮除 ｜ 【变形】过去式：stripped/stript；过去分词：stripped/stript
+transmit|v. 传播；v. 传输；v. 传达|They received signals transmitted from a satellite.|他们接收到从卫星传送来的信号。||【辨析】transit      n.运输，运送；transient    adj.转瞬即逝的，短暂的；transport    n.运输，运送；transfer     v.（使）转移，搬迁；transform    v.使改观，使变形，使转化；transplant   v.移植（器官、皮肤等）；transition   n.过渡，转变；transmission n.（无线电、电视等信号的）播送，发送 ｜ 【变形】过去式：transmitted；过去分词：transmitted；现在分词：transmitting
+sufficient|adj. 足够的，充分的|I have sufficient time to travel after graduating.|毕业后，我有足够的时间去旅行。||【辨析】efficient  adj.生效的，效率高的；deficient  adj.缺乏的，不足的；proficient adj.熟练的，精通的 ｜ 【谐音】煞费心的(sufficient)"：要赚足够的钱是费心的。 ｜ 【图��】adj. 充足的
+folk|n. 人们；n. 大伙儿；adj. 民间的，民俗的；n. 人民|I'd like a job working with old folks or kids.|我喜欢与老人或小孩打交道的工作。||【辨析】fork  n.餐叉，叉子；fold  v.折叠，对摺；flock n.（鸟或羊等动物）群；fake  adj.伪造的，冒充的；focus n.重点，中心点 ｜ 【谐音】佛客(folk)"：佛的过客，指普通百姓。
+competitor|n. 竞争对手；n. 参赛者|That company became our lone competitor in the field.|那家公司成了我们在这个领域唯一的竞争对手。||【辨析】competitive adj.竞争的；competition n.竞争；competent   adj.能干的，能胜任的；compete     v.竞争，对抗；competence  n.能力，胜任；complete    adj.完全的，彻底的
+wit|n. 智力；n. 明智；n. 风趣|He used his wit to pass the audition for a role in the comedy play.|他运用才智通过了这部喜剧的一个角色的试镜。||【辨析】wet     adj.湿的，潮湿的；wait    v.等候；witty   adj.风趣的，诙谐的，机智的；wise    adj.（行为或决定）明智的，高明的；knit    v.编织，针织；witness n.（尤指犯罪或事故的）目击者 ｜ 【谐音】维他(wit)"：吃多了维他命就会很有智慧。
+presently|adv. 目前|The murder case is presently being investigated.|这件谋杀案目前正在调查当中。||【辨析】presence     n.出席，存在；presentation n.（颁奖等）仪式，典礼；preserve     v.保护，维护
+shameful|adj. 可耻的；adj. 丢脸的|He keeps it a secret because he feels it shameful .|他保守秘密是因为他觉得很丢脸。||【辨析】shameless adj.无耻的，不要脸的；ashamed   adj.感到羞愧，感到羞耻 ｜ 【谐音】扇风(shameful)"：像扇风点火一样，做了丢脸的事。
+impulse|n. 冲动；n. 推动力；n. 刺激|He had a sudden impulse to stand up and sing.|他突然有想站起来唱歌的冲动。||【辨析】impulsive adj.冲动的；impose    v.强制推行，强制实行；pulse     n.脉搏，脉率；impetus   n.动力，促进；impact    n.撞击，冲击力 ｜ 【谐音】因炮死(impulse)"：形容冲动的人，像脉冲一样推动和冲击。
+laser|n. 激光|Using lasers to whiten the teeth can be a bit pricey.|激光美白牙齿的价格比较贵。||【辨析】layer  n.层；lace   n.网眼织物，蕾丝；lash   v.猛击，狠打；label  n.标签，标牌；lawyer n.律师；lens   n.透镜，镜片；loyal  adj.忠诚的，忠贞的 ｜ 【谐音】镭射(laser)"：指激光。
+delegate|v. 授权；n. 代表，会议代表；v. 选派|The new manager was delegated to reorganize the department.|这位新经理被派来重新组织该部门。||【辨析】delicate   adj.柔和的，清淡的；dedicate   v.致力于，献身于；delete     v.删除；delegation n.代表团；designate  v.把……定名为，把……描述为；deplete    v.大量减少，耗尽；aggregate  n.总数，合计；legitimate adj.正当的，合理的 ｜ 【谐音】代理给他(delegate)"：委托他代表你进行某种活动。 ｜ 【变形】现在分词：delegating
+palm|n. 棕榈树；n. 手掌|She carefully held the butterfly in the palm of her hand.|她小心翼翼地将蝴蝶护在手心。||【辨析】calm  adj.镇静的，沉着的；pale  adj.（脸色）苍白的；paw   n.（动物的）爪子；panel n.专家咨询组，专题讨论小组 ｜ 【谐音】怕了么(palm)"：小时候母亲用手掌打我，每次都扬起手说这句话。
+catalog|n. 目录；v. 将…列入目录；v. 记载|Please fax me the layout for the new catalog .|请把新目录的版面编排图样传真给我.||【辨析】catalogue n.目录，目录册；category  n.种类，范畴 ｜ 【谐音】查他记录(ca-ta-log)"：按照目录查找他的记录。
+youngster|n. 年轻人，孩子|I was only a youngster in 1995.|1995年我还只是个年轻人。||【辨析】gangster n.歹徒，匪徒；minister n.（英国及其他许多国家的）部长，大臣 ｜ 【谐音】秧歌star(youngster)"：年轻人乔鲁诺的梦想是成为秧歌明星。
+reform|n. 改革，改善；v. 改革；v. 改过自新|The representative submitted a lot of proposals in hope of reforming the social security system.|这位代表提出了很多建议，希望能改革社会保障体制。||【辨析】inform      v.通知，告知；form        v.（使）出现；perform     v.演出，表演；conform     v.遵守，符合；uniform     n.制服，校服；restore     v.恢复（某种情况或感受）；reformation n.改革，革新；transform   v.使改观，使变形，使转化 ｜ 【谐音】入佛门(reform)"：入佛门改造自己。
+exchange|n. 交换；n. 交流；v. 交换；n. 交谈；n. 兑换；n. 交易所；v. 兑换|The exchange of prisoners took place this morning.|今天早上交换了俘虏。||【辨析】change    v.改变，变化；chance    n.机会，时机；challenge n.挑战，难题 ｜ 【谐音】一刻是钱机(exchange)"：在交易所交换物品，有钱就有机会兑换好东西。 ｜ 【变形】现在分词：exchanging
+civilian|adj. 民用的；n. 平民；adj. 平民的|He resigned his commission to take up a civilian job.|他辞去军职，以平民身份工作。||【辨析】civil    adj.公民的，国民的，国内的；civilize v.教化，熏陶；citizen  n.市民，城镇居民 ｜ 【谐音】是威廉(civilian)"：他是平民。
+delicate|adj. 小巧的；adj. 易碎的；adj. 虚弱的；adj. 精密的；adj. 微妙的|The eye is one of the most delicate organs of the body.|眼睛是人体最娇贵的器官之一。||【辨析】dedicate   v.致力于，献身于；delegate   n.代表；deliberate adj.故意的，蓄意的；indicate   v.表明，标示；diligent   adj.勤奋的，勤勉的 ｜ 【谐音】得离开他(delicate)"：离开他才能做精致细微的事。
+deck|n. 甲板；n. 木制平台|Let's go up on deck for some fresh air.|我们一起去甲板上呼吸一下新鲜空气吧。||【辨析】dock n.码头，船埠，船坞；dusk n.黄昏，傍晚；dust n.沙尘 ｜ 【谐音】带壳(deck)"：船带的壳，就是甲板。
+despair|n. 绝望；v. 感到绝望|Under extreme pressures, she finally gave up in despair .|在极大的压力下，她终于绝望地放弃了。||【辨析】desire    n.愿望，欲望，渴望；repair    v.修理，修补；desperate adj.不顾一切的，拼命的；desirable adj.令人向往的，值得拥有的；inspire   v.激励，鼓舞；disappear v.消失，不见
+controversy|n. 争论，争议|Controversy exists as to how safe these drugs are.|关于这些药品的安全性一直存在争议。||【辨析】controversial adj.有争议的，引发争论的；contrary      adj.相反的，相对的；contradictory adj.相互矛盾的，对立的；contrast      n.差异，对比；contradict    v.反驳，否认 ｜ 【谐音】看错我谁(controversy)"：他看错了我是谁，我要和他争论一下。 ｜ 【变形】复数形式：controversies
+observe|v. 观察，监视；v. 注意到；v. 评论|The police have been observing his movements.|警方一直留意着他的一举一动。||【辨析】observer    n.观察者，目击者；observant   adj.善于观察的，观察力敏锐的；deserve     v.值得，应受；preserve    v.保护，维护；observation n.观察，监视；obvious     adj.明显的，显然的 ｜ 【谐音】额不在乎(observe)"：不在乎就不会仔细观察。 ｜ 【变形】现在分词：observing
+ribbon|n. 丝带；n. 带状物|The little girl tied a blue ribbon in her hair and looks adorable.|这个小女孩在头发上扎了条蓝丝带，看上去非常可爱。||【辨析】rib n.肋骨 ｜ 【谐音】日本(ribbon)"：日本武士经常在头上绑丝带。
+soda|n. 汽水；n. 苏打水|I have to drink soda instead of alcohol this time since I will pick up my girlfriend later.|我这次只能喝汽水，不喝酒了，因为一会要去接我女朋友。||【辨析】straw n.（干燥的）麦秆，稻草；suck  v.吸，吮，啜；foam  n.泡沫，气泡 ｜ 【谐音】苏打(soda)"：发音类似于"沙发"(sofa)，指碳酸饮料。
+intermediate|adj. 中级的；n. 中级水平者；adj. 中间的；adj. 居中的|This country is now at an intermediate stage of development.|这个国家目前正处于发展的中间阶段。||【辨析】immediate    adj.立刻的，即时的；intermittent adj.间歇的，断断续续的；intimidate   v.恫吓，威胁；mediate      v.调停，斡旋 ｜ 【谐音】因他迷第二的(intermediate)"：他迷恋第二名，就是在第一和第三之间的。
+beforehand|adv. 预先，事先|He arrived at the meeting place beforehand .|他提前到达会面地点。||【辨析】forehead  n.前额；shorthand n.速记（法）
+arouse|v. 引起；v. 唤起；v. 唤醒|This basketball final arouses a great deal of passion among its supporters.|这场篮球决赛激起了支持者们无限的热情。||【辨析】rouse v.<正式>唤醒，（使）醒来；arise v.产生，出现；rose  n.玫瑰，蔷薇；raise v.提升，举起；rise  v.（数字、 数量、价值）增加，（质量）提高 ｜ 【变形】现在分词：arousing
+ambassador|n. 大使|We're dining the ambassador this week.|我们本星期宴请大使。||【谐音】俺(am)办(ba)事(ss)儿的(a-dor)"：大使就是办事的人。
+representation|n. 代表；n. 描述；n. 表象；n. 表现物|This painting is a representation of a storm at sea.|这幅画表现的是海上风暴。||【辨析】representative adj.典型的，有代表性的；presentation   n.（颁奖等）仪式，典礼 ｜ 【谐音】瑞不算太神(representation)"：只是描述得厉害而已。
+formal|adj. 正规的，正式的；adj. 形式的|Formal diplomatic relations between the two countries were re-established in December.|两国于十二月重新建立了正式外交关系。||【辨析】form        v.（使）出现；normal      adj.正常的，标准的；format      n.总体安排，计划，设计；former      adj.旧时的；formula     n.计划，方案；abnormal    adj.反常的，异常的，变态的；formation   n.组成物；formulate   v.制定，规划；reform      v.改革，革新；inform      v.通知，告知；formulation n.（政策、计划等的）制定，构想；conform     v.遵守，符合 ｜ 【谐音】福尔摩(formal)斯"：福尔摩斯总是穿得很正式。
+formulate|v. 制定；v. 构想；v. 阐述|He struggled to formulate an answer.|他试图去构想一个答案。||【辨析】formula     n.计划，方案；formulation n.（政策、计划等的）制定，构想；simulate    v.假装，冒充；stimulate   v.促进，激发（某事物）；accumulate  v.积累，积攒；format      n.总体安排，计划，设计；formation   n.组成物；speculate   v.猜测，推测；stipulate   v.规定，明确要求 ｜ 【变形】现在分词：formulating
+machinery|n. 机器，机械|The wide use of industrial machinery is one of the characteristics of modernized production.|工业机械的广泛使用是现代化生产的特征之一。||【辨析】chimney   n.烟囱，烟道；mechanize v.使机械化，用机械装备 ｜ 【谐音】马其内(machinery)"：工厂里的机器设备。
+horizon|n. 眼界；n. 地平线|The sun sank below the horizon .|太阳落到了地平线下。||【辨析】horizontal adj.水平的 ｜ 【谐音】红(ho)日(ri)地带(zon)"：红日升起的地带，即地平线。
+diplomatic|adj. 外交的；adj. 老练的|Those two countries have broken off diplomatic relations again.|那两个国家再次终止了外交关系。||【辨析】diplomat   n.外交官，外交家；diploma    n.毕业文凭，学位证书；diplomacy  n.外交，外交技巧；democratic adj.平等的，有民主精神的；domestic   adj.国内的，本国的；duplicate  v.复制，复印；dilemma    n.（进退两难的）窘境，困境
+principal|n. 校长；adj. 主要的，最重要的|He is the principal of this college.|他是这所大学的校长。||【辨析】principle n.（行为）准则，（道德）原则
+cite|v. 引用；v. 举例|The lawyer cited a previous case to support his argument.|律师引用了以前的案例来支持他的论点。||【辨析】bite   v.咬，咬伤；site   n.（建筑的）工地，用地；recite v.背诵，朗诵 ｜ 【谐音】塞(ci)它(te)"：塞它到你的文章里就是引用了它。 ｜ 【变形】现在分词：citing
+frame|n. 框架；v. 给…做框；v. 表达；n. 身躯；n. 构架；n. 帧；v. 制订，规划；v. 组成|The painting was presented in a picture frame .|这幅画被裱在画框里展示了出来。||【辨析】flame     n.火焰，火舌；fame      n.名誉，名气；farmer    n.农夫，农民；framework n.(建筑物或物体的）构架，结构 ｜ 【谐音】free么(frame)"：人生不自由，被限制在框架内，按社会构造活动，非被陷害。
+exception|n. 例外|Without exception , all the students got good exam results.|所有学生都毫无例外地在考试中获得了好成绩。||【辨析】exceptional adj.卓越的，杰出的；except      prep.除……外，不包括；expectation n.期待，预期；protection  n.保护，防护；expect      v.期待；expert      n.专家，能手，权威
+crash|n. 撞车；v. 碰撞；n. 坠机；n. 崩溃；v. 坠机；v. 崩溃；n. 巨大声响；n. 暴跌；v. 暴跌|The great financial crash in 1929 ruined international trade.|1929年的经济大萧条摧毁了国际贸易.||【辨析】clash n.冲突，交战；crush v.压坏，挤压变形；trash n.垃圾，废物；cash  n.现款，现金；brush n.刷子，画笔；rush  v.冲，奔；dash  v.猛冲，急奔；smash v.打碎，（使）粉碎；harsh adj.（环境）恶劣的，艰苦的
+keen|adj. 热心的；adj. 对…着迷；adj. 渴望的；adj. 强烈的；adj. 敏锐的|She is always keen to help.|她总是很乐于帮助别人。||【辨析】knee n.膝盖，膝关节；king n.君主，国王 ｜ 【谐音】肯(keen)"：什么都肯干，形容热心、热切的。
+anticipate|v. 预料；v. 预见；v. 期盼|Nobody could have anticipated the result of the game.|没人能预料到比赛的结果。||【辨析】anticipation n.预期，预料；participate  v.参加，参与；appreciate   v.欣赏，鉴赏 ｜ 【变形】现在分词：anticipating
+resign|v. 辞职；v. 使顺从|Mr Smith resigned last week amid scandals.|史密斯先生上周因丑闻辞职了。||【辨析】region      n.地区，区域；design      n.设计，布局，安排；assign      v.分派，布置（工作、任务）；sign        n.指示牌，标志；retire      v.（令）退职，（使）退休；resignation n.辞职 ｜ 【谐音】re(再)sign(签)"：第一次签字是工作，第二次签字是辞职。
+gear|n. 档位；n. 设备；v. 使合适；n. 齿轮；v. 为…作好准备|Careless use of the clutch may damage the gears .|离合器使用不慎可能会损坏传动装置。||【辨析】hear v.听到，听见；rear n.（尤指建筑物或车辆等的）后部，背部（the rear）；fear v.害怕，畏惧；dear adj.珍视的；pear n.梨，梨树；wear v.穿（衣服），戴（首饰等）；bear v.手持，携带；year n.年，日历年；ear  n.耳朵

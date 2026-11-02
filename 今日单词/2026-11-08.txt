@@ -1,70 +1,50 @@
-youngster|n. 年轻人，孩子|I was only a youngster in 1995.|1995年我还只是个年轻人。||
-reform|n. 改革，改善；v. 改革；v. 改过自新|The representative submitted a lot of proposals in hope of reforming the social security system.|这位代表提出了很多建议，希望能改革社会保障体制。||
-exchange|n. 交换；n. 交流；v. 交换；n. 交谈；n. 兑换；n. 交易所；v. 兑换|The exchange of prisoners took place this morning.|今天早上交换了俘虏。||
-civilian|adj. 民用的；n. 平民；adj. 平民的|He resigned his commission to take up a civilian job.|他辞去军职，以平民身份工作。||
-delicate|adj. 小巧的；adj. 易碎的；adj. 虚弱的；adj. 精密的；adj. 微妙的|The eye is one of the most delicate organs of the body.|眼睛是人体最娇贵的器官之一。||
-deck|n. 甲板；n. 木制平台|Let's go up on deck for some fresh air.|我们一起去甲板上呼吸一下新鲜空气吧。||
-despair|n. 绝望；v. 感到绝望|Under extreme pressures, she finally gave up in despair .|在极大的压力下，她终于绝望地放弃了。||
-controversy|n. 争论，争议|Controversy exists as to how safe these drugs are.|关于这些药品的安全性一直存在争议。||
-observe|v. 观察，监视；v. 注意到；v. 评论|The police have been observing his movements.|警方一直留意着他的一举一动。||
-ribbon|n. 丝带；n. 带状物|The little girl tied a blue ribbon in her hair and looks adorable.|这个小女孩在头发上扎了条蓝丝带，看上去非常可爱。||
-soda|n. 汽水；n. 苏打水|I have to drink soda instead of alcohol this time since I will pick up my girlfriend later.|我这次只能喝汽水，不喝酒了，因为一会要去接我女朋友。||
-intermediate|adj. 中级的；n. 中级水平者；adj. 中间的；adj. 居中的|This country is now at an intermediate stage of development.|这个国家目前正处于发展的中间阶段。||
-beforehand|adv. 预先，事先|He arrived at the meeting place beforehand .|他提前到达会面地点。||
-arouse|v. 引起；v. 唤起；v. 唤醒|This basketball final arouses a great deal of passion among its supporters.|这场篮球决赛激起了支持者们无限的热情。||
-ambassador|n. 大使|We're dining the ambassador this week.|我们本星期宴请大使。||
-representation|n. 代表；n. 描述；n. 表象；n. 表现物|This painting is a representation of a storm at sea.|这幅画表现的是海上风暴。||
-formal|adj. 正规的，正式的；adj. 形式的|Formal diplomatic relations between the two countries were re-established in December.|两国于十二月重新建立了正式外交关系。||
-formulate|v. 制定；v. 构想；v. 阐述|He struggled to formulate an answer.|他试图去构想一个答案。||
-machinery|n. 机器，机械|The wide use of industrial machinery is one of the characteristics of modernized production.|工业机械的广泛使用是现代化生产的特征之一。||
-horizon|n. 眼界；n. 地平线|The sun sank below the horizon .|太阳落到了地平线下。||
-diplomatic|adj. 外交的；adj. 老练的|Those two countries have broken off diplomatic relations again.|那两个国家再次终止了外交关系。||
-principal|n. 校长；adj. 主要的，最重要的|He is the principal of this college.|他是这所大学的校长。||
-cite|v. 引用；v. 举例|The lawyer cited a previous case to support his argument.|律师引用了以前的案例来支持他的论点。||
-frame|n. 框架；v. 给…做框；v. 表达；n. 身躯；n. 构架；n. 帧；v. 制订，规划；v. 组成|The painting was presented in a picture frame .|这幅画被裱在画框里展示了出来。||
-exception|n. 例外|Without exception , all the students got good exam results.|所有学生都毫无例外地在考试中获得了好成绩。||
-crash|n. 撞车；v. 碰撞；n. 坠机；n. 崩溃；v. 坠机；v. 崩溃；n. 巨大声响；n. 暴跌；v. 暴跌|The great financial crash in 1929 ruined international trade.|1929年的经济大萧条摧毁了国际贸易.||
-keen|adj. 热心的；adj. 对…着迷；adj. 渴望的；adj. 强烈的；adj. 敏锐的|She is always keen to help.|她总是很乐于帮助别人。||
-anticipate|v. 预料；v. 预见；v. 期盼|Nobody could have anticipated the result of the game.|没人能预料到比赛的结果。||
-resign|v. 辞职；v. 使顺从|Mr Smith resigned last week amid scandals.|史密斯先生上周因丑闻辞职了。||
-gear|n. 档位；n. 设备；v. 使合适；n. 齿轮；v. 为…作好准备|Careless use of the clutch may damage the gears .|离合器使用不慎可能会损坏传动装置。||
-comprehensive|adj. 全面的；adj. 综合性的|They did a comprehensive study on learning styles.|他们对学习风格做了一项全面的研究。||
-hay|phrase. （hit the hay）睡觉；n. 干草|He drove a truck with a big load of hay .|他开着一辆装满干草的车。||
-obedience|n. 服从，顺从|Soldiers act in obedience to the orders of their superior officers.|士兵们遵照上级军官的命令行动。||
-surgery|n. 手术；n. 诊所；n. 外科|Her mother has just recovered from heart surgery .|她母亲刚从心脏手术中恢复过来。||
-nightmare|n. 噩梦；n. 恐怖的经历；n. 很难对付的人|I had a nightmare and cried out in horror.|我做了一个噩梦，惊恐地大叫。||
-acceptance|n. 认同；n. 接纳；n. 接受；n. 承认|His acceptance of the award caused public debate.|他接受该奖项引起了公众的议论。||
-cop|n. 警察|He pulled out his gun and said he was a cop .|他掏出了枪并称他是警察。||
-pressure|n. 压力；n. 压强；v. 对…施压，胁迫；n. 气压；n. 影响力；n. 紧迫|The water pressure may need adjusting.|水压可能需要调整。||
-confront|v. 面对；v. 正视；v. 处理；v. 遭遇|They confronted the prisoner with his accusers.|他们让犯人与原告对质。||
-compound|n. 复合物，化合物；v. 使恶化；v. 由…构成；adj. 复合的；adj. 合成的|Organic compounds contain an element of carbon.|有机化合物含碳元素。||
-perfection|n. 完美|A writer should polish his writing repeatedly so as to get closer to perfection .|作家应当不断润色自己的写作以趋近于完美。||
-mislead|v. 误导，使误入歧途|The fake report has misled the public about nuclear energy.|这则虚假报道在核能问题上误导了民众。||
-beloved|adj. 钟爱的；n. 心爱的人；adj. 亲爱的|He never recovers from the death of his beloved mother.|他永远无法从失去他挚爱的母亲的痛苦中走出来。||
-official|n. 官员；adj. 官方的；adj. 正式的；n. 管理人员；adj. 获准的|The official report showed that he had nothing to do with this case.|官方报告显示他与这个案件无关。||
-illustration|n. 插图；n. 图示|The color illustrations in that book can draw children's attention.|书中的这些彩色插图能够吸引孩子们的注意力。||
-organize|v. 组织；v. 安排|I'll invite people if you can organize food and drinks.|如果你能备办饮食，我就负责请人。||
-technician|n. 技术员；n. 专家|They hired a technician to help maintain the factory's machines.|他们雇了一个技术人员来维护工厂的机器。||
-undoubtedly|adv. 毋庸置疑地|Dying to Survive is undoubtedly one of the best movies of this year.|《我不是药神》无疑是今年的最佳影片之一。||
-purify|v. 使净化；v. 精炼|They open the windows to purify the air of the room.|他们打开窗户清涤室内空气。||
-beam|n. 横梁；v. 发射信号；n. 光束；v. 笑容满面；v. 照射|I could just grope my way in the weak beam of the flashlight.|我只能依靠微弱的手电筒的光线摸索着前进。||
-gossip|n. 闲言碎语；v. 闲聊；n. 闲聊；n. 爱说闲话的人；v. 说长道短|Don't believe all the gossip you hear.|别对那些道听途说都信以为真。||
-election|n. 选举；n. 当选|The government plans to hold an election in September.|政府计划于九月进行选举。||
-situate|v. 使坐落于，使处于|They plan to situate the subway station near the shopping mall.|他们打算把地铁站设在购物商场附近。||
-rack|n. 支架；v. 使受折磨；n. 颈脊肉；phrase. 累积；累计（rack up）|Please put your suitcase on the luggage rack .|请将行李放在行李架上。||
-costume|n. 装束；n. 戏服|Children wear Halloween costumes in all styles to celebrate Halloween.|孩子们穿着各式各样的万圣节服装，欢庆万圣节。||
-appearance|n. 外貌；n. 出现，露面|You can't judge a person through his or her appearance .|你不能以貌取人。||
-essence|n. 本质；n. 要素；n. 香精|Speed is of the essence in dealing with an emergency.|在处理紧急事件时，速度是非常重要的。||
-split|v. 分配；v. 分裂；v. 结束关系；n. 划分；v. 分享；phrase. （split second）瞬间；n. 分割；n. 裂口；n. 份额；n. 劈叉；v. 分担|She split the class into groups of four.|她按四人一组把全班分成若干小组。||
-persuasion|n. 说服|She has great powers of persuasion .|她的游说能力极强。||
-undergraduate|n. 大学本科生；adj. （有关）大学生的|He was an undergraduate student at Oxford until 2011.|他2011年前在牛津大学读本科。||
-mature|adj. 成熟的；v. 成熟；v. 酿成；adj. 发育完全的|Jane is very mature for her age.|就简的年纪而言，她算是很成熟的。||
-grab|v. 获取；v. 抓住；v. 留下印象；v. 匆忙地拿（做，吃等）；n. 抓住；n. 夺取|She grabbed the child's hand and ran.|她抓住孩子的手就跑。||
-privilege|n. 特权；n. 荣幸；n. 特惠|Education should be a universal right and not a privilege .|教育应当是全民的权利而非某部分人特别享有的。||
-chip|n. 炸薯条；n. 筹码；n. 碎屑；phrase. （chip in）参与，贡献；phrase. （chip away）逐渐减少，逐渐削弱；n. 芯片|The entire content of a book will be located on a single silicon chip .|整本书的内容只用一片硅芯片就可以装下。||
-spokesman|n. 发言人|The spokesman confirmed that three men had been held hostage.|发言人证实，已有三人被劫为人质。||
-negative|adj. 消极的，否定的；adj. 有害的；n. 负数；n. 否定；n. 底片；adj. 阴性的|The local authority gave a negative answer to our request for funding.|地方当局对我们的财政要求给予否定的回答。||
-extension|n. 延伸；n. 扩大；n. 扩建部分；n. 延期|He applied for a visa extension .|他申请延长他的签证。||
-sensible|adj. 明智的；adj. 合理的|She's a sensible sort of person.|她属于那种通情达理的人。||
-decent|adj. 出色的；adj. 得体的；adj. 舒适的；adj. 正派的|I found a decent job after I graduated from a law school.|我从法学院毕业之后，找到了一份体面的工作。||
-skeleton|n. 骨骼；n. 框架|He is reduced almost to a skeleton .|他瘦得几乎变成了一个骨头架子。||
+derive|v. 从…中获得；v. 源自|The name of the film character is believed to derive from a Greek word.|这个电影角色的名字被广泛认为是源自一个希腊语词汇。||【辨析】thrive   v.茁壮成长，兴旺，繁荣；strive   v.努力，力争；deprive  v.剥夺，使丧失；arise    v.产生，出现；contrive v.谋划，策划 ｜ 【谐音】地(de)里(ri)涌(ve)"：地里涌出一条河(river)，这是河的起源。 ｜ 【变形】现在分词：deriving
+spite|n. （in spite of）尽管；n. 恶意，怨恨|I loaded her shampoo bottle with ink, just out of spite .|我故意在她的洗发水瓶子里装了墨水来出口气。||【辨析】spit    v.啐唾沫（常表示愤怒或鄙视）；despite prep.尽管，即使；split   v.分裂，使分裂（成不同的派别） ｜ 【谐音】死拜特(spite)"：失败后产生怨恨、恶意。 ｜ 【变形】现在分词：spiting
+passion|n. 激情；n. 酷爱的事物|Her lifelong passion for Greek culture began in childhood.|她对希腊文化一生的热爱开始于孩提时代。||【辨析】pension    n.养老金，退休金；passive    adj.消极的，被动的；session    n.（某项活动的）一段时间，一场；passionate adj.热诚的，狂热的；pass       v.经过，越过；compassion n.同情，怜悯；position   n.位置，地点；pattern    n.模式，方式
+breakdown|n. 崩溃；n. 故障；n. 破裂|Both ​sides ​were blamed for the breakdown of ​talks.|双方对谈判的破裂都有责任。||【辨析】breakthrough n.突破，重大进展
+refine|v. 使…更精妙；v. 精炼|The process of refining oil is complicated.|炼油的工序很复杂。||【辨析】define     v.给……下定义，解释；refinery   n.提炼厂，精炼厂；refrain    v.克制，避免；refinement n.精炼，精制；confine    v.限制，局限；reform     v.改革，革新；recede     v.逐渐远离，渐渐退去；rectify    v.<正式>纠正，矫正 ｜ 【谐音】热饭(refine)"：改进饭的口味。表示精炼、改进。 ｜ 【变形】现在分词：refining
+counsel|v. 提供专业咨询；v. 建议，劝告；n. 建议；n. 律师|Counsel for the defense submitted that his client was clearly innocent.|被告的律师辩称其委托人显然是无辜的。||【辨析】counselor n.顾问；council   n.委员会，理事会；conceal   v.隐匿，隐藏；consul    n.领事；console   v.安慰，慰藉；consult   v.咨询，请教；consulate n.领事馆；convince  v.使确信，使信服 ｜ 【谐音】康嫂(counsel)"：这位律师经常给我们建议和劝告。 ｜ 【变形】过去式：counselled/counseled；过去分词：counselled/counseled；现在分词：counselling/counseling
+definite|adj. 确定的；adj. 清楚的|Can you give me a definite answer to this question?|这个问题你能给我一个确切的回答吗？||【辨析】definitely adv.肯定地，当然；define     v.给……下定义，解释；infinite   adj.无限的，无穷尽的；definition n.定义，释义 ｜ 【谐音】答复你的(definite)"：给你一个明确的答复。
+cord|n. 绳，索，线；n. 电源线|The curtain was tied with a cord to let the sunlight in.|窗帘用绳子束了起来，让阳光照进来。||【辨析】cork    n.栓皮，软木（南欧和北非的一种橡树的树皮）；core    n.果核；code    n.密码，暗码；lord    n.主，上帝；accord  n.协议，条约；chord   n.和弦，和音；coil    n.（绳或线等的）卷，匝；discord n.意见分歧，不和
+vertical|adj. 垂直的；adj. 纵向的|The cliff was almost vertical .|那悬崖几乎是笔陡的。||【辨析】virtual adj.几乎……的，实质上的；verbal  adj.口头的，非书面的 ｜ 【谐音】我提扣(vertical)"：提衣服扣子是垂直向上的。
+engagement|n. 订婚；n. 参与；n. 约定；n. 交战|Their engagement was announced in the local paper.|他们订婚的消息已在当地报纸上公布。||【辨析】engage   v.雇用，聘请；engaged  adj.已订婚的；engaging adj.迷人的，吸引人的 ｜ 【谐音】银戒指们(engagement)"：订婚时交换银戒指。
+drain|n. 消耗；v. 使耗尽；v. 排水；n. 下水道；v. 喝光|The day's events completely drained me of all strength.|这天的事情使我精疲力竭。||【辨析】brain    n.脑；grain    名词 n. 谷物，谷粒；strain   n.焦虑，紧张；domain   n.领域，范围；stain    v.（被）玷污，留下污渍；dry      adj.干的；restrain v.制止，阻止 ｜ 【谐音】坠呢(drain)"：下水道里各种脏东西正往下排走。
+exert|v. 运用，施加；v. 尽力|I exerted all my strength to move the box.|我使出全身力气去搬这个箱子。||【辨析】exist    v.存在，实际上有；exit     n.出口，通道，太平门；exertion n.费力，努力；expert   n.专家，能手，权威；erect    v.搭建，建造；execute  v.执行，实施 ｜ 【谐音】一哥惹他(exert)"：就会给你施加压力。
+viewpoint|n. 观点；n. 角度|The teacher encourages students to think of the issue from different viewpoints .|这位老师鼓励学生从不同的视角考虑这个问题。||【谐音】唯有破译它(viewpoint)"：只有破译它才能知道他的看法。
+script|n. 剧本|He has written scripts for a number of successful movies.|他写过一些成功的电影的剧本。||【辨析】scrape     v.（用小刀等）刮除；strip      v.除去，撕掉（外皮或表层）；stripe     n.条纹，线条；transcript n.文字记录，抄本，文字本；manuscript n.手稿，原稿
+admission|n. 准入；n. 承认|No admission after 10 pm.|晚上10点后不得入内。||【辨析】mission    n.（尤指赴他国的）使命，重要任务；permission n.同意，许可；commission n.考察团，委员会；admittance n.进入许可，加入许可；admit      v.（勉强）承认；administer v.管理，治理；admire     v.钦佩，仰慕 ｜ 【谐音】艾的密神(admission)"：门神有允许他人进入的权利。
+energetic|adj. 精力充沛的；adj. 积极的；adj. 需要剧烈活动的|He seems an energetic person.|他似乎是一个精力充沛的人。||【辨析】emergency n.突发事件，紧急情况；energy    n.能力，力气；emerge    v.浮现，出现；electric  adj.电的
+phase|n. 阶段，时期；v. 分阶段进行|Our country is entering a new phase of its development.|我们的国家进入了发展的新阶段。||【辨析】phrase   n.短语，词组；praise   v.（尤指公开地）赞美，表扬；purchase n.<正式>购买，采购；clause   n.从句，分句 ｜ 【谐音】痱子(phase)"：婴儿在出生阶段最容易得痱子。 ｜ 【变形】现在分词：phasing
+expand|v. 扩大；v. 扩展；v. 发展|Metals expand when they are heated.|金属受热会膨胀。||【辨析】extend      v.延伸；expend      v.花费，消耗，耗尽；expense     n.代价，费用；extent      n.程度；expansive   adj.广阔的；expansion   n.扩大，扩张；respond     v.（口头或书面）回答，回应；expensive   adj.花钱多的，昂贵的；expenditure n.经费，支出额 ｜ 【谐音】往外胖(ex-pand)"：向外扩张，表示扩大或扩展。
+attachment|n. 依恋；n. 拥护；n. 附加装置；n. 附件|The child has a strong attachment to its parents.|孩子对父母有强烈的依恋。||【辨析】attach v.系上，贴上，连接；attack v.批评，抨击 ｜ 【谐音】太痴(attach)"：因为痴迷，所以依恋、依附。
+proposition|n. 观点；n. 提议；n. 主张|He made me a proposition the other day.|他前几天给我提了个建议。||【辨析】preposition n.介词，前置词；proportion  n.部分，份额；disposition n.性情，性格；propose     v.提议，建议；proposal    n.提议，建议
+filter|n. 过滤器；v. 过滤；v. 筛选|The teacher gave each of us a piece of filter paper before doing the experiment.|做试验前，老师给我们每个人发了一张滤纸。||【辨析】file    n.文件夹（或箱、柜等）；flatter v.奉承，讨好；filing  n.存档，归档；futile  adj.徒劳的，无用的；fertile adj.肥沃的，富饶的
+pray|v. 祈祷；v. 祈求|I'll pray for you.|我将为你祈祷。||【辨析】gray   adj.灰色的；prayer n.祷文，祷词；ray    n.光束，光线；spray  n.喷雾液体，喷剂；grey   adj.灰色的 ｜ 【谐音】普瑞(pray)"：天下普瑞，就是祈祷。
+species|n. 物种；n. 同类人|Pandas are endangered species and people have taken measures to protect them.|熊猫属于濒危物种，人们已经对其采取保护措施。||【辨析】special    adj.特殊的，特别的；specimen   n.样品，标本；specify    v.明确指出；specialist n.专家 ｜ 【变形】复数形式：species
+specialize|v. 专门研究，专门从事|The French restaurant specializes in seafood.|这家法国餐馆主打海味。||【辨析】specialized    adj.专业的，专门的；specialist     n.专家；specialty      n.专业，专长；speciality     n.特色菜，特产；specialization n.专业；species        n.（动植物的）种，物种；specimen       n.样品，标本；specify        v.明确指出 ｜ 【变形】现在分词：specializing
+writing|n. 写作；n. 作品，著作|The young writer's writing is full of imagination.|这位年轻作家的写作充满想象。||【辨析】written     adj.书面的，（协议、规定、法律等）成文的，（测验、工作等）书面的；writer      n.（职业的）作家，作者；write       v.写作，编写；handwriting n.手写，书写 ｜ 【谐音】歪停(writing)"：写字歪了就得停下来，形容写作过程。
+panel|n. 镶板；n. 玻璃片；n. 专题讨论小组|One of the glass panels in the front door was cracked.|前门的一块方玻璃破裂了。||【辨析】pan     n.平底锅；panic   n.恐慌，惊慌；pain    n.疼痛，伤痛；canal   n.运河，灌溉渠，水道；channel n.频道，电视频道；penalty n.（因违反法律、规定或合同而受到的）处罚，刑罚 ｜ 【谐音】拍呢(panel)"：座谈小组讨论时要拍照留存。 ｜ 【变形】过去式：paneled/panelled；过去分词：paneled/panelled
+tend|v. 倾向于；v. 往往会；v. 照料|When I'm tired, I tend to make mistakes.|我累了就容易出错。||【辨析】tent     n.帐篷；bend     v.弯曲（身体关节）；mend     v.缝补，修补；intend   v.打算，想要；attend   v.随同，陪同；extend   v.延伸；trend    n.趋势，动态；contend  v.声称，主张；pretend  v.伪装，假装；tendency n.经常性行为，偏好；intent   adj.专注的，专心致志的 ｜ 【谐音】瘫的(tend)"：需要别人照顾，有人照顾病情往往会趋向好转。
+drift|v. 缓慢移动；n. 漂流；n. 缓慢移动；v. 漂流；v. 使漂浮|The empty boat is drifting out to sea.|这艘空船正向大海漂去。||【辨析】draft  n.草稿，草案；drill  n.钻，钻机；thrift n.节约，节俭；swift  adj.迅速的，立刻的；craft  n.工艺，手艺；shift  v.（使）移动，（使）转移 ｜ 【谐音】驾驶(drive)转换(shift)"：组合成 drift，表示漂移。
+float|v. 漂浮；v. 浮动|The boats were floating gently down the river.|船只沿着小河慢慢漂流。||【辨析】flat  adj.平的，水平的；boat  n.小船；boast v.有（值得自豪的东西） ｜ 【谐音】浮露头(float)"：漂浮上来露出头。
+realistic|adj. 可实现的；adj. 逼真的；adj. 现实的；adj. 现实主义的|He's realistic enough to know he's not going to succeed overnight.|他很现实，知道自己的成功不会一蹴而就。||【辨析】realise vt.认识到，明白；reality n.真实，现实；realize v.了解，意识到；real    adj.实际存在的，非想象的；really  adv.真正地，事实上 ｜ 【谐音】累死(tic)"：现实(real)就是这么累，形容现实主义的。
+lace|v. 在…中添加；n. 蕾丝；n. 鞋带；n. 缎带；v. 用系带束紧|She bought me a lace handkerchief.|她给我买了一块蕾丝手帕。||【辨析】lack     n.缺乏，不足；lick     v.舔，舔吃；leak     v.渗入，漏出；necklace n.项链 ｜ 【谐音】蕾丝(lace)"：花边和鞋带的统称。 ｜ 【变形】现在分词：lacing
+opponent|n. 对手；n. 反对者|He knocked down his opponent in the contest.|他在比赛中击倒了自己的对手。||【辨析】component   n.组成部份，成分，部件；oppose      v.反抗，阻碍；opposite    adj.完全相反的，截然不同的；appointment n.约会，约定 ｜ 【谐音】怕弄他(opponent)"：因为他是我的对手，所以我怕惹他。
+interpretation|n. 解释，说明；n. 口译|It is difficult for many people to accept the interpretation .|很多人难以接受这个解释。||【辨析】interpret    v.解释，说明；interpreter  n.口译者，译员；interruption n.打断，插嘴；interaction  n.互动，交流；interference n.干涉，干预
+liable|adj. 可能…的；adj. 负法律责任的|We are liable to make mistakes.|我们都易犯错误。||【辨析】viable    adj.可望成功的，切实可行的；reliable  adj.可靠的，可信赖的；label     n.标签，标牌；liberal   adj.思想开明的；liability n.（法律上应承担的）责任，义务；literate  adj.有读写能力的，受过良好教育的 ｜ 【谐音】赖我吧(liable)"：我有责任和义务。
+validity|n. 符合逻辑；n. （法律上的）有效|I would question the validity of that assumption.|我会质疑那个假设的正当性。||【辨析】vitality     n.活力，热情；validate     v.批准，确认……有效；valid        adj.（文件或票证）有效的；availability n.可用性，可得性；invalid      adj.（法律上）无效的，作废的 ｜ 【谐音】为了得体(validity)"：要做到合法、正确。
+hollow|adj. 空心的；adj. 无意义的；n. 孔，洞；n. 凹陷处；adj. 凹陷的；adj. 虚伪的|This tree looks high and strong but actually its trunk is hollow .|这棵树看起来又高又壮，实际上树干是空的。||【辨析】fellow  n.小伙子，家伙；shallow adj.浅的，不深的；swallow v.吞下，咽下 ｜ 【谐音】好low(hollow)"：他的话语很空洞，感觉好low。
+dramatic|adj. 显著的；adj. 戏剧（性）的；adj. 激动人心的，引人注目的；adj. 突然的|His attitude towards life had a dramatic change after his wife passed away.|自他妻子去世后，他对生活的态度有了很大变化。||【辨析】drama        n.剧本，戏剧；dramatically adv.剧烈地，明显地；domestic     adj.国内的，本国的；drastic      adj.极端的，激烈的；dynamic      adj.充满活力的，精力充沛的；democratic   adj.平等的，有民主精神的 ｜ 【谐音】抓马替课(dramatic)"：太具有戏剧性了！
+detective|n. 侦探；adj. 侦探的；n. 刑侦|The detective tried to reason out how the thief had escaped.|这个侦探反复琢磨想弄明白那个窃贼是怎样逃跑的。||【辨析】defective  adj.有问题的，有缺陷的；deceptive  adj.欺骗性的，造成假象的；detection  n.察觉，发现；detect     v.查明，察觉；objective  n.目的，目标；subjective adj.出自（或涉及）个人感情的，个人的；defect     n.缺点，缺陷，毛病 ｜ 【谐音】的特(detec)替(tive)"：侦探有特殊的天赋。
+payment|n. 支付的款项；n. 支付；n. 报酬|The restaurant doesn't accept payment by credit card.|这家餐厅不接受信用卡支付。||【辨析】pavement n.<英>人行道；pay      v.支付，付 ｜ 【谐音】赔门的(payment)"：要支付赔偿的钱。
+render|v. 使变得；v. 给予；v. 表达；v. 翻译|The car accident has rendered him unconscious.|这次车祸让他失去了意识。||【辨析】tender adj.温柔的，亲切的；gender n.性别 ｜ 【谐音】认得(render)"：因为认得这个外国人，所以给予他翻译，致使沟通顺畅。
+lump|n. 团，块；n. 肿块|This sauce has lumps in it.|这调味汁里有结块。||【辨析】limp  v.瘸着脚走，跛行；bump  v.（使身体部位等）碰上，撞上；slump v.（价格、价值、数量等）骤降，猛跌；lime  n.酸橙（树）；limb  n.肢；lame  adj.瘸的，跛的，残疾的；slum  n.贫民窟，棚屋区 ｜ 【谐音】烂破(lump)"：一个肿块不包扎会烂破。
+thrust|phrase. （thrust into）投身于…之中；n. 猛推；n. 刺，戳；n. 推力；v. 猛推；v. 刺，戳|The reporters thrust a microphone in front of him and started to throw questions at him.|记者们把话筒塞到他面前，开始向他提问。||【辨析】trust n.信任，信赖 ｜ 【变形】过去式：thrust；过去分词：thrust
+option|n. 选项；n. 选择权；n. 选修课|He had no option but to agree.|他除了同意外别无选择。||【辨析】optional  adj.可选择的，选修的；position  n.位置，地点；opt       v.选择，作出抉择；opinion   n.意见，看法；oppose    v.反抗，阻碍；selection n.选择，挑选 ｜ 【谐音】我不行(option)"：我不行，要另做选择。词根：opt（选择）+ ion（名词后缀）= option（选择权）。
+absent|adj. 缺席的；v. 缺席；adj. 心不在焉的；v. 不参加；adj. 缺少的|He was absent from work for two weeks.|他两周没来上班。||【辨析】absence n.缺席，缺勤，不在；present adj.（人）在场的，出席的；attend  v.随同，陪同 ｜ 【谐音】阿伯肾疼(absent)"：阿伯因肾疼缺席了会议。
+brand|n. 品牌；v. 把…定性为；phrase. （brand new）全新的；n. 类型；n. 独特的个性|You pay less for the supermarket's own brands .|超市自有品牌的东西便宜些。||【辨析】grand  adj.壮丽的，堂皇的；brandy n.白兰地（酒）；brain  n.脑；branch n.树枝，分枝；blend  v.（使）混合，调和；band   n.乐队；bend   v.弯曲（身体关节）；grant  v.授予，给予；blood  n.血，血液 ｜ 【谐音】不软的(brand)"：硬气的品牌，给人留下深刻印象。
+cart|n. 购物车；n. 运货马车；n. 手推车|A cart was rumbling across the bridge.|一辆马车轰隆隆地从桥上驶过。||【辨析】cast  vt.投射（光，影）；dart  v.飞奔，猛冲；cargo n.（船或飞机装载的）货物；chart n.图表，曲线图；cater v.提供餐饮服务，承办酒席；chord n.和弦，和音 ｜ 【谐音】汽车(car)特(t)"：特别大的车。
+discipline|n. 学科；n. 自制力；n. 纪律；v. 训练，管教；n. 训练方法；v. 严格要求；v. 惩罚|The school is famous for high standards of discipline .|这所学校因其对纪律要求高著称。||【辨析】disciplinary adj.有关纪律的，惩戒性的；principle    n.（行为）准则，（道德）原则
+furnish|v. 布置房间；v. 供应|The hotel staff furnished the room before the guests checked in.|旅馆工作人员在客人入住前布置好了房间。||【辨析】flourish v.繁荣，昌盛；furnace  n.火炉，熔炉；vanish   v.突然不见，消失 ｜ 【谐音】for你使(furnish)"：为你提供、供给使用。
+strive|v. 努力，力争|We encourage all members to strive for the highest standards.|我们鼓励所有成员为达到最高标准而努力。||【辨析】thrive   v.茁壮成长，兴旺，繁荣；strike   v.打，撞；starve   v.（使）挨饿，饿死；strict   adj.要求严格的，严厉的；struggle v.奋斗，努力 ｜ 【谐音】死拽我(strive)"：意志死拽着我，让我努力奋斗。 ｜ 【变形】过去式：strove；过去分词：striven；现在分词：striving
+alert|v. 提醒，警告；n. 警戒，警报，警示；adj. 机敏的，机警的|Although he's over eighty his mind is still remarkably alert .|他虽已年过八十，但头脑仍然十分机敏。||【辨析】alarm n.警报；alter v.改变，改动 ｜ 【谐音】all的耳朵(er)听(t)(alert)"：所有人都警惕地竖起耳朵听着。

@@ -1,70 +1,50 @@
-reflection|n. 深思；n. 反映；n. 反射；n. 倒影|The girl could see her reflection in the water, shimmering in the moonlight.|女孩看到自己在水中的倒影在月光下闪烁。||
-obligation|n. 义务；n. 职责；n. 承诺|The company has to fulfill the terms of its obligation .|这个公司必须履行合同条款。||
-descend|v. 下降；v. 降临；v. 堕落|The plane safely descended despite the storm.|尽管天降暴风雨，这架飞机还是安全地降落了。||
-reluctant|adj. 不情愿的，勉强的|She was reluctant to admit her mistake when questioned by her parents.|面对父母的质问，她不愿承认自己犯了错。||
-gross|adj. 总的；adj. 令人恶心的；n. 总收入，总量；adj. （利润）毛的|Investments showed a gross profit of 26%.|投资获得26%的总利润。||
-widespread|adj. 普遍的；adj. 分布广的|Bird flu is a widespread disease because it can affect many people quickly.|禽流感是种广泛传播的疾病，因为它能快速传染很多人。||
-punch|n. 一拳，一击；v. 用拳击打；v. 打孔；v. 输入信息|The boxer gave his opponent a punch on the nose.|这个拳击手朝他对手的鼻子上猛击一拳。||
-resemblance|n. 相像，相似|She bears a remarkable resemblance to Amy.|她跟艾米长得非常相似。||
-outlook|n. 观点；n. 世界观；n. 景色；n. 前景|The Oxford graduate has a very positive outlook for his future.|这位牛津毕业生的发展前景非常乐观。||
-oppose|v. 反对；phrase. （as opposed to）相对于；v. 抵抗|This party would bitterly oppose the reintroduction of the death penalty.|本党会强烈反对恢复死刑。||
-bearing|n. 关系；n. 影响；n. 方位；n. 举止|Why should that have any bearing on what I do?|为什么那和我的所为有关？||
-revise|v. 修改，修订；v. 复习|The investigation team has to revise the original plan due to local objections.|由于来自当地的反对，这支考察队不得不修改最初的计划。||
-interview|n. 面试；n. 采访；v. 采访；v. 面试|He has an interview next week for the manager's job.|他下周要接受一个经理职位的面试。||
-pursuit|n. 追求；n. 爱好；n. 追赶|The young man travelled the world in pursuit of his dreams.|这个年轻人周游世界，追寻他的梦想。||
-plague|v. 烦扰；v. 折磨；n. 灾祸；n. 瘟疫|A plague killed many prisoners of war at the time.|当时一场瘟疫夺去了很多战俘的生命。||
-occupation|n. 职业；n. 消遣；n. 占领|The areas under occupation includes major industrial areas.|这些被占领的地方包含主要的工业区。||
-liver|n. 肝脏|His mother died of liver failure.|他的母亲死于肝衰竭。||
-soar|v. 猛增；v. 升空；v. 翱翔；v. 耸立|The average temperature during the day in July soared to 38 degrees Celsius in Shanghai.|上海七月份的日间平均温度骤升到了38摄氏度。||
-rarely|adv. 很少；adv. 稀有地|Nowadays, lots of people rarely spend time reading physical books.|现如今，很多人不怎么花时间去读实体书了。||
-federal|adj. 联邦（政府）的|The federal government has invested a lot to improve the transportation problem.|联邦政府投入了大量资金来改善交通问题。||
-generate|v. 引起；v. 产生（能量）|The company burns coal to generate power for the local community.|这家公司为当地社区烧煤发电。||
-inland|adj. 内陆的，内地的；adv. 向内陆，向内地|The town lies a few kilometres inland .|这个城市位于内陆几公里处。||
-indifferent|adj. 漠不关心的；adj. 一般的|The teenager never watched news reports and was indifferent to current affairs.|这个少年从不看新闻报道，对时事漠不关心。||
-aviation|n. 航空（业）|He devoted all his life to China's aviation .|他的一生都奉献给了中国的航空事业。||
-atomic|adj. 原子的；adj. 原子能的|The atomic structure of an element determines its chemical properties.|元素的原子结构决定了它的化学性质。||
-hazard|n. 危险|Growing levels of pollution represented a serious health hazard to the local population.|日益严重的污染对当地居民的健康构成了重大威胁。||
-penetrate|v. 渗透；v. 穿过，进入|The intense radiation of the nuclear leak can penetrate the skin.|核泄漏的高强度辐射会穿透皮肤。||
-conclude|v. 得出结论；v. 结束；v. 推断出|The report concluded the cheapest option was to close the laboratory.|这份报告得出结论：代价最低廉的选择是关闭实验室。||
-curl|n. 卷曲；v. 使卷曲；v. 蜷缩；n. 卷发；v. 使缠绕|Her hair curls naturally.|她的头发自然卷。||
-extend|v. 延伸；v. 扩大；v. 适用于；v. 允许使用；v. 包括|The government plans to extend the no-smoking zones.|政府计划扩大无烟区。||
-monetary|adj. 金融的，货币的|The government is currently implementing a tight monetary policy.|政府正实施着从紧的货币政策。||
-publicity|n. 宣传；n. 公众的关注；n. 广告|The accident that caused several injuries brought considerable adverse publicity about the school.|这起造成多人受伤的事故给学校带来了大量的负面报道。||
-clarify|v. 阐明|I hope this clarifies my position .|我希望这能阐明我的立场。||
-prose|n. 散文|William published his newest prose on a local magazine.|威廉在当地一家杂志发表了他最新的散文。||
-unemployment|n. 失业；n. 失业人数|Mass unemployment may lead to social instability.|大批失业可能会导致社会不稳定。||
-episode|n. 一段经历；n. 一集；n. 片段；n. 疾病发作期|The soap opera is ending after 175 episodes .|这部肥皂剧在175集后将剧终。||
-institution|n. （院校等）机构；n. 制度；n. 风俗|They work in the same institution .|他们在同一家机构工作。||
-limitation|n. 局限性；n. 缺陷；n. 限制；n. 追诉时效|The state council put a limitation on the city government's budget of next year.|国会对政府明年的预算加以限制。||
-finance|n. 金融；n. 财务状况；v. 为…供给资金；n. 资金|The fund has been used largely to finance schools.|该基金大部分用于了资助学校。||
-breadth|n. 广泛性；n. 宽度|The length of this case is twice its breadth .|这个盒子的长度是其宽度的两倍。||
-likelihood|n. 可能性|We must try our best to reduce the likelihood of war.|我们必须尽最大努力减少战争的可能性。||
-consume|v. 吃，喝；v. 消耗；v. 消费；v. 使充满|Before he died he had consumed a large quantity of alcohol.|他死亡前喝了大量的酒。||
-interference|n. 干扰；n. 干涉，介入|As an adult, I refuse any interference in my work.|作为一个成年人，我拒绝任何干扰我工作的行为。||
-profitable|adj. 盈利的，有利可图的|The problem is that it's not profitable .|问题在于它无利可图。||
-slender|adj. 细长的；adj. 纤细的|The models on stage impressed people with their tall and slender figures.|舞台上模特们高挑又纤细的身材令人们印象深刻。||
-idle|v. 无所事事，闲荡；adj. 空闲的；adj. 无业的；adj. 懒惰的；adj. 漫无目的的|Decreased demand for the products has left the workers idle for a month.|产品需求量的减少让工人闲了一个月。||
-bargain|n. 物美价廉的东西；v. 讨价还价；v. 讲条件；n. 交易|The car was a bargain at that price.|那辆车的价格真便宜。||
-suspicion|n. 怀疑；n. 猜疑|They walked away slowly to avoid causing suspicion .|他们慢慢走开，以免引起怀疑。||
-exclusive|adj. 排斥的；n. 独家报道；adj. 专用的；adj. 独家的|The hotel has exclusive access to the beach.|这家旅馆有通向海滩的专用通道。||
-poverty|n. 贫穷，贫困|They live in extreme poverty .|他们生活在赤贫之中。||
-scandal|n. 丑闻|He committed suicide after the scandal was exposed.|丑闻曝光后，他自杀了。||
-significant|adj. 显著的；adj. 意义重大的；adj. 相当数量的；adj. 意味深长的|It's significant to protect our environment.|保护环境是很有意义的。||
-misfortune|n. 不幸；n. 灾祸|He has known great misfortune in his life.|他一生中经历过巨大的不幸。||
-academic|adj. 学术的；n. 学者；n. 学术；adj. 学院的；n. 大学教师；adj. 偏重理论的|The students will start the new academic year in October.|学生们将在10月开始新的学年。||
-innovation|n. 新方法；n. 变革；n. 新事物|Anesthesia was a great innovation in medicine.|麻醉是一项伟大的医学创新。||
-edit|v. 编辑；v. 校订；n. 编辑；n. 校订；n. 剪辑；v. 剪辑|I know that this draft text will need to be edited .|我知道这篇草稿需要校订。||
-replace|v. 代替；v. 更换|We've replaced the old machine with a computer.|我们用电脑取代了老式的机器。||
-scare|v. 使受惊吓，使害怕；n. 惊恐|It scared me to think I was alone in the building.|想到楼里只有我一个人，怪害怕的。||
-emerge|v. 浮现；adj. （emerging）新兴的；v. 暴露；v. 变得显眼|The sun emerged from the clouds.|太阳从云层露出来了。||
-gradually|adv. 逐渐地|The sound of his footsteps gradually died away as he walked down the aisle.|当他在走廊上越走越远，他的脚步声也慢慢消失。||
-input|n. 输入（的信息）；n. 投入；v. 输入|Edit the input text and re-run the software.|修改输入的文本，重新运行软件。||
-sponsor|v. 赞助；n. 赞助者；n. 发起人；v. 主办|I'm collecting sponsors for next week's charity run.|我正在为下星期的募款赛跑征集捐款者。||
-revolutionary|adj. 革新的；n. 改革者，革命者；adj. 革命的|He knows well about the revolutionary movement.|他对那次革命运动很了解。||
-existence|n. 存在；n. 继续生存；n. 生活（方式）|Global warming could threaten the existence of some rare species.|全球变暖可能威胁珍稀物种的生存。||
-atmosphere|n. 气氛；n. 大气层|The planet has a thick atmosphere .|这颗行星的大气层很厚。||
-genuine|adj. 真正的；adj. 真诚的|Tom looked at her with genuine concern.|汤姆看着她，眼中流露着真切的关心。||
-tedious|adj. 单调的，冗长的|The tedious lecture made students sleepy.|这场冗长乏味的讲座让学生们昏昏欲睡。||
-sympathetic|adj. 有同情心的；adj. 赞成的|She felt sympathetic about her neighbor's misfortune, so she often comforted him.|她对邻居遭遇的不幸感到同情，所以她常常安慰他。||
-complicate|v. 使复杂化|I do not wish to complicate the task further.|我不想使这项任务更复杂。||
-commonplace|adj. 普通的，普遍的；n. 常见的事；n. 老生常谈|Many movies deal with commonplace themes.|许多电影的主题很平庸。||
+accommodate|v. 适应；v. 容纳；v. 提供住宿；v. 迎合|Animals have to accommodate to changes in different weather conditions.|动物们不得不适应不同的天气变化。||【辨析】accommodation n.<美>住宿，膳宿；accumulate    v.积累，积攒；communicate   v.传递信息，通讯；accelerate    v.（使）加快，促进 ｜ 【谐音】我靠门等他(accommodate)"：等他来容纳我，提供住处。 ｜ 【变形】现在分词：accomodating
+associate|v. 联系，联想；adj. 副的；n. 同事，合伙人；n. 副手；v. 交往|I always associate the smell of baking with my childhood.|一闻到烘烤食物的味道我就想起了童年。||【辨析】association n.协会，社团，联盟 ｜ 【变形】现在分词：associating
+candidate|n. 候选人|She is one of the leading candidates for the presidency.|她是总统职位的主要候选人之一。||【辨析】candle   n.蜡烛；dedicate v.致力于，献身于；calendar n.日历；delicate adj.柔和的，清淡的 ｜ 【谐音】肯定得他(candidate)"：候选人都很有自信。
+negotiate|v. 协商；v. 谈成|The government will not negotiate with terrorists.|政府不会和恐怖分子谈判。||【辨析】negate   v.否认，否定；negative adj.否定的，拒绝的；negation n.否认，拒绝；neglect  v.疏于照顾，未予看管 ｜ 【谐音】你够谁(negotiate)"：你够谁吃的？利润太少，拒绝谈判。 ｜ 【变形】现在分词：negotiating
+fellowship|n. 奖学金；n. 团体；n. 友谊|They offer students counselling and fellowship .|他们为学生提供咨询和奖学金。||【辨析】fellow n.小伙子，家伙 ｜ 【谐音】翻了(fellow)船(ship)"：获得奖学金后，原有的伙伴关系可能会改变。
+burden|n. （精神）负担；v. 使焦虑；v. 使担负；n. 重担|The policy was formulated to reduce the burden of primary students.|制定这项政策是为了减轻小学生的负担。||【辨析】burn    v.燃烧，消耗；border  n.国境，边界；burst   v.爆炸，爆裂，胀开；bury    v.埋，埋葬；burglar n.入室行窃者，窃贼 ｜ 【谐音】百吨(burden)"：百吨的责任和重担压在她的身上。
+sensitivity|n. 敏感性；n. 灵敏度；n. 体贴|As we all know, she is a girl with great sensitivity .|我们都知道，她是个很敏感的女孩。||【辨析】sensitive   adj.过敏的，易受影响的；sensation   n.感觉，知觉；sensational adj.轰动的，激动人心的；sentiment   n.观点，看法，情绪；sensible    adj.理智的，合理的；sentimental adj.情感的（而非理性的） ｜ 【变形】复数形式：sensitivities
+resistance|n. 免疫力；n. 反抗；n. 抵制；n. 阻力|There was a lot of resistance to the plan when it was first introduced.|该计划刚被采用时，遭到了众多抵制。||【辨析】resistant   adj.抵制的，反抗的；assistance  n.帮助，援助；renaissance n.复兴，再生；resist      v.阻挡，抵制；residence   n.住宅，住所；insistence  n.坚决要求，坚持主张；persistence n.继续存在，维持；assistant   n.助理，助手；reside      v.<正式>居住，定居；resident    n.居民，住户 ｜ 【谐音】与其是等死(resistance)"：不如奋起反抗，勇于面对阻力。
+lobby|v. 游说；n. 门厅；n. 游说（团体）|I met him in a hotel lobby .|我在酒店大厅遇见了他。||【辨析】lorry    n.卡车，货运汽车；lobbyist n.说客，游说者；shabby   adj.破旧的，破烂的；lodge    v.（使）固定，（使）卡住；lottery  n.抽彩给奖法，博彩 ｜ 【谐音】罗毕(lobby)"：他的爱好是在大厅里游说。 ｜ 【变形】复数形式：lobbies；过去式：lobbied；过去分词：lobbied
+stability|n. 稳定；n. 稳固|It was a time of political stability and progress.|那是一个政治稳定和进步的时期。||【辨析】liability  n.（法律上应承担的）责任，义务；stabilize  v.（使）稳定，稳固；stable     adj.稳定的，牢固的；stationary adj.不动的，静止的 ｜ 【谐音】是他背了题(stability)"：他背题后成绩变得稳定。
+mystery|n. 谜；n. 神秘的事物|It is one of the greatest unsolved mysteries of this century.|这是本世纪尚未解决的大奥秘之一。||【辨析】mysterious adj.不可思议的，难以理解的；minister   n.（英国及其他许多国家的）部长，大臣 ｜ 【谐音】谜死特瑞(mystery)"：my story中o变成e，这是个谜。 ｜ 【变形】复数形式：mysteries
+handicap|n. 生理缺陷，残疾；n. 障碍|Despite her handicap , Jane is able to hold down a full-time job.|简尽管有生理缺陷，却能保住一份全职工作。||【辨析】handicapped adj.残疾的，弱智的；hardship    n.困苦，艰难 ｜ 【谐音】憨弟开铺(handicap)"：傻弟弟开店会面临很多阻碍、障碍。 ｜ 【变形】过去式：handicapped；过去分词：handicapped；现在分词：handicapping
+cherish|v. 珍爱；v. 抱有|It was a wonderful occasion which we will cherish for many years to come.|那是一个美好的时刻，我们将多年不忘。||【辨析】cherry   n.樱桃；charity  n.慈善组织，慈善机构；nourish  v.养育，滋养；flourish v.繁荣，昌盛 ｜ 【谐音】车钥匙(cherish)"：车钥匙很重要，要珍惜。
+dominant|adj. 占支配地位的；adj. 显性的|Peace was the dominant theme of the conference.|和平是大会的首要议题。||【辨析】dominate v.统治，支配；domain   n.领域，范围；domestic adj.国内的，本国的 ｜ 【谐音】都没弄他(dominant)"：他太厉害，处于支配地位。
+imaginary|adj. 想象的，虚构的|The Monkey King is an imaginary character in the novel Journey to the West.|孙悟空是小说《西游记》中一个虚构的人物。||【辨析】imaginative adj.富于想像力的，创新的；imagination n.想像力，想像；visionary   adj.有眼力的，有远见卓识的；image       n.形象，印象
+civil|adj. 公民的；adj. 民用的；adj. 文明的|The issue is related to civil rights.|这一问题与民事权利有关。||【辨析】civilize     v.教化，熏陶；civilian     n.平民，百姓（区别于军、警）；evil         adj.恶毒的，邪恶的；citizen      n.市民，城镇居民；civilization n.文明 ｜ 【谐音】是我(civil)"：我是文明的公民。
+transplant|n. 器官移植；v. 移植（器官）；v. 移栽|Patients often reject transplanted organs.|患者经常排斥移植的器官。||【辨析】transport    n.运输，运送；transparent  adj.透明的，清澈的；transmit     v.播送，传输，发射；transient    adj.转瞬即逝的，短暂的；transit      n.运输，运送；transcend    v.超出，超越；translation  n.翻译；translator   n.（尤指从事笔译的）译者，翻译家；transition   n.过渡，转变；transform    v.使改观，使变形，使转化；transfer     v.（使）转移，搬迁；transmission n.（无线电、电视等信号的）播送，发送
+shortage|n. 不足，短缺|Any shortage could push up grain prices.|任何一种短缺都会抬高粮食价格。||【辨析】storage     n.储存，贮藏；shortcoming n.缺点，短处 ｜ 【谐音】瘦体质(shortage)"：瘦弱的体质是由于营养短缺。
+plentiful|adj. 大量的，充足的|There is a plentiful supply of food on the table on New Year's Eve.|在除夕夜，餐桌上的食物都很丰盛。||【辨析】plaintiff n.<法律>原告，起诉人 ｜ 【谐音】普兰特富(plentiful)"：普兰家有丰富、充裕的好吃的。
+mess|n. 混乱局面；v. 搞糟；n. 脏乱；v. 弄脏，弄乱；n. 肮脏之物|The kitchen was in a mess .|厨房又脏又乱。||【辨析】mass    n.团，块；miss    v.未击中，未抓住；message n.口信，消息 ｜ 【谐音】卖丝(mess)"：丝绸容易缠绕在一起，比喻混乱的状态。
+slap|v. 拍打；n. 掌击；n. 拍打声；v. 掌掴|He slapped me on the back and congratulated me.|他拍了拍我的后背并祝贺我。||【辨析】slip  v.滑倒，失足；snap  v.（咔嚓一声）断裂，折断；flap  n.片状悬垂物；slam  v.（使）砰地关上；slash v.（用利器）砍，劈；slum  n.贫民窟，棚屋区；clip  n.夹子，别针；flip  v.（使）快速翻转，迅速翻动；lash  v.猛击，狠打
+composer|n. 作曲家|He's a composer of pop music.|他是流行音乐作家。||【辨析】composed  adj.平静的，镇定的；compose   v.组成，构成；composite adj.合成的，复合的；component n.组成部份，成分，部件 ｜ 【谐音】看谱子(composer)"：作曲家需要看谱子创作音乐。
+invade|v. 侵扰；v. 大量涌入；v. 侵略|The enemy forces were preparing to invade our neighboring countries.|敌军当时正准备入侵我们的邻国。||【辨析】invader  n.侵略者，侵略军；evade    v.规避，逃避；invasive adj.扩散性的，侵入的；intrude  v.闯入；invasion n.侵略，入侵 ｜ 【谐音】进(in)胃的(vade)"：病从口入，病菌入侵。 ｜ 【变形】现在分词：invading
+explode|v. 激增；v. 爆炸；v. 迸发感情|There was a huge bang as if someone had exploded a rocket outside.|突然一声巨响，仿佛有人在外面引爆了火箭似的。||【辨析】explore   v.探讨，探究；exploit   v.剥削，压榨；expose    v.暴露，使显露；explosive adj.易爆的，可能引起爆炸的；exposure  n.暴露，接触；employ    v.雇用；explosion n.爆破，爆炸（声） ｜ 【变形】现在分词：exploding
+moderate|adj. 适度的，中等的；v. 使缓和；adj. 温和的|Moderate amounts of stress can be beneficial.|适当的压力可能有益。||【辨析】modern adj.近代的，现代的；modest adj.不太多的，适中的 ｜ 【谐音】摸得热的(moderate)"：这水温适中，摸起来比较热。 ｜ 【变形】现在分词：moderating
+outline|n. 提纲；v. 概括；v. 勾勒；n. 轮廓；n. 草图|This is a brief outline of the events.|这就是事件的简要情况。||【辨析】online    adj.（产品、服务或信息）在线的，网上的；outlet    n.（情绪或精力的）发泄方式，发泄途径；outlook   n.看法，态度；airline   n.航空公司；outer     adj.外面的，外部的；decline   v.下降，衰退；incline   v.（使）倾向于；deadline  n.最后期限，截止日期；underline v.在……下面画线；guideline n.指导方针，准则；headline  n.（报纸的）标题，大字标题；output    n.产量，作品 ｜ 【谐音】外面线(out line)"：外面的线条形成轮廓，也可以理解为纲要或概括。
+undertake|v. 着手做，承担；v. 开创（企业）|University professors both teach and undertake research.|大学教授既要教学又要从事研究工作。||【辨析】undertaking n.任务，企业；undermine   v.逐渐削弱（损害）；overtake    v.追上， 赶上并超过（汽车或人）；undergo     v.经历，经受；intake      n.（食物、饮料、空气等的）摄取量，吸入量 ｜ 【谐音】俺得替课(undertake)"：去替课的同时也承担了很多责任。 ｜ 【变形】过去式：undertook；过去分词：undertaken；现在分词：undertaking
+tuition|n. 学费；n. 教学|She can't afford the university tuition this year.|她付不起今年的大学学费。||【辨析】tutor n.家庭教师，私人教师 ｜ 【谐音】吐一身(tuition)"：听到同学说今年的学费又涨了，吐了他一身。
+compromise|n. 折中方案；n. 妥协；v. 妥协；v. 危及；v. 违背原则|In any relationship, you have to make compromises .|在任何关系当中，人们都得作出让步。||【辨析】comprise      v.包括，包含；compose       v.组成，构成；promise       v.承诺，保证；comparison    n.比较，对照；compensate    v.赔偿，偿付；comprehensive adj.综合性的，全面的 ｜ 【变形】现在分词：compromising
+exposure|n. 暴露；n. 经历；n. 揭露|Long exposure to the sun may cause skin cancer.|长时间暴露在阳光下可能会引起皮肤癌。||【辨析】expose    v.暴露，使显露；explosion n.爆破，爆炸（声） ｜ 【谐音】一刻识破了(exposure)"：一刻就被识破了，于是他暴露了。
+troop|n. 部队；n. 一群|There were still reports of troop movements in the area.|该地区仍有军队调动的报道。||【辨析】trip  n.（尤指短程往返的）旅行，旅游；group n.集体，团体 ｜ 【谐音】触碰(troop)"：千万不要触碰正在成群行进的军队。
+authority|n. 当局；n. 权力；n. 权威；n. 管辖权|She now has authority over the people who used to be her bosses.|她现在管辖着过去是她上司的那些人。||【辨析】author    n.作者，著者；authentic adj.原作的，真迹的 ｜ 【谐音】我扫弱敌(authority)"：我能扫除弱小的敌人，当然我是权威。 ｜ 【变形】复数形式：authorities
+donation|n. 捐赠（物）|Every year she makes a large donation to a charity.|她每年都向慈善机构捐一大笔钱。||【辨析】donate   v.捐赠，赠送；donor    n.捐献者，捐赠者；dominant adj.占支配地位的，占优势的；dominate v.统治，支配 ｜ 【谐音】兜内剩(donation)"：都捐出去了，兜里没剩下什么了。 ｜ 【图���】n. 捐赠
+upright|adj. 直立的；adj. 挺直的；adj. 正直的|Please stand upright when saluting to the commander.|向首长致敬时，请立正。||【谐音】up(up)主都是对的(right)"：up主们都是正直诚实的人。
+advocate|n. 拥护者；v. 拥护，提倡；n. 辩护者|He advocates reducing military spending.|他主张削减军费开支。||【辨析】allocate v.分配，分派，划拨；advocacy n.拥护，提倡；advice   n.忠告，劝告，建议；advance  v.（使）前进，（使）向前移动；delicate adj.柔和的，清淡的；indicate v.表明，标示；dedicate v.致力于，献身于；decorate v.装饰，装点；devote   v.献身，致力 ｜ 【谐音】爱的我cat(advocate)"：我爱我的猫，我是动物保护主义的提倡者、拥护者。 ｜ 【变形】现在分词：advocating
+imitate|v. 模仿；v. 仿制|He often tries to amuse the audience by imitating others.|他经常试图通过模仿别人来逗乐观众。||【辨析】imitative adj.模仿的，仿效的；initiate  v.开始实施，发起；intimate  adj.亲密的；stimulate v.促进，激发（某事物） ｜ 【变形】现在分词：imitating
+accelerate|v. （使）加速；v. 增长|Exposure to the sun can accelerate the ageing process.|暴露在日光下会加快老化过程。||【辨析】accumulate v.积累，积攒；celebrate  v.庆祝，庆贺；calculate  v.计算，核算 ｜ 【变形】现在分词：accelerating
+baseball|n. 棒球（运动）|I saw two boys tossing a baseball back and forth.|我看见两个小男孩在来回扔棒球。||【辨析】basketball n.篮球；football   n.足球运动 ｜ 【谐音】白(ba)色(se)球(ball)"：棒球通常是白色的球。
+exile|n. 流放；n. 流亡国外者；n. 放逐；v. 流放，放逐|He returned after 40 years of exile .|他流放40年后归来。||【辨析】expire  v.到期，失效；excel   v.精通，擅长；expel   v.把……开除（或除名）；textile n.纺织物，织物；elite   n.权力集团，上层人士；missile n.导弹，飞弹 ｜ 【谐音】饿死了(exile)"：被流放之后可能会饿死。 ｜ 【变形】现在分词：exiling
+relativity|n. 相对性；n. 相对论|Einstein's theory of relativity reshaped people's view of the universe.|爱因斯坦的相对论重塑了人们对宇宙的看法。||【辨析】reality n.真实，现实；relate  v.联系，使有联系；related adj.相关的，有联系的 ｜ 【谐音】来了提不提(relativity)"：相对论的概念，强调事物之间的关系。
+rub|v. 摩擦；v. 涂抹|Scolded by his mother, this poor boy cried and rubbed his eyes.|挨了妈妈一顿骂，这个可怜的小男孩边哭边揉眼睛。||【辨析】rib n.肋骨；rob v.抢劫，盗取；pub n.酒吧，酒馆；rug n.小地毯，垫子；rod n.棒，杆；rid v.使……去掉，使……去除；rag n.抹布，破布；rim n.（圆形物体的）边沿；rip v.（使）撕裂，（使）划破；rot v.（使）腐败，（使）腐烂；raw adj.生的，未煮过的 ｜ 【谐音】乳白(rub)"：身上擦的乳液是白色的。 ｜ 【变形】过去式：rubbed；过去分词：rubbed；现在分词：rubbing
+racial|adj. 种族的；adj. 人种的|It's essential to end racial discrimination in employment.|停止就业方面的种族歧视是非常重要的。||【辨析】radical  adj.根本的，彻底的；racism   n.种族主义，种族偏见；rational adj.（想法、决定等）合理的，基于理性的；race     n.赛跑，速度竞赛 ｜ 【谐音】瑞兽(racial)"：每个种族都有自己的瑞兽吉祥物。
+cement|n. 水泥；n. 混凝土；v. 粘结；v. 巩固|We need 100 tons of cement at most for this project.|这项工程满打满算有一百吨水泥就足够了。||【辨析】comet    n.彗星；cemetery n.公墓，墓地；ceremony n.仪式，典礼 ｜ 【谐音】塞满它(cement)"：用水泥塞满，使其巩固、粘合。
+convention|n. 惯例；n. 大会；n. 国际公约|By convention , north is at the top of most maps.|依照惯例，北方位于大多数地图的顶端。||【辨析】conviction   n.定罪，判罪；conventional adj.依照惯例的，遵循习俗的；contention   n.看法，观点；conversion   n.转变，转换；convene      v.召集，集合，开会；convert      v.（使）转变，（使）转换；convenience  n.方便，便利；intervention n.干预，介入；conservation n.保护，保存；continent    n.洲，大陆；converse     v.谈话，交谈 ｜ 【谐音】抗瘟神(convention)"：开大会抗瘟神是一种习俗或惯例。
+ambitious|adj. 有野心的；adj. 要求高的|One may be poor but never ceases to be ambitious .|人穷志不穷。||【辨析】ambition  n.追求的目标，抱负；ambiguous adj.模棱两可的，有歧义的 ｜ 【谐音】俺必胜(ambitious)"：形容一个人雄心勃勃，有远大志向。
+cancel|v. 取消；v. 抵消；v. 作废|If the worst comes to the worst, we'll have to cancel our holiday plans.|要是情况不妙, 我们就只好取消度假计划了。||【辨析】cancer  n.癌症；parcel  n.<英>包裹，邮包；canal   n.运河，灌溉渠，水道；channel n.频道，电视频道；council n.委员会，理事会；castle  n.城堡，堡垒；cattle  n.牛；consult v.咨询，请教 ｜ 【变形】过去式：cancelled/canceled；过去分词：cancelled/canceled
+environmental|adj. 环境的；adj. 环保的；adj. 与周围环境有关的|A global environmental meeting is going to be held here.|一个全球环境会议将在这里举行。||【辨析】environmentalist n.环境保护主义者，环境保护论者；environment      n.自然环境，生态环境
+reflect|v. 反映，表明；v. 沉思；v. 反射|She could see herself reflected in his eyes.|她在他的眼中看到了自己的样子。||【辨析】reflection n.（光、热或声音的）反射；reflective adj.反射的，反光的 ｜ 【谐音】反复来客(re-flect)"：又一次来客人，我都条件反射了。
+finding|n. 调查结果；n. 研究结论|One of the main findings of the census is that the birth rate in this city is rising.|这次人口普查一个主要的发现是该市的出生率正在上升。||【辨析】funding n.专款，拨款；find    v.找到，找回；fond    adj.喜爱的，喜欢做……的；fund    n.基金，专款 ｜ 【谐音】法定(finding)"：通过调查发现的法定裁决。
+bulletin|n. 公告；n. 简报|A bulletin on the President's health was issued yesterday.|昨日发布了关于总统健康的公告。||【辨析】bullet  n.子弹，弹丸；ballet  n.芭蕾舞剧；bull    n.公牛；ballot  n.（无记名）投票选举，投票表决；bully   n.恃强凌弱者，横行霸道者；balloon n.气球 ｜ 【谐音】不能停(bulletin)"：公告要时刻更新，不能停。<br>"步立停(bulletin)"：看到公告，我立刻停下了脚步。
