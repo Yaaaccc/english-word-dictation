@@ -1567,6 +1567,43 @@ button.small{ padding:6px 12px; font-size:12.5px; }
   .rd-rate{ margin-left:0; }
   .rd-btn{ padding:0 10px; }
 }
+/* 点句翻译小卡（底部浮层，位于 Dock 上方）—— 2026-11-02 从本地版并入 */
+#readTrans{
+  position:fixed; left:0; right:0; bottom:86px; margin:0 auto; width:fit-content;
+  max-width:min(720px, calc(100vw - 24px)); z-index:136;
+  background:linear-gradient(163deg, rgba(255,255,255,calc(var(--glass-op,1)*.95)), rgba(255,255,255,calc(var(--glass-op,1)*.9)));
+  -webkit-backdrop-filter:blur(24px) saturate(160%);
+  backdrop-filter:blur(24px) saturate(160%);
+  border:1px solid rgba(16,24,40,.07); border-radius:18px;
+  box-shadow:var(--sh-3);
+  padding:10px 16px 12px;
+}
+@media (prefers-color-scheme: dark){
+  #readTrans{
+    background:linear-gradient(163deg, rgba(26,33,56,calc(var(--glass-op,1)*.95)), rgba(18,24,42,calc(var(--glass-op,1)*.9)));
+    border-color:rgba(255,255,255,.12);
+    box-shadow:var(--sh-3);
+  }
+}
+#readTrans.hidden{ display:none; }
+#readTrans .rt-head{ display:flex; align-items:center; gap:8px; margin-bottom:4px; }
+#readTrans .rt-head span{ font-size:11px; color:var(--violet-d); font-weight:700; letter-spacing:1px; }
+#readTrans .rt-head button{
+  margin-left:auto; width:24px; height:24px; padding:0; border-radius:50%;
+  border:1px solid var(--line); background:var(--soft); color:var(--muted);
+  cursor:pointer; font-size:11px; box-shadow:none;
+}
+#readTrans #rtText{ font-size:15px; line-height:1.75; color:var(--ink); max-height:34dvh; overflow:auto; }
+
+/* 划选浮动的「译」按钮：用 fixed 定位，坐标直接取视口矩形，
+   不依赖父级 offsetParent（线上版阅读页结构已重构，局部相对定位容易错位） */
+#readSelBtn{
+  position:fixed; z-index:137; display:none;
+  border-radius:999px; padding:4px 12px; font-size:12px; font-weight:700;
+  background:var(--primary-grad); border-color:transparent; color:#fff;
+  box-shadow:0 6px 14px -6px var(--btn-shadow); cursor:pointer;
+}
+
 /* ============================================================
    13.6 每日提醒条（12 点后明天的内容还没生成时出现）
    ============================================================ */
@@ -2452,6 +2489,12 @@ button.small{ padding:6px 12px; font-size:12.5px; }
       </label>
     </div>
   </section>
+
+  <!-- 划选取译浮层（2026-11-02 从本地版并入） -->
+  <div id="readTrans" class="hidden" role="status" aria-live="polite">
+    <div class="rt-head"><span id="rtLabel"></span><button id="rtClose" type="button" aria-label="收起">✕</button></div>
+    <div id="rtText"></div>
+  </div>
 
   <div id="bgPanel" class="hidden" role="dialog" aria-label="外观设置">
     <div class="bg-title">背景</div>
@@ -8173,6 +8216,17 @@ button.small{ padding:6px 12px; font-size:12.5px; }
     var rTip = document.getElementById("readTip");
     var rSearch = document.getElementById("readSearch");
     var rScrollFill = document.getElementById("readScrollFill");
+    /* 划选取译浮层（2026-11-02 从本地版并入） */
+    var rTrans = document.getElementById("readTrans");
+    var rtText = document.getElementById("rtText");
+    var rtLabel = document.getElementById("rtLabel");
+    function showTrans(label, text) {
+      if (!rTrans) return;
+      rtLabel.textContent = label;
+      rtText.textContent = text;
+      rTrans.classList.remove("hidden");
+    }
+    function hideTrans() { if (rTrans) rTrans.classList.add("hidden"); }
 
     /* 列表行内的小图标（与页面其它内联 SVG 同一套线性风格） */
     var CHEV_SVG = '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m9.5 5.5 6.5 6.5-6.5 6.5" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg>';
@@ -8518,6 +8572,7 @@ button.small{ padding:6px 12px; font-size:12.5px; }
     /* ---------- 打开文章 ---------- */
     function openArticle(id) {
       stopSpeak();
+      hideTrans(); hideSelBtn();
       fetch("%E9%98%85%E8%AF%BB%E6%96%87%E7%AB%A0/a-" + encodeURIComponent(id) + ".json", { cache: "no-cache" })
         .then(function (r) { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
         .then(function (art) {
@@ -8614,10 +8669,56 @@ button.small{ padding:6px 12px; font-size:12.5px; }
       }
     });
 
+    /* ---------- 划选取译（2026-11-02 从本地版并入；类名适配线上版 .rd-sent） ---------- */
+    var selBtn = document.createElement("button");
+    selBtn.id = "readSelBtn"; selBtn.type = "button"; selBtn.textContent = "译";
+    document.body.appendChild(selBtn);
+    function hideSelBtn() { selBtn.style.display = "none"; }
+    rBody.addEventListener("mouseup", function () {
+      setTimeout(function () {
+        var sel = window.getSelection();
+        if (!sel || sel.isCollapsed || !rBody.contains(sel.anchorNode)) { hideSelBtn(); return; }
+        var r = sel.getRangeAt(0).getBoundingClientRect();
+        if (!r || (!r.width && !r.height)) { hideSelBtn(); return; }
+        selBtn.style.display = "block";
+        selBtn.style.left = Math.max(6, r.left + r.width / 2 - 14) + "px";
+        selBtn.style.top = Math.max(6, r.top - 36) + "px";
+      }, 0);
+    });
+    rBody.addEventListener("scroll", hideSelBtn, { passive: true });
+    /* mousedown 阻止默认，避免点按钮时先清掉选区 */
+    selBtn.addEventListener("mousedown", function (e) { e.preventDefault(); });
+    selBtn.addEventListener("click", function () {
+      hideSelBtn();
+      var sel = window.getSelection();
+      if (!sel || sel.isCollapsed || !cur) return;
+      var hit = [], sentEls = rBody.querySelectorAll(".rd-sent");
+      for (var i = 0; i < sentEls.length; i++) {
+        if (sel.rangeCount && sel.getRangeAt(0).intersectsNode(sentEls[i])) hit.push(i);
+      }
+      if (!hit.length) {
+        var n = sel.anchorNode && sel.anchorNode.parentElement && sel.anchorNode.parentElement.closest(".rd-sent");
+        if (n) hit.push(+n.getAttribute("data-i"));
+      }
+      if (!hit.length) return;
+      var cn = hit.map(function (k) {
+        var c = cur.sents[k] && cur.sents[k].cn;
+        if (!c && k > 0 && cur.sents[k - 1] && cur.sents[k - 1].cn) c = cur.sents[k - 1].cn;  // 短句合并翻译回退
+        return c || "";
+      }).join(" ");
+      showTrans("所选 " + (hit[0] + 1) + "~" + (hit[hit.length - 1] + 1) + " 句", cn || "（覆盖句缺译）");
+      window.getSelection().removeAllRanges();
+    });
+    document.getElementById("rtClose").addEventListener("click", function () {
+      hideTrans();
+      var p = rBody.querySelector(".rd-sent.sel"); if (p) p.classList.remove("sel");
+    });
+
     /* 返回列表 */
     document.getElementById("readBack").addEventListener("click", function () { backToList(); });
     function backToList() {
       stopSpeak();
+      hideTrans(); hideSelBtn();
       rV.classList.add("hidden");
       rS.classList.remove("hidden");
       renderList(rSearch.value);
