@@ -909,9 +909,7 @@ html:not([data-nav]) #idleView:not(.hidden){ animation:stageRise .35s cubic-bezi
   box-shadow:inset 0 -2px 0 rgba(16,24,40,.05);
   border-radius:5px; padding:2px 5px; margin:0 1px;
 }
-.kbd-grid{ display:grid; grid-template-columns:minmax(0,1fr); gap:8px 14px; }
-.kbd-item{ display:flex; align-items:center; gap:9px; font-size:12px; color:var(--muted); }
-.kbd-item .keys{ flex:none; display:flex; gap:3px; align-items:center; min-width:92px; }
+/* 2026-11-02：.kbd-grid / .kbd-item 随右栏「快捷键」卡一并删除（死样式） */
 
 
 /* —— 艾宾浩斯今日任务卡（2026-10-26 加）—— */
@@ -2052,39 +2050,9 @@ button.small{ padding:6px 12px; font-size:12.5px; }
       <div id="phraseText"></div>
     </div>
 
-      <aside class="tools-card glass">
-      <h4>快捷键</h4>
-      <div class="kbd-grid">
-        <div class="kbd-item">
-          <span class="keys"><kbd>Enter</kbd><kbd>↓</kbd><kbd>→</kbd><kbd>S</kbd><kbd>D</kbd></span>
-          <span>下一个</span>
-        </div>
-        <div class="kbd-item">
-          <span class="keys"><kbd>↑</kbd><kbd>←</kbd><kbd>W</kbd><kbd>A</kbd></span>
-          <span>上一个</span>
-        </div>
-        <div class="kbd-item">
-          <span class="keys"><kbd>R</kbd></span>
-          <span>重播当前单词</span>
-        </div>
-        <div class="kbd-item">
-          <span class="keys"><kbd>M</kbd></span>
-          <span>记下这个词（没写出来的）</span>
-        </div>
-        <div class="kbd-item">
-          <span class="keys"><kbd>X</kbd></span>
-          <span>读当前词的例句</span>
-        </div>
-        <div class="kbd-item">
-          <span class="keys"><kbd>滚轮</kbd></span>
-          <span>上下切词（指针需在控制区内）</span>
-        </div>
-      </div>
-      <div class="tip">
-        <b>建议流程：</b>开始连播 → 听写在纸上 → 没听清按 <kbd>R</kbd> 重播、卡住时按 <kbd>X</kbd> 听例句 → 全部过完再回来看例句卡逐词核对。
-      </div>
-      <div style="margin-top:8px;font-size:10.5px;color:var(--muted-2);letter-spacing:.4px;">构建 2026-11-01a</div>
-    </aside>
+    <!-- 2026-11-02 移除：右栏「快捷键」说明卡（用户要求整块去掉）。
+         键盘依然可用，只是不再占版面；快捷键说明留在 README「功能一览」里。
+         构建版本号已挪到设置面板底部「数据管理」下面。 -->
 
     <!-- 2026-10-26 加：艾宾浩斯今日任务卡（数据来自 calendar/calendar.json，加载失败自动隐藏） -->
     <div id="ebingCard" class="tools-card glass hidden">
@@ -2216,6 +2184,7 @@ button.small{ padding:6px 12px; font-size:12.5px; }
         <span class="count" id="dataInfo">练习历史 · 错词本 · 生词本 · 全部设置</span>
       </div>
       <div class="hint">导出为一个 JSON 文件存到电脑，导入后覆盖当前数据。建议每周备份一次。</div>      <div class="hint" id="voiceHint">正在加载语音列表…</div>
+      <div class="hint" id="buildVer" style="margin-top:10px;font-size:10.5px;color:var(--muted-2);letter-spacing:.4px;">构建 2026-11-02a</div>
       </div>
     </div>
   </div>
