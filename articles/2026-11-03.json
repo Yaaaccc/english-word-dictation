@@ -16,6 +16,21 @@
     "暴风雨在第六个晚上来了。收音机把强度定为九级，到十点，雨已经开始撕扯水箱上的防水布。我抓紧栏杆，陈去检查系泊。天亮时风退去了，沙滩上散落着碎片和一只死去的海燕。我们躲进小屋，他泡了茶。就是那时他开始说话的——说那艘沉船，说老鼠，说他在这个石头上度过的二十年。他说话时口音变重了，我得问两遍才听懂。他说的那些，比我读过的任何论文都更让我触动。",
     "后来，我重写了论文。一旦我看到有多少东西取决于一个人对一片沙滩的记忆，模型的新奇感很快就消退了。小屋并不豪华——没有热水，一盏煤油灯是唯一的光源——但这种安排以一种我没预料到的方式对我有益。赌注不是我的学位，而是五年后那些鸟还在不在。我在最后一章引用了陈的话，也建立了一段比这次调查更长的友谊。在生态学这个领域里，我写道，一座偏远的岛会教你知道自己懂得多么少。"
   ],
+  "collocation_notes": {
+    "a clear vision of": {"cn": "清晰的构想", "usage": "of 后接名词；vision 常与 clear / vague / shared 连用"},
+    "constant wind": {"cn": "不停歇的风", "usage": "constant 强调持续而稳定，比 continuous 多一层主观感受"},
+    "the survival of": {"cn": "……的存续", "usage": "of 后接幸存的对象；survival rate 是高频搭配"},
+    "a mathematical model": {"cn": "数学模型", "usage": "学术固定说法，用 mathematical 不用 math"},
+    "Early detection": {"cn": "早期发现", "usage": "医疗与生态领域常见；early 修饰 detection，不修饰 detect"},
+    "the logic of": {"cn": "……的逻辑", "usage": "of 后接被分析的对象，如 the logic of the plan"},
+    "stiff knees": {"cn": "僵硬的膝盖", "usage": "stiff 形容关节或部位活动不灵，不形容人整体"},
+    "the disposal of": {"cn": "……的处理", "usage": "of 后接被处理物；动词形式是 dispose of"},
+    "rip at": {"cn": "撕扯", "usage": "at 指向被撕的对象，含反复用力之意"},
+    "The novelty of": {"cn": "……的新鲜感", "usage": "常与 wear off 连用，表示新鲜感消退"},
+    "the sole source of": {"cn": "唯一的来源", "usage": "sole 比 only 正式，多用于书面"},
+    "In the realm of": {"cn": "在……领域", "usage": "正式表达，相当于 in the field of"},
+    "a remote island": {"cn": "偏远的岛屿", "usage": "remote 强调交通不便、远离人烟"}
+  },
   "sense_map": {
     "vision": "n. 视野 / 洞察",
     "mathematical": "adj. 数学的",
