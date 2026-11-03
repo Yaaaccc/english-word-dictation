@@ -2211,6 +2211,11 @@ button.small{ padding:6px 12px; font-size:12.5px; }
         <input id="localBase" type="text" placeholder="http://127.0.0.1:8787" style="flex:1;min-width:200px;">
     </div>
     <div class="controls" style="margin-top:10px;">
+      <button class="small" id="articlePushToday" type="button">上传短文·今天</button>
+      <button class="small" id="articlePushTomorrow" type="button">上传短文·明天</button>
+      <span class="mini-note" style="margin:0;">把已生成的短文 PDF 推到 GoodNotes「短文」并发布到网站；没有短文会直接报错</span>
+    </div>
+    <div class="controls" style="margin-top:10px;">
       <label class="switch" style="display:inline-flex;align-items:center;gap:6px;cursor:pointer;"><input type="checkbox" id="calAutoBox"><span>生成计划后自动重排日历</span></label>
       <button class="small" id="calBuildBtn" type="button">重建日历并上传</button>
       <span class="mini-note" id="calStatus" style="margin:0;">重排 = 重跑电脑上的生成脚本出新版 calendar.json 并推 GitHub，手机/平板日历随之更新</span>
@@ -7141,6 +7146,74 @@ button.small{ padding:6px 12px; font-size:12.5px; }
       .catch(function () { setTimeout(function () { planPollBuild(api); }, 3000); });
   }
 
+  /* 上传短文（2026-11-03 加）：把当天/明天已生成的短文 PDF 推到 GoodNotes「短文」+ 网站。
+     通路与 planBuildDate 完全一致：线上不能直连本机，只能跳转到本地页带 ?article= 参数，
+     落地后自动开跑。不做探测（探测必失败，白白多等两秒）。 */
+  async function planPushArticle(which) {
+    if (!isLocalHost()) {
+      var base = "http://127.0.0.1:8787";
+      try { base = (localStorage.getItem("dictationLocalBase") || base).replace(/\/+$/, ""); } catch (eL) {}
+      $("planStatus").innerHTML = "正在打开电脑上的服务，转到本地页上传短文…<br>"
+        + "<span class=\"mini-note\">若显示「无法访问此网站」，说明本地服务没启动。</span>";
+      setTimeout(function () { location.href = base + "/word-dictation.html?article=" + which; }, 900);
+      return;
+    }
+    $("planStatus").textContent = "开始上传短文（" + (which === "tomorrow" ? "明天" : "今天") + "）…约 2 分钟，别关页面";
+    try {
+      var r = await fetch("/api/article-push", {
+        method: "POST", headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ which: which })
+      });
+      var j = await r.json();
+      if (!j || !j.ok) {
+        $("planStatus").textContent = "启动失败：" + ((j && j.error) || "未知原因");
+        return;
+      }
+    } catch (e) {
+      $("planStatus").textContent = "启动失败：" + e.message + "（本地服务在跑吗？）";
+      return;
+    }
+    planPollArticle();
+  }
+  function planPollArticle(api) {
+    api = api || "";
+    fetch(api + "/api/article-status", { cache: "no-store" })
+      .then(function (r) { return r.json(); })
+      .then(function (j) {
+        if (j && j.running) {
+          var tail = (j.log || []).slice(-1).join("");
+          $("planStatus").textContent = "上传中… " + String(tail).slice(0, 70);
+          setTimeout(function () { planPollArticle(api); }, 3000);
+        } else if (j && j.ok) {
+          $("planStatus").textContent = "✓ 短文已上传：" + j.date + "（GoodNotes「短文」+ 网站）";
+        } else {
+          var t = (j && j.log) ? j.log.slice(-2).join(" / ") : "未知错误";
+          $("planStatus").textContent = "✗ 上传失败：" + String(t).slice(0, 110);
+        }
+      })
+      .catch(function () { setTimeout(function () { planPollArticle(api); }, 3000); });
+  }
+  function planPushToday() { return planPushArticle("today"); }
+  function planPushTomorrow() { return planPushArticle("tomorrow"); }
+  /* 线上「上传短文」跳转到本地后的落地：?article=today|tomorrow */
+  (function () {
+    var q = new URLSearchParams(location.search);
+    var a = q.get("article");
+    if (!a || (a !== "today" && a !== "tomorrow") || !isLocalHost()) return;
+    history.replaceState(null, "", location.pathname);
+    var openPanel = function () {
+      $("planPanel").classList.remove("hidden");
+      var sp = $("settingsPanel"), st = $("statsPanel");
+      if (sp) sp.classList.add("hidden");
+      if (st) st.classList.add("hidden");
+      $("planStatus").textContent = "从线上跳转而来：正在上传" + (a === "tomorrow" ? "明天" : "今天") + "的短文…";
+    };
+    var go = function () { planPushArticle(a); };
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", function () { setTimeout(openPanel, 350); setTimeout(go, 900); });
+    } else { setTimeout(openPanel, 350); setTimeout(go, 900); }
+  })();
+
   function planBind() {
     if ($("planToggle")) {
       $("planToggle").addEventListener("click", function () {
@@ -7169,6 +7242,8 @@ button.small{ padding:6px 12px; font-size:12.5px; }
     if ($("planBuildToday")) $("planBuildToday").addEventListener("click", planBuildToday);
     if ($("planBuildTomorrow")) $("planBuildTomorrow").addEventListener("click", planBuildTomorrow);
     if ($("planUploadToday")) $("planUploadToday").addEventListener("click", planUploadToday);
+    if ($("articlePushToday")) $("articlePushToday").addEventListener("click", planPushToday);
+    if ($("articlePushTomorrow")) $("articlePushTomorrow").addEventListener("click", planPushTomorrow);
 
     /* ---------- 艾宾浩斯日历：网页端重排（2026-11-01 加） ----------
        此前 calendar.json 只能在电脑上双击「生成计划.bat」重排，网页只能看。
