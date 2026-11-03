@@ -16,6 +16,22 @@
     "投票的过程很残酷。两位成员抵制了一个小时，其中设施部的霍利斯把反对意见限制在一句话里：钱应该花在屋顶上，不是记忆上。一位年轻讲师迟到了，肩上抱着一个婴儿。孩子发出一点小小的声音，房间就缓和了一度。阿尔瓦雷斯因为注意到这一点而感到内疚。他伸手去拿水壶，肘部撞在桌沿上，那声砰响结束争论的效果，比他说的任何话都好。有人提出口头动议要求推迟，以四票之差被否决。窗外，一群乌鸦已经占领了停车场。",
     "之后，他们在东楼后面的山坡上吃烤鸡。方案和他提议的并不完全相同——住房更小，时间更长——但已经足够接近。阿尔瓦雷斯想到了进化：机构改变的方式和物种一样，靠没人注意的调整，直到形状完全不同。二十年来，他一直是指向他的投诉的磁铁；如今，在最后一年的斜坡上，他从那些和他争论过的人身上感到某种类似慷慨的东西。这种感觉并不普遍——霍利斯已经回家了——但对一个晚上来说足够了。他们继续朝停车场走去。草地下面某个地方，埋着一个没人记得的人，老树的根仍在滋养着他。"
   ],
+  "collocation_notes": {
+    "On the eve of": {"cn": "在……前夕", "usage": "介词固定用 on；后接具体事件，如 on the eve of the vote"},
+    "so abstract that": {"cn": "抽象到……的地步", "usage": "so + 形容词 + that 引导结果从句"},
+    "the estimate was massive": {"cn": "估价巨大", "usage": "massive 修饰数量，语气强于 large"},
+    "Utility costs": {"cn": "公用事业费用", "usage": "utility 作定语用单数，指水电气等"},
+    "rising yearly": {"cn": "逐年上涨", "usage": "yearly 此处作副词，相当于 every year"},
+    "psychological weight": {"cn": "心理负担", "usage": "weight 可指抽象压力，常与 heavy / light 连用"},
+    "a consciousness of its own": {"cn": "自身独有的意识", "usage": "of its own 表示“自身独有的”，前面要接名词"},
+    "a singular way of": {"cn": "独特的方式", "usage": "singular 在此作“非凡的”讲，属正式书面语"},
+    "The vote was brutal": {"cn": "投票过程很残酷", "usage": "brutal 形容过程不留情面，不指人残暴"},
+    "an oral motion": {"cn": "口头动议", "usage": "会议术语；motion 指正式提出的动议"},
+    "a gang of crows": {"cn": "一群乌鸦", "usage": "gang 用于动物时带“成群结伙”意味"},
+    "identical to": {"cn": "与……完全相同", "usage": "固定搭配用 to，不用 with"},
+    "a magnet for complaints": {"cn": "招来抱怨的磁石", "usage": "magnet for + 名词，指招引某类事物的中心"},
+    "on the incline of": {"cn": "在……的斜坡上", "usage": "incline 可指实际斜坡，也可比喻趋势"}
+  },
   "sense_map": {
     "identical": "adj. 完全相同的",
     "roast": "adj. 烤制的",
