@@ -773,6 +773,81 @@ html:not([data-nav]) #idleView:not(.hidden){ animation:stageRise .35s cubic-bezi
 .quiz-opt.bad:disabled{ color:var(--ink); }
 .quiz-foot{ display:flex; justify-content:flex-end; gap:10px; margin-top:14px; }
 
+/* —— 提取训练（2026-11-04 加）——
+   不给选项、不给例句，只有一个单词。计时条走的是「反应时间」，不是倒计时：
+   走得越短说明提取越自动。这是整套训练唯一真正可信的指标 —— 正确率可以靠扫选项骗出来，秒数骗不了。 */
+.recall-wrap{ padding:6px 2px 0; width:100%; max-width:760px; margin:0 auto; text-align:center; }
+#recallStage{ width:100%; }
+.recall-kicker{
+  display:inline-block; font-size:11.5px; letter-spacing:1.6px; color:var(--muted-2);
+  text-transform:uppercase; font-weight:700; margin-bottom:16px;
+}
+.recall-word-row{ display:flex; align-items:center; justify-content:center; gap:14px; min-height:74px; }
+.recall-word{
+  font-size:clamp(38px,5.2vw,62px); font-weight:800; letter-spacing:-1px;
+  color:var(--ink); line-height:1.1; word-break:break-word;
+}
+.recall-meter{
+  width:min(320px,72%); height:5px; margin:20px auto 8px; border-radius:999px;
+  background:var(--track); overflow:hidden;
+}
+#recallMeterBar{
+  height:100%; width:0%; border-radius:999px; background:var(--primary-grad);
+  transition:background .2s;
+}
+#recallMeterBar.warn{ background:linear-gradient(90deg,#C98B3A,var(--amber)); }
+#recallMeterBar.over{ background:linear-gradient(90deg,#E8705F,var(--red)); }
+.recall-clock{ font-size:12px; color:var(--muted-2); margin-bottom:22px; font-variant-numeric:tabular-nums; }
+.recall-clock b{ font-weight:700; color:var(--muted); font-size:13px; }
+.recall-verdict{
+  display:inline-block; font-size:12px; font-weight:700; letter-spacing:.5px;
+  border-radius:999px; padding:3px 11px; margin-bottom:12px;
+}
+.recall-verdict.fast{ background:var(--green-soft); color:var(--green); }
+.recall-verdict.slow{ background:var(--amber-soft); color:var(--amber); }
+.recall-verdict.miss{ background:var(--red-soft); color:var(--red); }
+.recall-answer{
+  font-size:clamp(17px,2.1vw,21px); line-height:1.65; color:var(--ink); font-weight:600;
+  margin:0 auto 16px; max-width:640px; white-space:pre-wrap;
+}
+.recall-answer:empty{ display:none; }
+.recall-extra{ text-align:left; max-width:640px; margin:0 auto 18px; }
+.recall-extra:empty{ display:none; }
+.recall-fam{
+  border:1px dashed var(--violet-line); background:var(--violet-soft);
+  border-radius:12px; padding:10px 14px; font-size:13px; color:var(--ink-2); line-height:1.65;
+}
+.recall-fam b{ color:var(--violet-d); }
+.recall-fam .rf-w{ font-weight:700; color:var(--violet-d); }
+.recall-ex{
+  margin-top:10px; border-left:3px solid var(--violet-line);
+  padding:10px 0 10px 13px; font-size:13.5px; line-height:1.65; color:var(--ink-2);
+}
+.recall-ex .cn{ display:block; color:var(--muted); font-size:12.5px; margin-top:5px; }
+.recall-foot{ display:flex; justify-content:center; gap:10px; flex-wrap:wrap; }
+.recall-foot .small{ min-width:148px; }
+.recall-foot.hidden{ display:none !important; }
+/* 四选一「选项朦胧」（2026-11-04）：默认先挡住，点一下才实。
+   光靠提示语治不住「扫选项找眼熟」——要让这条路径在动作层面走不通。 */
+.quiz-options.veiled{ position:relative; cursor:pointer; }
+.quiz-options.veiled .quiz-opt{ filter:blur(6px); opacity:.5; pointer-events:none; user-select:none; }
+.quiz-options.veiled::after{
+  content:"先自己想 · 点这里显示选项"; position:absolute; inset:0; box-sizing:border-box;
+  display:flex; align-items:center; justify-content:center;
+  font-size:13px; font-weight:700; letter-spacing:.5px; color:var(--violet-d);
+  background:rgba(255,255,255,.55); border:1.5px dashed var(--violet-line);
+  border-radius:16px; backdrop-filter:blur(2px);
+}
+@media (max-width:760px){
+  #recallStage{ padding-bottom:104px; }
+  .recall-word{ font-size:clamp(30px,8.4vw,42px); }
+  .recall-foot .small{ flex:1 1 44%; min-width:0; }
+  .recall-extra{ margin-bottom:14px; }
+  /* 手机上四个选项是竖排的，整块能有 300px 高 —— 遮罩跟着长会把「看答案」顶出屏幕。
+     这里把遮罩压到一屏内，顺带只露出前两三个轮廓，更没法一眼扫完（2026-11-04）。 */
+  .quiz-options.veiled{ max-height:236px; overflow:hidden; }
+}
+
 /* —— 完成页 —— */
 .done-panel{
   margin:0; text-align:center; background:transparent;
@@ -1882,6 +1957,7 @@ button.small{ padding:6px 12px; font-size:12.5px; }
           </div>
           <button class="big-btn" id="startTypeBtn" style="display:none;">▶ 开始逐个听写</button>
           <button class="big-btn" id="startQuizBtn" style="display:none;">▶ 开始选释义</button>
+          <button class="big-btn" id="startRecallBtn" style="display:none;">▶ 开始提取训练</button>
         </div>
         <div class="kbd-row">
           <span class="kbd">Enter</span><em>下一个</em>
@@ -1999,16 +2075,39 @@ button.small{ padding:6px 12px; font-size:12.5px; }
             </div>
           </div>
         </div>
+        <!-- 提取训练 · 2026-11-04 加：只有一个单词，选项和例句都不给 -->
+        <div id="recallStage" class="hidden">
+          <div class="recall-wrap">
+            <div class="recall-kicker" id="recallKicker">先自己想 · 别去找例句</div>
+            <div class="recall-word-row">
+              <span id="recallWord" class="recall-word"></span>
+              <button id="recallSpeakBtn" class="replay-btn" type="button" title="读这个单词">🔊</button>
+            </div>
+            <div class="recall-meter"><div id="recallMeterBar"></div></div>
+            <div class="recall-clock"><b id="recallClock">0.0</b> 秒</div>
+            <div id="recallVerdict"></div>
+            <div id="recallAnswer" class="recall-answer"></div>
+            <div id="recallExtra" class="recall-extra"></div>
+            <div class="recall-foot" id="recallAsk">
+              <button id="recallGotBtn" class="small" type="button">想起来了 · 空格</button>
+              <button id="recallMissBtn" class="small" type="button">想不起来 · 回车</button>
+            </div>
+            <div class="recall-foot hidden" id="recallAnswered">
+              <button id="recallExBtn" class="small hidden" type="button">看例句</button>
+              <button id="recallNextBtn" class="small" type="button">下一个 →</button>
+            </div>
+          </div>
+        </div>
       </div>
 
         <div id="doneView" class="hidden">
         <div class="done-panel">
           <div class="sub">本轮完成</div>
           <div class="done-score">
-            <span class="ok" id="finalOk">0</span><span class="dsep">对</span>
-            <span class="err" id="finalErr">0</span><span class="dsep">错</span>
+            <span class="ok" id="finalOk">0</span><span class="dsep" id="finalOkLabel">对</span>
+            <span class="err" id="finalErr">0</span><span class="dsep" id="finalErrLabel">错</span>
           </div>
-          <div class="rate-line">正确率 <b id="finalRate">0%</b></div>
+          <div class="rate-line" id="finalRateLine">正确率 <b id="finalRate">0%</b></div>
           <div class="controls">
             <button class="primary" id="retryBtn" type="button">再来一轮</button>
             <button id="redoWrongBtn" type="button">重听错词</button>
@@ -2125,6 +2224,14 @@ button.small{ padding:6px 12px; font-size:12.5px; }
                      style="width:100%;text-align:center;" aria-label="答错后停留秒数" title="答错后停留（秒）">
             </div>
             <div class="hint" style="margin-top:4px;font-size:11px;">左＝答对 / 右＝答错；填 0 表示不自动跳（手动点「下一题」）</div>
+          </div>
+          <div>
+            <label>四选一 · 选项先遮住</label>
+            <div class="inline-check">
+              <input type="checkbox" id="quizVeilBox" checked>
+              <span>点一下才显示四个选项</span>
+            </div>
+            <div class="hint" style="margin-top:4px;font-size:11px;">不遮的话容易靠「扫一眼眼熟」蒙对，练不到提取（2026-11-04 加）</div>
           </div>
           <div class="rate-row">
             <label for="wordRateRange"><span>单词语速</span><b class="rate-val" id="wordRateVal">1.00×</b></label>
@@ -2343,6 +2450,8 @@ button.small{ padding:6px 12px; font-size:12.5px; }
           <button id="playModeBtn" class="active" type="button"><span class="ml">连续播放（纸上默写）</span><span class="ms">连播</span></button>
           <!-- 2026-10-23 加：回想释义（四选一），干扰项从词库取 -->
           <button id="quizModeBtn" type="button"><span class="ml">回想释义（四选一）</span><span class="ms">选释义</span></button>
+          <!-- 2026-11-04 加：提取训练（不给选项、不给例句，强制自己把意思调出来） -->
+          <button id="recallModeBtn" type="button"><span class="ml">提取训练（先自己想）</span><span class="ms">提取</span></button>
         </div>
       <span class="dock-sep" aria-hidden="true"></span>
       <div class="bar-actions">
@@ -2573,8 +2682,13 @@ button.small{ padding:6px 12px; font-size:12.5px; }
   var state = {
     words: [],       // [{text, meaning}]
     order: [],       // indices into words
-    mode: "play",    // "type" | "play" | "quiz"（与 DOM 默认标签「连续播放」保持一致）
+    mode: "play",    // "type" | "play" | "quiz" | "recall"（与 DOM 默认标签「连续播放」保持一致）
     quizDir: "en2cn", // 回想释义的方向："en2cn" | "cn2en"
+    /* 提取训练（2026-11-04）：只记反应时间与自评，不做"对错"判定 ——
+       因为"想不起来"和"想错了"在这里不需要区分，能不能在 3 秒内调出来才是关键。 */
+    recallT0: 0,
+    recallDone: false,   // 这一题是否已判定（防止空格连按重复记分）
+    recallHit: false,
     pos: 0,
     running: false,
     paused: false,
@@ -3297,7 +3411,7 @@ button.small{ padding:6px 12px; font-size:12.5px; }
      原先每个 start 只写自己的显隐，切换模式会留下上一个模式的残影 ——
      比如刚从「四选一」过来，连续播放页面下面还挂着题目。 */
   function showStage(which) {
-    ["type", "play", "quiz"].forEach(function (k) {
+    ["type", "play", "quiz", "recall"].forEach(function (k) {
       var el = $(k + "Stage");
       if (el) el.classList.toggle("hidden", k !== which);
     });
@@ -3307,6 +3421,8 @@ button.small{ padding:6px 12px; font-size:12.5px; }
      setMode() 和 startPlay()/startTyping() 都要走这里，避免「程序化开播」
      （例如错词本一键开播）时标签和实际模式对不上。 */
   function syncModeUI(mode) {
+    /* 提取训练会临时收掉「对/错」计数（那里只报秒数），切回其他模式必须恢复（2026-11-04） */
+    if (mode !== "recall" && $("scoreLabel")) $("scoreLabel").classList.remove("hidden");
     $("typeModeBtn").classList.toggle("active", mode === "type");
     $("playModeBtn").classList.toggle("active", mode === "play");
     /* 开始按钮跟着模式对调显隐：
@@ -3317,14 +3433,18 @@ button.small{ padding:6px 12px; font-size:12.5px; }
     if ($("startPlayBtn")) $("startPlayBtn").style.display = (mode === "play") ? "" : "none";
     if ($("startTypeBtn")) $("startTypeBtn").style.display = (mode === "type") ? "" : "none";
     if ($("startQuizBtn")) $("startQuizBtn").style.display = (mode === "quiz") ? "" : "none";
+    if ($("startRecallBtn")) $("startRecallBtn").style.display = (mode === "recall") ? "" : "none";
     $("quizModeBtn") && $("quizModeBtn").classList.toggle("active", mode === "quiz");
+    $("recallModeBtn") && $("recallModeBtn").classList.toggle("active", mode === "recall");
     var sub = document.querySelector("#idleView .idle-sub");
     if (sub) {
       sub.innerHTML = (mode === "type")
         ? "听到发音后把单词打进输入框，按 Enter 提交；再按 Enter 进入下一个。"
         : (mode === "quiz")
-          ? "看单词选释义：四个选项一个对、三个来自当天其他词；选完自动下一题。"
-          : "点开始后自动连播，听到就写在本子上；也可切「逐个听写」打字校对。";
+          ? "看单词选释义：先自己回想，再点开选项；一个对、三个来自考纲词库。"
+          : (mode === "recall")
+            ? "只有一个单词，不给选项也不给例句。先自己把意思调出来，再看答案对 —— 记的是秒数，不是对错。"
+            : "点开始后自动连播，听到就写在本子上；也可切「逐个听写」打字校对。";
     }
   }
 
@@ -3343,6 +3463,8 @@ button.small{ padding:6px 12px; font-size:12.5px; }
     clearTimeout(playTimer);
     clearTimeout(quizTimer);
     clearTimeout(typeFinishTimer);
+    clearTimeout(recallTimer);   /* 提取训练：8 秒兜底自动揭示（2026-11-04） */
+    if (recallTicker) { clearInterval(recallTicker); recallTicker = 0; }
   }
 
   function stopEverything() {
@@ -3512,6 +3634,10 @@ button.small{ padding:6px 12px; font-size:12.5px; }
     var rate = total ? Math.round(ok / total * 100) : 0;
     $("finalOk").textContent = ok;
     $("finalErr").textContent = total - ok;
+    /* 提取训练的统计口径和这里不同，回其他模式前必须把结算页文案复原（2026-11-04） */
+    if ($("finalOkLabel")) $("finalOkLabel").textContent = "对";
+    if ($("finalErrLabel")) $("finalErrLabel").textContent = "错";
+    if ($("finalRateLine")) $("finalRateLine").innerHTML = "正确率 <b id=\"finalRate\">" + rate + "%</b>";
     $("finalRate").textContent = rate + "%";
 
     var wrong = state.results.filter(function (r) { return !r.ok; });
@@ -3541,6 +3667,8 @@ button.small{ padding:6px 12px; font-size:12.5px; }
   var QUIZ_POS_RE = /^\s*(adj|adv|n|v|vt|vi|prep|conj|pron|num|art)\b/i;
   var quizTimer = 0;
   var typeFinishTimer = 0;   /* 打字模式「最后一题 → 结算」的延时（2026-10-26：改成可清除，切日期后不许误结算新会话） */
+  var recallTimer = 0;       /* 提取训练：超过 8 秒没决定就自动揭示，别把人卡在一题上（2026-11-04） */
+  var recallTicker = 0;      /* 提取训练的计时心跳（50ms 一格，只驱动 UI，不推进业务） */
 
   function quizPos(meaning) {
     var m = String(meaning || "").match(QUIZ_POS_RE);
@@ -3714,7 +3842,7 @@ button.small{ padding:6px 12px; font-size:12.5px; }
     }
     if ($("quizTip")) {
       $("quizTip").textContent = picks.length >= 3
-        ? "先回想词义再选择；想不起来就点「看答案」（不算对错）"
+        ? "先在心里说一遍答案，再点下面把选项揭开"
         : "（词库没加载好，这一题暂时没有干扰项）";
     }
     var box = $("quizOptions");
@@ -3746,6 +3874,24 @@ button.small{ padding:6px 12px; font-size:12.5px; }
       b.addEventListener("click", function () { quizAnswer(b, val); });
       box.appendChild(b);
     });
+    /* 选项朦胧（2026-11-04）：默认先把四个选项挡住，点一下才显形。
+       起因是 Yac 反馈「总在扫四个选项找眼熟的」—— 提示语治不住这个，
+       只有让这条路在动作层面走不通，大脑才会被迫去生成。设置里可关。 */
+    box.classList.remove("veiled");
+    Array.prototype.forEach.call(box.children, function (c) { c.removeAttribute("tabindex"); });
+    if (picks.length >= 3 && localStorage.getItem("dictationQuizVeil") !== "0") {
+      box.classList.add("veiled");
+      Array.prototype.forEach.call(box.children, function (c) { c.setAttribute("tabindex", "-1"); });
+      var unveil = function (ev) {
+        if (!box.classList.contains("veiled")) return;
+        ev.preventDefault();
+        ev.stopPropagation();
+        box.classList.remove("veiled");
+        Array.prototype.forEach.call(box.children, function (c) { c.removeAttribute("tabindex"); });
+        box.removeEventListener("click", unveil, true);
+      };
+      box.addEventListener("click", unveil, true);
+    }
     $("quizRevealBtn").classList.remove("hidden");
     $("quizNextBtn").classList.add("hidden");
     renderTypeProgress();
@@ -3864,6 +4010,232 @@ button.small{ padding:6px 12px; font-size:12.5px; }
       if (_gQuizStart !== state.gen || !state.running || state.mode !== "quiz") return;
       quizRender();
     });
+  }
+
+  /* ---------- 提取训练 · 2026-11-04 ----------
+   * 起因：Yac 反馈「大部分词只有看到例句、或看到正确选项才想起来」。
+   * 那不是没记住 —— 看到能认出来，说明存储是在的；缺的是**从词形直接调到语义**这条路。
+   * 所以这里把两条拐棍都撤掉：不给四个选项、不给例句，只有一个单词。
+   *
+   * 判据用**反应时间**，不用对错：
+   *   ≤1.5 秒        → 秒答（已经自动化，考试里真能用上）
+   *   1.5~3 秒       → 想起来了（通路在，但还不够快）
+   *   3 秒以上       → 磨出来的（考试里这个速度等于没有）
+   *   点「想不起来」→ 没提取到
+   * 为什么不判对错：这里问的不是「您记得对不对」，是「能不能自己调出来」。
+   * 对错可以靠扫选项骗过去，秒数骗不了 —— 这是全套训练里唯一诚实的指标。
+   */
+
+  var RECALL_FAST = 1.5, RECALL_SLOW = 3, RECALL_CAP = 8;
+
+  /* 本地日期键（不能用 toISOString：它走 UTC，北京时间 0~8 点会算成前一天） */
+  function recallDayKey() {
+    var d = new Date();
+    return d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(d.getDate()).padStart(2, "0");
+  }
+
+  function recallSave(word, sec, hit) {
+    var all;
+    try { all = JSON.parse(localStorage.getItem("dictationRecallStats") || "{}") || {}; }
+    catch (e) { all = {}; }
+    var day = recallDayKey();
+    if (!all[day]) all[day] = {};
+    var prev = all[day][word];
+    var rec = { s: Math.round(sec * 10) / 10, h: hit ? 1 : 0 };
+    /* 同一天同一个词可能练两次（补课 / 重听错词）：留更好的那次，
+       别让一次手滑把整天记录拉黑 —— 但也不能反过来把差的那次抹掉，所以只在更好时覆盖。 */
+    if (!prev || (hit && (!prev.h || rec.s < prev.s))) all[day][word] = rec;
+    try { localStorage.setItem("dictationRecallStats", JSON.stringify(all)); } catch (e) {}
+  }
+
+  function recallRender() {
+    var item = currentWord();
+    if (!item) { recallFinish(); return; }
+    state.recallDone = false;
+    state.recallHit = false;
+    state.phase = "awaiting";
+    clearExamplePanel();               /* 关键：新题先把例句/辨析收掉，不然答案等于白送 */
+    $("recallWord").textContent = item.text || "";
+    $("recallAnswer").textContent = "";
+    $("recallExtra").innerHTML = "";
+    $("recallVerdict").innerHTML = "";
+    $("recallKicker").textContent = "先自己想 · 别去找例句";
+    $("recallAsk").classList.remove("hidden");
+    $("recallAnswered").classList.add("hidden");
+    $("recallExBtn").classList.remove("hidden");
+    $("recallExBtn").disabled = false;
+    $("recallExBtn").textContent = "看例句";
+    $("recallMeterBar").style.width = "0%";
+    $("recallMeterBar").className = "";
+    $("recallClock").textContent = "0.0";
+    $("scoreLabel").classList.add("hidden");   /* 「对/错」在这里没有意义，收掉 */
+    renderTypeProgress();
+
+    state.recallT0 = Date.now();
+    var gen = state.gen;
+    if (recallTicker) clearInterval(recallTicker);
+    recallTicker = setInterval(function () {
+      if (gen !== state.gen || state.mode !== "recall" || state.recallDone) {
+        clearInterval(recallTicker); recallTicker = 0; return;
+      }
+      var sec = (Date.now() - state.recallT0) / 1000;
+      $("recallClock").textContent = sec.toFixed(1);
+      var bar = $("recallMeterBar");
+      bar.style.width = Math.min(100, sec / RECALL_SLOW * 100) + "%";
+      bar.className = sec <= RECALL_FAST ? "" : (sec <= RECALL_SLOW ? "warn" : "over");
+      if (sec > RECALL_CAP) $("recallKicker").textContent = "超时了 · 想不起来就按回车";
+    }, 50);
+  }
+
+  function recallJudge(hit) {
+    if (state.recallDone || !state.running || state.mode !== "recall") return;
+    state.recallDone = true;
+    state.recallHit = !!hit;
+    state.phase = "answered";
+    var sec = Math.max(0.1, (Date.now() - state.recallT0) / 1000);
+    if (recallTicker) { clearInterval(recallTicker); recallTicker = 0; }
+    var item = currentWord();
+    if (!item) return;
+
+    recallSave(item.text, sec, hit);
+
+    var bar = $("recallMeterBar");
+    bar.style.width = "100%";
+    bar.className = sec <= RECALL_FAST ? "" : (sec <= RECALL_SLOW ? "warn" : "over");
+    $("recallClock").textContent = sec.toFixed(1);
+
+    var lvl, label;
+    if (!hit) { lvl = "miss"; label = "没提取到"; }
+    else if (sec <= RECALL_FAST) { lvl = "fast"; label = "秒答"; }
+    else if (sec <= RECALL_SLOW) { lvl = "slow"; label = "想起来了"; }
+    else { lvl = "slow"; label = "磨出来的"; }
+    $("recallVerdict").innerHTML = '<span class="recall-verdict ' + lvl + '">' + label + " · " + sec.toFixed(1) + " 秒</span>";
+
+    $("recallAnswer").textContent = item.meaning || "（这个词没有释义）";
+    $("recallKicker").textContent = "现在才看答案";
+    $("recallAsk").classList.add("hidden");
+    $("recallAnswered").classList.remove("hidden");
+    $("recallExBtn").classList.toggle("hidden", !item.exampleEn);
+    renderRecallExtra(item);
+
+    state.results.push({
+      text: item.text, meaning: item.meaning,
+      answer: sec.toFixed(1) + " 秒", ok: !!hit, sec: sec
+    });
+    renderTypeProgress();
+    try { $("recallNextBtn").focus({ preventScroll: true }); } catch (e) {}
+  }
+
+  /* 揭示后补的「第二条路」：同族词。
+     目的不是给答案，是给一个**不依赖那句话**的第二个入口 ——
+     下次想不起来时，除了「那句例句」，脑子里还能有别的钩子可用。 */
+  /* 释义清洗：词书原文常写成「v. 发现；v. 认出；v. 认同；v. 指认」，
+     同一个词性标四次，塞进一行里又长又吵。这里只留第一个词性，后面纯列义项。 */
+  function cleanGloss(m) {
+    var s = String(m || "").trim();
+    var hit = s.match(/^\s*((?:n|v|vt|vi|adj|adv|prep|conj|pron|num|art)\.)\s*/i);
+    if (!hit) return s;
+    var rest = s.slice(hit[0].length);
+    var parts = rest.split(/[；;]\s*/).map(function (x) {
+      return x.replace(/^\s*(?:n|v|vt|vi|adj|adv|prep|conj|pron|num|art)\.\s*/i, "").trim();
+    }).filter(Boolean);
+    return hit[1] + " " + parts.join("；");
+  }
+
+  function renderRecallExtra(item) {
+    var box = $("recallExtra");
+    box.innerHTML = "";
+    var key = String(item.text || "").toLowerCase();
+    var fam = (famMap && famMap[key]) || null;
+    if (fam && fam.length) {
+      var parts = fam.slice(0, 4).map(function (x) {
+        return '<span class="rf-w">' + esc(x.w) + "</span> " + esc(cleanGloss(x.m));
+      });
+      var d = document.createElement("div");
+      d.className = "recall-fam";
+      d.innerHTML = "<b>同族词</b>　" + parts.join("　·　");
+      box.appendChild(d);
+    }
+  }
+
+  function recallShowExample() {
+    var item = currentWord();
+    if (!item || !item.exampleEn) return;
+    var box = $("recallExtra");
+    if (box.querySelector(".recall-ex")) return;
+    var d = document.createElement("div");
+    d.className = "recall-ex";
+    d.innerHTML = esc(item.exampleEn) + (item.exampleCn ? '<span class="cn">' + esc(item.exampleCn) + "</span>" : "");
+    box.appendChild(d);
+    $("recallExBtn").textContent = "例句已展开";
+    $("recallExBtn").disabled = true;
+  }
+
+  function recallNext() {
+    if (!state.running || state.mode !== "recall") return;
+    if (recallTicker) { clearInterval(recallTicker); recallTicker = 0; }
+    state.pos++;
+    if (state.pos >= state.order.length) { recallFinish(); return; }
+    recallRender();
+  }
+
+  function startRecall(wordsOverride) {
+    if (wordsOverride) {
+      state.words = wordsOverride;
+      state.wrongOnly = true;
+    } else {
+      state.words = parseWords(wordsInput.value);
+      state.wrongOnly = false;
+    }
+    if (!state.words.length) {
+      $("startError").textContent = "请先在上方输入单词列表。";
+      return;
+    }
+    stopEverything();
+    state.gen++;
+    buildOrder();
+    state.mode = "recall";
+    syncModeUI("recall");
+    state.running = true;
+    state.paused = false;
+    state.pos = 0;
+    state.results = [];
+    showOnly("runView");
+    showStage("recall");
+    $("answerControls").classList.add("hidden");
+    loadFamilyData();
+    if (!wordsOverride) famI0 = calcFamilyI0();
+    recallRender();
+  }
+
+  function recallFinish() {
+    autoTickAfterRound();
+    state.running = false;
+    if (recallTicker) { clearInterval(recallTicker); recallTicker = 0; }
+    stopSpeech();
+    var total = state.results.length;
+    var fast = state.results.filter(function (r) { return r.ok && r.sec <= RECALL_FAST; }).length;
+    var slow = state.results.filter(function (r) { return r.ok && r.sec > RECALL_FAST; }).length;
+    var rate = total ? Math.round(fast / total * 100) : 0;
+    /* 结算页在这里换了口径：不报「正确率」，报「秒答率」。
+       因为"慢慢想起来"对考试没用，能秒答的才算真会。 */
+    $("finalOk").textContent = fast + slow;
+    $("finalErr").textContent = total - fast - slow;
+    $("finalOkLabel").textContent = "提取到";
+    $("finalErrLabel").textContent = "没提取";
+    $("finalRateLine").innerHTML = "秒答率（≤1.5 秒）<b id=\"finalRate\">" + rate + "%</b>";
+
+    var wrong = state.results.filter(function (r) { return !r.ok; });
+    $("wrongSection").classList.toggle("hidden", wrong.length === 0);
+    $("wrongBody").innerHTML = wrong.map(function (r) {
+      return "<tr><td>" + esc(r.text) + "</td><td>" + esc(r.meaning || "—") + "</td><td>" + esc(r.answer) + "</td></tr>";
+    }).join("");
+    $("allSection").classList.remove("hidden");
+    $("allBody").innerHTML = state.results.map(function (r, i) {
+      return "<tr><td>" + (i + 1) + "</td><td>" + esc(r.text) + "</td><td>" + esc(r.meaning || "—") + "</td><td>" + esc(r.answer) + "</td><td class=\"" + (r.ok ? "badge-ok" : "badge-err") + "\">" + (r.ok ? "✓" : "✗") + "</td></tr>";
+    }).join("");
+    $("redoWrongBtn").disabled = wrong.length === 0;
+    showOnly("doneView");
   }
 
   /* ---------- 连续播放 ---------- */
@@ -4184,6 +4556,10 @@ button.small{ padding:6px 12px; font-size:12.5px; }
   });
   if ($("quizStayBad")) $("quizStayBad").addEventListener("change", function () {
     try { localStorage.setItem("dictationQuizStayBad", this.value); } catch (e) {}
+  });
+  /* 选项朦胧开关（2026-11-04）：改完立刻存，下一题起生效 */
+  if ($("quizVeilBox")) $("quizVeilBox").addEventListener("change", function () {
+    try { localStorage.setItem("dictationQuizVeil", this.checked ? "1" : "0"); } catch (e) {}
   });
 
   $("sampleBtn").addEventListener("click", function () {
@@ -4590,6 +4966,23 @@ button.small{ padding:6px 12px; font-size:12.5px; }
   if ($("startQuizBtn")) {
     $("startQuizBtn").addEventListener("click", function () { startQuiz(); });
   }
+  /* 提取训练（2026-11-04） */
+  if ($("recallModeBtn")) {
+    $("recallModeBtn").addEventListener("click", function () { setMode("recall"); });
+  }
+  if ($("startRecallBtn")) {
+    $("startRecallBtn").addEventListener("click", function () { startRecall(); });
+  }
+  if ($("recallGotBtn")) {
+    $("recallGotBtn").addEventListener("click", function () { recallJudge(true); });
+    $("recallMissBtn").addEventListener("click", function () { recallJudge(false); });
+    $("recallNextBtn").addEventListener("click", function () { recallNext(); });
+    $("recallExBtn").addEventListener("click", function () { recallShowExample(); });
+    $("recallSpeakBtn").addEventListener("click", function () {
+      var it = currentWord();
+      if (it) speak(it.text, parseFloat(rateSelect.value) || 1, null, speechToken);
+    });
+  }
   if ($("quizDirEn")) {
     $("quizDirEn").addEventListener("click", function () { quizSetDir("en2cn"); });
     $("quizDirCn").addEventListener("click", function () { quizSetDir("cn2en"); });
@@ -4727,6 +5120,16 @@ button.small{ padding:6px 12px; font-size:12.5px; }
         e.preventDefault();
         quizNext();
       }
+    } else if (state.mode === "recall" && state.running) {
+      /* 提取训练（2026-11-04）：未判定 → 空格=想起来了 / 回车=想不起来；
+         已判定 → 空格或回车=下一个。这个舞台没有任何输入框，不存在抢字问题。 */
+      if (!state.recallDone) {
+        if (e.key === " " || e.key === "Spacebar") { e.preventDefault(); recallJudge(true); }
+        else if (e.key === "Enter") { e.preventDefault(); recallJudge(false); }
+      } else if (e.key === " " || e.key === "Spacebar" || e.key === "Enter" || e.key === "ArrowRight" || e.key === "ArrowDown") {
+        e.preventDefault();
+        recallNext();
+      }
     }
   });
 
@@ -4799,12 +5202,14 @@ button.small{ padding:6px 12px; font-size:12.5px; }
   $("retryBtn").addEventListener("click", function () {
     /* 「再来一轮」跟当前模式走：四选一就重开四选一，别把用户悄悄换成打字模式 */
     if (state.mode === "quiz") { startQuiz(null); return; }
+    if (state.mode === "recall") { startRecall(null); return; }
     state.words = parseWords(wordsInput.value);
     startTyping(null);
   });
   $("redoWrongBtn").addEventListener("click", function () {
     var wrong = state.results.filter(function (r) { return !r.ok; });
     if (state.mode === "quiz") startQuiz(wrong);
+    else if (state.mode === "recall") startRecall(wrong);
     else startTyping(wrong);
   });
   $("backBtn").addEventListener("click", function () {
@@ -4944,6 +5349,8 @@ button.small{ padding:6px 12px; font-size:12.5px; }
     $("autoExampleBox").checked = localStorage.getItem("dictationAutoExample") === "1";
     if ($("quizStayOk") && localStorage.getItem("dictationQuizStayOk")) $("quizStayOk").value = localStorage.getItem("dictationQuizStayOk");
     if ($("quizStayBad") && localStorage.getItem("dictationQuizStayBad")) $("quizStayBad").value = localStorage.getItem("dictationQuizStayBad");
+    /* 选项朦胧默认开（没存过 = 开）；只有显式存 "0" 才关（2026-11-04） */
+    if ($("quizVeilBox")) $("quizVeilBox").checked = localStorage.getItem("dictationQuizVeil") !== "0";
   } catch (e) { /* 忽略存储错误 */ }
   /* 语速恢复（2026-10-15）：老数据里只有一条 dictationRate（0.7 / 1 / 1.25 三选一）。
      第一次打开新版时，把这条旧值**同时**灌给两个滑块，用户不会觉得语速"被改回去了"；
@@ -7531,8 +7938,8 @@ button.small{ padding:6px 12px; font-size:12.5px; }
   "use strict";
 
   /* ---------- 1. 切换方向 ---------- */
-  var MODE_IDX = { typeModeBtn: 0, playModeBtn: 1, quizModeBtn: 2 };
-  var START_FWD = { startTypeBtn: 1, startPlayBtn: 1, startQuizBtn: 1 };
+  var MODE_IDX = { typeModeBtn: 0, playModeBtn: 1, quizModeBtn: 2, recallModeBtn: 3 };
+  var START_FWD = { startTypeBtn: 1, startPlayBtn: 1, startQuizBtn: 1, startRecallBtn: 1 };
   var BACK = { stopBtn: 1, backBtn: 1 };
   var FWD = { retryBtn: 1, redoWrongBtn: 1 };
 
