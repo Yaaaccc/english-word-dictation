@@ -2327,6 +2327,13 @@ button.small{ padding:6px 12px; font-size:12.5px; }
       <button class="small" id="calBuildBtn" type="button">重建日历并上传</button>
       <span class="mini-note" id="calStatus" style="margin:0;">重排 = 重跑电脑上的生成脚本出新版 calendar.json 并推 GitHub，手机/平板日历随之更新</span>
     </div>
+    <div class="controls" style="margin-top:10px;">
+      <span class="mini-note" style="margin:0;">轻休（不学新课，只回看上一课）</span>
+      <input id="lightRestDates" type="text" placeholder="2026-11-08 2026-11-10（可多个；留空=今天）" style="flex:1;min-width:200px;">
+      <button class="small" id="lightRestBtn" type="button">一键轻休</button>
+      <button class="small" id="lightRestTomorrow" type="button">明天轻休</button>
+    </div>
+    <div class="mini-note" id="lightStatus" style="margin-top:6px;">点一下会：写轻休 → 重出两本 PDF → 词表顺延 → 同步网页。约 1~2 分钟，跑完需重新「生成并上传」听写材料。</div>
     <div class="mini-note" id="planStatus" style="margin-top:8px;"></div>
     <div class="hidden" id="planTokenBox" style="margin-top:10px;">
       <div class="mini-note">在 GitHub 生成一个 Fine-grained token（只勾这个仓库的 Contents: Read and write），粘进来。存在本机浏览器，不会写进页面代码。</div>
@@ -7527,6 +7534,22 @@ button.small{ padding:6px 12px; font-size:12.5px; }
       document.addEventListener("DOMContentLoaded", function () { setTimeout(openPanel, 350); setTimeout(go, 900); });
     } else { setTimeout(openPanel, 350); setTimeout(go, 900); }
   })();
+  /* 线上「一键轻休」落地：?light=2026-11-08 | today | tomorrow → 打开面板并开始执行 */
+  (function () {
+    var q = new URLSearchParams(location.search);
+    var lr = q.get("light");
+    if (!lr || !isLocalHost()) return;
+    history.replaceState(null, "", location.pathname);
+    var run = function () {
+      if ($("planPanel")) $("planPanel").classList.remove("hidden");
+      if (lr !== "today" && lr !== "tomorrow" && $("lightRestDates")) $("lightRestDates").value = lr;
+      planLightRest(lr === "today" || lr === "tomorrow" ? lr : "dates");
+    };
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", function () { setTimeout(run, 700); });
+    } else { setTimeout(run, 700); }
+  })();
+
   function planPollBuild(api) {
     api = api || "";   /* 线上直连时传 http://127.0.0.1:8787；本地版留空走相对路径 */
     fetch(api + "/api/build-status", { cache: "no-store" })
@@ -7551,6 +7574,67 @@ button.small{ padding:6px 12px; font-size:12.5px; }
         }
       })
       .catch(function () { setTimeout(function () { planPollBuild(api); }, 3000); });
+  }
+
+  /* 一键轻休（2026-11-05 加）
+     走本地服务 /api/light-rest，后台跑 日历-改进版/light_rest.py：
+     写轻休 → 重出两本 PDF → 导 calendar.json → 词表顺延 → 同步 GitHub。
+     线上页不能直连本机时，自动转去 127.0.0.1:8787 的本地页执行。 */
+  function planLightApi() {
+    if (isLocalHost()) return "";
+    try { return (localStorage.getItem("dictationLocalBase") || "http://127.0.0.1:8787").replace(/\/+$/, ""); }
+    catch (e) { return "http://127.0.0.1:8787"; }
+  }
+  function planLightRest(mode) {
+    var st = $("lightStatus");
+    /* 线上页面改不了本机文件：转去本地页执行（与「上传短文」同一条通路） */
+    if (!isLocalHost()) {
+      var base = "http://127.0.0.1:8787";
+      try { base = (localStorage.getItem("dictationLocalBase") || base).replace(/\/+$/, ""); } catch (eB) {}
+      var want = (mode === "today" || mode === "tomorrow")
+        ? mode : (((($("lightRestDates") || {}).value) || "").trim() || "today");
+      if (st) st.innerHTML = "轻休要改这台电脑上的文件，正在转到本地页面…<br>"
+        + "<span class=\"mini-note\">若打不开，说明本地服务没启动。</span>";
+      setTimeout(function () {
+        location.href = base + "/word-dictation.html?light=" + encodeURIComponent(want);
+      }, 900);
+      return;
+    }
+    var body = {};
+    if (mode === "today" || mode === "tomorrow") body.which = mode;
+    else body.dates = (($("lightRestDates") && $("lightRestDates").value) || "").trim();
+    if (!body.which && !body.dates) body.which = "today";
+    if (st) st.textContent = "正在提交…";
+    fetch(planLightApi() + "/api/light-rest", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(body),
+    }).then(function (r) { return r.json(); }).then(function (j) {
+      if (j && j.ok) planPollLight();
+      else if (st) st.textContent = "✗ " + ((j && j.error) || "接口无响应");
+    }).catch(function () {
+      if (st) st.textContent = "✗ 连不上本地服务（8787），请确认它已启动";
+    });
+  }
+  function planPollLight() {
+    var api = planLightApi();
+    var st = $("lightStatus");
+    fetch(api + "/api/light-status", { cache: "no-store" })
+      .then(function (r) { return r.json(); })
+      .then(function (j) {
+        if (j && j.running) {
+          var tail = (j.log || []).slice(-1).join("");
+          if (st) st.textContent = "处理中… " + String(tail).slice(0, 70);
+          setTimeout(planPollLight, 2000);
+        } else if (j && j.ok) {
+          if (st) st.innerHTML = "✓ 已设为轻休：日历已顺延、PDF 已重出、网页已同步。<br>"
+            + "<span class=\"mini-note\">听写材料请再点上面【生成并上传】对应日期。</span>";
+        } else {
+          var t = (j && j.log) ? j.log.slice(-2).join(" / ") : "未知错误";
+          if (st) st.textContent = "✗ 失败：" + String(t).slice(0, 110);
+        }
+      })
+      .catch(function () { setTimeout(planPollLight, 2000); });
   }
 
   /* 上传短文（2026-11-03 加）：把当天/明天已生成的短文 PDF 推到 GoodNotes「短文」+ 网站。
@@ -7688,6 +7772,8 @@ button.small{ padding:6px 12px; font-size:12.5px; }
       } catch (e) { calStatus("✗ 调用失败：" + e.message + "（本地服务在跑吗？）"); }
     }
     if ($("calBuildBtn")) $("calBuildBtn").addEventListener("click", function () { calBuild(); });
+    if ($("lightRestBtn")) $("lightRestBtn").addEventListener("click", function () { planLightRest("dates"); });
+    if ($("lightRestTomorrow")) $("lightRestTomorrow").addEventListener("click", function () { planLightRest("tomorrow"); });
     if ($("calAutoBox")) {
       try { $("calAutoBox").checked = localStorage.getItem("dictationCalAuto") === "1"; } catch (eS) {}
       $("calAutoBox").addEventListener("change", function () {
