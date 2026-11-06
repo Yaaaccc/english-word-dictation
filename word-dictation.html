@@ -2332,6 +2332,7 @@ button.small{ padding:6px 12px; font-size:12.5px; }
       <input id="lightRestDates" type="text" placeholder="2026-11-08 2026-11-10（可多个；留空=今天）" style="flex:1;min-width:200px;">
       <button class="small" id="lightRestBtn" type="button">一键轻休</button>
       <button class="small" id="lightRestTomorrow" type="button">明天轻休</button>
+      <button class="small" id="lightUndoBtn" type="button">撤销轻休</button>
     </div>
     <div class="mini-note" id="lightStatus" style="margin-top:6px;">点一下会：写轻休 → 重出两本 PDF → 词表顺延 → 同步网页。约 1~2 分钟，跑完需重新「生成并上传」听写材料。</div>
     <div class="mini-note" id="planStatus" style="margin-top:8px;"></div>
@@ -7534,16 +7535,17 @@ button.small{ padding:6px 12px; font-size:12.5px; }
       document.addEventListener("DOMContentLoaded", function () { setTimeout(openPanel, 350); setTimeout(go, 900); });
     } else { setTimeout(openPanel, 350); setTimeout(go, 900); }
   })();
-  /* 线上「一键轻休」落地：?light=2026-11-08 | today | tomorrow → 打开面板并开始执行 */
+  /* 线上「一键轻休 / 撤销轻休」落地：?light=2026-11-08 | today | tomorrow（&undo=1） */
   (function () {
     var q = new URLSearchParams(location.search);
     var lr = q.get("light");
     if (!lr || !isLocalHost()) return;
+    var undo = q.get("undo") === "1";
     history.replaceState(null, "", location.pathname);
     var run = function () {
       if ($("planPanel")) $("planPanel").classList.remove("hidden");
       if (lr !== "today" && lr !== "tomorrow" && $("lightRestDates")) $("lightRestDates").value = lr;
-      planLightRest(lr === "today" || lr === "tomorrow" ? lr : "dates");
+      planLightRest(lr === "today" || lr === "tomorrow" ? lr : "dates", undo);
     };
     if (document.readyState === "loading") {
       document.addEventListener("DOMContentLoaded", function () { setTimeout(run, 700); });
@@ -7585,18 +7587,20 @@ button.small{ padding:6px 12px; font-size:12.5px; }
     try { return (localStorage.getItem("dictationLocalBase") || "http://127.0.0.1:8787").replace(/\/+$/, ""); }
     catch (e) { return "http://127.0.0.1:8787"; }
   }
-  function planLightRest(mode) {
+  function planLightRest(mode, undo) {
     var st = $("lightStatus");
+    var actName = undo ? "撤销轻休" : "轻休";
     /* 线上页面改不了本机文件：转去本地页执行（与「上传短文」同一条通路） */
     if (!isLocalHost()) {
       var base = "http://127.0.0.1:8787";
       try { base = (localStorage.getItem("dictationLocalBase") || base).replace(/\/+$/, ""); } catch (eB) {}
       var want = (mode === "today" || mode === "tomorrow")
         ? mode : (((($("lightRestDates") || {}).value) || "").trim() || "today");
-      if (st) st.innerHTML = "轻休要改这台电脑上的文件，正在转到本地页面…<br>"
+      if (st) st.innerHTML = actName + "要改这台电脑上的文件，正在转到本地页面…<br>"
         + "<span class=\"mini-note\">若打不开，说明本地服务没启动。</span>";
       setTimeout(function () {
-        location.href = base + "/word-dictation.html?light=" + encodeURIComponent(want);
+        location.href = base + "/word-dictation.html?light=" + encodeURIComponent(want)
+          + (undo ? "&undo=1" : "");
       }, 900);
       return;
     }
@@ -7604,19 +7608,20 @@ button.small{ padding:6px 12px; font-size:12.5px; }
     if (mode === "today" || mode === "tomorrow") body.which = mode;
     else body.dates = (($("lightRestDates") && $("lightRestDates").value) || "").trim();
     if (!body.which && !body.dates) body.which = "today";
-    if (st) st.textContent = "正在提交…";
+    if (undo) body.undo = true;
+    if (st) st.textContent = "正在提交" + actName + "…";
     fetch(planLightApi() + "/api/light-rest", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(body),
     }).then(function (r) { return r.json(); }).then(function (j) {
-      if (j && j.ok) planPollLight();
+      if (j && j.ok) planPollLight(undo);
       else if (st) st.textContent = "✗ " + ((j && j.error) || "接口无响应");
     }).catch(function () {
       if (st) st.textContent = "✗ 连不上本地服务（8787），请确认它已启动";
     });
   }
-  function planPollLight() {
+  function planPollLight(undo) {
     var api = planLightApi();
     var st = $("lightStatus");
     fetch(api + "/api/light-status", { cache: "no-store" })
@@ -7625,16 +7630,19 @@ button.small{ padding:6px 12px; font-size:12.5px; }
         if (j && j.running) {
           var tail = (j.log || []).slice(-1).join("");
           if (st) st.textContent = "处理中… " + String(tail).slice(0, 70);
-          setTimeout(planPollLight, 2000);
+          setTimeout(function () { planPollLight(undo); }, 2000);
         } else if (j && j.ok) {
-          if (st) st.innerHTML = "✓ 已设为轻休：日历已顺延、PDF 已重出、网页已同步。<br>"
-            + "<span class=\"mini-note\">听写材料请再点上面【生成并上传】对应日期。</span>";
+          if (st) st.innerHTML = undo
+            ? ("✓ 已撤销轻休：日历已恢复、PDF 已重出、网页已同步。<br>"
+               + "<span class=\"mini-note\">词表也移回了一天；听写材料请再点【生成并上传】。</span>")
+            : ("✓ 已设为轻休：日历已顺延、PDF 已重出、网页已同步。<br>"
+               + "<span class=\"mini-note\">听写材料请再点上面【生成并上传】对应日期。</span>");
         } else {
           var t = (j && j.log) ? j.log.slice(-2).join(" / ") : "未知错误";
           if (st) st.textContent = "✗ 失败：" + String(t).slice(0, 110);
         }
       })
-      .catch(function () { setTimeout(planPollLight, 2000); });
+      .catch(function () { setTimeout(function () { planPollLight(undo); }, 2000); });
   }
 
   /* 上传短文（2026-11-03 加）：把当天/明天已生成的短文 PDF 推到 GoodNotes「短文」+ 网站。
@@ -7774,6 +7782,7 @@ button.small{ padding:6px 12px; font-size:12.5px; }
     if ($("calBuildBtn")) $("calBuildBtn").addEventListener("click", function () { calBuild(); });
     if ($("lightRestBtn")) $("lightRestBtn").addEventListener("click", function () { planLightRest("dates"); });
     if ($("lightRestTomorrow")) $("lightRestTomorrow").addEventListener("click", function () { planLightRest("tomorrow"); });
+    if ($("lightUndoBtn")) $("lightUndoBtn").addEventListener("click", function () { planLightRest("dates", true); });
     if ($("calAutoBox")) {
       try { $("calAutoBox").checked = localStorage.getItem("dictationCalAuto") === "1"; } catch (eS) {}
       $("calAutoBox").addEventListener("change", function () {
