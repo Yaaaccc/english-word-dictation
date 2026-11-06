@@ -284,23 +284,26 @@ build 的规则是「v7 的 style 换 top、v7 的尾部 script 换 tail」，�
 
 **教训**：凡是「按日期批量改名」的操作，第一步先算差集，后面所有动作只对差集生效；重复执行必须做到「移动 0 个文件」。修完要专门验一次幂等（同一参数再跑一遍，看日志里是不是 `共移动 0 个文件`）。
 
-### 21. 后台标签里读不到 GoodNotes 的卡片，但上传照样能成
+### 21. 「列表 0 条」的真凶是就绪判断，不是选择器，也不是后台标签
 
-**现象**：`upload-to-goodnotes.js --list` 报「0 个条目」、`--delete` 报「没找到名为…的文档」，可页面截图上明明躺着 18 张卡。反复改选择器（`aria-label`、`.lib-file`、`.lib-file-name`）都无效。
+**现象**：`upload-to-goodnotes.js --list` 报「0 个条目」、`--delete` 报「没找到」、上传偶尔报「找不到新建按钮」。截图看页面上明明有 53 张卡。
 
-**根因**：脚本一律在 `Target.createBackgroundTab` 开的后台标签里跑 `Runtime.evaluate`。后台标签会被 Chromium 冻结/节流，读 shadow DOM 时拿不到节点；而**上传是能成的**——它走「新建 → 导入文件」，靠的是点击与 `DOM.setFileInputFiles`，不需要读列表。所以「能上传」不能证明「能读页面」。
+**走过的弯路**（都无效，别再重复）：
+1. 换选择器：`aria-label` → `.lib-file` → `.lib-file-name`。这些元素其实都在。
+2. 怀疑后台标签被冻结：`createBackgroundTab` 改成 `createTarget` + `activateTarget`。不是这个原因。
+3. 怀疑尺寸过滤：去掉 `getBoundingClientRect` 的宽高判断。也不是。
 
-**教训**：需要**读**页面内容的操作（列目录、核页数、找文档），必须开前台标签再 evaluate：
+**真因**：`LIST_CARDS_JS` 的 `ready` 用的是「能找到『新建』按钮」。而**骨架阶段这个按钮就已经在 DOM 里了**，卡片还没渲染，于是 `waitFor` 第一次轮询就通过，拿到空列表，后面所有判断都以为文件夹是空的。
+
+用 `GN_DEBUG_LIST=1` 打出原始返回才看见：`{"ready":true,"cards":[],"total":252}` —— 完整页面约 1800 个元素，252 说明还在骨架。
+
+**修法**：
 ```js
-const nt = await cdp.send("Target.createTarget", { url });      // 不加 background
-await cdp.send("Target.activateTarget", { targetId: nt.targetId });
+ready: cards.length > 0 || all.length > 900
 ```
-无头模式下"前台"不会抢焦点，安全。只做**写**（点击、导入）时后台标签还能撑。
+（≥900 视为页面已画完，允许空文件夹；否则继续等）
 
-**工具**：`D:\WorkBuddy\笔记库上传\delete-doc.js <slot> "<文档名>"`
-- 前台标签打开 → 精确匹配 → 「更多选项」→「移到废纸篓」→ 确认 → 核对卡片数
-- 例：`node delete-doc.js dict "2026-11-05-听写"`
-- 删的是废纸篓，可从 GoodNotes 恢复
+**另一件事**：无头 Edge 连续跑久了（实测 27 分钟）会进「无法加载笔记，请重试」状态，页面报错、新建按钮变灰。此时**所有脚本都会读到空列表**，看起来像脚本坏了。判断方法很简单：截一张图看页面，别急着改代码。
 
 ## 六、更新日志
 
