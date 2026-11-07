@@ -1,10 +1,10 @@
 {
- "generated_at": "2026-11-06 14:54",
+ "generated_at": "2026-11-07 10:37",
  "start": "2026-10-08",
  "total_days": 30,
  "unit": "lesson",
  "tail_mode": "split",
- "period_len": 36,
+ "period_len": 37,
  "wrong_day": 2,
  "sameday": true,
  "fill_mode": "today",
@@ -1058,12 +1058,21 @@
    "day": 30,
    "tail": false,
    "done": true,
+   "type": "light",
+   "lookback": "11月4日"
+  },
+  {
+   "date": "2026-11-07",
+   "md": "11月7日",
+   "day": 31,
+   "tail": false,
+   "done": true,
    "type": "study",
    "k": 24,
    "review_day": false,
    "rows": [
     {
-     "text": "11月6日",
+     "text": "11月7日",
      "color": 1,
      "label": "1",
      "filled": false
@@ -1095,9 +1104,9 @@
    ]
   },
   {
-   "date": "2026-11-07",
-   "md": "11月7日",
-   "day": 31,
+   "date": "2026-11-08",
+   "md": "11月8日",
+   "day": 32,
    "tail": false,
    "done": false,
    "type": "study",
@@ -1105,13 +1114,13 @@
    "review_day": false,
    "rows": [
     {
-     "text": "11月7日",
+     "text": "11月8日",
      "color": 1,
      "label": "1",
      "filled": false
     },
     {
-     "text": "11月6日",
+     "text": "11月7日",
      "color": 2,
      "label": "2",
      "filled": false
@@ -1137,9 +1146,9 @@
    ]
   },
   {
-   "date": "2026-11-08",
-   "md": "11月8日",
-   "day": 32,
+   "date": "2026-11-09",
+   "md": "11月9日",
+   "day": 33,
    "tail": false,
    "done": false,
    "type": "study",
@@ -1147,13 +1156,13 @@
    "review_day": false,
    "rows": [
     {
-     "text": "11月8日",
+     "text": "11月9日",
      "color": 1,
      "label": "1",
      "filled": false
     },
     {
-     "text": "11月7日",
+     "text": "11月8日",
      "color": 2,
      "label": "2",
      "filled": false
@@ -1179,9 +1188,9 @@
    ]
   },
   {
-   "date": "2026-11-09",
-   "md": "11月9日",
-   "day": 33,
+   "date": "2026-11-10",
+   "md": "11月10日",
+   "day": 34,
    "tail": false,
    "done": false,
    "type": "study",
@@ -1189,19 +1198,19 @@
    "review_day": false,
    "rows": [
     {
-     "text": "11月9日",
+     "text": "11月10日",
      "color": 1,
      "label": "1",
      "filled": false
     },
     {
-     "text": "11月8日",
+     "text": "11月9日",
      "color": 2,
      "label": "2",
      "filled": false
     },
     {
-     "text": "11月6日",
+     "text": "11月7日",
      "color": 3,
      "label": "3",
      "filled": false
@@ -1221,55 +1230,13 @@
    ]
   },
   {
-   "date": "2026-11-10",
-   "md": "11月10日",
-   "day": 34,
-   "tail": false,
-   "done": false,
-   "type": "study",
-   "k": 28,
-   "review_day": false,
-   "rows": [
-    {
-     "text": "11月10日",
-     "color": 1,
-     "label": "1",
-     "filled": false
-    },
-    {
-     "text": "11月9日",
-     "color": 2,
-     "label": "2",
-     "filled": false
-    },
-    {
-     "text": "11月7日",
-     "color": 3,
-     "label": "3",
-     "filled": false
-    },
-    {
-     "text": "11月3日",
-     "color": 4,
-     "label": "4",
-     "filled": false
-    },
-    {
-     "text": "10月21日",
-     "color": 5,
-     "label": "5",
-     "filled": false
-    }
-   ]
-  },
-  {
    "date": "2026-11-11",
    "md": "11月11日",
    "day": 35,
    "tail": false,
    "done": false,
    "type": "study",
-   "k": 29,
+   "k": 28,
    "review_day": false,
    "rows": [
     {
@@ -1291,13 +1258,13 @@
      "filled": false
     },
     {
-     "text": "11月4日",
+     "text": "11月3日",
      "color": 4,
      "label": "4",
      "filled": false
     },
     {
-     "text": "10月22日",
+     "text": "10月21日",
      "color": 5,
      "label": "5",
      "filled": false
@@ -1317,7 +1284,7 @@
    "tail": false,
    "done": false,
    "type": "study",
-   "k": 30,
+   "k": 29,
    "review_day": false,
    "rows": [
     {
@@ -1339,13 +1306,13 @@
      "filled": false
     },
     {
-     "text": "11月6日",
+     "text": "11月4日",
      "color": 4,
      "label": "4",
      "filled": false
     },
     {
-     "text": "10月23日",
+     "text": "10月22日",
      "color": 5,
      "label": "5",
      "filled": false
@@ -1356,17 +1323,17 @@
    "date": "2026-11-13",
    "md": "11月13日",
    "day": 37,
-   "tail": true,
+   "tail": false,
    "done": false,
    "type": "study",
-   "k": 31,
-   "review_day": true,
+   "k": 30,
+   "review_day": false,
    "rows": [
     {
-     "text": "11月12日",
-     "color": 2,
-     "label": "2",
-     "filled": true
+     "text": "11月13日",
+     "color": 1,
+     "label": "1",
+     "filled": false
     },
     {
      "text": "11月12日",
@@ -1387,7 +1354,7 @@
      "filled": false
     },
     {
-     "text": "10月24日",
+     "text": "10月23日",
      "color": 5,
      "label": "5",
      "filled": false
@@ -1401,20 +1368,20 @@
    "tail": true,
    "done": false,
    "type": "study",
-   "k": 32,
+   "k": 31,
    "review_day": true,
    "rows": [
     {
-     "text": "11月11日",
-     "color": 3,
-     "label": "3",
+     "text": "11月13日",
+     "color": 2,
+     "label": "2",
      "filled": true
     },
     {
-     "text": "11月11日",
-     "color": 3,
-     "label": "3",
-     "filled": true
+     "text": "11月13日",
+     "color": 2,
+     "label": "2",
+     "filled": false
     },
     {
      "text": "11月11日",
@@ -1429,7 +1396,7 @@
      "filled": false
     },
     {
-     "text": "10月25日",
+     "text": "10月24日",
      "color": 5,
      "label": "5",
      "filled": false
@@ -1443,7 +1410,7 @@
    "tail": true,
    "done": false,
    "type": "study",
-   "k": 33,
+   "k": 32,
    "review_day": true,
    "rows": [
     {
@@ -1471,7 +1438,7 @@
      "filled": false
     },
     {
-     "text": "10月26日",
+     "text": "10月25日",
      "color": 5,
      "label": "5",
      "filled": false
@@ -1485,26 +1452,26 @@
    "tail": true,
    "done": false,
    "type": "study",
-   "k": 34,
+   "k": 33,
    "review_day": true,
    "rows": [
     {
-     "text": "11月10日",
-     "color": 4,
-     "label": "4",
+     "text": "11月13日",
+     "color": 3,
+     "label": "3",
      "filled": true
     },
     {
-     "text": "11月10日",
-     "color": 4,
-     "label": "4",
+     "text": "11月13日",
+     "color": 3,
+     "label": "3",
      "filled": true
     },
     {
-     "text": "11月10日",
-     "color": 4,
-     "label": "4",
-     "filled": true
+     "text": "11月13日",
+     "color": 3,
+     "label": "3",
+     "filled": false
     },
     {
      "text": "11月10日",
@@ -1513,7 +1480,7 @@
      "filled": false
     },
     {
-     "text": "10月27日",
+     "text": "10月26日",
      "color": 5,
      "label": "5",
      "filled": false
@@ -1527,7 +1494,7 @@
    "tail": true,
    "done": false,
    "type": "study",
-   "k": 35,
+   "k": 34,
    "review_day": true,
    "rows": [
     {
@@ -1555,7 +1522,7 @@
      "filled": false
     },
     {
-     "text": "10月28日",
+     "text": "10月27日",
      "color": 5,
      "label": "5",
      "filled": false
@@ -1569,7 +1536,7 @@
    "tail": true,
    "done": false,
    "type": "study",
-   "k": 36,
+   "k": 35,
    "review_day": true,
    "rows": [
     {
@@ -1597,7 +1564,7 @@
      "filled": false
     },
     {
-     "text": "11月2日",
+     "text": "10月28日",
      "color": 5,
      "label": "5",
      "filled": false
@@ -1614,6 +1581,48 @@
    "date": "2026-11-19",
    "md": "11月19日",
    "day": 43,
+   "tail": true,
+   "done": false,
+   "type": "study",
+   "k": 36,
+   "review_day": true,
+   "rows": [
+    {
+     "text": "11月13日",
+     "color": 4,
+     "label": "4",
+     "filled": true
+    },
+    {
+     "text": "11月13日",
+     "color": 4,
+     "label": "4",
+     "filled": true
+    },
+    {
+     "text": "11月13日",
+     "color": 4,
+     "label": "4",
+     "filled": true
+    },
+    {
+     "text": "11月13日",
+     "color": 4,
+     "label": "4",
+     "filled": false
+    },
+    {
+     "text": "11月2日",
+     "color": 5,
+     "label": "5",
+     "filled": false
+    }
+   ]
+  },
+  {
+   "date": "2026-11-20",
+   "md": "11月20日",
+   "day": 44,
    "tail": true,
    "done": false,
    "type": "study",
@@ -1653,9 +1662,9 @@
    ]
   },
   {
-   "date": "2026-11-20",
-   "md": "11月20日",
-   "day": 44,
+   "date": "2026-11-21",
+   "md": "11月21日",
+   "day": 45,
    "tail": true,
    "done": false,
    "type": "study",
@@ -1695,55 +1704,13 @@
    ]
   },
   {
-   "date": "2026-11-21",
-   "md": "11月21日",
-   "day": 45,
-   "tail": true,
-   "done": false,
-   "type": "study",
-   "k": 39,
-   "review_day": true,
-   "rows": [
-    {
-     "text": "11月6日",
-     "color": 5,
-     "label": "5",
-     "filled": true
-    },
-    {
-     "text": "11月6日",
-     "color": 5,
-     "label": "5",
-     "filled": true
-    },
-    {
-     "text": "11月6日",
-     "color": 5,
-     "label": "5",
-     "filled": true
-    },
-    {
-     "text": "11月6日",
-     "color": 5,
-     "label": "5",
-     "filled": true
-    },
-    {
-     "text": "11月6日",
-     "color": 5,
-     "label": "5",
-     "filled": false
-    }
-   ]
-  },
-  {
    "date": "2026-11-22",
    "md": "11月22日",
    "day": 46,
    "tail": true,
    "done": false,
    "type": "study",
-   "k": 40,
+   "k": 39,
    "review_day": true,
    "rows": [
     {
@@ -1785,7 +1752,7 @@
    "tail": true,
    "done": false,
    "type": "study",
-   "k": 41,
+   "k": 40,
    "review_day": true,
    "rows": [
     {
@@ -1827,7 +1794,7 @@
    "tail": true,
    "done": false,
    "type": "study",
-   "k": 42,
+   "k": 41,
    "review_day": true,
    "rows": [
     {
@@ -1869,7 +1836,7 @@
    "tail": true,
    "done": false,
    "type": "study",
-   "k": 43,
+   "k": 42,
    "review_day": true,
    "rows": [
     {
@@ -1917,7 +1884,7 @@
    "tail": true,
    "done": false,
    "type": "study",
-   "k": 44,
+   "k": 43,
    "review_day": true,
    "rows": [
     {
@@ -1959,7 +1926,7 @@
    "tail": true,
    "done": false,
    "type": "study",
-   "k": 45,
+   "k": 44,
    "review_day": true,
    "rows": [
     {
@@ -1988,6 +1955,48 @@
     },
     {
      "text": "11月12日",
+     "color": 5,
+     "label": "5",
+     "filled": false
+    }
+   ]
+  },
+  {
+   "date": "2026-11-28",
+   "md": "11月28日",
+   "day": 52,
+   "tail": true,
+   "done": false,
+   "type": "study",
+   "k": 45,
+   "review_day": true,
+   "rows": [
+    {
+     "text": "11月13日",
+     "color": 5,
+     "label": "5",
+     "filled": true
+    },
+    {
+     "text": "11月13日",
+     "color": 5,
+     "label": "5",
+     "filled": true
+    },
+    {
+     "text": "11月13日",
+     "color": 5,
+     "label": "5",
+     "filled": true
+    },
+    {
+     "text": "11月13日",
+     "color": 5,
+     "label": "5",
+     "filled": true
+    },
+    {
+     "text": "11月13日",
      "color": 5,
      "label": "5",
      "filled": false
