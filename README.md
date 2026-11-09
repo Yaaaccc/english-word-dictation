@@ -455,3 +455,5 @@ ready: cards.length > 0 || all.length > 900
 2. 改完必须跑：`check_syntax.js`（语法 + 悬空 id）→ 相关 `probe_*.js` → 部署 → 线上复跑
 3. 部署走 `deploy_via_api.py`（`api.github.com` 通，`git push` 常不通）
 4. 改业务 JS 编辑 `word-dictation-v7.html`；改样式改 `_v5_parts/top.html` 后跑 `build.js`；改尾部脚本改 `_v5_parts/tail.html`
+5. **任何 PDF 版式都要标出本批词的序号区间**（如 `#1201~#1250`），放页眉或页脚。数据来自 `schedule.js --date` 输出的「第 N 天：新词 50 个（#1201~#1250）」。
+   - 三区版 `听写三区PDF.js` 目前**未加**（2026-11-09 用户提醒，此前已说过一次）；下次改版式必须补上
